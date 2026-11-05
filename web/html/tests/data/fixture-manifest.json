@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "subsets": [
+    {
+      "id": "commonmark-0.31.2-generation",
+      "root": "tests/data/commonmark",
+      "source": "tests/data/commonmark/SOURCE.md",
+      "revision": "0.31.2",
+      "license": "tests/data/commonmark/LICENSE.md",
+      "expectedFileCount": 1,
+      "aggregateSha256": "c7d0e2909ad3d4b9b2175f531cef81e5483138114933df3ff82e92ab85974f72"
+    },
+    {
+      "id": "gfm-0.29.0-generation",
+      "root": "tests/data/gfm",
+      "source": "tests/data/gfm/SOURCE.md",
+      "revision": "0.29.0.gfm.13",
+      "license": "tests/data/gfm/LICENSE.md",
+      "expectedFileCount": 1,
+      "aggregateSha256": "5a8535f61c486ea4fb167d86b5b090a131009b669622778a4391d0b69a293bd6"
+    },
+    {
+      "id": "html5lib-tokenizer",
+      "root": "tests/data/html5lib/tokenizer",
+      "source": "tests/data/html5lib/SOURCE.md",
+      "revision": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+      "license": "tests/data/html5lib/LICENSE",
+      "expectedFileCount": 15,
+      "aggregateSha256": "e2184c8327bcb104034457b6f4e645053c0acfbd002cbbae206066cbf538c591"
+    },
+    {
+      "id": "html5lib-tree-construction",
+      "root": "tests/data/html5lib/tree-construction",
+      "source": "tests/data/html5lib/SOURCE.md",
+      "revision": "9329e64694e7835d0dcff9811e22856ef6ad16f9",
+      "license": "tests/data/html5lib/LICENSE",
+      "expectedFileCount": 61,
+      "aggregateSha256": "025944fe16d09c1aab7c087099285e363fba7d6a52aaed42ff4d9655ca251318"
+    },
+    {
+      "id": "whatwg-html-entities",
+      "root": "tests/data/entities",
+      "source": "tests/data/entities/SOURCE.md",
+      "revision": "snapshot-2026-08-10",
+      "license": "tests/data/entities/LICENSE.md",
+      "expectedFileCount": 1,
+      "aggregateSha256": "d89f93c8ce49967a366e3c2675477bd7fddd19cb2bd1b90b0de8acd33843ca5a"
+    },
+    {
+      "id": "wpt-selectors",
+      "root": "tests/data/selectors",
+      "source": "tests/data/selectors/SOURCE.md",
+      "revision": "9bc6e2404bff5349e48d7962b0a495582bc5ade8",
+      "license": "tests/data/selectors/LICENSE.md",
+      "expectedFileCount": 1,
+      "aggregateSha256": "58a0c437fa037365954923bc4ad70f027d4fb65c04b764b4b6507cd76e5ab238"
+    }
+  ]
+}

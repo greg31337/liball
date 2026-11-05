@@ -1,0 +1,311 @@
+{
+  "manifestSchemaVersion": "1.0.0",
+  "datasetSchemaVersion": "1.6.0",
+  "dataVersion": "1.0.8",
+  "generatorVersion": "1.1.0",
+  "effectiveDate": "2026-08-27",
+  "createdOn": "2026-08-30",
+  "policy": {
+    "version": 1,
+    "path": "specs/SOURCES.md",
+    "hashAlgorithm": "SHA-256",
+    "pathBase": "repository-root"
+  },
+  "versionRules": {
+    "schemaVersionFormat": "SemVer 2.0.0",
+    "schemaMajor": "Increment for a generator or generated-data shape change that is not backward compatible.",
+    "schemaMinor": "Increment for a backward-compatible field, source role, or generated-data shape addition.",
+    "schemaPatch": "Increment for a clarification that does not change the accepted or emitted shape.",
+    "dataVersionFormat": "SemVer 2.0.0",
+    "dataMajor": "Increment for a reviewed dataset scope or source-policy change.",
+    "dataMinor": "Increment when an accepted upstream revision adds, removes, or changes emitted records within the existing scope.",
+    "dataPatch": "Increment for a reviewed correction or override change that preserves scope.",
+    "dataVersionRequiredWhen": "Increment whenever accepted source bytes, reviewed overrides, reconciliation decisions, or generated output bytes change.",
+    "dataVersionUnchangedWhen": "Keep unchanged only when verified inputs, reconciliation decisions, and generated output are byte-for-byte identical.",
+    "effectiveDateRule": "Use the latest retrieval or upstream effective date represented by the accepted snapshot; never use the build date."
+  },
+  "failurePolicy": {
+    "mode": "fail-closed",
+    "normalGenerationIsOffline": true,
+    "networkFallbackAllowed": false,
+    "automaticRepinAllowed": false,
+    "missingLocalFile": "fail",
+    "unreadableLocalFile": "fail",
+    "sha256Mismatch": "fail",
+    "undeclaredInput": "fail",
+    "duplicateSourceIdOrPath": "fail",
+    "unknownLicenseId": "fail",
+    "unavailableAcquisitionSource": "fail without replacing or modifying the pinned local file",
+    "changedAcquisitionContent": "fail until the revision, retrieval date, checksum, data version, and review are updated together",
+    "packageIneligibleProvenance": "exclude from generated package output and fail if a package-emitted field depends on it"
+  },
+  "licenseCatalog": [
+    {
+      "id": "LGPL-2.1-or-later",
+      "terms": "specs/iso-codes/LGPL-2.1-or-later.txt",
+      "packageUse": "conditional"
+    },
+    {
+      "id": "FSFAP",
+      "terms": "specs/iso-codes/FSFAP.txt",
+      "packageUse": "notice-only-artifact"
+    },
+    {
+      "id": "Unicode-3.0",
+      "terms": "specs/unicode/CLDR-LICENSE.txt",
+      "packageUse": "allowed-with-notice"
+    },
+    {
+      "id": "CC0-1.0",
+      "terms": "https://www.iana.org/help/licensing-terms",
+      "packageUse": "allowed"
+    },
+    {
+      "id": "LicenseRef-UN-Web-Terms",
+      "terms": "https://www.un.org/en/about-us/terms-of-use",
+      "packageUse": "blocked"
+    },
+    {
+      "id": "LicenseRef-Unicode-Terms-of-Use",
+      "terms": "https://www.unicode.org/copyright.html",
+      "packageUse": "reference-only"
+    },
+    {
+      "id": "LicenseRef-IETF-Document-Terms",
+      "terms": "https://trustee.ietf.org/license-info/",
+      "packageUse": "reference-only"
+    },
+    {
+      "id": "LicenseRef-RFC4647-ISOC-2006",
+      "terms": "specs/ietf/rfc4647.txt",
+      "packageUse": "reference-only"
+    },
+    {
+      "id": "LicenseRef-IETF-TLP-2009",
+      "terms": "specs/ietf/rfc5646.txt",
+      "packageUse": "reference-only"
+    },
+    {
+      "id": "LicenseRef-ISO-Licensed-Publication",
+      "terms": "https://www.iso.org/copyright.html",
+      "packageUse": "blocked"
+    }
+  ],
+  "precedenceRules": [
+    {
+      "fieldGroup": "current-country-alpha-identifiers",
+      "primary": "debian-iso-codes",
+      "crossCheck": null,
+      "overrideAllowed": false,
+      "conflictAction": "fail"
+    },
+    {
+      "fieldGroup": "current-country-numeric-identifier",
+      "primary": "debian-iso-codes",
+      "crossCheck": "un-m49",
+      "overrideAllowed": false,
+      "conflictAction": "fail"
+    },
+    {
+      "fieldGroup": "subdivision-identity-name-type-parent",
+      "primary": "debian-iso-codes",
+      "crossCheck": "cldr-48-2",
+      "overrideAllowed": true,
+      "conflictAction": "fail unless a reviewed non-identifier override satisfies policy version 1"
+    },
+    {
+      "fieldGroup": "historical-country-identity-name-withdrawal-date",
+      "primary": "debian-iso-codes",
+      "crossCheck": "cldr-48-2",
+      "overrideAllowed": true,
+      "conflictAction": "fail unless a reviewed supplemental transition override satisfies policy version 1"
+    },
+    {
+      "fieldGroup": "m49-region-hierarchy-and-membership",
+      "primary": "un-m49",
+      "crossCheck": "debian-iso-codes",
+      "overrideAllowed": false,
+      "conflictAction": "fail"
+    },
+    {
+      "fieldGroup": "locale-tag-validity-and-preferred-values",
+      "primary": "iana-language-subtag-registry",
+      "crossCheck": "cldr-48-2",
+      "overrideAllowed": false,
+      "conflictAction": "fail"
+    },
+    {
+      "fieldGroup": "english-localized-names-and-cldr-aliases",
+      "primary": "cldr-48-2",
+      "crossCheck": "debian-iso-codes",
+      "overrideAllowed": true,
+      "conflictAction": "retain separately typed values; fail on contradictory identity mappings"
+    }
+  ],
+  "sources": [
+    {
+      "id": "debian-iso-codes",
+      "revision": "abb091ac802dc34ff0375bdf153c4e633a2f44d3",
+      "retrievedOn": "2026-08-27",
+      "sourceBaseUrl": "https://salsa.debian.org/iso-codes-team/iso-codes/-/raw/abb091ac802dc34ff0375bdf153c4e633a2f44d3/",
+      "licenseId": "LGPL-2.1-or-later",
+      "artifactRole": "generator-input-and-license-notices",
+      "packageOutputEligibility": "conditional",
+      "files": [
+        {
+          "path": "specs/iso-codes/iso_3166-1.json",
+          "sourcePath": "data/iso_3166-1.json",
+          "sha256": "f01b812b57fba9f31ff621bf33e7c7570a01964dbeb5be2167e94decf538c89f"
+        },
+        {
+          "path": "specs/iso-codes/iso_3166-2.json",
+          "sourcePath": "data/iso_3166-2.json",
+          "sha256": "78c90ef7fc25b5c2631aac5f089bc9ff6ec22c025c05b6ddbc087a1f1be2e46a"
+        },
+        {
+          "path": "specs/iso-codes/iso_3166-3.json",
+          "sourcePath": "data/iso_3166-3.json",
+          "sha256": "eb92d1cce3e352559f610e60e2acb23687eb1cf07b23675fb112863a5741a6fa"
+        },
+        {
+          "path": "specs/iso-codes/README.md",
+          "sourcePath": "README.md",
+          "sha256": "aba3f5d3473a382c11f71b3ae567624cae6e45362ecc72192210e20e462b2e51"
+        },
+        {
+          "path": "specs/iso-codes/LGPL-2.1-or-later.txt",
+          "sourcePath": "LICENSES/LGPL-2.1-or-later.txt",
+          "sha256": "5749785c8bdefafcb5d798270ed0a967036fe2ca63dcedade1627565dfef81d2"
+        },
+        {
+          "path": "specs/iso-codes/FSFAP.txt",
+          "sourcePath": "LICENSES/FSFAP.txt",
+          "licenseId": "FSFAP",
+          "sha256": "99cb91dacd5714a701749ec47239015726beec5fc86a5c94a4873778824b16d7"
+        }
+      ]
+    },
+    {
+      "id": "un-m49",
+      "revision": "rolling-pages-retrieved-2026-08-27",
+      "retrievedOn": "2026-08-27",
+      "sourceBaseUrl": "https://unstats.un.org/unsd/methodology/m49/",
+      "licenseId": "LicenseRef-UN-Web-Terms",
+      "artifactRole": "generator-validation-input",
+      "packageOutputEligibility": "blocked",
+      "files": [
+        {
+          "path": "specs/un/un-m49-methodology.html",
+          "sourcePath": "",
+          "sha256": "4d5cabcb10ad9ef184553b5e64c0a34ba8deeb20dab2e02cd0be3599b93bb01d"
+        },
+        {
+          "path": "specs/un/un-m49-overview.html",
+          "sourcePath": "overview/",
+          "sha256": "b9048114f6e7f2abda83bf03d4263c9d7cd1bd7230e3d0461025ee7839a7a1fb"
+        }
+      ]
+    },
+    {
+      "id": "cldr-48-2",
+      "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+      "retrievedOn": "2026-08-27",
+      "sourceBaseUrl": "https://raw.githubusercontent.com/unicode-org/cldr/11299982335beb974c1c63c45265184e759c0f41/",
+      "licenseId": "Unicode-3.0",
+      "artifactRole": "generator-input-and-license-notice",
+      "packageOutputEligibility": "allowed-with-notice",
+      "files": [
+        {
+          "path": "specs/unicode/cldr-48.2-en.xml",
+          "sourcePath": "common/main/en.xml",
+          "sha256": "67607f4c9cf57157e70564987d8ae92a9ddcd73c00a2f1cd6abf79524a969cbd"
+        },
+        {
+          "path": "specs/unicode/cldr-48.2-supplementalMetadata.xml",
+          "sourcePath": "common/supplemental/supplementalMetadata.xml",
+          "sha256": "36e807ce72b15304dd993f132216f408351be1c4376edaa2fe9e9547e2efcac1"
+        },
+        {
+          "path": "specs/unicode/cldr-48.2-subdivisions.xml",
+          "sourcePath": "common/supplemental/subdivisions.xml",
+          "sha256": "63095a3b5bd4e0a00d9e1cf96853808cacd0ec7c826dbcbfd31755c6cb9b6c55"
+        },
+        {
+          "path": "specs/unicode/CLDR-LICENSE.txt",
+          "sourcePath": "LICENSE",
+          "sha256": "b49d0e9f8ead51ca8b7df6fec89cc3ae6809198b4b9d43c74216da0118f23f5b"
+        }
+      ]
+    },
+    {
+      "id": "unicode-specifications",
+      "revision": "Unicode-17.0.0-UAX15-revision-57-and-UTS35-revision-78",
+      "retrievedOn": "2026-08-27",
+      "sourceBaseUrl": "https://www.unicode.org/reports/",
+      "licenseId": "LicenseRef-Unicode-Terms-of-Use",
+      "artifactRole": "implementation-reference",
+      "packageOutputEligibility": "not-an-output-source",
+      "files": [
+        {
+          "path": "specs/unicode/uax15-normalization-17.0.html",
+          "sourcePath": "tr15/tr15-57.html",
+          "sha256": "c0c05f91e1c4f9be3d987e27d76cf254b30003b6be41eb94977cc3fe148d4c4e"
+        },
+        {
+          "path": "specs/unicode/uts35-ldml.html",
+          "sourcePath": "tr35/tr35-78/tr35.html",
+          "sha256": "c04d92e36279b1b353cf4e6964c28383567709026c9fa69420e093961fe774dc"
+        }
+      ]
+    },
+    {
+      "id": "iana-language-subtag-registry",
+      "revision": "File-Date:2026-08-08",
+      "retrievedOn": "2026-08-27",
+      "sourceBaseUrl": "https://www.iana.org/assignments/language-subtag-registry/",
+      "licenseId": "CC0-1.0",
+      "artifactRole": "generator-input",
+      "packageOutputEligibility": "allowed",
+      "files": [
+        {
+          "path": "specs/ietf/language-subtag-registry.txt",
+          "sourcePath": "language-subtag-registry",
+          "sha256": "be21e91b6851f750a7b1a687f11209d46ad5a8471d6b10a1efc8d1dac4c8a926"
+        }
+      ]
+    },
+    {
+      "id": "ietf-bcp47-references",
+      "revision": "RFC4647-and-RFC5646",
+      "retrievedOn": "2026-08-27",
+      "sourceBaseUrl": "https://www.rfc-editor.org/rfc/",
+      "licenseId": "LicenseRef-IETF-Document-Terms",
+      "artifactRole": "implementation-reference",
+      "packageOutputEligibility": "not-an-output-source",
+      "files": [
+        {
+          "path": "specs/ietf/rfc4647.txt",
+          "sourcePath": "rfc4647.txt",
+          "licenseId": "LicenseRef-RFC4647-ISOC-2006",
+          "sha256": "999e4e23ca5b8925ac5f154855af0f2948a5d26d14853249c9fc857e469ecb49"
+        },
+        {
+          "path": "specs/ietf/rfc5646.txt",
+          "sourcePath": "rfc5646.txt",
+          "licenseId": "LicenseRef-IETF-TLP-2009",
+          "sha256": "5d9515f053163c80e7294a84d18217dc83471acc7caa9773da2ac40deeec8228"
+        }
+      ]
+    }
+  ],
+  "excludedSources": [
+    {
+      "id": "normative-iso-material",
+      "licenseId": "LicenseRef-ISO-Licensed-Publication",
+      "allowedUse": "local-human-review-only",
+      "repositoryCopyAllowed": false,
+      "generatorInputAllowed": false,
+      "packageOutputAllowed": false
+    }
+  ]
+}

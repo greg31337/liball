@@ -1,0 +1,1502 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>loguru.logger &mdash; loguru  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/loguru.css?v=a25ae5fa" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/copybutton.js?v=fad2344d"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Type Hints" href="type_hints.html" />
+    <link rel="prev" title="API Reference" href="../api.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="loguru" /><meta name="readthedocs-version-slug" content="stable" /><meta name="readthedocs-resolver-filename" content="/api/logger.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            loguru
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">loguru.logger</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#loguru._logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.add"><code class="docutils literal notranslate"><span class="pre">Logger.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.remove"><code class="docutils literal notranslate"><span class="pre">Logger.remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.complete"><code class="docutils literal notranslate"><span class="pre">Logger.complete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.catch"><code class="docutils literal notranslate"><span class="pre">Logger.catch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.opt"><code class="docutils literal notranslate"><span class="pre">Logger.opt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.bind"><code class="docutils literal notranslate"><span class="pre">Logger.bind()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.contextualize"><code class="docutils literal notranslate"><span class="pre">Logger.contextualize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.patch"><code class="docutils literal notranslate"><span class="pre">Logger.patch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.level"><code class="docutils literal notranslate"><span class="pre">Logger.level()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.disable"><code class="docutils literal notranslate"><span class="pre">Logger.disable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.enable"><code class="docutils literal notranslate"><span class="pre">Logger.enable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.configure"><code class="docutils literal notranslate"><span class="pre">Logger.configure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.parse"><code class="docutils literal notranslate"><span class="pre">Logger.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.trace"><code class="docutils literal notranslate"><span class="pre">Logger.trace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.debug"><code class="docutils literal notranslate"><span class="pre">Logger.debug()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.info"><code class="docutils literal notranslate"><span class="pre">Logger.info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.success"><code class="docutils literal notranslate"><span class="pre">Logger.success()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.warning"><code class="docutils literal notranslate"><span class="pre">Logger.warning()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.error"><code class="docutils literal notranslate"><span class="pre">Logger.error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.critical"><code class="docutils literal notranslate"><span class="pre">Logger.critical()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.exception"><code class="docutils literal notranslate"><span class="pre">Logger.exception()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.log"><code class="docutils literal notranslate"><span class="pre">Logger.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.start"><code class="docutils literal notranslate"><span class="pre">Logger.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loguru._logger.Logger.stop"><code class="docutils literal notranslate"><span class="pre">Logger.stop()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="type_hints.html">Type Hints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Help &amp; Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project.html">Project Information</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">loguru</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API Reference</a></li>
+      <li class="breadcrumb-item active"><code class="docutils literal notranslate"><span class="pre">loguru.logger</span></code></li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+             
+  <section id="module-loguru._logger">
+<span id="loguru-logger"></span><h1><code class="docutils literal notranslate"><span class="pre">loguru.logger</span></code><a class="headerlink" href="#module-loguru._logger" title="Link to this heading"></a></h1>
+<p>Core logging functionalities of the <cite>Loguru</cite> library.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="loguru._logger.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Logger</span></span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger" title="Link to this definition"></a></dt>
+<dd><p>An object to dispatch logging messages to configured handlers.</p>
+<p>The <a class="reference internal" href="#loguru._logger.Logger" title="loguru._logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> is the core object of <code class="docutils literal notranslate"><span class="pre">loguru</span></code>, every logging configuration and usage pass
+through a call to one of its methods. There is only one logger, so there is no need to retrieve
+one before usage.</p>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">logger</span></code> is imported, it can be used to write messages about events happening in your
+code. By reading the output logs of your application, you gain a better understanding of the
+flow of your program and you more easily track and debug unexpected behaviors.</p>
+<p>Handlers to which the logger sends log messages are added using the <a class="reference internal" href="#loguru._logger.Logger.add" title="loguru._logger.Logger.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a> method. Note that you
+can use the <a class="reference internal" href="#loguru._logger.Logger" title="loguru._logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> right after import as it comes pre-configured (logs are emitted to
+<a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.stderr" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> by default). Messages can be logged with different severity levels and they can be
+formatted using curly braces (it uses <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.format" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a> under the hood).</p>
+<p>When a message is logged, a “record” is associated with it. This record is a dict which contains
+information about the logging context: time, function, file, line, thread, level… It also
+contains the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> of the module, this is why you don’t need named loggers.</p>
+<p>You should not instantiate a <a class="reference internal" href="#loguru._logger.Logger" title="loguru._logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> by yourself, use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">loguru</span> <span class="pre">import</span> <span class="pre">logger</span></code> instead.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sink</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEBUG'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&lt;green&gt;{time:YYYY-MM-DD</span> <span class="pre">HH:mm:ss.SSS}&lt;/green&gt;</span> <span class="pre">|</span> <span class="pre">&lt;level&gt;{level:</span> <span class="pre">&lt;8}&lt;/level&gt;</span> <span class="pre">|</span> <span class="pre">&lt;cyan&gt;{name}&lt;/cyan&gt;:&lt;cyan&gt;{function}&lt;/cyan&gt;:&lt;cyan&gt;{line}&lt;/cyan&gt;</span> <span class="pre">-</span> <span class="pre">&lt;level&gt;{message}&lt;/level&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backtrace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagnose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enqueue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">catch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.add" title="Link to this definition"></a></dt>
+<dd><p>Add a handler sending log messages to a sink adequately configured.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sink</strong> (<a class="reference external" href="https://docs.python.org/3/glossary.html#term-file-object"><code class="docutils literal notranslate"><span class="pre">file-like</span> <span class="pre">object</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>, <a class="reference external" href="https://docs.python.org/3/glossary.html#term-coroutine-function"><code class="docutils literal notranslate"><span class="pre">coroutine</span> <span class="pre">function</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.Handler" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Handler</span></code></a>) – An object in charge of receiving formatted logging messages and propagating them to an
+appropriate endpoint.</p></li>
+<li><p><strong>level</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – The minimum severity level from which logged messages should be sent to the sink.</p></li>
+<li><p><strong>format</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>, optional) – The template used to format logged messages before being sent to the sink.</p></li>
+<li><p><strong>filter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – A directive optionally used to decide for each logged message whether it should be sent
+to the sink or not.</p></li>
+<li><p><strong>colorize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether the color markups contained in the formatted message should be converted to ansi
+codes for terminal coloration, or stripped otherwise. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the choice is
+automatically made based on the sink being a tty or not.</p></li>
+<li><p><strong>serialize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether the logged message and its records should be first converted to a JSON string
+before being sent to the sink.</p></li>
+<li><p><strong>backtrace</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether the exception trace formatted should be extended upward, beyond the catching
+point, to show the full stacktrace which generated the error.</p></li>
+<li><p><strong>diagnose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether the exception trace should display the variables values to eases the debugging.
+This should be set to <code class="docutils literal notranslate"><span class="pre">False</span></code> in production to avoid leaking sensitive data.</p></li>
+<li><p><strong>enqueue</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether the messages to be logged should first pass through a multiprocessing-safe queue
+before reaching the sink. This is useful while logging to a file through multiple
+processes. This also has the advantage of making logging calls non-blocking.</p></li>
+<li><p><strong>context</strong> (<code class="docutils literal notranslate"><span class="pre">multiprocessing.Context</span></code> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – A context object or name that will be used for all tasks involving internally the
+<a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a> module, in particular when <code class="docutils literal notranslate"><span class="pre">enqueue=True</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default
+context is used.</p></li>
+<li><p><strong>catch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether errors occurring while sink handles logs messages should be automatically
+caught. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, an exception message is displayed on <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.stderr" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> but the exception
+is not propagated to the caller, preventing your app to crash.</p></li>
+<li><p><strong>**kwargs</strong> – Additional parameters that are only valid to configure a coroutine or file sink (see
+below).</p></li>
+</ul>
+</dd>
+</dl>
+<p>If and only if the sink is a coroutine function, the following parameter applies:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>loop</strong> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.AbstractEventLoop" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEventLoop</span></code></a>, optional) – The event loop in which the asynchronous logging task will be scheduled and executed. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, the loop used is the one returned by <a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.get_running_loop" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.get_running_loop()</span></code></a> at the time of
+the logging call (task is discarded if there is no loop currently running).</p>
+</dd>
+</dl>
+<p>If and only if the sink is a file path, the following parameters apply:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rotation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>, optional) – A condition indicating whenever the current logged file should be closed and a new one
+started.</p></li>
+<li><p><strong>retention</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>, optional) – A directive filtering old files that should be removed during rotation or end of
+program.</p></li>
+<li><p><strong>compression</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>, optional) – A compression or archive format to which log files should be converted at closure.</p></li>
+<li><p><strong>delay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether the file should be created as soon as the sink is configured, or delayed until
+first logged message. It defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>watch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether or not the file should be watched and re-opened when deleted or changed (based
+on its device and inode properties) by an external program. It defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – The opening mode as for built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#open" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function. It defaults to <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> (open the
+file in appending mode).</p></li>
+<li><p><strong>buffering</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, optional) – The buffering policy as for built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#open" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function. It defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code> (line
+buffered file).</p></li>
+<li><p><strong>encoding</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – The file encoding as for built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#open" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function. It defaults to <code class="docutils literal notranslate"><span class="pre">&quot;utf8&quot;</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Others parameters are passed to the built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#open" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> – An identifier associated with the added sink and which should be used to
+<a class="reference internal" href="#loguru._logger.Logger.remove" title="loguru._logger.Logger.remove"><code class="xref py py-meth docutils literal notranslate"><span class="pre">remove()</span></code></a> it.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If any of the arguments passed to configure the sink is invalid.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Extended summary follows.</p>
+<p class="rubric" id="sink">The sink parameter</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sink</span></code> handles incoming log messages and proceed to their writing somewhere and
+somehow. A sink can take many forms:</p>
+<ul class="simple">
+<li><p>A <a class="reference external" href="https://docs.python.org/3/glossary.html#term-file-object"><code class="docutils literal notranslate"><span class="pre">file-like</span> <span class="pre">object</span></code></a> like <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code> or <code class="docutils literal notranslate"><span class="pre">open(&quot;file.log&quot;,</span> <span class="pre">&quot;w&quot;)</span></code>. Anything with
+a <code class="docutils literal notranslate"><span class="pre">.write()</span></code> method is considered as a file-like object. Custom handlers may also
+implement <code class="docutils literal notranslate"><span class="pre">flush()</span></code> (called after each logged message), <code class="docutils literal notranslate"><span class="pre">stop()</span></code> (called at sink
+termination) and <code class="docutils literal notranslate"><span class="pre">complete()</span></code> (awaited by the eponymous method).</p></li>
+<li><p>A file path as <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a>. It can be parametrized with some additional parameters,
+see below.</p></li>
+<li><p>A <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a> (such as a simple function) like <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">msg:</span> <span class="pre">print(msg)</span></code>. This
+allows for logging procedure entirely defined by user preferences and needs.</p></li>
+<li><p>A asynchronous <a class="reference external" href="https://docs.python.org/3/glossary.html#term-coroutine-function"><code class="docutils literal notranslate"><span class="pre">coroutine</span> <span class="pre">function</span></code></a> defined with the <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">def</span></code> statement. The
+coroutine object returned by such function will be added to the event loop using
+<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.create_task" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.create_task()</span></code></a>. The tasks should be awaited before ending the loop by using
+<a class="reference internal" href="#loguru._logger.Logger.complete" title="loguru._logger.Logger.complete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">complete()</span></code></a>.</p></li>
+<li><p>A built-in <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.Handler" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Handler</span></code></a> like <code class="docutils literal notranslate"><span class="pre">logging.StreamHandler</span></code>. In such a case, the <cite>Loguru</cite> records
+are automatically converted to the structure expected by the <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> module.</p></li>
+</ul>
+<p>Note that the logging functions are not <a class="reference external" href="https://en.wikipedia.org/wiki/Reentrancy_(computing)">reentrant</a>. This means you should avoid using
+the <code class="docutils literal notranslate"><span class="pre">logger</span></code> inside any of your sinks or from within <a class="reference external" href="https://docs.python.org/3/library/signal.html#module-signal" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signal</span></code></a> handlers. Otherwise, you
+may face deadlock if the module’s sink was not explicitly disabled.</p>
+<p class="rubric" id="message">The logged message</p>
+<p>The logged message passed to all added sinks is nothing more than a string of the
+formatted log, to which a special attribute is associated: the <code class="docutils literal notranslate"><span class="pre">.record</span></code> which is a dict
+containing all contextual information possibly needed (see below).</p>
+<p>Logged messages are formatted according to the <code class="docutils literal notranslate"><span class="pre">format</span></code> of the added sink. This format
+is usually a string containing braces fields to display attributes from the record dict.</p>
+<p>If fine-grained control is needed, the <code class="docutils literal notranslate"><span class="pre">format</span></code> can also be a function which takes the
+record as parameter and return the format template string. However, note that in such a
+case, you should take care of appending the line ending and exception field to the returned
+format, while <code class="docutils literal notranslate"><span class="pre">&quot;\n{exception}&quot;</span></code> is automatically appended for convenience if <code class="docutils literal notranslate"><span class="pre">format</span></code> is
+a string.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">filter</span></code> attribute can be used to control which messages are effectively passed to the
+sink and which one are ignored. A function can be used, accepting the record as an
+argument, and returning <code class="docutils literal notranslate"><span class="pre">True</span></code> if the message should be logged, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. If
+a string is used, only the records with the same <code class="docutils literal notranslate"><span class="pre">name</span></code> and its children will be allowed.
+One can also pass a <code class="docutils literal notranslate"><span class="pre">dict</span></code> mapping module names to minimum required level. In such case,
+each log record will search for it’s closest parent in the <code class="docutils literal notranslate"><span class="pre">dict</span></code> and use the associated
+level as the filter. The <code class="docutils literal notranslate"><span class="pre">dict</span></code> values can be <code class="docutils literal notranslate"><span class="pre">int</span></code> severity, <code class="docutils literal notranslate"><span class="pre">str</span></code> level name or
+<code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> to respectively authorize and discard all module logs
+unconditionally. In order to set a default level, the <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> module name should be used as
+it is the parent of all modules (it does not suppress global <code class="docutils literal notranslate"><span class="pre">level</span></code> threshold, though).</p>
+<p>Note that while calling a logging method, the keyword arguments (if any) are automatically
+added to the <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict for convenient contextualization (in addition to being used for
+formatting).</p>
+<p class="rubric" id="levels">The severity levels</p>
+<p>Each logged message is associated with a severity level. These levels make it possible to
+prioritize messages and to choose the verbosity of the logs according to usages. For
+example, it allows to display some debugging information to a developer, while hiding it to
+the end user running the application.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">level</span></code> attribute of every added sink controls the minimum threshold from which log
+messages are allowed to be emitted. While using the <code class="docutils literal notranslate"><span class="pre">logger</span></code>, you are in charge of
+configuring the appropriate granularity of your logs. It is possible to add even more custom
+levels by using the <a class="reference internal" href="#loguru._logger.Logger.level" title="loguru._logger.Logger.level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">level()</span></code></a> method.</p>
+<p>Here are the standard levels with their default severity value, each one is associated with
+a logging method of the same name:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Level name</p></th>
+<th class="head"><p>Severity value</p></th>
+<th class="head"><p>Logger method</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TRACE</span></code></p></td>
+<td><p>5</p></td>
+<td><p><a class="reference internal" href="#loguru._logger.Logger.trace" title="loguru._logger.Logger.trace"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logger.trace()</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code></p></td>
+<td><p>10</p></td>
+<td><p><a class="reference internal" href="#loguru._logger.Logger.debug" title="loguru._logger.Logger.debug"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logger.debug()</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code></p></td>
+<td><p>20</p></td>
+<td><p><a class="reference internal" href="#loguru._logger.Logger.info" title="loguru._logger.Logger.info"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logger.info()</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SUCCESS</span></code></p></td>
+<td><p>25</p></td>
+<td><p><a class="reference internal" href="#loguru._logger.Logger.success" title="loguru._logger.Logger.success"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logger.success()</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARNING</span></code></p></td>
+<td><p>30</p></td>
+<td><p><a class="reference internal" href="#loguru._logger.Logger.warning" title="loguru._logger.Logger.warning"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logger.warning()</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code></p></td>
+<td><p>40</p></td>
+<td><p><a class="reference internal" href="#loguru._logger.Logger.error" title="loguru._logger.Logger.error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logger.error()</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code></p></td>
+<td><p>50</p></td>
+<td><p><a class="reference internal" href="#loguru._logger.Logger.critical" title="loguru._logger.Logger.critical"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logger.critical()</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric" id="record">The record dict</p>
+<p>The record is just a Python dict, accessible from sinks by <code class="docutils literal notranslate"><span class="pre">message.record</span></code>. It contains
+all contextual information of the logging call (time, function, file, line, level, etc.).</p>
+<p>Each of the record keys can be used in the handler’s <code class="docutils literal notranslate"><span class="pre">format</span></code> so the corresponding value
+is properly displayed in the logged message (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;{level}&quot;</span></code> will return <code class="docutils literal notranslate"><span class="pre">&quot;INFO&quot;</span></code>).
+Some records’ values are objects with two or more attributes. These can be formatted with
+<code class="docutils literal notranslate"><span class="pre">&quot;{key.attr}&quot;</span></code> (<code class="docutils literal notranslate"><span class="pre">&quot;{key}&quot;</span></code> would display one by default).</p>
+<p>Note that you can use any <a class="reference external" href="https://docs.python.org/3/library/string.html#format-string-syntax">formatting directives</a> available in Python’s <code class="docutils literal notranslate"><span class="pre">str.format()</span></code>
+method (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;{key:</span> <span class="pre">&gt;3}&quot;</span></code> will right-align and pad to a width of 3 characters). This is
+particularly useful for time formatting (see below).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Attributes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>elapsed</p></td>
+<td><p>The time elapsed since the
+start of the program</p></td>
+<td><p>See <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>exception</p></td>
+<td><p>The formatted exception if any,
+<code class="docutils literal notranslate"><span class="pre">None</span></code> otherwise</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">value</span></code>,
+<code class="docutils literal notranslate"><span class="pre">traceback</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>extra</p></td>
+<td><p>The dict of attributes
+bound by the user (see <a class="reference internal" href="#loguru._logger.Logger.bind" title="loguru._logger.Logger.bind"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bind()</span></code></a>)</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>file</p></td>
+<td><p>The file where the logging call
+was made</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">name</span></code> (default),
+<code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>function</p></td>
+<td><p>The function from which the
+logging call was made</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>The severity used to log the
+message</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">name</span></code> (default),
+<code class="docutils literal notranslate"><span class="pre">no</span></code>, <code class="docutils literal notranslate"><span class="pre">icon</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>line</p></td>
+<td><p>The line number in the source
+code</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>message</p></td>
+<td><p>The logged message (not yet
+formatted)</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td><p>module</p></td>
+<td><p>The module where the logging
+call was made</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">__name__</span></code> where the
+logging call was made</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td><p>process</p></td>
+<td><p>The process in which the
+logging call was made</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code> (default)</p></td>
+</tr>
+<tr class="row-odd"><td><p>thread</p></td>
+<td><p>The thread in which the
+logging call was made</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code> (default)</p></td>
+</tr>
+<tr class="row-even"><td><p>time</p></td>
+<td><p>The aware local time when the
+logging call was made</p></td>
+<td><p>See <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric" id="time">The time formatting</p>
+<p>To use your favorite time representation, you can set it directly in the time formatter
+specifier of your handler format, like for example <code class="docutils literal notranslate"><span class="pre">format=&quot;{time:HH:mm:ss}</span> <span class="pre">{message}&quot;</span></code>.
+Note that this datetime represents your local time, and it is also made timezone-aware,
+so you can display the UTC offset to avoid ambiguities.</p>
+<p>The time field can be formatted using more human-friendly tokens. These constitute a subset
+of the one used by the <a class="reference external" href="https://pendulum.eustace.io/docs/#tokens">Pendulum</a> library of <a class="reference external" href="https://github.com/sdispater">&#64;sdispater</a>. To escape a token, just add
+square brackets around it, for example <code class="docutils literal notranslate"><span class="pre">&quot;[YY]&quot;</span></code> would display literally <code class="docutils literal notranslate"><span class="pre">&quot;YY&quot;</span></code>.</p>
+<p>If you prefer to display UTC rather than local time, you can add <code class="docutils literal notranslate"><span class="pre">&quot;!UTC&quot;</span></code> at the very end
+of the time format, like <code class="docutils literal notranslate"><span class="pre">{time:HH:mm:ss!UTC}</span></code>. Doing so will convert the <code class="docutils literal notranslate"><span class="pre">datetime</span></code>
+to UTC before formatting.</p>
+<p>If no time formatter specifier is used, like for example if <code class="docutils literal notranslate"><span class="pre">format=&quot;{time}</span> <span class="pre">{message}&quot;</span></code>,
+the default one will use ISO 8601.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Token</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>Year</p></td>
+<td><p>YYYY</p></td>
+<td><p>2000, 2001, 2002 … 2012, 2013</p></td>
+</tr>
+<tr class="row-odd"><td><p>YY</p></td>
+<td><p>00, 01, 02 … 12, 13</p></td>
+</tr>
+<tr class="row-even"><td><p>Quarter</p></td>
+<td><p>Q</p></td>
+<td><p>1 2 3 4</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>Month</p></td>
+<td><p>MMMM</p></td>
+<td><p>January, February, March …</p></td>
+</tr>
+<tr class="row-even"><td><p>MMM</p></td>
+<td><p>Jan, Feb, Mar …</p></td>
+</tr>
+<tr class="row-odd"><td><p>MM</p></td>
+<td><p>01, 02, 03 … 11, 12</p></td>
+</tr>
+<tr class="row-even"><td><p>M</p></td>
+<td><p>1, 2, 3 … 11, 12</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Day of Year</p></td>
+<td><p>DDDD</p></td>
+<td><p>001, 002, 003 … 364, 365</p></td>
+</tr>
+<tr class="row-even"><td><p>DDD</p></td>
+<td><p>1, 2, 3 … 364, 365</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Day of Month</p></td>
+<td><p>DD</p></td>
+<td><p>01, 02, 03 … 30, 31</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>1, 2, 3 … 30, 31</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>Day of Week</p></td>
+<td><p>dddd</p></td>
+<td><p>Monday, Tuesday, Wednesday …</p></td>
+</tr>
+<tr class="row-even"><td><p>ddd</p></td>
+<td><p>Mon, Tue, Wed …</p></td>
+</tr>
+<tr class="row-odd"><td><p>d</p></td>
+<td><p>0, 1, 2 … 6</p></td>
+</tr>
+<tr class="row-even"><td><p>Days of ISO Week</p></td>
+<td><p>E</p></td>
+<td><p>1, 2, 3 … 7</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>Hour</p></td>
+<td><p>HH</p></td>
+<td><p>00, 01, 02 … 23, 24</p></td>
+</tr>
+<tr class="row-even"><td><p>H</p></td>
+<td><p>0, 1, 2 … 23, 24</p></td>
+</tr>
+<tr class="row-odd"><td><p>hh</p></td>
+<td><p>01, 02, 03 … 11, 12</p></td>
+</tr>
+<tr class="row-even"><td><p>h</p></td>
+<td><p>1, 2, 3 … 11, 12</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Minute</p></td>
+<td><p>mm</p></td>
+<td><p>00, 01, 02 … 58, 59</p></td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>0, 1, 2 … 58, 59</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Second</p></td>
+<td><p>ss</p></td>
+<td><p>00, 01, 02 … 58, 59</p></td>
+</tr>
+<tr class="row-even"><td><p>s</p></td>
+<td><p>0, 1, 2 … 58, 59</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>Fractional Second</p></td>
+<td><p>S</p></td>
+<td><p>0 1 … 8 9</p></td>
+</tr>
+<tr class="row-even"><td><p>SS</p></td>
+<td><p>00, 01, 02 … 98, 99</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSS</p></td>
+<td><p>000 001 … 998 999</p></td>
+</tr>
+<tr class="row-even"><td><p>SSSS…</p></td>
+<td><p>000[0..] 001[0..] … 998[0..] 999[0..]</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSSSSS</p></td>
+<td><p>000000 000001 … 999998 999999</p></td>
+</tr>
+<tr class="row-even"><td><p>AM / PM</p></td>
+<td><p>A</p></td>
+<td><p>AM, PM</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>Timezone</p></td>
+<td><p>Z</p></td>
+<td><p>-07:00, -06:00 … +06:00, +07:00</p></td>
+</tr>
+<tr class="row-even"><td><p>ZZ</p></td>
+<td><p>-0700, -0600 … +0600, +0700</p></td>
+</tr>
+<tr class="row-odd"><td><p>zz</p></td>
+<td><p>EST CST … MST PST</p></td>
+</tr>
+<tr class="row-even"><td><p>Seconds timestamp</p></td>
+<td><p>X</p></td>
+<td><p>1381685817, 1234567890.123</p></td>
+</tr>
+<tr class="row-odd"><td><p>Microseconds timestamp</p></td>
+<td><p>x</p></td>
+<td><p>1234567890123</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric" id="file">The file sinks</p>
+<p>If the sink is a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or a <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a>, the corresponding file will be opened for writing logs.
+The path can also contain a special <code class="docutils literal notranslate"><span class="pre">&quot;{time}&quot;</span></code> field that will be formatted with the
+current date at file creation. The file is closed at sink stop, i.e. when the application
+ends or the handler is removed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotation</span></code> check is made before logging each message. If there is already an existing
+file with the same name that the file to be created, then the existing file is renamed by
+appending the date to its basename to prevent file overwriting. This parameter accepts:</p>
+<ul class="simple">
+<li><p>an <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> which corresponds to the maximum file size in bytes before that the current
+logged file is closed and a new one started over.</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> which indicates the frequency of each new rotation.</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a> which specifies the hour when the daily rotation should occur.</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> for human-friendly parametrization of one of the previously enumerated types.
+Examples: <code class="docutils literal notranslate"><span class="pre">&quot;100</span> <span class="pre">MB&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;0.5</span> <span class="pre">GB&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;1</span> <span class="pre">month</span> <span class="pre">2</span> <span class="pre">weeks&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;4</span> <span class="pre">days&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;10h&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;monthly&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;18:00&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;sunday&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;w0&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;monday</span> <span class="pre">at</span> <span class="pre">12:00&quot;</span></code>, …</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a> which will be invoked before logging. It should accept two arguments: the
+logged message and the file object, and it should return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the rotation should
+happen now, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">retention</span></code> occurs at rotation or at sink stop if rotation is <code class="docutils literal notranslate"><span class="pre">None</span></code>. Files
+resulting from previous sessions or rotations are automatically collected from disk. A file
+is selected if it matches the pattern <code class="docutils literal notranslate"><span class="pre">&quot;basename(.*).ext(.*)&quot;</span></code> (possible time fields are
+beforehand replaced with <code class="docutils literal notranslate"><span class="pre">.*</span></code>) based on the configured sink. Afterwards, the list is
+processed to determine files to be retained. This parameter accepts:</p>
+<ul class="simple">
+<li><p>an <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> which indicates the number of log files to keep, while older files are deleted.</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> which specifies the maximum age of files to keep.</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> for human-friendly parametrization of the maximum age of files to keep.
+Examples: <code class="docutils literal notranslate"><span class="pre">&quot;1</span> <span class="pre">week,</span> <span class="pre">3</span> <span class="pre">days&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;2</span> <span class="pre">months&quot;</span></code>, …</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a> which will be invoked before the retention process. It should accept the
+list of log files as argument and process to whatever it wants (moving files, removing
+them, etc.).</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">compression</span></code> happens at rotation or at sink stop if rotation is <code class="docutils literal notranslate"><span class="pre">None</span></code>. This
+parameter accepts:</p>
+<ul class="simple">
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> which corresponds to the compressed or archived file extension. This can be one
+of: <code class="docutils literal notranslate"><span class="pre">&quot;gz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bz2&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;xz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;lzma&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;tar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;tar.gz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;tar.bz2&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;tar.xz&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;zip&quot;</span></code>.</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a> which will be invoked before file termination. It should accept the path of
+the log file as argument and process to whatever it wants (custom compression, network
+sending, removing it, etc.).</p></li>
+</ul>
+<p>Either way, if you use a custom function designed according to your preferences, you must be
+very careful not to use the <code class="docutils literal notranslate"><span class="pre">logger</span></code> within your function. Otherwise, there is a risk that
+your program hang because of a deadlock.</p>
+<p class="rubric" id="color">The color markups</p>
+<p>To add colors to your logs, you just have to enclose your format string with the appropriate
+tags (e.g. <code class="docutils literal notranslate"><span class="pre">&lt;red&gt;some</span> <span class="pre">message&lt;/red&gt;</span></code>). These tags are automatically removed if the sink
+doesn’t support ansi codes. For convenience, you can use <code class="docutils literal notranslate"><span class="pre">&lt;/&gt;</span></code> to close the last opening
+tag without repeating its name (e.g. <code class="docutils literal notranslate"><span class="pre">&lt;red&gt;another</span> <span class="pre">message&lt;/&gt;</span></code>).</p>
+<p>The special tag <code class="docutils literal notranslate"><span class="pre">&lt;level&gt;</span></code> (abbreviated with <code class="docutils literal notranslate"><span class="pre">&lt;lvl&gt;</span></code>) is transformed according to
+the configured color of the logged message level.</p>
+<p>Tags which are not recognized will raise an exception during parsing, to inform you about
+possible misuse. If you wish to display a markup tag literally, you can escape it by
+prepending a <code class="docutils literal notranslate"><span class="pre">\</span></code> like for example <code class="docutils literal notranslate"><span class="pre">\&lt;blue&gt;</span></code>. To prevent the escaping to occur, you can
+simply double the <code class="docutils literal notranslate"><span class="pre">\</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">\\&lt;blue&gt;</span></code> will print a literal <code class="docutils literal notranslate"><span class="pre">\</span></code> before colored text).
+If, for some reason, you need to escape a string programmatically, note that the regex used
+internally to parse markup tags is <code class="docutils literal notranslate"><span class="pre">r&quot;(\\*)(&lt;/?(?:[fb]g\s)?[^&lt;&gt;\s]*&gt;)&quot;</span></code>.</p>
+<p>Note that when logging a message with <code class="docutils literal notranslate"><span class="pre">opt(colors=True)</span></code>, color tags present in the
+formatting arguments (<code class="docutils literal notranslate"><span class="pre">args</span></code> and <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>) are completely ignored. This is important if
+you need to log strings containing markups that might interfere with the color tags (in this
+case, do not use f-string).</p>
+<p>Here are the available tags (note that compatibility may vary depending on terminal):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Color (abbr)</p></th>
+<th class="head"><p>Styles (abbr)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Black (k)</p></td>
+<td><p>Bold (b)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Blue (e)</p></td>
+<td><p>Dim (d)</p></td>
+</tr>
+<tr class="row-even"><td><p>Cyan (c)</p></td>
+<td><p>Normal (n)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Green (g)</p></td>
+<td><p>Italic (i)</p></td>
+</tr>
+<tr class="row-even"><td><p>Magenta (m)</p></td>
+<td><p>Underline (u)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Red (r)</p></td>
+<td><p>Strike (s)</p></td>
+</tr>
+<tr class="row-even"><td><p>White (w)</p></td>
+<td><p>Reverse (v)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yellow (y)</p></td>
+<td><p>Blink (l)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Hide (h)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Description</p></th>
+<th class="head" colspan="2"><p>Examples</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>Foreground</p></th>
+<th class="head"><p>Background</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>Basic colors</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;red&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;r&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;GREEN&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;G&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Light colors</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;light-blue&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;le&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;LIGHT-CYAN&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;LC&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>8-bit colors</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;fg</span> <span class="pre">86&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;fg</span> <span class="pre">255&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;bg</span> <span class="pre">42&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;bg</span> <span class="pre">9&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Hex colors</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;fg</span> <span class="pre">#00005f&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;fg</span> <span class="pre">#EE1&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;bg</span> <span class="pre">#AF5FD7&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;bg</span> <span class="pre">#fff&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>RGB colors</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;fg</span> <span class="pre">0,95,0&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;bg</span> <span class="pre">72,119,65&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Stylizing</p></td>
+<td colspan="2"><p><code class="docutils literal notranslate"><span class="pre">&lt;bold&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;b&gt;</span></code>,  <code class="docutils literal notranslate"><span class="pre">&lt;underline&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;u&gt;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric" id="env">The environment variables</p>
+<p>The default values of sink parameters can be entirely customized. This is particularly
+useful if you don’t like the log format of the pre-configured sink.</p>
+<p>Each of the <a class="reference internal" href="#loguru._logger.Logger.add" title="loguru._logger.Logger.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a> default parameter can be modified by setting the <code class="docutils literal notranslate"><span class="pre">LOGURU_[PARAM]</span></code>
+environment variable. For example on Linux: <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LOGURU_FORMAT=&quot;{time}</span> <span class="pre">-</span> <span class="pre">{message}&quot;</span></code>
+or <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LOGURU_DIAGNOSE=NO</span></code>.</p>
+<p>The default levels’ attributes can also be modified by setting the <code class="docutils literal notranslate"><span class="pre">LOGURU_[LEVEL]_[ATTR]</span></code>
+environment variable. For example, on Windows: <code class="docutils literal notranslate"><span class="pre">setx</span> <span class="pre">LOGURU_DEBUG_COLOR</span> <span class="pre">&quot;&lt;blue&gt;&quot;</span></code>
+or <code class="docutils literal notranslate"><span class="pre">setx</span> <span class="pre">LOGURU_TRACE_ICON</span> <span class="pre">&quot;🚀&quot;</span></code>. If you use the <code class="docutils literal notranslate"><span class="pre">set</span></code> command, do not include quotes
+but escape special symbol as needed, e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">LOGURU_DEBUG_COLOR=^&lt;blue^&gt;</span></code>.</p>
+<p>If you want to disable the pre-configured sink, you can set the <code class="docutils literal notranslate"><span class="pre">LOGURU_AUTOINIT</span></code>
+variable to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>On Linux, you will probably need to edit the <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code> file to make this persistent. On
+Windows, don’t forget to restart your terminal for the change to be taken into account.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{time}</span><span class="s2"> - </span><span class="si">{level}</span><span class="s2"> - </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;sub.module&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;file_</span><span class="si">{time}</span><span class="s2">.log&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;TRACE&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;100 MB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">debug_only</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;DEBUG&quot;</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;debug.log&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">debug_only</span><span class="p">)</span>  <span class="c1"># Other levels are filtered out</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">my_sink</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">record</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">record</span>
+<span class="gp">... </span>    <span class="n">update_db</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">level</span><span class="o">=</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">my_sink</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">level_per_module</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s2">&quot;&quot;</span><span class="p">:</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s2">&quot;third.lib&quot;</span><span class="p">:</span> <span class="s2">&quot;WARNING&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s2">&quot;anotherlib&quot;</span><span class="p">:</span> <span class="kc">False</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="nb">filter</span><span class="o">=</span><span class="n">level_per_module</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">async</span> <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">await</span> <span class="n">api</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">publish</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">StreamHandler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">RandomStream</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+<span class="gp">... </span>        <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stream_object</span> <span class="o">=</span> <span class="n">RandomStream</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">12345</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">stream_object</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.remove" title="Link to this definition"></a></dt>
+<dd><p>Remove a previously added handler and stop sending logs to its sink.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>handler_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The id of the sink to remove, as it was returned by the <a class="reference internal" href="#loguru._logger.Logger.add" title="loguru._logger.Logger.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a> method. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all
+handlers are removed. The pre-configured handler is guaranteed to have the index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If <code class="docutils literal notranslate"><span class="pre">handler_id</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> but there is no active handler with such id.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Logging&quot;</span><span class="p">)</span>
+<span class="go">Logging</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;No longer logging&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.complete">
+<span class="sig-name descname"><span class="pre">complete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.complete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.complete" title="Link to this definition"></a></dt>
+<dd><p>Wait for the end of enqueued messages and asynchronous tasks scheduled by handlers.</p>
+<p>This method proceeds in two steps: first it waits for all logging messages added to handlers
+with <code class="docutils literal notranslate"><span class="pre">enqueue=True</span></code> to be processed, then it returns an object that can be awaited to
+finalize all logging tasks added to the event loop by coroutine sinks.</p>
+<p>It can be called from non-asynchronous code. This is especially recommended when the
+<code class="docutils literal notranslate"><span class="pre">logger</span></code> is utilized with <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> to ensure messages put to the internal
+queue have been properly transmitted before leaving a child process.</p>
+<p>The returned object should be awaited before the end of a coroutine executed by
+<a class="reference external" href="https://docs.python.org/3/library/asyncio-runner.html#asyncio.run" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.run()</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.run_until_complete" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.run_until_complete()</span></code></a> to ensure all asynchronous logging messages are
+processed. The function <a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.get_running_loop" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.get_running_loop()</span></code></a> is called beforehand, only tasks
+scheduled in the same loop that the current one will be awaited by the method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-awaitable" title="(in Python v3.13)"><span class="xref std std-term">awaitable</span></a> – An awaitable object which ensures all asynchronous logging calls are completed when
+awaited.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">async</span> <span class="k">def</span> <span class="nf">sink</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># IO processing...</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">async</span> <span class="k">def</span> <span class="nf">work</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Start&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;End&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">await</span> <span class="n">logger</span><span class="o">.</span><span class="n">complete</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sink</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">work</span><span class="p">())</span>
+<span class="go">Start</span>
+<span class="go">End</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">process</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Message sent from the child&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">logger</span><span class="o">.</span><span class="n">complete</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="n">enqueue</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">process</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">process</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">process</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+<span class="go">Message sent from the child</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.catch">
+<span class="sig-name descname"><span class="pre">catch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception=&lt;class</span> <span class="pre">'Exception'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level='ERROR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reraise=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onerror=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message=&quot;An</span> <span class="pre">error</span> <span class="pre">has</span> <span class="pre">been</span> <span class="pre">caught</span> <span class="pre">in</span> <span class="pre">function</span> <span class="pre">'{record[function]}'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process</span> <span class="pre">'{record[process].name}'</span> <span class="pre">({record[process].id})</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thread</span> <span class="pre">'{record[thread].name}'</span> <span class="pre">({record[thread].id}):&quot;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.catch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.catch" title="Link to this definition"></a></dt>
+<dd><p>Return a decorator to automatically log possibly caught error in wrapped function.</p>
+<p>This is useful to ensure unexpected exceptions are logged, the entire program can be
+wrapped by this method. This is also very useful to decorate <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.Thread.run" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Thread.run()</span></code></a> methods while
+using threads to propagate errors to the main logger thread.</p>
+<p>Note that the visibility of variables values (which uses the great <a class="reference external" href="https://github.com/Qix-/better-exceptions"><code class="docutils literal notranslate"><span class="pre">better_exceptions</span></code></a>
+library from <a class="reference external" href="https://github.com/Qix-">&#64;Qix-</a>) depends on the <code class="docutils literal notranslate"><span class="pre">diagnose</span></code> option of each configured sink.</p>
+<p>The returned object can also be used as a context manager.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exception</strong> (<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>, optional) – The type of exception to intercept. If several types should be caught, a tuple of
+exceptions can be used too.</p></li>
+<li><p><strong>level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, optional) – The level name or severity with which the message should be logged.</p></li>
+<li><p><strong>reraise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Whether the exception should be raised again and hence propagated to the caller.</p></li>
+<li><p><strong>onerror</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>, optional) – A function that will be called if an error occurs, once the message has been logged.
+It should accept the exception instance as it sole argument.</p></li>
+<li><p><strong>exclude</strong> (<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>, optional) – A type of exception (or a tuple of types) that will be purposely ignored and hence
+propagated to the caller without being logged.</p></li>
+<li><p><strong>default</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code></a>, optional) – The value to be returned by the decorated function if an error occurred without being
+re-raised.</p></li>
+<li><p><strong>message</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – The message that will be automatically logged if an exception occurs. Note that it will
+be formatted with the <code class="docutils literal notranslate"><span class="pre">record</span></code> attribute.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-decorator" title="(in Python v3.13)"><span class="xref std std-term">decorator</span></a> / <a class="reference external" href="https://docs.python.org/3/glossary.html#term-context-manager" title="(in Python v3.13)"><span class="xref std std-term">context manager</span></a> – An object that can be used to decorate a function or as a context manager to log
+exceptions possibly caught.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; @logger.catch
+... def f(x):
+...     100 / x
+...
+&gt;&gt;&gt; def g():
+...     f(10)
+...     f(0)
+...
+&gt;&gt;&gt; g()
+ERROR - An error has been caught in function &#39;g&#39;, process &#39;Main&#39; (367), thread &#39;ch1&#39; (1398):
+Traceback (most recent call last):
+  File &quot;program.py&quot;, line 12, in &lt;module&gt;
+    g()
+    └ &lt;function g at 0x7f225fe2bc80&gt;
+&gt; File &quot;program.py&quot;, line 10, in g
+    f(0)
+    └ &lt;function f at 0x7f225fe2b9d8&gt;
+  File &quot;program.py&quot;, line 6, in f
+    100 / x
+          └ 0
+ZeroDivisionError: division by zero
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">logger</span><span class="o">.</span><span class="n">catch</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Because we never know...&quot;</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="n">main</span><span class="p">()</span>  <span class="c1"># No exception, no logs</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Use &#39;onerror&#39; to prevent the program exit code to be 0 (if &#39;reraise=False&#39;) while</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># also avoiding the stacktrace to be duplicated on stderr (if &#39;reraise=True&#39;).</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@logger</span><span class="o">.</span><span class="n">catch</span><span class="p">(</span><span class="n">onerror</span><span class="o">=</span><span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.opt">
+<span class="sig-name descname"><span class="pre">opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ansi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.opt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.opt" title="Link to this definition"></a></dt>
+<dd><p>Parametrize a logging call to slightly change generated log message.</p>
+<p>Note that it’s not possible to chain <a class="reference internal" href="#loguru._logger.Logger.opt" title="loguru._logger.Logger.opt"><code class="xref py py-meth docutils literal notranslate"><span class="pre">opt()</span></code></a> calls, the last one takes precedence over the
+others as it will “reset” the options to their default values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exception</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>, optional) – If it does not evaluate as <code class="docutils literal notranslate"><span class="pre">False</span></code>, the passed exception is formatted and added to the
+log message. It could be an <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a> object or a <code class="docutils literal notranslate"><span class="pre">(type,</span> <span class="pre">value,</span> <span class="pre">traceback)</span></code> tuple,
+otherwise the exception information is retrieved from <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.exc_info" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exc_info()</span></code></a>.</p></li>
+<li><p><strong>record</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the record dict contextualizing the logging call can be used to format the
+message by using <code class="docutils literal notranslate"><span class="pre">{record[key]}</span></code> in the log message.</p></li>
+<li><p><strong>lazy</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the logging call attribute to format the message should be functions which
+will be called only if the level is high enough. This can be used to avoid expensive
+functions if not necessary.</p></li>
+<li><p><strong>colors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, logged message will be colorized according to the markups it possibly
+contains.</p></li>
+<li><p><strong>raw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the formatting of each sink will be bypassed and the message will be sent
+as is.</p></li>
+<li><p><strong>capture</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> of logged message will not automatically populate
+the <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict (although they are still used for formatting).</p></li>
+<li><p><strong>depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, optional) – Specify which stacktrace should be used to contextualize the logged message. This is
+useful while using the logger from inside a wrapped function to retrieve worthwhile
+information.</p></li>
+<li><p><strong>ansi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Deprecated since version 0.4.1: the <code class="docutils literal notranslate"><span class="pre">ansi</span></code> parameter will be removed in Loguru 1.0.0,
+it is replaced by <code class="docutils literal notranslate"><span class="pre">colors</span></code> which is a more appropriate name.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#loguru._logger.Logger" title="loguru._logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> – A logger wrapping the core logger, but transforming logged message adequately before
+sending.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="n">logger</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Exception logged with debug level:&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">[18:10:02] DEBUG in &#39;&lt;module&gt;&#39; - Exception logged with debug level:</span>
+<span class="go">Traceback (most recent call last, catch point marked):</span>
+<span class="go">&gt; File &quot;&lt;stdin&gt;&quot;, line 2, in &lt;module&gt;</span>
+<span class="go">ZeroDivisionError: division by zero</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">record</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Current line is: </span><span class="si">{record[line]}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">[18:10:33] INFO in &#39;&lt;module&gt;&#39; - Current line is: 1</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">lazy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;If sink &lt;= DEBUG: </span><span class="si">{x}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">[18:11:19] DEBUG in &#39;&lt;module&gt;&#39; - If sink &lt;= DEBUG: 263130836933693530167218012160000000</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;We got a &lt;red&gt;BIG&lt;/red&gt; problem&quot;</span><span class="p">)</span>
+<span class="go">[18:11:30] WARNING in &#39;&lt;module&gt;&#39; - We got a BIG problem</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;No formatting</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">No formatting</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">capture</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Displayed but not captured: </span><span class="si">{value}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="go">[18:11:41] Displayed but not captured: 123</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">wrapped</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">logger</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Get parent context&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">wrapped</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">func</span><span class="p">()</span>
+<span class="go">[18:11:54] DEBUG in &#39;func&#39; - Get parent context</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.bind">
+<span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.bind"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.bind" title="Link to this definition"></a></dt>
+<dd><p>Bind attributes to the <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict of each logged message record.</p>
+<p>This is used to add custom context to each logging call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Mapping between keys and values that will be added to the <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#loguru._logger.Logger" title="loguru._logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> – A logger wrapping the core logger, but which sends record with the customized <code class="docutils literal notranslate"><span class="pre">extra</span></code>
+dict.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{extra[ip]}</span><span class="s2"> - </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Server</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">ip</span> <span class="o">=</span> <span class="n">ip</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ip</span><span class="o">=</span><span class="n">ip</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance_1</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;192.168.0.200&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance_2</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance_1</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;First instance&quot;</span><span class="p">)</span>
+<span class="go">192.168.0.200 - First instance</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance_2</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;Second instance&quot;</span><span class="p">)</span>
+<span class="go">127.0.0.1 - Second instance</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.contextualize">
+<span class="sig-name descname"><span class="pre">contextualize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.contextualize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.contextualize" title="Link to this definition"></a></dt>
+<dd><p>Bind attributes to the context-local <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict while inside the <code class="docutils literal notranslate"><span class="pre">with</span></code> block.</p>
+<p>Contrary to <a class="reference internal" href="#loguru._logger.Logger.bind" title="loguru._logger.Logger.bind"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bind()</span></code></a> there is no <code class="docutils literal notranslate"><span class="pre">logger</span></code> returned, the <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict is modified in-place
+and updated globally. Most importantly, it uses <a class="reference external" href="https://docs.python.org/3/library/contextvars.html#module-contextvars" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">contextvars</span></code></a> which means that
+contextualized values are unique to each threads and asynchronous tasks.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict will retrieve its initial state once the context manager is exited.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Mapping between keys and values that will be added to the context-local <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-context-manager" title="(in Python v3.13)"><span class="xref std std-term">context manager</span></a> / <a class="reference external" href="https://docs.python.org/3/glossary.html#term-decorator" title="(in Python v3.13)"><span class="xref std std-term">decorator</span></a> – A context manager (usable as a decorator too) that will bind the attributes once entered
+and restore the initial state of the <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict while exited.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{message}</span><span class="s2"> | </span><span class="si">{extra}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">task</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Processing!&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">logger</span><span class="o">.</span><span class="n">contextualize</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">task</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">Processing! | {&#39;task_id&#39;: 123}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
+<span class="go">Done. | {}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.patch">
+<span class="sig-name descname"><span class="pre">patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patcher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.patch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.patch" title="Link to this definition"></a></dt>
+<dd><p>Attach a function to modify the record dict created by each logging call.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">patcher</span></code> may be used to update the record on-the-fly before it’s propagated to the
+handlers. This allows the “extra” dict to be populated with dynamic values and also permits
+advanced modifications of the record emitted while logging a message. The function is called
+once before sending the log message to the different handlers.</p>
+<p>It is recommended to apply modification on the <code class="docutils literal notranslate"><span class="pre">record[&quot;extra&quot;]</span></code> dict rather than on the
+<code class="docutils literal notranslate"><span class="pre">record</span></code> dict itself, as some values are used internally by <cite>Loguru</cite>, and modify them may
+produce unexpected results.</p>
+<p>The logger can be patched multiple times. In this case, the functions are called in the
+same order as they are added.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>patcher</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>) – The function to which the record dict will be passed as the sole argument. This function
+is in charge of updating the record in-place, the function does not need to return any
+value, the modified record object will be re-used.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#loguru._logger.Logger" title="loguru._logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> – A logger wrapping the core logger, but which records are passed through the <code class="docutils literal notranslate"><span class="pre">patcher</span></code>
+function before being sent to the added handlers.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{extra[utc]}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="k">lambda</span> <span class="n">record</span><span class="p">:</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;extra&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">utc</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;That&#39;s way, you can log messages with time displayed in UTC&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">logger</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Wrapped!&quot;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">wrapped</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">recv_record_from_network</span><span class="p">(</span><span class="n">pipe</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">record</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="n">level</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">],</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="n">logger</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">record</span><span class="p">))</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.level">
+<span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.level" title="Link to this definition"></a></dt>
+<dd><p>Add, update or retrieve a logging level.</p>
+<p>Logging levels are defined by their <code class="docutils literal notranslate"><span class="pre">name</span></code> to which a severity <code class="docutils literal notranslate"><span class="pre">no</span></code>, an ansi <code class="docutils literal notranslate"><span class="pre">color</span></code>
+tag and an <code class="docutils literal notranslate"><span class="pre">icon</span></code> are associated and possibly modified at run-time. To <a class="reference internal" href="#loguru._logger.Logger.log" title="loguru._logger.Logger.log"><code class="xref py py-meth docutils literal notranslate"><span class="pre">log()</span></code></a> to a custom
+level, you should necessarily use its name, the severity number is not linked back to levels
+name (this implies that several levels can share the same severity).</p>
+<p>To add a new level, its <code class="docutils literal notranslate"><span class="pre">name</span></code> and its <code class="docutils literal notranslate"><span class="pre">no</span></code> are required. A <code class="docutils literal notranslate"><span class="pre">color</span></code> and an <code class="docutils literal notranslate"><span class="pre">icon</span></code>
+can also be specified or will be empty by default.</p>
+<p>To update an existing level, pass its <code class="docutils literal notranslate"><span class="pre">name</span></code> with the parameters to be changed. It is not
+possible to modify the <code class="docutils literal notranslate"><span class="pre">no</span></code> of a level once it has been added.</p>
+<p>To retrieve level information, the <code class="docutils literal notranslate"><span class="pre">name</span></code> solely suffices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The name of the logging level.</p></li>
+<li><p><strong>no</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The severity of the level to be added or updated.</p></li>
+<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The color markup of the level to be added or updated.</p></li>
+<li><p><strong>icon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The icon of the level to be added or updated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Level</span></code> – A <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">namedtuple</span></code></a> containing information about the level.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If attempting to access a level with a <code class="docutils literal notranslate"><span class="pre">name</span></code> that is not registered, or if trying to
+    change the severity <code class="docutils literal notranslate"><span class="pre">no</span></code> of an existing level.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">level</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+<span class="go">Level(name=&#39;ERROR&#39;, no=40, color=&#39;&lt;red&gt;&lt;bold&gt;&#39;, icon=&#39;❌&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{level.no}</span><span class="s2"> </span><span class="si">{level.icon}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span><span class="s2">&quot;CUSTOM&quot;</span><span class="p">,</span> <span class="n">no</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;&lt;blue&gt;&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+<span class="go">Level(name=&#39;CUSTOM&#39;, no=15, color=&#39;&lt;blue&gt;&#39;, icon=&#39;@&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;CUSTOM&quot;</span><span class="p">,</span> <span class="s2">&quot;Logging...&quot;</span><span class="p">)</span>
+<span class="go">15 @ Logging...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;/!</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">Level(name=&#39;WARNING&#39;, no=30, color=&#39;&lt;yellow&gt;&lt;bold&gt;&#39;, icon=&#39;/!\\\\&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Updated!&quot;</span><span class="p">)</span>
+<span class="go">30 /!\\ Updated!</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.disable" title="Link to this definition"></a></dt>
+<dd><p>Disable logging of messages coming from <code class="docutils literal notranslate"><span class="pre">name</span></code> module and its children.</p>
+<p>Developers of library using <cite>Loguru</cite> should absolutely disable it to avoid disrupting
+users with unrelated logs messages.</p>
+<p>Note that in some rare circumstances, it is not possible for <cite>Loguru</cite> to
+determine the module’s <code class="docutils literal notranslate"><span class="pre">__name__</span></code> value. In such situation, <code class="docutils literal notranslate"><span class="pre">record[&quot;name&quot;]</span></code> will be
+equal to <code class="docutils literal notranslate"><span class="pre">None</span></code>, this is why <code class="docutils literal notranslate"><span class="pre">None</span></code> is also a valid argument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The name of the parent module to disable.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Allowed message by default&quot;</span><span class="p">)</span>
+<span class="go">[22:21:55] Allowed message by default</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">disable</span><span class="p">(</span><span class="s2">&quot;my_library&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;While publishing a library, don&#39;t forget to disable logging&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.enable">
+<span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.enable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.enable" title="Link to this definition"></a></dt>
+<dd><p>Enable logging of messages coming from <code class="docutils literal notranslate"><span class="pre">name</span></code> module and its children.</p>
+<p>Logging is generally disabled by imported library using <cite>Loguru</cite>, hence this function
+allows users to receive these messages anyway.</p>
+<p>To enable all logs regardless of the module they are coming from, an empty string <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> can
+be passed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The name of the parent module to re-allow.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">disable</span><span class="p">(</span><span class="s2">&quot;__main__&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Disabled, so nothing is logged.&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s2">&quot;__main__&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Re-enabled, messages are logged.&quot;</span><span class="p">)</span>
+<span class="go">[22:46:12] Re-enabled, messages are logged.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.configure">
+<span class="sig-name descname"><span class="pre">configure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handlers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patcher</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.configure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.configure" title="Link to this definition"></a></dt>
+<dd><p>Configure the core logger.</p>
+<p>It should be noted that <code class="docutils literal notranslate"><span class="pre">extra</span></code> values set using this function are available across all
+modules, so this is the best way to set overall default values.</p>
+<p>To load the configuration directly from a file, such as JSON or YAML, it is also possible to
+use the <a class="reference external" href="https://github.com/erezinman/loguru-config"><code class="docutils literal notranslate"><span class="pre">loguru-config</span></code></a> library developed by <a class="reference external" href="https://github.com/erezinman">&#64;erezinman</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handlers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – A list of each handler to be added. The list should contain dicts of params passed to
+the <a class="reference internal" href="#loguru._logger.Logger.add" title="loguru._logger.Logger.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a> function as keyword arguments. If not <code class="docutils literal notranslate"><span class="pre">None</span></code>, all previously added
+handlers are first removed.</p></li>
+<li><p><strong>levels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – A list of each level to be added or updated. The list should contain dicts of params
+passed to the <a class="reference internal" href="#loguru._logger.Logger.level" title="loguru._logger.Logger.level"><code class="xref py py-meth docutils literal notranslate"><span class="pre">level()</span></code></a> function as keyword arguments. This will never remove previously
+created levels.</p></li>
+<li><p><strong>extra</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – A dict containing additional parameters bound to the core logger, useful to share
+common properties if you call <a class="reference internal" href="#loguru._logger.Logger.bind" title="loguru._logger.Logger.bind"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bind()</span></code></a> in several of your files modules. If not <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+this will remove previously configured <code class="docutils literal notranslate"><span class="pre">extra</span></code> dict.</p></li>
+<li><p><strong>patcher</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a>, optional) – A function that will be applied to the record dict of each logged messages across all
+modules using the logger. It should modify the dict in-place without returning anything.
+The function is executed prior to the one possibly added by the <a class="reference internal" href="#loguru._logger.Logger.patch" title="loguru._logger.Logger.patch"><code class="xref py py-meth docutils literal notranslate"><span class="pre">patch()</span></code></a> method. If not
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, this will replace previously configured <code class="docutils literal notranslate"><span class="pre">patcher</span></code> function.</p></li>
+<li><p><strong>activation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, optional) – A list of <code class="docutils literal notranslate"><span class="pre">(name,</span> <span class="pre">state)</span></code> tuples which denotes which loggers should be enabled (if
+<code class="docutils literal notranslate"><span class="pre">state</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>) or disabled (if <code class="docutils literal notranslate"><span class="pre">state</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>). The calls to <a class="reference internal" href="#loguru._logger.Logger.enable" title="loguru._logger.Logger.enable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">enable()</span></code></a>
+and <a class="reference internal" href="#loguru._logger.Logger.disable" title="loguru._logger.Logger.disable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">disable()</span></code></a> are made accordingly to the list order. This will not modify previously
+activated loggers, so if you need a fresh start prepend your list with <code class="docutils literal notranslate"><span class="pre">(&quot;&quot;,</span> <span class="pre">False)</span></code>
+or <code class="docutils literal notranslate"><span class="pre">(&quot;&quot;,</span> <span class="pre">True)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> – A list containing the identifiers of added sinks (if any).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">... </span>        <span class="nb">dict</span><span class="p">(</span><span class="n">sink</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;[</span><span class="si">{time}</span><span class="s2">] </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="nb">dict</span><span class="p">(</span><span class="n">sink</span><span class="o">=</span><span class="s2">&quot;file.log&quot;</span><span class="p">,</span> <span class="n">enqueue</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;NEW&quot;</span><span class="p">,</span> <span class="n">no</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;¤&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)],</span>
+<span class="gp">... </span>    <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;common_to_all&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="n">patcher</span><span class="o">=</span><span class="k">lambda</span> <span class="n">record</span><span class="p">:</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;extra&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">some_value</span><span class="o">=</span><span class="mi">42</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">activation</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;my_module.secret&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;another_library.module&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)],</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="go">[1, 2]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Set a default &quot;extra&quot; dict to logger across all modules, without &quot;bind()&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">extra</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">extra</span><span class="o">=</span><span class="n">extra</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{extra[context]}</span><span class="s2"> - </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Context without bind&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># =&gt; &quot;foo - Context without bind&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Suppress global context&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># =&gt; &quot;bar - Suppress global context&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.parse">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">65536</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse raw logs and extract each entry as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>.</p>
+<p>The logging format has to be specified as the regex <code class="docutils literal notranslate"><span class="pre">pattern</span></code>, it will then be
+used to parse the <code class="docutils literal notranslate"><span class="pre">file</span></code> and retrieve each entry based on the named groups present
+in the regex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a> or <a class="reference external" href="https://docs.python.org/3/glossary.html#term-file-object"><code class="docutils literal notranslate"><span class="pre">file-like</span> <span class="pre">object</span></code></a>) – The path of the log file to be parsed, or an already opened file object.</p></li>
+<li><p><strong>pattern</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/re.html#re-objects"><code class="docutils literal notranslate"><span class="pre">re.Pattern</span></code></a>) – The regex to use for logs parsing, it should contain named groups which will be included
+in the returned dict.</p></li>
+<li><p><strong>cast</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable"><code class="docutils literal notranslate"><span class="pre">callable</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – A function that should convert in-place the regex groups parsed (a dict of string
+values) to more appropriate types. If a dict is passed, it should be a mapping between
+keys of parsed log dict and the function that should be used to convert the associated
+value.</p></li>
+<li><p><strong>chunk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, optional) – The number of bytes read while iterating through the logs, this avoids having to load
+the whole file in memory.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> – The dict mapping regex named groups to matched values, as returned by <a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.groupdict" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">re.Match.groupdict()</span></code></a>
+and optionally converted according to <code class="docutils literal notranslate"><span class="pre">cast</span></code> argument.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reg</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?P&lt;lvl&gt;[0-9]+): (?P&lt;msg&gt;.*)&quot;</span>    <span class="c1"># If log format is &quot;{level.no} - {message}&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">logger</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;file.log&quot;</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>  <span class="c1"># A file line could be &quot;10 - A debug message&quot;</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>                             <span class="c1"># =&gt; {&#39;lvl&#39;: &#39;10&#39;, &#39;msg&#39;: &#39;A debug message&#39;}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">caster</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lvl</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>                   <span class="c1"># Parse &#39;lvl&#39; key as an integer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">logger</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;file.log&quot;</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">cast</span><span class="o">=</span><span class="n">caster</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>                             <span class="c1"># =&gt; {&#39;lvl&#39;: 10, &#39;msg&#39;: &#39;A debug message&#39;}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="n">groups</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="s2">&quot;date&quot;</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">groups</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.log&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">log</span> <span class="ow">in</span> <span class="n">logger</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">cast</span><span class="o">=</span><span class="n">cast</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">log</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="s2">&quot;something_else&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.trace">
+<span class="sig-name descname"><span class="pre">trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.trace" title="Link to this definition"></a></dt>
+<dd><p>Log <code class="docutils literal notranslate"><span class="pre">message.format(*args,</span> <span class="pre">**kwargs)</span></code> with severity <code class="docutils literal notranslate"><span class="pre">'TRACE'</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.debug"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.debug" title="Link to this definition"></a></dt>
+<dd><p>Log <code class="docutils literal notranslate"><span class="pre">message.format(*args,</span> <span class="pre">**kwargs)</span></code> with severity <code class="docutils literal notranslate"><span class="pre">'DEBUG'</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.info" title="Link to this definition"></a></dt>
+<dd><p>Log <code class="docutils literal notranslate"><span class="pre">message.format(*args,</span> <span class="pre">**kwargs)</span></code> with severity <code class="docutils literal notranslate"><span class="pre">'INFO'</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.success">
+<span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.success"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.success" title="Link to this definition"></a></dt>
+<dd><p>Log <code class="docutils literal notranslate"><span class="pre">message.format(*args,</span> <span class="pre">**kwargs)</span></code> with severity <code class="docutils literal notranslate"><span class="pre">'SUCCESS'</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.warning">
+<span class="sig-name descname"><span class="pre">warning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.warning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.warning" title="Link to this definition"></a></dt>
+<dd><p>Log <code class="docutils literal notranslate"><span class="pre">message.format(*args,</span> <span class="pre">**kwargs)</span></code> with severity <code class="docutils literal notranslate"><span class="pre">'WARNING'</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.error">
+<span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.error" title="Link to this definition"></a></dt>
+<dd><p>Log <code class="docutils literal notranslate"><span class="pre">message.format(*args,</span> <span class="pre">**kwargs)</span></code> with severity <code class="docutils literal notranslate"><span class="pre">'ERROR'</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.critical">
+<span class="sig-name descname"><span class="pre">critical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.critical"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.critical" title="Link to this definition"></a></dt>
+<dd><p>Log <code class="docutils literal notranslate"><span class="pre">message.format(*args,</span> <span class="pre">**kwargs)</span></code> with severity <code class="docutils literal notranslate"><span class="pre">'CRITICAL'</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.exception">
+<span class="sig-name descname"><span class="pre">exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.exception"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.exception" title="Link to this definition"></a></dt>
+<dd><p>Log an <code class="docutils literal notranslate"><span class="pre">'ERROR'``</span></code> message while also capturing the currently handled exception.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Logger__level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_Logger__message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.log" title="Link to this definition"></a></dt>
+<dd><p>Log <code class="docutils literal notranslate"><span class="pre">message.format(*args,</span> <span class="pre">**kwargs)</span></code> with severity <code class="docutils literal notranslate"><span class="pre">level</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.start" title="Link to this definition"></a></dt>
+<dd><p>Add a handler sending log messages to a sink adequately configured.</p>
+<p>Deprecated function, use <a class="reference internal" href="#loguru._logger.Logger.add" title="loguru._logger.Logger.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a> instead.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.2.2: </span><code class="docutils literal notranslate"><span class="pre">start()</span></code> will be removed in Loguru 1.0.0, it is replaced by <code class="docutils literal notranslate"><span class="pre">add()</span></code> which is a less
+confusing name.</p>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="loguru._logger.Logger.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/loguru/_logger.html#Logger.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#loguru._logger.Logger.stop" title="Link to this definition"></a></dt>
+<dd><p>Remove a previously added handler and stop sending logs to its sink.</p>
+<p>Deprecated function, use <a class="reference internal" href="#loguru._logger.Logger.remove" title="loguru._logger.Logger.remove"><code class="xref py py-meth docutils literal notranslate"><span class="pre">remove()</span></code></a> instead.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.2.2: </span><code class="docutils literal notranslate"><span class="pre">stop()</span></code> will be removed in Loguru 1.0.0, it is replaced by <code class="docutils literal notranslate"><span class="pre">remove()</span></code> which is a less
+confusing name.</p>
+</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+
+<div class="github-corner">
+<svg width="120" height="120" viewBox="0 0 250 250">
+  <a fill="transparent" href="https://github.com/delgan/loguru" style="pointer-events:auto">
+    <path d="M0,0 L250,250 L250,0 Z"></path>
+  </a>
+  <g class="octocat">
+    <path fill="#343131" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z" ></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+      fill="#ffffff" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="#ffffff" class="octo-body"></path>
+    <text x="240px" y="-10px" class="octo-click-text" stroke="#ffffff" fill="#ffffff">CLICK</text>
+    <g class="octo-glasses" visibility="hidden">
+      <svg fill="#343131" width="640" height="480">
+       <defs>
+        <symbol id="glasses" viewBox="0 0 512 512">
+         <path d="m465.4,247c-2.2,-22 -12.4,-43 -28.9,-58.4c-17.1,-15.9 -39.3,-24.7 -62.7,-24.7c-41.5,0 -77.3,27.4 -88.5,67c-7,-7 -18.5,-11.7 -29.3,-11.7c-10.8,0 -22.3,4.7 -29.3,11.7c-11.2,-39.6 -47,-67 -88.5,-67c-23.3,0 -45.6,8.7 -62.7,24.6c-16.5,15.5 -26.7,36.5 -28.9,58.5l-14.6,0l0,18l14.6,0c2.2,22 12.4,43 28.9,58.4c17.1,15.9 39.3,24.7 62.7,24.7c50.8,0 92.1,-41.2 92.1,-92c0,-0.1 0,-0.1 0,-0.1l0,0c0,-9.9 11.5,-21.6 25.7,-21.6s25.7,11.7 25.7,21.6l0,0c0,0 0,0 0,0.1c0,50.8 41.3,92 92.1,92c23.3,0 45.6,-8.7 62.7,-24.7c16.5,-15.4 26.7,-36.5 28.9,-58.5l14.6,0l0,-18l-14.6,0l0,0.1z" />
+        </symbol>
+       </defs>
+       <g>
+          <use x="530" y="-70" xlink:href="#glasses" transform="rotate(45 100,75) matrix(0.185,0,0,0.185,0,0) " />
+       </g>
+      </svg>
+    </g>
+  </g>
+</svg>
+</div>
+
+<style>
+.github-corner {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  mix-blend-mode: darken;
+}
+.github-corner:hover .octocat{
+  transform-origin: center;
+  animation: octocat-grow 5s ease-in-out forwards;
+}
+@keyframes octocat-grow{
+  16%, 66%{
+    transform: scale(1.2);
+  }
+  33%{
+    transform: scale(1.1);
+  }
+  50%, 100%{
+    transform: scale(1.3);
+  }
+  83%{
+    transform: scale(1.4);
+  }
+}
+.octo-click-text {
+  font-weight: normal;
+  text-anchor: middle;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  stroke-width: 2px;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.github-corner:hover .octo-click-text {
+  animation: octocat-text 5s linear forwards
+}
+@keyframes octocat-text {
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.github-corner:hover .octo-arm{
+  animation: octocat-wave 400ms linear infinite;
+}
+@keyframes octocat-wave {
+  0%,50%,100% {
+    transform: rotate(0)
+  }
+  25% {
+    transform: rotate(-25deg)
+  }
+  75% {
+    transform: rotate(10deg)
+  }
+}
+.github-corner .octo-glasses{
+  visibility: visible;
+  opacity: 0;
+  transition: opacity 5s;
+}
+.github-corner:hover .octo-glasses{
+  opacity: 1;
+  animation: octocat-glass-wiggle 400ms linear forwards;
+  animation-delay: 4s;
+}
+@keyframes octocat-glass-wiggle {
+  0%, 50%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  25%, 75% {
+    transform: translateX(3px) translateY(-3px);
+  }
+}
+</style>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../api.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="type_hints.html" class="btn btn-neutral float-right" title="Type Hints" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

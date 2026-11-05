@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:seev.039.001.01">
+  <CorpActnNtfctn>
+    <CorpActnOptnDtls>
+      <CshMvmntDtls>Information that is extended</CshMvmntDtls>
+    </CorpActnOptnDtls>
+  </CorpActnNtfctn>
+  <Xtsn>
+    <PlcAndNm>CorpActnNtfctn/CorpActnOptnDtls/CshMvmntDtls</PlcAndNm>
+    <Txt>part 1 of the extension</Txt>
+  </Xtsn>
+  <Xtsn>
+    <PlcAndNm>CorpActnNtfctn/CorpActnOptnDtls/CshMvmntDtls</PlcAndNm>
+    <Txt>part 2 of the extension</Txt>
+  </Xtsn>
+</Document>

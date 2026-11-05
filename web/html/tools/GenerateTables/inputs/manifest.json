@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": "1.3.0",
+  "inputs": [
+    {
+      "id": "css-safe-data",
+      "path": "tools/GenerateTables/inputs/css-safe-data.json",
+      "revision": "Conservative inline CSS sanitizer allowlist reviewed against CSS Values 4 and CSS Color 4 on 2026-08-11",
+      "sha256": "f4e1ae64455c76183a0f650adde0166d20c957ff48e1a2c05690e8aae0eb900d"
+    },
+    {
+      "id": "doctype-foreign-names",
+      "path": "tools/GenerateTables/inputs/doctype-foreign-names.json",
+      "revision": "WHATWG HTML Living Standard snapshot reviewed 2026-08-10",
+      "sha256": "976db71abc1a118419238cf626f3991f8d2358ee0eaf002753f7cd313a629df9"
+    },
+    {
+      "id": "encoding-labels",
+      "path": "tools/GenerateTables/inputs/encoding-labels.json",
+      "revision": "WHATWG Encoding Standard encodings.json snapshot reviewed 2026-08-10",
+      "sha256": "796d0608d654036705cb700a0cd257ad6883e338e28c1d214da308d90542222d"
+    },
+    {
+      "id": "html-entities",
+      "path": "tools/GenerateTables/inputs/entities.json.gz.b64",
+      "revision": "WHATWG HTML Living Standard entities.json snapshot 2026-08-10; raw SHA-256 d741d877ac77c4194c4ad526b5b4a19aef8dfe411ab840a466891cdbb9f362e6",
+      "sha256": "db3704414d6d802bf72368ab810d4ac5465c36834a196cd8f4b48e77c0c0ed56"
+    },
+    {
+      "id": "encoding-indexes",
+      "path": "tools/GenerateTables/inputs/encoding-indexes.json.gz.b64",
+      "revision": "WHATWG Encoding Standard indexes.json snapshot 2026-05-21; raw SHA-256 b7c8961095f0b4cae8f4a16a5011e7c84047a60c1277e28ee8df9e56074ee509",
+      "sha256": "21e9a2e5df74e9cabd0714ab4be455eb9822ae75c6b37c2bf5321e2dfbd44034"
+    },
+    {
+      "id": "html-names",
+      "path": "tools/GenerateTables/inputs/html-names.json",
+      "revision": "WHATWG HTML Living Standard snapshot reviewed 2026-08-10",
+      "sha256": "959ba7439ae01949b117bc7940a02197c6c351c91400ed5cab6f9fc43b47066f"
+    },
+    {
+      "id": "standards",
+      "path": "tools/GenerateTables/inputs/standards.json",
+      "revision": "Repository standards provenance, 2026-08-11",
+      "sha256": "54187f255164508e7a2bf43652eddf6fb3f9f3cc375760cde5e05477e7aac743"
+    }
+  ],
+  "manifestOutput": "src/Core/GeneratedTableManifest.cs",
+  "htmlNamesOutput": "src/Core/HtmlNames.cs",
+  "doctypeOutput": "src/Core/HtmlDoctypeTables.cs",
+  "foreignNamesOutput": "src/Core/HtmlForeignNames.cs",
+  "encodingLabelsOutput": "src/Core/WebEncodingLabels.cs",
+  "encodingIndexesOutput": "src/Core/WebEncodingIndexes.cs",
+  "htmlEntitiesOutput": "src/Core/HtmlNamedCharacterReferences.cs",
+  "cssSafeDataOutput": "src/Css/CssSafeData.cs"
+}

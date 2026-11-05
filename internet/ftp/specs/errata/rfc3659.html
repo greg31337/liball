@@ -1,0 +1,897 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="3659" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records" selected>Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (3)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc3659" rel="noopener" target="_blank">RFC 3659</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc3659.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> ftpext (app)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid899/">899</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alfred Hoenes</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2007-04-14</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>RFC Editor</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2007-11-02</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   That those pathnames all exist does not imply that the TVFS sever
+   will necessarily grant any kind of access rights to the named paths,
+   or that access to the same file via different pathnames will
+   necessarily be granted equal rights.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   That those pathnames all exist does not imply that the TVFS server
+   will necessarily grant any kind of access rights to the named paths,
+   or that access to the same file via different pathnames will
+   necessarily be granted equal rights.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>typo: sever --&gt; server
+
+from pending</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid900/">900</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alfred Hoenes</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2007-04-14</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>RFC Editor</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2007-11-02</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 7 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   The MLST and MLSD commands also extend the FTP protocol as presented
+   in STD 9, RFC 959 [3] and STD 3, RFC 1123 [9] to allow that
+   transmission of 8-bit data over the control connection.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   The MLST and MLSD commands also extend the FTP protocol as presented
+   in STD 9, RFC 959 [3] and STD 3, RFC 1123 [9] to allow the
+   transmission of 8-bit data over the control connection.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>typo: that --&gt; the
+
+from pending</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6252/">6252</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Simon Kissane</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2020-08-08</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Orie Steele</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-03-29</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 10.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>To add a file type to this OS specific registry of OS specific file types, an applicant must send to the IANA a request, in which is specified the OS name, the OS specific file type, a definition of the syntax of the fact value, which must conform to the syntax of a token as given in this document, and a specification of the semantics to be associated with the particular fact and its values.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>To add a file type to this OS specific registry of OS specific file types, an applicant must send to the IANA a request, in which is specified the OS name, the OS specific file type, and a specification of the semantics to be associated with the particular OS specific file type.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>It appears that the text in section 10.2 has been copy/pasted from section 10.1, without applying the necessary adjustments for the differences between OS-specific facts and OS-specific filetypes. While OS-specific facts do have values (see section 7.2), there is no concept of a &quot;value&quot; of an OS-specific filetype defined in the RFC (see section 7.5.1.5).
+
+This error effectively makes it impossible to register an OS-specific filetype with IANA, were IANA to follow the wording of the RFC to the letter – IANA must demand a &quot;definition of the syntax of the fact value&quot; for every filetype registration, despite the fact that request makes no sense for a filetype as defined in the RFC.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Held for Document Update (4)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc3659" rel="noopener" target="_blank">RFC 3659</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc3659.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> ftpext (app)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1500/">1500</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Maik Reiß (Reiss)</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2008-09-02</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 7.7.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>7.7.4.  A More Complex Example
+ ...
+C&gt; MLSD test
+S&gt; 150 BINARY connection open for MLSD test
+D&gt; Type=cdir;Perm=el;Unique=keVO1+ZF4; test
+D&gt; Type=pdir;Perm=e;Unique=keVO1+d?3; ..
+D&gt; Type=OS.unix=slink:/foobar;Perm=;Unique=keVO1+4G4; foobar
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>7.7.4.  A More Complex Example
+ ...
+C&gt; MLSD test
+S&gt; 150 BINARY connection open for MLSD test
+D&gt; Type=cdir;Perm=el;Unique=keVO1+ZF4; test
+D&gt; Type=pdir;Perm=e;Unique=keVO1+d?3; ..
+D&gt; Type=OS.unix=symlink;Perm=;Unique=keVO1+4G4; foobar
+     ... more lines ...
+D&gt; Type=dir;Perm=;Unique=keVO1+4G4; /foobar; does originally point to here
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The sample sequence in chapter 7.7.4 uses an example which is completely wrong, because it violates the basic BNF rules of its own document.
+
+Please, see the definition, which is violated:
+
+7.2.  Format of MLSx Response
+The format of a response to an MLSx command is as follows:
+      ...
+      entry            = [ facts ] SP pathname
+      facts            = 1*( fact &quot;;&quot; )
+      fact             = factname &quot;=&quot; value
+      ...
+
+Remember, a fact may not contain &quot;;&quot; or SPC (&quot; &quot;)!
+Now take a look into the bad example:
+
+
+7.7.4.  A More Complex Example
+ ...
+	C&gt; MLSD test
+	S&gt; 150 BINARY connection open for MLSD test
+	D&gt; Type=cdir;Perm=el;Unique=keVO1+ZF4; test
+	D&gt; Type=pdir;Perm=e;Unique=keVO1+d?3; ..
+	D&gt; Type=OS.unix=slink:/foobar;Perm=;Unique=keVO1+4G4; foobar
+
+
+the last line uses the fact &quot;Type=OS.unix=slink:/foobar;&quot;. While this line in special not violates the rules at the moment, it implies that &quot;Type=OS.unix=slink:&quot; starts printing the original link target of any given symbolic link. Not wrong till here, but in case a link points to an original directory which name contains a &quot;;&quot; or, most worse, a &quot;; &quot; sequence, it will 
+lead any client side PI into misinterpretation of the line.
+
+Even more worse, some actual public servers already use this bad syntax. Some can be found at least in the Swiss. It looks like they are running proftpd under Linux operating system, but this is unconfirmed for now.
+
+
+Solution:
+
+The chapter 7 of the same document allows another approach to tell the client about the original destination of a symlink. This solution uses two lines of answer, see my example:
+
+	C&gt; MLSD test
+	S&gt; 150 BINARY connection open for MLSD test
+	D&gt; Type=cdir;Perm=el;Unique=keVO1+ZF4; test
+	D&gt; Type=pdir;Perm=e;Unique=keVO1+d?3; ..
+	D&gt; Type=OS.unix=symlink;Perm=;Unique=keVO1+4G4; foobar points somewhere else
+     ... more lines ...
+	D&gt; Type=dir;Perm=;Unique=keVO1+4G4; /foobar; does originally point to here
+
+because of the &quot;Unique&quot; fact, a client PI can now collect all lines with the fact &quot;Type=OS.unix=symlink&quot; and file it under an associative array (map, hastable) with &quot;keVO1+4G4&quot; as the access key. Once the client side parser again gets &quot;Unique=keVO1+4G4&quot;, it now can record &quot;/foobar; does point to here&quot; as the original point where foobar points to.
+
+This is exactly, what chapter 7.5.1.5 defines about the &quot;Unique&quot; fact. Please read:
+   Note: Where the underlying system supports a file type that is
+   essentially an indirect pointer to another file, the NVFS
+   representation of that type should normally be to represent the file
+   that the reference indicates.  That is, the underlying basic file
+   will appear more than once in the NVFS, each time with the &quot;unique&quot;
+   fact (see immediately following section) containing the same value,
+   indicating that the same file is represented by all such names.
+
+
+Useful to say, setting the slink into double quotes like suggested by some developers:
+
+	D&gt; Type=OS.unix=&quot;slink:/foobar&quot;;Perm=;Unique=keVO1+4G4; foobar
+
+would violate the same documents BNF rules (see RCHAR), as well it would require escaping of any DQUOTE in the link pathname itself. This, again, would violate RFC959 which not defines escaping of characters.
+
+
+Finally, FTP does not support 2 pathnames at the same line at all. This convention sould never been broken.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2850/">2850</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Mykyta Yevstifeyev</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2011-06-29</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Peter Saint-Andre</span>
+                                                        </dd>
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 2.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   and each sequence of
+   lines that begin &quot;D&gt; &quot; was sent from the server-PI to the user-PI
+   over a data connection created just to send those lines and closed
+   immediately after.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   and each sequence of
+   lines that begin &quot;D&gt; &quot; was sent from the server-DTP to the user-DTP
+   over a data connection created just to send those lines and closed
+   immediately after.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>In this case the acting parties are DTPs, not PIs.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid903/">903</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alfred Hoenes</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2007-04-14</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Peter Saint-Andre</span>
+                                                        </dd>
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 9 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>                                 [...].  Unless the &quot;media-type&quot; fact is
+   provided in a MLSx response nor is any advice given here that would
+   allow determining the content type.  [...]</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>                                 [...].  Unless the &quot;media-type&quot; fact is
+   provided in a MLSx response, no advice is given here that would allow
+   determining the content type.  [...]</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>This sentence apparently is garbled a bit.
+
+from pending</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2496/">2496</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Anthony Bryan</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-08-21</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Peter Saint-Andre</span>
+                                                        </dd>
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Throughout the document, when it says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>3.2
+...
+Various 4xy replies are also possible in appropriate circumstances.
+
+4.2
+...
+Various 4xy replies are also possible in appropriate circumstances.
+
+7.2.1
+   Many of the 4xy and 5xy responses defined in section 4.2 of STD 9,
+   RFC 959 [3] are possible in response to the MLST and MLSD commands.
+...
+   Other replies (530, 553, 503, 504, and any of the 4xy replies) are
+   also possible in appropriate circumstances.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>3.2
+...
+Various 4yz replies are also possible in appropriate circumstances.
+
+4.2
+...
+Various 4yz replies are also possible in appropriate circumstances.
+
+7.2.1
+   Many of the 4yz and 5yz responses defined in section 4.2 of STD 9,
+   RFC 959 [3] are possible in response to the MLST and MLSD commands.
+...
+   Other replies (530, 553, 503, 504, and any of the 4yz replies) are
+   also possible in appropriate circumstances.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>RFC 959, Section 4.2 refers to these reply codes as 4yz and 5yz, instead of 4xy and 5xy.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (1)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc3659" rel="noopener" target="_blank">RFC 3659</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc3659.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> ftpext (app)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid901/">901</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alfred Hoenes</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2007-04-14</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-05-16</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 7.5.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   The create fact indicates when a file, or directory, was first
+   created.  Exactly what &quot;creation&quot; is for this purpose is not
+   specified here, and may vary from server to server.  About all that
+   can be said about the value returned is that it can never indicate a
+   later time than the modify fact.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   The create fact indicates when a file, or directory, was first
+   created.  Exactly what &quot;creation&quot; is for this purpose is not
+   specified here, and may vary from server to server.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>It is one of the benefits of &#x27;Create&#x27; timestamps for directory
+entries that there is *no* enforced relationship between that
+timestamp and the &#x27;Modify&#x27; timestamp related to the file *content*.
+
+We still support legacy systems from Hewlett-Packard that indeed
+maintain three timestamps per directory entry: &#x27;Create&#x27;, &#x27;Modify&#x27;,
+and &#x27;Access&#x27;.  The very useful behaviour of the File System and
+the proprietary Networking Services is as follows: If you move a
+file to another directory or copy it (within a system, or across
+the network), the &#x27;Modify&#x27; timestamp does not change (since the
+file content is unchanged from what it was then), only the &#x27;Create&#x27;
+timestamp of the new directory entry is set to the current time.
+(This means the &#x27;Modify&#x27; timestamp behaves like a &#x27;last update&#x27;
+timestamp embedded in the file content, e.g., in a PDF file.)
+In this case, the create fact would have to be *later* than the
+modify fact, for RFC 3659.  Naturally, if a file was being edited,
+the &#x27;Modify&#x27; timestamp changes and will then be later than the
+&#x27;Create&#x27; timestamp.
+The natural behaviour of a hypothetical FTP client implementing
+RFC 3659 in such environment, when performing a &#x27;get&#x27; operation,
+would be to obtain the modify timestamp of the remote file via
+MLSx or MDTM and, after performing the RETR (and, perhaps verifying
+the &#x27;atomicity&#x27; of the transfer via another MDTM that should deliver
+the same response again) setting the &#x27;Modify&#x27; timestamp of the local
+copy of the file to the moment corresponding to the MDTM result
+value (or the modify fact value from the MLSx).
+ --VERIFIER NOTES-- 
+This is a technical change that may be against the consensus of a WG and therefore is not appropriate for an erratum.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+[
+  {
+    "rfc": "RFC 8610",
+    "name": "person-map",
+    "rule": "person",
+    "cddl": "person = {age: uint, name: tstr, ? employer: tstr}",
+    "valid": [
+      "{\"age\":42,\"name\":\"Ada\"}",
+      "{\"age\":42,\"name\":\"Ada\",\"employer\":\"Example\"}"
+    ],
+    "mutations": [
+      "{\"age\":42}",
+      "{\"age\":-1,\"name\":\"Ada\"}",
+      "{\"age\":42,\"name\":42}",
+      "{\"age\":42,\"name\":\"Ada\",\"extra\":true}"
+    ]
+  },
+  {
+    "rfc": "RFC 8610",
+    "name": "array-occurrence",
+    "rule": "people",
+    "cddl": "people = [1*2 person]\nperson = [name: tstr, age: uint]",
+    "valid": [
+      "[[\"Ada\",42]]",
+      "[[\"Ada\",42],[\"Grace\",37]]"
+    ],
+    "mutations": [
+      "[]",
+      "[[\"Ada\",42],[\"Grace\",37],[\"Linus\",30]]",
+      "[[\"Ada\",-1]]"
+    ]
+  },
+  {
+    "rfc": "RFC 8610",
+    "name": "tagged-breakfast",
+    "rule": "my-breakfast",
+    "cddl": "my-breakfast = #6.55799(breakfast)\nbreakfast = [liquid, solid]\nliquid = 0 / 1\nsolid = tstr",
+    "valid": [
+      "55799([0,\"oats\"])",
+      "55799([1,\"porridge\"])"
+    ],
+    "mutations": [
+      "55798([0,\"oats\"])",
+      "55799([2,\"oats\"])",
+      "55799([0,1])"
+    ]
+  },
+  {
+    "rfc": "RFC 8610",
+    "name": "sized-addresses",
+    "rule": "address",
+    "cddl": "address = [ip4, ip6]\nip4 = bstr .size 4\nip6 = bstr .size 16",
+    "valid": [
+      "[h'c0000201',h'20010db8000000000000000000000001']"
+    ],
+    "mutations": [
+      "[h'c00002',h'20010db8000000000000000000000001']",
+      "[h'c0000201',h'20010db8']"
+    ]
+  },
+  {
+    "rfc": "RFC 9165",
+    "name": "computed-intervals",
+    "rule": "rect",
+    "cddl": "interval<BASE> = (BASE => int, (BASE .plus 1) => int, ? (BASE .plus 2) => int)\nX = 0\nY = 3\nrect = {interval<X>, interval<Y>}",
+    "valid": [
+      "{0:10,1:20,3:30,4:40}",
+      "{0:10,1:20,2:2,3:30,4:40,5:5}"
+    ],
+    "mutations": [
+      "{0:10,3:30,4:40}",
+      "{0:10,1:20,2:2,3:30}"
+    ]
+  },
+  {
+    "rfc": "RFC 9165",
+    "name": "concatenated-multiline-text",
+    "rule": "c",
+    "cddl": "c = \"foo\" .cat '\n  bar\n  baz\n'",
+    "valid": [
+      "\"foo\\n  bar\\n  baz\\n\""
+    ],
+    "mutations": [
+      "\"foo bar baz\"",
+      "h'666f6f0a20206261720a202062617a0a'"
+    ]
+  },
+  {
+    "rfc": "RFC 9165",
+    "name": "embedded-abnf-oid",
+    "rule": "oid",
+    "cddl": "oid = bstr .abnfb (\"oid\" .det cbor-tags-oid)\ncbor-tags-oid = '\n  oid = 1*arc\n  arc = [nlsb] %x00-7f\n  nlsb = %x81-ff *%x80-ff\n'",
+    "valid": [
+      "h'00'",
+      "h'017f8100'"
+    ],
+    "mutations": [
+      "h''",
+      "h'80'"
+    ]
+  },
+  {
+    "rfc": "RFC 9165",
+    "name": "json-feature-key",
+    "rule": "record",
+    "features": ["json"],
+    "cddl": "record = {? v => number}\nv = JC<\"v\", 2>\nJC<J,C> = J .feature \"json\" / C .feature \"cbor\"",
+    "valid": [
+      "{\"v\":1}"
+    ],
+    "mutations": [
+      "{2:1}",
+      "{\"v\":\"one\"}"
+    ]
+  },
+  {
+    "rfc": "RFC 9165",
+    "name": "cbor-feature-key",
+    "rule": "record",
+    "features": ["cbor"],
+    "cddl": "record = {? v => number}\nv = JC<\"v\", 2>\nJC<J,C> = J .feature \"json\" / C .feature \"cbor\"",
+    "valid": [
+      "{2:1}"
+    ],
+    "mutations": [
+      "{\"v\":1}",
+      "{2:\"one\"}"
+    ]
+  },
+  {
+    "rfc": "RFC 9682",
+    "name": "updated-string-escapes",
+    "rule": "start",
+    "cddl": "start = [a, b, c, x, y, z]\na = \"D\\u{6f}mino's \\u{1F073} + \\u{2318}\"\nb = \"Domino's \\uD83C\\uDC73 + \\u2318\"\nc = \"Domino's 🁳 + ⌘\"\nx = 'D\\u{6f}mino\\u{27}s \\u{1F073} + \\u{2318}'\ny = 'Domino\\'s \\uD83C\\uDC73 + \\u2318'\nz = 'Domino\\'s 🁳 + ⌘'",
+    "valid": [
+      "[\"Domino's 🁳 + ⌘\",\"Domino's 🁳 + ⌘\",\"Domino's 🁳 + ⌘\",h'446f6d696e6f277320f09f81b3202b20e28c98',h'446f6d696e6f277320f09f81b3202b20e28c98',h'446f6d696e6f277320f09f81b3202b20e28c98']"
+    ],
+    "mutations": [
+      "[\"Domino's 🁳 + ⌘\",\"Domino's 🁳 + ⌘\",\"Domino's 🁳 + ⌘\",h'446f6d696e6f277320f09f81b3202b20e28c98',h'446f6d696e6f277320f09f81b3202b20e28c98',h'00']"
+    ]
+  },
+  {
+    "rfc": "RFC 9682",
+    "name": "type-valued-tag-number",
+    "rule": "root",
+    "cddl": "root = ct-tag<tstr>\nct-tag<content> = #6.<ct-tag-number>(content)\nct-tag-number = 1668546817..1668612095",
+    "valid": [
+      "1668546817(\"start\")",
+      "1668612095(\"end\")"
+    ],
+    "mutations": [
+      "1668546816(\"before\")",
+      "1668612096(\"after\")",
+      "1668546817(1)"
+    ]
+  },
+  {
+    "rfc": "RFC 9682",
+    "name": "type-valued-simple-number",
+    "rule": "root",
+    "cddl": "root = #7.<simple-number>\nsimple-number = 32..255",
+    "valid": [
+      "simple(32)",
+      "simple(255)"
+    ],
+    "mutations": [
+      "false",
+      "undefined"
+    ]
+  },
+  {
+    "rfc": "RFC 9741",
+    "name": "base64url-signature",
+    "rule": "signature-for-json",
+    "cddl": "signature-for-json = text .b64u h'0102ff'",
+    "valid": [
+      "\"AQL_\""
+    ],
+    "mutations": [
+      "\"AQL/\"",
+      "\"AQL_=\"",
+      "\"AQL-\""
+    ]
+  },
+  {
+    "rfc": "RFC 9741",
+    "name": "base10-yang-integer",
+    "rule": "yang-json-sid",
+    "cddl": "yang-json-sid = text .base10 (0..9223372036854775807)",
+    "valid": [
+      "\"0\"",
+      "\"9223372036854775807\""
+    ],
+    "mutations": [
+      "\"01\"",
+      "\"-1\"",
+      "\"9223372036854775808\""
+    ]
+  },
+  {
+    "rfc": "RFC 9741",
+    "name": "printf-hex-label",
+    "rule": "my-alg-19",
+    "cddl": "my-alg-19 = hexlabel<19>\nhexlabel<K> = text .printf ([\"0x%04x\", K])",
+    "valid": [
+      "\"0x0013\""
+    ],
+    "mutations": [
+      "\"0x13\"",
+      "\"0x0014\"",
+      "\"0X0013\""
+    ]
+  },
+  {
+    "rfc": "RFC 9741",
+    "name": "embedded-json-claims",
+    "rule": "embedded-claims",
+    "cddl": "embedded-claims = text .json claims\nclaims = {iss: text, exp: text}",
+    "valid": [
+      "\"{\\\"iss\\\":\\\"me\\\",\\\"exp\\\":\\\"soon\\\"}\""
+    ],
+    "mutations": [
+      "\"{\\\"iss\\\":\\\"me\\\"}\"",
+      "\"{\\\"iss\\\":1,\\\"exp\\\":\\\"soon\\\"}\"",
+      "\"not json\""
+    ]
+  },
+  {
+    "rfc": "RFC 9741",
+    "name": "joined-ipv4-address",
+    "rule": "legacy-ip-address",
+    "cddl": "legacy-ip-address = text .join legacy-ip-address-elements\nlegacy-ip-address-elements = [bytetext, \".\", bytetext, \".\", bytetext, \".\", bytetext]\nbytetext = text .base10 byte\nbyte = 0..255",
+    "valid": [
+      "\"192.0.2.1\"",
+      "\"255.255.255.255\""
+    ],
+    "mutations": [
+      "\"256.0.2.1\"",
+      "\"192.00.2.1\"",
+      "\"192.0.2\""
+    ]
+  }
+]

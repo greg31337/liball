@@ -1,0 +1,139 @@
+[
+  {
+    "id": "model2-v10-q-format-3",
+    "source_vector": "model2-v10-q",
+    "damage_kind": "format",
+    "flipped_modules_row_column": [
+      [
+        8,
+        0
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        2
+      ]
+    ],
+    "matrix_file": "damaged/model2-v10-q-format-3.txt",
+    "matrix_sha256": "02fe29c8fa8ca07dda85d47eca0e7435ee4bbbd3139b30f09da6d1babab023ff"
+  },
+  {
+    "id": "model2-v40-h-burst-12",
+    "source_vector": "model2-v40-h",
+    "damage_kind": "module-burst",
+    "flipped_modules_row_column": [
+      [
+        90,
+        90
+      ],
+      [
+        90,
+        91
+      ],
+      [
+        90,
+        92
+      ],
+      [
+        90,
+        93
+      ],
+      [
+        90,
+        94
+      ],
+      [
+        90,
+        95
+      ],
+      [
+        90,
+        96
+      ],
+      [
+        90,
+        97
+      ],
+      [
+        90,
+        98
+      ],
+      [
+        90,
+        99
+      ],
+      [
+        90,
+        100
+      ],
+      [
+        90,
+        101
+      ]
+    ],
+    "matrix_file": "damaged/model2-v40-h-burst-12.txt",
+    "matrix_sha256": "d6d9e601e9ea3e3e73e91ff61cf68374f01a8626b8c4e1482a9b5927099e1300"
+  },
+  {
+    "id": "micro-m4-l-format-2",
+    "source_vector": "micro-m4-l",
+    "damage_kind": "format",
+    "flipped_modules_row_column": [
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        2
+      ]
+    ],
+    "matrix_file": "damaged/micro-m4-l-format-2.txt",
+    "matrix_sha256": "5ff6c7f0af5416cb2e68f9c81da5bf8548fa393dfe54d7ed9053b141f446f6f3"
+  },
+  {
+    "id": "rmqr-r17x139-h-format-3",
+    "source_vector": "rmqr-r17x139-h",
+    "damage_kind": "format",
+    "flipped_modules_row_column": [
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        11
+      ]
+    ],
+    "matrix_file": "damaged/rmqr-r17x139-h-format-3.txt",
+    "matrix_sha256": "4ee2d703d3fe2340896f37bf64beadfbefd9f038d0240cb74da686b8722bd823"
+  },
+  {
+    "id": "legacy-model1-v02-m-format-3",
+    "source_vector": "legacy-model1-v02-m",
+    "damage_kind": "format",
+    "flipped_modules_row_column": [
+      [
+        8,
+        0
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        2
+      ]
+    ],
+    "matrix_file": "damaged/legacy-model1-v02-m-format-3.txt",
+    "matrix_sha256": "23930da9da44bec10826d097e48588fa2929e9fa69b59bf943ebf59f2d0f3312"
+  }
+]

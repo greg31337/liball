@@ -1,0 +1,3051 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 12 April 2005), see www.w3.org">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+
+  <title>XML Catalogs</title>
+  <link rel="stylesheet" href="http://www.oasis-open.org/spectools/css/oasis-standard.css" type="text/css">
+  <meta name="generator" content="DocBook XSL Stylesheets V1.69.1">
+  <meta name="description" content=
+  "The requirement that all external identifiers in XML documents must provide a system identifier has unquestionably been of tremendous short-term benefit to the XML community. It has allowed a whole generation of tools to be developed without the added complexity of explicit entity management. However, the interoperability of XML documents has been impeded in several ways by the lack of entity management facilities: External identifiers may require resources that are not always available. For example, a system identifier that points to a resource on another machine may be inaccessible if a network connection is not available.External identifiers may require protocols that are not accessible to all of the vendors' tools on a single computer system. An external identifier that is addressed with the ftp: protocol, for example, is not accessible to a tool that does not support that protocol. It is often convenient to access resources using system identifiers that point to local resources. Exchanging documents that refer to local resources with other systems is problematic at best and impossible at worst.   The problems involved with sharing documents, or packages of documents, across multiple systems are large and complex. While there are many important issues involved and a complete solution is beyond the current scope, the OASIS membership agrees upon the enclosed set of conventions to address a useful subset of the complete problem. To address these issues, this OASIS Standard defines an entity catalog that maps both external identifiers and arbitrary URI references to URI references.">
+
+<style type="text/css">
+    span.paranum { color: #7F7F7F;
+                   font-style: italic;
+                   font-family: monospace;
+                 }
+    span.filename { font-weight: bold; }                 
+</style>
+</head>
+
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+  <div class="article" lang="en">
+    <div class="titlepage">
+      <p class="logo"><a href="http://www.oasis-open.org/"><img src="http://www.oasis-open.org/spectools/images/oasis.gif" alt="OASIS" border="0"></a></p>
+
+      <div>
+        <h1 class="title"><a name="d0e2" id="d0e2"></a>XML Catalogs</h1>
+      </div>
+
+      <div>
+        <h2>OASIS Standard&#160;V1.1,&#160;7 October 2005</h2>
+      </div>
+
+      <div>
+        <dl>
+          <dt><span class="docid-heading">Document identifier:</span></dt>
+
+          <dd>
+            <p>std-entity-xml-catalogs-1.1 (<a href="std-entity-xml-catalogs-1.1.xml" target="_top">XML</a>, <a href="std-entity-xml-catalogs-1.1.html" target="_top">HTML</a>, <a href="std-entity-xml-catalogs-1.1.pdf" target="_top">PDF</a>)</p>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <!-- 
+$Id: xml-catalogs.xml,v 1.26 2005/10/07 13:29:25 ndw Exp $
+ -->
+      </div>
+
+      <div>
+        <dl>
+          <dt><span class="loc-heading">Location:</span></dt>
+
+          <dd>
+            <p><a href="http://www.oasis-open.org/committees/documents.php?wg_abbrev=entity">http://www.oasis-open.org/committees/documents.php?wg_abbrev=entity</a></p>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <dl>
+          <dt><span class="editor-heading">Editor:</span></dt>
+
+          <dd>
+            <p><span class="firstname">Norman</span> <span class="surname">Walsh</span>, Sun Microsystems, Inc.&#160;<code class="email">&lt;<a href="mailto:Norman.Walsh@Sun.COM">Norman.Walsh@Sun.COM</a>&gt;</code></p>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <dl>
+          <dt><a name="d0e64" id="d0e64"></a><span class="abstract-heading">Abstract:</span></dt>
+
+          <dd>
+            <p>The requirement that all external identifiers in XML documents must provide a system identifier has unquestionably been of tremendous short-term benefit to the XML community. It has allowed a whole generation of tools to be developed without the added complexity of explicit entity management.</p>
+
+            <p>However, the interoperability of XML documents has been impeded in several ways by the lack of entity management facilities:</p>
+
+            <div class="orderedlist">
+              <ol type="1">
+                <li>
+                  <p>External identifiers may require resources that are not always available. For example, a system identifier that points to a resource on another machine may be inaccessible if a network connection is not available.</p>
+                </li>
+
+                <li>
+                  <p>External identifiers may require protocols that are not accessible to all of the vendors' tools on a single computer system. An external identifier that is addressed with the <code class="systemitem">ftp:</code> protocol, for example, is not accessible to a tool that does not support that protocol.</p>
+                </li>
+
+                <li>
+                  <p>It is often convenient to access resources using system identifiers that point to local resources. Exchanging documents that refer to local resources with other systems is problematic at best and impossible at worst.</p>
+                </li>
+              </ol>
+            </div>
+
+            <p>The problems involved with sharing documents, or packages of documents, across multiple systems are large and complex. While there are many important issues involved and a complete solution is beyond the current scope, the OASIS membership agrees upon the enclosed set of conventions to address a useful subset of the complete problem. To address these issues, this OASIS Standard defines an entity catalog that maps both external identifiers and arbitrary URI references to URI references.</p>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <dl>
+          <dt><a name="d0e86" id="d0e86"></a><span class="status-heading">Status:</span></dt>
+
+          <dd>
+            <p>This Committee Specification was approved for publication by the OASIS Entity Resolution Technical Committee. It represents the consensus of the committee.</p>
+
+            <p>Please send comments on this specification to the <code class="email">&lt;<a href="mailto:entity-resolution-comment@lists.oasis-open.org">entity-resolution-comment@lists.oasis-open.org</a>&gt;</code> list. To subscribe, send an email message to <code class="email">&lt;<a href="mailto:entity-resolution-comment-request@lists.oasis-open.org">entity-resolution-comment-request@lists.oasis-open.org</a>&gt;</code> with the word "<span class="quote"><code class="literal">subscribe</code></span>" as
+            the body of the message.</p>
+          </dd>
+        </dl>
+      </div>
+
+      <div>
+        <p class="copyright">Copyright &#169; 2000, 2001, 2002, 2003, 2005 OASIS Open, Inc. All Rights Reserved.</p>
+      </div>
+      <hr>
+    </div>
+
+    <div class="toc">
+      <h2>Table of Contents</h2>
+
+      <dl>
+        <dt><span class="section"><a href="#s.intro">1. Introduction</a></span></dt>
+
+        <dt><span class="section"><a href="#s.terminology">2. Terminology</a></span></dt>
+
+        <dt><span class="section"><a href="#s.entity.catalog">3. An Entity Catalog</a></span></dt>
+
+        <dt><span class="section"><a href="#s.using.catalogs">4. Using Catalogs</a></span></dt>
+
+        <dd>
+          <dl>
+            <dt><span class="section"><a href="#s.ext.ent">4.1. External Identifier Entries</a></span></dt>
+
+            <dd>
+              <dl>
+                <dt><span class="section"><a href="#attrib.prefer">4.1.1. The <code class="sgmltag-attribute">prefer</code> attribute</a></span></dt>
+              </dl>
+            </dd>
+
+            <dt><span class="section"><a href="#s.uri.ent">4.2. URI Entries</a></span></dt>
+
+            <dt><span class="section"><a href="#s.rewrite">4.3. Rewrite Entries</a></span></dt>
+
+            <dt><span class="section"><a href="#s.suffix">4.4. Suffix Entries</a></span></dt>
+
+            <dt><span class="section"><a href="#s.example">4.5. An XML Catalog Example</a></span></dt>
+          </dl>
+        </dd>
+
+        <dt><span class="section"><a href="#s.catfiles">5. Catalog Entry Files</a></span></dt>
+
+        <dd>
+          <dl>
+            <dt><span class="section"><a href="#oasis-er-tc-abc">5.1. Document Control of Catalog Entry Files</a></span></dt>
+
+            <dt><span class="section"><a href="#s.bootstrap">5.2. "<span class="quote">Bootstrapping</span>" Catalog Resolution</a></span></dt>
+
+            <dt><span class="section"><a href="#s.circularity">5.3. Catalog Circularities</a></span></dt>
+          </dl>
+        </dd>
+
+        <dt><span class="section"><a href="#s.xmlcat">6. XML Catalog Entries</a></span></dt>
+
+        <dd>
+          <dl>
+            <dt><span class="section"><a href="#attrib.common">6.1. Common Attributes</a></span></dt>
+
+            <dt><span class="section"><a href="#pubid-norm">6.2. Public Identifier Normalization</a></span></dt>
+
+            <dt><span class="section"><a href="#sysid-norm">6.3. System Identifier and URI Normalization</a></span></dt>
+
+            <dt><span class="section"><a href="#urn-unwrap">6.4. URN "Unwrapping"</a></span></dt>
+
+            <dt><span class="section"><a href="#s.elements">6.5. Catalog Elements</a></span></dt>
+
+            <dd>
+              <dl>
+                <dt><span class="section"><a href="#s.catalog">6.5.1. The <code class="sgmltag-element">catalog</code> Entry</a></span></dt>
+
+                <dt><span class="section"><a href="#s.group">6.5.2. The <code class="sgmltag-element">group</code> Entry</a></span></dt>
+
+                <dt><span class="section"><a href="#s.public">6.5.3. The <code class="sgmltag-element">public</code> Entry</a></span></dt>
+
+                <dt><span class="section"><a href="#s.system">6.5.4. The <code class="sgmltag-element">system</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.rewritesystem">6.5.5. The <code class="sgmltag-element">rewriteSystem</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.systemsuffix">6.5.6. The <code class="sgmltag-element">systemSuffix</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.delegatepublic">6.5.7. The <code class="sgmltag-element">delegatePublic</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.delegatesystem">6.5.8. The <code class="sgmltag-element">delegateSystem</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.uri">6.5.9. The <code class="sgmltag-element">uri</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.rewriteuri">6.5.10. The <code class="sgmltag-element">rewriteURI</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.urisuffix">6.5.11. The <code class="sgmltag-element">uriSuffix</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.delegateuri">6.5.12. The <code class="sgmltag-element">delegateURI</code> Element</a></span></dt>
+
+                <dt><span class="section"><a href="#s.nextcatalog">6.5.13. The <code class="sgmltag-element">nextCatalog</code> Element</a></span></dt>
+              </dl>
+            </dd>
+          </dl>
+        </dd>
+
+        <dt><span class="section"><a href="#s.semantics">7. Catalog Resolution Semantics</a></span></dt>
+
+        <dd>
+          <dl>
+            <dt><span class="section"><a href="#s.ext.res">7.1. External Identifier Resolution</a></span></dt>
+
+            <dd>
+              <dl>
+                <dt><span class="section"><a href="#s.ext.input">7.1.1. Input to the Resolver</a></span></dt>
+
+                <dt><span class="section"><a href="#s.ext.resx">7.1.2. Resolution of External Identifiers</a></span></dt>
+              </dl>
+            </dd>
+
+            <dt><span class="section"><a href="#s.uri.res">7.2. URI Resolution</a></span></dt>
+
+            <dd>
+              <dl>
+                <dt><span class="section"><a href="#s.uri.input">7.2.1. Input to the Resolver</a></span></dt>
+
+                <dt><span class="section"><a href="#s.uri.resx">7.2.2. Resolution of URI references</a></span></dt>
+              </dl>
+            </dd>
+          </dl>
+        </dd>
+
+        <dt><span class="section"><a href="#s.res.fail">8. Resource Failures</a></span></dt>
+
+        <dt><span class="section"><a href="#s.changes">9. Changes in XML Catalogs V1.1</a></span></dt>
+      </dl>
+
+      <h3>Appendixes</h3>
+
+      <dl>
+        <dt><span class="appendix"><a href="#a.w3cxmlschema">A. A W3C XML Schema for the XML Catalog (Non-Normative)</a></span></dt>
+
+        <dt><span class="appendix"><a href="#a.relaxng">B. A RELAX NG Grammar for the XML Catalog (Non-Normative)</a></span></dt>
+
+        <dt><span class="appendix"><a href="#a.dtd">C. A DTD for the XML Catalog (Non-Normative)</a></span></dt>
+
+        <dt><span class="appendix"><a href="#a.tr9401">D. Support for TR9401 Catalog Semantics (Non-Normative)</a></span></dt>
+
+        <dd>
+          <dl>
+            <dt><span class="section"><a href="#s.doctype">1. The <code class="sgmltag-element">doctype</code> Element</a></span></dt>
+
+            <dt><span class="section"><a href="#s.document">2. The <code class="sgmltag-element">document</code> Element</a></span></dt>
+
+            <dt><span class="section"><a href="#s.dtddecl">3. The <code class="sgmltag-element">dtddecl</code> Element</a></span></dt>
+
+            <dt><span class="section"><a href="#s.entity">4. The <code class="sgmltag-element">entity</code> Element</a></span></dt>
+
+            <dt><span class="section"><a href="#s.linktype">5. The <code class="sgmltag-element">linktype</code> Element</a></span></dt>
+
+            <dt><span class="section"><a href="#s.notation">6. The <code class="sgmltag-element">notation</code> Element</a></span></dt>
+
+            <dt><span class="section"><a href="#s.sgmldecl">7. The <code class="sgmltag-element">sgmldecl</code> Element</a></span></dt>
+          </dl>
+        </dd>
+
+        <dt><span class="appendix"><a href="#a.committee">E. OASIS Entity Resolution Committee (Non-Normative)</a></span></dt>
+
+        <dt><span class="appendix"><a href="#a.notices">F. Notices</a></span></dt>
+
+        <dt><span class="appendix"><a href="#a.ipr">G. Intellectual Property Rights</a></span></dt>
+
+        <dt><span class="bibliography"><a href="#bibl">References</a></span></dt>
+      </dl>
+    </div>
+    <hr>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.intro" id="s.intro"></a>1.&#160;Introduction</h2>
+        </div>
+      </div>
+
+      <p>In order to make optimal use of the information about an XML external resource, there needs to be some interoperable way to map the information in an XML external identifier into a URI reference for the desired resource.</p>
+
+      <p>This OASIS Standard defines an entity catalog that handles two simple cases:</p>
+
+      <div class="orderedlist">
+        <ol type="1">
+          <li>
+            <p>Mapping an external entity's public identifier and/or system identifier to a URI reference.</p>
+          </li>
+
+          <li>
+            <p>Mapping the URI reference of a resource (a namespace name, stylesheet, image, etc.) to another URI reference.</p>
+          </li>
+        </ol>
+      </div>
+
+      <p>Though it does not handle all issues that a combination of a complete entity manager and storage manager addresses, it simplifies both the use of multiple products in a great majority of cases and the task of processing documents on different systems.</p>
+
+      <p>This entity catalog is designed to be compatible with [<a href="#tr9401"><abbr class="abbrev">TR 9401</abbr></a>] catalogs as mandated by the Technical Committee [<a href="#req"><abbr class="abbrev">Requirements</abbr></a>].</p>
+
+      <p>This OASIS Standard provides several schema language descriptions of XML Catalogs in non-normative appendices. The semantics of XML Catalogs are defined normatively by the prose of this specfiication, not by any one of those schemas.</p>
+    </div>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.terminology" id="s.terminology"></a>2.&#160;Terminology</h2>
+        </div>
+      </div>
+
+      <p>The key words <em class="glossterm">must</em>, <em class="glossterm">must not</em>, <em class="glossterm">required</em>, <em class="glossterm">shall</em>, <em class="glossterm">shall not</em>, <em class="glossterm">should</em>, <em class="glossterm">should not</em>, <em class="glossterm">recommended</em>, <em class="glossterm">may</em>, and <em class="glossterm">optional</em> in this OASIS Standard are to be interpreted as described in [<a href="#rfc2119"><abbr class="abbrev">RFC 2119</abbr></a>].
+      Note that for reasons of style, these words are not capitalized in this document.</p>
+
+      <p>The terms <em class="glossterm">URI</em> and <em class="glossterm">URI reference</em> are to be interpreted as described in [<a href="#rfc2396"><abbr class="abbrev">RFC 2396</abbr></a>].</p>
+
+      <p>The term <em class="glossterm">external identifier</em> is to be interpreted as defined in <a href="http://www.w3.org/TR/REC-xml#NT-ExternalID" target="_top">Production 75</a> of [<a href="#xml-rec"><abbr class="abbrev">XML</abbr></a>]. External identifiers have two parts, an optional public identifier and a system identifier. The terms <em class="glossterm">public identifier</em> and <em class="glossterm">system identifier</em> in this OASIS Standard always refer to the respective part of an
+      external identifier.</p>
+
+      <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+        <h3 class="title">Note</h3>
+
+        <p>All <em class="glossterm">system identifiers</em> are URI references, but not all URI references are system identifiers. A system identifer is always logically part of an <em class="glossterm">external identifier</em>, even when the <em class="glossterm">public identifer</em> is not provided.</p>
+      </div>
+
+      <p>The logical <em class="glossterm">input</em> to a catalog processor is an external identifier (some combination of public and system identifiers) or a URI reference. The logical <em class="glossterm">output</em> of the catalog processor is a URI reference. (This OASIS Standard does not attempt to define an API for catalog processors so the logical interfaces and the practical interfaces may differ.)</p>
+
+      <p>A <em class="glossterm">catalog</em> is a logical structure that contains "<span class="quote">mapping</span>" information. A catalog may be physically contained in one or more <em class="glossterm">catalog entry files</em>. A <em class="glossterm">catalog entry file</em> is a document that contains a set of catalog entries.</p>
+    </div>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.entity.catalog" id="s.entity.catalog"></a>3.&#160;An Entity Catalog</h2>
+        </div>
+      </div>
+
+      <p>This OASIS Standard defines an application-independent entity catalog that maps external identifiers and URI references to (other) URI references. It also defines a format for catalog entry files in terms of [<a href="#xml-rec"><abbr class="abbrev">XML</abbr></a>] and [<a href="#xml-names"><abbr class="abbrev">XML Namespaces</abbr></a>].</p>
+
+      <p>The principal task of a catalog processor is to find entries in the catalog that <span class="emphasis"><em>match</em></span> the input provided and return the associated URI reference as the output. The first such match is always used, and there is no requirement for the catalog processor to search for additional matches.</p>
+
+      <p>This catalog is used by an application's entity manager. This OASIS Standard does not dictate when an entity manager should access this catalog; for example, an application may attempt other mapping algorithms before or after accessing this catalog.</p>
+
+      <p>The catalog is effectively an ordered list of (one or more) catalog entry files. It is up to the application to determine the ordered list of catalog entry files to be used as the logical catalog. (This OASIS Standard uses the term "<span class="quote">catalog entry file</span>" to refer to one component of a logical catalog even though a catalog entry file can be any kind of storage object or entity including&#8212;but not limited to&#8212;a table in a database, some object identified by a URI
+      reference, or some dynamically generated set of catalog entries.)</p>
+
+      <p>Each entry in the catalog associates a URI reference with information about an external reference that appears in an XML document. For example, the following are possible catalog entries that associate a URI reference with a public identifier:</p>
+      <pre class="programlisting">
+&lt;public publicId="ISO 8879:1986//ENTITIES Added Latin 1//EN"
+        uri="iso-lat1.gml"/&gt;
+&lt;public publicId="-//USA/AAP//DTD BK-1//EN"
+        uri="aapbook.dtd"/&gt;
+&lt;public publicId="-//Example, Inc.//DTD Report//EN"
+        uri="http://www.example.com/dtds/report.dtd"/&gt;
+</pre>
+
+      <p>This OASIS Standard defines the following catalog entry types: <a href="#s.catalog" title="6.5.1.&#160;The catalog Entry"><code class="sgmltag-element">catalog</code></a>, <a href="#s.delegatepublic" title="6.5.7.&#160;The delegatePublic Element"><code class="sgmltag-element">delegatePublic</code></a>, <a href="#s.delegatesystem" title="6.5.8.&#160;The delegateSystem Element"><code class="sgmltag-element">delegateSystem</code></a>, <a href="#s.delegateuri" title=
+      "6.5.12.&#160;The delegateURI Element"><code class="sgmltag-element">delegateURI</code></a>, <a href="#s.group" title="6.5.2.&#160;The group Entry"><code class="sgmltag-element">group</code></a>, <a href="#s.nextcatalog" title="6.5.13.&#160;The nextCatalog Element"><code class="sgmltag-element">nextCatalog</code></a>, <a href="#s.public" title="6.5.3.&#160;The public Entry"><code class="sgmltag-element">public</code></a>, <a href="#s.rewritesystem" title=
+      "6.5.5.&#160;The rewriteSystem Element"><code class="sgmltag-element">rewriteSystem</code></a>, <a href="#s.rewriteuri" title="6.5.10.&#160;The rewriteURI Element"><code class="sgmltag-element">rewriteURI</code></a>, <a href="#s.system" title="6.5.4.&#160;The system Element"><code class="sgmltag-element">system</code></a>, and <a href="#s.systemsuffix" title="6.5.6.&#160;The systemSuffix Element"><code class="sgmltag-element">systemSuffix</code></a>, <a href="#s.uri" title=
+      "6.5.9.&#160;The uri Element"><code class="sgmltag-element">uri</code></a>, and <a href="#s.urisuffix" title="6.5.11.&#160;The uriSuffix Element"><code class="sgmltag-element">uriSuffix</code></a>. In order to be conformant with this OASIS Standard, an application must implement all of these entry types with the semantics described herein.</p>
+
+      <p>The <a href="http://www.w3.org/TR/REC-xml-names/#dt-NSName" target="_top">namespace name</a> defined by this OASIS Standard is "<span class="quote"><code class="literal">urn:oasis:names:tc:entity:xmlns:xml:catalog</code></span>". The public identifier for XML Catalogs is "<span class="quote"><code class="literal">-//OASIS//DTD XML Catalogs V1.1//EN</code></span>".</p>
+
+      <p>This OASIS Standard reserves all elements and attributes from its namespace for current and future use. In addition, unqualified attributes on elements in its namespace, other than the attributes explicitly described in this OASIS Standard, are reserved for future use.</p>
+
+      <p>To provide for possible future extension and other applications of this catalog, its format allows for "<span class="quote">other information</span>" indicated by elements and attributes from namespaces other than the one defined by this OASIS Standard.</p>
+    </div>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.using.catalogs" id="s.using.catalogs"></a>4.&#160;Using Catalogs</h2>
+        </div>
+      </div>
+
+      <p>A catalog can be used in two different, independent ways: (1) it can be used to locate the replacement text for an external entity, or (2) it can be used to locate an alternate URI reference for a resource. Although these functions are similar in nature, they are distinct and exercise two different sets of entries in the catalog.</p>
+
+      <p>In either case, the following entries in the catalog are interpreted as follows:</p>
+
+      <div class="orderedlist">
+        <ol type="1">
+          <li>
+            <p>The <code class="sgmltag-element">catalog</code> entry is the root of a catalog entry file. All other entries occur within this <code class="sgmltag-element">catalog</code> element.</p>
+          </li>
+
+          <li>
+            <p>The <code class="sgmltag-element">group</code> entry is simply a wrapper on which <code class="sgmltag-attribute">prefer</code> (<a href="#attrib.prefer" title="4.1.1.&#160;The prefer attribute">Section&#160;4.1.1, &#8220;The <code class="sgmltag-attribute">prefer</code> attribute&#8221;</a>) and <code class="sgmltag-attribute">xml:base</code> (<a href="#attrib.common" title="6.1.&#160;Common Attributes">Section&#160;6.1, &#8220;Common Attributes&#8221;</a>) can occur. It has no other effect
+            on the entries that it contains. When examining entries in the catalog sequentially, the presence of a <code class="sgmltag-element">group</code> entry does not effect the order in which they are examined.</p>
+          </li>
+
+          <li>
+            <p>The <code class="sgmltag-element">nextCatalog</code> entry indicates that an entity manager must use the associated URI reference to locate an additional catalog entry file to be processed after the current catalog entry file.</p>
+          </li>
+        </ol>
+      </div>
+
+      <p>The <code class="sgmltag-element">nextCatalog</code> entry can be used to insert a new catalog entry file into the current list of catalog entry files. The <code class="sgmltag-attribute">catalog</code> attribute on a <code class="sgmltag-element">nextCatalog</code> entry is used to locate another catalog entry file that is inserted into the catalog entry file list after the current catalog entry file. Multiple <code class="sgmltag-element">nextCatalog</code> entries are allowed, and the
+      referenced catalog entry files are inserted into the existing working catalog entry file list in the order in which they occur in the current catalog entry file (document order).</p>
+
+      <p>Catalog entry files identified by <code class="sgmltag-element">nextCatalog</code> entries will only be examined after all other entries in the current catalog entry file have been considered and none of them provide a match for the current input.</p>
+
+      <p>In the discussion that follows, note that <a href="#s.semantics" title="7.&#160;Catalog Resolution Semantics">catalog resolution semantics</a> are not recursive. Once a matching catalog entry has been found, the value that results from that entry is returned without further examination of the catalog.</p>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.ext.ent" id="s.ext.ent"></a>4.1.&#160;External Identifier Entries</h3>
+          </div>
+        </div>
+
+        <p><em class="glossterm">External Identifiers</em>, as defined in [<a href="http://www.w3.org/TR/REC-xml#NT-ExternalID" target="_top">Production 75</a>] of [<a href="#xml-rec"><abbr class="abbrev">XML</abbr></a>], identify the external subset, entities, and notations of an XML document. They are <span class="emphasis"><em>not</em></span> used to identify other resources such as namespace names, stylesheets, and schema languages other than DTDs; <a href="#s.uri.ent" title="4.2.&#160;URI Entries">URI
+        entries</a> are used for that purpose.</p>
+
+        <p>For the purposes of resolving external identifiers, a catalog-based resolver considers the following entries:</p>
+
+        <div class="itemizedlist">
+          <ul type="disc">
+            <li>
+              <p>The <code class="sgmltag-element">public</code> entry indicates that an entity manager must use the associated URI reference to locate the replacement text for an entity with the specified <em class="glossterm">public identifier</em>.</p>
+            </li>
+
+            <li>
+              <p>The <code class="sgmltag-element">system</code> entry indicates that an entity manager must use the associated URI reference to locate the replacement text for an entity with the specified <em class="glossterm">system identifier</em>.</p>
+            </li>
+
+            <li>
+              <p>The <code class="sgmltag-element">rewriteSystem</code> entry indicates that an entity manager must rewrite the specified <em class="glossterm">system identifier</em> by replacing the matching prefix with the associated rewrite prefix. The resulting string must be used to locate the replacement text.</p>
+            </li>
+
+            <li>
+              <p>The <code class="sgmltag-element">systemSuffix</code> entry indicates that an entity manager must use the associated URI reference to locate the replacement text for an entity with a <em class="glossterm">system identifier</em> that matches the suffix.</p>
+            </li>
+
+            <li>
+              <p>The <code class="sgmltag-element">delegatePublic</code> entry indicates that external identifiers with a public identifier that starts with the specified string must be resolved by considering the catalog specified by the associated URI reference.</p>
+            </li>
+
+            <li>
+              <p>The <code class="sgmltag-element">delegateSystem</code> entry indicates that external identifiers with a system identifier that starts with the specified string must be resolved by considering the catalog specified by the associated URI reference.</p>
+            </li>
+          </ul>
+        </div>
+
+        <p>Although system identifiers are assumed to be "<span class="quote"><a href="http://www.w3.org/TR/REC-xml#dt-sysid" target="_top">URI reference[s]&#8230;meant to be dereferenced to obtain input for the XML processor to construct the entity's replacement text</a></span>", in some circumstances (such as when the document was generated on another system, when the document was generated in another location on the same system, or when some files referenced by system identifiers have moved since the
+        document was generated), the specified system identifiers are not always the best identifiers for the replacement text. For this or other reasons, it may be desirable to prefer the public identifier over the system identifier in determining the entity's replacement text. Therefore, this OASIS Standard defines two modes for searching the catalog: "<span class="quote">prefer system identifier</span>" mode and "<span class="quote">prefer public identifier</span>" mode.</p>
+
+        <div class="orderedlist">
+          <ol type="1">
+            <li>
+              <p>If system identifiers are preferred, a system identifier was provided, and there is no matching <code class="sgmltag-element">system</code>, <code class="sgmltag-element">rewriteSystem</code>, or <code class="sgmltag-element">systemSuffix</code> type entry, then the system identifier given in the external identifier is used as the URI reference to locate the entity's replacement text regardless of any public identifier given in the external identifier.</p>
+
+              <p>This OASIS Standard does not specify what happens if a preferred system identifier does not identify an accessible storage object; an application may look up the public identifier and/or entity name to find another URI reference, or it may simply report an error. An application should at least have the option of issuing a warning if the system identifier fails in this mode.</p>
+            </li>
+
+            <li>
+              <p>If public identifiers are preferred, a public identifier was specified, and there is no matching <code class="sgmltag-element">system</code>, <code class="sgmltag-element">rewriteSystem</code>, or <code class="sgmltag-element">systemSuffix</code> type entry, the system identifier given in the external identifier is used as the URI reference to locate the entity's replacement text only if no mapping can be found in the catalog for the public identifier.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="attrib.prefer" id="attrib.prefer"></a>4.1.1.&#160;The <code class="sgmltag-attribute">prefer</code> attribute</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-attribute">prefer</code> attribute can be used on <code class="sgmltag-element">catalog</code> and <code class="sgmltag-element">group</code> entry types to indicate, for the enclosed set of catalog entries, if system or public entry matches are preferred.</p>
+
+          <p>Each occurrence of a <code class="sgmltag-attribute">prefer</code> attribute specifies the search strategy mode for entries contained within the <code class="sgmltag-element">catalog</code> or <code class="sgmltag-element">group</code> element on which it occurs. A <code class="sgmltag-element">public</code> or <code class="sgmltag-element">delegatePublic</code> entry encountered when <code class="sgmltag-attribute">prefer</code> is "<span class="quote"><code class=
+          "sgmltag-attvalue">public</code></span>" will be considered for possible matching <a name="nosysid" id="nosysid"></a>whether or not the external identifier has an explicit system identifier. A <code class="sgmltag-element">public</code> or <code class="sgmltag-element">delegatePublic</code> entry encountered when <code class="sgmltag-attribute">prefer</code> is "<span class="quote"><code class="sgmltag-attvalue">system</code></span>" will be ignored during lookups for which the external
+          identifier has an explicit system identifier. No other entry types are affected by the <code class="sgmltag-attribute">prefer</code> attribute. The initial search strategy in force at the beginning of each catalog entry file depends on the preference as determined by the application.</p>
+
+          <p>Note that setting <code class="sgmltag-attribute">prefer</code> to "<span class="quote"><code class="sgmltag-attvalue">public</code></span>" does not make matching public entries more significant than matching system entries. It only makes matching public identifiers more significant than the specified system identifier if it does not have a matching entry in the catalog.</p>
+
+          <p>There are nine possible combinations for each of the possible settings of <code class="sgmltag-attribute">prefer</code>.</p>
+
+          <p>When <code class="literal">prefer="public"</code>:</p>
+
+          <div class="informaltable">
+            <table border="0" style="border-collapse: collapse;">
+              <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+
+              <thead>
+                <tr>
+                  <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">&#160;</th>
+
+                  <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">The catalog contains a matching public entry, but not a matching system entry</th>
+
+                  <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">The catalog contains a matching system entry, but not a matching public entry</th>
+
+                  <th style="border-bottom: 0.5pt solid ;">The catalog contains both a matching public entry and a matching system entry</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;"><span class="bold"><strong>External identifier specifies only a public identifier<sup>[<a name="d0e646" href="#ftn.d0e646" id="d0e646">a</a>]</sup></strong></span></td>
+
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">Public entry is used</td>
+
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">N/A</td>
+
+                  <td style="border-bottom: 0.5pt solid ;">N/A</td>
+                </tr>
+
+                <tr>
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;"><span class="bold"><strong>External identifier specifies only a system identifier</strong></span></td>
+
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">N/A</td>
+
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">System entry is used</td>
+
+                  <td style="border-bottom: 0.5pt solid ;">N/A</td>
+                </tr>
+
+                <tr>
+                  <td style="border-right: 0.5pt solid ;"><span class="bold"><strong>External identifier specifies both public and system identifiers</strong></span></td>
+
+                  <td style="border-right: 0.5pt solid ;">Public entry is used</td>
+
+                  <td style="border-right: 0.5pt solid ;">System entry is used</td>
+
+                  <td style="">System entry is used</td>
+                </tr>
+              </tbody>
+
+              <tbody class="footnotes">
+                <tr>
+                  <td colspan="4">
+                    <div class="footnote">
+                      <p><sup>[<a name="ftn.d0e646" href="#d0e646" id="ftn.d0e646">a</a>]</sup> This cannot occur in XML except in the case of a notation declaration.</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>When <code class="literal">prefer="system"</code>:</p>
+
+          <div class="informaltable">
+            <table border="0" style="border-collapse: collapse;">
+              <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+              </colgroup>
+
+              <thead>
+                <tr>
+                  <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">&#160;</th>
+
+                  <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">The catalog contains a matching public entry, but not a matching system entry</th>
+
+                  <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">The catalog contains a matching system entry, but not a matching public entry</th>
+
+                  <th style="border-bottom: 0.5pt solid ;">The catalog contains both a matching public entry and a matching system entry</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;"><span class="bold"><strong>External identifier specifies only a public identifier<sup>[<a name="d0e696" href="#ftn.d0e696" id="d0e696">a</a>]</sup></strong></span></td>
+
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">Public entry is used</td>
+
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">N/A</td>
+
+                  <td style="border-bottom: 0.5pt solid ;">N/A</td>
+                </tr>
+
+                <tr>
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;"><span class="bold"><strong>External identifier specifies only a system identifier</strong></span></td>
+
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">N/A</td>
+
+                  <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">System entry is used</td>
+
+                  <td style="border-bottom: 0.5pt solid ;">N/A</td>
+                </tr>
+
+                <tr>
+                  <td style="border-right: 0.5pt solid ;"><span class="bold"><strong>External identifier specifies both public and system identifiers</strong></span></td>
+
+                  <td style="border-right: 0.5pt solid ;">Public entry <span class="emphasis"><em>is not</em></span> used; the system identifier in the document is used</td>
+
+                  <td style="border-right: 0.5pt solid ;">System entry is used</td>
+
+                  <td style="">System entry is used</td>
+                </tr>
+              </tbody>
+
+              <tbody class="footnotes">
+                <tr>
+                  <td colspan="4">
+                    <div class="footnote">
+                      <p><sup>[<a name="ftn.d0e696" href="#d0e696" id="ftn.d0e696">a</a>]</sup> This cannot occur in XML except in the case of a notation declaration.</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>An application must provide some way (e.g., a runtime argument, environment variable, preference switch) that allows the user to specify which of these modes to use in the absence of any occurrence of the <code class="sgmltag-attribute">prefer</code> attribute on the <code class="sgmltag-element">catalog</code> entry.</p>
+
+          <p>When doing a catalog lookup, an entity manager generally uses whatever is available from among the entity declaration's system identifier and public identifier to find catalog entries that match the given information. A match in one catalog entry file will take precedence over any match in a later catalog entry file (and, in fact, the entity manager need not process subsequent catalog entry files once a match has occurred).</p>
+        </div>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.uri.ent" id="s.uri.ent"></a>4.2.&#160;URI Entries</h3>
+          </div>
+        </div>
+
+        <p>URI references that are <span class="emphasis"><em>not</em></span> part of an <a href="#s.ext.ent" title="4.1.&#160;External Identifier Entries">external identifier</a>, such as namespace names, stylesheets, included files, graphics, and hypertext references, simply identify other resources. They are resolved using URI entries as described below. The input to a resolver that locates resources is simply the original URI reference.</p>
+
+        <p>For the purposes of resolving URI references, a catalog-based resolver considers the following entries:</p>
+
+        <div class="itemizedlist">
+          <ul type="disc">
+            <li>
+              <p>The <code class="sgmltag-element">uri</code> entry indicates that an entity manager must use the associated URI reference to locate the resource.</p>
+            </li>
+
+            <li>
+              <p>The <code class="sgmltag-element">rewriteURI</code> entry indicates that an entity manager must rewrite the specified URI reference by replacing the matching prefix with the associated rewrite prefix. The resulting string must be used to locate the resource.</p>
+            </li>
+
+            <li>
+              <p>The <code class="sgmltag-element">uriSuffix</code> entry indicates that an entity manager must use the associated URI reference to locate a resource with an initial URI reference that matches the suffix.</p>
+            </li>
+
+            <li>
+              <p>The <code class="sgmltag-element">delegateURI</code> entry indicates that a URI reference that starts with the specified string must be resolved by considering the catalog specified by the associated URI reference.</p>
+            </li>
+          </ul>
+        </div>
+
+        <p>As when resolving URI references, a match in one catalog entry file will take precedence over any match in a later catalog entry file (and, in fact, the entity manager need not process subsequent catalog entry files once a match has occurred).</p>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.rewrite" id="s.rewrite"></a>4.3.&#160;Rewrite Entries</h3>
+          </div>
+        </div>
+
+        <p>Rewrite entries are provided as a convenience for performing redirection of a whole set of entities with a single catalog entry. Typical uses are website mirroring and dealing with fragment identifiers. Note that in the case of fragment identifiers, rewriting can only be applied to the URI that precedes the fragment identifier. The resolver never sees the fragment identifier part of the URI reference (the <code class="literal">#</code> or the characters that follow it).</p>
+
+        <p>If the entire website at <code class="literal">http://example.com/</code> has been mirrored onto your local system in <code class="literal">file:///share/mirrors/example/</code>, it is likely that you want any system identifier reference to the website to be redirected to your local system.</p>
+
+        <p>One way of doing this would be to create a <code class="sgmltag-element">system</code> entry for every relevant identifier. If there are many entities on the website, this may be tedious. Instead, a single rewrite entry can be used:</p>
+        <pre class="programlisting">
+&lt;rewriteSystem systemIdStartString="http://www.example.com/"
+               rewritePrefix="file:///share/mirrors/example/"/&gt;
+</pre>
+
+        <p>Similarly, if you have a large number of references to a single document using many different fragment identifiers, it may be tedious to construct <code class="sgmltag-element">uri</code> entries for every URI reference if the base document moves. Again, a single rewrite can be used instead:</p>
+        <pre class="programlisting">
+&lt;rewriteURI uriStartString="http://www.example.com/old-location/"
+            rewritePrefix="http://www.example.com/new-location/"/&gt;
+</pre>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.suffix" id="s.suffix"></a>4.4.&#160;Suffix Entries</h3>
+          </div>
+        </div>
+
+        <p>Suffix entries are provided as a mechanism for matching based on the suffix of an identifier. The typical use case is to match a common entity based on its name rather than its full URI.</p>
+
+        <p>For example, you can match a DTD such as <span class="filename">xhtml1-strict.dtd</span> or a schema such as <span class="filename">docbook.rng</span> regardless of the full system identifier or URI used in the document.</p>
+
+        <p>For example, with this entry:</p>
+        <pre class="programlisting">
+&lt;systemSuffix systemIdSuffix="html1-strict.dtd"
+              uri="file:///share/mirrors/w3c/xhtml1/xhtml1-strict.dtd"/&gt;
+</pre>
+
+        <p>any system identifier that ends in &#8220;<span class="filename">xhtml1-strict.dtd</span>&#8221; will be translated into the local copy of that DTD. This can be a great convenience if you receive documents from authors with different local configurations.</p>
+
+        <p>Similarly, if there is variation in the absolute URI reference used to locate a particular resource, you can select it with just the suffix:</p>
+        <pre class="programlisting">
+&lt;uriSuffix uriSuffix="/uniqueName.xsd"
+           uri="file:///share/mirrors/schemas/example/uniqueName.xsd"/&gt;
+</pre>
+
+        <p>Naturally, the ability to use system identifier or URI suffixes depends on the uniqueness of the suffix as a means of identifying the entity or resource.</p>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.example" id="s.example"></a>4.5.&#160;An XML Catalog Example</h3>
+          </div>
+        </div>
+
+        <p>The catalog files in <a href="#ex.docbook.cat" title="Example&#160;1.&#160;A DocBook XML Catalog File: docbook.xml.">Example&#160;1, &#8220;A DocBook XML Catalog File: <span class="filename">docbook.xml</span>.&#8221;</a> and <a href="#ex.stylesheet.cat" title="Example&#160;2.&#160;A Stylesheet XML Catalog File: stylesheet.xml.">Example&#160;2, &#8220;A Stylesheet XML Catalog File: <span class="filename">stylesheet.xml</span>.&#8221;</a> are complete examples of XML Catalog files.</p>
+
+        <div class="example">
+          <a name="ex.docbook.cat" id="ex.docbook.cat"></a>
+
+          <p class="title"><b>Example&#160;1.&#160;A DocBook XML Catalog File: <span class="filename">docbook.xml</span>.</b></p>
+          <pre class="programlisting">
+&lt;!DOCTYPE catalog
+  PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN"
+         "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd"&gt;
+&lt;catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public"&gt;
+
+  &lt;group xml:base="http://www.oasis-open.org/docbook/xml/4.1.2/"&gt;
+    &lt;public publicId="-//OASIS//DTD DocBook XML V4.1.2//EN"
+            uri="docbookx.dtd"/&gt;
+    &lt;public publicId="-//OASIS//ENTITIES DocBook XML Notations V4.1.2//EN"
+            uri="dbnotnx.mod"/&gt;
+    &lt;public publicId="-//OASIS//ENTITIES DocBook XML Character Entities V4.1.2//EN"
+            uri="dbcentx.mod"/&gt;
+    &lt;public publicId="-//OASIS//ELEMENTS DocBook XML Information Pool V4.1.2//EN"
+            uri="dbpoolx.mod"/&gt;
+    &lt;public publicId="-//OASIS//ELEMENTS DocBook XML Document Hierarchy V4.1.2//EN"
+            uri="dbhierx.mod"/&gt;
+    &lt;public publicId="-//OASIS//ENTITIES DocBook XML Additional General Entities V4.1.2//EN"
+            uri="dbgenent.mod"/&gt;
+    &lt;public publicId="-//OASIS//DTD DocBook XML CALS Table Model V4.1.2//EN"
+            uri="calstblx.dtd"/&gt;
+  &lt;/group&gt;
+
+  &lt;public publicId="-//OASIS//DTD DocBook MathML Module V1.0//EN"
+          uri="http://www.oasis-open.org/docbook/xml/mathml/1.0/dbmathml.dtd"/&gt;
+
+  &lt;nextCatalog catalog="stylesheet.xml"/&gt;
+
+&lt;/catalog&gt;
+</pre>
+        </div>
+
+        <div class="example">
+          <a name="ex.stylesheet.cat" id="ex.stylesheet.cat"></a>
+
+          <p class="title"><b>Example&#160;2.&#160;A Stylesheet XML Catalog File: <span class="filename">stylesheet.xml</span>.</b></p>
+          <pre class="programlisting">
+&lt;!DOCTYPE catalog
+  PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN"
+         "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd"&gt;
+&lt;catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public"&gt;
+
+  &lt;!-- Circumvent relative URI in spec.xsl that doesn't work online --&gt;
+  &lt;uri name="http://www.oasis-open.org/committes/tr.xsl"
+       uri="http://www.oasis-open.org/committes/entity/stylesheets/base/tr.xsl"/&gt;
+&lt;/catalog&gt;
+</pre>
+        </div>
+
+        <p>Together, these two catalog files provide sufficient resolution information to parse and format the XML source for this OASIS Standard.</p>
+      </div>
+    </div>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.catfiles" id="s.catfiles"></a>5.&#160;Catalog Entry Files</h2>
+        </div>
+      </div>
+
+      <p>Applications conforming to this OASIS Standard must provide some (implementation dependent) mechanism that allows the user to establish the initial list of catalog entry files. This may be a preferences dialog, an environment variable, an application properties file, or any other appropriate mechanism.</p>
+
+      <p>All conforming processors must accept and process catalog entry files written in the format described by this specification. They may also accept and process other formats, but they are not required to do so. If an application encounters a catalog entry file in a format that it does not understand, it must treat it as a <a href="#s.res.fail" title="8.&#160;Resource Failures">resource failure</a>.</p>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="oasis-er-tc-abc" id="oasis-er-tc-abc"></a>5.1.&#160;Document Control of Catalog Entry Files</h3>
+          </div>
+        </div>
+
+        <p>If a document contains external identifiers or URI references, it may be useful for the document to identify a catalog that is likely to aid in the resolution of those references.</p>
+
+        <p>For example, XML documents stored on the <span class="filename">www.example.com</span> server may wish to indicate that <span class="filename">http://www.example.com/catalog</span> is a useful public catalog to use when parsing them.</p>
+
+        <p>This OASIS Standard defines the processing instruction "<span class="quote"><code class="sgmltag-xmlpi">&lt;?oasis-xml-catalog?&gt;</code></span>" for this purpose. The <code class="sgmltag-xmlpi">&lt;?oasis-xml-catalog?&gt;</code> processing instruction has a single pseudo-attribute, <code class="sgmltag-attribute">catalog</code>, that identifies a single catalog entry file.</p>
+
+        <p>If a document contains one or more <code class="sgmltag-xmlpi">&lt;?oasis-xml-catalog?&gt;</code> processing instruction(s), the catalog entry file(s) identified must be used during resolution of external identifiers and URI references within that document.</p>
+
+        <p>Catalog entry files referenced by the processing instruction are added to the end of any system- or user-defined catalog entry file list.</p>
+
+        <p>For example, in</p>
+        <pre class="programlisting">
+&lt;?xml version="1.0"?&gt;
+&lt;?oasis-xml-catalog catalog="http://example.com/catalog.xml"?&gt;
+&lt;!DOCTYPE doc PUBLIC "-//Example//DTD Document V1.0//EN"
+                     "http://www.example.com/schema/doc.dtd"&gt;
+...
+</pre>
+
+        <p>The URI "<span class="quote"><span class="filename">http://example.com/catalog.xml</span></span>" is added to the end of the of the list of catalog entry files used for resolution within this document.</p>
+
+        <p>The following constraints apply:</p>
+
+        <div class="itemizedlist">
+          <ul type="disc">
+            <li>
+              <p>The <code class="sgmltag-xmlpi">&lt;?oasis-xml-catalog?&gt;</code> processing instruction must appear in the prologue after the XML declaration and before the start of the document type declaration.</p>
+
+              <p>It is an error for the processing instruction to occur in the internal subset or after the document type declaration. Processors should recover from the error by ignoring any such processing instructions that occur after the start of the document type declaration.</p>
+
+              <p>Likewise, it is an error for the processing instruction to occur after other processing instructions that contain URI references, such as stylesheet processing instructions ([<a href="#xmlstyle"><abbr class="abbrev">XML Stylesheets</abbr></a>]). Applications should recover by ignoring catalog entry files mentioned in such <code class="sgmltag-xmlpi">&lt;?oasis-xml-catalog?&gt;</code> processing instructions.</p>
+            </li>
+
+            <li>
+              <p>If more than one catalog processing instruction is present, each catalog entry file specified is added to the end of the catalog entry file list.</p>
+            </li>
+
+            <li>
+              <p>If the catalog entry file is specified with a relative URI, it is relative to the base URI of the document that contains the processing instruction.</p>
+            </li>
+
+            <li>
+              <p>The URI that identifies the catalog entry file is not subject to catalog resolution.</p>
+            </li>
+          </ul>
+        </div>
+
+        <p>Catalog-aware applications should support the <code class="sgmltag-xmlpi">&lt;?oasis-xml-catalog?&gt;</code> processing instruction. If the processing instruction is supported, they must provide a facility which allows a user to request that all <code class="sgmltag-xmlpi">&lt;?oasis-xml-catalog?&gt;</code> processing instructions be ignored.</p>
+
+        <p>One common idiom for controlling parser features is the use of a feature URI. This OASIS Standard defines the following feature URI for this purpose:</p>
+        <pre class="screen">
+http://www.oasis-open.org/committees/entity/features/catalog-pi
+</pre>
+
+        <p>If this feature is disabled, <code class="sgmltag-xmlpi">&lt;?oasis-xml-catalog?&gt;</code> processing instructions must be ignored.</p>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.bootstrap" id="s.bootstrap"></a>5.2.&#160;"<span class="quote">Bootstrapping</span>" Catalog Resolution</h3>
+          </div>
+        </div>
+
+        <p>XML Catalog files are XML documents and as such may contain external identifiers and URI references. Conformant processors are not required to be able to perform resolution of those identifiers through the XML Catalog.</p>
+
+        <p>Implementations are encouraged to provide some sort of bootstrapping functionality to resolve external identifiers and URIs that the implementation needs to load catalog entry files.</p>
+
+        <p>For example, presented with the following catalog entry file:</p>
+        <pre class="programlisting">
+&lt;!DOCTYPE catalog
+  PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN"
+         "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd"&gt;
+&lt;catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public"&gt;
+    &lt;public publicId="-//OASIS//DTD DocBook XML V4.1.2//EN"
+            uri="docbookx.dtd"/&gt;
+&lt;/catalog&gt;
+</pre>
+
+        <p>an implementation should recognize the standard external identifier used on the catalog and provide the parser with access to that DTD in some implementation defined way if it's necessary.</p>
+
+        <p>Users can avoid any problems that might arise by limiting the external identifiers and URIs used to those that do not need resolution. Note that this <span class="emphasis"><em>only</em></span> applies to external identifiers and URIs that must be resolved in order to load the catalog entry file.</p>
+
+        <p>For example, if a local copy of the XML Catalog DTD is available at <span class="filename">/etc/xml/catalog.dtd</span>, the problems of resolution associated with loading this file can be avoided by pointing directly to that local copy in the catalog entry file:</p>
+        <pre class="programlisting">
+&lt;!DOCTYPE catalog
+  PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN"
+         "/etc/xml/catalog.dtd"&gt;
+&lt;catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public"&gt;
+    &lt;public publicId="-//OASIS//DTD DocBook XML V4.1.2//EN"
+            uri="docbookx.dtd"/&gt;
+&lt;/catalog&gt;
+</pre>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.circularity" id="s.circularity"></a>5.3.&#160;Catalog Circularities</h3>
+          </div>
+        </div>
+
+        <p>As noted, <a href="#s.semantics" title="7.&#160;Catalog Resolution Semantics">catalog resolution semantics</a> are not recursive. Once a matching catalog entry has been found, the value that results from that entry is returned without further examination of the catalog. In other words, if the catalog contains the following entries and only these entries:</p>
+        <pre class="programlisting">
+&lt;uri name="http://example.com/path/resource"
+     uri="http://example.com/alternate/resource"/&gt;
+
+&lt;uri name="http://example.com/alternate/resource"
+     uri="http://example.com/final/resource"/&gt;
+</pre>
+
+        <p>An attempt to resolve <code class="literal">http://example.com/path/resource</code> will return "<span class="quote"><code class="literal">http://example.com/alternate/resource</code></span>". The fact that the URI returned would be subject to a different interpretation if <span class="emphasis"><em>it</em></span> was passed to the resolver has no effect on the resolver: it stops when a match is found. (This example uses URI entries, but the semantics hold true for all entry types.)</p>
+
+        <p>This avoids an obvious opportunity for circular reference inside the resolver. However, applications are free to make multiple calls to the resolver if they wish, in which case it is the responsibility of the application to handle any circularities that arise.</p>
+
+        <p>Even so, catalog circularities may arise. Implementations should detect circularity, but it may be impractical or impossible in some circumstances. If a circularity is detected, it must be treated as an error. Applications may recover from this error by indicating to the calling application that no match was found.</p>
+
+        <p>Given the dynamic nature of resources on the internet, it may not always be possible for implementations to detect circular references. Failure to detect circularity of references is not a failure to conform to this specification.</p>
+      </div>
+    </div>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.xmlcat" id="s.xmlcat"></a>6.&#160;XML Catalog Entries</h2>
+        </div>
+      </div>
+
+      <p>Each catalog entry file consists of some number of catalog entries. Catalog entries are identified by the namespace name defined by this OASIS Standard.</p>
+
+      <p>Elements and attributes from other namespaces are allowed, but their semantics are not defined by this specification. Implementations that encounter an element from a namespace they do not recognize must ignore it. If an element is ignored, all of its descendants must also be ignored, regardless of their namespace.</p>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="attrib.common" id="attrib.common"></a>6.1.&#160;Common Attributes</h3>
+          </div>
+        </div>
+
+        <p>There are two attributes common to most elements: <code class="sgmltag-attribute">id</code> and <code class="sgmltag-attribute">xml:base</code>. The <code class="sgmltag-attribute">id</code> is provided so that individual entries can be uniquely identified; it has no impact on the semantics of the catalog as defined by this OASIS Standard. The <code class="sgmltag-attribute">xml:base</code> attribute changes the base URI for the entry on which it occurs (and all entries contained within it,
+        unless further modified by another <code class="sgmltag-attribute">xml:base</code> attribute). The semantics of <code class="sgmltag-attribute">xml:base</code> are normatively defined in [<a href="#xmlbase"><abbr class="abbrev">XML Base</abbr></a>].</p>
+
+        <p>All of the attributes defined by this OASIS Standard are in the per-element-type partition. Use of qualified attributes, for example, <code class="literal">&lt;cat:group cat:id="groupId"&gt;</code> instead of <code class="literal">&lt;cat:group id="groupId"&gt;</code> is forbidden.</p>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="pubid-norm" id="pubid-norm"></a>6.2.&#160;Public Identifier Normalization</h3>
+          </div>
+        </div>
+
+        <p>In order to accurately and interoperably compare public identifiers, catalog processors must perform normalization on public identifiers in <span class="emphasis"><em>both</em></span> the catalog and the input passed to them.</p>
+
+        <p>All strings of white space in public identifiers must be normalized to single space characters (#x20), and leading and trailing white space must be removed.</p>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="sysid-norm" id="sysid-norm"></a>6.3.&#160;System Identifier and URI Normalization</h3>
+          </div>
+        </div>
+
+        <p>In order to accurately and interoperably compare system identifiers and URI references, catalog processors must perform normalization. The normalization described in this section must be performed on system identifiers and URI references passed as input to the resolver and on strings in the catalog that are compared to them.</p>
+
+        <p>URI references require encoding and escaping of certain characters. The disallowed characters include all non-ASCII characters, plus the excluded characters listed in Section 2.4 of [<a href="#rfc2396"><abbr class="abbrev">RFC 2396</abbr></a>], except for the number sign (#) and percent sign (%) characters and the square bracket characters re-allowed in [<a href="#rfc2732"><abbr class="abbrev">RFC 2732</abbr></a>]. These characters are summarized in <a href="#tab.excluded.chars" title=
+        "Table&#160;1.&#160;Excluded US-ASCII Characters">Table&#160;1, &#8220;Excluded US-ASCII Characters&#8221;</a>.</p>
+
+        <div class="table">
+          <a name="tab.excluded.chars" id="tab.excluded.chars"></a>
+
+          <p class="title"><b>Table&#160;1.&#160;Excluded US-ASCII Characters</b></p>
+
+          <table summary="Excluded US-ASCII Characters" border="0" style="border-collapse: collapse;">
+            <colgroup>
+              <col width="72" align="center">
+              <col width="72" align="center">
+              <col width="72" align="center">
+              <col width="72" align="center">
+              <col width="72" align="center">
+              <col width="72" align="center">
+            </colgroup>
+
+            <thead>
+              <tr>
+                <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">Hex Value</th>
+
+                <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">Character</th>
+
+                <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">Hex Value</th>
+
+                <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">Character</th>
+
+                <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">Hex Value</th>
+
+                <th style="border-bottom: 0.5pt solid ;" align="center">Character</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">00</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">NUL</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">0F</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">SI</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">1E</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">RS</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">01</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">SOH</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">10</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">DLE</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">1F</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">US</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">02</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">STX</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">11</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">DC1</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">20</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">(space)</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">03</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">ETX</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">12</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">DC2</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">22</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">"</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">04</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">EOT</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">13</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">DC3</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">3C</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">&lt;</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">05</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">ENQ</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">14</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">DC4</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">3E</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">&gt;</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">06</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">ACK</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">15</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">NAK</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">5C</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">\</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">07</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">BEL</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">16</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">SYN</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">5E</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">^</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">08</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">BS</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">17</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">ETB</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">60</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">`</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">09</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">HT</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">18</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">CAN</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">7B</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">{</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">0A</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">LF</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">19</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">EM</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">7C</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">|</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">0B</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">VT</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">1A</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">SUB</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">7D</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">}</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">0C</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">FF</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">1B</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">ESC</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">7F</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">DEL</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">0D</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">CR</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">1C</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">FS</td>
+
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">&#160;</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">&#160;</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ;" align="center">0E</td>
+
+                <td style="border-right: 0.5pt solid ;" align="center">SO</td>
+
+                <td style="border-right: 0.5pt solid ;" align="center">1D</td>
+
+                <td style="border-right: 0.5pt solid ;" align="center">GS</td>
+
+                <td style="border-right: 0.5pt solid ;" align="center">&#160;</td>
+
+                <td style="" align="center">&#160;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Catalog processors must escape disallowed characters as follows:</p>
+
+        <div class="orderedlist">
+          <ol type="1">
+            <li>
+              <p>Each disallowed character is converted to UTF-8 [<a href="#rfc2279"><abbr class="abbrev">RFC 2279</abbr></a>] as one or more bytes.</p>
+            </li>
+
+            <li>
+              <p>Any octets corresponding to a disallowed character are escaped with the URI escaping mechanism (that is, converted to %HH, where HH is the hexadecimal notation of the octet value). If escaping must be performed, uppercase hexadecimal characters should be used.</p>
+            </li>
+
+            <li>
+              <p>The original character is replaced by the resulting character sequence.</p>
+            </li>
+          </ol>
+        </div>
+
+        <p>Note that this normalization process is idempotent: repeated normalization does not change a normalized URI reference.</p>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="urn-unwrap" id="urn-unwrap"></a>6.4.&#160;URN "Unwrapping"</h3>
+          </div>
+        </div>
+
+        <p>This OASIS Standard requires processors to implement special treatment of URNs in the <code class="literal">publicid</code> URN Namespace ([<a href="#rfc3151"><abbr class="abbrev">RFC 3151</abbr></a>]).</p>
+
+        <p>URNs of this form must, in some contexts, be "unwrapped" by the Catalog processor. This unwrapping translates the URN form of the public identifier back into the standard ISO 8879 form for the purposes of subsequent catalog processing.</p>
+
+        <p>Unwrapping a <code class="literal">urn:publicid:</code> URN is accomplished by transcribing characters in the URN according to the following table after discarding the leading <code class="literal">urn:publicid:</code> string:</p>
+
+        <div class="informaltable">
+          <table summary="URN to Public Identifer transcription table" border="0" style="border-collapse: collapse;">
+            <colgroup>
+              <col width="96" align="center">
+              <col width="96" align="center">
+            </colgroup>
+
+            <thead>
+              <tr>
+                <th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">URN Characters</th>
+
+                <th style="border-bottom: 0.5pt solid ;" align="center">Public Identifier Characters</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">+</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">" " (space)</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">:</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">//</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">;</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">::</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">%2B</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">+</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">%3A</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">:</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">%2F</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">/</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">%3B</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">;</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">%27</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">'</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">%3F</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">?</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">%23</td>
+
+                <td style="border-bottom: 0.5pt solid ;" align="center">#</td>
+              </tr>
+
+              <tr>
+                <td style="border-right: 0.5pt solid ;" align="center">%25</td>
+
+                <td style="" align="center">%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>For example, the following URN in the <code class="literal">publicid</code> namespace:</p>
+        <pre class="literallayout">
+urn:publicid:-:OASIS:DTD+DocBook+XML+V4.1.2:EN
+</pre>
+
+        <p>Represents the public identifier:</p>
+        <pre class="literallayout">
+-//OASIS//DTD DocBook XML V4.1.2//EN
+</pre>
+
+        <p>URNs in the <code class="literal">publicid</code> namespace should always represent normalized public identifiers (<a href="#pubid-norm" title="6.2.&#160;Public Identifier Normalization">Section&#160;6.2, &#8220;Public Identifier Normalization&#8221;</a>). In the event that an unwrapped public identifier is not normalized, the catalog processor must normalize it.</p>
+
+        <p>URNs in the <code class="literal">publicid</code> namespace are intended for use in documents. Since the resolver is required to unwrap them before searching the catalog, they should never be used literally in the catalog. (Nothing will ever match them.)</p>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.elements" id="s.elements"></a>6.5.&#160;Catalog Elements</h3>
+          </div>
+        </div>
+
+        <p>The root element of a catalog entry file is <code class="sgmltag-element">catalog</code>. There are twelve other element types: <code class="sgmltag-element">group</code>, <code class="sgmltag-element">public</code>, <code class="sgmltag-element">system</code>, <code class="sgmltag-element">rewriteSystem</code>, <code class="sgmltag-element">systemSuffix</code>, <code class="sgmltag-element">delegatePublic</code>, <code class="sgmltag-element">delegateSystem</code>, <code class=
+        "sgmltag-element">rewriteURI</code>, <code class="sgmltag-element">delegateURI</code>, <code class="sgmltag-element">uri</code>, <code class="sgmltag-element">uriSuffix</code>, and <code class="sgmltag-element">nextCatalog</code>. Each of these element types is described in one of the following sections.</p>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.catalog" id="s.catalog"></a>6.5.1.&#160;The <code class="sgmltag-element">catalog</code> Entry</h4>
+            </div>
+          </div>
+
+          <p>Each XML Catalog entry file consists of a single <code class="sgmltag-element">catalog</code> element. This element may set the global <code class="sgmltag-attribute">prefer</code> value and global base URI. It is otherwise just a container for the other elements.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-catalog" id="element-catalog"></a><code>&lt;catalog<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;prefer = "system" | "public"<br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&gt;<br>
+              &#160;&#160;&lt;!-- Content: (<a href="#element-group">group</a> | <a href="#element-public">public</a> | <a href="#element-system">system</a> | <a href="#element-rewriteSystem">rewriteSystem</a> | <a href="#element-systemSuffix">systemSuffix</a> | <a href="#element-delegatePublic">delegatePublic</a> | <a href="#element-delegateSystem">delegateSystem</a> | <a href="#element-uri">uri</a> | <a href="#element-rewriteURI">rewriteURI</a> | <a href="#element-uriSuffix">uriSuffix</a> | <a href=
+              "#element-delegateURI">delegateURI</a> | <a href="#element-nextCatalog">nextCatalog</a>)+ --&gt;<br>
+              &lt;/catalog&gt;</code></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.group" id="s.group"></a>6.5.2.&#160;The <code class="sgmltag-element">group</code> Entry</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">group</code> element is a convenience wrapper for specifying a <code class="sgmltag-attribute">prefer</code> setting or base URI for a set of catalog entries. It has no semantics other than scoping these settings.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-group" id="element-group"></a><code>&lt;group<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;prefer = "system" | "public"<br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&gt;<br>
+              &#160;&#160;&lt;!-- Content: (<a href="#element-public">public</a> | <a href="#element-system">system</a> | <a href="#element-rewriteSystem">rewriteSystem</a> | <a href="#element-systemSuffix">systemSuffix</a> | <a href="#element-delegatePublic">delegatePublic</a> | <a href="#element-delegateSystem">delegateSystem</a> | <a href="#element-uri">uri</a> | <a href="#element-rewriteURI">rewriteURI</a> | <a href="#element-uriSuffix">uriSuffix</a> | <a href="#element-delegateURI">delegateURI</a> |
+              <a href="#element-nextCatalog">nextCatalog</a>)+ --&gt;<br>
+              &lt;/group&gt;</code></td>
+            </tr>
+          </table>
+
+          <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+            <h3 class="title">Note</h3>
+
+            <p>The ability to scope the <code class="sgmltag-attribute">prefer</code> and and base URI settings is required in order to reasonably translate existing [<a href="#tr9401"><abbr class="abbrev">TR 9401</abbr></a>] catalogs into XML Catalogs.</p>
+          </div>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.public" id="s.public"></a>6.5.3.&#160;The <code class="sgmltag-element">public</code> Entry</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">public</code> element associates a URI reference with the <em class="glossterm">public identifier</em> portion of an <em class="glossterm">external identifier</em>.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-public" id="element-public"></a><code>&lt;public<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>publicId</b> = <var>public-identifier</var><br>
+              &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">public</code> entry matches a public identifier if the normalized value (<a href="#pubid-norm" title="6.2.&#160;Public Identifier Normalization">Section&#160;6.2, &#8220;Public Identifier Normalization&#8221;</a>) of the public identifier is lexically identical to the normalized value of the <code class="sgmltag-attribute">publicId</code> attribute of the entry.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">uri</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect. The URI reference should not include a fragment identifier.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.system" id="s.system"></a>6.5.4.&#160;The <code class="sgmltag-element">system</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">system</code> element associates a URI reference with the <em class="glossterm">system identifier</em> portion of an <em class="glossterm">external identifier</em>.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-system" id="element-system"></a><code>&lt;system<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>systemId</b> = <var>string</var><br>
+              &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">system</code> entry matches a system identifier if the normalized value (<a href="#sysid-norm" title="6.3.&#160;System Identifier and URI Normalization">Section&#160;6.3, &#8220;System Identifier and URI Normalization&#8221;</a>) of the system identifier is lexically identical to the normalized value of the <code class="sgmltag-attribute">systemId</code> attribute of the entry.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">uri</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect. The URI reference should not include a fragment identifier.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.rewritesystem" id="s.rewritesystem"></a>6.5.5.&#160;The <code class="sgmltag-element">rewriteSystem</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">rewriteSystem</code> element rewrites the beginning of a system identifier.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-rewriteSystem" id="element-rewriteSystem"></a><code>&lt;rewriteSystem<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>systemIdStartString</b> = <var>string</var><br>
+              &#160;&#160;&#160;&#160;<b>rewritePrefix</b> = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">rewriteSystem</code> entry matches a system identifier if the normalized value (<a href="#sysid-norm" title="6.3.&#160;System Identifier and URI Normalization">Section&#160;6.3, &#8220;System Identifier and URI Normalization&#8221;</a>) of the system identifier begins precisely with the normalized value of the <code class="sgmltag-attribute">systemIdStartString</code> attribute of the entry.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">rewritePrefix</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect.</p>
+
+          <p>Rewriting removes the matching prefix from the supplied system identifier and replaces it with the value of the <code class="sgmltag-attribute">rewritePrefix</code> attribute, returning the entire URI with the new prefix.</p>
+
+          <p>If more than one <code class="sgmltag-element">rewriteSystem</code> entry matches, the matching entry with the longest normalized <code class="sgmltag-attribute">systemIdStartString</code> value is used.</p>
+
+          <p>Given the following catalog fragment:</p>
+          <pre class="programlisting">
+&lt;rewriteSystem systemIdStartString="http://www.oasis-open.org/"
+               rewritePrefix="file:///share/doctypes/oasis/"/&gt;
+&lt;rewriteSystem systemIdStartString="http://www.oasis-open.org/docbook/"
+               rewritePrefix="file:///sourceforge/docbook/docbook/"/&gt;
+&lt;rewriteSystem systemIdStartString="http://www.oasis-open.org/committees/"
+               rewritePrefix="file:///projects/oasis/"/&gt;
+</pre>
+
+          <p>The first two entries match the system identifier "<span class="quote">http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd</span>", but the third does not. The rewritten system identifier in this case is: "<span class="quote">file:///sourceforge/docbook/docbook/xml/4.1.2/docbookx.dtd</span>".</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.systemsuffix" id="s.systemsuffix"></a>6.5.6.&#160;The <code class="sgmltag-element">systemSuffix</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">systemSuffix</code> element associates a URI reference with the <span class="emphasis"><em>suffix</em></span> portion of a <span class="emphasis"><em>system identifier</em></span>.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-systemSuffix" id="element-systemSuffix"></a><code>&lt;systemSuffix<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>systemIdSuffix</b> = <var>string</var><br>
+              &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">systemSuffix</code> entry matches a system identifier if the normalized value (<a href="#sysid-norm" title="6.3.&#160;System Identifier and URI Normalization">Section&#160;6.3, &#8220;System Identifier and URI Normalization&#8221;</a>) of the system identifier ends precisely with the normalized value of the <code class="sgmltag-attribute">systemIdSuffix</code> attribute of the entry.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">uri</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect. The URI reference should not include a fragment identifier.</p>
+
+          <p>If more than one <code class="sgmltag-element">systemSuffix</code> entry matches, the matching entry with the longest normalized <code class="sgmltag-attribute">systemIdSuffix</code> value is used.</p>
+
+          <p>Given the following catalog fragment:</p>
+          <pre class="programlisting">
+&lt;systemSuffix systemIdSuffix="docbookx.dtd"
+              uri="file:///share/doctypes/xml/4.4/docbookx.dtd"/&gt;
+&lt;systemSuffix systemIdSuffix="4.3/docbookx.dtd"
+              uri="file:///share/doctypes/xml/4.3/docbookx.dtd"/&gt;
+</pre>
+
+          <p>The first entry matches the system identifier "<span class="quote">file:/C|/local/docbookx.dtd</span>" but the second matches "<span class="quote">file:/C|/local/backup/4.3/docbookx.dtd</span>" because &#8220;<code class="literal">4.3/docbookx.dtd</code>&#8221; is the longer suffix.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.delegatepublic" id="s.delegatepublic"></a>6.5.7.&#160;The <code class="sgmltag-element">delegatePublic</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">delegatePublic</code> element associates an alternate catalog with a partial public identifier.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-delegatePublic" id="element-delegatePublic"></a><code>&lt;delegatePublic<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>publicIdStartString</b> = <var>public-identifier-prefix</var><br>
+              &#160;&#160;&#160;&#160;<b>catalog</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">delegatePublic</code> entry matches a public identifier if the normalized value (<a href="#pubid-norm" title="6.2.&#160;Public Identifier Normalization">Section&#160;6.2, &#8220;Public Identifier Normalization&#8221;</a>) of the public identifier begins precisely with the normalized value of the <code class="sgmltag-attribute">publicIdStartString</code> attribute of the entry.</p>
+
+          <p>Given the following catalog fragment:</p>
+          <pre class="programlisting">
+&lt;delegatePublic publicIdStartString="-//OASIS//"
+                catalog="http://www.oasis-open.org/catalog"/&gt;
+&lt;delegatePublic publicIdStartString="-//OASIS//DTD DocBook "
+                catalog="http://www.oasis-open.org/docbook/catalog"/&gt;
+&lt;delegatePublic publicIdStartString="-//OASIS//DTD XML Catalog //"
+                catalog="http://www.oasis-open.org/committees/entity/catalog"/&gt;
+</pre>
+
+          <p>The first two entries match the public identifier "<span class="quote">-//OASIS//DTD DocBook V4.1.2//EN</span>", but the third does not.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">catalog</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.delegatesystem" id="s.delegatesystem"></a>6.5.8.&#160;The <code class="sgmltag-element">delegateSystem</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">delegateSystem</code> element associates an alternate catalog with a partial system identifier.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-delegateSystem" id="element-delegateSystem"></a><code>&lt;delegateSystem<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>systemIdStartString</b> = <var>string</var><br>
+              &#160;&#160;&#160;&#160;<b>catalog</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">delegateSystem</code> entry matches a system identifier if the normalized value (<a href="#sysid-norm" title="6.3.&#160;System Identifier and URI Normalization">Section&#160;6.3, &#8220;System Identifier and URI Normalization&#8221;</a>) of the system identifier begins precisely with the normalized value of the <code class="sgmltag-attribute">systemIdStartString</code> attribute of the entry.</p>
+
+          <p>Given the following catalog fragment:</p>
+          <pre class="programlisting">
+&lt;delegateSystem systemIdStartString="http://www.oasis-open.org/"
+                catalog="http://www.oasis-open.org/catalog"/&gt;
+&lt;delegateSystem systemIdStartString="http://www.oasis-open.org/docbook/"
+                catalog="http://www.oasis-open.org/docbook/catalog"/&gt;
+&lt;delegatePublic publicIdStartString="http://www.oasis-open.org/committees/"
+                catalog="http://www.oasis-open.org/committees/catalog"/&gt;
+</pre>
+
+          <p>The first two entries match the system identifier "<span class="quote">http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd</span>", but the third does not.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">catalog</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.uri" id="s.uri"></a>6.5.9.&#160;The <code class="sgmltag-element">uri</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">uri</code> element associates an alternate URI reference with a URI reference that is not part of an <em class="glossterm">external identifier</em>.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-uri" id="element-uri"></a><code>&lt;uri<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>name</b> = <var>string</var><br>
+              &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">uri</code> entry matches a URI reference if the normalized value (<a href="#sysid-norm" title="6.3.&#160;System Identifier and URI Normalization">Section&#160;6.3, &#8220;System Identifier and URI Normalization&#8221;</a>) of the URI reference is lexically identical to the normalized value of the <code class="sgmltag-attribute">name</code> attribute of the entry.</p>
+
+          <p>Given the following catalog fragment:</p>
+          <pre class="programlisting">
+&lt;uri name="http://www.oasis-open.org/committees/docbook/#membership"
+          uri="file:///projects/oasis/docbook/website/#membership"/&gt;
+&lt;uri name="http://www.oasis-open.org/committees/docbook/"
+          uri="file:///projects/oasis/docbook/website/"/&gt;
+</pre>
+
+          <p>The second entry matches the URI reference "<span class="quote">http://www.oasis-open.org/committees/docbook/</span>", but the first does not.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">uri</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.rewriteuri" id="s.rewriteuri"></a>6.5.10.&#160;The <code class="sgmltag-element">rewriteURI</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">rewriteURI</code> element rewrites the beginning of a URI reference that is not part of an <em class="glossterm">external identifier</em>.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-rewriteURI" id="element-rewriteURI"></a><code>&lt;rewriteURI<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>uriStartString</b> = <var>string</var><br>
+              &#160;&#160;&#160;&#160;<b>rewritePrefix</b> = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">rewriteURI</code> entry matches a URI reference if the normalized value (<a href="#sysid-norm" title="6.3.&#160;System Identifier and URI Normalization">Section&#160;6.3, &#8220;System Identifier and URI Normalization&#8221;</a>) of the URI reference begins precisely with the normalized value of the <code class="sgmltag-attribute">uriStartString</code> attribute of the entry.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">rewritePrefix</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect.</p>
+
+          <p>Rewriting removes the matching prefix from the supplied URI reference and replaces it with the value of the value of the <code class="sgmltag-attribute">rewritePrefix</code> attribute.</p>
+
+          <p>If more than one <code class="sgmltag-element">rewriteURI</code> entry matches, the matching entry with the longest normalized <code class="sgmltag-attribute">uriStartString</code> value is used.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.urisuffix" id="s.urisuffix"></a>6.5.11.&#160;The <code class="sgmltag-element">uriSuffix</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">uriSuffix</code> element associates a URI reference with the <span class="emphasis"><em>suffix</em></span> portion of a URI reference that is not part of an <span class="emphasis"><em>external identifier</em></span>.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-uriSuffix" id="element-uriSuffix"></a><code>&lt;uriSuffix<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>uriSuffix</b> = <var>string</var><br>
+              &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">uriSuffix</code> entry matches a URI if the normalized value (<a href="#sysid-norm" title="6.3.&#160;System Identifier and URI Normalization">Section&#160;6.3, &#8220;System Identifier and URI Normalization&#8221;</a>) of the URI ends precisely with the normalized value of the <code class="sgmltag-attribute">uriSuffix</code> attribute of the entry.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">uri</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect.</p>
+
+          <p>If more than one <code class="sgmltag-element">uriSuffix</code> entry matches, the matching entry with the longest normalized <code class="sgmltag-attribute">uriSuffix</code> value is used.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.delegateuri" id="s.delegateuri"></a>6.5.12.&#160;The <code class="sgmltag-element">delegateURI</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">delegateURI</code> element associates an alternate catalog with a partial URI reference.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-delegateURI" id="element-delegateURI"></a><code>&lt;delegateURI<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>uriStartString</b> = <var>string</var><br>
+              &#160;&#160;&#160;&#160;<b>catalog</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>A <code class="sgmltag-element">delegateURI</code> entry matches a URI reference if the normalized value (<a href="#sysid-norm" title="6.3.&#160;System Identifier and URI Normalization">Section&#160;6.3, &#8220;System Identifier and URI Normalization&#8221;</a>) of the URI reference begins precisely with the normalized value of the <code class="sgmltag-attribute">uriStartString</code> attribute of the entry.</p>
+
+          <p>If the value of the <code class="sgmltag-attribute">catalog</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.nextcatalog" id="s.nextcatalog"></a>6.5.13.&#160;The <code class="sgmltag-element">nextCatalog</code> Element</h4>
+            </div>
+          </div>
+
+          <p>The <code class="sgmltag-element">nextCatalog</code> elements indicate additional catalog entry file(s) to be considered during the process of resolution.</p>
+
+          <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+            <tr>
+              <td><a name="element-nextCatalog" id="element-nextCatalog"></a><code>&lt;nextCatalog<br>
+              &#160;&#160;&#160;&#160;id = <var>id</var><br>
+              &#160;&#160;&#160;&#160;<b>catalog</b> = <var>uri-reference</var><br>
+              &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+            </tr>
+          </table>
+
+          <p>If the value of the <code class="sgmltag-attribute">catalog</code> attribute is relative, it must be made absolute with respect to the base URI currently in effect.</p>
+
+          <p>Catalogs loaded due to a <code class="sgmltag-element">nextCatalog</code> directive have an initial base URI that is dependent on the location of the loaded catalog entry file. No <code class="sgmltag-attribute">xml:base</code> information is inherited from the originating catalog.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.semantics" id="s.semantics"></a>7.&#160;Catalog Resolution Semantics</h2>
+        </div>
+      </div>
+
+      <p>This section describes how catalog resolution is performed.</p>
+
+      <p>Resolution begins with a list of catalog entry files and <span class="emphasis"><em>either</em></span> an external identifier <span class="emphasis"><em>or</em></span> a URI reference.</p>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.ext.res" id="s.ext.res"></a>7.1.&#160;External Identifier Resolution</h3>
+          </div>
+        </div>
+
+        <p>This section describes how catalog entries are used to resolve external identifiers.</p>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.ext.input" id="s.ext.input"></a>7.1.1.&#160;Input to the Resolver</h4>
+            </div>
+          </div>
+
+          <p>An external identifier will have at least one and perhaps both of the following:</p>
+
+          <div class="orderedlist">
+            <ol type="1">
+              <li>
+                <p>a public identifier</p>
+              </li>
+
+              <li>
+                <p>a system identifier</p>
+              </li>
+            </ol>
+          </div>
+
+          <p>Resolvers should respect the system identifiers provided by authors. If the system part of the external identifier is relative, resolution should use that relative URI as the system identifier. If resolution with the relative form fails, it's reasonable for resolvers to try again using the absolute form.</p>
+
+          <p>If the public identifier is a URN in the <code class="literal">publicid</code> namespace ([<a href="#rfc3151"><abbr class="abbrev">RFC 3151</abbr></a>]), it is converted into another public identifier by "<span class="quote">unwrapping</span>" the URN (<a href="#urn-unwrap" title="6.4.&#160;URN &quot;Unwrapping&quot;">Section&#160;6.4, &#8220;URN "Unwrapping"&#8221;</a>). This may be done, for example, so that a URN can be specified as the public identifier and a URL as the system identifier,
+          in the absence of widely deployed URN-resolution facilities.</p>
+
+          <p>If the system identifier is a URN in the <code class="literal">publicid</code> namespace, it is converted into a public identifier by "<span class="quote">unwrapping</span>" the URN. In this case, one of the following must apply:</p>
+
+          <div class="orderedlist">
+            <ol type="1">
+              <li>
+                <p>No public identifier was provided. Resolution continues as if the public identifier constructed by unwrapping the URN was supplied as the original public identifier and no system identifier was provided.</p>
+              </li>
+
+              <li>
+                <p>The normalized public identifier provided is lexically identical to the public identifier constructed by unwrapping the URN. Resolution continues as if the system identifier had not been supplied.</p>
+              </li>
+
+              <li>
+                <p>The normalized public identifier provided is different from the public identifier constructed by unwrapping the URN. This is an error. Applications may recover from this error by discarding the system identifier and proceeding with the original public identifier.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.ext.resx" id="s.ext.resx"></a>7.1.2.&#160;Resolution of External Identifiers</h4>
+            </div>
+          </div>
+
+          <p>Resolution follows the steps listed below, proceeding to each subsequent step if and only if no other action is indicated.</p>
+
+          <div class="orderedlist">
+            <ol type="1">
+              <li>
+                <p>Resolution begins in the first catalog entry file in the current catalog entry file list.</p>
+              </li>
+
+              <li>
+                <p>If a system identifier is provided, and at least one matching <code class="sgmltag-element">system</code> entry exists, the (absolutized) value of the <code class="sgmltag-attribute">uri</code> attribute of the first matching <code class="sgmltag-element">system</code> entry is returned.</p>
+              </li>
+
+              <li>
+                <p>If a system identifier is provided, and at least one matching <code class="sgmltag-element">rewriteSystem</code> entry exists, rewriting is performed.</p>
+
+                <p>If more than one <code class="sgmltag-element">rewriteSystem</code> entry matches, the matching entry with the longest normalized <code class="sgmltag-attribute">systemIdStartString</code> value is used.</p>
+
+                <p>Rewriting removes the matching prefix and replaces it with the rewrite prefix identified by the matching <code class="sgmltag-element">rewriteSystem</code> entry. The rewritten string is returned.</p>
+              </li>
+
+              <li>
+                <p>If a system identifier is provided, and at least one matching <code class="sgmltag-element">systemSuffix</code> entry exists, the (absolutized) value of the <code class="sgmltag-attribute">uri</code> attribute of the matching entry with the longest normalized <code class="sgmltag-attribute">systemIdSuffix</code> value is returned.</p>
+              </li>
+
+              <li>
+                <p>If a system identifier is provided, and one or more <code class="sgmltag-element">delegateSystem</code> entries match, delegation is performed.</p>
+
+                <p>If delegation is to be performed, a new catalog entry file list is generated from the set of all matching <code class="sgmltag-element">delegateSystem</code> entries. The (absolutized) value of the <code class="sgmltag-attribute">catalog</code> attribute of each matching <code class="sgmltag-element">delegateSystem</code> entry is inserted into the new catalog entry file list such that the delegate entry with the longest matching <code class="sgmltag-attribute">systemIdStartString</code>
+                is first on the list, the entry with the second longest match is second, etc.</p>
+
+                <p>These are the only catalog entry files on the list, the current list is not considered for the purpose of delegation. If delegation fails to find a match, resolution for this entity does not resume with the current list. (A subsequent resolution attempt for a different entity begins with the original list; in other words the catalog entry file list used for delegation is distinct and unrelated to the "<span class="quote">normal</span>" catalog entry file list.)</p>
+
+                <p>Catalog resolution restarts using exclusively the catalog entry files in this new list and the given system identifier; any originally given public identifier is ignored during the remainder of the resolution of this external identifier: return to step 1.</p>
+              </li>
+
+              <li>
+                <p>If a public identifier is provided, and at least one matching <code class="sgmltag-element">public</code> entry exists, the (absolutized) value of the <code class="sgmltag-attribute">uri</code> attribute of the first matching <code class="sgmltag-element">public</code> entry is returned. If a system identifier is also provided as part of the input to this catalog lookup, only <code class="sgmltag-element">public</code> entries that occur where the <code class=
+                "sgmltag-attribute">prefer</code> setting is <code class="sgmltag-attvalue">public</code> are considered for matching.</p>
+              </li>
+
+              <li>
+                <p>If a public identifier is provided, and one or more <code class="sgmltag-element">delegatePublic</code> entries match, delegation is performed. If a system identifier is also provided as part of the input to this catalog lookup, only <code class="sgmltag-element">delegatePublic</code> entries that occur where the <code class="sgmltag-attribute">prefer</code> setting is <code class="sgmltag-attvalue">public</code> are considered for matching.</p>
+
+                <p>If delegation is to be performed, a new catalog entry file list is generated from the set of all matching <code class="sgmltag-element">delegatePublic</code> entries. The value of the <code class="sgmltag-attribute">catalog</code> attribute of each matching <code class="sgmltag-element">delegatePublic</code> entry is inserted into the new catalog entry file list such that the delegate entry with the longest matching <code class="sgmltag-attribute">publicIdStartString</code> is first on
+                the list, the entry with the second longest match is second, etc.</p>
+
+                <p>These are the only catalog entry files on the list, the current list is not considered for the purpose of delegation. If delegation fails to find a match, resolution for this entity does not resume with the current list. (A subsequent resolution attempt for a different entity begins with the original list; in other words the catalog entry file list used for delegation is distinct and unrelated to the "<span class="quote">normal</span>" catalog entry file list.)</p>
+
+                <p>Catalog resolution restarts using exclusively the catalog entry files in this new list and the given public identifier; any originally given system identifier is ignored during the remainder of the resolution of this external identifier: return to step 1.</p>
+              </li>
+
+              <li>
+                <p>If the current catalog entry file contains one or more <code class="sgmltag-element">nextCatalog</code> entries, the catalog entry files referenced by each <code class="sgmltag-element">nextCatalog</code> entry's "<span class="quote">catalog</span>" attribute are inserted, in the order that they appear in this catalog entry file, onto the current catalog entry file list, immediately after the current catalog entry file.</p>
+              </li>
+
+              <li>
+                <p>If there are one or more catalog entry files remaining on the current catalog entry file list, load the next catalog entry file and continue resolution efforts: return to step 2.</p>
+              </li>
+
+              <li>
+                <p>Indicate to the calling application that no match was found.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.uri.res" id="s.uri.res"></a>7.2.&#160;URI Resolution</h3>
+          </div>
+        </div>
+
+        <p>This section describes how catalog entries are used to resolve URI references.</p>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.uri.input" id="s.uri.input"></a>7.2.1.&#160;Input to the Resolver</h4>
+            </div>
+          </div>
+
+          <p>URI reference resolution always begins with a single URI reference.</p>
+
+          <p>Resolvers should respect the URI references provided by authors. If the URI is relative, resolution should use that relative URI. If resolution with the relative form fails, it's reasonable for resolvers to try again using the absolute form.</p>
+
+          <p>If the URI reference is a URN in the <code class="literal">publicid</code> namespace ([<a href="#rfc3151"><abbr class="abbrev">RFC 3151</abbr></a>]), it is converted into a public identifier by "<span class="quote">unwrapping</span>" the URN (<a href="#urn-unwrap" title="6.4.&#160;URN &quot;Unwrapping&quot;">Section&#160;6.4, &#8220;URN "Unwrapping"&#8221;</a>). Resolution continues by following the semantics of external identifier resolution (<a href="#s.ext.res" title=
+          "7.1.&#160;External Identifier Resolution">Section&#160;7.1, &#8220;External Identifier Resolution&#8221;</a>) as if the public identifier constructed by unwrapping the URN had been provided and no system identifier had been provided. Otherwise, resolution of the URI reference proceeds according to the steps below.</p>
+        </div>
+
+        <div class="section" lang="en">
+          <div class="titlepage">
+            <div>
+              <h4 class="title"><a name="s.uri.resx" id="s.uri.resx"></a>7.2.2.&#160;Resolution of URI references</h4>
+            </div>
+          </div>
+
+          <p>Resolution of a generic URI reference follows the steps listed below, proceeding to each subsequent step if and only if no other action is indicated.</p>
+
+          <div class="orderedlist">
+            <ol type="1">
+              <li>
+                <p>Resolution begins in the first catalog entry file in the current catalog list.</p>
+              </li>
+
+              <li>
+                <p>If at least one matching <code class="sgmltag-element">uri</code> entry exists, the (absolutized) value of the <code class="sgmltag-attribute">uri</code> attribute of the first matching <code class="sgmltag-element">uri</code> entry is returned.</p>
+              </li>
+
+              <li>
+                <p>If at least one matching <code class="sgmltag-element">rewriteURI</code> entry exists, rewriting is performed.</p>
+
+                <p>If more than one <code class="sgmltag-element">rewriteURI</code> entry matches, the matching entry with the longest normalized <code class="sgmltag-attribute">uriStartString</code> value is used.</p>
+
+                <p>Rewriting removes the matching prefix and replaces it with the rewrite prefix identified by the matching <code class="sgmltag-element">rewriteURI</code> entry. The rewritten string is returned.</p>
+              </li>
+
+              <li>
+                <p>If at least one matching <code class="sgmltag-element">uriSuffix</code> entry exists, the (absolutized) value of the <code class="sgmltag-attribute">uri</code> attribute of the matching entry with the longest normalized <code class="sgmltag-attribute">uriSuffix</code> value is returned.</p>
+              </li>
+
+              <li>
+                <p>If one or more <code class="sgmltag-element">delegateURI</code> entries match, delegation is performed.</p>
+
+                <p>If delegation is to be performed, a new catalog entry file list is generated from the set of all matching <code class="sgmltag-element">delegateURI</code> entries. The (absolutized) value of the <code class="sgmltag-attribute">catalog</code> attribute of each matching <code class="sgmltag-element">delegateURI</code> entry is inserted into the new catalog entry file list such that the delegate entry with the longest matching <code class="sgmltag-attribute">uriStartString</code> is first
+                on the list, the entry with the second longest match is second, etc.</p>
+
+                <p>These are the only catalog entry files on the list, the current list is not considered for the purpose of delegation. If delegation fails to find a match, resolution for this entity does not resume with the current list. (A subsequent resolution attempt for a different entity begins with the original list; in other words the catalog entry file list used for delegation is distinct and unrelated to the "<span class="quote">normal</span>" catalog entry file list.)</p>
+
+                <p>Catalog resolution restarts using exclusively the catalog entry files in this new list and the given URI reference: return to step 1.</p>
+              </li>
+
+              <li>
+                <p>If the current catalog entry file contains one or more <code class="sgmltag-element">nextCatalog</code> entries, the catalog entry files referenced by each <code class="sgmltag-element">nextCatalog</code> entry's "<span class="quote">catalog</span>" attribute are inserted, in the order that they appear in this catalog entry file, onto the current catalog entry file list, immediately after the current catalog entry file.</p>
+              </li>
+
+              <li>
+                <p>If there are one or more catalog entry files remaining on the current catalog entry file list, load the next catalog entry file and continue resolution efforts: return to step 2.</p>
+              </li>
+
+              <li>
+                <p>Indicate to the calling application that no match was found.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.res.fail" id="s.res.fail"></a>8.&#160;Resource Failures</h2>
+        </div>
+      </div>
+
+      <p>The catalog processor is sometimes required to load a catalog entry file. This may occur at the beginning of processing, when dealing with the initial list of catalog entry files, or during subsequent processing of a <code class="sgmltag-element">nextCatalog</code> entry or one of the delegate entries.</p>
+
+      <p>If the processor attempts to load a resource and fails (because the resource does not exist or is not reachable, for example), it must recover by ignoring the catalog entry file that failed and proceeding.</p>
+
+      <p>Similarly, if the resource retrieved is not an understandable catalog (because it is not in a format that the processor recognizes, or it purports to be XML but is not well-formed, or for any other reason), the processor must recover by responding as if the resource could not be loaded.</p>
+
+      <p>In order for a resource to be considered an XML Catalog, the following conditions must hold:</p>
+
+      <div class="orderedlist">
+        <ol type="1">
+          <li>
+            <p>The resource retrieved must be well-formed [<a href="#xml-rec"><abbr class="abbrev">XML</abbr></a>] consistent with [<a href="#xml-names"><abbr class="abbrev">XML Namespaces</abbr></a>].</p>
+          </li>
+
+          <li>
+            <p>The root element must be <code class="sgmltag-element">catalog</code>.</p>
+          </li>
+
+          <li>
+            <p>The namespace name of the root element must be <code class="literal">urn:oasis:names:tc:entity:xmlns:xml:catalog</code>.</p>
+          </li>
+        </ol>
+      </div>
+
+      <p>It is not an error for catalog processors to accept other forms of catalog documents, but their identification and specification is outside the scope of this OASIS Standard.</p>
+    </div>
+
+    <div class="section" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both"><a name="s.changes" id="s.changes"></a>9.&#160;Changes in XML Catalogs V1.1</h2>
+        </div>
+      </div>
+
+      <p><em class="citetitle">XML Catalogs Working Draft 1.1</em> differs from the previous <em class="citetitle">XML Catalogs Committee Specification 1.0</em> in only one significant way: it introduces <code class="sgmltag-element">systemSuffix</code> and <code class="sgmltag-element">uriSuffix</code> entries.</p>
+
+      <p>By design, XML Catalogs defined by this OASIS Standard use the same namespace name as <em class="citetitle">XML Catalogs Committee Specification 1.0</em>. Although additional elements have been defined, the semantics of all existing elements remain unchanged.</p>
+    </div>
+
+    <div class="appendix" lang="en">
+      <h2 class="title" style="clear: both"><a name="a.w3cxmlschema" id="a.w3cxmlschema"></a>A.&#160;A W3C XML Schema for the XML Catalog (Non-Normative)</h2>
+
+      <p>This [<a href="#xmlschema"><abbr class="abbrev">W3C XML Schema</abbr></a>] grammar defines the syntax for OASIS XML Catalog OASIS Standard entry files.</p>
+
+      <p>This grammar has the following identifier:</p>
+
+      <div class="itemizedlist">
+        <ul type="disc">
+          <li>
+            <p>System identifier: <code class="literal">http://www.oasis-open.org/committees/entity/release/1.1/catalog.xsd</code></p>
+          </li>
+        </ul>
+      </div>
+      <pre class="programlisting">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:er="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+           targetNamespace="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+           elementFormDefault="qualified"&gt;
+
+  &lt;!-- $Id: catalog.xsd,v 1.15 2005/10/07 13:27:08 ndw Exp $ --&gt;
+
+  &lt;xs:import namespace="http://www.w3.org/XML/1998/namespace"/&gt;
+
+  &lt;xs:simpleType name="pubIdChars"&gt;
+    &lt;!-- A string of the characters defined as pubIdChar in production 13
+         of the Second Edition of the XML 1.0 Recommendation. Does not include
+         the whitespace characters because they're normalized by XML parsing. --&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+      &lt;xs:pattern value="[a-zA-Z0-9\-'\(\)+,./:=?;!*#@$_%]*"/&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+
+  &lt;xs:simpleType name="publicIdentifier"&gt;
+    &lt;xs:restriction base="er:pubIdChars"/&gt;
+  &lt;/xs:simpleType&gt;
+
+  &lt;xs:simpleType name="partialPublicIdentifier"&gt;
+    &lt;xs:restriction base="er:pubIdChars"/&gt;
+  &lt;/xs:simpleType&gt;
+
+  &lt;xs:simpleType name="systemOrPublic"&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+      &lt;xs:enumeration value="system"/&gt;
+      &lt;xs:enumeration value="public"/&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+
+  &lt;!-- The global attribute xml:base is not explicitly declared; --&gt;
+  &lt;!-- it is allowed by the anyAttribute declarations. --&gt;
+
+  &lt;xs:complexType name="catalog"&gt;
+    &lt;xs:choice minOccurs="1" maxOccurs="unbounded"&gt;
+      &lt;xs:element ref="er:public"/&gt;
+      &lt;xs:element ref="er:system"/&gt;
+      &lt;xs:element ref="er:uri"/&gt;
+      &lt;xs:element ref="er:rewriteSystem"/&gt;
+      &lt;xs:element ref="er:rewriteURI"/&gt;
+      &lt;xs:element ref="er:uriSuffix"/&gt;
+      &lt;xs:element ref="er:systemSuffix"/&gt;
+      &lt;xs:element ref="er:delegatePublic"/&gt;
+      &lt;xs:element ref="er:delegateSystem"/&gt;
+      &lt;xs:element ref="er:delegateURI"/&gt;
+      &lt;xs:element ref="er:nextCatalog"/&gt;
+      &lt;xs:element ref="er:group"/&gt;
+      &lt;xs:any namespace="##other" processContents="skip"/&gt;
+    &lt;/xs:choice&gt;
+    &lt;xs:attribute name="id" type="xs:ID"/&gt;
+    &lt;xs:attribute name="prefer" type="er:systemOrPublic"/&gt;
+    &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="public"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="publicId" type="er:publicIdentifier"
+                       use="required"/&gt;
+        &lt;xs:attribute name="uri" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="system"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="systemId" type="xs:string"
+                       use="required"/&gt;
+        &lt;xs:attribute name="uri" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="uri"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="name" type="xs:anyURI"
+                       use="required"/&gt;
+        &lt;xs:attribute name="uri" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="rewriteSystem"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="systemIdStartString"
+                       type="xs:string"
+                       use="required"/&gt;
+        &lt;xs:attribute name="rewritePrefix" type="xs:string" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="rewriteURI"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="uriStartString"
+                       type="xs:string"
+                       use="required"/&gt;
+        &lt;xs:attribute name="rewritePrefix" type="xs:string" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="systemSuffix"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="systemIdSuffix"
+                       type="xs:string"
+                       use="required"/&gt;
+        &lt;xs:attribute name="uri" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="uriSuffix"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="uriSuffix"
+                       type="xs:string"
+                       use="required"/&gt;
+        &lt;xs:attribute name="uri" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="delegatePublic"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="publicIdStartString"
+                       type="er:partialPublicIdentifier"
+                       use="required"/&gt;
+        &lt;xs:attribute name="catalog" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="delegateSystem"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="systemIdStartString"
+                       type="xs:string"
+                       use="required"/&gt;
+        &lt;xs:attribute name="catalog" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="delegateURI"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="uriStartString"
+                       type="xs:string"
+                       use="required"/&gt;
+        &lt;xs:attribute name="catalog" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="nextCatalog"&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:restriction base="xs:anyType"&gt;
+        &lt;xs:attribute name="catalog" type="xs:anyURI" use="required"/&gt;
+        &lt;xs:attribute name="id" type="xs:ID"/&gt;
+        &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+      &lt;/xs:restriction&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="group"&gt;
+    &lt;xs:choice minOccurs="1" maxOccurs="unbounded"&gt;
+      &lt;xs:element ref="er:public"/&gt;
+      &lt;xs:element ref="er:system"/&gt;
+      &lt;xs:element ref="er:uri"/&gt;
+      &lt;xs:element ref="er:rewriteSystem"/&gt;
+      &lt;xs:element ref="er:rewriteURI"/&gt;
+      &lt;xs:element ref="er:uriSuffix"/&gt;
+      &lt;xs:element ref="er:systemSuffix"/&gt;
+      &lt;xs:element ref="er:delegatePublic"/&gt;
+      &lt;xs:element ref="er:delegateSystem"/&gt;
+      &lt;xs:element ref="er:delegateURI"/&gt;
+      &lt;xs:element ref="er:nextCatalog"/&gt;
+      &lt;xs:any namespace="##other" processContents="skip"/&gt;
+    &lt;/xs:choice&gt;
+    &lt;xs:attribute name="prefer" type="er:systemOrPublic"/&gt;
+    &lt;xs:attribute name="id" type="xs:ID"/&gt;
+    &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:element name="catalog" type="er:catalog"/&gt;
+  &lt;xs:element name="public" type="er:public"/&gt;
+  &lt;xs:element name="system" type="er:system"/&gt;
+  &lt;xs:element name="uri" type="er:uri"/&gt;
+  &lt;xs:element name="rewriteSystem" type="er:rewriteSystem"/&gt;
+  &lt;xs:element name="rewriteURI" type="er:rewriteURI"/&gt;
+  &lt;xs:element name="systemSuffix" type="er:systemSuffix"/&gt;
+  &lt;xs:element name="uriSuffix" type="er:uriSuffix"/&gt;
+  &lt;xs:element name="delegatePublic" type="er:delegatePublic"/&gt;
+  &lt;xs:element name="delegateSystem" type="er:delegateSystem"/&gt;
+  &lt;xs:element name="delegateURI" type="er:delegateURI"/&gt;
+  &lt;xs:element name="nextCatalog" type="er:nextCatalog"/&gt;
+  &lt;xs:element name="group" type="er:group"/&gt;
+
+&lt;/xs:schema&gt;
+</pre>
+    </div>
+
+    <div class="appendix" lang="en">
+      <h2 class="title" style="clear: both"><a name="a.relaxng" id="a.relaxng"></a>B.&#160;A RELAX NG Grammar for the XML Catalog (Non-Normative)</h2>
+
+      <p>This [<a href="#relaxng"><abbr class="abbrev">RELAX NG</abbr></a>] grammar defines the syntax for OASIS XML Catalog OASIS Standard entry files.</p>
+
+      <p>This grammar has the following identifier:</p>
+
+      <div class="itemizedlist">
+        <ul type="disc">
+          <li>
+            <p>System identifier: <code class="literal">http://www.oasis-open.org/committees/entity/release/1.1/catalog.rng</code></p>
+          </li>
+        </ul>
+      </div>
+      <pre class="programlisting">
+&lt;?xml version="1.0"?&gt;
+&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"&gt;
+
+  &lt;!-- $Id: catalog.rng,v 1.4 2005/02/25 18:54:25 ndw Exp $ --&gt;
+
+  &lt;start&gt;
+    &lt;choice&gt;
+      &lt;ref name="Catalog"/&gt;
+    &lt;/choice&gt;
+  &lt;/start&gt;
+
+  &lt;define name="pubIdChars"&gt;
+    &lt;data type="string"&gt;
+      &lt;param name="pattern"&gt;[a-zA-Z0-9\-'\(\)+,./:=?;!*#@$_% ]*&lt;/param&gt;
+    &lt;/data&gt;
+  &lt;/define&gt;
+
+  &lt;define name="publicIdentifier"&gt;
+    &lt;ref name="pubIdChars"/&gt;
+  &lt;/define&gt;
+
+  &lt;define name="partialPublicIdentifier"&gt;
+    &lt;ref name="pubIdChars"/&gt;
+  &lt;/define&gt;
+
+  &lt;define name="systemOrPublic"&gt;
+    &lt;choice&gt;
+      &lt;value&gt;system&lt;/value&gt;
+      &lt;value&gt;public&lt;/value&gt;
+    &lt;/choice&gt;
+  &lt;/define&gt;
+
+  &lt;define name="uriReference"&gt;
+    &lt;data type="anyURI"/&gt;
+  &lt;/define&gt;
+
+  &lt;define name="OptionalAttributes"&gt;
+    &lt;optional&gt;
+      &lt;attribute name="id"&gt;
+        &lt;data type="ID"/&gt;
+      &lt;/attribute&gt;
+    &lt;/optional&gt;
+    &lt;zeroOrMore&gt;
+      &lt;attribute&gt;
+        &lt;anyName&gt;
+          &lt;except&gt;
+            &lt;nsName ns=""/&gt;
+            &lt;nsName/&gt;
+           &lt;/except&gt;
+         &lt;/anyName&gt;
+      &lt;/attribute&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+
+  &lt;define name="PreferAttribute"&gt;
+    &lt;attribute name="prefer"&gt;
+      &lt;ref name="systemOrPublic"/&gt;
+    &lt;/attribute&gt;
+  &lt;/define&gt;
+
+  &lt;define name="Catalog"&gt;
+    &lt;element name="catalog"&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;optional&gt;
+        &lt;ref name="PreferAttribute"/&gt;
+      &lt;/optional&gt;
+      &lt;oneOrMore&gt;
+        &lt;choice&gt;
+          &lt;ref name="Group"/&gt;
+          &lt;ref name="Public"/&gt;
+          &lt;ref name="System"/&gt;
+          &lt;ref name="Uri"/&gt;
+          &lt;ref name="RewriteSystem"/&gt;
+          &lt;ref name="RewriteURI"/&gt;
+          &lt;ref name="SystemSuffix"/&gt;
+          &lt;ref name="UriSuffix"/&gt;
+          &lt;ref name="DelegatePublic"/&gt;
+          &lt;ref name="DelegateSystem"/&gt;
+          &lt;ref name="DelegateURI"/&gt;
+          &lt;ref name="NextCatalog"/&gt;
+          &lt;ref name="AnyOtherElement"/&gt;
+        &lt;/choice&gt;
+      &lt;/oneOrMore&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="Group"&gt;
+    &lt;element name="group"&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;optional&gt;
+        &lt;ref name="PreferAttribute"/&gt;
+      &lt;/optional&gt;
+      &lt;oneOrMore&gt;
+        &lt;choice&gt;
+          &lt;ref name="Public"/&gt;
+          &lt;ref name="System"/&gt;
+          &lt;ref name="Uri"/&gt;
+          &lt;ref name="RewriteSystem"/&gt;
+          &lt;ref name="RewriteURI"/&gt;
+          &lt;ref name="SystemSuffix"/&gt;
+          &lt;ref name="UriSuffix"/&gt;
+          &lt;ref name="DelegatePublic"/&gt;
+          &lt;ref name="DelegateSystem"/&gt;
+          &lt;ref name="DelegateURI"/&gt;
+          &lt;ref name="NextCatalog"/&gt;
+          &lt;ref name="AnyOtherElement"/&gt;
+        &lt;/choice&gt;
+      &lt;/oneOrMore&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="Public"&gt;
+    &lt;element name="public"&gt;
+      &lt;attribute name="publicId"&gt;
+        &lt;ref name="publicIdentifier"/&gt;
+      &lt;/attribute&gt;
+      &lt;attribute name="uri"&gt;
+        &lt;ref name="uriReference"/&gt;
+      &lt;/attribute&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="System"&gt;
+    &lt;element name="system"&gt;
+      &lt;attribute name="systemId"/&gt;
+      &lt;attribute name="uri"&gt;
+        &lt;ref name="uriReference"/&gt;
+      &lt;/attribute&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="Uri"&gt;
+    &lt;element name="uri"&gt;
+      &lt;attribute name="name"/&gt;
+      &lt;attribute name="uri"&gt;
+        &lt;ref name="uriReference"/&gt;
+      &lt;/attribute&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="RewriteSystem"&gt;
+    &lt;element name="rewriteSystem"&gt;
+      &lt;attribute name="systemIdStartString"/&gt;
+      &lt;attribute name="rewritePrefix"/&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="RewriteURI"&gt;
+    &lt;element name="rewriteURI"&gt;
+      &lt;attribute name="uriStartString"/&gt;
+      &lt;attribute name="rewritePrefix"/&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="SystemSuffix"&gt;
+    &lt;element name="systemSuffix"&gt;
+      &lt;attribute name="systemIdSuffix"/&gt;
+      &lt;attribute name="uri"&gt;
+        &lt;ref name="uriReference"/&gt;
+      &lt;/attribute&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="UriSuffix"&gt;
+    &lt;element name="uriSuffix"&gt;
+      &lt;attribute name="uriSuffix"/&gt;
+      &lt;attribute name="uri"&gt;
+        &lt;ref name="uriReference"/&gt;
+      &lt;/attribute&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="DelegatePublic"&gt;
+    &lt;element name="delegatePublic"&gt;
+      &lt;attribute name="publicIdStartString"/&gt;
+      &lt;attribute name="catalog"/&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="DelegateSystem"&gt;
+    &lt;element name="delegateSystem"&gt;
+      &lt;attribute name="systemIdStartString"/&gt;
+      &lt;attribute name="catalog"/&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="DelegateURI"&gt;
+    &lt;element name="delegateURI"&gt;
+      &lt;attribute name="uriStartString"/&gt;
+      &lt;attribute name="catalog"/&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="NextCatalog"&gt;
+    &lt;element name="nextCatalog"&gt;
+      &lt;attribute name="catalog"/&gt;
+      &lt;ref name="OptionalAttributes"/&gt;
+      &lt;empty/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+
+  &lt;define name="AnyOtherElement"&gt;
+    &lt;element&gt;
+      &lt;anyName&gt;
+        &lt;except&gt;
+          &lt;nsName ns=""/&gt;
+          &lt;nsName/&gt;
+        &lt;/except&gt;
+      &lt;/anyName&gt;
+      &lt;zeroOrMore&gt;
+        &lt;attribute&gt;
+          &lt;anyName/&gt;
+        &lt;/attribute&gt;
+      &lt;/zeroOrMore&gt;
+      &lt;choice&gt;
+        &lt;text/&gt;
+        &lt;ref name="AnyOtherElement"/&gt;
+      &lt;/choice&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+&lt;/grammar&gt;
+</pre>
+    </div>
+
+    <div class="appendix" lang="en">
+      <h2 class="title" style="clear: both"><a name="a.dtd" id="a.dtd"></a>C.&#160;A DTD for the XML Catalog (Non-Normative)</h2>
+
+      <p>This [<a href="#xml-rec"><abbr class="abbrev">XML</abbr></a>] DTD grammar partially<sup>[<a name="d0e2501" href="#ftn.d0e2501" id="d0e2501">1</a>]</sup> defines the syntax for OASIS XML Catalog OASIS Standard entry files.</p>
+
+      <p>This DTD has the following identifiers:</p>
+
+      <div class="itemizedlist">
+        <ul type="disc">
+          <li>
+            <p>Public identifier: <code class="literal">-//OASIS//DTD XML Catalogs V1.1//EN</code></p>
+          </li>
+
+          <li>
+            <p>System identifier: <code class="literal">http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd</code></p>
+          </li>
+        </ul>
+      </div>
+      <pre class="programlisting">
+&lt;!-- $Id: catalog.dtd,v 1.14 2005/04/13 20:47:06 ndw Exp $ --&gt;
+
+&lt;!ENTITY % pubIdChars "CDATA"&gt;
+&lt;!ENTITY % publicIdentifier "%pubIdChars;"&gt;
+&lt;!ENTITY % partialPublicIdentifier "%pubIdChars;"&gt;
+&lt;!ENTITY % uriReference "CDATA"&gt;
+&lt;!ENTITY % string "CDATA"&gt;
+&lt;!ENTITY % systemOrPublic "(system|public)"&gt;
+
+&lt;!ENTITY % p ""&gt;
+&lt;!ENTITY % s ""&gt;
+&lt;!ENTITY % nsdecl "xmlns%s;"&gt;
+
+&lt;!ENTITY % catalog "%p;catalog"&gt;
+&lt;!ENTITY % public "%p;public"&gt;
+&lt;!ENTITY % system "%p;system"&gt;
+&lt;!ENTITY % uri "%p;uri"&gt;
+&lt;!ENTITY % rewriteSystem "%p;rewriteSystem"&gt;
+&lt;!ENTITY % rewriteURI "%p;rewriteURI"&gt;
+&lt;!ENTITY % systemSuffix "%p;systemSuffix"&gt;
+&lt;!ENTITY % uriSuffix "%p;uriSuffix"&gt;
+&lt;!ENTITY % delegatePublic "%p;delegatePublic"&gt;
+&lt;!ENTITY % delegateSystem "%p;delegateSystem"&gt;
+&lt;!ENTITY % delegateURI "%p;delegateURI"&gt;
+&lt;!ENTITY % nextCatalog "%p;nextCatalog"&gt;
+&lt;!ENTITY % group "%p;group"&gt;
+
+&lt;!ENTITY % local.catalog.mix ""&gt;
+&lt;!ENTITY % local.catalog.attribs ""&gt;
+
+&lt;!ELEMENT %catalog; (%public;|%system;|%uri;
+                     |%rewriteSystem;|%rewriteURI;
+                     |%systemSuffix;|%uriSuffix;
+                     |%delegatePublic;|%delegateSystem;|%delegateURI;
+                     |%nextCatalog;|%group; %local.catalog.mix;)+&gt;
+&lt;!ATTLIST %catalog;
+        %nsdecl;        %uriReference;          #FIXED
+                'urn:oasis:names:tc:entity:xmlns:xml:catalog'
+        id              ID                      #IMPLIED
+        prefer          %systemOrPublic;        #IMPLIED
+        xml:base        %uriReference;          #IMPLIED
+        %local.catalog.attribs;
+&gt;
+
+&lt;!ENTITY % local.public.attribs ""&gt;
+
+&lt;!ELEMENT %public; EMPTY&gt;
+&lt;!ATTLIST %public;
+        id              ID                      #IMPLIED
+        publicId        %publicIdentifier;      #REQUIRED
+        uri             %uriReference;          #REQUIRED
+        xml:base        %uriReference;          #IMPLIED
+        %local.public.attribs;
+&gt;
+
+&lt;!ENTITY % local.system.attribs ""&gt;
+
+&lt;!ELEMENT %system; EMPTY&gt;
+&lt;!ATTLIST %system;
+        id              ID                      #IMPLIED
+        systemId        %string;                #REQUIRED
+        uri             %uriReference;          #REQUIRED
+        xml:base        %uriReference;          #IMPLIED
+        %local.system.attribs;
+&gt;
+
+&lt;!ENTITY % local.uri.attribs ""&gt;
+
+&lt;!ELEMENT %uri; EMPTY&gt;
+&lt;!ATTLIST %uri;
+        id              ID                      #IMPLIED
+        name            %string;                #REQUIRED
+        uri             %uriReference;          #REQUIRED
+        xml:base        %uriReference;          #IMPLIED
+        %local.uri.attribs;
+&gt;
+
+&lt;!ENTITY % local.rewriteSystem.attribs ""&gt;
+
+&lt;!ELEMENT %rewriteSystem; EMPTY&gt;
+&lt;!ATTLIST %rewriteSystem;
+        id              ID                      #IMPLIED
+        systemIdStartString     %string;        #REQUIRED
+        rewritePrefix           %string;                #REQUIRED
+        %local.rewriteSystem.attribs;
+&gt;
+
+&lt;!ENTITY % local.rewriteURI.attribs ""&gt;
+
+&lt;!ELEMENT %rewriteURI; EMPTY&gt;
+&lt;!ATTLIST %rewriteURI;
+        id              ID                      #IMPLIED
+        uriStartString  %string;                #REQUIRED
+        rewritePrefix   %string;                #REQUIRED
+        %local.rewriteURI.attribs;
+&gt;
+
+&lt;!ENTITY % local.systemSuffix.attribs ""&gt;
+
+&lt;!ELEMENT %systemSuffix; EMPTY&gt;
+&lt;!ATTLIST %systemSuffix;
+        id              ID                      #IMPLIED
+        systemIdSuffix          %string;        #REQUIRED
+        uri                     %string;        #REQUIRED
+        %local.systemSuffix.attribs;
+&gt;
+
+&lt;!ENTITY % local.uriSuffix.attribs ""&gt;
+
+&lt;!ELEMENT %uriSuffix; EMPTY&gt;
+&lt;!ATTLIST %uriSuffix;
+        id              ID                      #IMPLIED
+        uriSuffix               %string;        #REQUIRED
+        uri                     %string;        #REQUIRED
+        %local.uriSuffix.attribs;
+&gt;
+
+&lt;!ENTITY % local.delegatePublic.attribs ""&gt;
+
+&lt;!ELEMENT %delegatePublic; EMPTY&gt;
+&lt;!ATTLIST %delegatePublic;
+        id              ID                      #IMPLIED
+        publicIdStartString     %partialPublicIdentifier;       #REQUIRED
+        catalog         %uriReference;          #REQUIRED
+        xml:base        %uriReference;          #IMPLIED
+        %local.delegatePublic.attribs;
+&gt;
+
+&lt;!ENTITY % local.delegateSystem.attribs ""&gt;
+
+&lt;!ELEMENT %delegateSystem; EMPTY&gt;
+&lt;!ATTLIST %delegateSystem;
+        id              ID                      #IMPLIED
+        systemIdStartString     %string;        #REQUIRED
+        catalog         %uriReference;          #REQUIRED
+        xml:base        %uriReference;          #IMPLIED
+        %local.delegateSystem.attribs;
+&gt;
+
+&lt;!ENTITY % local.delegateURI.attribs ""&gt;
+
+&lt;!ELEMENT %delegateURI; EMPTY&gt;
+&lt;!ATTLIST %delegateURI;
+        id              ID                      #IMPLIED
+        uriStartString  %string;                #REQUIRED
+        catalog         %uriReference;          #REQUIRED
+        xml:base        %uriReference;          #IMPLIED
+        %local.delegateURI.attribs;
+&gt;
+
+&lt;!ENTITY % local.nextCatalog.attribs ""&gt;
+
+&lt;!ELEMENT %nextCatalog; EMPTY&gt;
+&lt;!ATTLIST %nextCatalog;
+        id              ID                      #IMPLIED
+        catalog         %uriReference;          #REQUIRED
+        xml:base        %uriReference;          #IMPLIED
+        %local.nextCatalog.attribs;
+&gt;
+
+&lt;!ENTITY % local.group.mix ""&gt;
+&lt;!ENTITY % local.group.attribs ""&gt;
+
+&lt;!ELEMENT %group; (%public;|%system;|%uri;
+                   |%rewriteSystem;|%rewriteURI;
+                   |%systemSuffix;|%uriSuffix;
+                   |%delegatePublic;|%delegateSystem;|%delegateURI;
+                   |%nextCatalog; %local.group.mix;)+&gt;
+&lt;!ATTLIST %group;
+        id              ID                      #IMPLIED
+        prefer          %systemOrPublic;        #IMPLIED
+        xml:base        %uriReference;          #IMPLIED
+        %local.group.attribs;
+&gt;
+</pre>
+    </div>
+
+    <div class="appendix" lang="en">
+      <h2 class="title" style="clear: both"><a name="a.tr9401" id="a.tr9401"></a>D.&#160;Support for TR9401 Catalog Semantics (Non-Normative)</h2>
+
+      <p>This OASIS Standard defines a subset of the catalog entry types described in [<a href="#tr9401"><abbr class="abbrev">TR 9401</abbr></a>] that are applicable to XML. For implementors wishing to provide full TR9401 support, this appendix defines the elements that should be used for the remaining TR9401 catalog entry types.</p>
+
+      <p>The elements described in this appendix provide full TR9401 semantics in the XML Catalog format. These are implemented as extension elements in the namespace: "<span class="quote"><code class="literal">urn:oasis:names:tc:entity:xmlns:tr9401:catalog</code></span>".</p>
+
+      <p>For a complete description of the semantics of these elements see [<a href="#tr9401"><abbr class="abbrev">TR 9401</abbr></a>].</p>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.doctype" id="s.doctype"></a>1.&#160;The <code class="sgmltag-element">doctype</code> Element</h3>
+          </div>
+        </div>
+
+        <p>The <code class="sgmltag-element">doctype</code> element associates a DTD with a document element.</p>
+
+        <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+          <tr>
+            <td><a name="element-doctype" id="element-doctype"></a><code>&lt;doctype<br>
+            &#160;&#160;&#160;&#160;id = <var>id</var><br>
+            &#160;&#160;&#160;&#160;<b>name</b> = <var>name</var><br>
+            &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+            &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.document" id="s.document"></a>2.&#160;The <code class="sgmltag-element">document</code> Element</h3>
+          </div>
+        </div>
+
+        <p>The <code class="sgmltag-element">document</code> element identifies a default document.</p>
+
+        <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+          <tr>
+            <td><a name="element-document" id="element-document"></a><code>&lt;document<br>
+            &#160;&#160;&#160;&#160;id = <var>id</var><br>
+            &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+            &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.dtddecl" id="s.dtddecl"></a>3.&#160;The <code class="sgmltag-element">dtddecl</code> Element</h3>
+          </div>
+        </div>
+
+        <p>The <code class="sgmltag-element">dtddecl</code> element associates an SGML declaration with a public identifier.</p>
+
+        <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+          <tr>
+            <td><a name="element-dtddecl" id="element-dtddecl"></a><code>&lt;dtddecl<br>
+            &#160;&#160;&#160;&#160;id = <var>id</var><br>
+            &#160;&#160;&#160;&#160;<b>publicId</b> = <var>public-identifier</var><br>
+            &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+            &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.entity" id="s.entity"></a>4.&#160;The <code class="sgmltag-element">entity</code> Element</h3>
+          </div>
+        </div>
+
+        <p>The <code class="sgmltag-element">entity</code> element associates a document with an entity name.</p>
+
+        <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+          <tr>
+            <td><a name="element-entity" id="element-entity"></a><code>&lt;entity<br>
+            &#160;&#160;&#160;&#160;id = <var>id</var><br>
+            &#160;&#160;&#160;&#160;<b>name</b> = <var>name</var><br>
+            &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+            &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.linktype" id="s.linktype"></a>5.&#160;The <code class="sgmltag-element">linktype</code> Element</h3>
+          </div>
+        </div>
+
+        <p>The <code class="sgmltag-element">linktype</code> element associates an external subset with a linktype declaration name.</p>
+
+        <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+          <tr>
+            <td><a name="element-linktype" id="element-linktype"></a><code>&lt;linktype<br>
+            &#160;&#160;&#160;&#160;id = <var>id</var><br>
+            &#160;&#160;&#160;&#160;<b>name</b> = <var>name</var><br>
+            &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+            &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.notation" id="s.notation"></a>6.&#160;The <code class="sgmltag-element">notation</code> Element</h3>
+          </div>
+        </div>
+
+        <p>The <code class="sgmltag-element">notation</code> element associates a URI reference with a notation name.</p>
+
+        <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+          <tr>
+            <td><a name="element-notation" id="element-notation"></a><code>&lt;notation<br>
+            &#160;&#160;&#160;&#160;id = <var>id</var><br>
+            &#160;&#160;&#160;&#160;<b>name</b> = <var>name</var><br>
+            &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+            &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a name="s.sgmldecl" id="s.sgmldecl"></a>7.&#160;The <code class="sgmltag-element">sgmldecl</code> Element</h3>
+          </div>
+        </div>
+
+        <p>The <code class="sgmltag-element">sgmldecl</code> element provides the location of a default SGML declaration.</p>
+
+        <table border="1" width="100%" cellpadding="5" cellspacing="0" summary="just a container for the border">
+          <tr>
+            <td><a name="element-sgmldecl" id="element-sgmldecl"></a><code>&lt;sgmldecl<br>
+            &#160;&#160;&#160;&#160;id = <var>id</var><br>
+            &#160;&#160;&#160;&#160;<b>uri</b> = <var>uri-reference</var><br>
+            &#160;&#160;&#160;&#160;xml:base = <var>uri-reference</var>&#160;/&gt;</code></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="appendix" lang="en">
+      <h2 class="title" style="clear: both"><a name="a.committee" id="a.committee"></a>E.&#160;OASIS Entity Resolution Committee (Non-Normative)</h2>
+
+      <p>The following individuals are members of the committee that developed this OASIS Standard:</p>
+
+      <table class="simplelist" border="0" summary="Simple list">
+        <tr>
+          <td>Adam Di Carlo, Debian</td>
+        </tr>
+
+        <tr>
+          <td>Anthony Coates, Individual Member</td>
+        </tr>
+
+        <tr>
+          <td>Paul Grosso, Arbortext</td>
+        </tr>
+
+        <tr>
+          <td>Mark Johnson, Debian</td>
+        </tr>
+
+        <tr>
+          <td>Jirka Kosek, Individual Member</td>
+        </tr>
+
+        <tr>
+          <td>Craig Salter, IBM</td>
+        </tr>
+
+        <tr>
+          <td>Norman Walsh, Sun Microsystems (Editor)</td>
+        </tr>
+
+        <tr>
+          <td>Lauren Wood, Individual Member (Chair)</td>
+        </tr>
+      </table>
+
+      <p>The following additional individuals were members of the committee during the development of previous versions:</p>
+
+      <table class="simplelist" border="0" summary="Simple list">
+        <tr>
+          <td>John Cowan, Reuters Health</td>
+        </tr>
+
+        <tr>
+          <td>David Leland, Elsevier Science London</td>
+        </tr>
+
+        <tr>
+          <td>Normand Montour, IBM</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="appendix" lang="en">
+      <h2 class="title" style="clear: both"><a name="a.notices" id="a.notices"></a>F.&#160;Notices</h2>
+
+      <p>Copyright &#169; The Organization for the Advancement of Structured Information Standards [OASIS] 2001, 2002, 2003, 2004, 2005. All Rights Reserved.</p>
+
+      <p>OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS's procedures with respect to rights in OASIS specifications can be found at the OASIS website. Copies of
+      claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementors or users of this specification, can be obtained from the OASIS Executive Director.</p>
+
+      <p>OASIS invites any interested party to bring to its attention any copyrights, patents or patent applications, or other proprietary rights which may cover technology that may be required to implement this specification. Please address the information to the OASIS Executive Director.</p>
+
+      <p>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this paragraph are included on all such copies and derivative works. However, this document itself may not be modified in any way, such as by removing the copyright notice or
+      references to OASIS, except as needed for the purpose of developing OASIS specifications, in which case the procedures for copyrights defined in the OASIS Intellectual Property Rights document must be followed, or as required to translate it into languages other than English.</p>
+
+      <p>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.</p>
+
+      <p>This document and the information contained herein is provided on an "<span class="quote">AS IS</span>" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</p>
+
+      <p>OASIS has been notified of intellectual property rights claimed in regard to some or all of the contents of this specification. For more information consult the online list of claimed rights.</p>
+    </div>
+
+    <div class="appendix" lang="en">
+      <h2 class="title" style="clear: both"><a name="a.ipr" id="a.ipr"></a>G.&#160;Intellectual Property Rights</h2>
+
+      <p>For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the Entity Resolution web page (<a href="http://www.oasis-open.org/committees/entity/" target="_top">http://www.oasis-open.org/committees/entity/</a>)</p>
+    </div>
+
+    <div class="bibliography">
+      <div class="titlepage">
+        <div>
+          <h2 class="title"><a name="bibl" id="bibl"></a>References</h2>
+        </div>
+      </div>
+
+      <div class="bibliodiv">
+        <h3 class="title">Normative</h3>
+
+        <div class="bibliomixed">
+          <a name="xml-rec" id="xml-rec"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">XML</abbr>] Tim Bray, Jean Paoli, and C. M. Sperberg-McQueen, Eve Maler, editors. <span class="citetitle"><em class="citetitle"><a href="http://www.w3.org/TR/REC-xml" target="_top">Extensible Markup Language (XML) 1.0 Second Edition</a></em></span>. World Wide Web Consortium, 2000.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="xml-names" id="xml-names"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">XML Namespaces</abbr>] Tim Bray, Dave Hollander, and Andrew Layman, editors. <span class="citetitle"><em class="citetitle"><a href="http://www.w3.org/TR/REC-xml-names/" target="_top">Namespaces in XML</a></em></span>. World Wide Web Consortium, 1999.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="rfc2119" id="rfc2119"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">RFC 2119</abbr>] IETF (Internet Engineering Task Force). <span class="citetitle"><em class="citetitle"><a href="http://www.ietf.org/rfc/rfc2119.txt" target="_top">RFC 2119: Key words for use in RFCs to Indicate Requirement Levels</a></em></span>. S. Bradner. 1997.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="rfc3151" id="rfc3151"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">RFC 3151</abbr>] IETF (Internet Engineering Task Force). <span class="citetitle"><em class="citetitle"><a href="http://www.ietf.org/rfc/rfc3151.txt" target="_top">RFC 3151: A URN Namespace for Public Identifiers</a></em></span>. N. Walsh, J. Cowan, P. Grosso, 2001.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="xmlbase" id="xmlbase"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">XML Base</abbr>] Jonathan Marsh, editor. <span class="citetitle"><em class="citetitle"><a href="http://www.w3.org/TR/xmlbase" target="_top">XML Base</a></em></span>. World Wide Web Consortium, 2000.</p>
+        </div>
+      </div>
+
+      <div class="bibliodiv">
+        <h3 class="title">Non-Normative</h3>
+
+        <div class="bibliomixed">
+          <a name="xmlschema-2" id="xmlschema-2"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">XML Schema Datatypes</abbr>] Paul V. Biron and Ashok Malhotra, editors. <span class="citetitle"><em class="citetitle"><a href="http://www.w3.org/TR/xmlschema-1/" target="_top">XML Schema Part 2: Datatypes</a></em></span>. World Wide Web Consortium, 2000.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="relaxng" id="relaxng"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">RELAX NG</abbr>] James Clark and MURATA Makoto, editors. <span class="citetitle"><em class="citetitle"><a href="http://www.oasis-open.org/committees/relax-ng/" target="_top">RELAX NG Specification</a></em></span>. OASIS. 2001.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="xmlstyle" id="xmlstyle"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">XML Stylesheets</abbr>] James Clark, editor. <span class="citetitle"><em class="citetitle"><a href="http://www.w3.org/TR/xml-stylesheet/" target="_top">Associating Style Sheets with XML Documents Version 1.0</a></em></span>. World Wide Web Consortium. 1999.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="tr9401" id="tr9401"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">TR 9401</abbr>] Paul Grosso, editor. <span class="citetitle"><em class="citetitle"><a href="http://www.oasis-open.org/html/tr9401.html" target="_top">OASIS Technical Resolution 9401:1997 (Amendment 2 to TR 9401)</a></em></span>. OASIS. 1997.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="rfc2279" id="rfc2279"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">RFC 2279</abbr>] IETF (Internet Engineering Task Force). <span class="citetitle"><em class="citetitle"><a href="http://www.ietf.org/rfc/rfc2279.txt" target="_top">RFC 2279: UTF-8, a transformation format of ISO 10646</a></em></span>. F. Yergeau. 1998.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="rfc2396" id="rfc2396"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">RFC 2396</abbr>] IETF (Internet Engineering Task Force). <span class="citetitle"><em class="citetitle"><a href="http://www.ietf.org/rfc/rfc2396.txt" target="_top">RFC 2396: Uniform Resource Identifiers (URI): Generic Syntax</a></em></span>. T. Berners-Lee, R. Fielding, L. Masinter. 1998.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="rfc2732" id="rfc2732"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">RFC 2732</abbr>] IETF (Internet Engineering Task Force). <span class="citetitle"><em class="citetitle"><a href="http://www.ietf.org/rfc/rfc2732.txt" target="_top">RFC 2732: Format for Literal IPv6 Addresses in URL's</a></em></span>. R. Hinden, B. Carpenter, L. Masinter. 1999.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="xmlschema" id="xmlschema"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">W3C XML Schema</abbr>] Henry S. Thompson, David Beech, Murray Maloney, et al. editors. <span class="citetitle"><em class="citetitle"><a href="http://www.w3.org/TR/xmlschema-1/" target="_top">XML Schema Part 1: Structures</a></em></span>. World Wide Web Consortium, 2000.</p>
+        </div>
+
+        <div class="bibliomixed">
+          <a name="req" id="req"></a>
+
+          <p class="bibliomixed">[<abbr class="abbrev">Requirements</abbr>] Norman Walsh, editor. <span class="citetitle"><em class="citetitle"><a href="http://www.oasis-open.org/committees/entity/background/req.html" target="_top">OASIS Entity Resolution Technical Committee Requirements Document</a></em></span>. OASIS. 2000.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnotes">
+      <br>
+      <hr width="100" align="left">
+
+      <div class="footnote">
+        <p><sup>[<a name="ftn.d0e2501" href="#d0e2501" id="ftn.d0e2501">1</a>]</sup> Any catalog file which is valid according to this DTD is valid according to this OASIS Standard. However, catalog files which make use of extension elements or attributes may be valid according to this OASIS Standard but invalid according to this DTD, due to the limits of DTD validation with respect to namespaces.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

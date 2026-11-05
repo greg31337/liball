@@ -1,0 +1,1323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="9110" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records" selected>Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (6)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc9110" rel="noopener" target="_blank">RFC 9110</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc9110.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> httpbis (wit)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7138/">7138</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Yousouf Taghzouti</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-09-23</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2022-11-09</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 12.5.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>The media type quality factor associated with a given type is 
+determined by finding the media range with the highest precedence 
+that matches the type. For example,
+
+Accept: text/*;q=0.3, text/plain;q=0.7, text/plain;format=flowed,
+       text/plain;format=fixed;q=0.4, */*;q=0.5
+
+would cause the following values to be associated:
+
+Table 5: 
+
+Media Type	                Quality Value
+text/plain;format=flowed	      1
+text/plain	                     0.7
+text/html	                     0.3
+image/jpeg	                     0.5
+text/plain;format=fixed	             0.4
+text/html;level=3	             0.7</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>The media type quality factor associated with a given type is 
+determined by finding the media range with the highest precedence 
+that matches the type. For example,
+
+Accept: text/*;q=0.3, text/plain;q=0.7, text/plain;format=flowed,
+       text/plain;format=fixed;q=0.4, */*;q=0.5
+
+would cause the following values to be associated:
+
+Table 5: 
+
+Media Type	                Quality Value
+text/plain;format=flowed	      1
+text/plain	                     0.7
+text/html	                     0.3
+image/jpeg	                     0.5
+text/plain;format=fixed	             0.4
+text/html;level=3	             0.3</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>To illustrate how the media type quality factor associated with a given type is determined, the following example is given: 
+
+Accept: text/*;q=0.3, text/plain;q=0.7, text/plain;format=flowed, text/plain;format=fixed;q=0.4, */*;q=0.5
+
+The last row of the result table (table 5) presenting the values to be associated cannot be deduced (MediaType: text/html;level=3, Quality Value: 0.7), since only &quot;text/*;q=0.3&quot; and &quot;*/*;q=0.5&quot; are possible values and as explained in the RFC &quot;text/*;q=0.3&quot; should take precedence. 
+
+In section 5.3.2 of RFC7231, a similar example is given, where the last row of the table is correct (text/html;level=3 | 0.7) since in that example the accept header contains (text/html;q=0.7).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7306/">7306</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Julian Reschke</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2023-01-13</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2023-10-23</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 14.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>  ranges-specifier = range-unit &quot;=&quot; range-set
+  range-set        = 1#range-spec
+  range-spec       = int-range
+                   / suffix-range
+                   / other-range</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>  ranges-specifier = range-unit &quot;=&quot; OWS range-set
+  range-set        = 1#range-spec
+  range-spec       = int-range
+                   / suffix-range
+                   / other-range</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The ABNF is inconsistent with one of the examples given in 14.1.2
+
+   bytes= 0-999, 4500-5499, -1000
+
+The bug in the ABNF was likely introduced when converting away from &quot;implied linear whitespace&quot;.
+
+See also &lt;https://github.com/whatwg/fetch/issues/1070#issuecomment-1361800123&gt;.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7419/">7419</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Dave Shawley</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2023-04-11</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2023-10-23</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 8.3.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   In the fields defined by this document, charset names appear either
+   in parameters (Content-Type), or, for Accept-Encoding, in the form of
+   a plain token.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   In the fields defined by this document, charset names appear either
+   in parameters (Content-Type), or, for Accept-Charset, in the form of
+   a plain token.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Accept-Encoding is the preferred list of response content codings.  Accept-Charset is the preferred list of response charsets.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7105/">7105</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Tomoyuki Sahara</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-08-26</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2022-11-01</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section B.1. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>B.1.  Changes from RFC 2818
+
+   None.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>B.1.  Changes from RFC 2818
+
+   The use of CN-ID has been deprecated.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>In RFC2818:
+
+   If a subjectAltName extension of type dNSName is present, that MUST
+   be used as the identity. Otherwise, the (most specific) Common Name
+   field in the Subject field of the certificate MUST be used.
+
+CN-ID may be used (when a subjectAltName of type dNSName is not present).
+
+In RFC9110:
+
+   A reference identity of type CN-ID MUST NOT be used by clients.
+
+CN-ID is not used at all.  It is a change from RFC2818.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7109/">7109</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Gary Wilson Jr.</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-08-31</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2022-11-09</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 15.4.9 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   The 308 (Permanent Redirect) status code indicates that the target
+   resource has been assigned a new permanent URI and any future
+   references to this resource ought to use one of the enclosed URIs.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   The 308 (Permanent Redirect) status code indicates that the target
+   resource has been assigned a new permanent URI and any future
+   references to this resource ought to use one of the enclosed URIs.
+   The user agent MUST NOT change the request method if it performs
+   an automatic redirection to that URI.
+
+and/or add note as is present in RFC 7538, e.g.:
+
+      Note: This status code is similar to 301 (Moved Permanently)
+      (Section 15.4.2), except that it does not allow changing
+      the request method from POST to GET.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The current text in this section for 308 Permanent Redirect does not include any mention of the user agent not changing the request method. I am suggesting that similar wording be used as in 15.4.8.  307 Temporary Redirect and/or a note added similar to the one present in RFC 7538 but excluded from this section&#x27;s current text. Whichever is chosen, it would be good to make the wording/notes consistent across both the 307 and 308 status code sections.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid8268/">8268</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Format:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Sergey Kandaurov</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2025-01-28</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>RFC Editor</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-02-06</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section B.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>The priority of the absolute form of the request URI over the Host
+header field by origin servers has been made explicit to align with
+proxy handling. (Section 7.2)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code> </code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>This text should be in RFC 9112, Appendix C.3 instead. 
+
+After the referred text was moved between RFC-to-be 9110 and 9112 [1], this item from &quot;Changes from 7230&quot; was not caught up.
+
+[1] https://github.com/httpwg/http-core/commit/e47483b5 
+
+See also https://www.rfc-editor.org/errata/eid8268.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (6)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc9110" rel="noopener" target="_blank">RFC 9110</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc9110.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> httpbis (wit)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7107/">7107</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Format:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>James Synge</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-08-31</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>RFC Editor</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2022-10-12</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.5.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>For example, the chunked transfer coding in HTTP/1.1
+allows a trailer section to be sent after the content
+(Section 7.1.2 of [HTTP/1.1]).</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>For example, the chunked transfer coding in HTTP/1.1
+allows a trailer section to be sent after the content
+(Section ?.?.? of [HTTP/1.1]).</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Section 7.1.2 does not exist. It isn&#x27;t clear to me which section is the intended target of the reference.
+ --VERIFIER NOTES-- 
+Errata rejected per Julian Reschke. Section 7.1.2 does exist.
+See &lt;https://www.rfc-editor.org/rfc/rfc9112#section-7.1.2&gt;.
+</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7599/">7599</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Justine Krejcha</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2023-08-11</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2023-10-23</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.4.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>All 1xx (Informational), 204 (No Content), and 304 (Not Modified)
+responses do not include content.
+
+All other responses do include content, although that content might
+be of zero length.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>All 1xx (Informational), 204 (No Content), 205 (Reset Content), 
+and 304 (Not Modified) responses do not include content.
+
+All other responses do include content, although that content might
+be of zero length.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Per section 15.3.6 (205 No Content), it says that servers MUST NOT generate a response. Section 6.4.1 says that &quot;All 1xx, 204, and 304 response don&#x27;t include content and others do.&quot; even though 205 response mustn&#x27;t generate content.
+ --VERIFIER NOTES-- 
+In rejecting this Errata report I note that the reported text is not an error, but a deliberate decision of the authors and working group.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7870/">7870</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Ben Kallus</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2024-03-24</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-05-14</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 8.6 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   Likewise, a sender MUST NOT forward a message with a Content-Length
+   header field value that does not match the ABNF above, with one
+   exception: a recipient of a Content-Length header field value
+   consisting of the same decimal value repeated as a comma-separated
+   list (e.g, &quot;Content-Length: 42, 42&quot;) MAY either reject the message as
+   invalid or replace that invalid field value with a single instance of
+   the decimal value, since this likely indicates that a duplicate was
+   generated or combined by an upstream message processor.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   Likewise, a sender MUST NOT send a message with a Content-Length
+   header field value that does not match the ABNF above. A
+   recipient of a Content-Length header field value consisting of
+   the same decimal value repeated as a comma-separated list (e.g,
+   &quot;Content-Length: 42, 42&quot;) MAY either reject the message as invalid
+   or replace that invalid field value with a single instance of the
+   decimal value, since this likely indicates that a duplicate was
+   generated or combined by an upstream message processor.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>This change aims to fix 2 issues with the text:
+
+Issue #1
+Recall the following from section 8.6:
+&gt; Likewise, a sender MUST NOT forward a message with a Content-Length header field value that does not match the ABNF above, ...
+
+It wasn&#x27;t immediately clear to me which of these was the intended meaning:
+1. Upon receipt of a message with an invalid Content-Length value, senders MUST NOT forward the message.
+2. Upon receipt of a message with an invalid Content-Length value, senders MUST NOT forward the message with the invalid value intact.
+
+Mark Nottingham confirmed on GitHub that the intended meaning is option 2:
+https://github.com/httpwg/http-core/issues/1113#issuecomment-1937914210
+
+I propose that the word &quot;forward&quot; be changed to &quot;send&quot; to clear up the ambiguity.
+
+Issue #2
+We&#x27;ve just established that the intended meaning of the first half of the sentence in question is that malformed CL header values MUST NOT be forwarded intact.
+An exception to this rule is (by definition) a situation in which invalid CL header values *are* permitted to be forwarded intact.
+The &quot;exception&quot; described in the text does not allow for invalid header values to be forwarded intact, so it is a misuse of the word &quot;exception.&quot;
+
+To clear this up, I propose that the sentence be split in two, and that the word &quot;exception&quot; be removed.
+ --VERIFIER NOTES-- 
+Issue #1: &#x27;forward&#x27; and &#x27;send&#x27; are defined terms in the specification, and the previous paragraph covers the &#x27;send&#x27; -- this requirement is specific to forwarding. It&#x27;s specifically there to call out the exception _only_ in the forwarding case.
+
+For issue #2, this might be more than an editorial problem, but mostly I disagree about &quot;exception&quot; being a misuse. I agree that more extensive editorial work could be done, but that is out of scope for an erratum.
+
+See https://mailarchive.ietf.org/arch/msg/httpbisa/wYhoNFePlmmj5g58g_70er8pTH4/</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid8138/">8138</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Roy Yosef Barkay, Tomer Yair</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2024-10-12</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-10-29</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 15.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   5.  If the request method has been changed to GET or HEAD, remove
+       content-specific header fields, including (but not limited to)
+       Content-Encoding, Content-Language, Content-Location,
+       Content-Type, Content-Length, Digest, Last-Modified.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>6.If a redirect request includes a target uri of 
+redirect link (a recursive redirect request) 
+such as: http://example.com/reditectto=
+&quot;&quot;http://example.com/redirecto=&quot;http://bad.examaple.com&quot;&quot; 
+a redirect to http://example.com/redirecto=&quot;http://bad.examaple.com&quot; 
+should be made and than to 
+http://bad.examaple.com that way the security 
+messures to redirect to another domain may take place</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>currently the rfc doesn&#x27;t indicate how web server and 
+browsers should handle recursive rerdirect such as 
+http://example.com/reditectto=&quot;http://example.com/redirecto=&quot;http://bad.examaple.com&quot;&quot; 
+therefore i was able to abuse this behavior to gain 
+cve and exploitation on web server for 2 main resoans 
+1. redirect allowed only to same domain logic : with regex on 
+the parameter &quot;gooddomain.com/.*&quot; which works as intended for the escape of the domain part in the uri but doesnt handle a case where there is a recursive request which is handled by server side.
+2. out of domain control which gives the user a choice to know and 
+approve the moving to another domain because the server views the 
+request as to the same domain
+
+the correct text should come after number 5
+ --VERIFIER NOTES-- 
+
+In rejecting this errata report, I note that the aim of this erratum is not to fix an apparent error, but an addition to the current tex. This sort of text change is not in scope for errata reports, which are meant to collect errors in the documents, things that were actual errors at publication and that would have been fixed at that time had the working group or document authors noticed them -- they were just missed. This is not the case here.
+
+Additionally, cyclical redirections are already addressed for clients, and are not relevant for servers, see: https://mailarchive.ietf.org/arch/msg/httpbisa/o3-eUDiKUiC_nWi-5s1wOOmMesU/ for details.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid8459/">8459</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Formats:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">TXT</span>
+                                                            
+                                                                <span class="badge bg-primary">PDF</span>
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Bosko Stupar</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2025-06-13</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Mike Bishop (WIT AD)</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-06-13</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 15 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>The status code of a response is a three-digit integer code that 
+describes the result of the request and the semantics of the 
+response, including whether the request was successful and what 
+content is enclosed (if any). All valid status codes are within 
+the range of 100 to 599, inclusive.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>The status code of a response is a three-digit integer code that 
+describes the result of the request and the semantics of the 
+response, including whether the request was successful and what 
+content is enclosed (if any). All valid status codes are within 
+the range of 100 to 999, inclusive.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>In the initial RFC 7231 which was obsoleted by this one, we had simple definition of a status code which was used to build http servers, clients and libraries that are being used now &quot;The status-code element is a three-digit integer code giving the result of the attempt to understand and satisfy the request.&quot;.
+
+A lot of old systems are based on RFC 7231 and are using status codes that are in rage of 600 - 999. Those codes are mainly used to describe errors that aren&#x27;t covered in previous status codes.
+
+For example we have payment system that can return e.g. &quot;677 Invalid card number&quot; and no body. Now we&#x27;d probably return &quot;400 Bad request&quot; with e.g. json body in which we have error message.
+
+This RFC should be backward compatible, and not to define breaking changes. If breaking changes are defined, it should be promoted more and talked about it between the community, give developers of old systems a time to align with new RFC, etc.
+
+Due to all of this, I&#x27;m suggesting that we omit all parts in this section that are limiting status codes to be only in range from 100 to 599, and update it accordingly so it support status codes from 100 to 999.
+ --VERIFIER NOTES-- 
+Section 6 of RFC 7231 also says &quot;There are five values for the first digit&quot; and lists 1xx through 5xx. Going further back, RFC 2616 contains identical language in Section 6.1.1; RFC 2068 contains identical language in its Section 6.1.1. This is not only not a recent change, it&#x27;s not a change at all. This is the way HTTP has operated for decades, the reporter&#x27;s noncompliant systems notwithstanding.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7530/">7530</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+                                                    <dt class="col-sm-4">Publication Format:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            
+                                                                <span class="badge bg-primary">HTML</span>
+                                                            
+                                                        
+                                                    </dd>
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Philippe Cloutier</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2023-05-29</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>RFC Editor</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2023-07-07</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 15.5.2. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>The 401 (Unauthorized) status code indicates that the request has not
+been applied because it lacks valid authentication credentials for
+the target resource.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>The 401 (Unauthorized) status code indicates that the request has not
+been processed because it lacks valid authentication credentials for
+the target resource.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>&quot;applying a request&quot; is not a standard expression. Usually, requests are &quot;treated&quot;, &quot;granted&quot; or &quot;processed&quot;.
+
+This phrasing was imported in Apache Tomcat; thanks to Mark Thomas for pointing out it came from this RFC.
+ --VERIFIER NOTES-- 
+ A method is applied to a resource to have an effect that results in a response. Any web search on &quot;method applied&quot; will show you that it is quite common in standard English.  The request has already been processed, at least partially, in order to make a decision that resulted in a 401 error</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:odfdom="urn:odftoolkit:odfdom:fixture:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.text" odfdom:root-token="00007">
+  <office:meta><meta:generator>Apache ODF Toolkit ODFDOM/0.12.0</meta:generator></office:meta>
+  <office:styles><style:style style:name="ProducerStyle" style:family="paragraph"><style:text-properties fo:font-weight="bold"/></style:style></office:styles>
+  <office:body><office:text><text:h text:outline-level="1">ODFDOM fixture</text:h><text:p text:style-name="ProducerStyle">Supported ODFDOM 1.3<odfdom:payload odfdom:token="+00042.5000">Foreign ODFDOM 1.3</odfdom:payload></text:p></office:text></office:body>
+</office:document>

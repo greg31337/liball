@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.4" office:mimetype="application/vnd.oasis.opendocument.text" loext:root-token="00007">
+  <office:meta><meta:generator>LibreOffice/25.2</meta:generator></office:meta>
+  <office:styles><style:style style:name="ProducerStyle" style:family="paragraph"><style:text-properties fo:font-weight="bold"/></style:style></office:styles>
+  <office:body><office:text><text:h text:outline-level="1">LibreOffice fixture</text:h><text:p text:style-name="ProducerStyle">Supported LibreOffice 1.4<loext:payload loext:token="+00042.5000">Foreign LibreOffice 1.4</loext:payload></text:p></office:text></office:body>
+</office:document>

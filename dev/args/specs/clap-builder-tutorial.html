@@ -1,0 +1,1487 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Tutorial for the Builder API"><title>clap::_tutorial - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="/-/rustdoc.static/${f}">`).join(""))</script><link rel="stylesheet" href="/-/rustdoc.static/normalize-9960930a.css"><link rel="stylesheet" href="/-/static/vendored.css?0-0-0-6c3c2ab33f39d2284fd26cea84fae0598b4cbd55-2026-08-24" media="all" /><link rel="stylesheet" href="/-/rustdoc.static/rustdoc-650bd49d.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="/-/rustdoc.static/" data-current-crate="clap" data-themes="" data-resource-suffix="-20260810-1.99.0-nightly-12c36e253" data-rustdoc-version="1.99.0-nightly (12c36e253 2026-08-10)" data-channel="nightly" data-search-js="search-cf4fc35e.js" data-stringdex-js="stringdex-b5109af9.js" data-settings-js="settings-170eb4bf.js" ><script src="/-/rustdoc.static/storage-41dd4d93.js"></script><script defer src="../sidebar-items-20260810-1.99.0-nightly-12c36e253.js"></script><script defer src="/-/rustdoc.static/main-417ebf0a.js"></script><script defer src="/-/rustdoc.static/scrape-examples-2bbcccac.js"></script><noscript><link rel="stylesheet" href="/-/rustdoc.static/noscript-d4bd101e.css"></noscript><link rel="alternate icon" type="image/png" href="/-/rustdoc.static/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="/-/rustdoc.static/favicon-044be391.svg"><link rel="stylesheet" href="/-/static/rustdoc-2025-08-20.css?0-0-0-6c3c2ab33f39d2284fd26cea84fae0598b4cbd55-2026-08-24" media="all" /><link rel="stylesheet" href="/-/static/font-awesome.css?0-0-0-6c3c2ab33f39d2284fd26cea84fae0598b4cbd55-2026-08-24" media="all" />
+
+<link rel="search" href="/-/static/opensearch.xml" type="application/opensearchdescription+xml" title="Docs.rs" />
+
+<script type="text/javascript">(function() {
+    function applyTheme(theme) {
+        if (theme) {
+            document.documentElement.dataset.docsRsTheme = theme;
+        }
+    }
+
+    window.addEventListener("storage", ev => {
+        if (ev.key === "rustdoc-theme") {
+            applyTheme(ev.newValue);
+        }
+    });
+
+    // see ./storage-change-detection.html for details
+    window.addEventListener("message", ev => {
+        if (ev.data && ev.data.storage && ev.data.storage.key === "rustdoc-theme") {
+            applyTheme(ev.data.storage.value);
+        }
+    });
+
+    applyTheme(window.localStorage.getItem("rustdoc-theme"));
+})();</script></head><body class="rustdoc-page">
+<div class="nav-container">
+    <div class="container">
+        <div class="pure-menu pure-menu-horizontal" role="navigation" aria-label="Main navigation">
+            <form action="/releases/search"
+                  method="GET"
+                  id="nav-search-form"
+                  class="landing-search-form-nav  ">
+
+                
+                <a href="/" class="pure-menu-heading pure-menu-link docsrs-logo" aria-label="Docs.rs">
+                    <span title="Docs.rs"><span class="fa fa-solid fa-cubes " aria-hidden="true"></span></span>
+                    <span class="title">Docs.rs</span>
+                </a><ul class="pure-menu-list">
+    <script id="crate-metadata" type="application/json">
+        
+        {
+            "name": "clap",
+            "version": "4.6.6"
+        }
+    </script><li class="pure-menu-item pure-menu-has-children crate-dropdown">
+            <a href="#" class="pure-menu-link crate-name" title="A simple to use, efficient, and full-featured Command Line Argument Parser">
+                <span class="fa fa-solid fa-cube " aria-hidden="true"></span>
+                <span class="title">clap-4.6.6</span>
+            </a><div class="pure-menu-children package-details-menu">
+                
+                <ul class="pure-menu-list menu-item-divided">
+                    <li class="pure-menu-heading" id="crate-title">
+                        clap 4.6.6
+                        <span id="clipboard" class="svg-clipboard" title="Copy crate name and version information"></span>
+                    </li><li class="pure-menu-item">
+                        <a href="/clap/4.6.6/clap/_tutorial/" class="pure-menu-link description" id="permalink" title="Get a link to this specific version"><span class="fa fa-solid fa-link " aria-hidden="true"></span> Permalink
+                        </a>
+                    </li><li class="pure-menu-item">
+                        <a href="/crate/clap/latest" class="pure-menu-link description" title="See clap in docs.rs">
+                            <span class="fa fa-solid fa-cube " aria-hidden="true"></span> Docs.rs crate page
+                        </a>
+                    </li><li class="pure-menu-item">
+                            <span class="pure-menu-link description license"><span class="fa fa-solid fa-scale-unbalanced-flip " aria-hidden="true"></span>
+                            <a href="https://spdx.org/licenses/MIT" class="pure-menu-sublink">MIT</a> OR <a href="https://spdx.org/licenses/Apache-2.0" class="pure-menu-sublink">Apache-2.0</a></span>
+                        </li><li class="pure-menu-item">
+                            <span class="pure-menu-link description" title="Built with rustc 1.99.0-nightly (12c36e253 2026-08-10)">
+                                <span class="fa fa-solid fa-gears " aria-hidden="true"></span> 11 August 2026
+                            </span>
+                        </li></ul>
+
+                <div class="pure-g menu-item-divided">
+                    <div class="pure-u-1-2 right-border">
+                        <ul class="pure-menu-list">
+                            <li class="pure-menu-heading">Links</li>
+
+                            <li class="pure-menu-item">
+                                    <a href="https://github.com/clap-rs/clap" class="pure-menu-link">
+                                        <span class="fa fa-solid fa-code-branch " aria-hidden="true"></span> Repository
+                                    </a>
+                                </li><li class="pure-menu-item">
+                                <a href="https://crates.io/crates/clap" class="pure-menu-link" title="See clap in crates.io">
+                                    <span class="fa fa-solid fa-cube " aria-hidden="true"></span> crates.io
+                                </a>
+                            </li>
+
+                            
+                            <li class="pure-menu-item">
+                                <a href="/crate/clap/latest/source/" title="Browse source of clap-4.6.6" class="pure-menu-link">
+                                    <span class="fa fa-solid fa-folder-open " aria-hidden="true"></span> Source
+                                </a>
+                            </li>
+                        </ul>
+                    </div><div class="pure-u-1-2">
+                        <ul class="pure-menu-list" id="topbar-owners">
+                            <li class="pure-menu-heading">Owners</li><li class="pure-menu-item">
+                                    <a href="https://crates.io/users/kbknapp" class="pure-menu-link">
+                                        <span class="fa fa-solid fa-user " aria-hidden="true"></span> kbknapp
+                                    </a>
+                                </li><li class="pure-menu-item">
+                                    <a href="https://crates.io/teams/github:clap-rs:admins" class="pure-menu-link">
+                                        <span class="fa fa-solid fa-user " aria-hidden="true"></span> github:clap-rs:admins
+                                    </a>
+                                </li><li class="pure-menu-item">
+                                    <a href="https://crates.io/teams/github:rust-cli:maintainers" class="pure-menu-link">
+                                        <span class="fa fa-solid fa-user " aria-hidden="true"></span> github:rust-cli:maintainers
+                                    </a>
+                                </li></ul>
+                    </div>
+                </div>
+
+                <div class="pure-g menu-item-divided">
+                    <div class="pure-u-1-2 right-border">
+                        <ul class="pure-menu-list">
+                            <li class="pure-menu-heading">Dependencies</li>
+
+                            
+                            <li class="pure-menu-item">
+                                <div class="pure-menu pure-menu-scrollable sub-menu" tabindex="-1">
+                                    <ul class="pure-menu-list">
+                                        <li class="pure-menu-item"><a href="/clap_builder/=4.6.6/" class="pure-menu-link">
+                clap_builder =4.6.6
+                
+                    <i class="dependencies normal">normal</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/clap_derive/=4.6.4/" class="pure-menu-link">
+                clap_derive =4.6.4
+                
+                    <i class="dependencies normal">normal</i>
+                    
+                        <i>optional</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/automod/^1.0.16/" class="pure-menu-link">
+                automod ^1.0.16
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/clap-cargo/^0.15.2/" class="pure-menu-link">
+                clap-cargo ^0.15.2
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/jiff/^0.2.23/" class="pure-menu-link">
+                jiff ^0.2.23
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/rustversion/^1.0.22/" class="pure-menu-link">
+                rustversion ^1.0.22
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/semver/^1.0.27/" class="pure-menu-link">
+                semver ^1.0.27
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/shlex/^2.0.0/" class="pure-menu-link">
+                shlex ^2.0.0
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/snapbox/^1.2.0/" class="pure-menu-link">
+                snapbox ^1.2.0
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/trybuild/^1.0.116/" class="pure-menu-link">
+                trybuild ^1.0.116
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li><li class="pure-menu-item"><a href="/trycmd/^1.2.0/" class="pure-menu-link">
+                trycmd ^1.2.0
+                
+                    <i class="dependencies dev">dev</i>
+                    
+                
+            </a>
+        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pure-u-1-2">
+                        <ul class="pure-menu-list">
+                            <li class="pure-menu-heading">Versions</li>
+
+                            <li class="pure-menu-item">
+                                <div class="pure-menu pure-menu-scrollable sub-menu" id="releases-list" tabindex="-1" data-url="/crate/clap/latest/menus/releases/clap/_tutorial/">
+                                    <span class="rotate"><span class="fa fa-solid fa-spinner " aria-hidden="true"></span></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    
+                    
+                    <div class="pure-g">
+                        <div class="pure-u-1">
+                            <ul class="pure-menu-list">
+                                <li>
+                                    <a href="/crate/clap/latest" class="pure-menu-link">
+                                        <b>100%</b>
+                                        of the crate is documented
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div></div>
+        </li><li class="pure-menu-item pure-menu-has-children">
+                <a href="#" class="pure-menu-link" aria-label="Platform">
+                    <span class="fa fa-solid fa-gears " aria-hidden="true"></span>
+                    <span class="title">Platform</span>
+                </a>
+
+                
+                <ul class="pure-menu-children" id="platforms" data-url="/crate/clap/latest/menus/platforms/clap/_tutorial/"><li class="pure-menu-item">
+            <a href="/crate/clap/latest/target-redirect/clap/_tutorial/" class="pure-menu-link" data-fragment="retain" rel="nofollow">x86_64-unknown-linux-gnu</a>
+        </li></ul>
+            </li><li class="pure-menu-item">
+                <a href="/crate/clap/latest/features" title="Browse available feature flags of clap-4.6.6" class="pure-menu-link">
+                    <span class="fa fa-solid fa-flag " aria-hidden="true"></span>
+                    <span class="title">Feature flags</span>
+                </a>
+            </li>
+        
+    
+</ul><div class="spacer"></div>
+                
+                <div id="abnormalities" class="hidden"></div>
+
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item pure-menu-has-children">
+                        <a href="#" class="pure-menu-link" aria-label="docs.rs">docs.rs</a>
+                        <ul class="pure-menu-children aligned-icons"><li class="pure-menu-item"><a class="pure-menu-link" href="/about"><span class="fa fa-solid fa-circle-info " aria-hidden="true"></span> About docs.rs</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="/about/badges"><span class="fa fa-brands fa-fonticons " aria-hidden="true"></span> Badges</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="/about/builds"><span class="fa fa-solid fa-gears " aria-hidden="true"></span> Builds</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="/about/metadata"><span class="fa fa-solid fa-table " aria-hidden="true"></span> Metadata</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="/about/redirections"><span class="fa fa-solid fa-road " aria-hidden="true"></span> Shorthand URLs</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="/about/download"><span class="fa fa-solid fa-download " aria-hidden="true"></span> Download</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="/about/rustdoc-json"><span class="fa fa-solid fa-file-code " aria-hidden="true"></span> Rustdoc JSON</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="/releases/queue"><span class="fa fa-solid fa-gears " aria-hidden="true"></span> Build queue</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="https://foundation.rust-lang.org/policies/privacy-policy/#docs.rs" target="_blank"><span class="fa fa-solid fa-shield-halved " aria-hidden="true"></span> Privacy policy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="pure-menu-list"><li class="pure-menu-item pure-menu-has-children">
+                        <a href="#" class="pure-menu-link" aria-label="Rust">Rust</a>
+                        <ul class="pure-menu-children">
+                            <li class="pure-menu-item"><a class="pure-menu-link" href="https://www.rust-lang.org/" target="_blank">Rust website</a></li>
+                            <li class="pure-menu-item"><a class="pure-menu-link" href="https://doc.rust-lang.org/book/" target="_blank">The Book</a></li>
+
+                            <li class="pure-menu-item"><a class="pure-menu-link" href="https://doc.rust-lang.org/std/" target="_blank">Standard Library API Reference</a></li>
+
+                            <li class="pure-menu-item"><a class="pure-menu-link" href="https://doc.rust-lang.org/rust-by-example/" target="_blank">Rust by Example</a></li>
+
+                            <li class="pure-menu-item"><a class="pure-menu-link" href="https://doc.rust-lang.org/cargo/guide/" target="_blank">The Cargo Guide</a></li>
+
+                            <li class="pure-menu-item"><a class="pure-menu-link" href="https://doc.rust-lang.org/nightly/clippy" target="_blank">Clippy Documentation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div id="search-input-nav">
+                    <label for="nav-search">
+                        <span class="fa fa-solid fa-magnifying-glass " aria-hidden="true"></span>
+                    </label>
+
+                    
+                    
+                    <input id="nav-search" name="query" type="text" aria-label="Find crate by search query" tabindex="-1"
+                        placeholder="Find crate"
+                        >
+                </div>
+            </form>
+        </div>
+    </div>
+</div><div class="rustdoc mod container-rustdoc" id="rustdoc_body_wrapper" tabindex="-1"><script async src="/-/static/menu.js?0-0-0-6c3c2ab33f39d2284fd26cea84fae0598b4cbd55-2026-08-24"></script>
+<script async src="/-/static/index.js?0-0-0-6c3c2ab33f39d2284fd26cea84fae0598b4cbd55-2026-08-24"></script>
+
+<iframe src="/-/storage-change-detection.html" width="0" height="0" style="display: none"></iframe><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Module _tutorial</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><a class="logo-container" href="../../clap/index.html"><img src="https://raw.githubusercontent.com/clap-rs/clap/master/assets/clap.png" alt="logo"></a><h2><a href="../../clap/index.html">clap</a><span class="version">4.6.6</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module _tutorial</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#tutorial-for-the-builder-api" title="Tutorial for the Builder API">Tutorial for the Builder API</a></li><li><a href="#quick-start" title="Quick Start">Quick Start</a></li><li><a href="#configuring-the-parser" title="Configuring the Parser">Configuring the Parser</a></li><li><a href="#adding-arguments" title="Adding Arguments">Adding Arguments</a><ul><li><a href="#positionals" title="Positionals">Positionals</a></li><li><a href="#options" title="Options">Options</a></li><li><a href="#flags" title="Flags">Flags</a></li><li><a href="#required" title="Required">Required</a></li><li><a href="#defaults" title="Defaults">Defaults</a></li><li><a href="#subcommands" title="Subcommands">Subcommands</a></li></ul></li><li><a href="#validation" title="Validation">Validation</a><ul><li><a href="#enumerated-values" title="Enumerated values">Enumerated values</a></li><li><a href="#validated-values" title="Validated values">Validated values</a></li><li><a href="#argument-relations" title="Argument Relations">Argument Relations</a></li><li><a href="#custom-validation" title="Custom Validation">Custom Validation</a></li></ul></li><li><a href="#testing" title="Testing">Testing</a></li><li><a href="#next-steps" title="Next Steps">Next Steps</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="../index.html">In crate clap</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">clap</a></div><h1>Module <span>_tutorial</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/clap/_tutorial.rs.html#10-246">Source</a> </span></div><span class="item-info"><div class="stab portability">Available on <strong>crate feature <code>unstable-doc</code></strong> only.</div></span><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h3 id="tutorial-for-the-builder-api"><a class="doc-anchor" href="#tutorial-for-the-builder-api">§</a>Tutorial for the Builder API</h3>
+<p><em>See the side bar for the Table of Contents</em></p>
+<h3 id="quick-start"><a class="doc-anchor" href="#quick-start">§</a>Quick Start</h3>
+<p>You can create an application with several arguments using usage strings.</p>
+<p>First, ensure <code>clap</code> is available:</p>
+<div class="example-wrap"><pre class="language-console"><code>$ cargo add clap</code></pre></div>
+<p>Here is a preview of the type of application you can make:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::path::PathBuf;
+
+<span class="kw">use </span>clap::{ArgAction, Command, arg, command, value_parser};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(<span class="macro">arg!</span>([name] <span class="string">"Optional name to operate on"</span>))
+        .arg(
+            <span class="macro">arg!</span>(
+                -c --config &lt;FILE&gt; <span class="string">"Sets a custom config file"
+            </span>)
+            <span class="comment">// We don't have syntax yet for optional options, so manually calling `required`
+            </span>.required(<span class="bool-val">false</span>)
+            .value_parser(<span class="macro">value_parser!</span>(PathBuf)),
+        )
+        .arg(<span class="macro">arg!</span>(
+            -d --debug ... <span class="string">"Turn debugging information on"
+        </span>))
+        .subcommand(
+            Command::new(<span class="string">"test"</span>)
+                .about(<span class="string">"does testing things"</span>)
+                .arg(<span class="macro">arg!</span>(-l --list <span class="string">"lists test values"</span>).action(ArgAction::SetTrue)),
+        )
+        .get_matches();
+
+    <span class="comment">// You can check the value provided by positional arguments, or option arguments
+    </span><span class="kw">if let </span><span class="prelude-val">Some</span>(name) = matches.get_one::&lt;String&gt;(<span class="string">"name"</span>) {
+        <span class="macro">println!</span>(<span class="string">"Value for name: {name}"</span>);
+    }
+
+    <span class="kw">if let </span><span class="prelude-val">Some</span>(config_path) = matches.get_one::&lt;PathBuf&gt;(<span class="string">"config"</span>) {
+        <span class="macro">println!</span>(<span class="string">"Value for config: {}"</span>, config_path.display());
+    }
+
+    <span class="comment">// You can see how many times a particular flag or argument occurred
+    // Note, only flags can have multiple occurrences
+    </span><span class="kw">match </span>matches
+        .get_one::&lt;u8&gt;(<span class="string">"debug"</span>)
+        .expect(<span class="string">"Counts are defaulted"</span>)
+    {
+        <span class="number">0 </span>=&gt; <span class="macro">println!</span>(<span class="string">"Debug mode is off"</span>),
+        <span class="number">1 </span>=&gt; <span class="macro">println!</span>(<span class="string">"Debug mode is kind of on"</span>),
+        <span class="number">2 </span>=&gt; <span class="macro">println!</span>(<span class="string">"Debug mode is on"</span>),
+        <span class="kw">_ </span>=&gt; <span class="macro">println!</span>(<span class="string">"Don't be crazy"</span>),
+    }
+
+    <span class="comment">// You can check for the existence of subcommands, and if found use their
+    // matches just as you would the top level cmd
+    </span><span class="kw">if let </span><span class="prelude-val">Some</span>(matches) = matches.subcommand_matches(<span class="string">"test"</span>) {
+        <span class="comment">// "$ myapp test" was run
+        </span><span class="kw">if </span>matches.get_flag(<span class="string">"list"</span>) {
+            <span class="comment">// "$ myapp test -l" was run
+            </span><span class="macro">println!</span>(<span class="string">"Printing testing lists..."</span>);
+        } <span class="kw">else </span>{
+            <span class="macro">println!</span>(<span class="string">"Not printing testing lists..."</span>);
+        }
+    }
+
+    <span class="comment">// Continued program logic goes here...
+</span>}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 01_quick --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 01_quick[EXE] [OPTIONS] [name] [COMMAND]
+
+Commands:
+  test  does testing things
+  help  Print this message or the help of the given subcommand(s)
+
+Arguments:
+  [name]  Optional name to operate on
+
+Options:
+  -c, --config &lt;FILE&gt;  Sets a custom config file
+  -d, --debug...       Turn debugging information on
+  -h, --help           Print help
+  -V, --version        Print version
+</code></pre></div>
+<p>By default, the program does nothing:</p>
+<div class="example-wrap"><pre class="language-console"><code>$ 01_quick
+Debug mode is off
+</code></pre></div>
+<p>But you can mix and match the various features</p>
+<div class="example-wrap"><pre class="language-console"><code>$ 01_quick -dd test
+Debug mode is on
+Not printing testing lists...
+</code></pre></div>
+<p>See also</p>
+<ul>
+<li><a href="../_faq/index.html#when-should-i-use-the-builder-vs-derive-apis" title="mod clap::_faq">FAQ: When should I use the builder vs derive APIs?</a></li>
+<li>The <a href="../_cookbook/index.html" title="mod clap::_cookbook">cookbook</a> for more application-focused examples</li>
+</ul>
+<h3 id="configuring-the-parser"><a class="doc-anchor" href="#configuring-the-parser">§</a>Configuring the Parser</h3>
+<p>You use <a href="../struct.Command.html" title="struct clap::Command"><code>Command</code></a> to start building a parser.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Command, arg};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = Command::new(<span class="string">"MyApp"</span>)
+        .version(<span class="string">"1.0"</span>)
+        .about(<span class="string">"Does awesome things"</span>)
+        .arg(<span class="macro">arg!</span>(--two &lt;VALUE&gt;).required(<span class="bool-val">true</span>))
+        .arg(<span class="macro">arg!</span>(--one &lt;VALUE&gt;).required(<span class="bool-val">true</span>))
+        .get_matches();
+
+    <span class="macro">println!</span>(
+        <span class="string">"two: {:?}"</span>,
+        matches.get_one::&lt;String&gt;(<span class="string">"two"</span>).expect(<span class="string">"required"</span>)
+    );
+    <span class="macro">println!</span>(
+        <span class="string">"one: {:?}"</span>,
+        matches.get_one::&lt;String&gt;(<span class="string">"one"</span>).expect(<span class="string">"required"</span>)
+    );
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 02_apps --help
+Does awesome things
+
+Usage: 02_apps[EXE] --two &lt;VALUE&gt; --one &lt;VALUE&gt;
+
+Options:
+      --two &lt;VALUE&gt;  
+      --one &lt;VALUE&gt;  
+  -h, --help         Print help
+  -V, --version      Print version
+
+$ 02_apps --version
+MyApp 1.0
+</code></pre></div>
+<p>You can use <a href="../macro.command.html" title="macro clap::command"><code>command!()</code></a> to fill these fields in from your <code>Cargo.toml</code>
+file.  <strong>This requires the <a href="../_features/index.html" title="mod clap::_features"><code>cargo</code> feature flag</a>.</strong></p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{arg, command};
+
+<span class="kw">fn </span>main() {
+    <span class="comment">// requires `cargo` feature, reading name, version, author, and description from `Cargo.toml`
+    </span><span class="kw">let </span>matches = <span class="macro">command!</span>()
+        .arg(<span class="macro">arg!</span>(--two &lt;VALUE&gt;).required(<span class="bool-val">true</span>))
+        .arg(<span class="macro">arg!</span>(--one &lt;VALUE&gt;).required(<span class="bool-val">true</span>))
+        .get_matches();
+
+    <span class="macro">println!</span>(
+        <span class="string">"two: {:?}"</span>,
+        matches.get_one::&lt;String&gt;(<span class="string">"two"</span>).expect(<span class="string">"required"</span>)
+    );
+    <span class="macro">println!</span>(
+        <span class="string">"one: {:?}"</span>,
+        matches.get_one::&lt;String&gt;(<span class="string">"one"</span>).expect(<span class="string">"required"</span>)
+    );
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 02_crate --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 02_crate[EXE] --two &lt;VALUE&gt; --one &lt;VALUE&gt;
+
+Options:
+      --two &lt;VALUE&gt;  
+      --one &lt;VALUE&gt;  
+  -h, --help         Print help
+  -V, --version      Print version
+
+$ 02_crate --version
+clap [..]
+</code></pre></div>
+<p>You can use <a href="../struct.Command.html" title="struct clap::Command"><code>Command</code></a> methods to change the application level behavior of
+clap, like <a href="../struct.Command.html#method.next_line_help" title="method clap::Command::next_line_help"><code>Command::next_line_help</code></a>.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{ArgAction, arg, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.next_line_help(<span class="bool-val">true</span>)
+        .arg(<span class="macro">arg!</span>(--two &lt;VALUE&gt;).required(<span class="bool-val">true</span>).action(ArgAction::Set))
+        .arg(<span class="macro">arg!</span>(--one &lt;VALUE&gt;).required(<span class="bool-val">true</span>).action(ArgAction::Set))
+        .get_matches();
+
+    <span class="macro">println!</span>(
+        <span class="string">"two: {:?}"</span>,
+        matches.get_one::&lt;String&gt;(<span class="string">"two"</span>).expect(<span class="string">"required"</span>)
+    );
+    <span class="macro">println!</span>(
+        <span class="string">"one: {:?}"</span>,
+        matches.get_one::&lt;String&gt;(<span class="string">"one"</span>).expect(<span class="string">"required"</span>)
+    );
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 02_app_settings --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 02_app_settings[EXE] --two &lt;VALUE&gt; --one &lt;VALUE&gt;
+
+Options:
+      --two &lt;VALUE&gt;
+          
+      --one &lt;VALUE&gt;
+          
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+</code></pre></div><h3 id="adding-arguments"><a class="doc-anchor" href="#adding-arguments">§</a>Adding Arguments</h3>
+<ol>
+<li><a href="#positionals">Positionals</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#flags">Flags</a></li>
+<li><a href="#required">Required</a></li>
+<li><a href="#defaults">Defaults</a></li>
+<li><a href="#subcommands">Subcommands</a></li>
+</ol>
+<h4 id="positionals"><a class="doc-anchor" href="#positionals">§</a>Positionals</h4>
+<p>By default, an <a href="../struct.Arg.html" title="struct clap::Arg"><code>Arg</code></a> defines a positional argument:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Arg, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(Arg::new(<span class="string">"name"</span>))
+        .get_matches();
+
+    <span class="macro">println!</span>(<span class="string">"name: {:?}"</span>, matches.get_one::&lt;String&gt;(<span class="string">"name"</span>));
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_03_positional --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_03_positional[EXE] [name]
+
+Arguments:
+  [name]  
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 03_03_positional
+name: None
+
+$ 03_03_positional bob
+name: Some(&quot;bob&quot;)
+</code></pre></div>
+<p>Note that the default <a href="../enum.ArgAction.html" title="enum clap::ArgAction"><code>ArgAction</code></a> is <a href="../enum.ArgAction.html#variant.Set" title="variant clap::ArgAction::Set"><code>Set</code></a>.  To
+accept multiple values, override the <a href="../struct.Arg.html#method.action" title="method clap::Arg::action">action</a> with <a href="../enum.ArgAction.html#variant.Append" title="variant clap::ArgAction::Append"><code>Append</code></a>:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Arg, ArgAction, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(Arg::new(<span class="string">"name"</span>).action(ArgAction::Append))
+        .get_matches();
+
+    <span class="kw">let </span>args = matches
+        .get_many::&lt;String&gt;(<span class="string">"name"</span>)
+        .unwrap_or_default()
+        .map(|v| v.as_str())
+        .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+
+    <span class="macro">println!</span>(<span class="string">"names: {args:?}"</span>);
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_03_positional_mult --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_03_positional_mult[EXE] [name]...
+
+Arguments:
+  [name]...  
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 03_03_positional_mult
+names: []
+
+$ 03_03_positional_mult bob
+names: [&quot;bob&quot;]
+
+$ 03_03_positional_mult bob john
+names: [&quot;bob&quot;, &quot;john&quot;]
+</code></pre></div><h4 id="options"><a class="doc-anchor" href="#options">§</a>Options</h4>
+<p>You can name your arguments with a flag:</p>
+<ul>
+<li>Intent of the value is clearer</li>
+<li>Order doesn’t matter</li>
+</ul>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Arg, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(Arg::new(<span class="string">"name"</span>).short(<span class="string">'n'</span>).long(<span class="string">"name"</span>))
+        .get_matches();
+
+    <span class="macro">println!</span>(<span class="string">"name: {:?}"</span>, matches.get_one::&lt;String&gt;(<span class="string">"name"</span>));
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_02_option --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_02_option[EXE] [OPTIONS]
+
+Options:
+  -n, --name &lt;name&gt;  
+  -h, --help         Print help
+  -V, --version      Print version
+
+$ 03_02_option
+name: None
+
+$ 03_02_option --name bob
+name: Some(&quot;bob&quot;)
+
+$ 03_02_option --name=bob
+name: Some(&quot;bob&quot;)
+
+$ 03_02_option -n bob
+name: Some(&quot;bob&quot;)
+
+$ 03_02_option -n=bob
+name: Some(&quot;bob&quot;)
+
+$ 03_02_option -nbob
+name: Some(&quot;bob&quot;)
+</code></pre></div>
+<p>Note that the default <a href="../enum.ArgAction.html" title="enum clap::ArgAction"><code>ArgAction</code></a> is <a href="../enum.ArgAction.html#variant.Set" title="variant clap::ArgAction::Set"><code>Set</code></a>.  To
+accept multiple occurrences, override the <a href="../struct.Arg.html#method.action" title="method clap::Arg::action">action</a> with <a href="../enum.ArgAction.html#variant.Append" title="variant clap::ArgAction::Append"><code>Append</code></a>:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Arg, ArgAction, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            Arg::new(<span class="string">"name"</span>)
+                .short(<span class="string">'n'</span>)
+                .long(<span class="string">"name"</span>)
+                .action(ArgAction::Append),
+        )
+        .get_matches();
+
+    <span class="kw">let </span>args = matches
+        .get_many::&lt;String&gt;(<span class="string">"name"</span>)
+        .unwrap_or_default()
+        .map(|v| v.as_str())
+        .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+
+    <span class="macro">println!</span>(<span class="string">"names: {args:?}"</span>);
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_02_option_mult --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_02_option_mult[EXE] [OPTIONS]
+
+Options:
+  -n, --name &lt;name&gt;  
+  -h, --help         Print help
+  -V, --version      Print version
+
+$ 03_02_option_mult
+names: []
+
+$ 03_02_option_mult --name bob
+names: [&quot;bob&quot;]
+
+$ 03_02_option_mult --name bob --name john
+names: [&quot;bob&quot;, &quot;john&quot;]
+
+$ 03_02_option_mult_derive --name bob --name=john -n tom -n=chris -nsteve
+name: [&quot;bob&quot;, &quot;john&quot;, &quot;tom&quot;, &quot;chris&quot;, &quot;steve&quot;]
+</code></pre></div><h4 id="flags"><a class="doc-anchor" href="#flags">§</a>Flags</h4>
+<p>Flags can also be switches that can be on/off:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Arg, ArgAction, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            Arg::new(<span class="string">"verbose"</span>)
+                .short(<span class="string">'v'</span>)
+                .long(<span class="string">"verbose"</span>)
+                .action(ArgAction::SetTrue),
+        )
+        .get_matches();
+
+    <span class="macro">println!</span>(<span class="string">"verbose: {:?}"</span>, matches.get_flag(<span class="string">"verbose"</span>));
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_01_flag_bool --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_01_flag_bool[EXE] [OPTIONS]
+
+Options:
+  -v, --verbose  
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 03_01_flag_bool
+verbose: false
+
+$ 03_01_flag_bool --verbose
+verbose: true
+
+$ 03_01_flag_bool --verbose --verbose
+? failed
+error: the argument &#39;--verbose&#39; cannot be used multiple times
+
+Usage: 03_01_flag_bool[EXE] [OPTIONS]
+
+For more information, try &#39;--help&#39;.
+</code></pre></div>
+<p>To accept multiple flags, use <a href="../enum.ArgAction.html#variant.Count" title="variant clap::ArgAction::Count"><code>Count</code></a>:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Arg, ArgAction, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            Arg::new(<span class="string">"verbose"</span>)
+                .short(<span class="string">'v'</span>)
+                .long(<span class="string">"verbose"</span>)
+                .action(ArgAction::Count),
+        )
+        .get_matches();
+
+    <span class="macro">println!</span>(<span class="string">"verbose: {:?}"</span>, matches.get_count(<span class="string">"verbose"</span>));
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_01_flag_count --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_01_flag_count[EXE] [OPTIONS]
+
+Options:
+  -v, --verbose...  
+  -h, --help        Print help
+  -V, --version     Print version
+
+$ 03_01_flag_count
+verbose: 0
+
+$ 03_01_flag_count --verbose
+verbose: 1
+
+$ 03_01_flag_count --verbose --verbose
+verbose: 2
+</code></pre></div><h4 id="required"><a class="doc-anchor" href="#required">§</a>Required</h4>
+<p>By default, an <a href="../struct.Arg.html" title="struct clap::Arg"><code>Arg</code></a> is optional which can be changed with
+<a href="../struct.Arg.html#method.required" title="method clap::Arg::required"><code>required</code></a>.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Arg, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(Arg::new(<span class="string">"name"</span>).required(<span class="bool-val">true</span>))
+        .get_matches();
+
+    <span class="macro">println!</span>(
+        <span class="string">"name: {:?}"</span>,
+        matches
+            .get_one::&lt;String&gt;(<span class="string">"name"</span>)
+            .expect(<span class="string">"clap `required` ensures its present"</span>)
+    );
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_06_required --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_06_required[EXE] &lt;name&gt;
+
+Arguments:
+  &lt;name&gt;  
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 03_06_required
+? 2
+error: the following required arguments were not provided:
+  &lt;name&gt;
+
+Usage: 03_06_required[EXE] &lt;name&gt;
+
+For more information, try &#39;--help&#39;.
+
+$ 03_06_required bob
+name: &quot;bob&quot;
+</code></pre></div><h4 id="defaults"><a class="doc-anchor" href="#defaults">§</a>Defaults</h4>
+<p>We’ve previously showed that arguments can be <a href="../struct.Arg.html#method.required" title="method clap::Arg::required"><code>required</code></a> or optional.
+When optional, you work with a <code>Option</code> and can <code>unwrap_or</code>.  Alternatively, you can set
+<a href="../struct.Arg.html#method.default_value" title="method clap::Arg::default_value"><code>Arg::default_value</code></a>.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{arg, command, value_parser};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            <span class="macro">arg!</span>([PORT])
+                .value_parser(<span class="macro">value_parser!</span>(u16))
+                .default_value(<span class="string">"2020"</span>),
+        )
+        .get_matches();
+
+    <span class="macro">println!</span>(
+        <span class="string">"port: {:?}"</span>,
+        matches
+            .get_one::&lt;u16&gt;(<span class="string">"PORT"</span>)
+            .expect(<span class="string">"default ensures there is always a value"</span>)
+    );
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_05_default_values --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_05_default_values[EXE] [PORT]
+
+Arguments:
+  [PORT]  [default: 2020]
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 03_05_default_values
+port: 2020
+
+$ 03_05_default_values 22
+port: 22
+</code></pre></div><h4 id="subcommands"><a class="doc-anchor" href="#subcommands">§</a>Subcommands</h4>
+<p>Subcommands are defined as <a href="../struct.Command.html" title="struct clap::Command"><code>Command</code></a>s that get added via
+<a href="../struct.Command.html#method.subcommand" title="method clap::Command::subcommand"><code>Command::subcommand</code></a>. Each instance of a Subcommand can have its
+own version, author(s), Args, and even its own subcommands.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{Command, arg, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.propagate_version(<span class="bool-val">true</span>)
+        .subcommand_required(<span class="bool-val">true</span>)
+        .arg_required_else_help(<span class="bool-val">true</span>)
+        .subcommand(
+            Command::new(<span class="string">"add"</span>)
+                .about(<span class="string">"Adds files to myapp"</span>)
+                .arg(<span class="macro">arg!</span>([NAME])),
+        )
+        .get_matches();
+
+    <span class="kw">match </span>matches.subcommand() {
+        <span class="prelude-val">Some</span>((<span class="string">"add"</span>, sub_matches)) =&gt; <span class="macro">println!</span>(
+            <span class="string">"'myapp add' was used, name is: {:?}"</span>,
+            sub_matches.get_one::&lt;String&gt;(<span class="string">"NAME"</span>)
+        ),
+        <span class="kw">_ </span>=&gt; <span class="macro">unreachable!</span>(<span class="string">"Exhausted list of subcommands and subcommand_required prevents `None`"</span>),
+    }
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 03_04_subcommands help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_04_subcommands[EXE] &lt;COMMAND&gt;
+
+Commands:
+  add   Adds files to myapp
+  help  Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 03_04_subcommands help add
+Adds files to myapp
+
+Usage: 03_04_subcommands[EXE] add [NAME]
+
+Arguments:
+  [NAME]  
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 03_04_subcommands add bob
+&#39;myapp add&#39; was used, name is: Some(&quot;bob&quot;)
+</code></pre></div>
+<p>We set
+<a href="../struct.Command.html#method.arg_required_else_help" title="method clap::Command::arg_required_else_help"><code>Command::arg_required_else_help</code></a> to
+show the help, rather than an error, when the
+<a href="../struct.Command.html#method.subcommand_required" title="method clap::Command::subcommand_required">required subcommand</a> is missing:</p>
+<div class="example-wrap"><pre class="language-console"><code>$ 03_04_subcommands
+? failed
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 03_04_subcommands[EXE] &lt;COMMAND&gt;
+
+Commands:
+  add   Adds files to myapp
+  help  Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+</code></pre></div>
+<p>Since we specified <a href="../struct.Command.html#method.propagate_version" title="method clap::Command::propagate_version"><code>Command::propagate_version</code></a>, the <code>--version</code> flag
+is available in all subcommands:</p>
+<div class="example-wrap"><pre class="language-console"><code>$ 03_04_subcommands --version
+clap [..]
+
+$ 03_04_subcommands add --version
+clap-add [..]
+</code></pre></div><h3 id="validation"><a class="doc-anchor" href="#validation">§</a>Validation</h3>
+<ol>
+<li><a href="#enumerated-values">Enumerated values</a></li>
+<li><a href="#validated-values">Validated values</a></li>
+<li><a href="#argument-relations">Argument Relations</a></li>
+<li><a href="#custom-validation">Custom Validation</a></li>
+</ol>
+<p>An appropriate default parser/validator will be selected for the field’s type.  See
+<a href="../macro.value_parser.html" title="macro clap::value_parser"><code>value_parser!</code></a> for more details.</p>
+<h4 id="enumerated-values"><a class="doc-anchor" href="#enumerated-values">§</a>Enumerated values</h4>
+<p>If you have arguments of specific values you want to test for, you can use the
+<a href="../builder/struct.PossibleValuesParser.html" title="struct clap::builder::PossibleValuesParser"><code>PossibleValuesParser</code></a> or <a href="../struct.Arg.html#method.value_parser" title="method clap::Arg::value_parser"><code>Arg::value_parser(["val1", ...])</code></a> for short.</p>
+<p>This allows you to specify the valid values for that argument. If the user does not use one of
+those specific values, they will receive a graceful exit with error message informing them
+of the mistake, and what the possible valid values are</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{arg, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            <span class="macro">arg!</span>(&lt;MODE&gt;)
+                .help(<span class="string">"What mode to run the program in"</span>)
+                .value_parser([<span class="string">"fast"</span>, <span class="string">"slow"</span>]),
+        )
+        .get_matches();
+
+    <span class="comment">// Note, it's safe to call unwrap() because the arg is required
+    </span><span class="kw">match </span>matches
+        .get_one::&lt;String&gt;(<span class="string">"MODE"</span>)
+        .expect(<span class="string">"'MODE' is required and parsing will fail if its missing"</span>)
+        .as_str()
+    {
+        <span class="string">"fast" </span>=&gt; {
+            <span class="macro">println!</span>(<span class="string">"Hare"</span>);
+        }
+        <span class="string">"slow" </span>=&gt; {
+            <span class="macro">println!</span>(<span class="string">"Tortoise"</span>);
+        }
+        <span class="kw">_ </span>=&gt; <span class="macro">unreachable!</span>(),
+    }
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 04_01_possible --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 04_01_possible[EXE] &lt;MODE&gt;
+
+Arguments:
+  &lt;MODE&gt;  What mode to run the program in [possible values: fast, slow]
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 04_01_possible fast
+Hare
+
+$ 04_01_possible slow
+Tortoise
+
+$ 04_01_possible medium
+? failed
+error: invalid value &#39;medium&#39; for &#39;&lt;MODE&gt;&#39;
+  [possible values: fast, slow]
+
+For more information, try &#39;--help&#39;.
+</code></pre></div>
+<p>When enabling the <a href="../_features/index.html" title="mod clap::_features"><code>derive</code> feature</a>, you can use
+<a href="../trait.ValueEnum.html" title="trait clap::ValueEnum"><code>ValueEnum</code></a> to take care of the boiler plate for you, giving the same
+results.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{ValueEnum, arg, builder::PossibleValue, command, value_parser};
+
+<span class="attr">#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
+</span><span class="kw">enum </span>Mode {
+    Fast,
+    Slow,
+}
+
+<span class="comment">// Can also be derived with feature flag `derive`
+</span><span class="kw">impl </span>ValueEnum <span class="kw">for </span>Mode {
+    <span class="kw">fn </span>value_variants&lt;<span class="lifetime">'a</span>&gt;() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="self">Self</span>] {
+        <span class="kw-2">&amp;</span>[Mode::Fast, Mode::Slow]
+    }
+
+    <span class="kw">fn </span>to_possible_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;PossibleValue&gt; {
+        <span class="prelude-val">Some</span>(<span class="kw">match </span><span class="self">self </span>{
+            Mode::Fast =&gt; PossibleValue::new(<span class="string">"fast"</span>).help(<span class="string">"Run swiftly"</span>),
+            Mode::Slow =&gt; PossibleValue::new(<span class="string">"slow"</span>).help(<span class="string">"Crawl slowly but steadily"</span>),
+        })
+    }
+}
+
+<span class="kw">impl </span>std::fmt::Display <span class="kw">for </span>Mode {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>std::fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; std::fmt::Result {
+        <span class="self">self</span>.to_possible_value()
+            .expect(<span class="string">"no values are skipped"</span>)
+            .get_name()
+            .fmt(f)
+    }
+}
+
+<span class="kw">impl </span>std::str::FromStr <span class="kw">for </span>Mode {
+    <span class="kw">type </span><span class="prelude-val">Err </span>= String;
+
+    <span class="kw">fn </span>from_str(s: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <span class="self">Self</span>::Err&gt; {
+        <span class="kw">for </span>variant <span class="kw">in </span><span class="self">Self</span>::value_variants() {
+            <span class="kw">if </span>variant.to_possible_value().unwrap().matches(s, <span class="bool-val">false</span>) {
+                <span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="kw-2">*</span>variant);
+            }
+        }
+        <span class="prelude-val">Err</span>(<span class="macro">format!</span>(<span class="string">"invalid variant: {s}"</span>))
+    }
+}
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            <span class="macro">arg!</span>(&lt;MODE&gt;)
+                .help(<span class="string">"What mode to run the program in"</span>)
+                .value_parser(<span class="macro">value_parser!</span>(Mode)),
+        )
+        .get_matches();
+
+    <span class="comment">// Note, it's safe to call unwrap() because the arg is required
+    </span><span class="kw">match </span>matches
+        .get_one::&lt;Mode&gt;(<span class="string">"MODE"</span>)
+        .expect(<span class="string">"'MODE' is required and parsing will fail if its missing"</span>)
+    {
+        Mode::Fast =&gt; {
+            <span class="macro">println!</span>(<span class="string">"Hare"</span>);
+        }
+        Mode::Slow =&gt; {
+            <span class="macro">println!</span>(<span class="string">"Tortoise"</span>);
+        }
+    }
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 04_01_enum --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 04_01_enum[EXE] &lt;MODE&gt;
+
+Arguments:
+  &lt;MODE&gt;
+          What mode to run the program in
+
+          Possible values:
+          - fast: Run swiftly
+          - slow: Crawl slowly but steadily
+
+Options:
+  -h, --help
+          Print help (see a summary with &#39;-h&#39;)
+
+  -V, --version
+          Print version
+
+$ 04_01_enum -h
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 04_01_enum[EXE] &lt;MODE&gt;
+
+Arguments:
+  &lt;MODE&gt;  What mode to run the program in [possible values: fast, slow]
+
+Options:
+  -h, --help     Print help (see more with &#39;--help&#39;)
+  -V, --version  Print version
+
+$ 04_01_enum fast
+Hare
+
+$ 04_01_enum slow
+Tortoise
+
+$ 04_01_enum medium
+? failed
+error: invalid value &#39;medium&#39; for &#39;&lt;MODE&gt;&#39;
+  [possible values: fast, slow]
+
+For more information, try &#39;--help&#39;.
+</code></pre></div><h4 id="validated-values"><a class="doc-anchor" href="#validated-values">§</a>Validated values</h4>
+<p>More generally, you can validate and parse into any data type with <a href="../struct.Arg.html#method.value_parser" title="method clap::Arg::value_parser"><code>Arg::value_parser</code></a>.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{arg, command, value_parser};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            <span class="macro">arg!</span>(&lt;PORT&gt;)
+                .help(<span class="string">"Network port to use"</span>)
+                .value_parser(<span class="macro">value_parser!</span>(u16).range(<span class="number">1</span>..)),
+        )
+        .get_matches();
+
+    <span class="comment">// Note, it's safe to call unwrap() because the arg is required
+    </span><span class="kw">let </span>port: u16 = <span class="kw-2">*</span>matches
+        .get_one::&lt;u16&gt;(<span class="string">"PORT"</span>)
+        .expect(<span class="string">"'PORT' is required and parsing will fail if its missing"</span>);
+    <span class="macro">println!</span>(<span class="string">"PORT = {port}"</span>);
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 04_02_parse --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 04_02_parse[EXE] &lt;PORT&gt;
+
+Arguments:
+  &lt;PORT&gt;  Network port to use
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 04_02_parse 22
+PORT = 22
+
+$ 04_02_parse foobar
+? failed
+error: invalid value &#39;foobar&#39; for &#39;&lt;PORT&gt;&#39;: invalid digit found in string
+
+For more information, try &#39;--help&#39;.
+
+$ 04_02_parse_derive 0
+? failed
+error: invalid value &#39;0&#39; for &#39;&lt;PORT&gt;&#39;: 0 is not in 1..=65535
+
+For more information, try &#39;--help&#39;.
+</code></pre></div>
+<p>A <a href="../builder/trait.TypedValueParser.html" title="trait clap::builder::TypedValueParser">custom parser</a> can be used to improve the error messages or provide additional validation:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::ops::RangeInclusive;
+
+<span class="kw">use </span>clap::{arg, command};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            <span class="macro">arg!</span>(&lt;PORT&gt;)
+                .help(<span class="string">"Network port to use"</span>)
+                .value_parser(port_in_range),
+        )
+        .get_matches();
+
+    <span class="comment">// Note, it's safe to call unwrap() because the arg is required
+    </span><span class="kw">let </span>port: u16 = <span class="kw-2">*</span>matches
+        .get_one::&lt;u16&gt;(<span class="string">"PORT"</span>)
+        .expect(<span class="string">"'PORT' is required and parsing will fail if its missing"</span>);
+    <span class="macro">println!</span>(<span class="string">"PORT = {port}"</span>);
+}
+
+<span class="kw">const </span>PORT_RANGE: RangeInclusive&lt;usize&gt; = <span class="number">1</span>..=<span class="number">65535</span>;
+
+<span class="kw">fn </span>port_in_range(s: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;u16, String&gt; {
+    <span class="kw">let </span>port: usize = s
+        .parse()
+        .map_err(|<span class="kw">_</span>| <span class="macro">format!</span>(<span class="string">"`{s}` isn't a port number"</span>))<span class="question-mark">?</span>;
+    <span class="kw">if </span>PORT_RANGE.contains(<span class="kw-2">&amp;</span>port) {
+        <span class="prelude-val">Ok</span>(port <span class="kw">as </span>u16)
+    } <span class="kw">else </span>{
+        <span class="prelude-val">Err</span>(<span class="macro">format!</span>(
+            <span class="string">"port not in range {}-{}"</span>,
+            PORT_RANGE.start(),
+            PORT_RANGE.end()
+        ))
+    }
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 04_02_validate --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 04_02_validate[EXE] &lt;PORT&gt;
+
+Arguments:
+  &lt;PORT&gt;  Network port to use
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+
+$ 04_02_validate 22
+PORT = 22
+
+$ 04_02_validate foobar
+? failed
+error: invalid value &#39;foobar&#39; for &#39;&lt;PORT&gt;&#39;: `foobar` isn&#39;t a port number
+
+For more information, try &#39;--help&#39;.
+
+$ 04_02_validate 0
+? failed
+error: invalid value &#39;0&#39; for &#39;&lt;PORT&gt;&#39;: port not in range 1-65535
+
+For more information, try &#39;--help&#39;.
+</code></pre></div>
+<p>See <a href="../struct.Arg.html#method.value_parser" title="method clap::Arg::value_parser"><code>Arg::value_parser</code></a> for more details.</p>
+<h4 id="argument-relations"><a class="doc-anchor" href="#argument-relations">§</a>Argument Relations</h4>
+<p>You can declare dependencies or conflicts between <a href="../struct.Arg.html" title="struct clap::Arg"><code>Arg</code></a>s or even
+<a href="../struct.ArgGroup.html" title="struct clap::ArgGroup"><code>ArgGroup</code></a>s.</p>
+<p><a href="../struct.ArgGroup.html" title="struct clap::ArgGroup"><code>ArgGroup</code></a>s  make it easier to declare relations instead of having to list
+each individually, or when you want a rule to apply “any but not all” arguments.</p>
+<p>Perhaps the most common use of <a href="../struct.ArgGroup.html" title="struct clap::ArgGroup"><code>ArgGroup</code></a>s is to require one and <em>only</em> one
+argument to be present out of a given set. Imagine that you had multiple arguments, and you
+want one of them to be required, but making all of them required isn’t feasible because perhaps
+they conflict with each other.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::path::PathBuf;
+
+<span class="kw">use </span>clap::{ArgAction, ArgGroup, arg, command, value_parser};
+
+<span class="kw">fn </span>main() {
+    <span class="comment">// Create application like normal
+    </span><span class="kw">let </span>matches = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        // Add the version arguments
+        </span>.arg(<span class="macro">arg!</span>(--<span class="string">"set-ver" </span>&lt;VER&gt; <span class="string">"set version manually"</span>))
+        .arg(<span class="macro">arg!</span>(--major         <span class="string">"auto inc major"</span>).action(ArgAction::SetTrue))
+        .arg(<span class="macro">arg!</span>(--minor         <span class="string">"auto inc minor"</span>).action(ArgAction::SetTrue))
+        .arg(<span class="macro">arg!</span>(--patch         <span class="string">"auto inc patch"</span>).action(ArgAction::SetTrue))
+        <span class="comment">// Create a group, make it required, and add the above arguments
+        </span>.group(
+            ArgGroup::new(<span class="string">"vers"</span>)
+                .required(<span class="bool-val">true</span>)
+                .args([<span class="string">"set-ver"</span>, <span class="string">"major"</span>, <span class="string">"minor"</span>, <span class="string">"patch"</span>]),
+        )
+        <span class="comment">// Arguments can also be added to a group individually, these two arguments
+        // are part of the "input" group which is not required
+        </span>.arg(
+            <span class="macro">arg!</span>([INPUT_FILE] <span class="string">"some regular input"</span>)
+                .value_parser(<span class="macro">value_parser!</span>(PathBuf))
+                .group(<span class="string">"input"</span>),
+        )
+        .arg(
+            <span class="macro">arg!</span>(--<span class="string">"spec-in" </span>&lt;SPEC_IN&gt; <span class="string">"some special input argument"</span>)
+                .value_parser(<span class="macro">value_parser!</span>(PathBuf))
+                .group(<span class="string">"input"</span>),
+        )
+        <span class="comment">// Now let's assume we have a -c [config] argument which requires one of
+        // (but **not** both) the "input" arguments
+        </span>.arg(
+            <span class="macro">arg!</span>(config: -c &lt;CONFIG&gt;)
+                .value_parser(<span class="macro">value_parser!</span>(PathBuf))
+                .requires(<span class="string">"input"</span>),
+        )
+        .get_matches();
+
+    <span class="comment">// Let's assume the old version 1.2.3
+    </span><span class="kw">let </span><span class="kw-2">mut </span>major = <span class="number">1</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>minor = <span class="number">2</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>patch = <span class="number">3</span>;
+
+    <span class="comment">// See if --set-ver was used to set the version manually
+    </span><span class="kw">let </span>version = <span class="kw">if let </span><span class="prelude-val">Some</span>(ver) = matches.get_one::&lt;String&gt;(<span class="string">"set-ver"</span>) {
+        ver.to_owned()
+    } <span class="kw">else </span>{
+        <span class="comment">// Increment the one requested (in a real program, we'd reset the lower numbers)
+        </span><span class="kw">let </span>(maj, min, pat) = (
+            matches.get_flag(<span class="string">"major"</span>),
+            matches.get_flag(<span class="string">"minor"</span>),
+            matches.get_flag(<span class="string">"patch"</span>),
+        );
+        <span class="kw">match </span>(maj, min, pat) {
+            (<span class="bool-val">true</span>, <span class="kw">_</span>, <span class="kw">_</span>) =&gt; major += <span class="number">1</span>,
+            (<span class="kw">_</span>, <span class="bool-val">true</span>, <span class="kw">_</span>) =&gt; minor += <span class="number">1</span>,
+            (<span class="kw">_</span>, <span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; patch += <span class="number">1</span>,
+            <span class="kw">_ </span>=&gt; <span class="macro">unreachable!</span>(),
+        };
+        <span class="macro">format!</span>(<span class="string">"{major}.{minor}.{patch}"</span>)
+    };
+
+    <span class="macro">println!</span>(<span class="string">"Version: {version}"</span>);
+
+    <span class="comment">// Check for usage of -c
+    </span><span class="kw">if </span>matches.contains_id(<span class="string">"config"</span>) {
+        <span class="kw">let </span>input = matches
+            .get_one::&lt;PathBuf&gt;(<span class="string">"INPUT_FILE"</span>)
+            .unwrap_or_else(|| matches.get_one::&lt;PathBuf&gt;(<span class="string">"spec-in"</span>).unwrap())
+            .display();
+        <span class="macro">println!</span>(
+            <span class="string">"Doing work using input {} and config {}"</span>,
+            input,
+            matches.get_one::&lt;PathBuf&gt;(<span class="string">"config"</span>).unwrap().display()
+        );
+    }
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 04_03_relations --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 04_03_relations[EXE] [OPTIONS] &lt;--set-ver &lt;VER&gt;|--major|--minor|--patch&gt; [INPUT_FILE]
+
+Arguments:
+  [INPUT_FILE]  some regular input
+
+Options:
+      --set-ver &lt;VER&gt;      set version manually
+      --major              auto inc major
+      --minor              auto inc minor
+      --patch              auto inc patch
+      --spec-in &lt;SPEC_IN&gt;  some special input argument
+  -c &lt;CONFIG&gt;              
+  -h, --help               Print help
+  -V, --version            Print version
+
+$ 04_03_relations
+? failed
+error: the following required arguments were not provided:
+  &lt;--set-ver &lt;VER&gt;|--major|--minor|--patch&gt;
+
+Usage: 04_03_relations[EXE] &lt;--set-ver &lt;VER&gt;|--major|--minor|--patch&gt; [INPUT_FILE]
+
+For more information, try &#39;--help&#39;.
+
+$ 04_03_relations --major
+Version: 2.2.3
+
+$ 04_03_relations --major --minor
+? failed
+error: the argument &#39;--major&#39; cannot be used with &#39;--minor&#39;
+
+Usage: 04_03_relations[EXE] &lt;--set-ver &lt;VER&gt;|--major|--minor|--patch&gt; [INPUT_FILE]
+
+For more information, try &#39;--help&#39;.
+
+$ 04_03_relations --major -c config.toml
+? failed
+error: the following required arguments were not provided:
+  &lt;INPUT_FILE|--spec-in &lt;SPEC_IN&gt;&gt;
+
+Usage: 04_03_relations[EXE] -c &lt;CONFIG&gt; &lt;--set-ver &lt;VER&gt;|--major|--minor|--patch&gt; &lt;INPUT_FILE|--spec-in &lt;SPEC_IN&gt;&gt;
+
+For more information, try &#39;--help&#39;.
+
+$ 04_03_relations --major -c config.toml --spec-in input.txt
+Version: 2.2.3
+Doing work using input input.txt and config config.toml
+</code></pre></div><h4 id="custom-validation"><a class="doc-anchor" href="#custom-validation">§</a>Custom Validation</h4>
+<p>As a last resort, you can create custom errors with the basics of clap’s formatting.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::path::PathBuf;
+
+<span class="kw">use </span>clap::error::ErrorKind;
+<span class="kw">use </span>clap::{ArgAction, arg, command, value_parser};
+
+<span class="kw">fn </span>main() {
+    <span class="comment">// Create application like normal
+    </span><span class="kw">let </span><span class="kw-2">mut </span>cmd = <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        // Add the version arguments
+        </span>.arg(<span class="macro">arg!</span>(--<span class="string">"set-ver" </span>&lt;VER&gt; <span class="string">"set version manually"</span>))
+        .arg(<span class="macro">arg!</span>(--major         <span class="string">"auto inc major"</span>).action(ArgAction::SetTrue))
+        .arg(<span class="macro">arg!</span>(--minor         <span class="string">"auto inc minor"</span>).action(ArgAction::SetTrue))
+        .arg(<span class="macro">arg!</span>(--patch         <span class="string">"auto inc patch"</span>).action(ArgAction::SetTrue))
+        <span class="comment">// Arguments can also be added to a group individually, these two arguments
+        // are part of the "input" group which is not required
+        </span>.arg(<span class="macro">arg!</span>([INPUT_FILE] <span class="string">"some regular input"</span>).value_parser(<span class="macro">value_parser!</span>(PathBuf)))
+        .arg(
+            <span class="macro">arg!</span>(--<span class="string">"spec-in" </span>&lt;SPEC_IN&gt; <span class="string">"some special input argument"</span>)
+                .value_parser(<span class="macro">value_parser!</span>(PathBuf)),
+        )
+        <span class="comment">// Now let's assume we have a -c [config] argument which requires one of
+        // (but **not** both) the "input" arguments
+        </span>.arg(<span class="macro">arg!</span>(config: -c &lt;CONFIG&gt;).value_parser(<span class="macro">value_parser!</span>(PathBuf)));
+    <span class="kw">let </span>matches = cmd.get_matches_mut();
+
+    <span class="comment">// Let's assume the old version 1.2.3
+    </span><span class="kw">let </span><span class="kw-2">mut </span>major = <span class="number">1</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>minor = <span class="number">2</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>patch = <span class="number">3</span>;
+
+    <span class="comment">// See if --set-ver was used to set the version manually
+    </span><span class="kw">let </span>version = <span class="kw">if let </span><span class="prelude-val">Some</span>(ver) = matches.get_one::&lt;String&gt;(<span class="string">"set-ver"</span>) {
+        <span class="kw">if </span>matches.get_flag(<span class="string">"major"</span>) || matches.get_flag(<span class="string">"minor"</span>) || matches.get_flag(<span class="string">"patch"</span>) {
+            cmd.error(
+                ErrorKind::ArgumentConflict,
+                <span class="string">"Can't do relative and absolute version change"</span>,
+            )
+            .exit();
+        }
+        ver.clone()
+    } <span class="kw">else </span>{
+        <span class="comment">// Increment the one requested (in a real program, we'd reset the lower numbers)
+        </span><span class="kw">let </span>(maj, min, pat) = (
+            matches.get_flag(<span class="string">"major"</span>),
+            matches.get_flag(<span class="string">"minor"</span>),
+            matches.get_flag(<span class="string">"patch"</span>),
+        );
+        <span class="kw">match </span>(maj, min, pat) {
+            (<span class="bool-val">true</span>, <span class="bool-val">false</span>, <span class="bool-val">false</span>) =&gt; major += <span class="number">1</span>,
+            (<span class="bool-val">false</span>, <span class="bool-val">true</span>, <span class="bool-val">false</span>) =&gt; minor += <span class="number">1</span>,
+            (<span class="bool-val">false</span>, <span class="bool-val">false</span>, <span class="bool-val">true</span>) =&gt; patch += <span class="number">1</span>,
+            <span class="kw">_ </span>=&gt; {
+                cmd.error(
+                    ErrorKind::ArgumentConflict,
+                    <span class="string">"Can only modify one version field"</span>,
+                )
+                .exit();
+            }
+        };
+        <span class="macro">format!</span>(<span class="string">"{major}.{minor}.{patch}"</span>)
+    };
+
+    <span class="macro">println!</span>(<span class="string">"Version: {version}"</span>);
+
+    <span class="comment">// Check for usage of -c
+    </span><span class="kw">if </span>matches.contains_id(<span class="string">"config"</span>) {
+        <span class="kw">let </span>input = matches
+            .get_one::&lt;PathBuf&gt;(<span class="string">"INPUT_FILE"</span>)
+            .or_else(|| matches.get_one::&lt;PathBuf&gt;(<span class="string">"spec-in"</span>))
+            .unwrap_or_else(|| {
+                cmd.error(
+                    ErrorKind::MissingRequiredArgument,
+                    <span class="string">"INPUT_FILE or --spec-in is required when using --config"</span>,
+                )
+                .exit()
+            })
+            .display();
+        <span class="macro">println!</span>(
+            <span class="string">"Doing work using input {} and config {}"</span>,
+            input,
+            matches.get_one::&lt;PathBuf&gt;(<span class="string">"config"</span>).unwrap().display()
+        );
+    }
+}</code></pre></div><div class="example-wrap"><pre class="language-console"><code>$ 04_04_custom --help
+A simple to use, efficient, and full-featured Command Line Argument Parser
+
+Usage: 04_04_custom[EXE] [OPTIONS] [INPUT_FILE]
+
+Arguments:
+  [INPUT_FILE]  some regular input
+
+Options:
+      --set-ver &lt;VER&gt;      set version manually
+      --major              auto inc major
+      --minor              auto inc minor
+      --patch              auto inc patch
+      --spec-in &lt;SPEC_IN&gt;  some special input argument
+  -c &lt;CONFIG&gt;              
+  -h, --help               Print help
+  -V, --version            Print version
+
+$ 04_04_custom
+? failed
+error: Can only modify one version field
+
+Usage: 04_04_custom[EXE] [OPTIONS] [INPUT_FILE]
+
+For more information, try &#39;--help&#39;.
+
+$ 04_04_custom --major
+Version: 2.2.3
+
+$ 04_04_custom --major --minor
+? failed
+error: Can only modify one version field
+
+Usage: 04_04_custom[EXE] [OPTIONS] [INPUT_FILE]
+
+For more information, try &#39;--help&#39;.
+
+$ 04_04_custom --major -c config.toml
+? failed
+Version: 2.2.3
+error: INPUT_FILE or --spec-in is required when using --config
+
+Usage: 04_04_custom[EXE] [OPTIONS] [INPUT_FILE]
+
+For more information, try &#39;--help&#39;.
+
+$ 04_04_custom --major -c config.toml --spec-in input.txt
+Version: 2.2.3
+Doing work using input input.txt and config config.toml
+</code></pre></div><h3 id="testing"><a class="doc-anchor" href="#testing">§</a>Testing</h3>
+<p>clap reports most development errors as <code>debug_assert!</code>s.  Rather than checking every
+subcommand, you should have a test that calls
+<a href="../struct.Command.html#method.debug_assert" title="method clap::Command::debug_assert"><code>Command::debug_assert</code></a>:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>clap::{arg, command, value_parser};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>matches = cmd().get_matches();
+
+    <span class="comment">// Note, it's safe to call unwrap() because the arg is required
+    </span><span class="kw">let </span>port: usize = <span class="kw-2">*</span>matches
+        .get_one::&lt;usize&gt;(<span class="string">"PORT"</span>)
+        .expect(<span class="string">"'PORT' is required and parsing will fail if its missing"</span>);
+    <span class="macro">println!</span>(<span class="string">"PORT = {port}"</span>);
+}
+
+<span class="kw">fn </span>cmd() -&gt; clap::Command {
+    <span class="macro">command!</span>() <span class="comment">// requires `cargo` feature
+        </span>.arg(
+            <span class="macro">arg!</span>(&lt;PORT&gt;)
+                .help(<span class="string">"Network port to use"</span>)
+                .value_parser(<span class="macro">value_parser!</span>(usize)),
+        )
+}
+
+<span class="attr">#[test]
+</span><span class="kw">fn </span>verify_cmd() {
+    cmd().debug_assert();
+}</code></pre></div><h3 id="next-steps"><a class="doc-anchor" href="#next-steps">§</a>Next Steps</h3>
+<ul>
+<li><a href="../_cookbook/index.html" title="mod clap::_cookbook">Cookbook</a> for application-focused examples</li>
+<li>Explore more features in the <a href="../index.html" title="mod clap">API reference</a></li>
+</ul>
+<p>For support, see <a href="https://github.com/clap-rs/clap/discussions">Discussions</a></p>
+</div></details></section></div></main></div></body></html>

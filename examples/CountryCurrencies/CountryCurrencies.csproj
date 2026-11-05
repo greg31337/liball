@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../data/countrycodes/src/countrycodes.csproj" />
+    <ProjectReference Include="../../data/currencycodes/src/currencycodes.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,4 @@
+# name	SVG path	draw points	SVG viewBox	draw transform
+bad-token	L 1 nope	0,0 1,bad	0 0 10	translate(2)
+missing-coordinates	M 0	0,	a b c d	rotate()
+wrong-arity	A 1 2 3	0,0 NaN,1	0 0 bad 2	matrix(1 2)

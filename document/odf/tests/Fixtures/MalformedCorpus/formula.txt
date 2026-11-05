@@ -1,0 +1,6 @@
+# One malformed OpenFormula expression per line.
+=SUM(1 2)
+=SUM(1
+={1;}
+="unterminated
+=((((((((((((1))))))))))))

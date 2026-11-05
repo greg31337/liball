@@ -1,0 +1,6 @@
+# One malformed ODF cell-range lexical value per line.
+not-a-range
+Sheet1.A0
+Sheet1.1A
+Sheet1.A1:
+Sheet1.A1::Sheet1.B2

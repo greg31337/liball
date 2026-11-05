@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:mso="urn:schemas-microsoft-com:office:office" office:version="1.1" office:mimetype="application/vnd.oasis.opendocument.text" mso:root-token="00007">
+  <office:meta><meta:generator>MicrosoftOffice/12.0 Microsoft Word</meta:generator></office:meta>
+  <office:styles><style:style style:name="ProducerStyle" style:family="paragraph"><style:text-properties fo:font-weight="bold"/></style:style></office:styles>
+  <office:body><office:text><text:h text:outline-level="1">Microsoft Office fixture</text:h><text:p text:style-name="ProducerStyle">Supported Microsoft Office 1.1<mso:payload mso:token="+00042.5000">Foreign Microsoft Office 1.1</mso:payload></text:p></office:text></office:body>
+</office:document>

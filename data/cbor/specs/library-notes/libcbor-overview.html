@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>libcbor &mdash; libcbor 0.14.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c71105a1" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=9e420a66"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting started" href="getting_started.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="libcbor" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/index.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            libcbor
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard_conformance.html">IETF standard conformance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal.html">Internal mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">libcbor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">libcbor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="libcbor">
+<h1>libcbor<a class="headerlink" href="#libcbor" title="Link to this heading"></a></h1>
+<p>Documentation for version 0.14.0, updated on Aug 23, 2026.</p>
+<p>Git repo: <a class="reference external" href="https://github.com/PJK/libcbor">https://github.com/PJK/libcbor</a></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p><em>libcbor</em> is a C library for parsing and generating <a class="reference external" href="https://www.rfc-editor.org/info/std94">CBOR</a>, the general-purpose schema-less binary data format.</p>
+<dl class="simple">
+<dt>Main features</dt><dd><ul class="simple">
+<li><p>Complete <a class="reference external" href="https://www.rfc-editor.org/info/std94">IETF RFC 8949 (STD 94)</a> conformance <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></li>
+<li><p>Robust C99 implementation</p></li>
+<li><p>Layered architecture offers both control and convenience</p></li>
+<li><p>Flexible memory management</p></li>
+<li><p>No shared global state - threading friendly <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></li>
+<li><p>Proper handling of UTF-8</p></li>
+<li><p>Full support for streams &amp; incremental processing</p></li>
+<li><p>Extensive documentation and test suite</p></li>
+<li><p>No runtime dependencies, small footprint</p></li>
+</ul>
+</dd>
+</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>See <a class="reference internal" href="standard_conformance.html"><span class="doc">IETF standard conformance</span></a></p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>With the exception of custom memory allocators (see <a class="reference internal" href="api/item_reference_counting.html"><span class="doc">Memory management and reference counting</span></a>)</p>
+</aside>
+</aside>
+</section>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#building-installing-libcbor">Building &amp; installing libcbor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#linking-with-libcbor">Linking with libcbor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#where-to-start">Where to start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#crash-course">Crash course</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#cbor-data-objects-are-cbor-item-t">CBOR data objects are <code class="docutils literal notranslate"><span class="pre">cbor_item_t</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#objects-can-be-serialized-and-deserialized">Objects can be serialized and deserialized</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#reference-counting">Reference counting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#moving-intermediate-values">Moving intermediate values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#ownership">Ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#streaming-io">Streaming IO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/item_types.html">Types of items</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/item_types.html#_CPPv49cbor_type"><code class="docutils literal notranslate"><span class="pre">cbor_type</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv4N9cbor_type14CBOR_TYPE_UINTE"><code class="docutils literal notranslate"><span class="pre">CBOR_TYPE_UINT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv4N9cbor_type16CBOR_TYPE_NEGINTE"><code class="docutils literal notranslate"><span class="pre">CBOR_TYPE_NEGINT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv4N9cbor_type20CBOR_TYPE_BYTESTRINGE"><code class="docutils literal notranslate"><span class="pre">CBOR_TYPE_BYTESTRING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv4N9cbor_type16CBOR_TYPE_STRINGE"><code class="docutils literal notranslate"><span class="pre">CBOR_TYPE_STRING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv4N9cbor_type15CBOR_TYPE_ARRAYE"><code class="docutils literal notranslate"><span class="pre">CBOR_TYPE_ARRAY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv4N9cbor_type13CBOR_TYPE_MAPE"><code class="docutils literal notranslate"><span class="pre">CBOR_TYPE_MAP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv4N9cbor_type13CBOR_TYPE_TAGE"><code class="docutils literal notranslate"><span class="pre">CBOR_TYPE_TAG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv4N9cbor_type20CBOR_TYPE_FLOAT_CTRLE"><code class="docutils literal notranslate"><span class="pre">CBOR_TYPE_FLOAT_CTRL</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/item_types.html#_CPPv411cbor_typeofPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_typeof()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/item_types.html#binary-queries">Binary queries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv413cbor_isa_uintPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_isa_uint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv415cbor_isa_negintPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_isa_negint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv419cbor_isa_bytestringPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_isa_bytestring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv415cbor_isa_stringPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_isa_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv414cbor_isa_arrayPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_isa_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv412cbor_isa_mapPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_isa_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv412cbor_isa_tagPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_isa_tag()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv419cbor_isa_float_ctrlPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_isa_float_ctrl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/item_types.html#logical-queries">Logical queries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv411cbor_is_intPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_is_int()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv413cbor_is_floatPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_is_float()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv412cbor_is_boolPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_is_bool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv412cbor_is_nullPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_is_null()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv413cbor_is_undefPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_is_undef()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/item_types.html#comparing-items">Comparing items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/item_types.html#_CPPv423cbor_structurally_equalPK11cbor_item_tPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_structurally_equal()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/item_reference_counting.html">Memory management and reference counting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/item_reference_counting.html#using-custom-allocator">Using custom allocator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/item_reference_counting.html#_CPPv415cbor_set_allocs14_cbor_malloc_t15_cbor_realloc_t12_cbor_free_t"><code class="docutils literal notranslate"><span class="pre">cbor_set_allocs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/item_reference_counting.html#reference-counting">Reference counting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/item_reference_counting.html#_CPPv411cbor_increfP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_incref()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_reference_counting.html#_CPPv411cbor_decrefPP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_decref()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_reference_counting.html#_CPPv424cbor_intermediate_decrefP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_intermediate_decref()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_reference_counting.html#_CPPv413cbor_refcountPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_refcount()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_reference_counting.html#_CPPv49cbor_moveP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_move()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_reference_counting.html#_CPPv49cbor_copyP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/item_reference_counting.html#_CPPv418cbor_copy_definiteP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_copy_definite()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/decoding.html">Decoding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/decoding.html#_CPPv49cbor_load9cbor_data6size_tP16cbor_load_result"><code class="docutils literal notranslate"><span class="pre">cbor_load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/decoding.html#associated-data-structures">Associated data structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/decoding.html#_CPPv415cbor_error_code"><code class="docutils literal notranslate"><span class="pre">cbor_error_code</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv4N15cbor_error_code13CBOR_ERR_NONEE"><code class="docutils literal notranslate"><span class="pre">CBOR_ERR_NONE</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv4N15cbor_error_code22CBOR_ERR_NOTENOUGHDATAE"><code class="docutils literal notranslate"><span class="pre">CBOR_ERR_NOTENOUGHDATA</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv4N15cbor_error_code15CBOR_ERR_NODATAE"><code class="docutils literal notranslate"><span class="pre">CBOR_ERR_NODATA</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv4N15cbor_error_code20CBOR_ERR_MALFORMATEDE"><code class="docutils literal notranslate"><span class="pre">CBOR_ERR_MALFORMATED</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv4N15cbor_error_code17CBOR_ERR_MEMERRORE"><code class="docutils literal notranslate"><span class="pre">CBOR_ERR_MEMERROR</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv4N15cbor_error_code20CBOR_ERR_SYNTAXERRORE"><code class="docutils literal notranslate"><span class="pre">CBOR_ERR_SYNTAXERROR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="api/decoding.html#_CPPv416cbor_load_result"><code class="docutils literal notranslate"><span class="pre">cbor_load_result</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv45error"><code class="docutils literal notranslate"><span class="pre">error</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv44read"><code class="docutils literal notranslate"><span class="pre">read</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="api/decoding.html#_CPPv410cbor_error"><code class="docutils literal notranslate"><span class="pre">cbor_error</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv48position"><code class="docutils literal notranslate"><span class="pre">position</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="api/decoding.html#_CPPv44code"><code class="docutils literal notranslate"><span class="pre">code</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/encoding.html">Encoding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/encoding.html#_CPPv414cbor_serializePK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/encoding.html#_CPPv420cbor_serialize_allocPK11cbor_item_tPPhP6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_alloc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/encoding.html#_CPPv420cbor_serialized_sizePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialized_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/encoding.html#type-specific-serializers">Type-specific serializers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/encoding.html#_CPPv419cbor_serialize_uintPK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_uint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoding.html#_CPPv421cbor_serialize_negintPK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_negint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoding.html#_CPPv425cbor_serialize_bytestringPK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_bytestring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoding.html#_CPPv421cbor_serialize_stringPK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoding.html#_CPPv420cbor_serialize_arrayPK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoding.html#_CPPv418cbor_serialize_mapPK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoding.html#_CPPv418cbor_serialize_tagPK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_tag()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoding.html#_CPPv425cbor_serialize_float_ctrlPK11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_serialize_float_ctrl()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/streaming_decoding.html">Streaming Decoding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_decoding.html#_CPPv418cbor_stream_decode9cbor_data6size_tPK14cbor_callbacksPv"><code class="docutils literal notranslate"><span class="pre">cbor_stream_decode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_decoding.html#_CPPv414cbor_callbacks"><code class="docutils literal notranslate"><span class="pre">cbor_callbacks</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv45uint8"><code class="docutils literal notranslate"><span class="pre">uint8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv46uint16"><code class="docutils literal notranslate"><span class="pre">uint16</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv46uint32"><code class="docutils literal notranslate"><span class="pre">uint32</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv46uint64"><code class="docutils literal notranslate"><span class="pre">uint64</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv48negint64"><code class="docutils literal notranslate"><span class="pre">negint64</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv48negint32"><code class="docutils literal notranslate"><span class="pre">negint32</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv48negint16"><code class="docutils literal notranslate"><span class="pre">negint16</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv47negint8"><code class="docutils literal notranslate"><span class="pre">negint8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv417byte_string_start"><code class="docutils literal notranslate"><span class="pre">byte_string_start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv411byte_string"><code class="docutils literal notranslate"><span class="pre">byte_string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv46string"><code class="docutils literal notranslate"><span class="pre">string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv412string_start"><code class="docutils literal notranslate"><span class="pre">string_start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv417indef_array_start"><code class="docutils literal notranslate"><span class="pre">indef_array_start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv411array_start"><code class="docutils literal notranslate"><span class="pre">array_start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv415indef_map_start"><code class="docutils literal notranslate"><span class="pre">indef_map_start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv49map_start"><code class="docutils literal notranslate"><span class="pre">map_start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv43tag"><code class="docutils literal notranslate"><span class="pre">tag</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv46float2"><code class="docutils literal notranslate"><span class="pre">float2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv46float4"><code class="docutils literal notranslate"><span class="pre">float4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv46float8"><code class="docutils literal notranslate"><span class="pre">float8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv49undefined"><code class="docutils literal notranslate"><span class="pre">undefined</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv44null"><code class="docutils literal notranslate"><span class="pre">null</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv47boolean"><code class="docutils literal notranslate"><span class="pre">boolean</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv411indef_break"><code class="docutils literal notranslate"><span class="pre">indef_break</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_decoding.html#_CPPv420cbor_empty_callbacks"><code class="docutils literal notranslate"><span class="pre">cbor_empty_callbacks</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_decoding.html#handling-failures-in-callbacks">Handling failures in callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_decoding.html#callback-types-definition">Callback types definition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv418cbor_int8_callback"><code class="docutils literal notranslate"><span class="pre">cbor_int8_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv419cbor_int16_callback"><code class="docutils literal notranslate"><span class="pre">cbor_int16_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv419cbor_int32_callback"><code class="docutils literal notranslate"><span class="pre">cbor_int32_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv419cbor_int64_callback"><code class="docutils literal notranslate"><span class="pre">cbor_int64_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv420cbor_simple_callback"><code class="docutils literal notranslate"><span class="pre">cbor_simple_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv420cbor_string_callback"><code class="docutils literal notranslate"><span class="pre">cbor_string_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv424cbor_collection_callback"><code class="docutils literal notranslate"><span class="pre">cbor_collection_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv419cbor_float_callback"><code class="docutils literal notranslate"><span class="pre">cbor_float_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv420cbor_double_callback"><code class="docutils literal notranslate"><span class="pre">cbor_double_callback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/streaming_decoding.html#_CPPv418cbor_bool_callback"><code class="docutils literal notranslate"><span class="pre">cbor_bool_callback</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/streaming_encoding.html">Streaming Encoding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv417cbor_encode_uint87uint8_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_uint8()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv418cbor_encode_uint168uint16_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_uint16()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv418cbor_encode_uint328uint32_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_uint32()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv418cbor_encode_uint648uint64_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_uint64()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv416cbor_encode_uint8uint64_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_uint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv419cbor_encode_negint87uint8_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_negint8()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv420cbor_encode_negint168uint16_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_negint16()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv420cbor_encode_negint328uint32_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_negint32()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv420cbor_encode_negint648uint64_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_negint64()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv418cbor_encode_negint8uint64_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_negint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv428cbor_encode_bytestring_start6size_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_bytestring_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv434cbor_encode_indef_bytestring_startPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_indef_bytestring_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv424cbor_encode_string_start6size_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_string_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv430cbor_encode_indef_string_startPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_indef_string_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv423cbor_encode_array_start6size_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_array_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv429cbor_encode_indef_array_startPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_indef_array_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv421cbor_encode_map_start6size_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_map_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv427cbor_encode_indef_map_startPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_indef_map_start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv415cbor_encode_tag8uint64_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_tag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv416cbor_encode_boolbPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_bool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv416cbor_encode_nullPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_null()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv417cbor_encode_undefPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_undef()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv416cbor_encode_halffPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_half()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv418cbor_encode_singlefPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_single()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv418cbor_encode_doubledPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_double()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv417cbor_encode_breakPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_break()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/streaming_encoding.html#_CPPv416cbor_encode_ctrl7uint8_tPh6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_encode_ctrl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/type_0_1_integers.html">Types 0 &amp; 1 – Positive and negative integers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv414cbor_int_width"><code class="docutils literal notranslate"><span class="pre">cbor_int_width</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv4N14cbor_int_width10CBOR_INT_8E"><code class="docutils literal notranslate"><span class="pre">CBOR_INT_8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv4N14cbor_int_width11CBOR_INT_16E"><code class="docutils literal notranslate"><span class="pre">CBOR_INT_16</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv4N14cbor_int_width11CBOR_INT_32E"><code class="docutils literal notranslate"><span class="pre">CBOR_INT_32</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv4N14cbor_int_width11CBOR_INT_64E"><code class="docutils literal notranslate"><span class="pre">CBOR_INT_64</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#type-0-positive-integers">Type 0 - positive integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#type-1-negative-integers">Type 1 - negative integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#type-0-1">Type 0 &amp; 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#building-new-items">Building new items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv416cbor_build_uint87uint8_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_uint8()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv417cbor_build_uint168uint16_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_uint16()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv417cbor_build_uint328uint32_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_uint32()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv417cbor_build_uint648uint64_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_uint64()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv418cbor_build_negint87uint8_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_negint8()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv419cbor_build_negint168uint16_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_negint16()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv419cbor_build_negint328uint32_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_negint32()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv419cbor_build_negint648uint64_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_negint64()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#retrieving-values">Retrieving values</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv412cbor_get_intPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_get_int()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv414cbor_get_uint8PK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_get_uint8()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv415cbor_get_uint16PK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_get_uint16()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv415cbor_get_uint32PK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_get_uint32()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv415cbor_get_uint64PK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_get_uint64()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#setting-values">Setting values</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv414cbor_set_uint8P11cbor_item_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">cbor_set_uint8()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv415cbor_set_uint16P11cbor_item_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">cbor_set_uint16()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv415cbor_set_uint32P11cbor_item_t8uint32_t"><code class="docutils literal notranslate"><span class="pre">cbor_set_uint32()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv415cbor_set_uint64P11cbor_item_t8uint64_t"><code class="docutils literal notranslate"><span class="pre">cbor_set_uint64()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#dealing-with-width">Dealing with width</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv418cbor_int_get_widthPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_int_get_width()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#dealing-with-signedness">Dealing with signedness</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv414cbor_mark_uintP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_mark_uint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv416cbor_mark_negintP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_mark_negint()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_0_1_integers.html#creating-new-items">Creating new items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv413cbor_new_int8v"><code class="docutils literal notranslate"><span class="pre">cbor_new_int8()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv414cbor_new_int16v"><code class="docutils literal notranslate"><span class="pre">cbor_new_int16()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv414cbor_new_int32v"><code class="docutils literal notranslate"><span class="pre">cbor_new_int32()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_0_1_integers.html#_CPPv414cbor_new_int64v"><code class="docutils literal notranslate"><span class="pre">cbor_new_int64()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/type_2_byte_strings.html">Type 2 – Byte strings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/type_2_byte_strings.html#getting-metadata">Getting metadata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv422cbor_bytestring_lengthPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_bytestring_length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv427cbor_bytestring_is_definitePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_bytestring_is_definite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv429cbor_bytestring_is_indefinitePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_bytestring_is_indefinite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv427cbor_bytestring_chunk_countPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_bytestring_chunk_count()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_2_byte_strings.html#reading-data">Reading data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv422cbor_bytestring_handlePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_bytestring_handle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv429cbor_bytestring_chunks_handlePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_bytestring_chunks_handle()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_2_byte_strings.html#creating-new-items">Creating new items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv428cbor_new_definite_bytestringv"><code class="docutils literal notranslate"><span class="pre">cbor_new_definite_bytestring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv430cbor_new_indefinite_bytestringv"><code class="docutils literal notranslate"><span class="pre">cbor_new_indefinite_bytestring()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_2_byte_strings.html#building-items">Building items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv421cbor_build_bytestring9cbor_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_bytestring()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_2_byte_strings.html#manipulating-existing-items">Manipulating existing items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv426cbor_bytestring_set_handleP11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_bytestring_set_handle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_2_byte_strings.html#_CPPv425cbor_bytestring_add_chunkP11cbor_item_tP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_bytestring_add_chunk()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/type_3_strings.html">Type 3 – UTF-8 strings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/type_3_strings.html#utf-8-encoding-validation">UTF-8 encoding validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_3_strings.html#getting-metadata">Getting metadata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv418cbor_string_lengthPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv427cbor_string_codepoint_countPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_codepoint_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv423cbor_string_is_definitePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_is_definite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv425cbor_string_is_indefinitePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_is_indefinite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv423cbor_string_chunk_countPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_chunk_count()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_3_strings.html#reading-data">Reading data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv418cbor_string_handlePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_handle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv425cbor_string_chunks_handlePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_chunks_handle()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_3_strings.html#creating-new-items">Creating new items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv424cbor_new_definite_stringv"><code class="docutils literal notranslate"><span class="pre">cbor_new_definite_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv426cbor_new_indefinite_stringv"><code class="docutils literal notranslate"><span class="pre">cbor_new_indefinite_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_3_strings.html#building-items">Building items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv417cbor_build_stringPKc"><code class="docutils literal notranslate"><span class="pre">cbor_build_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv418cbor_build_stringnPKc6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_stringn()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_3_strings.html#manipulating-existing-items">Manipulating existing items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv422cbor_string_set_handleP11cbor_item_t17cbor_mutable_data6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_set_handle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_3_strings.html#_CPPv421cbor_string_add_chunkP11cbor_item_tP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_string_add_chunk()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/type_4_arrays.html">Type 4 – Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/type_4_arrays.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_4_arrays.html#getting-metadata">Getting metadata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv415cbor_array_sizePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv420cbor_array_allocatedPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_allocated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv422cbor_array_is_definitePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_is_definite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv424cbor_array_is_indefinitePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_is_indefinite()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_4_arrays.html#reading-data">Reading data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv417cbor_array_handlePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_handle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv414cbor_array_getPK11cbor_item_t6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_4_arrays.html#creating-new-items">Creating new items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv423cbor_new_definite_array6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_new_definite_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv425cbor_new_indefinite_arrayv"><code class="docutils literal notranslate"><span class="pre">cbor_new_indefinite_array()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_4_arrays.html#modifying-items">Modifying items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv415cbor_array_pushP11cbor_item_tP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_push()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv418cbor_array_replaceP11cbor_item_t6size_tP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_replace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_4_arrays.html#_CPPv414cbor_array_setP11cbor_item_t6size_tP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_array_set()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/type_5_maps.html">Type 5 – Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/type_5_maps.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_5_maps.html#getting-metadata">Getting metadata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv413cbor_map_sizePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_map_size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv418cbor_map_allocatedPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_map_allocated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv420cbor_map_is_definitePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_map_is_definite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv422cbor_map_is_indefinitePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_map_is_indefinite()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_5_maps.html#reading-data">Reading data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv415cbor_map_handlePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_map_handle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv412cbor_map_getPK11cbor_item_tPK11cbor_item_tPFbPK11cbor_item_tPK11cbor_item_tE"><code class="docutils literal notranslate"><span class="pre">cbor_map_get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_5_maps.html#creating-new-items">Creating new items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv421cbor_new_definite_map6size_t"><code class="docutils literal notranslate"><span class="pre">cbor_new_definite_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv423cbor_new_indefinite_mapv"><code class="docutils literal notranslate"><span class="pre">cbor_new_indefinite_map()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_5_maps.html#modifying-items">Modifying items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_5_maps.html#_CPPv412cbor_map_addP11cbor_item_t9cbor_pair"><code class="docutils literal notranslate"><span class="pre">cbor_map_add()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/type_6_tags.html">Type 6 – Semantic tags</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/type_6_tags.html#_CPPv412cbor_new_tag8uint64_t"><code class="docutils literal notranslate"><span class="pre">cbor_new_tag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_6_tags.html#_CPPv414cbor_build_tag8uint64_tP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_tag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_6_tags.html#_CPPv413cbor_tag_itemPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_tag_item()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_6_tags.html#_CPPv414cbor_tag_valuePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_tag_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_6_tags.html#_CPPv417cbor_tag_set_itemP11cbor_item_tP11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_tag_set_item()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/type_7_floats_ctrls.html">Type 7 – Floats &amp; control tokens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv416cbor_float_width"><code class="docutils literal notranslate"><span class="pre">cbor_float_width</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv4N16cbor_float_width12CBOR_FLOAT_0E"><code class="docutils literal notranslate"><span class="pre">CBOR_FLOAT_0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv4N16cbor_float_width13CBOR_FLOAT_16E"><code class="docutils literal notranslate"><span class="pre">CBOR_FLOAT_16</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv4N16cbor_float_width13CBOR_FLOAT_32E"><code class="docutils literal notranslate"><span class="pre">CBOR_FLOAT_32</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv4N16cbor_float_width13CBOR_FLOAT_64E"><code class="docutils literal notranslate"><span class="pre">CBOR_FLOAT_64</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_7_floats_ctrls.html#getting-metadata">Getting metadata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv423cbor_float_ctrl_is_ctrlPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_float_ctrl_is_ctrl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv420cbor_float_get_widthPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_float_get_width()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_7_floats_ctrls.html#reading-data">Reading data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv421cbor_float_get_float2PK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_float_get_float2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv421cbor_float_get_float4PK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_float_get_float4()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv421cbor_float_get_float8PK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_float_get_float8()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv420cbor_float_get_floatPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_float_get_float()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_ctrl_valuePK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_ctrl_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv413cbor_get_boolPK11cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_get_bool()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_7_floats_ctrls.html#creating-new-items">Creating new items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv413cbor_new_ctrlv"><code class="docutils literal notranslate"><span class="pre">cbor_new_ctrl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_new_float2v"><code class="docutils literal notranslate"><span class="pre">cbor_new_float2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_new_float4v"><code class="docutils literal notranslate"><span class="pre">cbor_new_float4()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_new_float8v"><code class="docutils literal notranslate"><span class="pre">cbor_new_float8()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv413cbor_new_nullv"><code class="docutils literal notranslate"><span class="pre">cbor_new_null()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv414cbor_new_undefv"><code class="docutils literal notranslate"><span class="pre">cbor_new_undef()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_7_floats_ctrls.html#building-items">Building items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_build_boolb"><code class="docutils literal notranslate"><span class="pre">cbor_build_bool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_build_ctrl7uint8_t"><code class="docutils literal notranslate"><span class="pre">cbor_build_ctrl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv417cbor_build_float2f"><code class="docutils literal notranslate"><span class="pre">cbor_build_float2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv417cbor_build_float4f"><code class="docutils literal notranslate"><span class="pre">cbor_build_float4()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv417cbor_build_float8d"><code class="docutils literal notranslate"><span class="pre">cbor_build_float8()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_7_floats_ctrls.html#manipulating-existing-items">Manipulating existing items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv413cbor_set_ctrlP11cbor_item_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">cbor_set_ctrl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv413cbor_set_boolP11cbor_item_tb"><code class="docutils literal notranslate"><span class="pre">cbor_set_bool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_set_float2P11cbor_item_tf"><code class="docutils literal notranslate"><span class="pre">cbor_set_float2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_set_float4P11cbor_item_tf"><code class="docutils literal notranslate"><span class="pre">cbor_set_float4()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/type_7_floats_ctrls.html#_CPPv415cbor_set_float8P11cbor_item_td"><code class="docutils literal notranslate"><span class="pre">cbor_set_float8()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_7_floats_ctrls.html#half-floats">Half floats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/type_7_floats_ctrls.html#signaling-nans">Signaling NaNs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#unit-tests">Unit tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#testing-for-memory-leaks">Testing for memory leaks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#code-coverage">Code coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#fuzz-testing">Fuzz testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="standard_conformance.html">IETF standard conformance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="standard_conformance.html#bytestring-length">Bytestring length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="standard_conformance.html#half-precision-ieee-754-floats">“Half-precision” IEEE 754 floats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internal.html">Internal mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internal.html#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html#conventions">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html#inspiration-related-projects">Inspiration &amp; related projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html#general-notes-on-the-api-design">General notes on the API design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html#coding-style">Coding style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html#memory-layout">Memory layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="internal.html#_CPPv411cbor_item_t"><code class="docutils literal notranslate"><span class="pre">cbor_item_t</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N11cbor_item_t4typeE"><code class="docutils literal notranslate"><span class="pre">cbor_item_t::type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N11cbor_item_t8refcountE"><code class="docutils literal notranslate"><span class="pre">cbor_item_t::refcount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N11cbor_item_t8metadataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_t::metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N11cbor_item_t4dataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_t::data</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="internal.html#_CPPv418cbor_item_metadata"><code class="docutils literal notranslate"><span class="pre">cbor_item_metadata</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N18cbor_item_metadata12int_metadataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_metadata::int_metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N18cbor_item_metadata19bytestring_metadataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_metadata::bytestring_metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N18cbor_item_metadata15string_metadataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_metadata::string_metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N18cbor_item_metadata14array_metadataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_metadata::array_metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N18cbor_item_metadata12map_metadataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_metadata::map_metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N18cbor_item_metadata12tag_metadataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_metadata::tag_metadata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal.html#_CPPv4N18cbor_item_metadata19float_ctrl_metadataE"><code class="docutils literal notranslate"><span class="pre">cbor_item_metadata::float_ctrl_metadata</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html#decoding">Decoding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#next">Next</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.14.0 (2026-04-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.13.0 (2025-08-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.12.0 (2025-03-16)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.11.0 (2024-02-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.10.2 (2023-01-31)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.10.1 (2022-12-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.10.0 (2022-12-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.9.0 (2021-11-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.8.0 (2020-09-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.7.0 (2020-04-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.6.1 (2020-03-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.6.0 (2020-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.5.0 (2017-02-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.4.0 (2015-12-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id15">0.3.1 (2015-05-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id16">0.3.0 (2015-05-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id17">0.2.1 (2015-05-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id18">0.2.0 (2015-05-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id19">0.1.0 (2015-05-06)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#vision-and-principles">Vision and principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#mission-statement">Mission statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#goals">Goals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development.html#standard-conformance-and-full-feature-support">Standard conformance and full feature support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development.html#safety">Safety</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development.html#self-containment">Self-containment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development.html#portability">Portability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development.html#stable-and-predictable-api">Stable and predictable API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development.html#performance">Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#non-goals">Non-goals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#development-dependencies">Development dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#installing-sphinx">Installing <em>sphinx</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#live-preview-of-docs">Live preview of docs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#set-up-git-hooks">Set up git hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#testing-and-code-coverage">Testing and code coverage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014 - 2020, Pavel Kalvoda.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

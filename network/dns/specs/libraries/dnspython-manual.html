@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dnspython Manual &mdash; dnspython 2.8.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=69ff2ef9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DNS Names" href="name.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="dnspython" /><meta name="readthedocs-version-slug" content="stable" /><meta name="readthedocs-resolver-filename" content="/manual.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            dnspython
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">What’s New in dnspython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dnspython Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="name.html">DNS Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdata.html">DNS Rdata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">DNS Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query.html">DNS Query Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver.html">Stub Resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zone.html">DNS Zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonefile.html">The RRSet Reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dnssec.html">DNSSEC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="async.html">Asynchronous I/O Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">Miscellaneous Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threads.html">Using Dnspython with Threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rfc.html">DNS RFC Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Dnspython License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dnspython</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Dnspython Manual</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/manual.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dnspython-manual">
+<h1>Dnspython Manual<a class="headerlink" href="#dnspython-manual" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="name.html">DNS Names</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="name-class.html">The dns.name.Name Class and Predefined Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name-make.html">Making DNS Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name-dict.html">Name Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name-helpers.html">Name Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name-codecs.html">International Domain Name CODECs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rdata.html">DNS Rdata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rdata-types.html">Rdata classes and types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdata-class.html">DNS Rdata Base Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdata-make.html">Making DNS Rdata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdata-make.html#miscellaneous-rdata-functions">Miscellaneous Rdata Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdata-subclasses.html">Rdata Subclass Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdata-set-classes.html">Rdataset, RRset and Node Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rdata-set-make.html">Making DNS Rdatasets and RRsets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="message.html">DNS Messages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="message-class.html">The dns.message.Message Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-make.html">Making DNS Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-flags.html">Message Flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-opcode.html">Message Opcodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-rcode.html">Message Rcodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-edns.html">Message EDNS Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-query.html">The dns.message.QueryMessage Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-query.html#the-dns-message-chainingresult-class">The dns.message.ChainingResult Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-update.html">The dns.update.UpdateMessage Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query.html">DNS Query Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="query.html#udp">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query.html#tcp">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query.html#tls">TLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query.html#https">HTTPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query.html#zone-transfers">Zone Transfers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resolver.html">Stub Resolver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resolver-class.html">The dns.resolver.Resolver and dns.resolver.Answer Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver-nameserver.html">The dns.nameserver.Nameserver Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver-nameserver.html#the-dns-nameserver-do53nameserver-class">The dns.nameserver.Do53Nameserver Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver-nameserver.html#the-dns-nameserver-dotnameserver-class">The dns.nameserver.DoTNameserver Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver-nameserver.html#the-dns-nameserver-dohnameserver-class">The dns.nameserver.DoHNameserver Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver-nameserver.html#the-dns-nameserver-doqnameserver-class">The dns.nameserver.DoQNameserver Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver-functions.html">Resolver Functions and The Default Resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver-caching.html">Resolver Caching Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolver-override.html">Overriding the System Resolver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zone.html">DNS Zones</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zone-class.html">The dns.zone.Zone Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zone-class.html#the-dns-versioned-zone-class">The dns.versioned.Zone Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zone-class.html#the-transactionmanager-class">The TransactionManager Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zone-class.html#the-transaction-class">The Transaction Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zone-make.html">Making DNS Zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inbound-xfr-class.html">The dns.xfr.Inbound Class and make_query() function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zonefile.html">The RRSet Reader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonefile.html#dns.zonefile.read_rrsets"><code class="docutils literal notranslate"><span class="pre">read_rrsets()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonefile.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonefile.html#the-dns-zonefile-reader-class">The dns.zonefile.Reader Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dnssec.html">DNSSEC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dnssec.html#dnssec-functions">DNSSEC Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dnssec.html#dnssec-algorithms">DNSSEC Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="async.html">Asynchronous I/O Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="async-query.html">DNS Query Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="async-resolver.html">Stub Resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="async-backend.html">Asynchronous Backend Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#module-dns.exception">Common Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-dnssec-exceptions">dns.dnssec Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-message-exceptions">dns.message Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-name-exceptions">dns.name Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-opcode-exceptions">dns.opcode Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-query-exceptions">dns.query Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-rcode-exceptions">dns.rcode Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-rdataset-exceptions">dns.rdataset Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-resolver-exceptions">dns.resolver Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-tokenizer-exceptions">dns.tokenizer Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-ttl-exceptions">dns.ttl Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#dns-zone-exceptions">dns.zone Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Miscellaneous Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.inet.af_for_address"><code class="docutils literal notranslate"><span class="pre">af_for_address()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.inet.any_for_af"><code class="docutils literal notranslate"><span class="pre">any_for_af()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.inet.canonicalize"><code class="docutils literal notranslate"><span class="pre">canonicalize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.inet.inet_ntop"><code class="docutils literal notranslate"><span class="pre">inet_ntop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.inet.inet_pton"><code class="docutils literal notranslate"><span class="pre">inet_pton()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.inet.is_address"><code class="docutils literal notranslate"><span class="pre">is_address()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.inet.is_multicast"><code class="docutils literal notranslate"><span class="pre">is_multicast()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.inet.low_level_address_tuple"><code class="docutils literal notranslate"><span class="pre">low_level_address_tuple()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.ipv4.canonicalize"><code class="docutils literal notranslate"><span class="pre">canonicalize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.ipv4.inet_aton"><code class="docutils literal notranslate"><span class="pre">inet_aton()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.ipv4.inet_ntoa"><code class="docutils literal notranslate"><span class="pre">inet_ntoa()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.ipv6.canonicalize"><code class="docutils literal notranslate"><span class="pre">canonicalize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.ipv6.inet_aton"><code class="docutils literal notranslate"><span class="pre">inet_aton()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.ipv6.inet_ntoa"><code class="docutils literal notranslate"><span class="pre">inet_ntoa()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.ipv6.is_mapped"><code class="docutils literal notranslate"><span class="pre">is_mapped()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.ttl.from_text"><code class="docutils literal notranslate"><span class="pre">from_text()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.set.Set"><code class="docutils literal notranslate"><span class="pre">Set</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.version.MAJOR"><code class="docutils literal notranslate"><span class="pre">MAJOR</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.version.MICRO"><code class="docutils literal notranslate"><span class="pre">MICRO</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.version.MINOR"><code class="docutils literal notranslate"><span class="pre">MINOR</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.version.RELEASELEVEL"><code class="docutils literal notranslate"><span class="pre">RELEASELEVEL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.version.SERIAL"><code class="docutils literal notranslate"><span class="pre">SERIAL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.version.hexversion"><code class="docutils literal notranslate"><span class="pre">hexversion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.version.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dns.wire.Parser"><code class="docutils literal notranslate"><span class="pre">Parser</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using Dnspython with Threads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="name.html" class="btn btn-neutral float-right" title="DNS Names" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Dnspython Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

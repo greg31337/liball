@@ -1,0 +1,3088 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>ASP.NET Core Blazor navigation | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn about navigation in Blazor, including how to use the Navigation Manager and NavLink component for navigation." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/navigation?view=aspnetcore-10.0" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="ASP.NET Core Blazor navigation | Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/dotnet/media/dotnet-logo.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="ASP.NET Core Blazor navigation" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/navigation?view=aspnetcore-10.0" />
+			<meta property="og:description" content="Learn about navigation in Blazor, including how to use the Navigation Manager and NavLink component for navigation." />
+			<meta name="platform_id" content="ffe56891-b8da-11c5-304c-10c9f19e66b9" /> <meta name="scope" content="ASP.NET Core" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-AspNet" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/aspnet/core/breadcrumb/toc.json" />
+	
+		<meta name="feedback_system" content="OpenSource" />
+	
+		<meta name="feedback_product_url" content="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md" />
+	
+		<meta name="ms.service" content="aspnet-core" />
+	
+		<meta name="ms.topic" content="concept-article" />
+	
+		<meta name="ms.subservice" content="blazor" />
+	
+		<meta name="ms.update-cycle" content="365-days" />
+	
+		<meta name="ai-usage" content="ai-assisted" />
+	
+		<meta name="author" content="guardrex" />
+	
+		<meta name="monikerRange" content="&gt;= aspnetcore-3.1" />
+	
+		<meta name="ms.author" content="wpickett" />
+	
+		<meta name="ms.date" content="2026-06-24T00:00:00Z" />
+	
+		<meta name="uid" content="blazor/fundamentals/navigation" />
+	
+		<meta name="document_id" content="7856a24d-4cb7-7596-eb95-11d4473c227b" />
+	
+		<meta name="document_version_independent_id" content="7856a24d-4cb7-7596-eb95-11d4473c227b" />
+	
+		<meta name="updated_at" content="2026-07-22T17:33:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/blazor/fundamentals/navigation.md" />
+	
+		<meta name="gitcommit" content="https://github.com/dotnet/AspNetCore.Docs/blob/9113ac216383b028c9fb7a8f942063d2d897636f/aspnetcore/blazor/fundamentals/navigation.md" />
+	
+		<meta name="git_commit_id" content="9113ac216383b028c9fb7a8f942063d2d897636f" />
+	
+		<meta name="monikers" content="aspnetcore-3.1" />
+	
+		<meta name="monikers" content="aspnetcore-5.0" />
+	
+		<meta name="monikers" content="aspnetcore-6.0" />
+	
+		<meta name="monikers" content="aspnetcore-7.0" />
+	
+		<meta name="monikers" content="aspnetcore-8.0" />
+	
+		<meta name="monikers" content="aspnetcore-9.0" />
+	
+		<meta name="monikers" content="aspnetcore-10.0" />
+	
+		<meta name="monikers" content="aspnetcore-11.0" />
+	
+		<meta name="default_moniker" content="aspnetcore-10.0" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="MSDN.aspnet-core-conceptual" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/MSDN.aspnet-core-conceptual/{branchName}{pdfName}" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="7536" />
+	
+		<meta name="config_moniker_range" content="&gt;= aspnetcore-1.0" />
+	
+		<meta name="asset_id" content="blazor/fundamentals/navigation" />
+	
+		<meta name="moniker_range_name" content="4cfd5c821d66016c0c1ada9451d1ea32" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="aspnetcore/blazor/fundamentals/navigation.md" />
+	
+		<meta name="previous_tlsh_hash" content="B8462F13965C5310EFC25F1EA85BAB9306F0C04DFBF01B44211566A1A51D7EB76B485DE6BBB7530823B105B302A3A65E95F2A76BC2FD7377229098EDC24C2241934D3BBBD9" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/fundamentals/navigation.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/navigation?view=aspnetcore-10.0&amp;accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/06819054-3d1b-4589-8746-b33c4dc1ebf2" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/97159432-14a9-4307-a469-d2f2c75f0e33" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/7696cda6-0510-47f6-8302-71bb5d2e28cf" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/ae0d1d73-8b86-4e29-9ab4-867b4f9f6186" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/50565c62-5f6b-4687-be38-323113c72c2e" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/69c76c32-967e-4c65-b89a-74cc527db725" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03524.8175-9553bcde/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": false,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "OpenSource",
+    "feedbackGitHubRepo": "dotnet/AspNetCore.Docs",
+    "feedbackProductUrl": "https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true,
+    "openSourceFeedbackIssueUrl": "https://github.com/dotnet/aspnetcore.docs/issues/new?template=customer-feedback.yml",
+    "openSourceFeedbackIssueTitle": "",
+    "openSourceFeedbackIssueLabels": "Source - Docs.ms,:watch: Not Triaged"
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03524.8175-9553bcde/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/fundamentals/navigation.md"
+			data-original_content_git_url="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/blazor/fundamentals/navigation.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/aspnetcore/blazor/fundamentals/navigation.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="aspnet-core-blazor-navigation">ASP.NET Core Blazor navigation</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	
+					<div class="content"><div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<div class="NOTE">
+<p>Note</p>
+<p>This isn't the latest version of this article. For the current release, see the <a href="?view=aspnetcore-10.0&amp;preserve-view=true" data-linktype="relative-path">.NET 10 version of this article</a>.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-7.0">
+<div class="WARNING">
+<p>Warning</p>
+<p>This version of ASP.NET Core is no longer supported. For more information, see the <a href="https://dotnet.microsoft.com/platform/support/policy/dotnet-core" data-linktype="external">.NET and .NET Core Support Policy</a>. For the current release, see the <a href="?view=aspnetcore-10.0&amp;preserve-view=true" data-linktype="relative-path">.NET 10 version of this article</a>.</p>
+</div>
+</div>
+<!-- Exclude until .NET 11 preview is added to the version selector collection
+(add triple colon here) moniker range="> aspnetcore-10.0"
+> [!IMPORTANT]
+> This information relates to a pre-release product that may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> For the current release, see the [.NET 10 version of this article](?view=aspnetcore-10.0&preserve-view=true).
+(add triple colon here) moniker-end
+-->
+<!--
+Include either this file or 'not-latest-version-without-not-supported-content.md' at the top 
+of articles.
+
+'not-latest-version.md' (this file): Includes not-supported content.
+'not-latest-version-without-not-supported-content.md': Doesn't include not-supported content.
+
+Use this file in articles that target >=7.0. For articles that target >=8.0 prior to 10.0
+reaching EOL, 'not-latest-version-without-not-supported-content.md' must be used to avoid
+a zone/file moniker range mismatch error.
+
+When a new version is released, it might be necessary to temporarily comment out the current 
+version moniker range section until the new moniker is created.
+
+Markdown to include this file:
+
+[!INCLUDE[](~/includes/not-latest-version.md)]
+-->
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>This article explains how to trigger and handle page navigation in Blazor. While users can navigate between different pages using normal HTML links, Blazor enhances navigation within the application to avoid full page reloads and deliver a smoother experience. Use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> component to create navigation links that automatically apply styling when the link matches the current page. For programmatic navigation and URI management in C# code, use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a> service.</p>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<p>This article explains how to trigger and handle page navigation in Blazor. Use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> component to create navigation links that automatically apply styling when the link matches the current page. For programmatic navigation and URI management in C# code, use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a> service.</p>
+</div>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>Code examples throughout this article show methods called on <code>Navigation</code>, which is an injected <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a> in classes and components.</p>
+</div>
+<h2 id="navlink-component"><code>NavLink</code> component</h2>
+<p>Use a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> component in place of HTML hyperlink elements (<code>&lt;a&gt;</code>) when creating navigation links. A <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> component behaves like an <code>&lt;a&gt;</code> element, except it toggles an <code>active</code> CSS class based on whether its <code>href</code> matches the current URL. The <code>active</code> class helps a user understand which page is the active page among the navigation links displayed. Optionally, assign a CSS class name to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink.activeclass#microsoft-aspnetcore-components-routing-navlink-activeclass" class="no-loc" data-linktype="absolute-path">NavLink.ActiveClass</a> to apply a custom CSS class to the rendered link when the current route matches the <code>href</code>.</p>
+<p>In the <code>NavMenu</code> component (<code>NavMenu.razor</code>) of a Blazor app created from a Blazor project template:</p>
+<pre><code class="lang-razor">&lt;div class="nav-item px-3"&gt;
+    &lt;NavLink class="nav-link" href="" Match="NavLinkMatch.All"&gt;
+        &lt;span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"&gt;&lt;/span&gt; Home
+    &lt;/NavLink&gt;
+&lt;/div&gt;
+&lt;div class="nav-item px-3"&gt;
+    &lt;NavLink class="nav-link" href="counter"&gt;
+        &lt;span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"&gt;&lt;/span&gt; Counter
+    &lt;/NavLink&gt;
+&lt;/div&gt;
+</code></pre>
+<p>In the preceding example, the Home <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> <code>href=""</code> matches the home URL and only receives the <code>active</code> CSS class at the app's default base path (<code>/</code>). The second <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> receives the <code>active</code> class when the user visits the <code>Counter</code> component at <code>/counter</code>.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0">
+<p>There are two <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlinkmatch" class="no-loc" data-linktype="absolute-path">NavLinkMatch</a> options that you can assign to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink.match" class="no-loc" data-linktype="absolute-path">Match</a> attribute of the <code>&lt;NavLink&gt;</code> element:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlinkmatch#microsoft-aspnetcore-components-routing-navlinkmatch-all" class="no-loc" data-linktype="absolute-path">NavLinkMatch.All</a>: The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> is active when it matches the current URL, ignoring the query string and fragment. To include matching on the query string/fragment, use the <code>Microsoft.AspNetCore.Components.Routing.NavLink.EnableMatchAllForQueryStringAndFragment</code> <a href="/en-us/dotnet/fundamentals/runtime-libraries/system-appcontext" data-linktype="absolute-path"><code>AppContext</code> switch</a> set to <code>true</code>.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlinkmatch#microsoft-aspnetcore-components-routing-navlinkmatch-prefix" class="no-loc" data-linktype="absolute-path">NavLinkMatch.Prefix</a> (<em>default</em>): The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> is active when it matches any prefix of the current URL.</li>
+</ul>
+<p>To adopt custom matching logic, subclass <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> and override its <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink.shouldmatch" class="no-loc" data-linktype="absolute-path">ShouldMatch</a> method. Return <code>true</code> from the method when you want to apply the <code>active</code> CSS class:</p>
+<pre><code class="lang-csharp">public class CustomNavLink : NavLink
+{
+    protected override bool ShouldMatch(string currentUriAbsolute)
+    {
+        // Custom matching logic
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>There are two <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlinkmatch" class="no-loc" data-linktype="absolute-path">NavLinkMatch</a> options that you can assign to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink.match" class="no-loc" data-linktype="absolute-path">Match</a> attribute of the <code>&lt;NavLink&gt;</code> element:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlinkmatch#microsoft-aspnetcore-components-routing-navlinkmatch-all" class="no-loc" data-linktype="absolute-path">NavLinkMatch.All</a>: The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> is active when it matches the entire current URL, including the query string and fragment.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlinkmatch#microsoft-aspnetcore-components-routing-navlinkmatch-prefix" class="no-loc" data-linktype="absolute-path">NavLinkMatch.Prefix</a> (<em>default</em>): The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> is active when it matches any prefix of the current URL.</li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<!-- UPDATE 11.0 - API cross-link
+
+<xref:Microsoft.AspNetCore.Components.Routing.NavLink.RelativeToCurrentUri?displayProperty=nameWithType>
+
+-->
+<p>Set <code>NavLink.RelativeToCurrentUri</code> to <code>true</code> to resolve the <code>href</code> relative to the current page path instead of the app's base URI:</p>
+<pre><code class="lang-razor">&lt;NavLink href="details" RelativeToCurrentUri="true"&gt;View Details&lt;/NavLink&gt;
+</code></pre>
+<p>If the current URI is <code>/docs/getting-started/installation</code>, the preceding link navigates to <code>/docs/getting-started/details</code>.</p>
+</div>
+<p>Additional <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> component attributes are passed through to the rendered anchor tag. In the following example, the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> component includes the <code>target</code> attribute:</p>
+<pre><code class="lang-razor">&lt;NavLink href="example-page" target="_blank"&gt;Example page&lt;/NavLink&gt;
+</code></pre>
+<p>The following HTML markup is rendered:</p>
+<pre><code class="lang-html">&lt;a href="example-page" target="_blank"&gt;Example page&lt;/a&gt;
+</code></pre>
+<div class="WARNING">
+<p>Warning</p>
+<p>Due to the way that Blazor renders child content, rendering <code>NavLink</code> components inside a <code>for</code> loop requires a local index variable if the incrementing loop variable is used in the <code>NavLink</code> (child) component's content:</p>
+<pre><code class="lang-razor">@for (int c = 1; c &lt; 4; c++)
+{
+    var ct = c;
+    &lt;li ...&gt;
+        &lt;NavLink ...&gt;
+            &lt;span ...&gt;&lt;/span&gt; Product #@ct
+        &lt;/NavLink&gt;
+    &lt;/li&gt;
+}
+</code></pre>
+<p>Using an index variable in this scenario is a requirement for <strong>any</strong> child component that uses a loop variable in its <a href="../components/?view=aspnetcore-10.0#child-content-render-fragments" data-linktype="relative-path">child content</a>, not just the <code>NavLink</code> component.</p>
+<p>Alternatively, use a <code>foreach</code> loop with <a href="/en-us/dotnet/api/system.linq.enumerable.range" class="no-loc" data-linktype="absolute-path">Enumerable.Range</a>:</p>
+<pre><code class="lang-razor">@foreach (var c in Enumerable.Range(1, 3))
+{
+    &lt;li ...&gt;
+        &lt;NavLink ...&gt;
+            &lt;span ...&gt;&lt;/span&gt; Product #@c
+        &lt;/NavLink&gt;
+    &lt;/li&gt;
+}
+</code></pre>
+</div>
+<h2 id="uri-and-navigation-state-helpers">URI and navigation state helpers</h2>
+<p>Use <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a> to manage URIs and navigation in C# code. <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a> provides the event and methods shown in the following table.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0">
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">Uri</a></td>
+<td>Gets the current absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a></td>
+<td>Gets the base URI (with a trailing slash) that can be prepended to relative URI paths to produce an absolute URI. Typically, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a> corresponds to the <code>href</code> attribute on the document's <code>&lt;base&gt;</code> element (<a href="../project-structure?view=aspnetcore-10.0#location-of-head-and-body-content" data-linktype="relative-path">location of <code>&lt;head&gt;</code> content</a>).</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a></td>
+<td>Navigates to the specified URI. If <code>forceLoad</code> is <code>false</code>:<ul><li>And enhanced navigation is available at the current URL, Blazor's enhanced navigation is activated.</li><li>Otherwise, Blazor performs a full-page reload for the requested URL.</li></ul>If <code>forceLoad</code> is <code>true</code>:<ul><li>Client-side routing is bypassed.</li><li>The browser is forced to load the new page from the server, whether or not the URI is normally handled by the client-side interactive router.</li></ul><p>For more information, see the <a href="#enhanced-navigation-and-form-handling" data-linktype="self-bookmark">Enhanced navigation and form handling</a> section.</p><p>If <code>replace</code> is <code>true</code>, the current URI in the browser history is replaced instead of pushing a new URI onto the history stack.</p></td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged#microsoft-aspnetcore-components-navigationmanager-locationchanged" class="no-loc" data-linktype="absolute-path">LocationChanged</a></td>
+<td>An event that fires when the navigation location has changed. For more information, see the <a href="#location-changes" data-linktype="self-bookmark">Location changes</a> section.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a></td>
+<td>Called to handle scenarios where a requested resource isn't found. For more information, see the <a href="#not-found-responses" data-linktype="self-bookmark">Not Found responses</a> section.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.toabsoluteuri" class="no-loc" data-linktype="absolute-path">ToAbsoluteUri</a></td>
+<td>Converts a relative URI into an absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.tobaserelativepath" class="no-loc" data-linktype="absolute-path">ToBaseRelativePath</a></td>
+<td>Based on the app's base URI, converts an absolute URI into a URI relative to the base URI prefix. For an example, see the <a href="#produce-a-uri-relative-to-the-base-uri-prefix" data-linktype="self-bookmark">Produce a URI relative to the base URI prefix</a> section.</td>
+</tr>
+<tr>
+<td><a href="#handleprevent-location-changes" data-linktype="self-bookmark"><code>RegisterLocationChangingHandler</code></a></td>
+<td>Registers a handler to process incoming navigation events. Calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> always invokes the handler.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameter" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameter</a></td>
+<td>Returns a URI constructed by updating <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">NavigationManager.Uri</a> with a single parameter added, updated, or removed. For more information, see the <a href="#query-strings" data-linktype="self-bookmark">Query strings</a> section.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div data-moniker="aspnetcore-8.0 aspnetcore-9.0">
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">Uri</a></td>
+<td>Gets the current absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a></td>
+<td>Gets the base URI (with a trailing slash) that can be prepended to relative URI paths to produce an absolute URI. Typically, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a> corresponds to the <code>href</code> attribute on the document's <code>&lt;base&gt;</code> element (<a href="../project-structure?view=aspnetcore-10.0#location-of-head-and-body-content" data-linktype="relative-path">location of <code>&lt;head&gt;</code> content</a>).</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a></td>
+<td>Navigates to the specified URI. If <code>forceLoad</code> is <code>false</code>:<ul><li>And enhanced navigation is available at the current URL, Blazor's enhanced navigation is activated.</li><li>Otherwise, Blazor performs a full-page reload for the requested URL.</li></ul>If <code>forceLoad</code> is <code>true</code>:<ul><li>Client-side routing is bypassed.</li><li>The browser is forced to load the new page from the server, whether or not the URI is normally handled by the client-side interactive router.</li></ul><p>For more information, see the <a href="#enhanced-navigation-and-form-handling" data-linktype="self-bookmark">Enhanced navigation and form handling</a> section.</p><p>If <code>replace</code> is <code>true</code>, the current URI in the browser history is replaced instead of pushing a new URI onto the history stack.</p></td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged#microsoft-aspnetcore-components-navigationmanager-locationchanged" class="no-loc" data-linktype="absolute-path">LocationChanged</a></td>
+<td>An event that fires when the navigation location has changed. For more information, see the <a href="#location-changes" data-linktype="self-bookmark">Location changes</a> section.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.toabsoluteuri" class="no-loc" data-linktype="absolute-path">ToAbsoluteUri</a></td>
+<td>Converts a relative URI into an absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.tobaserelativepath" class="no-loc" data-linktype="absolute-path">ToBaseRelativePath</a></td>
+<td>Based on the app's base URI, converts an absolute URI into a URI relative to the base URI prefix. For an example, see the <a href="#produce-a-uri-relative-to-the-base-uri-prefix" data-linktype="self-bookmark">Produce a URI relative to the base URI prefix</a> section.</td>
+</tr>
+<tr>
+<td><a href="#handleprevent-location-changes" data-linktype="self-bookmark"><code>RegisterLocationChangingHandler</code></a></td>
+<td>Registers a handler to process incoming navigation events. Calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> always invokes the handler.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameter" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameter</a></td>
+<td>Returns a URI constructed by updating <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">NavigationManager.Uri</a> with a single parameter added, updated, or removed. For more information, see the <a href="#query-strings" data-linktype="self-bookmark">Query strings</a> section.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">Uri</a></td>
+<td>Gets the current absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a></td>
+<td>Gets the base URI (with a trailing slash) that can be prepended to relative URI paths to produce an absolute URI. Typically, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a> corresponds to the <code>href</code> attribute on the document's <code>&lt;base&gt;</code> element (<a href="../project-structure?view=aspnetcore-10.0#location-of-head-and-body-content" data-linktype="relative-path">location of <code>&lt;head&gt;</code> content</a>).</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a></td>
+<td>Navigates to the specified URI. If <code>forceLoad</code> is <code>true</code>:<ul><li>Client-side routing is bypassed.</li><li>The browser is forced to load the new page from the server, whether or not the URI is normally handled by the client-side router.</li></ul>If <code>replace</code> is <code>true</code>, the current URI in the browser history is replaced instead of pushing a new URI onto the history stack.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged#microsoft-aspnetcore-components-navigationmanager-locationchanged" class="no-loc" data-linktype="absolute-path">LocationChanged</a></td>
+<td>An event that fires when the navigation location has changed. For more information, see the <a href="#location-changes" data-linktype="self-bookmark">Location changes</a> section.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.toabsoluteuri" class="no-loc" data-linktype="absolute-path">ToAbsoluteUri</a></td>
+<td>Converts a relative URI into an absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.tobaserelativepath" class="no-loc" data-linktype="absolute-path">ToBaseRelativePath</a></td>
+<td>Based on the app's base URI, converts an absolute URI into a URI relative to the base URI prefix. For an example, see the <a href="#produce-a-uri-relative-to-the-base-uri-prefix" data-linktype="self-bookmark">Produce a URI relative to the base URI prefix</a> section.</td>
+</tr>
+<tr>
+<td><a href="#handleprevent-location-changes" data-linktype="self-bookmark"><code>RegisterLocationChangingHandler</code></a></td>
+<td>Registers a handler to process incoming navigation events. Calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> always invokes the handler.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameter" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameter</a></td>
+<td>Returns a URI constructed by updating <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">NavigationManager.Uri</a> with a single parameter added, updated, or removed. For more information, see the <a href="#query-strings" data-linktype="self-bookmark">Query strings</a> section.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">Uri</a></td>
+<td>Gets the current absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a></td>
+<td>Gets the base URI (with a trailing slash) that can be prepended to relative URI paths to produce an absolute URI. Typically, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a> corresponds to the <code>href</code> attribute on the document's <code>&lt;base&gt;</code> element (<a href="../project-structure?view=aspnetcore-10.0#location-of-head-and-body-content" data-linktype="relative-path">location of <code>&lt;head&gt;</code> content</a>).</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a></td>
+<td>Navigates to the specified URI. If <code>forceLoad</code> is <code>true</code>:<ul><li>Client-side routing is bypassed.</li><li>The browser is forced to load the new page from the server, whether or not the URI is normally handled by the client-side router.</li></ul>If <code>replace</code> is <code>true</code>, the current URI in the browser history is replaced instead of pushing a new URI onto the history stack.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged#microsoft-aspnetcore-components-navigationmanager-locationchanged" class="no-loc" data-linktype="absolute-path">LocationChanged</a></td>
+<td>An event that fires when the navigation location has changed. For more information, see the <a href="#location-changes" data-linktype="self-bookmark">Location changes</a> section.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.toabsoluteuri" class="no-loc" data-linktype="absolute-path">ToAbsoluteUri</a></td>
+<td>Converts a relative URI into an absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.tobaserelativepath" class="no-loc" data-linktype="absolute-path">ToBaseRelativePath</a></td>
+<td>Based on the app's base URI, converts an absolute URI into a URI relative to the base URI prefix. For an example, see the <a href="#produce-a-uri-relative-to-the-base-uri-prefix" data-linktype="self-bookmark">Produce a URI relative to the base URI prefix</a> section.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameter" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameter</a></td>
+<td>Returns a URI constructed by updating <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">NavigationManager.Uri</a> with a single parameter added, updated, or removed. For more information, see the <a href="#query-strings" data-linktype="self-bookmark">Query strings</a> section.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0">
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">Uri</a></td>
+<td>Gets the current absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a></td>
+<td>Gets the base URI (with a trailing slash) that can be prepended to relative URI paths to produce an absolute URI. Typically, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.baseuri#microsoft-aspnetcore-components-navigationmanager-baseuri" class="no-loc" data-linktype="absolute-path">BaseUri</a> corresponds to the <code>href</code> attribute on the document's <code>&lt;base&gt;</code> element (<a href="../project-structure?view=aspnetcore-10.0#location-of-head-and-body-content" data-linktype="relative-path">location of <code>&lt;head&gt;</code> content</a>).</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a></td>
+<td>Navigates to the specified URI. If <code>forceLoad</code> is <code>true</code>:<ul><li>Client-side routing is bypassed.</li><li>The browser is forced to load the new page from the server, whether or not the URI is normally handled by the client-side router.</li></ul></td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged#microsoft-aspnetcore-components-navigationmanager-locationchanged" class="no-loc" data-linktype="absolute-path">LocationChanged</a></td>
+<td>An event that fires when the navigation location has changed.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.toabsoluteuri" class="no-loc" data-linktype="absolute-path">ToAbsoluteUri</a></td>
+<td>Converts a relative URI into an absolute URI.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.tobaserelativepath" class="no-loc" data-linktype="absolute-path">ToBaseRelativePath</a></td>
+<td>Based on the app's base URI, converts an absolute URI into a URI relative to the base URI prefix. For an example, see the <a href="#produce-a-uri-relative-to-the-base-uri-prefix" data-linktype="self-bookmark">Produce a URI relative to the base URI prefix</a> section.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="location-changes">Location changes</h2>
+<p>For the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged#microsoft-aspnetcore-components-navigationmanager-locationchanged" class="no-loc" data-linktype="absolute-path">LocationChanged</a> event, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangedeventargs" class="no-loc" data-linktype="absolute-path">LocationChangedEventArgs</a> provides the following information about navigation events:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangedeventargs.location#microsoft-aspnetcore-components-routing-locationchangedeventargs-location" class="no-loc" data-linktype="absolute-path">Location</a>: The URL of the new location.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangedeventargs.isnavigationintercepted#microsoft-aspnetcore-components-routing-locationchangedeventargs-isnavigationintercepted" class="no-loc" data-linktype="absolute-path">IsNavigationIntercepted</a>: If <code>true</code>, Blazor intercepted the navigation from the browser. If <code>false</code>, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigationManager.NavigateTo</a> caused the navigation to occur.</li>
+</ul>
+<p>The following component:</p>
+<ul>
+<li>Navigates to the app's <code>Counter</code> component (<code>Counter.razor</code>) when the button is selected using <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a>.</li>
+<li>Handles the location changed event by subscribing to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged#microsoft-aspnetcore-components-navigationmanager-locationchanged" class="no-loc" data-linktype="absolute-path">NavigationManager.LocationChanged</a>.
+<ul>
+<li><p>The <code>HandleLocationChanged</code> method is unhooked when <code>Dispose</code> is called by the framework. Unhooking the method permits garbage collection of the component.</p>
+</li>
+<li><p>The logger implementation logs the following information when the button is selected:</p>
+<blockquote>
+<p><span class="no-loc" dir="ltr" lang="en-us">BlazorSample.Pages.Navigate: Information: URL of new location: https://localhost:{PORT}/counter</span></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>Navigate.razor</code>:</p>
+<pre><code class="lang-razor">@page "/navigate"
+@implements IDisposable
+@inject ILogger&lt;Navigate&gt; Logger
+@inject NavigationManager Navigation
+
+&lt;h1&gt;Navigate Example&lt;/h1&gt;
+
+&lt;button class="btn btn-primary" @onclick="NavigateToCounterComponent"&gt;
+    Navigate to the Counter component
+&lt;/button&gt;
+
+@code {
+    private void NavigateToCounterComponent() =&gt; Navigation.NavigateTo("counter");
+
+    protected override void OnInitialized() =&gt; 
+        Navigation.LocationChanged += HandleLocationChanged;
+
+    private void HandleLocationChanged(object? sender, LocationChangedEventArgs e) =&gt; 
+        Logger.LogInformation("URL of new location: {Location}", e.Location);
+
+    public void Dispose() =&gt; Navigation.LocationChanged -= HandleLocationChanged;
+}
+</code></pre>
+<p>For more information on component disposal, see <a href="../components/component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<h2 id="navigation-manager-redirect-behavior-during-static-server-side-rendering-static-ssr">Navigation Manager redirect behavior during static server-side rendering (static SSR)</h2>
+<p>For a redirect during static server-side rendering (static SSR), <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a> relies on throwing a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationexception" class="no-loc" data-linktype="absolute-path">NavigationException</a> that gets captured by the framework, which converts the error into a redirect. Code that exists after the call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> isn't called. When using Visual Studio, the debugger breaks on the exception, requiring you to deselect the checkbox for <strong>Break when this exception type is user-handled</strong> in the Visual Studio UI to avoid the debugger stopping for future redirects.</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0">
+<p>You can use the <code>&lt;BlazorDisableThrowNavigationException&gt;</code> MSBuild property set to <code>true</code> in the app's project file to opt-in to no longer throwing a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationexception" class="no-loc" data-linktype="absolute-path">NavigationException</a>. Also, code after the call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> executes when it wouldn't have run before. This behavior is enabled by default in the .NET 10 or later Blazor Web App project template:</p>
+<pre><code class="lang-xml">&lt;BlazorDisableThrowNavigationException&gt;true&lt;/BlazorDisableThrowNavigationException&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-9.0">
+<div class="NOTE">
+<p>Note</p>
+<p>In .NET 10 or later, you can opt-in to not throwing a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationexception" class="no-loc" data-linktype="absolute-path">NavigationException</a> by setting the <code>&lt;BlazorDisableThrowNavigationException&gt;</code> MSBuild property to <code>true</code> in the app's project file. To take advantage of the new MSBuild property and behavior, upgrade the app to .NET 10 or later.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0">
+<h2 id="not-found-responses">Not Found responses</h2>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NavigationManager.NotFound</a> handles scenarios where a requested resource isn't found during static server-side rendering (static SSR) or global interactive rendering:</p>
+<ul>
+<li><p><strong>Static SSR</strong>: Calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> sets the HTTP status code to 404.</p>
+</li>
+<li><p><strong>Interactive rendering</strong>: Signals the Blazor router (<a href="routing?view=aspnetcore-10.0#route-templates" data-linktype="relative-path"><code>Router</code> component</a>) to render Not Found content.</p>
+</li>
+<li><p><strong>Streaming rendering</strong>: If <a href="routing?view=aspnetcore-10.0#enhanced-navigation-and-form-handling" data-linktype="relative-path">enhanced navigation</a> is active, <a href="../components/rendering?view=aspnetcore-10.0#streaming-rendering" data-linktype="relative-path">streaming rendering</a> renders Not Found content without reloading the page. When enhanced navigation is blocked, the framework redirects to Not Found content with a page refresh.</p>
+</li>
+</ul>
+<div class="NOTE">
+<p>Note</p>
+<p>The following discussion mentions that a Not Found Razor component can be assigned to the <code>Router</code> component's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.router.notfoundpage" class="no-loc" data-linktype="absolute-path">NotFoundPage</a> parameter. The parameter works in concert with <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> and is described in more detail later in this section.</p>
+</div>
+<p>Streaming rendering can only render components that have a route, such as a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.router.notfoundpage" class="no-loc" data-linktype="absolute-path">Router.NotFoundPage</a> assignment (<code>NotFoundPage="..."</code>) or a <a href="../../fundamentals/error-handling?view=aspnetcore-10.0#usestatuscodepageswithreexecute" data-linktype="relative-path">status code pages re-execution middleware page assignment</a> (<a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.statuscodepagesextensions.usestatuscodepageswithreexecute" class="no-loc" data-linktype="absolute-path">UseStatusCodePagesWithReExecute</a>). <code>DefaultNotFound</code> 404 content ("<code>Not found</code>" plain text) doesn't have a route, so it can't be used during streaming rendering.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>The Not Found render fragment (<code>&lt;NotFound&gt;...&lt;/NotFound&gt;</code>) isn't supported in .NET 10 or later.</p>
+</div>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> content rendering uses the following, regardless if the response has started or not (in order):</p>
+<ul>
+<li>If <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.notfoundeventargs.path" class="no-loc" data-linktype="absolute-path">NotFoundEventArgs.Path</a> is set, render the contents of the assigned page.</li>
+<li>If <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.router.notfoundpage" class="no-loc" data-linktype="absolute-path">Router.NotFoundPage</a> is set, render the assigned page.</li>
+<li>A status code pages re-execution middleware page, if configured.</li>
+<li>No action if none of the preceding approaches are adopted.</li>
+</ul>
+<p><a href="../../fundamentals/error-handling?view=aspnetcore-10.0#usestatuscodepageswithreexecute" data-linktype="relative-path">Status code pages re-execution middleware</a> with <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.statuscodepagesextensions.usestatuscodepageswithreexecute" class="no-loc" data-linktype="absolute-path">UseStatusCodePagesWithReExecute</a> takes precedence for browser-based address routing problems, such as an incorrect URL typed into the browser's address bar or selecting a link that has no endpoint in the app.</p>
+<p>When a component is rendered statically (static SSR) and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> is called, the 404 status code is set on the response:</p>
+<pre><code class="lang-razor">@page "/render-not-found-ssr"
+@inject NavigationManager Navigation
+
+@code {
+    protected override void OnInitialized()
+    {
+        Navigation.NotFound();
+    }
+}
+</code></pre>
+<p>To provide Not Found content for global interactive rendering, use a Not Found page (Razor component).</p>
+<div class="NOTE">
+<p>Note</p>
+<p>The Blazor project template includes a <code>NotFound.razor</code> page. This page automatically renders whenever <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> is called, making it possible to handle missing routes with a consistent user experience.</p>
+</div>
+<p><code>Pages/NotFound.razor</code>:</p>
+<pre><code class="lang-razor">@page "/not-found"
+@layout MainLayout
+
+&lt;h3&gt;Not Found&lt;/h3&gt;
+&lt;p&gt;Sorry, the content you are looking for does not exist.&lt;/p&gt;
+</code></pre>
+<p>The <code>NotFound</code> component is assigned to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.router.notfoundpage" class="no-loc" data-linktype="absolute-path">Router.NotFoundPage</a>, which supports routing that can be used across status code pages re-execution middleware, including non-Blazor middleware.</p>
+<p>In the following example, the preceding <code>NotFound</code> component is present in the app's <code>Pages</code> folder and passed to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.router.notfoundpage" class="no-loc" data-linktype="absolute-path">NotFoundPage</a> parameter:</p>
+<pre><code class="lang-razor">&lt;Router AppAssembly="@typeof(Program).Assembly" NotFoundPage="typeof(Pages.NotFound)"&gt;
+    &lt;Found Context="routeData"&gt;
+        &lt;RouteView RouteData="@routeData" /&gt;
+        &lt;FocusOnNavigate RouteData="@routeData" Selector="h1" /&gt;
+    &lt;/Found&gt;
+&lt;/Router&gt;
+</code></pre>
+<p>When a component is rendered with a global interactive render mode, calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> signals the Blazor router to render the <code>NotFound</code> component:</p>
+<pre><code class="lang-razor">@page "/render-not-found-interactive"
+@inject NavigationManager Navigation
+
+@if (RendererInfo.IsInteractive)
+{
+    &lt;button @onclick="TriggerNotFound"&gt;Trigger Not Found&lt;/button&gt;
+}
+
+@code {
+    private void TriggerNotFound()
+    {
+        Navigation.NotFound();
+    }
+}
+</code></pre>
+<p>Use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.onnotfound" class="no-loc" data-linktype="absolute-path">NavigationManager.OnNotFound</a> event for notifications when <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> is invoked. The event is only fired when <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> is called, not for any 404 response. For example, setting <code>HttpContextAccessor.HttpContext.Response.StatusCode</code> to <code>404</code> doesn't trigger <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a>/<a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.onnotfound" class="no-loc" data-linktype="absolute-path">OnNotFound</a>.</p>
+<p>Apps that implement a custom router can use <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a>. There are two ways to inform the renderer what page should be rendered when <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> is called.</p>
+<p>The recommended approach that works regardless of the response state is to call <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.statuscodepagesextensions.usestatuscodepageswithreexecute" class="no-loc" data-linktype="absolute-path">UseStatusCodePagesWithReExecute</a>. When <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> is called, the middleware renders the path passed to the method:</p>
+<pre><code class="lang-csharp">app.UseStatusCodePagesWithReExecute(
+    "/not-found", createScopeForStatusCodePages: true);
+</code></pre>
+<p>If you don't want to use <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.statuscodepagesextensions.usestatuscodepageswithreexecute" class="no-loc" data-linktype="absolute-path">UseStatusCodePagesWithReExecute</a>, the app can still support <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> for responses that have already started. Subscribe to <code>OnNotFoundEvent</code> in the router and assign the Not Found page path to <code>NotFoundEventArgs.Path</code> to inform the renderer what content to render when <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> is called.</p>
+<p><code>CustomRouter.razor</code>:</p>
+<pre><code class="lang-razor">@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Http
+@implements IDisposable
+@inject NavigationManager NavigationManager
+
+@code {
+    protected override void OnInitialized() =&gt;
+        NavigationManager.OnNotFound += OnNotFoundEvent;
+
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
+
+    private void OnNotFoundEvent(object sender, NotFoundEventArgs e)
+    {
+        // Only execute the logic if HTTP response has started
+        // because setting NotFoundEventArgs.Path blocks re-execution
+        if (HttpContext?.Response.HasStarted == false)
+        {
+            return;
+        }
+
+        e.Path = GetNotFoundRoutePath();
+    }
+
+    // Return the path of the Not Found page that you want to display
+    private string GetNotFoundRoutePath()
+    {
+        ...
+    }
+
+    public void Dispose() =&gt; NavigationManager.OnNotFound -= OnNotFoundEvent;
+}
+</code></pre>
+<p>If you use both approaches in your app, the Not Found path specified in the <code>OnNotFoundEvent</code> handler takes precedence over the path configured in the re-execution middleware.</p>
+<p>In the following example for components that adopt <a href="./?view=aspnetcore-10.0#client-and-server-rendering-concepts" data-linktype="relative-path">interactive server-side rendering (interactive SSR)</a>, custom content is rendered depending on where <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.onnotfound" class="no-loc" data-linktype="absolute-path">OnNotFound</a> is called. If the event is triggered by the following <code>Movie</code> component when a movie isn't found on component initialization, a custom message states that the requested movie isn't found. If the event is triggered by the <code>User</code> component in the following example, a different message states that the user isn't found.</p>
+<p>The following <code>NotFoundContext</code> service manages the context and the message for when content isn't found by components.</p>
+<p><code>NotFoundContext.cs</code>:</p>
+<pre><code class="lang-csharp">public class NotFoundContext
+{
+    public string? Heading { get; private set; }
+    public string? Message { get; private set; }
+
+    public void UpdateContext(string heading, string message)
+    {
+        Heading = heading;
+        Message = message;
+    }
+}
+</code></pre>
+<p>The service is registered in the server-side <code>Program</code> file:</p>
+<pre><code class="lang-csharp">builder.Services.AddScoped&lt;NotFoundContext&gt;();
+</code></pre>
+<p>The <code>NotFound</code> page injects the <code>NotFoundContext</code> and displays the heading and message.</p>
+<p><code>Pages/NotFound.razor</code>:</p>
+<pre><code class="lang-razor">@page "/not-found"
+@layout MainLayout
+@inject NotFoundContext NotFoundContext
+
+&lt;h3&gt;@NotFoundContext.Heading&lt;/h3&gt;
+&lt;div&gt;
+    &lt;p&gt;@NotFoundContext.Message&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The <code>Routes</code> component (<code>Routes.razor</code>) sets the <code>NotFound</code> component as the Not Found page via the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.router.notfoundpage" class="no-loc" data-linktype="absolute-path">NotFoundPage</a> parameter:</p>
+<pre><code class="lang-razor">&lt;Router AppAssembly="typeof(Program).Assembly" NotFoundPage="typeof(Pages.NotFound)"&gt;
+    ...
+&lt;/Router&gt;
+</code></pre>
+<p>In the following example components:</p>
+<ul>
+<li>The <code>NotFoundContext</code> service is injected, along with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a>.</li>
+<li>In <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a>, <code>HandleNotFound</code> is an event handler assigned to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.onnotfound" class="no-loc" data-linktype="absolute-path">OnNotFound</a> event. <code>HandleNotFound</code> calls <code>NotFoundContext.UpdateContext</code> to set a heading and message for Not Found content in the <code>NotFound</code> component.</li>
+<li>The components would normally use an ID from a route parameter to obtain a movie or user from a data store, such as a database. In the following examples, no entity is returned (<code>null</code>) to simulate what happens when an entity isn't found.</li>
+<li>When no entity is returned to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a>, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.notfound" class="no-loc" data-linktype="absolute-path">NotFound</a> is called, which in turn triggers the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.onnotfound" class="no-loc" data-linktype="absolute-path">OnNotFound</a> event and the <code>HandleNotFound</code> event handler. Not Found content is displayed by the router.</li>
+<li>The <code>HandleNotFound</code> method is unhooked on component disposal in <a href="/en-us/dotnet/api/system.idisposable.dispose" class="no-loc" data-linktype="absolute-path">IDisposable.Dispose</a>.</li>
+</ul>
+<p><code>Movie</code> component (<code>Movie.razor</code>):</p>
+<pre><code class="lang-razor">@page "/movie/{Id:int}"
+@implements IDisposable
+@inject NavigationManager NavigationManager
+@inject NotFoundContext NotFoundContext
+
+&lt;div&gt;
+    No matter what ID is used, no matching movie is returned
+    from the call to GetMovie().
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavigationManager.OnNotFound += HandleNotFound;
+
+        var movie = await GetMovie(Id);
+
+        if (movie == null)
+        {
+            NavigationManager.NotFound();
+        }
+    }
+
+    private void HandleNotFound(object? sender, NotFoundEventArgs e)
+    {
+        NotFoundContext.UpdateContext("Movie Not Found",
+            "Sorry! The requested movie wasn't found.");
+    }
+
+    private async Task&lt;MovieItem[]?&gt; GetMovie(int id)
+    {
+        // Simulate no movie with matching id found
+        return await Task.FromResult&lt;MovieItem[]?&gt;(null);
+    }
+
+    void IDisposable.Dispose()
+    {
+        NavigationManager.OnNotFound -= HandleNotFound;
+    }
+
+    public class MovieItem
+    {
+        public int Id { get; set; }
+        public string? Title { get; set; }
+    }
+}
+</code></pre>
+<p><code>User</code> component (<code>User.razor</code>):</p>
+<pre><code class="lang-razor">@page "/user/{Id:int}"
+@implements IDisposable
+@inject NavigationManager NavigationManager
+@inject NotFoundContext NotFoundContext
+
+&lt;div&gt;
+    No matter what ID is used, no matching user is returned
+    from the call to GetUser().
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavigationManager.OnNotFound += HandleNotFound;
+
+        var user = await GetUser(Id);
+
+        if (user == null)
+        {
+            NavigationManager.NotFound();
+        }
+    }
+
+    private void HandleNotFound(object? sender, NotFoundEventArgs e)
+    {
+        NotFoundContext.UpdateContext("User Not Found",
+            "Sorry! The requested user wasn't found.");
+    }
+
+    private async Task&lt;UserItem[]?&gt; GetUser(int id)
+    {
+        // Simulate no user with matching id found
+        return await Task.FromResult&lt;UserItem[]?&gt;(null);
+    }
+
+    void IDisposable.Dispose()
+    {
+        NavigationManager.OnNotFound -= HandleNotFound;
+    }
+
+    public class UserItem
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+    }
+}
+</code></pre>
+<p>To reach the preceding components in a local demonstration with a test app, create entries in the <code>NavMenu</code> component (<code>NavMenu.razor</code>) to reach the <code>Movie</code> and <code>User</code> components. The entity IDs, passed as route parameters, in the following example are mock values that have no effect because they aren't actually used by the components, which simulate not finding a movie or user.</p>
+<p>In <code>NavMenu.razor</code>:</p>
+<pre><code class="lang-razor">&lt;div class="nav-item px-3"&gt;
+    &lt;NavLink class="nav-link" href="movie/1"&gt;
+        &lt;span class="bi bi-list-nested-nav-menu" aria-hidden="true"&gt;&lt;/span&gt; Movie
+    &lt;/NavLink&gt;
+&lt;/div&gt;
+
+&lt;div class="nav-item px-3"&gt;
+    &lt;NavLink class="nav-link" href="user/2"&gt;
+        &lt;span class="bi bi-list-nested-nav-menu" aria-hidden="true"&gt;&lt;/span&gt; User
+    &lt;/NavLink&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="enhanced-navigation-and-form-handling">Enhanced navigation and form handling</h2>
+<p><em>This section applies to Blazor Web Apps.</em></p>
+<p>Blazor Web Apps are capable of two types of routing for page navigation and form handling requests:</p>
+<ul>
+<li>Normal navigation (cross-document navigation): a full-page reload is triggered for the request URL.</li>
+<li>Enhanced navigation (same-document navigation): Blazor intercepts the request and performs a <code>fetch</code> request instead. Blazor then patches the response content into the page's DOM. Blazor's enhanced navigation and form handling avoid the need for a full-page reload and preserves more of the page state, so pages load faster, usually without losing the user's scroll position on the page.</li>
+</ul>
+<p>Enhanced navigation is available when:</p>
+<ul>
+<li>The Blazor Web App script (<code>blazor.web.js</code>) is used, not the Blazor Server script (<code>blazor.server.js</code>) or Blazor WebAssembly script (<code>blazor.webassembly.js</code>).</li>
+<li>The feature isn't <a href="startup?view=aspnetcore-10.0#disable-enhanced-navigation-and-form-handling" data-linktype="relative-path">explicitly disabled</a>.</li>
+<li>The destination URL is within the internal base URI space (the app's base path) and the link to the page doesn't have the <code>data-enhance-nav</code> attribute set to <code>false</code>.</li>
+</ul>
+<p>If server-side routing and enhanced navigation are enabled, <a href="#location-changes" data-linktype="self-bookmark">location changing handlers</a> are only invoked for programmatic navigation initiated from an interactive runtime. In future releases, additional types of navigation, such as following a link, may also invoke location changing handlers.</p>
+<p>When an enhanced navigation occurs, <a href="#location-changes" data-linktype="self-bookmark"><code>LocationChanged</code> event handlers</a> registered with Interactive Server and WebAssembly runtimes are typically invoked. There are cases when location changing handlers might not intercept an enhanced navigation. For example, the user might switch to another page before an interactive runtime becomes available. Therefore, it's important that app logic not rely on invoking a location changing handler, as there's no guarantee of the handler executing.</p>
+<p>When calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a>:</p>
+<ul>
+<li>If <code>forceLoad</code> is <code>false</code>, which is the default:
+<ul>
+<li>And enhanced navigation is available at the current URL, Blazor's enhanced navigation is activated.</li>
+<li>Otherwise, Blazor performs a full-page reload for the requested URL.</li>
+</ul>
+</li>
+<li>If <code>forceLoad</code> is <code>true</code>: Blazor performs a full-page reload for the requested URL, whether enhanced navigation is available or not.</li>
+</ul>
+<p>You can refresh the current page by calling <code>NavigationManager.Refresh(bool forceLoad = false)</code>, which always performs an enhanced navigation, if available. If enhanced navigation isn't available, Blazor performs a full-page reload.</p>
+<pre><code class="lang-csharp">Navigation.Refresh();
+</code></pre>
+<p>Pass <code>true</code> to the <code>forceLoad</code> parameter to ensure a full-page reload is always performed, even if enhanced navigation is available:</p>
+<pre><code class="lang-csharp">Navigation.Refresh(true);
+</code></pre>
+<p>Enhanced navigation is enabled by default, but it can be controlled hierarchically and on a per-link basis using the <code>data-enhance-nav</code> HTML attribute.</p>
+<p>The following examples disable enhanced navigation:</p>
+<pre><code class="lang-html">&lt;a href="redirect" data-enhance-nav="false"&gt;
+    GET without enhanced navigation
+&lt;/a&gt;
+</code></pre>
+<pre><code class="lang-razor">&lt;ul data-enhance-nav="false"&gt;
+    &lt;li&gt;
+        &lt;a href="redirect"&gt;GET without enhanced navigation&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="redirect-2"&gt;GET without enhanced navigation&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>If the destination is a non-Blazor endpoint, enhanced navigation doesn't apply, and the client-side JavaScript retries as a full page load. This ensures no confusion to the framework about external pages that shouldn't be patched into an existing page.</p>
+<p>To enable enhanced form handling, add the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.enhance" class="no-loc" data-linktype="absolute-path">Enhance</a> parameter to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> forms or the <code>data-enhance</code> attribute to HTML forms (<code>&lt;form&gt;</code>):</p>
+<pre><code class="lang-razor">&lt;EditForm ... Enhance ...&gt;
+    ...
+&lt;/EditForm&gt;
+</code></pre>
+<pre><code class="lang-html">&lt;form ... data-enhance ...&gt;
+    ...
+&lt;/form&gt;
+</code></pre>
+<p>Enhanced form handling isn't hierarchical and doesn't flow to child forms:</p>
+<p><span aria-hidden="true">❌</span><span class="visually-hidden">Unsupported:</span> You can't set enhanced navigation on a form's ancestor element to enable enhanced navigation for the form.</p>
+<pre><code class="lang-html">&lt;div ... data-enhance ...&gt;
+    &lt;form ...&gt;
+        &lt;!-- NOT enhanced --&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Enhanced form posts only work with Blazor endpoints. Posting an enhanced form to non-Blazor endpoint results in an error.</p>
+<p>To disable enhanced navigation:</p>
+<ul>
+<li>For an <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a>, remove the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.enhance" class="no-loc" data-linktype="absolute-path">Enhance</a> parameter from the form element (or set it to <code>false</code>: <code>Enhance="false"</code>).</li>
+<li>For an HTML <code>&lt;form&gt;</code>, remove the <code>data-enhance</code> attribute from form element (or set it to <code>false</code>: <code>data-enhance="false"</code>).</li>
+</ul>
+<p>Blazor's enhanced navigation and form handing may undo dynamic changes to the DOM if the updated content isn't part of the server rendering. To preserve the content of an element, use the <code>data-permanent</code> attribute.</p>
+<p>In the following example, the content of the <code>&lt;div&gt;</code> element is updated dynamically by a script when the page loads:</p>
+<pre><code class="lang-html">&lt;div data-permanent&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+<p>Once Blazor has started on the client, you can use the <code>enhancedload</code> event to listen for enhanced page updates. This allows for re-applying changes to the DOM that may have been undone by an enhanced page update.</p>
+<pre><code class="lang-javascript">Blazor.addEventListener('enhancedload', () =&gt; console.log('Enhanced update!'));
+</code></pre>
+<p>To disable enhanced navigation and form handling globally, see <a href="startup?view=aspnetcore-10.0#disable-enhanced-navigation-and-form-handling" data-linktype="relative-path">ASP.NET Core Blazor startup</a>.</p>
+<p>Enhanced navigation with <a href="../components/render-modes?view=aspnetcore-10.0#static-server-side-rendering-static-ssr" data-linktype="relative-path">static server-side rendering (static SSR)</a> requires special attention when loading JavaScript. For more information, see <a href="../javascript-interoperability/static-server-rendering?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor JavaScript with static server-side rendering (static SSR)</a>.</p>
+</div>
+<h2 id="produce-a-uri-relative-to-the-base-uri-prefix">Produce a URI relative to the base URI prefix</h2>
+<p>Based on the app's base URI, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.tobaserelativepath" class="no-loc" data-linktype="absolute-path">ToBaseRelativePath</a> converts an absolute URI into a URI relative to the base URI prefix.</p>
+<p>Consider the following example:</p>
+<pre><code class="lang-csharp">try
+{
+    baseRelativePath = Navigation.ToBaseRelativePath(inputURI);
+}
+catch (ArgumentException ex)
+{
+    ...
+}
+</code></pre>
+<p>If the base URI of the app is <code>https://localhost:8000</code>, the following results are obtained:</p>
+<ul>
+<li>Passing <code>https://localhost:8000/segment</code> in <code>inputURI</code> results in a <code>baseRelativePath</code> of <code>segment</code>.</li>
+<li>Passing <code>https://localhost:8000/segment1/segment2</code> in <code>inputURI</code> results in a <code>baseRelativePath</code> of <code>segment1/segment2</code>.</li>
+</ul>
+<p>If the base URI of the app doesn't match the base URI of <code>inputURI</code>, an <a href="/en-us/dotnet/api/system.argumentexception" class="no-loc" data-linktype="absolute-path">ArgumentException</a> is thrown.</p>
+<p>Passing <code>https://localhost:8001/segment</code> in <code>inputURI</code> results in the following exception:</p>
+<blockquote>
+<p><span class="no-loc" dir="ltr" lang="en-us">System.ArgumentException: 'The URI 'https://localhost:8001/segment' is not contained by the base URI 'https://localhost:8000/'.'</span></p>
+</blockquote>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="navigation-history-state">Navigation history state</h2>
+<p>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a> uses the browser's <a href="https://developer.mozilla.org/docs/Web/API/History_API" data-linktype="external">History API</a> to maintain navigation history state associated with each location change made by the app. Maintaining history state is particularly useful in external redirect scenarios, such as when <a href="../security/webassembly/?view=aspnetcore-10.0#customize-authorization" data-linktype="relative-path">authenticating users with external identity providers</a>. For more information, see the <a href="#navigation-options" data-linktype="self-bookmark">Navigation options</a> section.</p>
+<h2 id="navigation-options">Navigation options</h2>
+<p>Pass <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationoptions" class="no-loc" data-linktype="absolute-path">NavigationOptions</a> to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> to control the following behaviors:</p>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<!-- UPDATE 11.0 - API cross-link
+
+<xref:Microsoft.AspNetCore.Components.NavigationOptions.RelativeToCurrentUri>
+
+-->
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationoptions.forceload#microsoft-aspnetcore-components-navigationoptions-forceload" class="no-loc" data-linktype="absolute-path">ForceLoad</a>: Bypass client-side routing and force the browser to load the new page from the server, whether or not the URI is handled by the client-side router. The default value is <code>false</code>.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationoptions.replacehistoryentry#microsoft-aspnetcore-components-navigationoptions-replacehistoryentry" class="no-loc" data-linktype="absolute-path">ReplaceHistoryEntry</a>: Replace the current entry in the history stack. If <code>false</code>, append the new entry to the history stack. The default value is <code>false</code>.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationoptions.historyentrystate#microsoft-aspnetcore-components-navigationoptions-historyentrystate" class="no-loc" data-linktype="absolute-path">HistoryEntryState</a>: Gets or sets the state to append to the history entry.</li>
+<li><code>RelativeToCurrentUri</code>: When <code>true</code>, the URI is resolved relative to the current page path instead of the app's base URI. The default value is <code>false</code>.</li>
+</ul>
+<p>In the following example:</p>
+<ul>
+<li>The state appended to the history entry is "<code>Navigation state</code>."</li>
+<li>If the current URI is <code>/docs/getting-started/installation</code>, navigation results in a request for <code>/docs/getting-started/configuration</code>.</li>
+</ul>
+<pre><code class="lang-csharp">Navigation.NavigateTo("/configuration", new NavigationOptions
+{
+    HistoryEntryState = "Navigation state",
+    RelativeToCurrentUri = true
+});
+</code></pre>
+<p>For more information on obtaining the state associated with the target history entry while handling location changes, see the <a href="#handleprevent-location-changes" data-linktype="self-bookmark">Handle/prevent location changes</a> section.</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationoptions.forceload#microsoft-aspnetcore-components-navigationoptions-forceload" class="no-loc" data-linktype="absolute-path">ForceLoad</a>: Bypass client-side routing and force the browser to load the new page from the server, whether or not the URI is handled by the client-side router. The default value is <code>false</code>.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationoptions.replacehistoryentry#microsoft-aspnetcore-components-navigationoptions-replacehistoryentry" class="no-loc" data-linktype="absolute-path">ReplaceHistoryEntry</a>: Replace the current entry in the history stack. If <code>false</code>, append the new entry to the history stack. The default value is <code>false</code>.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationoptions.historyentrystate#microsoft-aspnetcore-components-navigationoptions-historyentrystate" class="no-loc" data-linktype="absolute-path">HistoryEntryState</a>: Gets or sets the state to append to the history entry.</li>
+</ul>
+<p>In the following example, the state appended to the history entry is "<code>Navigation state</code>."</p>
+<pre><code class="lang-csharp">Navigation.NavigateTo("/path", new NavigationOptions
+{
+    HistoryEntryState = "Navigation state"
+});
+</code></pre>
+<p>For more information on obtaining the state associated with the target history entry while handling location changes, see the <a href="#handleprevent-location-changes" data-linktype="self-bookmark">Handle/prevent location changes</a> section.</p>
+</div>
+<h2 id="query-strings">Query strings</h2>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.supplyparameterfromqueryattribute" data-linktype="absolute-path"><code>[SupplyParameterFromQuery]</code> attribute</a> to specify that a component parameter comes from the query string.</p>
+</div>
+<div data-moniker="aspnetcore-6.0 aspnetcore-7.0">
+<p>Use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.supplyparameterfromqueryattribute" data-linktype="absolute-path"><code>[SupplyParameterFromQuery]</code> attribute</a> with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterattribute" data-linktype="absolute-path"><code>[Parameter]</code> attribute</a> to specify that a component parameter of a <em>routable</em> component comes from the query string.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Component parameters can only receive query parameter values in routable components with an <a href="../../mvc/views/razor?view=aspnetcore-10.0#page" data-linktype="relative-path"><code>@page</code></a> directive.</p>
+<p>Only routable components directly receive query parameters in order to avoid subverting top-down information flow and to make parameter processing order clear, both by the framework and by the app. This design avoids subtle bugs in app code that was written assuming a specific parameter processing order. You're free to define custom cascading parameters or directly assign to regular component parameters in order to pass query parameter values to non-routable components.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Component parameters supplied from the query string support the following types:</p>
+<ul>
+<li><code>bool</code>, <code>DateTime</code>, <code>decimal</code>, <code>double</code>, <code>float</code>, <code>Guid</code>, <code>int</code>, <code>long</code>, <code>string</code>.</li>
+<li>Nullable variants of the preceding types.</li>
+<li>Arrays of the preceding types, whether they're nullable or not nullable.</li>
+</ul>
+<p>The correct culture-invariant formatting is applied for the given type (<a href="/en-us/dotnet/api/system.globalization.cultureinfo.invariantculture#system-globalization-cultureinfo-invariantculture" class="no-loc" data-linktype="absolute-path">CultureInfo.InvariantCulture</a>).</p>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<div class="NOTE">
+<p>Note</p>
+<p><a href="/en-us/dotnet/csharp/language-reference/builtin-types/union" data-linktype="absolute-path">C# union types</a> aren't supported by <code>[SupplyParameterFromQuery]</code> or <code>[SupplyParameterFromForm]</code>, which bind string or form values without JSON parsing.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Specify the <code>[SupplyParameterFromQuery]</code> attribute's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.supplyparameterfromqueryattribute.name#microsoft-aspnetcore-components-supplyparameterfromqueryattribute-name" class="no-loc" data-linktype="absolute-path">Name</a> property to use a query parameter name different from the component parameter name. In the following example, the C# name of the component parameter is <code>{COMPONENT PARAMETER NAME}</code>. A different query parameter name is specified for the <code>{QUERY PARAMETER NAME}</code> placeholder:</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Unlike component parameter properties (<code>[Parameter]</code>), <code>[SupplyParameterFromQuery]</code> properties can be marked <code>private</code> in addition to <code>public</code>.</p>
+<pre><code class="lang-csharp">[SupplyParameterFromQuery(Name = "{QUERY PARAMETER NAME}")]
+private string? {COMPONENT PARAMETER NAME} { get; set; }
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0 aspnetcore-7.0">
+<p>Just like component parameter properties (<code>[Parameter]</code>), <code>[SupplyParameterFromQuery]</code> properties are always <code>public</code> properties in .NET 6/7. In .NET 8 or later, <code>[SupplyParameterFromQuery]</code> properties can be marked <code>public</code> or <code>private</code>.</p>
+<pre><code class="lang-csharp">[Parameter]
+[SupplyParameterFromQuery(Name = "{QUERY PARAMETER NAME}")]
+public string? {COMPONENT PARAMETER NAME} { get; set; }
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>In the following example with a URL of <code>/search?filter=scifi%20stars&amp;page=3&amp;star=LeVar%20Burton&amp;star=Gary%20Oldman</code>:</p>
+<ul>
+<li>The <code>Filter</code> property resolves to <code>scifi stars</code>.</li>
+<li>The <code>Page</code> property resolves to <code>3</code>.</li>
+<li>The <code>Stars</code> array is filled from query parameters named <code>star</code> (<code>Name = "star"</code>) and resolves to <code>LeVar Burton</code> and <code>Gary Oldman</code>.</li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<div class="NOTE">
+<p>Note</p>
+<p>The query string parameters in the following routable page component also work in a <em>non-routable</em> component without an <code>@page</code> directive (for example, <code>Search.razor</code> for a shared <code>Search</code> component used in other components).</p>
+</div>
+<p><code>Search.razor</code>:</p>
+<pre><code class="lang-razor">@page "/search"
+
+&lt;h1&gt;Search Example&lt;/h1&gt;
+
+&lt;p&gt;Filter: @Filter&lt;/p&gt;
+
+&lt;p&gt;Page: @Page&lt;/p&gt;
+
+@if (Stars is not null)
+{
+    &lt;p&gt;Stars:&lt;/p&gt;
+
+    &lt;ul&gt;
+        @foreach (var name in Stars)
+        {
+            &lt;li&gt;@name&lt;/li&gt;
+        }
+    &lt;/ul&gt;
+}
+
+@code {
+    [SupplyParameterFromQuery]
+    private string? Filter { get; set; }
+
+    [SupplyParameterFromQuery]
+    private int? Page { get; set; }
+
+    [SupplyParameterFromQuery(Name = "star")]
+    private string[]? Stars { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0 aspnetcore-7.0">
+<p><code>Search.razor</code>:</p>
+<pre><code class="lang-razor">@page "/search"
+
+&lt;h1&gt;Search Example&lt;/h1&gt;
+
+&lt;p&gt;Filter: @Filter&lt;/p&gt;
+
+&lt;p&gt;Page: @Page&lt;/p&gt;
+
+@if (Stars is not null)
+{
+    &lt;p&gt;Stars:&lt;/p&gt;
+
+    &lt;ul&gt;
+        @foreach (var name in Stars)
+        {
+            &lt;li&gt;@name&lt;/li&gt;
+        }
+    &lt;/ul&gt;
+}
+
+@code {
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? Filter { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public int? Page { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "star")]
+    public string[]? Stars { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Use <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameter" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameter</a> to add, change, or remove one or more query parameters on the current URL.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>For the following examples throughout this section that call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameter" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameter</a> or <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameters" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameters</a>, <code>Navigation</code> is an injected <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager" class="no-loc" data-linktype="absolute-path">NavigationManager</a>:</p>
+<pre><code class="lang-razor">@inject NavigationManager Navigation
+</code></pre>
+</div>
+<pre><code class="lang-csharp">Navigation.NavigateTo(Navigation.GetUriWithQueryParameter("{NAME}", {VALUE}));
+</code></pre>
+<p>For the preceding example:</p>
+<ul>
+<li>The <code>{NAME}</code> placeholder specifies the query parameter name. The <code>{VALUE}</code> placeholder specifies the value as a supported type. Supported types are listed later in this section.</li>
+<li>A string is returned equal to the current URL with a single parameter:
+<ul>
+<li>Added if the query parameter name doesn't exist in the current URL.</li>
+<li>Updated to the value provided if the query parameter exists in the current URL.</li>
+<li>Removed if the type of the provided value is nullable and the value is <code>null</code>.</li>
+</ul>
+</li>
+<li>The correct culture-invariant formatting is applied for the given type (<a href="/en-us/dotnet/api/system.globalization.cultureinfo.invariantculture#system-globalization-cultureinfo-invariantculture" class="no-loc" data-linktype="absolute-path">CultureInfo.InvariantCulture</a>).</li>
+<li>The query parameter name and value are URL-encoded.</li>
+<li>All of the values with the matching query parameter name are replaced if there are multiple instances of the type.</li>
+</ul>
+<p>Call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameters" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameters</a> to create a URI constructed from <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">Uri</a> with multiple parameters added, updated, or removed. For each value, the framework uses <code>value?.GetType()</code> to determine the runtime type for each query parameter and selects the correct culture-invariant formatting. The framework throws an error for unsupported types.</p>
+<pre><code class="lang-csharp">Navigation.NavigateTo(Navigation.GetUriWithQueryParameters({PARAMETERS}));
+</code></pre>
+<p>The <code>{PARAMETERS}</code> placeholder is a <code>Dictionary&lt;string, object?&gt;</code>.</p>
+<p>Pass a URI string to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameters" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameters</a> to generate a new URI from a provided URI with multiple parameters added, updated, or removed. For each value, the framework uses <code>value?.GetType()</code> to determine the runtime type for each query parameter and selects the correct culture-invariant formatting. The framework throws an error for unsupported types. Supported types are listed later in this section.</p>
+<pre><code class="lang-csharp">Navigation.NavigateTo(Navigation.GetUriWithQueryParameters("{URI}", {PARAMETERS}));
+</code></pre>
+<ul>
+<li>The <code>{URI}</code> placeholder is the URI with or without a query string.</li>
+<li>The <code>{PARAMETERS}</code> placeholder is a <code>Dictionary&lt;string, object?&gt;</code>.</li>
+</ul>
+<p>Supported types are identical to supported types for route constraints:</p>
+<ul>
+<li><code>bool</code></li>
+<li><code>DateOnly</code></li>
+<li><code>DateTime</code></li>
+<li><code>decimal</code></li>
+<li><code>double</code></li>
+<li><code>float</code></li>
+<li><code>Guid</code></li>
+<li><code>int</code></li>
+<li><code>long</code></li>
+<li><code>string</code></li>
+<li><code>TimeOnly</code></li>
+</ul>
+<p>Supported types include:</p>
+<ul>
+<li>Nullable variants of the preceding types.</li>
+<li>Arrays of the preceding types, whether they're nullable or not nullable.</li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<div class="WARNING">
+<p>Warning</p>
+<p>With compression, which is enabled by default, avoid creating secure (authenticated/authorized) interactive server-side components that render data from untrusted sources. Untrusted sources include route parameters, query strings, data from JS interop, and any other source of data that a third-party user can control (databases, external services). For more information, see <a href="signalr?view=aspnetcore-10.0#websocket-compression-for-interactive-server-components" data-linktype="relative-path">ASP.NET Core Blazor SignalR guidance</a> and <a href="../security/interactive-server-side-rendering?view=aspnetcore-9.0#interactive-server-components-with-websocket-compression-enabled" data-linktype="relative-path">Threat mitigation guidance for ASP.NET Core Blazor interactive server-side rendering</a>.</p>
+</div>
+</div>
+<h3 id="replace-a-query-parameter-value-when-the-parameter-exists">Replace a query parameter value when the parameter exists</h3>
+<pre><code class="lang-csharp">Navigation.NavigateTo(
+    Navigation.GetUriWithQueryParameter("full name", "Morena Baccarin"));
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Current URL</th>
+<th>Generated URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scheme://host/?full%20name=David%20Krumholtz&amp;age=42</code></td>
+<td><code>scheme://host/?full%20name=Morena%20Baccarin&amp;age=42</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?fUlL%20nAmE=David%20Krumholtz&amp;AgE=42</code></td>
+<td><code>scheme://host/?full%20name=Morena%20Baccarin&amp;AgE=42</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?full%20name=Jewel%20Staite&amp;age=42&amp;full%20name=Summer%20Glau</code></td>
+<td><code>scheme://host/?full%20name=Morena%20Baccarin&amp;age=42&amp;full%20name=Morena%20Baccarin</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?full%20name=&amp;age=42</code></td>
+<td><code>scheme://host/?full%20name=Morena%20Baccarin&amp;age=42</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?full%20name=</code></td>
+<td><code>scheme://host/?full%20name=Morena%20Baccarin</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="append-a-query-parameter-and-value-when-the-parameter-doesnt-exist">Append a query parameter and value when the parameter doesn't exist</h3>
+<pre><code class="lang-csharp">Navigation.NavigateTo(
+    Navigation.GetUriWithQueryParameter("name", "Morena Baccarin"));
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Current URL</th>
+<th>Generated URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scheme://host/?age=42</code></td>
+<td><code>scheme://host/?age=42&amp;name=Morena%20Baccarin</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/</code></td>
+<td><code>scheme://host/?name=Morena%20Baccarin</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?</code></td>
+<td><code>scheme://host/?name=Morena%20Baccarin</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="remove-a-query-parameter-when-the-parameter-value-is-null">Remove a query parameter when the parameter value is <code>null</code></h3>
+<pre><code class="lang-csharp">Navigation.NavigateTo(
+    Navigation.GetUriWithQueryParameter("full name", (string)null));
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Current URL</th>
+<th>Generated URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scheme://host/?full%20name=David%20Krumholtz&amp;age=42</code></td>
+<td><code>scheme://host/?age=42</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?full%20name=Sally%20Smith&amp;age=42&amp;full%20name=Summer%20Glau</code></td>
+<td><code>scheme://host/?age=42</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?full%20name=Sally%20Smith&amp;age=42&amp;FuLl%20NaMe=Summer%20Glau</code></td>
+<td><code>scheme://host/?age=42</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?full%20name=&amp;age=42</code></td>
+<td><code>scheme://host/?age=42</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?full%20name=</code></td>
+<td><code>scheme://host/</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="add-update-and-remove-query-parameters">Add, update, and remove query parameters</h3>
+<p>In the following example:</p>
+<ul>
+<li><code>name</code> is removed, if present.</li>
+<li><code>age</code> is added with a value of <code>25</code> (<code>int</code>), if not present. If present, <code>age</code> is updated to a value of <code>25</code>.</li>
+<li><code>eye color</code> is added or updated to a value of <code>green</code>.</li>
+</ul>
+<pre><code class="lang-csharp">Navigation.NavigateTo(Navigation.GetUriWithQueryParameters(
+    new Dictionary&lt;string, object?&gt;
+    {
+        ["name"] = null,
+        ["age"] = (int?)25,
+        ["eye color"] = "green"
+    }));
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Current URL</th>
+<th>Generated URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scheme://host/?name=David%20Krumholtz&amp;age=42</code></td>
+<td><code>scheme://host/?age=25&amp;eye%20color=green</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?NaMe=David%20Krumholtz&amp;AgE=42</code></td>
+<td><code>scheme://host/?age=25&amp;eye%20color=green</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?name=David%20Krumholtz&amp;age=42&amp;keepme=true</code></td>
+<td><code>scheme://host/?age=25&amp;keepme=true&amp;eye%20color=green</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?age=42&amp;eye%20color=87</code></td>
+<td><code>scheme://host/?age=25&amp;eye%20color=green</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?</code></td>
+<td><code>scheme://host/?age=25&amp;eye%20color=green</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/</code></td>
+<td><code>scheme://host/?age=25&amp;eye%20color=green</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="support-for-enumerable-values">Support for enumerable values</h3>
+<p>In the following example:</p>
+<ul>
+<li><code>full name</code> is added or updated to <code>Morena Baccarin</code>, a single value.</li>
+<li><code>ping</code> parameters are added or replaced with <code>35</code>, <code>16</code>, <code>87</code> and <code>240</code>.</li>
+</ul>
+<pre><code class="lang-csharp">Navigation.NavigateTo(Navigation.GetUriWithQueryParameters(
+    new Dictionary&lt;string, object?&gt;
+    {
+        ["full name"] = "Morena Baccarin",
+        ["ping"] = new int?[] { 35, 16, null, 87, 240 }
+    }));
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Current URL</th>
+<th>Generated URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scheme://host/?full%20name=David%20Krumholtz&amp;ping=8&amp;ping=300</code></td>
+<td><code>scheme://host/?full%20name=Morena%20Baccarin&amp;ping=35&amp;ping=16&amp;ping=87&amp;ping=240</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?ping=8&amp;full%20name=David%20Krumholtz&amp;ping=300</code></td>
+<td><code>scheme://host/?ping=35&amp;full%20name=Morena%20Baccarin&amp;ping=16&amp;ping=87&amp;ping=240</code></td>
+</tr>
+<tr>
+<td><code>scheme://host/?ping=8&amp;ping=300&amp;ping=50&amp;ping=68&amp;ping=42</code></td>
+<td><code>scheme://host/?ping=35&amp;ping=16&amp;ping=87&amp;ping=240&amp;full%20name=Morena%20Baccarin</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="navigate-with-an-added-or-modified-query-string">Navigate with an added or modified query string</h3>
+<p>To navigate with an added or modified query string, pass a generated URL to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a>.</p>
+<p>The following example calls:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanagerextensions.geturiwithqueryparameter" class="no-loc" data-linktype="absolute-path">GetUriWithQueryParameter</a> to add or replace the <code>name</code> query parameter using a value of <code>Morena Baccarin</code>.</li>
+<li>Calls <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> to trigger navigation to the new URL.</li>
+</ul>
+<pre><code class="lang-csharp">Navigation.NavigateTo(
+    Navigation.GetUriWithQueryParameter("name", "Morena Baccarin"));
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0">
+<p>The query string of a request is obtained from the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.uri#microsoft-aspnetcore-components-navigationmanager-uri" class="no-loc" data-linktype="absolute-path">NavigationManager.Uri</a> property:</p>
+<pre><code class="lang-razor">@inject NavigationManager Navigation
+
+...
+
+var query = new Uri(Navigation.Uri).Query;
+</code></pre>
+<p>To parse a query string's parameters, one approach is to use <a href="https://developer.mozilla.org/docs/Web/API/URLSearchParams" data-linktype="external"><code>URLSearchParams</code></a> with <a href="../javascript-interoperability/call-javascript-from-dotnet?view=aspnetcore-10.0" data-linktype="relative-path">JavaScript (JS) interop</a>:</p>
+<pre><code class="lang-javascript">export createQueryString = (string queryString) =&gt; new URLSearchParams(queryString);
+</code></pre>
+<p>For more information on JavaScript isolation with JavaScript modules, see <a href="../javascript-interoperability/call-javascript-from-dotnet?view=aspnetcore-10.0#javascript-isolation-in-javascript-modules" data-linktype="relative-path">Call JavaScript functions from .NET methods in ASP.NET Core Blazor</a>.</p>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<h2 id="navigate-to-an-element-at-the-current-uri">Navigate to an element at the current URI</h2>
+<!-- UPDATE 11.0 - API Browser cross-links and improve the example -->
+<p>Use the <code>GetUriWithFragment</code> extension method to construct a URI with a hash fragment. This helper method provides an efficient, zero-allocation way to append hash fragments to the current URI. The following example demonstrates two use cases:</p>
+<ul>
+<li>Inline call that jumps to Section 1 (<code>id="section-1"</code>) of the rendered page.</li>
+<li>Method call that receives a section identifier (<code>sectionId</code>) and navigates to the section of the page.</li>
+</ul>
+<pre><code class="lang-razor">@inject NavigationManager Navigation
+
+&lt;a href="@Navigation.GetUriWithFragment("section-1")"&gt;
+    Jump to Section 1
+&lt;/a&gt;
+
+@code {
+    private void NavigateToSection(string sectionId)
+    {
+        var uri = Navigation.GetUriWithFragment(sectionId);
+        Navigation.NavigateTo(uri);
+    }
+}
+</code></pre>
+<p>The method uses <code>string.Create</code> for optimal performance and works correctly with non-root base URIs (for example, when using <code>&lt;base href="/app/"&gt;</code>).</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="navigate-to-an-element-with-a-hashed--reference">Navigate to an element with a hashed (<code>#</code>) reference</h2>
+<p>Navigate to an element using the following approaches with a hashed (<code>#</code>) reference to the element. Routes to elements within the component and routes to elements in external components use root-relative paths. A leading forward slash (<code>/</code>) is optional.</p>
+<p>Examples for each of the following approaches demonstrate navigation to an element with an <code>id</code> of <code>targetElement</code> in the <code>Counter</code> component:</p>
+<ul>
+<li><p>Anchor element (<code>&lt;a&gt;</code>) with an <code>href</code>:</p>
+<pre><code class="lang-razor">&lt;a href="/counter#targetElement"&gt;
+</code></pre>
+</li>
+<li><p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> component with an <code>href</code>:</p>
+<pre><code class="lang-razor">&lt;NavLink href="/counter#targetElement"&gt;
+</code></pre>
+</li>
+<li><p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigationManager.NavigateTo</a> passing the relative URL:</p>
+<pre><code class="lang-csharp">Navigation.NavigateTo("/counter#targetElement");
+</code></pre>
+</li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<p>The following example demonstrates navigating to an H2 heading in an external component.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>For element navigation at the same URI, see <a href="#navigate-to-an-element-at-the-current-uri" data-linktype="self-bookmark">Navigate to an element at the current URI</a>.</p>
+</div>
+<p>In the <code>Home</code> (<code>Home.razor</code>) and <code>Counter</code> (<code>Counter.razor</code>) components, place the following markup at the bottoms of the existing component markup to serve as navigation targets. The <code>&lt;div&gt;</code> creates artificial vertical space to demonstrate browser scrolling behavior:</p>
+<pre><code class="lang-razor">&lt;div class="border border-info rounded bg-info" style="height:500px"&gt;&lt;/div&gt;
+
+&lt;h2 id="targetElement"&gt;Target H2 heading&lt;/h2&gt;
+&lt;p&gt;Content!&lt;/p&gt;
+</code></pre>
+<p>Add the following <code>FragmentRouting</code> component to the app.</p>
+<p><code>FragmentRouting.razor</code>:</p>
+<pre><code class="lang-razor">@page "/fragment-routing"
+@inject NavigationManager Navigation
+
+&lt;PageTitle&gt;Fragment routing&lt;/PageTitle&gt;
+
+&lt;h1&gt;Fragment routing to elements&lt;/h1&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a href="/#targetElement"&gt;
+            Anchor to the &lt;code&gt;Home&lt;/code&gt; component
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="/counter#targetElement"&gt;
+            Anchor to the &lt;code&gt;Counter&lt;/code&gt; component
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;button @onclick="NavigateToElement"&gt;
+            Navigate with &lt;code&gt;NavigationManager&lt;/code&gt; to the 
+            &lt;code&gt;Counter&lt;/code&gt; component
+        &lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+@code {
+    private void NavigateToElement()
+    {
+        Navigation.NavigateTo("/counter#targetElement");
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>The following example demonstrates navigating to H2 headings within a component and to external components.</p>
+<p>In the <code>Home</code> (<code>Home.razor</code>) and <code>Counter</code> (<code>Counter.razor</code>) components, place the following markup at the bottoms of the existing component markup to serve as navigation targets. The <code>&lt;div&gt;</code> creates artificial vertical space to demonstrate browser scrolling behavior:</p>
+<pre><code class="lang-razor">&lt;div class="border border-info rounded bg-info" style="height:500px"&gt;&lt;/div&gt;
+
+&lt;h2 id="targetElement"&gt;Target H2 heading&lt;/h2&gt;
+&lt;p&gt;Content!&lt;/p&gt;
+</code></pre>
+<p>Add the following <code>FragmentRouting</code> component to the app.</p>
+<p><code>FragmentRouting.razor</code>:</p>
+<pre><code class="lang-razor">@page "/fragment-routing"
+@inject NavigationManager Navigation
+
+&lt;PageTitle&gt;Fragment routing&lt;/PageTitle&gt;
+
+&lt;h1&gt;Fragment routing to elements&lt;/h1&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a href="/fragment-routing#targetElement"&gt;
+            Anchor in this component
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="/#targetElement"&gt;
+            Anchor to the &lt;code&gt;Home&lt;/code&gt; component
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="/counter#targetElement"&gt;
+            Anchor to the &lt;code&gt;Counter&lt;/code&gt; component
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;NavLink href="/fragment-routing#targetElement"&gt;
+            Use a `NavLink` component in this component
+        &lt;/NavLink&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;button @onclick="NavigateToElement"&gt;
+            Navigate with &lt;code&gt;NavigationManager&lt;/code&gt; to the 
+            &lt;code&gt;Counter&lt;/code&gt; component
+        &lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="border border-info rounded bg-info" style="height:500px"&gt;&lt;/div&gt;
+
+&lt;h2 id="targetElement"&gt;Target H2 heading&lt;/h2&gt;
+&lt;p&gt;Content!&lt;/p&gt;
+
+@code {
+    private void NavigateToElement()
+    {
+        Navigation.NavigateTo("/counter#targetElement");
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="handleprevent-location-changes">Handle/prevent location changes</h2>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.registerlocationchanginghandler" class="no-loc" data-linktype="absolute-path">RegisterLocationChangingHandler</a> registers a handler to process incoming navigation events. The handler's context provided by <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangingcontext" class="no-loc" data-linktype="absolute-path">LocationChangingContext</a> includes the following properties:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangingcontext.targetlocation#microsoft-aspnetcore-components-routing-locationchangingcontext-targetlocation" class="no-loc" data-linktype="absolute-path">TargetLocation</a>: Gets the target location.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangingcontext.historyentrystate#microsoft-aspnetcore-components-routing-locationchangingcontext-historyentrystate" class="no-loc" data-linktype="absolute-path">HistoryEntryState</a>: Gets the state associated with the target history entry.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangingcontext.isnavigationintercepted#microsoft-aspnetcore-components-routing-locationchangingcontext-isnavigationintercepted" class="no-loc" data-linktype="absolute-path">IsNavigationIntercepted</a>: Gets whether the navigation was intercepted from a link.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangingcontext.cancellationtoken#microsoft-aspnetcore-components-routing-locationchangingcontext-cancellationtoken" class="no-loc" data-linktype="absolute-path">CancellationToken</a>: Gets a <a href="/en-us/dotnet/api/system.threading.cancellationtoken" class="no-loc" data-linktype="absolute-path">CancellationToken</a> to determine if the navigation was canceled, for example, to determine if the user triggered a different navigation.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangingcontext.preventnavigation" class="no-loc" data-linktype="absolute-path">PreventNavigation</a>: Called to prevent the navigation from continuing.</li>
+</ul>
+<p>A component can register multiple location changing handlers in the <a href="../components/lifecycle?view=aspnetcore-10.0#after-component-render-onafterrenderasync" data-linktype="relative-path"><code>OnAfterRender{Async}</code> lifecycle method</a>. Navigation invokes all of the location changing handlers registered across the entire app (across multiple components), and any internal navigation executes them all in parallel. In addition to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> handlers are invoked:</p>
+<ul>
+<li>When selecting internal links, which are links that point to URLs under the app's base path.</li>
+<li>When navigating using the forward and back buttons in a browser.</li>
+</ul>
+<p>Handlers are only executed for internal navigation within the app. If the user selects a link that navigates to a different site or changes the address bar to a different site manually, location changing handlers aren't executed.</p>
+<p>Implement <a href="/en-us/dotnet/api/system.idisposable" class="no-loc" data-linktype="absolute-path">IDisposable</a> and dispose registered handlers to unregister them. For more information, see <a href="../components/component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>Don't attempt to execute DOM cleanup tasks via JavaScript (JS) interop when handling location changes. Use the <a href="https://developer.mozilla.org/docs/Web/API/MutationObserver" data-linktype="external"><code>MutationObserver</code> pattern</a> in JS on the client. For more information, see <a href="../javascript-interoperability/?view=aspnetcore-10.0#dom-cleanup-tasks-during-component-disposal" data-linktype="relative-path">ASP.NET Core Blazor JavaScript interoperability (JS interop)</a>.</p>
+</div>
+<p>In the following example, a location changing handler is registered for navigation events.</p>
+<p><code>NavHandler.razor</code>:</p>
+<pre><code class="lang-razor">@page "/nav-handler"
+@implements IDisposable
+@inject NavigationManager Navigation
+
+&lt;p&gt;
+    &lt;button @onclick="@(() =&gt; Navigation.NavigateTo("/"))"&gt;
+        Home (Allowed)
+    &lt;/button&gt;
+    &lt;button @onclick="@(() =&gt; Navigation.NavigateTo("/counter"))"&gt;
+        Counter (Prevented)
+    &lt;/button&gt;
+&lt;/p&gt;
+
+@code {
+    private IDisposable? registration;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            registration = 
+                Navigation.RegisterLocationChangingHandler(OnLocationChanging);
+        }
+    }
+
+    private ValueTask OnLocationChanging(LocationChangingContext context)
+    {
+        if (context.TargetLocation == "/counter")
+        {
+            context.PreventNavigation();
+        }
+
+        return ValueTask.CompletedTask;
+    }
+
+    public void Dispose() =&gt; registration?.Dispose();
+}
+</code></pre>
+<p>Since internal navigation can be canceled asynchronously, multiple overlapping calls to registered handlers may occur. For example, multiple handler calls may occur when the user rapidly selects the back button on a page or selects multiple links before a navigation is executed. The following is a summary of the asynchronous navigation logic:</p>
+<ul>
+<li>If any location changing handlers are registered, all navigation is initially reverted, then replayed if the navigation isn't canceled.</li>
+<li>If overlapping navigation requests are made, the latest request always cancels earlier requests, which means the following:
+<ul>
+<li>The app may treat multiple back and forward button selections as a single selection.</li>
+<li>If the user selects multiple links before the navigation completes, the last link selected determines the navigation.</li>
+</ul>
+</li>
+</ul>
+<p>For more information on passing <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationoptions" class="no-loc" data-linktype="absolute-path">NavigationOptions</a> to <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.navigateto" class="no-loc" data-linktype="absolute-path">NavigateTo</a> to control entries and state of the navigation history stack, see the <a href="#navigation-options" data-linktype="self-bookmark">Navigation options</a> section.</p>
+<p>For additional example code, see the <a href="https://github.com/dotnet/aspnetcore/blob/main/src/Components/test/testassets/BasicTestApp/RouterTest/NavigationManagerComponent.razor" data-linktype="external"><code>NavigationManagerComponent</code> in the <code>BasicTestApp</code> (<code>dotnet/aspnetcore</code> reference source)</a>.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Documentation links to .NET reference source usually load the repository's default branch, which represents the current development for the next release of .NET. To select a tag for a specific release, use the <strong>Switch branches or tags</strong> dropdown list. For more information, see <a href="https://github.com/dotnet/AspNetCore.Docs/discussions/26205" data-linktype="external">How to select a version tag of ASP.NET Core source code (dotnet/AspNetCore.Docs #26205)</a>.</p>
+</div>
+<p>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navigationlock" data-linktype="absolute-path"><code>NavigationLock</code> component</a> intercepts navigation events as long as it is rendered, effectively "locking" any given navigation until a decision is made to either proceed or cancel. Use <code>NavigationLock</code> when navigation interception can be scoped to the lifetime of a component.</p>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navigationlock" class="no-loc" data-linktype="absolute-path">NavigationLock</a> parameters:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navigationlock.confirmexternalnavigation#microsoft-aspnetcore-components-routing-navigationlock-confirmexternalnavigation" class="no-loc" data-linktype="absolute-path">ConfirmExternalNavigation</a> sets a browser dialog to prompt the user to either confirm or cancel external navigation. The default value is <code>false</code>. Displaying the confirmation dialog requires initial user interaction with the page before triggering external navigation with the URL in the browser's address bar. For more information on the interaction requirement, see <a href="https://developer.mozilla.org/docs/Web/API/Window/beforeunload_event" data-linktype="external">Window: <code>beforeunload</code> event</a>.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navigationlock.onbeforeinternalnavigation#microsoft-aspnetcore-components-routing-navigationlock-onbeforeinternalnavigation" class="no-loc" data-linktype="absolute-path">OnBeforeInternalNavigation</a> sets a callback for internal navigation events.</li>
+</ul>
+<p>In the following <code>NavLock</code> component:</p>
+<ul>
+<li>An attempt to follow the link to Microsoft's website must be confirmed by the user before the navigation to <code>https://www.microsoft.com</code> succeeds.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.locationchangingcontext.preventnavigation" class="no-loc" data-linktype="absolute-path">PreventNavigation</a> is called to prevent navigation from occurring if the user declines to confirm the navigation via a <a href="../javascript-interoperability/call-javascript-from-dotnet?view=aspnetcore-10.0" data-linktype="relative-path">JavaScript (JS) interop call</a> that spawns the <a href="https://developer.mozilla.org/docs/Web/API/Window/confirm" data-linktype="external">JS <code>confirm</code> dialog</a>.</li>
+</ul>
+<p><code>NavLock.razor</code>:</p>
+<pre><code class="lang-razor">@page "/nav-lock"
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Navigation
+
+&lt;NavigationLock ConfirmExternalNavigation="true" 
+    OnBeforeInternalNavigation="OnBeforeInternalNavigation" /&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="Navigate"&gt;Navigate&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    &lt;a href="https://www.microsoft.com"&gt;Microsoft homepage&lt;/a&gt;
+&lt;/p&gt;
+
+@code {
+    private void Navigate()
+    {
+        Navigation.NavigateTo("/");
+    }
+
+    private async Task OnBeforeInternalNavigation(LocationChangingContext context)
+    {
+        var isConfirmed = await JSRuntime.InvokeAsync&lt;bool&gt;("confirm", 
+            "Are you sure you want to navigate to the root page?");
+
+        if (!isConfirmed)
+        {
+            context.PreventNavigation();
+        }
+    }
+}
+</code></pre>
+<p>For additional example code, see the <a href="https://github.com/dotnet/aspnetcore/blob/main/src/Components/test/testassets/BasicTestApp/RouterTest/ConfigurableNavigationLock.razor" data-linktype="external"><code>ConfigurableNavigationLock</code> component in the <code>BasicTestApp</code> (<code>dotnet/aspnetcore</code> reference source)</a>.</p>
+</div>
+<h2 id="dynamically-generated-navlink-components-via-reflection">Dynamically-generated <code>NavLink</code> components via reflection</h2>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> component entries can be dynamically created from the app's components via reflection. The following example demonstrates the general approach for further customization.</p>
+<p>For the following demonstration, a consistent, standard naming convention is used for the app's components:</p>
+<ul>
+<li>Routable component file names use Pascal case†, for example <code>Pages/ProductDetail.razor</code>.</li>
+<li>Routable component file paths match their URLs in kebab case‡ with hyphens appearing between words in a component's route template. For example, a <code>ProductDetail</code> component with a route template of <code>/product-detail</code> (<code>@page "/product-detail"</code>) is requested in a browser at the relative URL <code>/product-detail</code>.</li>
+</ul>
+<p>†Pascal case (upper camel case) is a naming convention without spaces and punctuation and with the first letter of each word capitalized, including the first word.<br>
+‡Kebab case is a naming convention without spaces and punctuation that uses lowercase letters and dashes between words.</p>
+<p>In the Razor markup of the <code>NavMenu</code> component (<code>NavMenu.razor</code>) under the default <code>Home</code> page, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.routing.navlink" class="no-loc" data-linktype="absolute-path">NavLink</a> components are added from a collection:</p>
+<pre><code class="lang-diff">&lt;nav class="flex-column"&gt;
+    &lt;div class="nav-item px-3"&gt;
+        &lt;NavLink class="nav-link" href="" Match="NavLinkMatch.All"&gt;
+            &lt;span class="bi bi-house-door-fill-nav-menu" 
+                aria-hidden="true"&gt;&lt;/span&gt; Home
+        &lt;/NavLink&gt;
+    &lt;/div&gt;
+
++   @foreach (var name in GetRoutableComponents())
++   {
++       &lt;div class="nav-item px-3"&gt;
++           &lt;NavLink class="nav-link" 
++                   href="@Regex.Replace(name, @"(\B[A-Z]|\d+)", "-$1").ToLower()"&gt;
++               @Regex.Replace(name, @"(\B[A-Z]|\d+)", " $1")
++           &lt;/NavLink&gt;
++       &lt;/div&gt;
++   }
+&lt;/nav&gt;
+</code></pre>
+<p>The <code>GetRoutableComponents</code> method in the <code>@code</code> block:</p>
+<pre><code class="lang-csharp">public IEnumerable&lt;string&gt; GetRoutableComponents() =&gt; 
+    Assembly.GetExecutingAssembly()
+        .ExportedTypes
+        .Where(t =&gt; t.IsSubclassOf(typeof(ComponentBase)))
+        .Where(c =&gt; c.GetCustomAttributes(inherit: true)
+                     .OfType&lt;RouteAttribute&gt;()
+                     .Any())
+        .Where(c =&gt; c.Name != "Home" &amp;&amp; c.Name != "Error")
+        .OrderBy(o =&gt; o.Name)
+        .Select(c =&gt; c.Name);
+</code></pre>
+<p>The preceding example doesn't include the following pages in the rendered list of components:</p>
+<ul>
+<li><code>Home</code> page: The page is listed separately from the automatically generated links because it should appear at the top of the list and set the <code>Match</code> parameter.</li>
+<li><code>Error</code> page: The error page is only navigated to by the framework and shouldn't be listed.</li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>For an demonstration of the preceding code in a sample app, obtain the <a href="./?view=aspnetcore-10.0#sample-apps" data-linktype="relative-path"><strong>Blazor Web App</strong> or <strong>Blazor WebAssembly</strong> sample app</a>.</p>
+</div>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+			
+		<!-- feedback section -->
+		<section
+			class="feedback-section position-relative margin-top-lg border border-radius padding-xxs display-none-print"
+			data-bi-name="open-source-feedback-section"
+			data-open-source-feedback-section
+			hidden
+		>
+			<div class="display-flex flex-direction-column flex-direction-row-tablet">
+				<div
+					class="width-450-tablet padding-inline-xs padding-inline-xs-tablet padding-top-xs padding-bottom-sm padding-top-xs-tablet background-color-body-medium"
+				>
+					<div class="display-flex flex-direction-column">
+						<div class="padding-bottom-xxs">
+							<span class="icon margin-right-xxs" aria-hidden="true">
+								<span class="docon docon-brand-github"></span>
+							</span>
+							<span class="font-weight-semibold">
+								Collaborate with us on GitHub
+							</span>
+						</div>
+						<span class="line-height-normal">
+							The source for this content can be found on GitHub, where you can also create and review issues and pull requests. For more information, see <a href="https://learn.microsoft.com/contribute/content/dotnet/dotnet-contribute">our contributor guide</a>.
+						</span>
+					</div>
+				</div>
+				<div
+					class="display-flex gap-xs width-full-tablet flex-direction-column padding-xs justify-content-space-evenly"
+				>
+					<div class="media">
+						
+					<div class="media-left">
+						<div class="image image-36x36" hidden data-open-source-image-container>
+							<img
+								class="theme-display is-light"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-light
+							/>
+							<img
+								class="theme-display is-dark is-high-contrast"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-dark
+							/>
+						</div>
+					</div>
+			  
+
+						<div class="media-content">
+							<p
+								class="font-size-xl font-weight-semibold margin-bottom-xxs"
+								data-open-source-product-title
+							>
+								ASP.NET Core
+							</p>
+							<div class="display-flex gap-xs flex-direction-column">
+								<p class="line-height-normal" data-open-source-product-description></p>
+								<div class="display-flex gap-xs flex-direction-column">
+									<a href="#" data-github-link>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-bug"></span>
+										</span>
+										<span>Open a documentation issue</span>
+									</a>
+									<a
+										href="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md"
+										class="display-block margin-top-auto font-size-md"
+										data-feedback-product-url
+									>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-feedback"></span>
+										</span>
+										<span>Provide product feedback</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+			
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+		
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-06-24T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-06-24
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

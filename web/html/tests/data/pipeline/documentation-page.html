@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><title>Widget client configuration</title></head>
+<body>
+  <header><nav>Overview API Changelog</nav></header>
+  <main>
+    <article>
+      <h1>Configure the widget client</h1>
+      <p>The client reads an endpoint, a retry policy, and a bounded timeout. Configure these values once during application startup so every request uses the same reviewed behavior.</p>
+      <h2>Basic configuration</h2>
+      <pre><code class="language-csharp">WidgetClient client = WidgetClient.Create("https://api.example.test");
+client.SetTimeout(30);</code></pre>
+      <p>Keep credentials outside source control. Rotate them through the deployment environment, verify failures explicitly, and record enough context to diagnose a rejected request without logging secrets.</p>
+      <h2>Retry behavior</h2>
+      <ol><li>Retry temporary failures.</li><li>Apply a strict attempt limit.</li><li>Stop when cancellation is requested.</li></ol>
+    </article>
+  </main>
+  <aside>Sponsored integration</aside>
+  <footer>Copyright and site navigation</footer>
+</body>
+</html>

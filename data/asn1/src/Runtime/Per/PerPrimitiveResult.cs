@@ -1,0 +1,13 @@
+namespace asn1;
+
+internal class PerPrimitiveResult
+{
+    internal bool Success;
+    internal AsnDecodeStatus Status;
+    internal AsnRuntimeValue? Value;
+    internal int BitCount;
+    internal int PaddingBitCount;
+    internal bool LimitExceeded;
+    internal string ErrorCode = "";
+    internal string ErrorMessage = "";
+}

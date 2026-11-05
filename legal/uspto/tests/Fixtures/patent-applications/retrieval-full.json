@@ -1,0 +1,32 @@
+{
+  "count": 1,
+  "patentFileWrapperDataBag": [
+    {
+      "applicationNumberText": "14/412,875",
+      "applicationMetaData": {
+        "patentNumber": "12156579",
+        "earliestPublicationNumber": "US 2024/0012345 A1",
+        "inventionTitle": "Example invention",
+        "applicationTypeCode": "UTL",
+        "applicationTypeLabelName": "Utility",
+        "filingDate": "2023-01-02",
+        "earliestPublicationDate": "2024-01-04",
+        "grantDate": "2025-03-05",
+        "applicationStatusCode": 150,
+        "applicationStatusDescriptionText": "Patented Case",
+        "firstApplicantName": "Example Applicant",
+        "firstInventorName": "Example Inventor",
+        "groupArtUnitNumber": "2814",
+        "futureMetadata": {
+          "enabled": true
+        }
+      },
+      "assignmentBag": [
+        {
+          "reelNumber": "1234"
+        }
+      ]
+    }
+  ],
+  "requestIdentifier": "direct-request"
+}

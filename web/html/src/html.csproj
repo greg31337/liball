@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>UniversalHtml</AssemblyName>
+    <RootNamespace>UniversalHtml</RootNamespace>
+    <IsPackable>true</IsPackable>
+    <PackageId>UniversalHtml</PackageId>
+    <Title>UniversalHtml</Title>
+    <Authors>Greg Wroblewski and contributors</Authors>
+    <Company>UniversalHtml contributors</Company>
+    <Product>UniversalHtml</Product>
+    <Copyright>Copyright © 2026 Greg Wroblewski and contributors</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Description>A zero-dependency .NET library for browser-compatible HTML parsing, traversal, sanitization, serialization, and conversion.</Description>
+    <PackageTags>html;html5;parser;dom;sanitizer;markdown</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Initial development preview; the public API is not yet stable.</PackageReleaseNotes>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionSuffix>alpha.1</VersionSuffix>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarningsAsErrors>$(WarningsAsErrors);CS1591;nullable</WarningsAsErrors>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="html.Tests" />
+    <InternalsVisibleTo Include="FuzzRunner" />
+  </ItemGroup>
+
+</Project>

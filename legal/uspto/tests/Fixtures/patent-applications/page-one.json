@@ -1,0 +1,28 @@
+{
+  "facets": [
+    {
+      "applicationMetaData.applicationStatusCode": [
+        {
+          "value": 150,
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "count": 2,
+  "patentFileWrapperDataBag": [
+    {
+      "applicationNumberText": "14/104,993",
+      "applicationMetaData": {
+        "inventionTitle": "Title 0"
+      }
+    },
+    {
+      "applicationNumberText": "15/123,456",
+      "applicationMetaData": {
+        "inventionTitle": "Title 1"
+      }
+    }
+  ],
+  "requestIdentifier": "page-one"
+}

@@ -1,0 +1,2837 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Target Frameworks Reference for NuGet | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="NuGet target framework references identify and isolate framework-dependent components of a package, including support for multi-targeting with duplicate frameworks." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/nuget/reference/target-frameworks" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Target Frameworks Reference for NuGet" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/nuget/reference/target-frameworks" />
+			<meta property="og:description" content="NuGet target framework references identify and isolate framework-dependent components of a package, including support for multi-targeting with duplicate frameworks." />
+			<meta name="platform_id" content="3c7caa95-fec6-b336-c202-71289881cdab" /> <meta name="scope" content="NuGet" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-DotNet" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="ms.service" content="nuget" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="feedback_product_url" content="https://github.com/NuGet/Home/issues/" />
+	
+		<meta name="breadcrumb_path" content="../_breadcrumb/toc.json" />
+	
+		<meta name="ROBOTS" content="INDEX,FOLLOW" />
+	
+		<meta name="ms.topic" content="reference" />
+	
+		<meta name="author" content="nkolev92" />
+	
+		<meta name="ms.author" content="nikolev" />
+	
+		<meta name="ms.reviewer" content="anangaur" />
+	
+		<meta name="ms.reviewer" content="jodou" />
+	
+		<meta name="ms.reviewer" content="chgill" />
+	
+		<meta name="ms.reviewer" content="jiacjian" />
+	
+		<meta name="ms.workload" content="dotnet" />
+	
+		<meta name="ms.workload" content="dotnetcore" />
+	
+		<meta name="ms.workload" content="aspnet" />
+	
+		<meta name="ms.date" content="2026-03-25T00:00:00Z" />
+	
+		<meta name="document_id" content="0a0f5267-208d-8af2-ef18-dae7407eefad" />
+	
+		<meta name="document_version_independent_id" content="19b00f91-5d31-0d4d-388b-30b1bd4e7c0f" />
+	
+		<meta name="updated_at" content="2026-04-03T16:08:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/NuGet/docs.microsoft.com-nuget/blob/live/docs/reference/target-frameworks.md" />
+	
+		<meta name="gitcommit" content="https://github.com/NuGet/docs.microsoft.com-nuget/blob/8afbdbef4798c9cd390ae5b9d826d142048bf2de/docs/reference/target-frameworks.md" />
+	
+		<meta name="git_commit_id" content="8afbdbef4798c9cd390ae5b9d826d142048bf2de" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="MSDN.Nuget_concept" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/MSDN.Nuget_concept/{branchName}{pdfName}" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="1409" />
+	
+		<meta name="asset_id" content="reference/target-frameworks" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="docs/reference/target-frameworks.md" />
+	
+		<meta name="previous_tlsh_hash" content="606E29324309EB0D6F10C49EB56B7299A2C4AAC9E6A8ECAD2AD0D4612EB877E8279F075A761E533CA33941F3C8D0B10D52894FB893647C6F60D41474831C7FA7D5340A7BDF" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/NuGet/docs.microsoft.com-nuget/blob/main/docs/reference/target-frameworks.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/nuget/reference/target-frameworks?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/7696cda6-0510-47f6-8302-71bb5d2e28cf" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/1e7ed706-f5d7-4411-be22-6fcf98d10e44" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/69c76c32-967e-4c65-b89a-74cc527db725" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/b4084e3b-5e61-4e73-886a-780c8f7b0fa1" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03519.8161-0e3d77ca/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "NuGet/docs.microsoft.com-nuget",
+    "feedbackProductUrl": "https://github.com/NuGet/Home/issues/",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": false
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03519.8161-0e3d77ca/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div>
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/NuGet/docs.microsoft.com-nuget/blob/main/docs/reference/target-frameworks.md"
+			data-original_content_git_url="https://github.com/NuGet/docs.microsoft.com-nuget/blob/live/docs/reference/target-frameworks.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/docs/reference/target-frameworks.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="target-frameworks">Target frameworks</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	
+					<div class="content"><p>NuGet uses target framework references in a variety of places to specifically identify and isolate framework-dependent components of a package:</p>
+<ul>
+<li><a href="../create-packages/multiple-target-frameworks-project-file" data-linktype="relative-path">project file</a>: For SDK-style projects, the <em>.csproj</em> contains the target framework references.</li>
+<li><a href="nuspec" data-linktype="relative-path">.nuspec manifest</a>: A package can indicate distinct packages to be included in a project depending on the project's target framework.</li>
+<li><a href="../create-packages/creating-a-package#from-a-convention-based-working-directory" data-linktype="relative-path">.nupkg folder name</a>: The folders inside a package's <code>lib</code> folder can be named according to the target framework, each of which contains the DLLs and other content appropriate to that framework.</li>
+<li><a href="packages-config" data-linktype="relative-path">packages.config</a>: The <code>targetframework</code> attribute of a dependency specifies the variant of a package to install.</li>
+</ul>
+<p>For the canonical list of all supported target frameworks and their TFM syntax, see <a href="/en-us/dotnet/standard/frameworks" data-linktype="absolute-path">Target frameworks in SDK-style projects</a>.</p>
+<h2 id="targetframework-values-are-aliases">TargetFramework values are aliases</h2>
+<p>The <code>TargetFramework</code> property in a project file is a friendly name — an alias — that gets translated into a canonical framework identity. The .NET SDK performs this translation by setting the <code>TargetFrameworkMoniker</code> (TFM), and when applicable, the <code>TargetPlatformMoniker</code> properties.</p>
+<p>For example, when you write <code>&lt;TargetFramework&gt;net10.0-windows&lt;/TargetFramework&gt;</code>, the .NET SDK translates that into:</p>
+<ul>
+<li><code>TargetFrameworkMoniker</code> = <code>.NETCoreApp,Version=v10.0</code></li>
+<li><code>TargetPlatformMoniker</code> = <code>Windows,Version=7.0</code></li>
+</ul>
+<p>NuGet uses these moniker properties — not the <code>TargetFramework</code> string — for package compatibility checks. This means the <code>TargetFramework</code> value itself can be any string, as long as the moniker properties are set correctly. For example, the following project is valid:</p>
+<pre><code class="lang-xml">&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;banana&lt;/TargetFramework&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;PropertyGroup Condition=" '$(TargetFramework)' == 'banana' "&gt;
+    &lt;TargetFrameworkIdentifier&gt;.NETCoreApp&lt;/TargetFrameworkIdentifier&gt;
+    &lt;TargetFrameworkVersion&gt;v10.0&lt;/TargetFrameworkVersion&gt;
+    &lt;TargetFrameworkMoniker&gt;.NETCoreApp,Version=v10.0&lt;/TargetFrameworkMoniker&gt;
+  &lt;/PropertyGroup&gt;
+&lt;/Project&gt;
+</code></pre>
+<p>This project restores and builds for .NET 10.0, even though the <code>TargetFramework</code> value is <code>banana</code>. The .NET SDK already relies on this aliasing mechanism for OS-specific TFMs like <code>net8.0-ios</code> and <code>net8.0-android</code>, where the short TFM is translated into the full moniker with platform information.</p>
+<h2 id="multi-targeting-with-duplicate-frameworks">Multi-targeting with duplicate frameworks</h2>
+<p>Starting with <a href="../release-notes/nuget-7.6" data-linktype="relative-path">NuGet 7.6</a> / .NET SDK 10.0.300, multiple <code>TargetFrameworks</code> aliases can resolve to the same effective framework. This enables scenarios like multi-RID builds and multi-version extension targeting. For details on how this works with restore, pack, lock files, and project references, see <a href="../consume-packages/package-references-in-project-files#multi-targeting-with-duplicate-frameworks" data-linktype="relative-path">Targeting multiple frameworks</a>.</p>
+<h2 id="supported-frameworks">Supported frameworks</h2>
+<p>A framework is typically referenced by a short target framework moniker or TFM. In .NET Standard this is also generalized to <em>TxM</em> to allow a single reference to multiple frameworks.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>The NuGet client source code that calculates the tables below is found in the following locations:</p>
+<ul>
+<li>Supported framework names: <a href="https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs" data-linktype="external">FrameworkConstants.cs</a></li>
+<li>Framework precedence and mapping: <a href="https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs" data-linktype="external">DefaultFrameworkMappings.cs</a></li>
+</ul>
+</div>
+<p>The NuGet clients support the frameworks in the table below. Equivalents are shown within brackets []. Note that some tools, such as <code>dotnet</code>, might use variations of canonical TFMs in some files. For example, <code>dotnet pack</code> uses  <code>.NETCoreApp2.0</code> in a <code>.nuspec</code> file rather than <code>netcoreapp2.0</code>. The various NuGet client tools handle these variations properly, but you should always use canonical TFMs when editing files directly.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Abbreviation</th>
+<th>TFMs/TxMs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.NET Framework</td>
+<td>net</td>
+<td>net11</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net20</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net35</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net40</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net403</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net45</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net451</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net452</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net46</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net461</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net462</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net47</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net471</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net472</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net48</td>
+</tr>
+<tr>
+<td>Microsoft Store (Windows Store)</td>
+<td>netcore</td>
+<td>netcore [netcore45]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcore45 [win, win8]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcore451 [win81]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcore50</td>
+</tr>
+<tr>
+<td>.NET MicroFramework</td>
+<td>netmf</td>
+<td>netmf</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>win</td>
+<td>win [win8, netcore45]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>win8 [netcore45, win]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>win81 [netcore451]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>win10 (not supported by Windows 10 Platform)</td>
+</tr>
+<tr>
+<td>Silverlight</td>
+<td>sl</td>
+<td>sl4</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>sl5</td>
+</tr>
+<tr>
+<td>Windows Phone (SL)</td>
+<td>wp</td>
+<td>wp [wp7]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>wp7</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>wp75</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>wp8</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>wp81</td>
+</tr>
+<tr>
+<td>Windows Phone (UWP)</td>
+<td></td>
+<td>wpa81</td>
+</tr>
+<tr>
+<td>Universal Windows Platform</td>
+<td>uap</td>
+<td>uap [uap10.0]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>uap10.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>uap10.0.xxxxx  (where 10.0.xxxxx is the target platform min version of the consuming app)</td>
+</tr>
+<tr>
+<td>.NET Standard</td>
+<td>netstandard</td>
+<td>netstandard1.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netstandard1.1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netstandard1.2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netstandard1.3</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netstandard1.5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netstandard1.6</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netstandard2.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netstandard2.1</td>
+</tr>
+<tr>
+<td>.NET 5+ (and .NET Core)</td>
+<td>netcoreapp</td>
+<td>netcoreapp1.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcoreapp1.1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcoreapp2.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcoreapp2.1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcoreapp2.2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcoreapp3.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>netcoreapp3.1</td>
+</tr>
+<tr>
+<td></td>
+<td>net</td>
+<td>net5.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net6.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net7.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net8.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net9.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>net10.0</td>
+</tr>
+<tr>
+<td>Tizen</td>
+<td>tizen</td>
+<td>tizen3</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>tizen4</td>
+</tr>
+<tr>
+<td>Native</td>
+<td>native</td>
+<td>native</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deprecated-frameworks">Deprecated frameworks</h2>
+<p>The following frameworks are deprecated. Packages targeting these frameworks should migrate to the indicated replacements.</p>
+<table>
+<thead>
+<tr>
+<th>Deprecated framework</th>
+<th>Replacement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aspnet50</td>
+<td>netcoreapp</td>
+</tr>
+<tr>
+<td>aspnetcore50</td>
+<td></td>
+</tr>
+<tr>
+<td>dnxcore50</td>
+<td></td>
+</tr>
+<tr>
+<td>dnx</td>
+<td></td>
+</tr>
+<tr>
+<td>dnx45</td>
+<td></td>
+</tr>
+<tr>
+<td>dnx451</td>
+<td></td>
+</tr>
+<tr>
+<td>dnx452</td>
+<td></td>
+</tr>
+<tr>
+<td>dotnet</td>
+<td>netstandard</td>
+</tr>
+<tr>
+<td>dotnet50</td>
+<td></td>
+</tr>
+<tr>
+<td>dotnet51</td>
+<td></td>
+</tr>
+<tr>
+<td>dotnet52</td>
+<td></td>
+</tr>
+<tr>
+<td>dotnet53</td>
+<td></td>
+</tr>
+<tr>
+<td>dotnet54</td>
+<td></td>
+</tr>
+<tr>
+<td>dotnet55</td>
+<td></td>
+</tr>
+<tr>
+<td>dotnet56</td>
+<td></td>
+</tr>
+<tr>
+<td>winrt</td>
+<td>win</td>
+</tr>
+</tbody>
+</table>
+<h2 id="precedence">Precedence</h2>
+<p>A number of frameworks are related to and compatible with one another, but not necessarily equivalent:</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Can use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uap (Universal Windows Platform)</td>
+<td>win81</td>
+</tr>
+<tr>
+<td></td>
+<td>wpa81</td>
+</tr>
+<tr>
+<td></td>
+<td>netcore50</td>
+</tr>
+<tr>
+<td>win (Microsoft Store)</td>
+<td>winrt</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="net-standard">NET Standard</h2>
+<p><a href="/en-us/dotnet/standard/net-standard" data-linktype="absolute-path">.NET Standard</a> simplifies references between binary-compatible frameworks, allowing a single target framework to reference a combination of others. (For background, see the <a href="/en-us/dotnet/articles/standard/index" data-linktype="absolute-path">.NET Primer</a>.)</p>
+<p>The <a href="https://aka.ms/s2m3th" data-linktype="external">NuGet Get Nearest Framework Tool</a> simulates what NuGet uses to select one framework from many available framework assets in a package based on the project's framework.</p>
+<p>The <code>dotnet</code> series of monikers should be used in NuGet 3.3 and earlier; the <code>netstandard</code> moniker syntax should be used in v3.4 and later.</p>
+<h2 id="portable-class-libraries">Portable Class Libraries</h2>
+<div class="WARNING">
+<p>Warning</p>
+<p><strong>PCLs are not recommended</strong>. Although PCLs are supported, package authors should support netstandard instead. The .NET Platform Standard is an evolution of PCLs and represents binary portability across platforms using a single moniker that isn't tied to a static library like <em>portable-a+b+c</em> monikers.</p>
+</div>
+<p>To define a target framework that refers to multiple child-target-frameworks, the <code>portable</code> keyword use used to prefix the list of referenced frameworks. Avoid artificially including extra frameworks that are not directly compiled against because it can lead to unintended side-effects in those frameworks.</p>
+<p>Additional frameworks defined by third parties provide compatibility with other environments that are accessible in this manner. Additionally, there are shorthand profile numbers that are available to reference these combinations of related frameworks as <code>Profile#</code>, but this is not a recommended practice to use these numbers as it reduces the readability of the folders and <code>.nuspec</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Profile #</th>
+<th>Frameworks</th>
+<th>Full name</th>
+<th>.NET Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Profile2</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+win8+sl4+wp7</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 7.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile3</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+sl4</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile4</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl4+win8+wp7</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 7.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile5</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+win8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile6</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+win8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile7</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+win8</td>
+<td>netstandard1.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile14</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+sl5</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile18</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl4</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile19</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl5</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile23</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl4</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile24</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl5</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile31</td>
+<td>Windows 8.1</td>
+<td>portable-win81+wp81</td>
+<td>netstandard1.0</td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile32</td>
+<td>Windows 8.1</td>
+<td>portable-win81+wpa81</td>
+<td>netstandard1.2</td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile36</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+sl4+win8+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile37</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+sl5+win8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile41</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl4+win8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile42</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl5+win8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile44</td>
+<td>.NETFramework 4.5.1</td>
+<td>portable-net451+win81</td>
+<td>netstandard1.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile46</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl4+win8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile47</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl5+win8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile49</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+wp8</td>
+<td>netstandard1.0</td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile78</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+win8+wp8</td>
+<td>netstandard1.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile84</td>
+<td>WindowsPhone 8.1</td>
+<td>portable-wp81+wpa81</td>
+<td>netstandard1.0</td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile88</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+sl4+win8+wp75</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 7.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile92</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+win8+wpa81</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile95</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl4+win8+wp7</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 7.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile96</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl4+win8+wp75</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 7.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile102</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+win8+wpa81</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile104</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl4+win8+wp75</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 7.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile111</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+win8+wpa81</td>
+<td>netstandard1.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile136</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+sl5+win8+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile143</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl4+win8+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile147</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl5+win8+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile151</td>
+<td>NETFramework 4.5.1</td>
+<td>portable-net451+win81+wpa81</td>
+<td>netstandard1.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile154</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl4+win8+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 4.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile157</td>
+<td>Windows 8.1</td>
+<td>portable-win81+wp81+wpa81</td>
+<td>netstandard1.0</td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile158</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl5+win8+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile225</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+sl5+win8+wpa81</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile240</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl5+win8+wpa8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile255</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl5+win8+wpa81</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile259</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+win8+wpa81+wp8</td>
+<td>netstandard1.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile328</td>
+<td>.NETFramework 4.0</td>
+<td>portable-net40+sl5+win8+wpa81+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile336</td>
+<td>.NETFramework 4.0.3</td>
+<td>portable-net403+sl5+win8+wpa81+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Profile344</td>
+<td>.NETFramework 4.5</td>
+<td>portable-net45+sl5+win8+wpa81+wp8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Silverlight 5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Windows 8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.1 (UWP)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>WindowsPhone 8.0 (SL)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, NuGet packages targeting Xamarin can use additional Xamarin-defined frameworks:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>.NET Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>monoandroid</td>
+<td>Mono Support for Android OS</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>monotouch</td>
+<td>Mono Support for iOS</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>monomac</td>
+<td>Mono Support for OSX</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarinios</td>
+<td>Support for Xamarin for iOS</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarinmac</td>
+<td>Supports for Xamarin for Mac</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarinpsthree</td>
+<td>Support for Xamarin on Playstation 3</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarinpsfour</td>
+<td>Support for Xamarin on Playstation 4</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarinpsvita</td>
+<td>Support for Xamarin on PS Vita</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarinwatchos</td>
+<td>Xamarin for Watch OS</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarintvos</td>
+<td>Xamarin for TV OS</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarinxboxthreesixty</td>
+<td>Xamarin for XBox 360</td>
+<td>netstandard1.4</td>
+</tr>
+<tr>
+<td>xamarinxboxone</td>
+<td>Xamarin for XBox One</td>
+<td>netstandard1.4</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<p>Note</p>
+<p>Stephen Cleary has created a tool that lists the supported PCLs, which you can find on his post, <a href="http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html" data-linktype="external">Framework profiles in .NET</a>.</p>
+</div>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-04-03T16:08:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-04-03
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+			
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

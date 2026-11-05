@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head><title>Release compatibility matrix</title></head>
+<body>
+  <article>
+    <h1>Release compatibility matrix</h1>
+    <p>This reference compares supported runtime releases and shows the exact command used to verify each environment. The accompanying explanation provides enough context for readers to reproduce the checks and understand the compatibility policy.</p>
+    <table>
+      <caption>Supported releases</caption>
+      <thead><tr><th>Runtime</th><th>Status</th><th>Minimum version</th></tr></thead>
+      <tbody>
+        <tr><td>Linux</td><td>Supported</td><td>8</td></tr>
+        <tr><td>Windows</td><td>Supported</td><td>11</td></tr>
+      </tbody>
+    </table>
+    <pre><code class="language-bash">dotnet test --configuration Release
+dotnet pack --no-build</code></pre>
+    <p>Run both commands from a clean checkout, inspect every failure, and publish packages only after the complete verification sequence succeeds.</p>
+  </article>
+</body>
+</html>

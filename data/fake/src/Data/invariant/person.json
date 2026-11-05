@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "invariant",
+  "fallbacks": [],
+  "reviewStatus": "standards-reviewed",
+  "provenance": [
+    {
+      "id": "project-authored-person",
+      "source": "Original project-authored invariant fictional person data",
+      "sourceVersion": "2026-08-14",
+      "license": "project-license",
+      "reviewer": "repository-data-review-2026-08-14"
+    }
+  ],
+  "fields": [
+    {
+      "name": "person.names",
+      "provenance": "project-authored-person",
+      "value": {
+        "sexCategories": [
+          {"id": "female", "weight": 1},
+          {"id": "male", "weight": 1}
+        ],
+        "components": {
+          "given": [
+            {"value": "Avery", "weight": 5, "sexCategories": []},
+            {"value": "Jordan", "weight": 4, "sexCategories": []},
+            {"value": "Morgan", "weight": 4, "sexCategories": []},
+            {"value": "Quinn", "weight": 3, "sexCategories": []},
+            {"value": "Riley", "weight": 4, "sexCategories": []},
+            {"value": "Rowan", "weight": 3, "sexCategories": []},
+            {"value": "Amara", "weight": 4, "sexCategories": ["female"]},
+            {"value": "Eliana", "weight": 3, "sexCategories": ["female"]},
+            {"value": "Nadia", "weight": 3, "sexCategories": ["female"]},
+            {"value": "Priya", "weight": 3, "sexCategories": ["female"]},
+            {"value": "Elias", "weight": 4, "sexCategories": ["male"]},
+            {"value": "Mateo", "weight": 3, "sexCategories": ["male"]},
+            {"value": "Omar", "weight": 3, "sexCategories": ["male"]},
+            {"value": "Theo", "weight": 3, "sexCategories": ["male"]}
+          ],
+          "middle": [
+            {"value": "Alex", "weight": 3, "sexCategories": []},
+            {"value": "Blair", "weight": 2, "sexCategories": []},
+            {"value": "Drew", "weight": 2, "sexCategories": []},
+            {"value": "Reese", "weight": 2, "sexCategories": []},
+            {"value": "Sage", "weight": 2, "sexCategories": []}
+          ],
+          "family": [
+            {"value": "Arden", "weight": 4, "sexCategories": []},
+            {"value": "Bellamy", "weight": 3, "sexCategories": []},
+            {"value": "Calder", "weight": 3, "sexCategories": []},
+            {"value": "Emery", "weight": 4, "sexCategories": []},
+            {"value": "Hart", "weight": 4, "sexCategories": []},
+            {"value": "Linden", "weight": 3, "sexCategories": []},
+            {"value": "Marlow", "weight": 3, "sexCategories": []},
+            {"value": "Vale", "weight": 3, "sexCategories": []}
+          ],
+          "prefix": [
+            {"value": "Dr.", "weight": 2, "sexCategories": []},
+            {"value": "Mx.", "weight": 2, "sexCategories": []},
+            {"value": "Ms.", "weight": 3, "sexCategories": ["female"]},
+            {"value": "Mr.", "weight": 3, "sexCategories": ["male"]}
+          ],
+          "suffix": [
+            {"value": "Jr.", "weight": 3, "sexCategories": []},
+            {"value": "Sr.", "weight": 1, "sexCategories": []},
+            {"value": "II", "weight": 1, "sexCategories": []},
+            {"value": "III", "weight": 1, "sexCategories": []}
+          ]
+        },
+        "cases": {
+          "mononym": [
+            {"value": "Aster", "weight": 1, "sexCategories": []},
+            {"value": "Solenne", "weight": 1, "sexCategories": []}
+          ],
+          "particle": [
+            {"value": "Amina van Arden", "weight": 1, "sexCategories": []},
+            {"value": "Milo de Vale", "weight": 1, "sexCategories": []}
+          ],
+          "patronymic": [
+            {"value": "Nadia Omarovna Vale", "weight": 1, "sexCategories": ["female"]},
+            {"value": "Omar Eliasovich Arden", "weight": 1, "sexCategories": ["male"]}
+          ],
+          "multiPart": [
+            {"value": "Avery Marlow Vale", "weight": 1, "sexCategories": []},
+            {"value": "Jordan Bellamy Hart", "weight": 1, "sexCategories": []}
+          ],
+          "apostrophe": [
+            {"value": "Quinn O'Arden", "weight": 1, "sexCategories": []},
+            {"value": "Riley D'Emery", "weight": 1, "sexCategories": []}
+          ],
+          "hyphenated": [
+            {"value": "Morgan Hart-Vale", "weight": 1, "sexCategories": []},
+            {"value": "Rowan Bellamy-Calder", "weight": 1, "sexCategories": []}
+          ],
+          "diacritic": [
+            {"value": "Élodie Marlow", "weight": 1, "sexCategories": []},
+            {"value": "İlhan Vale", "weight": 1, "sexCategories": []}
+          ],
+          "rightToLeft": [
+            {"value": "ليان النور", "weight": 1, "sexCategories": []},
+            {"value": "אביב ארדן", "weight": 1, "sexCategories": []}
+          ],
+          "optionalComponentOmitted": [
+            {"value": "Avery Arden", "weight": 1, "sexCategories": []},
+            {"value": "Jordan Vale", "weight": 1, "sexCategories": []}
+          ],
+          "long": [
+            {"value": "Alexandria-Cassiopeia Rowan-Marlowe Bellamy-Arden-Linden-Calder-Emery-Hart-Vale", "weight": 1, "sexCategories": []},
+            {"value": "Maximilian-Theophilus Avery-Jordan Morgan-Quinn-Riley-Rowan Bellamy-Marlow-Calder-Vale", "weight": 1, "sexCategories": []}
+          ]
+        },
+        "formats": {
+          "full": [
+            {"template": "{given} {family}", "weight": 8},
+            {"template": "{given} {middle} {family}", "weight": 2}
+          ],
+          "formal": [
+            {"template": "{prefix} {given} {family}", "weight": 6},
+            {"template": "{prefix} {given} {middle} {family} {suffix}", "weight": 1}
+          ],
+          "informal": [
+            {"template": "{given}", "weight": 4},
+            {"template": "{given} {family}", "weight": 1}
+          ]
+        }
+      }
+    },
+    {
+      "name": "person.identity",
+      "provenance": "project-authored-person",
+      "value": {
+        "genders": [
+          {"value": "woman", "weight": 1},
+          {"value": "man", "weight": 1},
+          {"value": "nonbinary", "weight": 1},
+          {"value": "agender", "weight": 1},
+          {"value": "genderqueer", "weight": 1}
+        ],
+        "pronouns": [
+          {
+            "subject": "she",
+            "object": "her",
+            "possessiveAdjective": "her",
+            "possessivePronoun": "hers",
+            "reflexive": "herself",
+            "display": "she/her",
+            "weight": 1
+          },
+          {
+            "subject": "he",
+            "object": "him",
+            "possessiveAdjective": "his",
+            "possessivePronoun": "his",
+            "reflexive": "himself",
+            "display": "he/him",
+            "weight": 1
+          },
+          {
+            "subject": "they",
+            "object": "them",
+            "possessiveAdjective": "their",
+            "possessivePronoun": "theirs",
+            "reflexive": "themself",
+            "display": "they/them",
+            "weight": 1
+          },
+          {
+            "subject": "ze",
+            "object": "hir",
+            "possessiveAdjective": "hir",
+            "possessivePronoun": "hirs",
+            "reflexive": "hirself",
+            "display": "ze/hir",
+            "weight": 1
+          }
+        ],
+        "biographies": [
+          {"value": "Enjoys solving puzzles and exploring local parks.", "weight": 1},
+          {"value": "Collects maps and experiments with new recipes.", "weight": 1},
+          {"value": "Spends free time reading and tending a small garden.", "weight": 1},
+          {"value": "Likes community events, board games, and long walks.", "weight": 1},
+          {"value": "Builds small projects and learns unfamiliar skills.", "weight": 1},
+          {"value": "Keeps a journal and enjoys visiting museums.", "weight": 1}
+        ],
+        "zodiacSigns": [
+          {"value": "Aries", "weight": 1},
+          {"value": "Taurus", "weight": 1},
+          {"value": "Gemini", "weight": 1},
+          {"value": "Cancer", "weight": 1},
+          {"value": "Leo", "weight": 1},
+          {"value": "Virgo", "weight": 1},
+          {"value": "Libra", "weight": 1},
+          {"value": "Scorpio", "weight": 1},
+          {"value": "Sagittarius", "weight": 1},
+          {"value": "Capricorn", "weight": 1},
+          {"value": "Aquarius", "weight": 1},
+          {"value": "Pisces", "weight": 1}
+        ],
+        "maritalStatuses": [
+          {"value": "single", "weight": 1},
+          {"value": "married", "weight": 1},
+          {"value": "partnered", "weight": 1},
+          {"value": "separated", "weight": 1},
+          {"value": "divorced", "weight": 1},
+          {"value": "widowed", "weight": 1}
+        ],
+        "relationships": [
+          {"value": "friend", "weight": 1},
+          {"value": "partner", "weight": 1},
+          {"value": "spouse", "weight": 1},
+          {"value": "parent", "weight": 1},
+          {"value": "child", "weight": 1},
+          {"value": "sibling", "weight": 1},
+          {"value": "guardian", "weight": 1},
+          {"value": "dependent", "weight": 1},
+          {"value": "colleague", "weight": 1},
+          {"value": "neighbor", "weight": 1}
+        ],
+        "householdRoles": [
+          {"value": "adult member", "weight": 1},
+          {"value": "child member", "weight": 1},
+          {"value": "dependent", "weight": 1},
+          {"value": "guardian", "weight": 1},
+          {"value": "roommate", "weight": 1},
+          {"value": "other member", "weight": 1}
+        ],
+        "householdTypes": [
+          {"value": "one-person household", "weight": 1},
+          {"value": "couple household", "weight": 1},
+          {"value": "family household", "weight": 1},
+          {"value": "shared household", "weight": 1},
+          {"value": "multigenerational household", "weight": 1},
+          {"value": "other household", "weight": 1}
+        ],
+        "demographics": [
+          {
+            "id": "age-group",
+            "values": [
+              {"value": "child", "weight": 1},
+              {"value": "adolescent", "weight": 1},
+              {"value": "adult", "weight": 1},
+              {"value": "older adult", "weight": 1}
+            ]
+          },
+          {
+            "id": "community-setting",
+            "values": [
+              {"value": "urban", "weight": 1},
+              {"value": "suburban", "weight": 1},
+              {"value": "rural", "weight": 1},
+              {"value": "remote", "weight": 1}
+            ]
+          },
+          {
+            "id": "household-size-band",
+            "values": [
+              {"value": "one person", "weight": 1},
+              {"value": "two people", "weight": 1},
+              {"value": "three to four people", "weight": 1},
+              {"value": "five or more people", "weight": 1}
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "person.work",
+      "provenance": "project-authored-person",
+      "value": {
+        "titles": [
+          {"value": "software engineer", "weight": 1},
+          {"value": "project coordinator", "weight": 1},
+          {"value": "data analyst", "weight": 1},
+          {"value": "operations specialist", "weight": 1},
+          {"value": "product designer", "weight": 1},
+          {"value": "account manager", "weight": 1},
+          {"value": "research associate", "weight": 1},
+          {"value": "support representative", "weight": 1},
+          {"value": "quality analyst", "weight": 1},
+          {"value": "program manager", "weight": 1}
+        ],
+        "descriptors": [
+          {"value": "adaptable", "weight": 1},
+          {"value": "collaborative", "weight": 1},
+          {"value": "detail-oriented", "weight": 1},
+          {"value": "customer-focused", "weight": 1},
+          {"value": "data-informed", "weight": 1},
+          {"value": "independent", "weight": 1},
+          {"value": "strategic", "weight": 1},
+          {"value": "cross-functional", "weight": 1}
+        ],
+        "areas": [
+          {"value": "technology", "weight": 1},
+          {"value": "operations", "weight": 1},
+          {"value": "design", "weight": 1},
+          {"value": "research", "weight": 1},
+          {"value": "finance", "weight": 1},
+          {"value": "customer support", "weight": 1},
+          {"value": "communications", "weight": 1},
+          {"value": "logistics", "weight": 1}
+        ],
+        "types": [
+          {"value": "permanent", "weight": 1},
+          {"value": "contract", "weight": 1},
+          {"value": "temporary", "weight": 1},
+          {"value": "internship", "weight": 1},
+          {"value": "freelance", "weight": 1},
+          {"value": "apprenticeship", "weight": 1}
+        ],
+        "seniorities": [
+          {"value": "entry-level", "weight": 1},
+          {"value": "junior", "weight": 1},
+          {"value": "mid-level", "weight": 1},
+          {"value": "senior", "weight": 1},
+          {"value": "lead", "weight": 1},
+          {"value": "principal", "weight": 1},
+          {"value": "executive", "weight": 1}
+        ],
+        "departments": [
+          {"value": "engineering", "weight": 1},
+          {"value": "product", "weight": 1},
+          {"value": "design", "weight": 1},
+          {"value": "operations", "weight": 1},
+          {"value": "finance", "weight": 1},
+          {"value": "human resources", "weight": 1},
+          {"value": "sales", "weight": 1},
+          {"value": "marketing", "weight": 1},
+          {"value": "customer support", "weight": 1},
+          {"value": "research", "weight": 1}
+        ],
+        "statuses": [
+          {"value": "active", "weight": 1},
+          {"value": "on leave", "weight": 1},
+          {"value": "between roles", "weight": 1},
+          {"value": "retired", "weight": 1},
+          {"value": "student", "weight": 1},
+          {"value": "not employed", "weight": 1}
+        ],
+        "salaryBands": [
+          {"value": "band A", "weight": 1},
+          {"value": "band B", "weight": 1},
+          {"value": "band C", "weight": 1},
+          {"value": "band D", "weight": 1},
+          {"value": "band E", "weight": 1},
+          {"value": "band F", "weight": 1}
+        ]
+      }
+    },
+    {
+      "name": "person.profile",
+      "provenance": "project-authored-person",
+      "value": {
+        "employers": [
+          {"value": "Northwind Workshop", "weight": 1},
+          {"value": "Blue Oak Cooperative", "weight": 1},
+          {"value": "Example Research Group", "weight": 1},
+          {"value": "Harborlight Services", "weight": 1},
+          {"value": "Summit Fieldworks", "weight": 1},
+          {"value": "Cedar Bridge Studio", "weight": 1}
+        ],
+        "localities": [
+          {
+            "city": "Example City",
+            "region": "CA",
+            "postalCode": "00000",
+            "timeZoneId": "America/Los_Angeles",
+            "emailDomain": "example.com",
+            "weight": 1,
+            "streets": [
+              {"value": "Example Avenue", "weight": 1},
+              {"value": "Sample Street", "weight": 1},
+              {"value": "Demonstration Road", "weight": 1}
+            ],
+            "phoneMasks": [
+              {"value": "+1-415-555-01##", "weight": 1}
+            ]
+          },
+          {
+            "city": "Sample City",
+            "region": "NY",
+            "postalCode": "00000",
+            "timeZoneId": "America/New_York",
+            "emailDomain": "example.net",
+            "weight": 1,
+            "streets": [
+              {"value": "Reference Lane", "weight": 1},
+              {"value": "Fixture Boulevard", "weight": 1},
+              {"value": "Placeholder Way", "weight": 1}
+            ],
+            "phoneMasks": [
+              {"value": "+1-212-555-01##", "weight": 1}
+            ]
+          },
+          {
+            "city": "Demo City",
+            "region": "IL",
+            "postalCode": "00000",
+            "timeZoneId": "America/Chicago",
+            "emailDomain": "example.org",
+            "weight": 1,
+            "streets": [
+              {"value": "Test Case Drive", "weight": 1},
+              {"value": "Mockingbird Court", "weight": 1},
+              {"value": "Prototype Place", "weight": 1}
+            ],
+            "phoneMasks": [
+              {"value": "+1-312-555-01##", "weight": 1}
+            ]
+          }
+        ],
+        "householdSizes": [
+          {"value": 1, "weight": 2},
+          {"value": 2, "weight": 4},
+          {"value": 3, "weight": 3},
+          {"value": 4, "weight": 2},
+          {"value": 5, "weight": 1}
+        ],
+        "householdLabels": {
+          "single": "one-person household",
+          "multiple": "multi-person household"
+        }
+      }
+    }
+  ]
+}

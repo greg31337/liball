@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/languagecodes.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/languagecodes.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/LanguageCodes.DataGenerator/LanguageCodes.DataGenerator.csproj" />
+  </Folder>
+</Solution>

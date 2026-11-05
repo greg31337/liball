@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/sip.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/sip.Tests.csproj" />
+  </Folder>
+</Solution>

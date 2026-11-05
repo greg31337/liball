@@ -1,0 +1,844 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:iana="http://www.iana.org/assignments">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/assignments/_support/iana-registry.css" type="text/css" />
+    <script type="text/javascript" src="/assignments/_support/jquery.js"></script>
+    <script type="text/javascript" src="/assignments/_support/sort.js"></script>
+    <title>JSON Meta Application Protocol (JMAP)</title>
+  </head>
+  <body>
+    <header>
+      <div id="header">
+        <div id="logo">
+          <a href="https://www.iana.org/">
+            <img src="/assignments/_support/iana-logo-header.svg" alt="Internet Assigned Numbers Authority" />
+          </a>
+        </div>
+        <div class="navigation">
+          <ul>
+            <li>
+              <a href="https://www.iana.org/domains">Domains</a>
+            </li>
+            <li>
+              <a href="https://www.iana.org/protocols">Protocols</a>
+            </li>
+            <li>
+              <a href="https://www.iana.org/numbers">Numbers</a>
+            </li>
+            <li>
+              <a href="https://www.iana.org/about">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <article>
+      <h1>JSON Meta Application Protocol (JMAP)</h1>
+      <dl>
+        <dt>Created</dt>
+        <dd>2019-03-28</dd>
+        <dt>Last Updated</dt>
+        <dd>2025-05-02</dd>
+        <dt>Available Formats</dt>
+        <dd>
+          <a class="altformat" href="/assignments/jmap/jmap.xml"><img src="/assignments/_support/export-xml.png" /><br />XML</a>
+          <a class="altformat" href="/assignments/jmap"><img src="/assignments/_support/export-html.png" /><br />HTML</a>
+          <a class="altformat" href="/assignments/jmap/jmap.txt"><img src="/assignments/_support/export-plain.png" /><br />Plain text</a>
+        </dd>
+      </dl>
+      <p>
+        <b>Registries Included Below</b>
+      </p>
+      <ul>
+        <li>
+          <a href="#jmap-capabilities">JMAP Capabilities</a>
+        </li>
+        <li>
+          <a href="#jmap-error-codes">JMAP Error Codes</a>
+        </li>
+        <li>
+          <a href="#jmap-data-types">JMAP Data Types</a>
+        </li>
+      </ul>
+      <h2><a name="jmap-capabilities" id="jmap-capabilities"></a>JMAP Capabilities</h2>
+      <dl>
+        <dt>Expert(s)</dt>
+        <dd>
+          <pre>Neil Jenkins, Chris Newman, Arnt Gulbrandsen, Joris Baum</pre>
+        </dd>
+        <dt>Reference</dt>
+        <dd>[<a href="https://www.iana.org/go/rfc8620">RFC8620</a>]</dd>
+        <dt>Available Formats</dt>
+        <dd>
+          <a class="altformat" href="/assignments/jmap/jmap-capabilities.csv"><img src="/assignments/_support/export-csv.png" /><br />CSV
+            </a>
+        </dd>
+      </dl>
+      <table class="sortable" id="table-jmap-capabilities-range">
+        <thead>
+          <tr>
+            <th>Range</th>
+            <th>Registration Procedures</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>intended use field is “common" or “placeholder”</td>
+            <td>Specification Required</td>
+          </tr>
+          <tr>
+            <td>all other values</td>
+            <td>Expert Review</td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="table-jmap-capabilities" class="sortable">
+        <thead>
+          <tr>
+            <th>Capability Name</th>
+            <th>Intended Use</th>
+            <th>Change Controller</th>
+            <th>Security and Privacy Considerations</th>
+            <th>Reference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>urn:ietf:params:jmap:core</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 8</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 2</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:error:</td>
+            <td>placeholder</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 8</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 9.5</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:mail</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 9</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:mdn</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9007">RFC9007, Section 5</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9007">RFC9007</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:smimeverify</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9219">RFC9219, Section 6</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9219">RFC9219</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:submission</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 9</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:vacationresponse</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 9</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:blob</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9404">RFC9404, Section 5</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9404">RFC9404</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:quota</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9425">RFC9425, Section 7</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9425">RFC9425</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:sieve</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9661">RFC9661, Section 5</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9661">RFC9661</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:principals</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9670">RFC9670, Section 6</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9670">RFC9670</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:principals:owner</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9670">RFC9670, Section 6</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9670">RFC9670</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:contacts</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9610">RFC9610, Section 6</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9610">RFC9610</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:calendars</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22, Section 1.5.1</a>]</td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:principals:availability</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22, Section 1.5.2</a>]</td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22</a>]</td>
+          </tr>
+          <tr>
+            <td>urn:ietf:params:jmap:webpush-vapid</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>[<a href="https://www.iana.org/go/rfc9749">RFC9749, Section 6</a>]</td>
+            <td>[<a href="https://www.iana.org/go/rfc9749">RFC9749</a>]</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2><a name="jmap-error-codes" id="jmap-error-codes"></a>JMAP Error Codes</h2>
+      <dl>
+        <dt>Registration Procedure(s)</dt>
+        <dd>
+          <pre>Expert Review</pre>
+        </dd>
+        <dt>Expert(s)</dt>
+        <dd>
+          <pre>Neil Jenkins, Chris Newman, Arnt Gulbrandsen, Joris Baum</pre>
+        </dd>
+        <dt>Reference</dt>
+        <dd>[<a href="https://www.iana.org/go/rfc8620">RFC8620</a>]</dd>
+        <dt>Available Formats</dt>
+        <dd>
+          <a class="altformat" href="/assignments/jmap/jmap-error-codes.csv"><img src="/assignments/_support/export-csv.png" /><br />CSV
+            </a>
+        </dd>
+      </dl>
+      <table id="table-jmap-error-codes" class="sortable">
+        <thead>
+          <tr>
+            <th>JMAP Error Code</th>
+            <th>Intended Use</th>
+            <th>Change Controller</th>
+            <th>Description</th>
+            <th>Reference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>accountNotFound</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The accountId does not correspond to a valid account.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>accountNotSupportedByMethod</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The accountId given corresponds to a valid account, but the account
+      does not support this method or data type.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>accountReadOnly</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>This method modifies state, but the account is read-only 
+        (as returned on the corresponding Account object in the JMAP
+        Session resource).</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>anchorNotFound</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>An anchor argument was supplied, but it cannot be found in the results of the
+      query.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.5</a>]</td>
+          </tr>
+          <tr>
+            <td>alreadyExists</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The server forbids duplicates, and the record already
+        exists in the target account. An existingId property of type Id
+        MUST be included on the SetError object with the id of the
+        existing record.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.4</a>]</td>
+          </tr>
+          <tr>
+            <td>cannotCalculateChanges</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The server cannot calculate the changes from the state string given by the
+      client.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.2 and 5.6</a>]</td>
+          </tr>
+          <tr>
+            <td>forbidden</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The action would violate an ACL or other permissions policy.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2, 5.3, and 7.2.1</a>]</td>
+          </tr>
+          <tr>
+            <td>fromAccountNotFound</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The fromAccountId does not correspond to a valid account.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.4 and 6.3</a>]</td>
+          </tr>
+          <tr>
+            <td>fromAccountNotSupportedByMethod</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The fromAccountId given corresponds to a valid account, but the account does not
+      support this data type.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.4</a>]</td>
+          </tr>
+          <tr>
+            <td>invalidArguments</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>One of the arguments is of the wrong type or otherwise invalid, or a required
+      argument is missing.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>invalidPatch</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The PatchObject given to update the record was not a valid patch.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>invalidProperties</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The record given is invalid.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>notFound</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The id given cannot be found.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>notJSON</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The content type of the request was not application/json, 
+        or the request did not parse as I-JSON.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.1</a>]</td>
+          </tr>
+          <tr>
+            <td>notRequest</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The request parsed as JSON but did not match the type signature of the 
+        Request object.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.1</a>]</td>
+          </tr>
+          <tr>
+            <td>overQuota</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The create would exceed a server-defined limit on the number or total
+      size of objects of this type.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>rateLimit</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>Too many objects of this type have been created recently, and a server-defined
+      rate limit has been reached. It may work if tried again later.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>requestTooLarge</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The total number of actions exceeds the maximum number the server is willing to 
+      process in a single method call.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.1 and 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>invalidResultReference</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The method used a result reference for one of its arguments, but this failed to 
+      resolve.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>serverFail</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>An unexpected or unknown error occurred during the processing of the call. The
+      method call made no changes to the server's state.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>serverPartialFail</td>
+            <td>limited</td>
+            <td>IETF</td>
+            <td>Some, but not all, expected changes described by the
+        method occurred. The client MUST resynchronise impacted data to
+        determine the server state.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>serverUnavailable</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>Some internal server resource was temporarily unavailable. Attempting the same
+      operation later (perhaps after a backoff with a random factor) may succeed.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>singleton</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>This is a singleton type, so you cannot create another one or destroy the existing
+        one.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>stateMismatch</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>An ifInState argument was supplied, and it does not
+        match the current state.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>tooLarge</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The action would result in an object that exceeds a server-defined limit for the
+      maximum size of a single object of this type.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>tooManyChanges</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>There are more changes than the client's maxChanges argument.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.6</a>]</td>
+          </tr>
+          <tr>
+            <td>unknownCapability</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The client included a capability in the "using" property of the request
+      that the server does not support.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.1</a>]</td>
+          </tr>
+          <tr>
+            <td>unknownMethod</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The server does not recognise this method name.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 3.6.2</a>]</td>
+          </tr>
+          <tr>
+            <td>unsupportedFilter</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The filter is syntactically valid, but the server cannot process it.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.5</a>]</td>
+          </tr>
+          <tr>
+            <td>unsupportedSort</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The sort is syntactically valid but includes a
+        property the server does not support sorting on or a collation
+        method it does not recognise.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.5</a>]</td>
+          </tr>
+          <tr>
+            <td>willDestroy</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The client requested an object be both updated and destroyed in the same /set
+      request, and the server has decided to therefore ignore the update.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620, Section 5.3</a>]</td>
+          </tr>
+          <tr>
+            <td>mailboxHasChild</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The Mailbox still has at least one child Mailbox. 
+        The client MUST remove these before it can delete 
+        the parent Mailbox.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 2.5</a>]</td>
+          </tr>
+          <tr>
+            <td>mailboxHasEmail</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The Mailbox has at least one message assigned to it, 
+        and the onDestroyRemoveEmails argument was false.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 2.5</a>]</td>
+          </tr>
+          <tr>
+            <td>blobNotFound</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>At least one blob id referenced in the object doesn't exist.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 4.6</a>]</td>
+          </tr>
+          <tr>
+            <td>tooManyKeywords</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The change to the Email's keywords would exceed 
+        a server-defined maximum.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 4.6</a>]</td>
+          </tr>
+          <tr>
+            <td>tooManyMailboxes</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The change to the set of Mailboxes that this Email 
+        is in would exceed a server-defined maximum.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 4.6</a>]</td>
+          </tr>
+          <tr>
+            <td>invalidEmail</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The Email to be sent is invalid in some way.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 7.5</a>]</td>
+          </tr>
+          <tr>
+            <td>tooManyRecipients</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The envelope [<a href="https://www.iana.org/go/draft-ietf-emailcore-rfc5321bis-43">RFC-ietf-emailcore-rfc5321bis-43</a>] (supplied or generated) has more
+        recipients than the server allows.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 7.5</a>]</td>
+          </tr>
+          <tr>
+            <td>noRecipients</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The envelope [<a href="https://www.iana.org/go/draft-ietf-emailcore-rfc5321bis-43">RFC-ietf-emailcore-rfc5321bis-43</a>] (supplied or generated) does not
+        have any rcptTo email addresses.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 7.5</a>]</td>
+          </tr>
+          <tr>
+            <td>invalidRecipients</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The rcptTo property of the envelope [<a href="https://www.iana.org/go/draft-ietf-emailcore-rfc5321bis-43">RFC-ietf-emailcore-rfc5321bis-43</a>] (supplied
+        or generated) contains at least one rcptTo value that is not 
+        a valid email address for sending to.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 7.5</a>]</td>
+          </tr>
+          <tr>
+            <td>forbiddenMailFrom</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The server does not permit the user to send a message
+        with this envelope From address [<a href="https://www.iana.org/go/draft-ietf-emailcore-rfc5321bis-43">RFC-ietf-emailcore-rfc5321bis-43</a>].</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 7.5</a>]</td>
+          </tr>
+          <tr>
+            <td>forbiddenFrom</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The server does not permit the user to send a message
+        with the From header field [<a href="https://www.iana.org/go/draft-ietf-emailcore-rfc5322bis-12">RFC-ietf-emailcore-rfc5322bis-12</a>] of the message 
+        to be sent.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Sections 6.3 and 7.5</a>]</td>
+          </tr>
+          <tr>
+            <td>forbiddenToSend</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The user does not have permission to send at all right now.</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621, Section 7.5</a>]</td>
+          </tr>
+          <tr>
+            <td>mdnAlreadySent</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The message has the "$mdnsent" keyword already set.  The
+   client MUST NOT try again to send an MDN for this message.</td>
+            <td>[<a href="https://www.iana.org/go/rfc9007">RFC9007, Section 2.1</a>]</td>
+          </tr>
+          <tr>
+            <td>unknownDataType</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The server does not recognise this data type, or the capability to
+        enable it is not present in the current Request Object.</td>
+            <td>[<a href="https://www.iana.org/go/rfc9404">RFC9404</a>]</td>
+          </tr>
+          <tr>
+            <td>invalidSieve</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The SieveScript violates the Sieve grammar 
+        [<a href="https://www.iana.org/go/rfc5228">RFC5228</a>], and/or one or more 
+        extensions mentioned in the script's "require" statement(s) 
+        are not supported by the Sieve interpreter.
+      </td>
+            <td>[<a href="https://www.iana.org/go/rfc9661">RFC9661, Section 2.4</a>]</td>
+          </tr>
+          <tr>
+            <td>sieveIsActive</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The client tried to destroy the active SieveScript.
+      </td>
+            <td>[<a href="https://www.iana.org/go/rfc9661">RFC9661, Section 2.4</a>]</td>
+          </tr>
+          <tr>
+            <td>addressBookHasContents</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The AddressBook has at least one ContactCard assigned to it, and the "onDestroyRemoveContents" argument was false.
+      </td>
+            <td>[<a href="https://www.iana.org/go/rfc9610">RFC9610, Section 2.3</a>]</td>
+          </tr>
+          <tr>
+            <td>calendarHasEvent</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The Calendar has at least one CalendarEvent assigned to it, and the "onDestroyRemoveEvents" argument was false.
+      </td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22, Section 4.3</a>]</td>
+          </tr>
+          <tr>
+            <td>noSupportedScheduleMethods</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The server was requested to send scheduling messages, but does not support any of the methods available for at least one of the recipients.
+      </td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22, Section 5.8</a>]</td>
+          </tr>
+          <tr>
+            <td>cannotCalculateOccurrences</td>
+            <td>common</td>
+            <td>IETF</td>
+            <td>The server cannot expand a recurrence required to return the results for the requested query.
+      </td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22, Section 5.10</a>]</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2><a name="jmap-data-types" id="jmap-data-types"></a>JMAP Data Types</h2>
+      <dl>
+        <dt>Registration Procedure(s)</dt>
+        <dd>
+          <pre>Specification Required</pre>
+        </dd>
+        <dt>Expert(s)</dt>
+        <dd>
+          <pre>Ken Murchison, Neil Jenkins, Arnt Gulbrandsen, Joris Baum</pre>
+        </dd>
+        <dt>Reference</dt>
+        <dd>[<a href="https://www.iana.org/go/rfc9404">RFC9404</a>]</dd>
+        <dt>Available Formats</dt>
+        <dd>
+          <a class="altformat" href="/assignments/jmap/jmap-data-types.csv"><img src="/assignments/_support/export-csv.png" /><br />CSV
+            </a>
+        </dd>
+      </dl>
+      <table id="table-jmap-data-types" class="sortable">
+        <thead>
+          <tr>
+            <th>Type Name</th>
+            <th>Can Reference Blobs</th>
+            <th>Can Use for State Change</th>
+            <th>Capability</th>
+            <th>Reference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Core</td>
+            <td>No</td>
+            <td>No</td>
+            <td>urn:ietf:params:jmap:core</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620</a>]</td>
+          </tr>
+          <tr>
+            <td>PushSubscription</td>
+            <td>No</td>
+            <td>No</td>
+            <td>urn:ietf:params:jmap:core</td>
+            <td>[<a href="https://www.iana.org/go/rfc8620">RFC8620</a>]</td>
+          </tr>
+          <tr>
+            <td>Mailbox</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:mail</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>Thread</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:mail</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:mail</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>EmailDelivery</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:mail</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>SearchSnippet</td>
+            <td>No</td>
+            <td>No</td>
+            <td>urn:ietf:params:jmap:mail</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>Identity</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:submission</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>EmailSubmission</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:submission</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>VacationResponse</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:vacationresponse</td>
+            <td>[<a href="https://www.iana.org/go/rfc8621">RFC8621</a>]</td>
+          </tr>
+          <tr>
+            <td>MDN</td>
+            <td>No</td>
+            <td>No</td>
+            <td>urn:ietf:params:jmap:mdn</td>
+            <td>[<a href="https://www.iana.org/go/rfc9007">RFC9007</a>]</td>
+          </tr>
+          <tr>
+            <td>Quota</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:quota</td>
+            <td>[<a href="https://www.iana.org/go/rfc9425">RFC9425</a>]</td>
+          </tr>
+          <tr>
+            <td>SieveScript</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:sieve</td>
+            <td>[<a href="https://www.iana.org/go/rfc9661">RFC9661</a>]</td>
+          </tr>
+          <tr>
+            <td>Principal</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:principals</td>
+            <td>[<a href="https://www.iana.org/go/rfc9670">RFC9670</a>]</td>
+          </tr>
+          <tr>
+            <td>ShareNotification</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:principals</td>
+            <td>[<a href="https://www.iana.org/go/rfc9670">RFC9670</a>]</td>
+          </tr>
+          <tr>
+            <td>AddressBook</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:contacts</td>
+            <td>[<a href="https://www.iana.org/go/rfc9610">RFC9610</a>]</td>
+          </tr>
+          <tr>
+            <td>ContactCard</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:contacts</td>
+            <td>[<a href="https://www.iana.org/go/rfc9610">RFC9610</a>]</td>
+          </tr>
+          <tr>
+            <td>Calendar</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:calendars</td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22</a>]</td>
+          </tr>
+          <tr>
+            <td>CalendarEvent</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:calendars</td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22</a>]</td>
+          </tr>
+          <tr>
+            <td>CalendarEventNotification</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:calendars</td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22</a>]</td>
+          </tr>
+          <tr>
+            <td>ParticipantIdentity</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>urn:ietf:params:jmap:calendars</td>
+            <td>[<a href="https://www.iana.org/go/draft-ietf-jmap-calendars-22">RFC-ietf-jmap-calendars-22</a>]</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+    <footer>
+      <div>
+        <a href="https://www.iana.org/help/licensing-terms">Licensing Terms</a>
+      </div>
+    </footer>
+  </body>
+</html>

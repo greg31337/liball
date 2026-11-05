@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "name": "jdiameter-rfc4006-subset",
+  "version": "7f3909342cca30ffc7e69b7d8b4111f5fde52ece",
+  "applications": [
+    {
+      "id": 4,
+      "vendorId": 0,
+      "name": "RFC 4006 CCA",
+      "isAccounting": false
+    }
+  ],
+  "types": [
+    {
+      "name": "CC-Request-Type",
+      "vendorId": 0,
+      "baseType": "Integer32",
+      "fixedDataLength": 4
+    },
+    {
+      "name": "Unsigned32",
+      "vendorId": 0,
+      "baseType": "Unsigned32",
+      "fixedDataLength": 4
+    },
+    {
+      "name": "Grouped",
+      "vendorId": 0,
+      "baseType": "Grouped"
+    }
+  ],
+  "enumValues": [
+    {
+      "name": "INITIAL_REQUEST",
+      "value": 1,
+      "typeName": "CC-Request-Type",
+      "typeVendorId": 0,
+      "avpCode": 416,
+      "avpVendorId": 0
+    },
+    {
+      "name": "UPDATE_REQUEST",
+      "value": 2,
+      "typeName": "CC-Request-Type",
+      "typeVendorId": 0,
+      "avpCode": 416,
+      "avpVendorId": 0
+    },
+    {
+      "name": "TERMINATION_REQUEST",
+      "value": 3,
+      "typeName": "CC-Request-Type",
+      "typeVendorId": 0,
+      "avpCode": 416,
+      "avpVendorId": 0
+    },
+    {
+      "name": "EVENT_REQUEST",
+      "value": 4,
+      "typeName": "CC-Request-Type",
+      "typeVendorId": 0,
+      "avpCode": 416,
+      "avpVendorId": 0
+    }
+  ],
+  "avps": [
+    {
+      "code": 415,
+      "vendorId": 0,
+      "name": "CC-Request-Number",
+      "typeName": "Unsigned32",
+      "baseType": "Unsigned32",
+      "requiredFlags": ["Mandatory"],
+      "prohibitedFlags": ["VendorSpecific"],
+      "fixedDataLength": 4
+    },
+    {
+      "code": 416,
+      "vendorId": 0,
+      "name": "CC-Request-Type",
+      "typeName": "CC-Request-Type",
+      "baseType": "Integer32",
+      "requiredFlags": ["Mandatory"],
+      "prohibitedFlags": ["VendorSpecific"],
+      "fixedDataLength": 4
+    },
+    {
+      "code": 420,
+      "vendorId": 0,
+      "name": "CC-Time",
+      "typeName": "Unsigned32",
+      "baseType": "Unsigned32",
+      "requiredFlags": ["Mandatory"],
+      "prohibitedFlags": ["VendorSpecific"],
+      "fixedDataLength": 4
+    },
+    {
+      "code": 431,
+      "vendorId": 0,
+      "name": "Granted-Service-Unit",
+      "typeName": "Grouped",
+      "baseType": "Grouped",
+      "requiredFlags": ["Mandatory"],
+      "prohibitedFlags": ["VendorSpecific"],
+      "groupedRules": [
+        {
+          "avpCode": 420,
+          "avpVendorId": 0,
+          "avpName": "CC-Time",
+          "minimumCount": 0,
+          "maximumCount": 1,
+          "fixedHeadPosition": -1,
+          "orderingGroup": -1
+        }
+      ],
+      "allowUnlistedAvps": true
+    }
+  ],
+  "commands": [
+    {
+      "code": 272,
+      "applicationId": 4,
+      "name": "Credit-Control-Request",
+      "isRequest": true,
+      "requiredFlags": ["Request", "Proxyable"],
+      "prohibitedFlags": ["Error"],
+      "rules": [
+        {
+          "avpCode": 416,
+          "avpVendorId": 0,
+          "avpName": "CC-Request-Type",
+          "minimumCount": 1,
+          "maximumCount": 1,
+          "fixedHeadPosition": -1,
+          "orderingGroup": -1
+        },
+        {
+          "avpCode": 415,
+          "avpVendorId": 0,
+          "avpName": "CC-Request-Number",
+          "minimumCount": 1,
+          "maximumCount": 1,
+          "fixedHeadPosition": -1,
+          "orderingGroup": -1
+        },
+        {
+          "avpCode": 431,
+          "avpVendorId": 0,
+          "avpName": "Granted-Service-Unit",
+          "minimumCount": 0,
+          "maximumCount": 1,
+          "fixedHeadPosition": -1,
+          "orderingGroup": -1
+        }
+      ],
+      "allowUnlistedAvps": true
+    }
+  ]
+}

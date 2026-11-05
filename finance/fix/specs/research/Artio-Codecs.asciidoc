@@ -1,0 +1,144 @@
+## Codec Generation
+
+If you want to use the encoders and decoders from Artio in order to parse or generate FIX then you should use the `CodecGenerationTool`. It takes two arguments. The first is the output directory, and the second is the path to the XML dictionary to use to define the variant in use.
+
+### Commandline Example
+
+```
+java -cp "artio-codecs/build/libs/artio-codecs-${ARTIO-VERSION}.jar" \
+uk.co.real_logic.artio.dictionary.CodecGenerationTool  \
+/path/to/generated-src/directory \ 
+src/main/resources/your_fix_dictionary_file.xml
+```
+
+### Maven Example
+
+```
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <goals>
+                <goal>java</goal>
+            </goals>
+            <phase>generate-sources</phase>
+        </execution>
+    </executions>
+
+    <configuration>
+        <mainClass>uk.co.real_logic.artio.dictionary.CodecGenerationTool</mainClass>
+        <arguments>
+            <argument>${project.build.directory}/generated-sources/java</argument>
+            <argument>src/main/resources/your_fix_dictionary_file.xml</argument>
+        </arguments>
+    </configuration>
+</plugin>
+```
+
+### Gradle Example
+
+```
+task generateCodecs(type: JavaExec) {
+    main = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ['/path/to/generated-src/directory', 'src/main/resources/your_fix_dictionary_file.xml']
+    outputs.dir '/path/to/generated-src/directory'
+}
+```
+### Programmatic Usage
+
+It might be the case that you wish to generate codecs from existing JVM code, for example integrating into a wider tool pipeline that isn't just a FIX engine. In this case it is recommended to use the `uk.co.real_logic.artio.dictionary.generation.CodecGenerator` class and provide an instance of a `uk.co.real_logic.artio.dictionary.generation.CodecConfiguration` that can be used to configure the codec generation. This is generally an advanced option and simply integrating into build tools is the normal way to generate Artio codecs.
+
+## Codec Usage
+
+The generated Codecs are objects that are designed to be re-used over multiple messages in order to minimise the amount of garbage generated during steady-state usage.
+
+### String-like FIX types
+
+The decoders parse into internal buffers that are re-used over multiple parses. If the input data is longer than the existing buffer size then the buffer will grow. Allocation only happens when you grow the buffer. Since messages never have infinitely increasing message sizes you will eventually hit the max size of the buffer.
+
+Internally for parsing String values we convert into a char[] and length for the field. This means that if you retrieve the char[] value you always need to be aware that it is only the first `length` number of characters that are relevant values. There is also an easy `AsString` variant of each method that will allocate you a String if you prefer an easier programming model and are less latency sensitive.
+
+Each of the generated methods follows a common naming scheme, to take the String `username` field of a `LogonDecoder` as an example:
+
+ * `username()` - The `char[]` value getter.
+ * `usernameLength()` - The `int` getter for the length of the char[] value.
+ * `usernameAsString()` - The higher overhead, but easier to use variant that returns `java.lang.String` values.
+
+### Validation
+
+Codec validation can be switched on or off at runtime by setting the Java system property `fix.codecs.no_validation` to either `true` or `false`. Validation checks syntactic issues around FIX messages. For example:
+
+ * Whether they only contain fields that are defined for that message.
+ * Whether all the required fields are present.
+ * Whether enum types only contain valid values.
+
+In order to validate a FIX message that you have received and parsed, call `validate()` on your decoder. Its boolean return value denotes whether the message is valid or not. If it's invalid then you can call `decoder.invalidTagId()` to see which tag caused the validation to fail and `decoder.rejectReason()` to see the reason why it failed.
+
+### Unknown Fields validation
+
+It's possible to disable just the unknown fields validation while decoding a message by setting the Java system property `fix.codecs.reject_unknown_field` to `false`. 
+
+### Resets
+
+If you've received a message and plan to parse another message then you should call `reset()` on the decoder to ensure that no fields that were set from the previous message are still in use.
+
+## Flyweighting Decoders
+
+Flyweight decoders are an alternative set of codecs that can offer a performance improvement at the expense of a more complicated programming model. They are useful when you have messages that you don't need to read all of the fields out of. They avoid copying out and decoding fields until the accessor method for the respective field is called on the codec. So they allow you to avoid decoding or copying field values for fields that aren't needed when processing a message. This means that the flyweight codecs are only valid when the underlying buffer that they decoded has not been updated, re-used or re-written over.
+
+You can set the Java system property of `fix.codecs.flyweight` (eg: `-Dfix.codecs.flyweight=true`) when running the `CodecGenerationTool` in order to generate the flyweighting codecs. These will be generated in the `uk.co.real_logic.artio.decoder_flyweight` package. The external API maintains symmetry with that of the normal codecs, but different classes are generated because the programming model is different: copying vs flyweighting.
+
+When you set this flag the normal codecs are still generated and used by the Gateway's session logic. This allows applications to have a mixed usage model. In other words to use the normal, easier to use, codecs in most places and flyweighted codecs on their application critical path.
+
+## Overloading Codecs
+
+Some venues provide XML file definitions that are split into data and transport files for their FIX 5.0 / FIXT transports. In order to support that you can provide multiple file arguments to the `CodecGenerationTool` with both the transport and data files.
+
+## Codec Generation API
+
+Whilst the `CodecGenerationTool` provides a good way to get started with generating codecs using Artio it's not the only way to control codec generation. More configuration options, for example Shared Codecs, can be found by using the programmatic API provided by the `CodecGenerator` class. This approach is also more appropriate for tooling that wraps Artio.
+
+## Shared Codecs
+
+Often buy-side FIX users that connect to many venues have situations with many FIX dictionaries where the overwhelming majority of their logic is common to those different FIX dictionaries.  This can be inconvenient for users because Artio's codecs are strongly typed and thus require a lot of duplication of code between the different, but mostly similar, FIX dictionaries.
+
+Shared codecs solve this problem by providing a way of generating codecs for a set of different FIX that automatically extracts a shared abstraction layer in the form of abstract classes and interfaces that operate over those different FIX dictionaries in order to enable common code to be written.
+
+### Configuration
+
+API based configuration must be used in order to configure the shared codec abstraction. Instead of using the `fileNames()` or `fileStreams()` configuration option to provide XML dictionary files the `sharedCodecsEnabled()` option should be used which returns a `SharedCodecConfiguration` object. The `withDictionary()` option can be used in order to add a new dictionary to the configuration.
+
+### Source Code Layout and Compilation
+
+Each dictionary is generated into a package with a normalised version of its dictionary name in. By default each dictionary's generated code is placed into a separate directory. Each dictionary has a compilation dependency upon the shared code, but no dictionary depends upon another dictionary and they can all be compiled separately.
+
+### Fields
+
+Fields are incorporated within the shared dictionary when they have the same name and type. Additionally Artio's codec sharing merges types in order to increase the opportunity for sharing according to several rules:
+
+1) Field types that are fundamentally the same data representation but with a different name, for example INT and SEQNUM or FLOAT and PRICE are unified to common basetypes.
+2) If there are clashes between the following pairs of base types they are unified according to this table:
+
+| First Type | Second Type | Unified Type |
+| ---------- | ----------- | ------------ |
+| CHAR       | STRING      | STRING       |
+| INT        | STRING      | STRING       |
+| TIMESTAMP  | STRING      | STRING       |
+| INT        | CHAR        | STRING       |
+| INT        | TIMESTAMP   | STRING       |
+
+### Enum Types
+
+If fields are enum types across several dictionaries then new unified enum types are created from the enum values in different dictionaries using the following rules:
+
+1) If there are no collisions between the name and representation of an enum value then an entry is created for that name and representation.
+2) If there is an enum name that has different representative values in different dictionaries then an enum entry is created using the most frequent value using the name and every other name/value pair is represented in the enum called `$name_$representation`.
+3) If there is an enum value that has different names in different dictionaries then an enum entry is created using the most frequent name and javadoc is generated for that entry with the alternative names in.
+
+### Aggregate types: Messages, Groups and Components
+
+Messages and Groups that are represented by classes have their shared code generated into abstract classes that are extended whilst Components that are represented by interfaces have their shared code generated into interfaces.
+
+NB: current shared codecs API should be considered experimental and may change in future Artio versions.

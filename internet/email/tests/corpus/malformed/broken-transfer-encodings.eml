@@ -1,0 +1,17 @@
+From: malformed-codec@example.com
+To: reader@example.net
+MIME-Version: 1.0
+Subject: Broken transfer encodings
+Content-Type: multipart/mixed; boundary=codec-break
+
+--codec-break
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64 garbage
+
+%%%not-base64%%%
+--codec-break
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
+
+truncated escape=
+--codec-break--

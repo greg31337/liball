@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html data-lunet-theme-mode="dark" data-lunet-theme-storage-key="lunet-theme" data-lunet-css-prefix="lunet" lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="lunet 1.0.14.0">
+    <script>(function(){const root=document.documentElement;const key=root.getAttribute("data-lunet-theme-storage-key")||"lunet-theme";const fallback=root.getAttribute("data-lunet-theme-mode")||"system";let stored=null;try{stored=localStorage.getItem(key);}catch(_){stored=null;}const mode=(stored==="light"||stored==="dark"||stored==="system")?stored:fallback;const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const resolved=mode==="system"?(prefersDark?"dark":"light"):mode;root.setAttribute("data-lunet-theme-mode",mode);root.setAttribute("data-bs-theme",resolved);}());</script>
+    <link rel='icon' href='/favicon.ico' sizes='32x32'>
+    <title>Language reference | Scriban</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/site.js" ></script>
+    <script src="/js/site-defer.js" defer></script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:title" content="Language reference | Scriban">
+<meta name="twitter:description" content="Language reference This document describes the syntax of the scriban language in a templating context (within {{ and }}). The language rules are the same in a pure scripting context. This document does not describe the liquid language. Check the liquid website directly. Table of Contents Table of Contents 1. Blocks1.1 Code block 1.2 Text block 1.3 Escape block 1.4 Whitespace control 1.5 Auto indentation 2 Comments...">
+<meta name="twitter:image" content="https://scriban.github.io/img/scriban-social-banner.png">
+<meta name="twitter:image:alt" content="Language reference | Scriban">
+<meta property="og:title" content="Language reference | Scriban">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://scriban.github.io/">
+<meta property="og:description" content="Language reference This document describes the syntax of the scriban language in a templating context (within {{ and }}). The language rules are the same in a pure scripting context. This document does not describe the liquid language. Check the liquid website directly. Table of Contents Table of Contents 1. Blocks1.1 Code block 1.2 Text block 1.3 Escape block 1.4 Whitespace control 1.5 Auto indentation 2 Comments...">
+<meta property="og:image" content="https://scriban.github.io/img/scriban-social-banner.png">
+<meta property="og:image:alt" content="Language reference | Scriban">
+  </head>
+  <body>
+
+    <div id="lunet" class="container">
+      <nav class="navbar navbar-expand-md sticky-top">
+        <a class="navbar-brand" href="/">
+          <img class="lunet-logo" src="/img/scriban.svg" alt="Scriban" width="96" height="96">
+          <span class="visually-hidden">Home</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-between">
+<ol id='nav-id-home-0' class='navbar-nav nav-level0 show '>
+  <li id='nav-item-home-1' class='nav-item '>
+    <span class='nav-item-row'><a href='/' class='nav-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a></span>  </li>
+  <li id='nav-item-home-2' class='nav-item  active'>
+    <span class='nav-item-row'><a href='/docs/' class='nav-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a></span>  </li>
+</ol>
+          <ol class="navbar-nav flex-grow-1" style="padding-right: 0.5rem;">
+            <li class="nav-item w-100">
+                <div class="lunet-search dropdown w-100">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input id="search-input" type="search" class="form-control" placeholder="Search... (Alt+s)" aria-label="Search" aria-controls="search-results" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-search-empty-message="Enter words to search..." data-search-no-results-message="No results found.">
+                    <ul id="search-results" class="dropdown-menu w-100 p-0" style="max-height: 50vh;" role="listbox" aria-labelledby="search-input"></ul>
+                  </div>
+                </div>
+            </li>
+          </ol>
+          <div class="d-flex align-items-center gap-2 flex-shrink-0 navbar-right">
+            <div class="dropdown">
+              <button
+                id="theme-mode-toggle"
+                class="btn btn-outline-secondary btn-sm lunet-theme-toggle dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Theme">
+                <i class="bi bi-circle-half" data-lunet-theme-toggle-icon aria-hidden="true"></i>
+                <span
+                  data-lunet-theme-toggle-label
+                  data-theme-system-label="System"
+                  data-theme-light-label="Light"
+                  data-theme-dark-label="Dark">Theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="theme-mode-toggle">
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="system"><i class="bi bi-circle-half me-2"></i>System</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="light"><i class="bi bi-sun-fill me-2"></i>Light</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="dark"><i class="bi bi-moon-stars-fill me-2"></i>Dark</button></li>
+              </ul>
+            </div>
+<ol id='nav-id-home2-0' class='navbar-nav nav-level0 show flex-shrink-0'>
+  <li id='nav-item-home2-1' class='nav-item '>
+    <span class='nav-item-row'><a href='https://github.com/sponsors/xoofx' class='nav-link  btn btn-outline-secondary'><i class="bi bi-heart" style="color: pink"></i> Sponsor</a></span>  </li>
+  <li id='nav-item-home2-2' class='nav-item '>
+    <span class='nav-item-row'><a href='https://github.com/scriban/scriban/' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
+</ol>
+          </div>
+        </div>
+      </nav>
+      <div class="lunet lunet-docs">
+        <section data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-timeout="1200" data-copy-tooltip="Copy to Clipboard." data-copy-tooltip-success="Copied!" data-copy-tooltip-error="Failed to copy!">
+
+<div class="container-xxl">
+  <div class="row">
+      <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class='lunet-menu-async' data-lunet-menu-partial='/partials/menus/menu-doc.b5f137edbba0bd940039f06814f2f002.html' data-lunet-menu-open='menu-id-doc-0' data-lunet-menu-active='menu-item-doc-3,menu-item-doc-0'><div class='menu-loading text-body-secondary small'>Loading menu…</div></div>
+        </div>
+      </nav>
+      <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
+      <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
+        <h3 class="toc-title">On this page</h3>
+        <nav class="js-toc"></nav>
+      </aside>
+      <!-- Main content column -->
+      <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/docs/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item  active'>
+            <i class='bi bi-code-slash' aria-hidden='true'></i> Language  </li>
+        </ol>
+
+        <p id="lunet-results"></p>
+        <!-- Toggle buttons visible only on small screens -->
+        <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
+          <button
+            class="btn btn-outline-secondary btn-sm d-xxl-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#docs-sidebar-toc"
+            aria-controls="docs-sidebar-toc"
+            aria-expanded="false"
+            aria-label="Toggle Table Of Contents">
+            On this page
+          </button>
+        </div>
+<!-- lunet:summarize -->
+<h2 id="language-reference">Language reference</h2>
+<p>This document describes the syntax of the scriban language in a templating context (within <code>{{</code> and <code>}}</code>).</p>
+<p>The language rules are the same in a pure scripting context.</p>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">This document does not describe the <code>liquid</code> language. Check the <a href="https://shopify.github.io/liquid/"><code>liquid website</code></a> directly.</p>
+</div></div>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#1-blocks">1. Blocks</a>
+<ul>
+<li><a href="#11-code-block">1.1 Code block</a></li>
+<li><a href="#12-text-block">1.2 Text block</a></li>
+<li><a href="#13-escape-block">1.3 Escape block</a></li>
+<li><a href="#14-whitespace-control">1.4 Whitespace control</a></li>
+<li><a href="#15-auto-indentation">1.5 Auto indentation</a></li>
+</ul>
+</li>
+<li><a href="#2-comments">2 Comments</a></li>
+<li><a href="#3-literals">3 Literals</a>
+<ul>
+<li><a href="#31-strings">3.1 Strings</a></li>
+<li><a href="#32-numbers">3.2 Numbers</a></li>
+<li><a href="#33-boolean">3.3 Boolean</a></li>
+<li><a href="#34-null">3.4 null</a></li>
+</ul>
+</li>
+<li><a href="#4-variables">4 Variables</a>
+<ul>
+<li><a href="#41-the-special-variable-this">4.1 The special variable <code>this</code></a></li>
+<li><a href="#42-the-special-variable-empty">4.2 The special variable <code>empty</code></a></li>
+</ul>
+</li>
+<li><a href="#5-objects">5 Objects</a>
+<ul>
+<li><a href="#51-the-special-property-empty">5.1 The special property <code>empty?</code></a></li>
+</ul>
+</li>
+<li><a href="#6-arrays">6 Arrays</a>
+<ul>
+<li><a href="#61-array-with-properties">6.1 Array with properties</a></li>
+<li><a href="#62-the-special-size-property">6.2 The special <code>size</code> property</a></li>
+</ul>
+</li>
+<li><a href="#7-functions">7 Functions</a>
+<ul>
+<li><a href="#71-simple-functions">7.1 Simple functions</a></li>
+<li><a href="#72-anonymous-functions">7.2 Anonymous functions</a></li>
+<li><a href="#73-parametric-functions">7.3 Parametric functions</a></li>
+<li><a href="#74-inline-functions">7.4 Inline functions</a></li>
+<li><a href="#75-function-pointers">7.5 Function Pointers</a></li>
+</ul>
+</li>
+<li><a href="#8-expressions">8 Expressions</a>
+<ul>
+<li><a href="#81-variable-path-expressions">8.1 Variable path expressions</a></li>
+<li><a href="#82-assign-expression">8.2 Assign expression</a></li>
+<li><a href="#83-nested-expression">8.3 Nested expression</a></li>
+<li><a href="#84-arithmetic-expressions">8.4 Arithmetic expressions</a>
+<ul>
+<li><a href="#on-numbers">On numbers</a></li>
+<li><a href="#on-strings">On strings</a></li>
+</ul>
+</li>
+<li><a href="#85-conditional-expressions">8.5 Conditional expressions</a></li>
+<li><a href="#86-unary-expressions">8.6 Unary expressions</a></li>
+<li><a href="#87-range-expressions">8.7 Range expressions</a></li>
+<li><a href="#88-the-null-coalescing-operators--">8.8 The null-coalescing operators <code>??</code>, <code>?!</code></a></li>
+<li><a href="#89-function-call-expression">8.9 Function call expression</a>
+<ul>
+<li><a href="#named-arguments">Named arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#9-statements">9 Statements</a>
+<ul>
+<li><a href="#91-single-expression">9.1 Single expression</a></li>
+<li><a href="#92-compound-assignment">9.2 Compound Assignment</a></li>
+<li><a href="#93-if-expression-else-else-if-expression">9.3 <code>if &lt;expression&gt;</code>, <code>else</code>, <code>else if &lt;expression&gt;</code></a>
+<ul>
+<li><a href="#truthy-and-falsy">Truthy and Falsy</a></li>
+</ul>
+</li>
+<li><a href="#94-case-and-when">9.4 <code>case</code> and <code>when</code></a></li>
+<li><a href="#95-loops">9.5 Loops</a>
+<ul>
+<li><a href="#for-variable-in-expression--end"><code>for &lt;variable&gt; in &lt;expression&gt; ... end</code></a>
+<ul>
+<li><a href="#the-offset-parameter">The <code>offset</code> parameter</a></li>
+<li><a href="#the-limit-parameter">The <code>limit</code> parameter</a></li>
+<li><a href="#the-reversed-parameter">The <code>reversed</code> parameter</a></li>
+</ul>
+</li>
+<li><a href="#while-expression--end"><code>while &lt;expression&gt; ... end</code></a></li>
+<li><a href="#tablerow-variable-in-expression--end"><code>tablerow &lt;variable&gt; in &lt;expression&gt; ... end</code></a>
+<ul>
+<li><a href="#the-cols-parameter">The <code>cols</code> parameter</a></li>
+</ul>
+</li>
+<li><a href="#special-loop-variables">Special loop variables</a></li>
+<li><a href="#break-and-continue"><code>break</code> and <code>continue</code></a></li>
+</ul>
+</li>
+<li><a href="#96-capture-variable--end">9.6 <code>capture &lt;variable&gt; ... end</code></a></li>
+<li><a href="#97-readonly-variable">9.7 <code>readonly &lt;variable&gt;</code></a></li>
+<li><a href="#98-import-variable_path">9.8 <code>import &lt;variable_path&gt;</code></a></li>
+<li><a href="#99-with-variable--end">9.9 <code>with &lt;variable&gt; ... end</code></a></li>
+<li><a href="#910-wrap-function-arg1argn--end">9.10 <code>wrap &lt;function&gt; &lt;arg1...argn&gt; ... end</code></a></li>
+<li><a href="#911-include-name-arg1argn-and-include_join-names-separator-begin-end">9.11 <code>include &lt;name&gt; arg1?...argn?</code> and <code>include_join &lt;names&gt; &lt;separator&gt; &lt;begin?&gt; &lt;end?&gt;</code></a></li>
+<li><a href="#912-ret-expression">9.12 <code>ret &lt;expression&gt;?</code></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-blocks">1. Blocks</h2>
+<p>There are 3 types of block of text in a template:</p>
+<ul>
+<li><strong>Code block</strong>: contains scriban template statements</li>
+<li><strong>Text block</strong>: a plain block to output <em>as is</em></li>
+<li><strong>Escape block</strong>: a text block that can escape code blocks</li>
+</ul>
+<h3 id="11-code-block">1.1 Code block</h3>
+<p>A text enclosed by <code>{{</code> and <code>}}</code> is a scriban <strong>code block</strong> that will be evaluated by the scriban templating engine.</p>
+<p>A scriban code block may contain:</p>
+<ul>
+<li>a <strong>single line expression statement</strong>:
+<code>{{ name }}</code></li>
+<li>or a <strong>multiline statements</strong>:
+<pre><code>{{
+  if !name
+    name = &quot;default&quot;
+  end
+  name
+}}
+</code></pre>
+</li>
+<li>or <strong>statements separated by a semi-colon <code>;</code></strong> to allow compact forms in some use cases:
+<pre><code>{{if !name; name = &quot;default&quot;; end; name }}
+</code></pre>
+</li>
+</ul>
+<p>In a code block, white space characters have no impact on parsing, with the exception of the end-of-line character following each statement. The only exception is when white space is used to distinguish between an array indexer and an array initializer.</p>
+<p>Additionally, when a statement is an expression (but not an assignment expression), the result of the expression will be displayed in the template's output:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+  x = 5     # This assignment will not output anything
+  x         # This expression will print 5
+  x + 1     # This expression will print 6
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">56
+</code></pre>
+<p>Note that in the previous example, there is no EOL between <code>5</code> and <code>6</code> because we are inside a code block.
+You can still use a plain string with an EOL inside a code block <code>&quot;\n&quot;</code> or you could use mixed code and text blocks:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{ x = 5 }}
+{{ x }}
+{{ x + 1 }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">5
+6
+</code></pre>
+<h3 id="12-text-block">1.2 Text block</h3>
+<p>Otherwise, any text is treated as a <strong>text block</strong> and is outputted without modification.</p>
+<pre><code>Hello this is {{ name }}, welcome to scriban!
+______________          _____________________
+^ text block            ^ text block
+
+</code></pre>
+<h3 id="13-escape-block">1.3 Escape block</h3>
+<p>Any code and text block can be escaped to produce a text block by enclosing it with <code>{%{</code> and <code>}%}</code></p>
+<p>For example the following escape:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong>: <code>{%{Hello this is {{ name }}}%}</code><br />
+<strong>output</strong>: <code>Hello this is {{ name }}</code></p>
+</blockquote>
+<p>If you want to escape an escape block, you can increase the number of % in the starting and ending block:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong>: <code>{%%{This is an escaped block: }%} here}%%}</code></p>
+<p><strong>output</strong>: <code>This is an escaped block: }%} here</code></p>
+</blockquote>
+<p>This allow effectively to nest escape blocks and still be able to escape them.</p>
+<p>This allows for effective nesting of escape blocks and the ability to escape them.
+For example, a starting escape block <code>{%%%%{</code> will require an ending <code>}%%%%}</code></p>
+<h3 id="14-whitespace-control">1.4 Whitespace control</h3>
+<p>By default, any whitespace (including new lines) before or after a code/escape block are copied as-is to the output.</p>
+<p>Scriban provides <strong>two modes</strong> for controlling whitespace:</p>
+<ul>
+<li><p>The <strong>greedy mode</strong> using the character <code>-</code> (e.g <code>{{-</code> or <code>-}}</code>), <strong>removes any whitespace, including newlines</strong>
+Examples with the variable <code>name = &quot;foo&quot;</code>:</p>
+<ul>
+<li><p>Strip whitespace on the left:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">This is a &lt;       
+{{- name}}&gt; text
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">This is a &lt;foo&gt; text
+</code></pre>
+</li>
+<li><p>Strip on the right:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">This is a &lt;{{ name -}} 
+&gt; text:       
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">This is a &lt;foo&gt; text
+</code></pre>
+</li>
+<li><p>Strip on both left and right:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">This is a &lt;
+{{- name -}} 
+&gt; text:       
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">This is a &lt;foo&gt; text
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>The <strong>non greedy mode</strong> using the character <code>~</code></p>
+<ul>
+<li>Using a <code>{{~</code> will remove any <strong>preceeding whitespace</strong> until it reaches a <strong>non whitespace character such as a newline or letter</strong></li>
+<li>Using a <code>~}}</code> will remove any <strong>following whitespace including the first newline</strong> until it reaches a <strong>non whitespace character or a second newline</strong></li>
+</ul>
+<p>This mode is very convenient when you want to use only a scriban statement on a line, but want that line to be completely
+removed from the output, but to keep spaces before and after this line intact.</p>
+<p>In the following example, we want to remove entirely the lines <code>{{~ for product in products ~}}</code> and <code>{{~ end ~}}</code>, but we want
+for example to keep the indentation of the opening <code>&lt;li&gt;</code>.</p>
+<p>Using the greedy mode <code>{{-</code> or <code>-}}</code> would have removed all whitespace and lines and would have put the results on a single line.</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>&lt;ul&gt;
+    {{~ for product in products ~}}
+    &lt;li&gt;{{ product.name }}&lt;/li&gt;
+    {{~ end ~}}
+&lt;/ul&gt;
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;Orange&lt;/li&gt;
+    &lt;li&gt;Banana&lt;/li&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</li>
+</ul>
+<p>Both mode <code>~</code> and '-' can also be used with <strong>escape blocks</strong> <code>or</code> or <code>or</code></p>
+<h3 id="15-auto-indentation">1.5 Auto indentation</h3>
+<p>By default, when a code enter is without a left strip (e.g <code>{{-</code> or <code>{{~</code>) and is preceded by only whitespace on the same line, the content of the block will be indented accordingly to the number of whitespace before the code enter.</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{ a_multi_line_value = &quot;test1\ntest2\ntest3\n&quot; ~}}
+   {{ a_multi_line_value }}Hello
+</code></pre>
+<p>Notice the 3 whitespace characters <code>   </code> before the expression <code>{{ a_multi_line_value }}</code>.</p>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>   test1
+   test2
+   test3
+Hello   
+</code></pre>
+<p>The output is auto-indented. This feature can be turned off on by setting <code>TemplateContext.AutoIndent = false</code>.</p>
+<p>Note that if the previous line contains a greedy right strip <code>-}}</code>, the indent will be skipped on the next code enter of the next line.</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{ a_multi_line_value = &quot;test1\ntest2\ntest3\n&quot; -}}
+   {{ a_multi_line_value }}Hello
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>test1
+test2
+test3
+Hello   
+</code></pre>
+<h2 id="2-comments">2 Comments</h2>
+<p>Within a code block, scriban supports single line comments <code>#</code> and multi-line comments <code>##</code>:</p>
+<p><code>{{ name   # this is a single line comment }}</code></p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{ ## This 
+is a multi
+line
+comment ## }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">
+</code></pre>
+<p>As you can notice, both single line and multi-line comments can be closed by the presence of a code block exit tag <code>}}</code></p>
+<h2 id="3-literals">3 Literals</h2>
+<h3 id="31-strings">3.1 Strings</h3>
+<p>Scriban supports two types of strings:</p>
+<ul>
+<li><p><strong>regular strings</strong> enclosed by double quotes <code>&quot;...&quot;</code> or simple quotes <code>'...'</code>. Regular strings supports multiline and will interpret the following escape sequences:</p>
+<ul>
+<li><code>\'</code> single quote</li>
+<li><code>\&quot;</code> double quote</li>
+<li><code>\\</code> backslash</li>
+<li><code>\n</code> new line</li>
+<li><code>\r</code> carriage return</li>
+<li><code>\t</code> tab</li>
+<li><code>\b</code> backspace</li>
+<li><code>\f</code> form feed</li>
+<li><code>\uxxxx</code> where xxxx is a unicode hexa code number <code>0000</code> to <code>ffff</code></li>
+<li><code>\x00-\xFF</code> a hexadecimal ranging from <code>0x00</code> to <code>0xFF</code></li>
+</ul>
+</li>
+<li><p><strong>verbatim strings</strong> enclosed by backstick quotes <code>`...`</code>. They are, for example, useful to use with for regex patterns :</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{ &quot;this is a text&quot; | regex.split `\s+` }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">[this, is, a, text]
+</code></pre>
+</li>
+<li><p><strong>Interpolated strings</strong> starting with a <code>$</code> enclosed by double quotes <code>$&quot;...&quot;</code> or simple quotes <code>$'...'</code>.</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{ $&quot;this is an interpolated string with an expression {1 + 2} and a substring {&quot;Hello&quot;}&quot; }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">this is an interpolated string with an expression 3 and a substring Hello
+</code></pre>
+</li>
+</ul>
+<h3 id="32-numbers">3.2 Numbers</h3>
+<p>A number in scriban <code>{{ 100 }}</code> is similar to a javascript number:</p>
+<ul>
+<li>Integers: <code>100</code>, <code>1e3</code>
+<ul>
+<li>Hexadecimal integers: <code>0x1ef</code> and unsigned <code>0x80000000u</code></li>
+</ul>
+</li>
+<li>Floats: <code>100.0</code>, <code>1.0e3</code>, <code>1.0e-3</code>
+<ul>
+<li>32-bit floats: <code>100.0f</code></li>
+<li>64-bit floats: <code>100.0d</code></li>
+<li>128-bit decimals: <code>100.0m</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="33-boolean">3.3 Boolean</h3>
+<p>The boolean value <code>{{ true }}</code> or <code>{{ false }}</code></p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{ true }}
+{{ false }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">true
+false
+</code></pre>
+<h3 id="34-null">3.4 null</h3>
+<p>The null value <code>{{ null }}</code></p>
+<p>When resolving to a string output, the null value will output an empty string:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{ null }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">
+</code></pre>
+<h2 id="4-variables">4 Variables</h2>
+<p>Scriban supports the concept of <strong>global/property</strong> and <strong>local</strong> variables.</p>
+<p>A <strong>global/property variable</strong> like <code>{{ name }}</code> is a liquid like handle, starting by a letter or underscore <code>_</code> and following by a letter <code>A-Z a-z</code>, a digit <code>0-9</code>, an underscore <code>_</code>.</p>
+<p>Global/property variables are resolved against the current function variable scope first (when applicable), then against the current object context and any outer object contexts. Object contexts are stacked by constructs such as <code>with</code> blocks, the template model, and the builtins. An assignment to a global/property variable writes to the current object context; it does not search for and update a variable with the same name in an outer object context.</p>
+<p>The following text are valid variable names:</p>
+<ul>
+<li><code>var</code></li>
+<li><code>var9</code></li>
+<li><code>_var</code></li>
+</ul>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">In liquid, the character <code>-</code> is allowed in a variable name, but when translating it to a scriban, you will have to enclose it into a quoted string</p>
+</div></div>
+<p>A <strong>local variable</strong> like <code>{{ $name }}</code> is an identifier starting with <code>$</code>. A local variable is only accessible within the same include page or function body. Local variables are stored in a separate local scope, so assigning <code>$name</code> does not create or update the global/property variable <code>name</code>, and both can coexist.</p>
+<p>The <strong>special local variable</strong> <code>$</code> alone is an array containing the arguments passed to the current function or include page.</p>
+<p>The special local variables <code>$0</code> <code>$1</code> ... <code>$n</code> is a shorthand of <code>$[0]</code>, <code>$[1]</code> ... <code>$[n]</code>. e.g Using <code>$0</code> returns the first argument of the current function or including page.</p>
+<h3 id="41-the-special-variable-this">4.1 The special variable <code>this</code></h3>
+<p>The <code>this</code> variable gives you access to the current object bound where you have access to all local variables for the current scope.</p>
+<p>Thus the following variable access are equivalent:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+a = 5
+a    # output 5
+this.a = 6
+a    # output 6
+this[&quot;a&quot;] = 7
+a    # output 7
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">567
+</code></pre>
+<p>In the case of the <code>with</code> statement, the this operator refers to the object passed to <code>with</code>:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+a = {x: 1, y: 2}
+with a
+    b = this
+end
+b.x
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">1
+</code></pre>
+<h3 id="42-the-special-variable-empty">4.2 The special variable <code>empty</code></h3>
+<p>The empty variable represents an empty object and is primarily used for compatibility with Liquid templates. It provides a way to compare an object with the empty variable to determine if it is empty or not:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+a = {}
+b = [1, 2]~}}
+{{a == empty}}
+{{b == empty}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">true
+false
+</code></pre>
+<h2 id="5-objects">5 Objects</h2>
+<p>Scriban supports javascript like objects <code>{...}</code></p>
+<p>An object can be initialized empty:</p>
+<p><code>{{ myobject = {} }}</code></p>
+<p>An object can be initialized with some members:</p>
+<p><code>{{ myobject = { member1: &quot;yes&quot;, member2: &quot;no&quot; } }}</code></p>
+<p>or use a json syntax:</p>
+<p><code>{{ myobject = { &quot;member1&quot;: &quot;yes&quot;, &quot;member2&quot;: &quot;no&quot; } }}</code></p>
+<p>An object can be initialized with some members over multiple lines:</p>
+<pre><code>{{
+  myobject = { 
+      member1: &quot;yes&quot;, 
+      member2: &quot;no&quot; 
+  } 
+}}
+</code></pre>
+<p>Members of an object can be accessed using dot notation or square bracket notation:</p>
+<p><code>{{ myobject.member1 }}</code> also equivalent to <code>{{ myobject[&quot;member1&quot;] }}</code></p>
+<p>You can access optional members in chain via the optional member operator <code>?.</code> (instead of the regular member operator: <code>.</code> ) (<strong>New in 3.0</strong>)</p>
+<p><code>{{ myobject.member1?.submember1?.submember2 ?? &quot;nothing&quot; }}</code> will return <code>&quot;nothing&quot;</code> as <code>member1</code> doesn't contain a <code>submember1</code>/<code>submember2</code>.</p>
+<p>If the object is a &quot;pure&quot; scriban objects (created with a <code>{...}</code> or  instantiated by the runtime as a <code>ScriptObject</code>), you can also add members to it with a simple assignment:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+  myobject = {} 
+  myobject.member3 = &quot;may be&quot; 
+  myobject.member3
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">may be
+</code></pre>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p></p>
+<p class="mb-0">By default, Properties and methods of .NET objects are automatically exposed with lowercase and <code>_</code> names. It means that a property like <code>MyMethodIsNice</code> will be exposed as <code>my_method_is_nice</code>. This is the default convention, originally to match the behavior of liquid templates.
+If you want to change this behavior, you need to use a <a href="/runtime/member-renamer#member-renamer"><code>MemberRenamer</code></a> delegate</p>
+</div></div>
+<h3 id="51-the-special-property-empty">5.1 The special property <code>empty?</code></h3>
+<p>Any object can respond the the property <code>.empty?</code> to check if it is empty or not:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+a = {}
+b = [1, 2]~}}
+{{a.empty?}}
+{{b.empty?}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">true
+false
+</code></pre>
+<h2 id="6-arrays">6 Arrays</h2>
+<p>An array can be initialized empty:</p>
+<p><code>{{ myarray = [] }}</code></p>
+<p>An array can be initialized with some items:</p>
+<p><code>{{ myarray = [1, 2, 3, 4] }}</code></p>
+<p>An array can be initialized with some items over multiple lines:</p>
+<pre><code>{{
+  myarray = [ 
+    1,
+    2,
+    3,
+    4,
+  ] 
+}}
+</code></pre>
+<p>Items of an array can be zero-based indexed:</p>
+<p><code>{{ myarray[0] }}</code></p>
+<p>If the array is a &quot;pure&quot; scriban array (created with a <code>[...]</code> or  instantiated by the runtime as a <code>ScriptArray</code>), you can also add items to it with a simple assignment that will expand automatically the array depending on the index:</p>
+<pre><code>{{
+  myarray = [] 
+  myarray[0] = 1 
+  myarray[1] = 2 
+  myarray[2] = 3 
+  myarray[3] = 4 
+}}
+</code></pre>
+<p>You can also manipulate arrays with the <a href="#array-builtin"><code>array</code> builtin object</a>.</p>
+<div class="markdown-alert markdown-alert-important alert alert-info lunet-alert-important" role="alert">
+<div class='lunet-alert-important-heading'>
+<span class='lunet-alert-important-icon'></span><span class='lunet-alert-important-heading-text'></span>
+</div><div class='lunet-alert-important-content'>
+<p></p>
+<p>While whitespace characters are mostly not relevant while parsing in scriban, there is a case where a <strong>whitespace helps to disambiguate between an array  indexer and an array initializer</strong>.</p>
+<p class="mb-0">For instance, if a whitespace is found before a <code>[</code> and the previous expression was a variable path expressions (see later), the following expression <code>[...]</code> will be considered as an array initializer instead of an array indexer:</p>
+<pre><code>{{
+myfunction [1]  # There is a whitespace after myfunction. 
+                # It will result in a call to myfunction passing an array as an argument
+
+myvariable[1]   # Without a whitespace, this is accessing 
+                # an element in the array provided by myvariable
+}}    
+</code></pre>
+</div></div>
+<h3 id="61-array-with-properties">6.1 Array with properties</h3>
+<p>An array can also contains attached properties:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+a = [5, 6, 7]
+a.x = &quot;yes&quot;
+a.x + a[0]
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">yes5
+</code></pre>
+<h3 id="62-the-special-size-property">6.2 The special <code>size</code> property</h3>
+<p>Arrays have a <code>size</code> property that can be used to query the number of elements in the array:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+a = [1, 2, 3]
+a.size
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">3
+</code></pre>
+<h2 id="7-functions">7 Functions</h2>
+<p>Scriban allows for the definition of four different types of functions:</p>
+<ul>
+<li>Simple functions</li>
+<li>Anonymous functions</li>
+<li>Parametric functions (<strong>New in 3.0</strong>)</li>
+<li>Inline functions (<strong>New in 3.0</strong>)</li>
+</ul>
+<h3 id="71-simple-functions">7.1 Simple functions</h3>
+<p>The following declares a function <code>sub</code> that takes two arguments, <code>a</code> and <code>b</code>, and subtracts the value of <code>b</code> from <code>a</code>:</p>
+<pre><code>{{func sub
+   ret $0 - $1
+end}}
+</code></pre>
+<p>All argument are passed to the special variable <code>$</code> that will contain the list of direct arguments
+and named arguments:</p>
+<ul>
+<li><code>$0</code> or <code>$[0]</code> will access the first argument</li>
+<li><code>$1</code> or <code>$[1]</code> will access the second argument</li>
+<li><code>$[-1]</code> will access the last argument</li>
+<li><code>$.named</code> will access the named argument <code>named</code></li>
+</ul>
+<p>This function can then be used:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{sub 5 1}}
+{{5 | sub 1}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>4
+4
+</code></pre>
+<p>As you can notice from the example above, when using the pipe, the result of the pipe is pushed as the <strong>first argument</strong> of the pipe receiver.</p>
+<p>Note that a function can have mixed text statements as well:</p>
+<pre><code>{{func inc}}
+   This is a text with the following argument {{ $0 + 1 }}
+{{end}}
+</code></pre>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p>Simple functions create a local scope for local variables (e.g <code>$a</code>) and for the special <code>$</code> arguments variable, but they do not create a new object/global context.</p>
+<p>Setting a non-local variable (e.g <code>a = 10</code>) in a simple function writes to the current object/global context of the caller.</p>
+<p class="mb-0">Named function calls do not inherit the function variable scope of the caller. Parametric functions differ by introducing a function variable scope that includes parameters.</p>
+</div></div>
+<h3 id="72-anonymous-functions">7.2 Anonymous functions</h3>
+<p>Anonymous functions are like simple functions but can be used in expressions (e.g as the last argument of function call)</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{ sub = do; ret $0 - $1; end; 1 | sub 3 }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>-2
+</code></pre>
+<p>They are very convenient to build custom block functions:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{ func launch; ret $0 1 2; end
+launch do 
+    ret $0 + $1
+end
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>3
+</code></pre>
+<h3 id="73-parametric-functions">7.3 Parametric functions</h3>
+<p>They are similar to simple functions but they are declared with parenthesis, while also supporting declaration of different kind of parameters (normal, optional, variable).</p>
+<p>Another difference with simple functions is that they require function calls and arguments to match the expected function parameters.</p>
+<p>Parametric functions open a new function variable scope for each invocation. The parameter names are global/property variables in that function scope. Assigning to a parameter or to a variable created only inside the function writes to the function scope, so it will not leak to the caller. Assigning to an unprefixed name that already exists in an available object/global scope writes to the current object/global context; for example, a <code>with</code> block still receives the assignment instead of updating an outer object context. Local variables prefixed with <code>$</code> still use the separate local scope, as with simple functions.</p>
+<ul>
+<li>A function with normal parameters:</li>
+</ul>
+<pre><code>{{func sub(x,y)
+   ret x - y
+end}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{sub 5 1}}
+{{5 | sub 1}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>4
+4
+</code></pre>
+<ul>
+<li>A function with normal parameters and optional parameters with default values:</li>
+</ul>
+<pre><code>{{func sub_opt(x, y, z = 1, w = 2)
+   ret x - y - z - w
+end}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{sub_opt 5 1}}
+{{5 | sub_opt 1}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>1
+1
+</code></pre>
+<p>Here we override the value of <code>z</code> and set it to <code>0</code> instead of default <code>1</code>:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{sub_opt 5 1 0 }}
+{{5 | sub_opt 1 0}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>2
+2
+</code></pre>
+<ul>
+<li>A function with normal parameters and optional parameters with default values:</li>
+</ul>
+<pre><code>{{func sub_variable(x, y...)
+   ret x - (y[0] ?? 0) - (y[1] ?? 0)
+end}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code>{{sub_variable 5 1 -1}
+{{5 | sub_variable 1 -1}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code>5
+5
+</code></pre>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">The special variable <code>$</code> is still accessible in parametric functions and represent the direct list of arguments. In the example above, <code>$ =  [5, [1, -1]]</code></p>
+</div></div>
+<h3 id="74-inline-functions">7.4 Inline functions</h3>
+<p>For simple functions, it is convenient to define simple functions like mathematical functions:</p>
+<pre><code>{{ sub(x,y) = x - y }}
+</code></pre>
+<p>Inline functions are similar to parametric functions but they only support normal parameters. They don't support optional or variable parameters.</p>
+<h3 id="75-function-pointers">7.5 Function Pointers</h3>
+<p>Because functions are object, they can be stored into a property of an object by using the alias <code>@</code> operator:</p>
+<pre><code>{{
+myobject.myinc = @inc  # Use the @ alias operator to allow to 
+                       # use a function without evaluating it
+x = 1 | myobject.myinc # x = x + 1
+}}
+
+</code></pre>
+<p>The function aliasing operator <code>@</code> allows to pass a function as a parameter to another function, enabling powerful function compositions.</p>
+<h2 id="8-expressions">8 Expressions</h2>
+<p>Scriban supports conventional unary and binary expressions.</p>
+<h3 id="81-variable-path-expressions">8.1 Variable path expressions</h3>
+<p>A variable path expression contains the path to a variable:</p>
+<ul>
+<li>A simple variable access: <code>{{ name }}</code> e.g resolve to the top level variable <code>name</code></li>
+<li>An array access: <code>{{ myarray[1] }}</code> e.g resolve to the top level variable <code>myarray</code> and an indexer to the array</li>
+<li>A member access: <code>{{ myobject.member1.myarray[2] }}</code> e.g resolve to the top level variable <code>myobject</code>, then the property <code>member1</code> this object, the property <code>myarray</code> and an indexer to the array returned by <code>myarray</code></li>
+</ul>
+<p>Note that a variable path can either point to a simple variable or can result into calling a parameter less function.</p>
+<h3 id="82-assign-expression">8.2 Assign expression</h3>
+<p>A value can be assigned to a top level variable or to the member of an object/array:</p>
+<ul>
+<li><p><code>{{ name = &quot;foo&quot; }}</code> e.g Assign the string <code>&quot;foo&quot;</code> the variable <code>name</code></p>
+</li>
+<li><p><code>{{ myobject.member1.myarray[0] = &quot;foo&quot; }}</code></p>
+</li>
+</ul>
+<p>An assign expression must be a top level expression statement and cannot be used within a sub-expression.</p>
+<h3 id="83-nested-expression">8.3 Nested expression</h3>
+<p>An expression enclosed by <code>(</code> and <code>)</code></p>
+<p><code>{{ name = ('foo' + 'bar') }}</code></p>
+<h3 id="84-arithmetic-expressions">8.4 Arithmetic expressions</h3>
+<h4 id="on-numbers">On numbers</h4>
+<p>The following binary operators are supported for <strong>numbers</strong>:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;left&gt; + &lt;right&gt;</code></td>
+<td>add left to right number</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; - &lt;right&gt;</code></td>
+<td>subtract right number from left</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; * &lt;right&gt;</code></td>
+<td>multiply left by right number</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; / &lt;right&gt;</code></td>
+<td>divide left by right number</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; // &lt;right&gt;</code></td>
+<td>divide left by right number and round to an integer</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; % &lt;right&gt;</code></td>
+<td>calculates the modulus of left by right</td>
+</tr>
+</tbody>
+</table>
+<p>If left or right is a float and the other is an integer, the result of the operation will be a float.</p>
+<h4 id="on-strings">On strings</h4>
+<p>The following binary operators are supported for <strong>strings</strong>:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'left' + &lt;right&gt;</code></td>
+<td>concatenates left to right string: <code>&quot;ab&quot; + &quot;c&quot; -&gt; &quot;abc&quot;</code></td>
+</tr>
+<tr>
+<td><code>'left' * &lt;right&gt;</code></td>
+<td>concatenates the left string <code>right</code> times: <code>'a' * 5  -&gt; aaaaa</code>. left and right and be swapped as long as there is one string and one number.</td>
+</tr>
+</tbody>
+</table>
+<p>As long as there is a string in a binary operation, the other part will be automatically converted to a string.</p>
+<p>The following literals are converted to plain strings:</p>
+<ul>
+<li><code>null -&gt; &quot;&quot;</code>. e.g: <code>&quot;aaaa&quot; + null -&gt; &quot;aaaa&quot;</code></li>
+<li><code>0 -&gt; &quot;0&quot;</code></li>
+<li><code>1.0 -&gt; &quot;1.0&quot;</code></li>
+<li><code>true -&gt; &quot;true&quot;</code></li>
+<li><code>false -&gt; &quot;false&quot;</code></li>
+</ul>
+<h3 id="85-conditional-expressions">8.5 Conditional expressions</h3>
+<p>A boolean expression produces a boolean by comparing a left and right value.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;left&gt; == &lt;right&gt;</code></td>
+<td>Is left equal to right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; != &lt;right&gt;</code></td>
+<td>Is left not equal to right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; &gt; &lt;right&gt;</code></td>
+<td>Is left greater than right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; &gt;= &lt;right&gt;</code></td>
+<td>Is left greater or equal to right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; &lt; &lt;right&gt;</code></td>
+<td>Is left less than right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; &lt;= &lt;right&gt;</code></td>
+<td>Is left less or equal to right?</td>
+</tr>
+</tbody>
+</table>
+<p>They work with both <code>numbers</code>, <code>strings</code> and datetimes.</p>
+<p>You can combine conditional expressions with <code>&amp;&amp;</code> (and operator) and <code>||</code> (or operator).
+Unlike in <code>javascript</code> it always returns <code>boolean</code> and never <code>&lt;left&gt;</code> or <code>&lt;right&gt;</code>.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;left&gt; &amp;&amp; &lt;right&gt;</code></td>
+<td>Is left true and right true?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; \|\| &lt;right&gt;</code></td>
+<td>Is left true or right true?</td>
+</tr>
+</tbody>
+</table>
+<p>The conditional expression <code>cond ? left : right</code> allow to return <code>left</code> if <code>cond</code> is <code>true</code> otherwise <code>right</code>. (<strong>New in 3.0</strong>)</p>
+<h3 id="86-unary-expressions">8.6 Unary expressions</h3>
+<table class="table">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>! &lt;expression&gt;</code></td>
+<td>Boolean negate an expression. e.g <code>if !page</code></td>
+</tr>
+<tr>
+<td><code>+ &lt;expression&gt;</code></td>
+<td>Arithmetic positive an expression. e.g <code>+1.5</code></td>
+</tr>
+<tr>
+<td><code>- &lt;expression&gt;</code></td>
+<td>Arithmetic negate an expression</td>
+</tr>
+<tr>
+<td><code>^ &lt;expression&gt;</code></td>
+<td>Expand an array passed to arguments of a function call (see function call)</td>
+</tr>
+<tr>
+<td><code>@ &lt;expression&gt;</code></td>
+<td>Alias the result of an expression that would be evaluated if it was a function call</td>
+</tr>
+<tr>
+<td><code>++ &lt;variable&gt;</code></td>
+<td>Increments the variable.  Expression is evaluated to the value <em>after</em> it is incremented.</td>
+</tr>
+<tr>
+<td><code>-- &lt;variable&gt;</code></td>
+<td>Decrements the variable.  Expression is evaluated to the value <em>after</em> it is decremented.</td>
+</tr>
+<tr>
+<td><code>&lt;variable&gt; ++</code></td>
+<td>Increments the variable.  Expression is evaluated to the value <em>before</em> it is incremented.</td>
+</tr>
+<tr>
+<td><code>&lt;variable&gt; --</code></td>
+<td>Decrements the variable.  Expression is evaluated to the value <em>before</em> it is decremented.</td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">For the increment an decrement operators, the operand must be a variable, property or indexer</p>
+</div></div>
+<h3 id="87-range-expressions">8.7 Range expressions</h3>
+<p>They are special binary expressions that provides an iterator (used usually with the <code>for</code> statement)</p>
+<p>The evaluated <code>left</code> and <code>right</code> expressions must resolve to an integer at runtime.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>left..right</code></td>
+<td>Returns an iterator between <code>left</code> and <code>right</code> with a step of 1, including <code>right</code>. e.g: <code>1..5</code> iterates from 1 to 5</td>
+</tr>
+<tr>
+<td><code>left..&lt;right</code></td>
+<td>Returns an iterator between <code>left</code> and <code>right</code> with a step of 1, excluding <code>right</code>. e.g: <code>1..&lt;5</code> iterates from 1 to 4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="88-the-null-coalescing-operators--">8.8 The null-coalescing operators <code>??</code>, <code>?!</code></h3>
+<p>The operator <code>left ?? right</code> can be used to return the <code>right</code> value if <code>left</code> is null.</p>
+<p>The operator <code>left ?! right</code> can be used to return the <code>right</code> value if <code>left</code> is not null.</p>
+<h3 id="89-function-call-expression">8.9 Function call expression</h3>
+<p>A function can be called by passing parameters separated by a whitespace:</p>
+<p><code>{{ myfunction arg1 &quot;arg2&quot; (1+5) }}</code></p>
+<p>The pipe operator <code>|</code> can also be used to pipe the result of an expression to a function:</p>
+<p><code>{{ date.parse '2016/01/05' | date.to_string '%g' }}</code> will output <code>06 Jan 2016</code></p>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">When a function receives the result of a pipe call (e.g <code>date.to_string</code> in the example above), it is passed as the <strong>first argument of the call</strong>. This is valid for both .NET custom functions as well as for Scriban integrated functions.</p>
+</div></div>
+<p>Pipes are <em>greedy</em> with respect to whitespace.  This allow them to be chained across multiple lines:</p>
+<pre><code>{{-
+&quot;text&quot;                        |
+      string.append &quot;END&quot;     |
+      string.prepend &quot;START&quot;
+-}}
+</code></pre>
+<p>will output <code>STARTtextEND</code></p>
+<h4 id="named-arguments">Named arguments</h4>
+<p>When passing multiple arguments to an existing .NET function, you may want to use named arguments.</p>
+<p>Suppose you have declared a .NET function like this:</p>
+<pre><code class="language-csharp">public static string MyProcessor(string left, string right, int count, string options = null)
+{
+    // ...
+}
+</code></pre>
+<p>You can call this function from scriban with the following syntax:</p>
+<pre><code class="language-scriban-html">{{ my_processor &quot;Hello&quot; &quot;World&quot; count: 15 options: &quot;optimized&quot; }}
+</code></pre>
+<p>with a pipe we could rewrite this to:</p>
+<pre><code class="language-scriban-html">{{ &quot;Hello&quot; | my_processor &quot;World&quot; count: 15 options: &quot;optimized&quot; }}
+</code></pre>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">Once arguments are named, the following arguments must be all named.</p>
+</div></div>
+<p>In a custom function declared with <code>func</code> named arguments are accessible through the variable arguments variable <code>$</code>, but as properties (and not as part of the default array arguments):</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+    func my_processor
+        &quot;Argument count:&quot; + $.count
+        &quot;Argument options:&quot; + $[&quot;options&quot;]
+        for $x in $
+            &quot;arg[&quot; + $x + &quot;]: &quot; + $x
+        end
+    end
+
+    my_processor &quot;Hello&quot; &quot;World&quot; count: 15 options: &quot;optimized&quot;
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">Argument count: 15
+Argument options: optimized
+arg[0]: Hello
+arg[1]: World
+</code></pre>
+<h2 id="9-statements">9 Statements</h2>
+<p>Each statement must be terminated by a code block <code>}}</code> or an EOL within a code block, or a semicolon to separate multiple statements on a single line within a code block.</p>
+<h3 id="91-single-expression">9.1 Single expression</h3>
+<p>An expression statement:</p>
+<p><code>{{ value + 1 }}</code> e.g Evaluates <code>value + 1</code> and output the result</p>
+<pre><code>{{
+value + 1       # This is a single line expression statement followed by this comment
+}}
+</code></pre>
+<h3 id="92-compound-assignment">9.2 Compound Assignment</h3>
+<p>The following compound assignment operators are supported for <strong>numbers</strong>:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;left&gt; += &lt;right&gt;</code></td>
+<td>add left to right number, and assigns the result to left</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; -= &lt;right&gt;</code></td>
+<td>subtract right number from left, and assigns the result to left</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; *= &lt;right&gt;</code></td>
+<td>multiply left by right number, and assigns the result to left</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; /= &lt;right&gt;</code></td>
+<td>divide left by right number, and assigns the result to left</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; //= &lt;right&gt;</code></td>
+<td>divide left by right number and round to an integer, and assigns the result to left</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; %= &lt;right&gt;</code></td>
+<td>calculates the modulus of left by right, and assigns the result to left</td>
+</tr>
+</tbody>
+</table>
+<p>If left or right is a float and the other is an integer, the result of the operation will be a float.</p>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">The left-hand side of the assignment statement must be a variable, property or indexer</p>
+</div></div>
+<h3 id="93-if-expression-else-else-if-expression">9.3 <code>if &lt;expression&gt;</code>, <code>else</code>, <code>else if &lt;expression&gt;</code></h3>
+<p>The general syntax is:</p>
+<pre><code>{{
+if &lt;expression&gt;
+  ...
+else if &lt;expression&gt;
+  ...
+else 
+  ...
+end
+}}
+</code></pre>
+<p>An <code>if</code> statement must be closed by an <code>end</code> or followed by a <code>else</code> or <code>else if</code> statement. An <code>else</code> or <code>else if</code> statement must be followed by a <code>else</code>, <code>else if</code> or closed by an <code>end</code> statement.</p>
+<p>An expression evaluated for a <code>if</code> or <code>else if</code> will be converted to a boolean.</p>
+<h4 id="truthy-and-falsy">Truthy and Falsy</h4>
+<p>By default, only the <code>null</code> and boolean <code>false</code> are considered as <code>false</code> when evaluated as booleans.</p>
+<p>The following values are used for converting literals to boolean:</p>
+<ul>
+<li><code>0 -&gt; true</code></li>
+<li><code>1 -&gt; true</code> or any non zero value</li>
+<li><strong><code>null -&gt; false</code></strong></li>
+<li><strong><code>false -&gt; false</code></strong></li>
+<li><code>non_null_object -&gt; true</code></li>
+<li><code>&quot;&quot; -&gt; true</code> An empty string returns <strong>true</strong></li>
+<li><code>&quot;foo&quot; -&gt; true</code></li>
+</ul>
+<p>Example testing a page object:</p>
+<p><code>{{ if page }}Page is not null{{ else }}Page is null!{{ end }}</code></p>
+<h3 id="94-case-and-when">9.4 <code>case</code> and <code>when</code></h3>
+<p>This is the equivalent of <code>switch</code> statement in C#, a selection statement that chooses a single switch section to execute from a list of candidates based on a value matching.</p>
+<ul>
+<li><code>case &lt;expression&gt;</code> opens a switch with an expression</li>
+<li><code>when &lt;match&gt;</code> allows to match with the specified expression and the case expression
+<ul>
+<li><code>when</code> can also be used with multiple values separated by <code>,</code> or <code>||</code></li>
+</ul>
+</li>
+<li>A final <code>else</code> can be used to as a default handler in case nothing matched.</li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{
+    x = 5
+    case x
+      when 1, 2, 3
+          &quot;Value is 1 or 2 or 3&quot;
+      when 5
+          &quot;Value is 5&quot;
+      else
+          &quot;Value is &quot; + x
+    end
+}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">Value is 5
+</code></pre>
+<h3 id="95-loops">9.5 Loops</h3>
+<h4 id="for-variable-in-expression--end"><code>for &lt;variable&gt; in &lt;expression&gt; ... end</code></h4>
+<pre><code>{{for &lt;variable&gt; in &lt;expression&gt;}} 
+  ... 
+{{end}}
+</code></pre>
+<p>The expression can be an array or a range iterator:</p>
+<ul>
+<li><p>Loop on an array: <code>{{ for page in pages }}This is the page {{ page.title }}{{ end }}</code></p>
+</li>
+<li><p>Loop on a range: <code>{{ for x in 1..n }}This is the loop step [{{x}}]{{ end }}</code></p>
+</li>
+</ul>
+<p>The for loop (along with the <code>tablerow</code> statement below) supports additional parameters, <code>offset</code>, <code>limit</code> and <code>reversed</code> that can also be used togethers:</p>
+<h5 id="the-offset-parameter">The <code>offset</code> parameter</h5>
+<p>Allows to start the iteration of the loop at the specified zero-based index:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{~ for $i in (4..9) offset:2 ~}}
+ {{ $i }}
+{{~ end ~}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">6
+7
+8
+9
+</code></pre>
+<h5 id="the-limit-parameter">The <code>limit</code> parameter</h5>
+<p>Limits the iteration of the loop to a specified count:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{~ for $i in (4..9) limit:2 ~}}
+ {{ $i }}
+{{~ end ~}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">4
+5
+</code></pre>
+<h5 id="the-reversed-parameter">The <code>reversed</code> parameter</h5>
+<p>Reverses the iteration of the elements:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">{{~ for $i in (1..3) reversed ~}}
+ {{ $i }}
+{{~ end ~}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">3
+2
+1
+</code></pre>
+<h4 id="while-expression--end"><code>while &lt;expression&gt; ... end</code></h4>
+<pre><code>{{while &lt;expression&gt;}}
+  ...
+{{end}}
+</code></pre>
+<p>Like the <code>if</code> statement, the <code>expression</code> is evaluated to a boolean.</p>
+<h4 id="tablerow-variable-in-expression--end"><code>tablerow &lt;variable&gt; in &lt;expression&gt; ... end</code></h4>
+<p>This function generates HTML rows compatible with an HTML table. Must be wrapped in an opening <code>&lt;table&gt;</code> and closing <code>&lt;/table&gt;</code> HTML tags.</p>
+<p>This statement is mainly for compatibility reason with the liquid <code>tablerow</code> tag.
+It uses similar syntax to a <code>for</code> statement (supporting the same parameters).</p>
+<pre><code>{{tablerow &lt;variable&gt; in &lt;expression&gt;}} 
+  ... 
+{{end}}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">&lt;table&gt;
+  {{~ tablerow $p in products | array.sort &quot;title&quot; -}}
+    {{ $p.title -}}
+  {{ end ~}}
+&lt;/table&gt;
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">&lt;table&gt;
+&lt;tr class=&quot;row1&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Apple&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;row2&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Banana&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;row3&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Computer&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;row4&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Mobile Phone&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;row5&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Orange&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;row6&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Sofa&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;row7&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Table&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<h5 id="the-cols-parameter">The <code>cols</code> parameter</h5>
+<p>Defines the number of columns to output:</p>
+<blockquote class="blockquote">
+<p><strong>input</strong></p>
+</blockquote>
+<pre><code class="language-scriban-html">&lt;table&gt;
+  {{~ tablerow $p in (products | array.sort &quot;title&quot;) limit: 4 cols: 2 -}}
+    {{ $p.title -}}
+  {{ end ~}}
+&lt;/table&gt;
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>output</strong></p>
+</blockquote>
+<pre><code class="language-html">&lt;table&gt;
+&lt;tr class=&quot;row1&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Apple&lt;/td&gt;&lt;td class=&quot;col2&quot;&gt;Banana&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;row2&quot;&gt;&lt;td class=&quot;col1&quot;&gt;Computer&lt;/td&gt;&lt;td class=&quot;col2&quot;&gt;Mobile Phone&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<h4 id="special-loop-variables">Special loop variables</h4>
+<p>The following variables are accessible within a <code>for</code> block:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{{for.index}}</code></td>
+<td>The current <code>index</code> of the for loop</td>
+</tr>
+<tr>
+<td><code>{{for.rindex}}</code></td>
+<td>The current <code>index</code> of the for loop starting from the end of the list</td>
+</tr>
+<tr>
+<td><code>{{for.first}}</code></td>
+<td>A boolean indicating whether this is the first step in the loop</td>
+</tr>
+<tr>
+<td><code>{{for.last}}</code></td>
+<td>A boolean indicating whether this is the last step in the loop</td>
+</tr>
+<tr>
+<td><code>{{for.even}}</code></td>
+<td>A boolean indicating whether this is an even row in the loop</td>
+</tr>
+<tr>
+<td><code>{{for.odd}}</code></td>
+<td>A boolean indicating whether this is an odd row in the loop</td>
+</tr>
+<tr>
+<td><code>{{for.changed}}</code></td>
+<td>A boolean indicating whether a current value of this iteration changed from previous step</td>
+</tr>
+</tbody>
+</table>
+<p>Within a <code>while</code> statement, the following variables can be used:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{{while.index}}</code></td>
+<td>The current <code>index</code> of the while loop</td>
+</tr>
+<tr>
+<td><code>{{while.first}}</code></td>
+<td>A boolean indicating whether this is the first step in the loop</td>
+</tr>
+<tr>
+<td><code>{{while.even}}</code></td>
+<td>A boolean indicating whether this is an even row in the loop</td>
+</tr>
+<tr>
+<td><code>{{while.odd}}</code></td>
+<td>A boolean indicating whether this is an odd row in the loop</td>
+</tr>
+</tbody>
+</table>
+<h4 id="break-and-continue"><code>break</code> and <code>continue</code></h4>
+<p>The <code>break</code> statement allows to early exit a loop</p>
+<pre><code>{{ for i in 1..5
+  if i &gt; 2
+    break
+  end
+end }}
+</code></pre>
+<p>The <code>continue</code> statement allows to skip the rest of a loop and continue on the next step</p>
+<pre><code>{{ for i in 1..5
+  if i == 2
+    continue
+  end
+}}
+[{{i}}]] step 
+{{ end }}
+</code></pre>
+<p>Will output:</p>
+<pre><code>[1] step
+[3] step
+[4] step
+[5] step
+</code></pre>
+<h3 id="96-capture-variable--end">9.6 <code>capture &lt;variable&gt; ... end</code></h3>
+<p>The <code>capture &lt;variable&gt; ... end</code> statement allows to capture the template output to a variable:</p>
+<p>For example the following code:</p>
+<pre><code>{{ capture myvariable }}
+This is the result of a capture {{ date.now }} 
+{{ end }}
+</code></pre>
+<p>will set <code>myvariable = &quot;This is the result of a capture 06 Jan 2016\n&quot;</code></p>
+<h3 id="97-readonly-variable">9.7 <code>readonly &lt;variable&gt;</code></h3>
+<p>The <code>readonly</code> statement prevents a variable for subsequent assignments:</p>
+<pre><code>{{ x = 1 }}
+{{ readonly x }}
+{{ x = 2 }} &lt;- this will result in a runtime error 
+</code></pre>
+<h3 id="98-import-variable_path">9.8 <code>import &lt;variable_path&gt;</code></h3>
+<p>The <code>import &lt;variable_path&gt;</code> statement allows to import the members of an object as variables of the current bound:</p>
+<pre><code>{{ 
+  myobject = { member1: &quot;yes&quot; }
+  import myobject
+  member1  # will print the &quot;yes&quot; string to the output
+}}
+</code></pre>
+<p>Note that <code>readonly</code> variables won't be override.</p>
+<h3 id="99-with-variable--end">9.9 <code>with &lt;variable&gt; ... end</code></h3>
+<p>The <code>with &lt;variable&gt; ... end</code> statement opens a new object/global context with the passed variable. Unprefixed assignments write to the passed object, even if an outer context contains a variable with the same name. Variables declared outside the <code>with</code> block are still readable from inside the block when the current object does not contain a member with that name.</p>
+<pre><code>myobject = {}
+with myobject
+  member1 = &quot;yes&quot;
+end
+</code></pre>
+<h3 id="910-wrap-function-arg1argn--end">9.10 <code>wrap &lt;function&gt; &lt;arg1...argn&gt; ... end</code></h3>
+<p>Pass a block of statements to a function that will be able to evaluate it using the special variable <code>$$</code></p>
+<pre><code>{{
+func wrapped
+	for $i in 1..&lt;$0
+		$$   # This special variable evaluates the block pass 
+             # to the wrap statement
+	end
+end
+
+wrap wrapped 5
+	$i + &quot; -&gt; This is inside the wrap!\r\n&quot;
+end
+}}
+</code></pre>
+<p>will output:</p>
+<pre><code>1 -&gt; This is inside the wrap!
+2 -&gt; This is inside the wrap!
+3 -&gt; This is inside the wrap!
+4 -&gt; This is inside the wrap!
+</code></pre>
+<h3 id="911-include-name-arg1argn-and-include_join-names-separator-begin-end">9.11 <code>include &lt;name&gt; arg1?...argn?</code> and <code>include_join &lt;names&gt; &lt;separator&gt; &lt;begin?&gt; &lt;end?&gt;</code></h3>
+<p><code>include</code> is not a statement but rather a function that allows you to parse and render a specified template. To use this function, set a template loader on <a href="/runtime/includes#include-and-itemplateloader"><code>TemplateContext.TemplateLoader</code></a> before rendering the template.</p>
+<pre><code>include 'myinclude.html'
+x = include 'myinclude.html'
+x + &quot; modified&quot;
+</code></pre>
+<p>assuming that <code>myinclude.html</code> is</p>
+<pre><code>{{ y = y + 1 ~}}
+This is a string with the value {{ y }}
+</code></pre>
+<p>will output:</p>
+<pre><code>This is a string with the value 1
+This is a string with the value 2 modified
+</code></pre>
+<p><code>include_join</code> also exists to allow rendering multiple templates with a separator and begin/end delimiters. This function has the same requirement as <code>include</code>. The separator and begin/end delimiters also support templates by prefixing their name with <code>tpl:</code></p>
+<p>usage exemple 1</p>
+<pre><code>include_join ['myinclude1.html', 'myinclude2.html', 'myinclude3.html'] '&lt;br/&gt;' 'tpl:begin.html' 'tpl:end.html'  
+</code></pre>
+<p>This would output all templates separated by an html new line and the whole result would be prefixed with begin.html template and suffixed by end.html template.</p>
+<p>usage exemple 2</p>
+<pre><code>include_join ['myinclude1.html', 'myinclude2.html', 'myinclude3.html'] 'tpl:separator.html' '&lt;div&gt;' '&lt;/div&gt;'  
+</code></pre>
+<p>This would output all templates separated by the template separator.html encapsulated in a div block.</p>
+<p>Note</p>
+<p>If the result of the separated templates is empty, the prefix and suffix will not be output.
+The result of this function can also be stored in a variable.</p>
+<h3 id="912-ret-expression">9.12 <code>ret &lt;expression&gt;?</code></h3>
+<p>The return statement is used to early exit from a top-level/include page or a function.</p>
+<pre><code>This is a text
+{{~ ret ~}}
+This text will not appear
+</code></pre>
+<p>will output:</p>
+<pre><code>This is a text
+</code></pre>
+
+      </div>
+  </div>
+</div>
+
+        </section>
+        <footer>
+          <hr>
+          <p>Copyright &copy; 2026, Alexandre Mutel aka <a href="https://xoofx.github.io">xoofx</a> - Content licensed under the Creative Commons <a href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a> | Site generated by <a href="https://github.com/lunet-io/lunet">lunet</a> hosted on <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>

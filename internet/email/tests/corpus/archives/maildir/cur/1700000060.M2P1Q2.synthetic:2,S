@@ -1,0 +1,7 @@
+From: Seen Maildir Sender <seen@example.org>
+To: Maildir Reader <reader@example.net>
+Date: Tue, 14 Nov 2023 22:14:20 +0000
+Message-ID: <maildir-seen@example.org>
+Subject: Seen Maildir message
+
+Synthetic seen-message body.

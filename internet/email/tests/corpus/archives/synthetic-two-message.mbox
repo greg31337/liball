@@ -1,0 +1,21 @@
+From sender@example.com Tue Nov 14 22:13:20 2023
+From: Sender One <sender@example.com>
+To: Archive Reader <reader@example.net>
+Date: Tue, 14 Nov 2023 22:13:20 +0000
+Message-ID: <mbox-one@example.com>
+Subject: First archived message
+
+First archived body.
+>From this body line was escaped by mboxrd.
+
+From sender@example.org Tue Nov 14 22:14:20 2023
+From: Sender Two <sender@example.org>
+To: Archive Reader <reader@example.net>
+Date: Tue, 14 Nov 2023 22:14:20 +0000
+Message-ID: <mbox-two@example.org>
+Subject: Second archived message
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Second archived body with café.

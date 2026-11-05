@@ -1,0 +1,109 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.x.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# X IDs
+
+> Understand 64-bit Snowflake IDs in the X API for Posts and users, including format, ordering, ID inflation, and safe handling in JavaScript clients.
+
+Every object in the X API—posts, users, lists, DMs, spaces—has a unique ID. Understanding how these IDs work helps you build reliable integrations.
+
+***
+
+## ID format
+
+X IDs are **64-bit unsigned integers** generated using a system called "Snowflake." Each ID encodes:
+
+* **Timestamp** — When the object was created
+* **Worker number** — Which server generated the ID
+* **Sequence number** — Order within that millisecond
+
+This means IDs are roughly time-ordered: higher IDs generally represent newer objects.
+
+<Tip>
+  IDs are globally unique across all of X, not just within a single object type.
+</Tip>
+
+***
+
+## String vs. integer representation
+
+<Warning>
+  **Always use string IDs in your code.** Some programming languages (like JavaScript) can't accurately represent 64-bit integers.
+</Warning>
+
+In JavaScript, integers are limited to 53 bits. This causes precision loss with large IDs:
+
+```javascript theme={null}
+// This loses precision!
+const id = 10765432100123456789;
+console.log(id.toString()); // "10765432100123458000" — wrong!
+
+// Use strings instead
+const id = "10765432100123456789";
+console.log(id); // "10765432100123456789" — correct!
+```
+
+### API versions
+
+| Version        | ID format                                                               |
+| :------------- | :---------------------------------------------------------------------- |
+| **X API v2**   | IDs are returned as strings by default                                  |
+| **X API v1.1** | Returns both `id` (integer) and `id_str` (string) — always use `id_str` |
+
+***
+
+## Working with IDs
+
+### Storing IDs
+
+Store IDs as strings or 64-bit integers in your database:
+
+| Database   | Recommended type                        |
+| :--------- | :-------------------------------------- |
+| PostgreSQL | `BIGINT` or `TEXT`                      |
+| MySQL      | `BIGINT UNSIGNED` or `VARCHAR(20)`      |
+| MongoDB    | String                                  |
+| SQLite     | `TEXT` (SQLite integers max at 63 bits) |
+
+### Comparing IDs
+
+When comparing IDs for chronological ordering:
+
+```python theme={null}
+# Python - safe for 64-bit integers
+if int(id1) > int(id2):
+    print("id1 is newer")
+
+# JavaScript - compare as strings (lexicographically works for same-length IDs)
+# Or use BigInt
+if (BigInt(id1) > BigInt(id2)) {
+    console.log("id1 is newer");
+}
+```
+
+***
+
+## Common ID types
+
+| Object       | Example ID            | Notes                              |
+| :----------- | :-------------------- | :--------------------------------- |
+| Post (Tweet) | `1234567890123456789` | Also called Tweet ID               |
+| User         | `2244994945`          | Older accounts have shorter IDs    |
+| List         | `1234567890`          |                                    |
+| Space        | `1YqGodQbNXDxv`       | Alphanumeric, not Snowflake format |
+| DM Event     | `1234567890123456789` |                                    |
+
+***
+
+## Related resources
+
+<CardGroup cols={2}>
+  <Card title="Data Dictionary" icon="https://mintcdn.com/x-preview/Vn2KEkZaPF9LiPi3/icons/xds/icon-book.svg?fit=max&auto=format&n=Vn2KEkZaPF9LiPi3&q=85&s=22ac564792481d14ae36a941546039c8" href="/x-api/fundamentals/data-dictionary" width="24" height="24" data-path="icons/xds/icon-book.svg">
+    See ID fields for each object type.
+  </Card>
+
+  <Card title="Post Lookup" icon="https://mintcdn.com/x-preview/cfyQtgCdwk8p69aa/icons/xds/icon-search.svg?fit=max&auto=format&n=cfyQtgCdwk8p69aa&q=85&s=8c11ad89387b7c09ced1553d5c232834" href="/x-api/posts/lookup/introduction" width="24" height="24" data-path="icons/xds/icon-search.svg">
+    Retrieve posts by ID.
+  </Card>
+</CardGroup>

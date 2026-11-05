@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/xlsx.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/xlsx.Tests.csproj" />
+  </Folder>
+</Solution>

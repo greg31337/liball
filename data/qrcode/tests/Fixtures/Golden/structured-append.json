@@ -1,0 +1,15 @@
+{
+  "id": "three-part-ascii",
+  "part_vector_ids": [
+    "structured-append-3-part-1",
+    "structured-append-3-part-2",
+    "structured-append-3-part-3"
+  ],
+  "part_payloads_utf8": [
+    "STRUCTURED-",
+    "APPEND-",
+    "VECTOR"
+  ],
+  "reassembled_payload_utf8": "STRUCTURED-APPEND-VECTOR",
+  "parity": 6
+}

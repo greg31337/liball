@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/jmap.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/jmap.Tests.csproj" />
+  </Folder>
+</Solution>

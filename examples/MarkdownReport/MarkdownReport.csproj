@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../text/markdown/src/markdown.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head id="head">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/doc/ruamel.yaml/highlight.css">
+    <link rel="stylesheet" type="text/css" href="/doc/ruamel.yaml/style.css">
+    <link rel="stylesheet" type="text/css" href="/doc/ruamel.yaml/layout.css">
+  </head>
+  <body>
+    <div class="body">
+      <div class="nav">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/doc/ruamel.yaml/">ruamel.yaml</a>
+        <div id="nav">
+            <div id="nav"><ul><li><a href="/doc/ruamel.yaml/overview/#top">Overview</a></li><li><a href="/doc/ruamel.yaml/install/#top">Installing</a></li><li><a href="/doc/ruamel.yaml/basicuse/#top">Basic Usage</a></li><li><a href="/doc/ruamel.yaml/dumpcls/#top">Working with Python classes</a></li><li><a href="/doc/ruamel.yaml/detail/#top">Details</a><ul><li><a href="/doc/ruamel.yaml/detail/#Indentation_of_block_sequences">Indentation of block sequences</a></li><li><a href="/doc/ruamel.yaml/detail/#Positioning_____in_top_level_mappings,_prefixing____">Positioning ‘:’ in top level mappings, prefixing ‘:’</a></li><li><a href="/doc/ruamel.yaml/detail/#Config_file_formats">Config file formats</a></li><li><a href="/doc/ruamel.yaml/detail/#Extending">Extending</a></li><li><a href="/doc/ruamel.yaml/detail/#Smartening">Smartening</a></li></ul></li><li><a href="/doc/ruamel.yaml/example/#top">Examples</a></li><li><a href="/doc/ruamel.yaml/cve/#top">Processing unchecked input.</a></li><li><a href="/doc/ruamel.yaml/api/#top">Departure from previous API</a></li><li><a href="/doc/ruamel.yaml/pyyaml/#top">Differences with PyYAML</a></li><li><a href="/doc/ruamel.yaml/contributing/#top">Contributing</a></li></ul></div>
+        </div>
+      </div>
+      <div id="content" class="content">
+        <div id="content"><h1 id="top">Details</h1><ul><li>support for simple lists as mapping keys by transforming these to tuples</li><li><code>!!omap</code> generates ordereddict (C) on Python 2, collections.OrderedDict on Python 3, and <code>!!omap</code> is generated for these types.</li><li>Tests whether the C yaml library is installed as well as the header files. That library doesn't generate CommentTokens, so it cannot be used to do round trip editing on comments. It can be used to speed up normal processing (so you don't need to install <code>ruamel.yaml</code> and <code>PyYaml</code>). See the section <em>Optional requirements</em>.</li><li>Basic support for multiline strings with preserved newlines and chomping ( '<code>|</code>', '<code>|+</code>', '<code>|-</code>' ). As this subclasses the string type the information is lost on reassignment. (This might be changed in the future so that the preservation/folding/chomping is part of the parent container, like comments).</li><li>anchors names that are hand-crafted (not of the form<code>idNNN</code>) are preserved</li><li><a href="http://yaml.org/type/merge.html" target="_blank">merges</a> in dictionaries are preserved</li><li>adding/replacing comments on block-style sequences and mappings with smart column positioning</li><li>collection objects (when read in via RoundTripParser) have an <code>lc</code> property that contains line and column info <code>lc.line</code> and <code>lc.col</code>. Individual positions for mappings and sequences can also be retrieved (<code>lc.key(&apos;a&apos;)</code>, <code>lc.value(&apos;a&apos;)</code> resp. <code>lc.item(3)</code>)</li><li>preservation of whitelines after block scalars. Contributed by Sam Thursfield.</li></ul><p><em>In the following examples it is assumed you have done something like:</em></p><pre><code class="python"><span class="keyword">from</span> <span class="constructor constant variable">ruamel</span>.<span class="constructor constant variable">yaml</span> <span class="keyword">import</span> <span class="constructor constant variable">YAML</span>
+<span class="constructor constant variable">yaml</span> <span class="operator">=</span> <span class="constructor function_builtin constant variable function">YAML</span>()
+</code></pre>
+<p><em>if not explicitly specified.</em></p><h2 id="Indentation_of_block_sequences">Indentation of block sequences</h2><p>Although ruamel.yaml doesn't preserve individual indentations of block sequence items, it does dump:</p><pre><code class="yaml"><span class="string property">x</span><span class="punctuation_delimiter">:</span>
+<span class="punctuation_delimiter">-</span> <span class="string property">b</span><span class="punctuation_delimiter">:</span> <span class="number">1</span>
+<span class="punctuation_delimiter">-</span> <span class="number">2</span>
+</code></pre>
+<p>back to:</p><pre><code class="yaml"><span class="string property">x</span><span class="punctuation_delimiter">:</span>
+<span class="punctuation_delimiter">-</span>   <span class="string property">b</span><span class="punctuation_delimiter">:</span> <span class="number">1</span>
+<span class="punctuation_delimiter">-</span>   <span class="number">2</span>
+</code></pre>
+<p>if you specify <code>yaml.indent(sequence=4)</code> (indentation is counted to the beginning of the sequence element).</p><p>PyYAML (and older versions of ruamel.yaml) gives you non-indented scalars (when specifying default_flow_style=False):</p><pre><code class="yaml"><span class="string property">x</span><span class="punctuation_delimiter">:</span>
+<span class="punctuation_delimiter">-</span>   <span class="string property">b</span><span class="punctuation_delimiter">:</span> <span class="number">1</span>
+<span class="punctuation_delimiter">-</span> <span class="number">2</span>
+</code></pre>
+<p>You can use <code>mapping=4</code> to also have the mappings values indented. The dump also observes an additional <code>offset=2</code> setting that can be used to push the dash inwards, <em>within the space defined by</em> <code>sequence</code>.</p><p>The above example with the often seen <code>yaml.indent(mapping=2, sequence=4, offset=2)</code> indentation:</p><pre><code class="yaml"><span class="string property">x</span><span class="punctuation_delimiter">:</span>
+  <span class="string property">y</span><span class="punctuation_delimiter">:</span>
+    <span class="punctuation_delimiter">-</span> <span class="string property">b</span><span class="punctuation_delimiter">:</span> <span class="number">1</span>
+    <span class="punctuation_delimiter">-</span> <span class="number">2</span>
+</code></pre>
+<p>The defaults are as if you specified <code>yaml.indent(mapping=2, sequence=2, offset=0)</code>.</p><p>If the <code>offset</code> equals <code>sequence</code>, there is not enough room for the dash and the space that has to follow it. In that case the element itself would normally be pushed to the next line (and older versions of <code>ruamel.yaml</code> did so). But this is prevented from happening. However the <code>indent</code> level is what is used for calculating the cumulative indent for deeper levels and specifying <code>sequence=3</code> resp. <code>offset=2</code>, might give correct, but counter-intuitive results.</p><p><strong>It is best to always have</strong> <code>sequence &gt;= offset + 2</code> <strong>but this is not enforced</strong>. Depending on your structure, not following this advice <strong>might lead to invalid output</strong>.</p><h3 id="Inconsistently_indented_YAML">Inconsistently indented YAML</h3><p>If your input is inconsistently indented, such indentation cannot be preserved. The first round-trip will make it consistent/normalize it. Here are some inconsistently indented YAML examples.</p><p><code>b</code> indented 3, <code>c</code> indented 4 positions:</p><pre><code class="yaml"><span class="string property">a</span><span class="punctuation_delimiter">:</span>
+   <span class="string property">b</span><span class="punctuation_delimiter">:</span>
+       <span class="string property">c</span><span class="punctuation_delimiter">:</span> <span class="number">1</span>
+</code></pre>
+<p>Top level sequence is indented 2 without offset, the other sequence 4 (with offset 2):</p><pre><code class="yaml"><span class="punctuation_delimiter">-</span> <span class="string property">key</span><span class="punctuation_delimiter">:</span>
+    <span class="punctuation_delimiter">-</span> <span class="string">foo</span>
+    <span class="punctuation_delimiter">-</span> <span class="string">bar</span>
+</code></pre>
+<h3 id="Indenting_using_`typ=_safe_`">Indenting using <code>typ=&quot;safe&quot;</code></h3><p>The C based emitter doesn’t have the fine control, distinguishing between block mappings and sequences. Do only use the <code>pure</code> Python versions of the dumper if you want to have that sort of control.</p><h2 id="Positioning_____in_top_level_mappings,_prefixing____">Positioning ‘:’ in top level mappings, prefixing ‘:’</h2><p>If you want your toplevel mappings to look like:</p><pre><code class="yaml"><span class="string property">library version</span><span class="punctuation_delimiter">:</span> <span class="number">1</span>
+<span class="string property">comment</span>        <span class="punctuation_delimiter">:</span> <span class="string punctuation_delimiter">|</span><span class="string">
+    this is just a first try
+</span></code></pre>
+<p>then set <code>yaml.top_level_colon_align = True</code> (and <code>yaml.indent = 4</code>). <code>True</code> causes calculation based on the longest key, but you can also explicitly set a number.</p><p>If you want an extra space between a mapping key and the colon specify <code>yaml.prefix_colon = &apos; &apos;</code>:</p><pre><code class="yaml"><span class="punctuation_delimiter">-</span> <span class="string property">https://myurl/abc.tar.xz</span> <span class="punctuation_delimiter">:</span> <span class="number">23445</span>
+<span class="comment">#      extra space here --^</span>
+<span class="punctuation_delimiter">-</span> <span class="string property">https://myurl/def.tar.xz</span> <span class="punctuation_delimiter">:</span> <span class="number">944</span>
+</code></pre>
+<p>If you combine <code>prefix_colon</code> with <code>top_level_colon_align</code>, the top level mapping doesn't get the extra prefix. If you want that anyway, specify <code>yaml.top_level_colon_align = 12</code> where <code>12</code> has to be an integer that is one more than length of the widest key.</p><h3 id="Document_version_support">Document version support</h3><p>In YAML a document version can be explicitly set by using:</p><pre><code>%YAML 1.x
+</code></pre><p>before the document start (at the top or before a <code>---</code>). For <code>ruamel.yaml</code> x has to be 1 or 2. If no explicit version is set <a href="http://www.yaml.org/spec/1.2/spec.html" target="_blank">version 1.2</a> is assumed (which has been released in 2009).</p><p>The 1.2 version does <strong>not</strong> support:</p><ul><li>sexagesimals like <code>12:34:56</code></li><li>octals that start with 0 only: like <code>012</code> for number 10 (<code>0o12</code> <strong>is</strong> supported by YAML 1.2)</li><li>Unquoted <code>Yes</code> and <code>On</code> as alternatives for <code>True</code>, resp. <code>No</code> and <code>Off</code> for <code>False</code>.</li></ul><p>If you cannot change your YAML files and you need them to load as 1.1 you can load with <code>yaml.version = (1, 1)</code>, or the equivalent (version can be a tuple, list or string) <code>yaml.version = &quot;1.1&quot;</code></p><p><em>If you cannot change your code, stick with ruamel.yaml==0.10.23 and let me know if it would help to be able to set an environment variable.</em></p><p>This does not affect dump as ruamel.yaml never emitted sexagesimals, nor octal numbers, and emitted booleans always as true resp. false</p><h3 id="Round_trip_including_comments">Round trip including comments</h3><p>The major motivation for this fork is the round-trip capability for comments. The integration of the sources was just an initial step to make this easier.</p><h4 id="adding/replacing_comments">adding/replacing comments</h4><p>Starting with version 0.8, you can add/replace comments on block style collections (mappings/sequences resuting in Python dict/list). The basic for for this is:</p><pre><code class="python"><span class="keyword">from</span> __future__ <span class="keyword">import</span> <span class="constructor constant variable">print_function</span>
+
+<span class="keyword">import</span> <span class="constructor constant variable">sys</span>
+<span class="keyword">import</span> <span class="constructor constant variable">ruamel</span>.<span class="constructor constant variable">yaml</span>
+
+<span class="constructor constant variable">yaml</span> <span class="operator">=</span> <span class="constructor constant variable">ruamel</span>.<span class="constructor property constant variable">yaml</span>.<span class="constructor property constant function_method variable">YAML</span>()  <span class="comment"># defaults to round-trip</span>
+
+<span class="constructor constant variable">inp</span> <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span><span class="string escape">\
+</span><span class="string">abc:
+  - a     # comment 1
+xyz:
+  a: 1    # comment 2
+  b: 2
+  c: 3
+  d: 4
+  e: 5
+  f: 6 # comment 3
+&quot;&quot;&quot;</span>
+
+<span class="constructor constant variable">data</span> <span class="operator">=</span> <span class="constructor constant variable">yaml</span>.<span class="constructor property constant function_method variable">load</span>(<span class="constructor constant variable">inp</span>)
+<span class="constructor constant variable">data</span>[<span class="string">&apos;abc&apos;</span>].<span class="constructor property constant function_method variable">append</span>(<span class="string">&apos;b&apos;</span>)
+<span class="constructor constant variable">data</span>[<span class="string">&apos;abc&apos;</span>].<span class="constructor property constant function_method variable">yaml_add_eol_comment</span>(<span class="string">&apos;comment 4&apos;</span>, <span class="number">1</span>)  <span class="comment"># takes column of comment 1</span>
+<span class="constructor constant variable">data</span>[<span class="string">&apos;xyz&apos;</span>].<span class="constructor property constant function_method variable">yaml_add_eol_comment</span>(<span class="string">&apos;comment 5&apos;</span>, <span class="string">&apos;c&apos;</span>)  <span class="comment"># takes column of comment 2</span>
+<span class="constructor constant variable">data</span>[<span class="string">&apos;xyz&apos;</span>].<span class="constructor property constant function_method variable">yaml_add_eol_comment</span>(<span class="string">&apos;comment 6&apos;</span>, <span class="string">&apos;e&apos;</span>)  <span class="comment"># takes column of comment 3</span>
+<span class="constructor constant variable">data</span>[<span class="string">&apos;xyz&apos;</span>].<span class="constructor property constant function_method variable">yaml_add_eol_comment</span>(<span class="string">&apos;comment 7</span><span class="string escape">\n</span><span class="string escape">\n</span><span class="string"># that</span><span class="string escape">\&apos;</span><span class="string">s all folks&apos;</span>, <span class="string">&apos;d&apos;</span>, <span class="constructor constant variable">column</span><span class="operator">=</span><span class="number">20</span>)
+
+<span class="constructor constant variable">yaml</span>.<span class="constructor property constant function_method variable">dump</span>(<span class="constructor constant variable">data</span>, <span class="constructor constant variable">sys</span>.<span class="constructor property constant variable">stdout</span>)
+</code></pre>
+<p>Resulting in:</p><pre><code class="yaml"><span class="string property">abc</span><span class="punctuation_delimiter">:</span>
+<span class="punctuation_delimiter">-</span> <span class="string">a</span>       <span class="comment"># comment 1</span>
+<span class="punctuation_delimiter">-</span> <span class="string">b</span>       <span class="comment"># comment 4</span>
+<span class="string property">xyz</span><span class="punctuation_delimiter">:</span>
+  <span class="string property">a</span><span class="punctuation_delimiter">:</span> <span class="number">1</span>    <span class="comment"># comment 2</span>
+  <span class="string property">b</span><span class="punctuation_delimiter">:</span> <span class="number">2</span>
+  <span class="string property">c</span><span class="punctuation_delimiter">:</span> <span class="number">3</span>    <span class="comment"># comment 5</span>
+  <span class="string property">d</span><span class="punctuation_delimiter">:</span> <span class="number">4</span>              <span class="comment"># comment 7</span>
+
+<span class="comment"># that&apos;s all folks</span>
+  <span class="string property">e</span><span class="punctuation_delimiter">:</span> <span class="number">5</span> <span class="comment"># comment 6</span>
+  <span class="string property">f</span><span class="punctuation_delimiter">:</span> <span class="number">6</span> <span class="comment"># comment 3</span>
+</code></pre>
+<p>If the comment doesn't start with '#', this will be added. The key is the element index for list, the actual key for dictionaries. As can be seen from the example, the column to choose for a comment is derived from the previous, next or preceding comment column (picking the first one found).</p><p>Make sure that the added comment is correct, in the sense that when it contains newlines, the following is either an empty line or a line with only spaces, or the first non-space is a <code>#</code>.</p><h2 id="Config_file_formats">Config file formats</h2><p>There are only a few configuration file formats that are easily readable and editable: JSON, INI/ConfigParser, YAML (XML is to cluttered to be called easily readable).</p><p>Unfortunately <a href="http://www.json.org/" target="_blank">JSON</a> doesn't support comments, and although there are some solutions with pre-processed filtering of comments, there are no libraries that support round trip updating of such commented files.</p><p>INI files support comments, and the excellent <a href="http://www.voidspace.org.uk/python/configobj.html" target="_blank">ConfigObj</a> library by Foord and Larosa even supports round trip editing with comment preservation, nesting of sections and limited lists (within a value). Retrieval of particular value format is explicit (and extensible).</p><p>YAML has basic mapping and sequence structures as well as support for ordered mappings and sets. It supports scalars various types including dates and datetimes (missing in JSON). YAML has comments, but these are normally thrown away.</p><p>Block structured YAML is a clean and very human readable format. By extending the Python YAML parser to support round trip preservation of comments, it makes YAML a very good choice for configuration files that are human readable and editable while at the same time interpretable and modifiable by a program.</p><h2 id="Extending">Extending</h2><p>There are normally six files involved when extending the roundtrip capabilities: the reader, parser, composer and constructor to go from YAML to Python and the resolver, representer, serializer and emitter to go the other way.</p><p>Extending involves keeping extra data around for the next process step, eventuallly resulting in a different Python object (subclass or alternative), that should behave like the original, but on the way from Python to YAML generates the original (or at least something much closer).</p><h2 id="Smartening">Smartening</h2><p>When you use round-tripping, then the complex data you get are already subclasses of the built-in types. So you can patch in extra methods or override existing ones. Some methods are already included and you can do:</p><pre><code class="python"><span class="constructor constant variable">yaml_str</span> <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span><span class="string escape">\
+</span><span class="string">a:
+- b:
+  c: 42
+- d:
+    f: 196
+  e:
+    g: 3.14
+&quot;&quot;&quot;</span>
+
+<span class="constructor constant variable">data</span> <span class="operator">=</span> <span class="constructor constant variable">yaml</span>.<span class="constructor property constant function_method variable">load</span>(<span class="constructor constant variable">yaml_str</span>)
+
+<span class="keyword">assert</span> <span class="constructor constant variable">data</span>.<span class="constructor property constant function_method variable">mlget</span>([<span class="string">&apos;a&apos;</span>, <span class="number">1</span>, <span class="string">&apos;d&apos;</span>, <span class="string">&apos;f&apos;</span>], <span class="constructor constant variable">list_ok</span><span class="operator">=</span><span class="constant_builtin">True</span>) <span class="operator">==</span> <span class="number">196</span>
+</code></pre>
+<p><a href="/doc/ruamel.yaml/dumpcls/#top">Prev</a>  <a href="/doc/ruamel.yaml/example/#top">Next</a></p></div>
+      </div>
+    </div>
+  </body>
+</html>

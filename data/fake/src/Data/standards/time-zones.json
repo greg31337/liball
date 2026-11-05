@@ -1,0 +1,2511 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "source": {
+    "name": "IANA Time Zone Database zone1970.tab",
+    "url": "https://data.iana.org/time-zones/tzdb/zone1970.tab",
+    "version": "upstream annotation 2025-05-15",
+    "retrievedOn": "2026-08-14",
+    "license": "public-domain",
+    "snapshot": "specs/iana-time-zones-zone1970.tab",
+    "snapshotSha256": "77b5e45415fa684fcc42de3421a6b0f15cc9b2c137f258083850346e8f76eea8"
+  },
+  "records": [
+    {
+      "countryCodes": [
+        "AD"
+      ],
+      "coordinates": "+4230+00131",
+      "zone": "Europe/Andorra"
+    },
+    {
+      "countryCodes": [
+        "AE",
+        "OM",
+        "RE",
+        "SC",
+        "TF"
+      ],
+      "coordinates": "+2518+05518",
+      "zone": "Asia/Dubai",
+      "comment": "Crozet"
+    },
+    {
+      "countryCodes": [
+        "AF"
+      ],
+      "coordinates": "+3431+06912",
+      "zone": "Asia/Kabul"
+    },
+    {
+      "countryCodes": [
+        "AL"
+      ],
+      "coordinates": "+4120+01950",
+      "zone": "Europe/Tirane"
+    },
+    {
+      "countryCodes": [
+        "AM"
+      ],
+      "coordinates": "+4011+04430",
+      "zone": "Asia/Yerevan"
+    },
+    {
+      "countryCodes": [
+        "AQ"
+      ],
+      "coordinates": "-6617+11031",
+      "zone": "Antarctica/Casey",
+      "comment": "Casey"
+    },
+    {
+      "countryCodes": [
+        "AQ"
+      ],
+      "coordinates": "-6835+07758",
+      "zone": "Antarctica/Davis",
+      "comment": "Davis"
+    },
+    {
+      "countryCodes": [
+        "AQ"
+      ],
+      "coordinates": "-6736+06253",
+      "zone": "Antarctica/Mawson",
+      "comment": "Mawson"
+    },
+    {
+      "countryCodes": [
+        "AQ"
+      ],
+      "coordinates": "-6448-06406",
+      "zone": "Antarctica/Palmer",
+      "comment": "Palmer"
+    },
+    {
+      "countryCodes": [
+        "AQ"
+      ],
+      "coordinates": "-6734-06808",
+      "zone": "Antarctica/Rothera",
+      "comment": "Rothera"
+    },
+    {
+      "countryCodes": [
+        "AQ"
+      ],
+      "coordinates": "-720041+0023206",
+      "zone": "Antarctica/Troll",
+      "comment": "Troll"
+    },
+    {
+      "countryCodes": [
+        "AQ"
+      ],
+      "coordinates": "-7824+10654",
+      "zone": "Antarctica/Vostok",
+      "comment": "Vostok"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-3436-05827",
+      "zone": "America/Argentina/Buenos_Aires",
+      "comment": "Buenos Aires (BA, CF)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-3124-06411",
+      "zone": "America/Argentina/Cordoba",
+      "comment": "most areas: CB, CC, CN, ER, FM, MN, SE, SF"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-2447-06525",
+      "zone": "America/Argentina/Salta",
+      "comment": "Salta (SA, LP, NQ, RN)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-2411-06518",
+      "zone": "America/Argentina/Jujuy",
+      "comment": "Jujuy (JY)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-2649-06513",
+      "zone": "America/Argentina/Tucuman",
+      "comment": "Tucumán (TM)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-2828-06547",
+      "zone": "America/Argentina/Catamarca",
+      "comment": "Catamarca (CT), Chubut (CH)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-2926-06651",
+      "zone": "America/Argentina/La_Rioja",
+      "comment": "La Rioja (LR)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-3132-06831",
+      "zone": "America/Argentina/San_Juan",
+      "comment": "San Juan (SJ)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-3253-06849",
+      "zone": "America/Argentina/Mendoza",
+      "comment": "Mendoza (MZ)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-3319-06621",
+      "zone": "America/Argentina/San_Luis",
+      "comment": "San Luis (SL)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-5138-06913",
+      "zone": "America/Argentina/Rio_Gallegos",
+      "comment": "Santa Cruz (SC)"
+    },
+    {
+      "countryCodes": [
+        "AR"
+      ],
+      "coordinates": "-5448-06818",
+      "zone": "America/Argentina/Ushuaia",
+      "comment": "Tierra del Fuego (TF)"
+    },
+    {
+      "countryCodes": [
+        "AS",
+        "UM"
+      ],
+      "coordinates": "-1416-17042",
+      "zone": "Pacific/Pago_Pago",
+      "comment": "Midway"
+    },
+    {
+      "countryCodes": [
+        "AT"
+      ],
+      "coordinates": "+4813+01620",
+      "zone": "Europe/Vienna"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-3133+15905",
+      "zone": "Australia/Lord_Howe",
+      "comment": "Lord Howe Island"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-5430+15857",
+      "zone": "Antarctica/Macquarie",
+      "comment": "Macquarie Island"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-4253+14719",
+      "zone": "Australia/Hobart",
+      "comment": "Tasmania"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-3749+14458",
+      "zone": "Australia/Melbourne",
+      "comment": "Victoria"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-3352+15113",
+      "zone": "Australia/Sydney",
+      "comment": "New South Wales (most areas)"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-3157+14127",
+      "zone": "Australia/Broken_Hill",
+      "comment": "New South Wales (Yancowinna)"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-2728+15302",
+      "zone": "Australia/Brisbane",
+      "comment": "Queensland (most areas)"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-2016+14900",
+      "zone": "Australia/Lindeman",
+      "comment": "Queensland (Whitsunday Islands)"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-3455+13835",
+      "zone": "Australia/Adelaide",
+      "comment": "South Australia"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-1228+13050",
+      "zone": "Australia/Darwin",
+      "comment": "Northern Territory"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-3157+11551",
+      "zone": "Australia/Perth",
+      "comment": "Western Australia (most areas)"
+    },
+    {
+      "countryCodes": [
+        "AU"
+      ],
+      "coordinates": "-3143+12852",
+      "zone": "Australia/Eucla",
+      "comment": "Western Australia (Eucla)"
+    },
+    {
+      "countryCodes": [
+        "AZ"
+      ],
+      "coordinates": "+4023+04951",
+      "zone": "Asia/Baku"
+    },
+    {
+      "countryCodes": [
+        "BB"
+      ],
+      "coordinates": "+1306-05937",
+      "zone": "America/Barbados"
+    },
+    {
+      "countryCodes": [
+        "BD"
+      ],
+      "coordinates": "+2343+09025",
+      "zone": "Asia/Dhaka"
+    },
+    {
+      "countryCodes": [
+        "BE",
+        "LU",
+        "NL"
+      ],
+      "coordinates": "+5050+00420",
+      "zone": "Europe/Brussels"
+    },
+    {
+      "countryCodes": [
+        "BG"
+      ],
+      "coordinates": "+4241+02319",
+      "zone": "Europe/Sofia"
+    },
+    {
+      "countryCodes": [
+        "BM"
+      ],
+      "coordinates": "+3217-06446",
+      "zone": "Atlantic/Bermuda"
+    },
+    {
+      "countryCodes": [
+        "BO"
+      ],
+      "coordinates": "-1630-06809",
+      "zone": "America/La_Paz"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0351-03225",
+      "zone": "America/Noronha",
+      "comment": "Atlantic islands"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0127-04829",
+      "zone": "America/Belem",
+      "comment": "Pará (east), Amapá"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0343-03830",
+      "zone": "America/Fortaleza",
+      "comment": "Brazil (northeast: MA, PI, CE, RN, PB)"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0803-03454",
+      "zone": "America/Recife",
+      "comment": "Pernambuco"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0712-04812",
+      "zone": "America/Araguaina",
+      "comment": "Tocantins"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0940-03543",
+      "zone": "America/Maceio",
+      "comment": "Alagoas, Sergipe"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-1259-03831",
+      "zone": "America/Bahia",
+      "comment": "Bahia"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-2332-04637",
+      "zone": "America/Sao_Paulo",
+      "comment": "Brazil (southeast: GO, DF, MG, ES, RJ, SP, PR, SC, RS)"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-2027-05437",
+      "zone": "America/Campo_Grande",
+      "comment": "Mato Grosso do Sul"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-1535-05605",
+      "zone": "America/Cuiaba",
+      "comment": "Mato Grosso"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0226-05452",
+      "zone": "America/Santarem",
+      "comment": "Pará (west)"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0846-06354",
+      "zone": "America/Porto_Velho",
+      "comment": "Rondônia"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "+0249-06040",
+      "zone": "America/Boa_Vista",
+      "comment": "Roraima"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0308-06001",
+      "zone": "America/Manaus",
+      "comment": "Amazonas (east)"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0640-06952",
+      "zone": "America/Eirunepe",
+      "comment": "Amazonas (west)"
+    },
+    {
+      "countryCodes": [
+        "BR"
+      ],
+      "coordinates": "-0958-06748",
+      "zone": "America/Rio_Branco",
+      "comment": "Acre"
+    },
+    {
+      "countryCodes": [
+        "BT"
+      ],
+      "coordinates": "+2728+08939",
+      "zone": "Asia/Thimphu"
+    },
+    {
+      "countryCodes": [
+        "BY"
+      ],
+      "coordinates": "+5354+02734",
+      "zone": "Europe/Minsk"
+    },
+    {
+      "countryCodes": [
+        "BZ"
+      ],
+      "coordinates": "+1730-08812",
+      "zone": "America/Belize"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+4734-05243",
+      "zone": "America/St_Johns",
+      "comment": "Newfoundland, Labrador (SE)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+4439-06336",
+      "zone": "America/Halifax",
+      "comment": "Atlantic - NS (most areas), PE"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+4612-05957",
+      "zone": "America/Glace_Bay",
+      "comment": "Atlantic - NS (Cape Breton)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+4606-06447",
+      "zone": "America/Moncton",
+      "comment": "Atlantic - New Brunswick"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+5320-06025",
+      "zone": "America/Goose_Bay",
+      "comment": "Atlantic - Labrador (most areas)"
+    },
+    {
+      "countryCodes": [
+        "CA",
+        "BS"
+      ],
+      "coordinates": "+4339-07923",
+      "zone": "America/Toronto",
+      "comment": "Eastern - ON & QC (most areas)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+6344-06828",
+      "zone": "America/Iqaluit",
+      "comment": "Eastern - NU (most areas)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+4953-09709",
+      "zone": "America/Winnipeg",
+      "comment": "Central - ON (west), Manitoba"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+744144-0944945",
+      "zone": "America/Resolute",
+      "comment": "Central - NU (Resolute)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+624900-0920459",
+      "zone": "America/Rankin_Inlet",
+      "comment": "Central - NU (central)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+5024-10439",
+      "zone": "America/Regina",
+      "comment": "CST - SK (most areas)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+5017-10750",
+      "zone": "America/Swift_Current",
+      "comment": "CST - SK (midwest)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+5333-11328",
+      "zone": "America/Edmonton",
+      "comment": "CST - AB, BC(E), NT(E), SK(W)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+690650-1050310",
+      "zone": "America/Cambridge_Bay",
+      "comment": "Mountain - NU (west)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+682059-1334300",
+      "zone": "America/Inuvik",
+      "comment": "Mountain - NT (west)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+4916-12307",
+      "zone": "America/Vancouver",
+      "comment": "MST - BC (most areas)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+5546-12014",
+      "zone": "America/Dawson_Creek",
+      "comment": "MST - BC (Dawson Cr, Ft St John)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+5848-12242",
+      "zone": "America/Fort_Nelson",
+      "comment": "MST - BC (Ft Nelson)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+6043-13503",
+      "zone": "America/Whitehorse",
+      "comment": "MST - Yukon (east)"
+    },
+    {
+      "countryCodes": [
+        "CA"
+      ],
+      "coordinates": "+6404-13925",
+      "zone": "America/Dawson",
+      "comment": "MST - Yukon (west)"
+    },
+    {
+      "countryCodes": [
+        "CH",
+        "DE",
+        "LI"
+      ],
+      "coordinates": "+4723+00832",
+      "zone": "Europe/Zurich",
+      "comment": "Büsingen"
+    },
+    {
+      "countryCodes": [
+        "CI",
+        "BF",
+        "GH",
+        "GM",
+        "GN",
+        "IS",
+        "ML",
+        "MR",
+        "SH",
+        "SL",
+        "SN",
+        "TG"
+      ],
+      "coordinates": "+0519-00402",
+      "zone": "Africa/Abidjan"
+    },
+    {
+      "countryCodes": [
+        "CK"
+      ],
+      "coordinates": "-2114-15946",
+      "zone": "Pacific/Rarotonga"
+    },
+    {
+      "countryCodes": [
+        "CL"
+      ],
+      "coordinates": "-3327-07040",
+      "zone": "America/Santiago",
+      "comment": "most of Chile"
+    },
+    {
+      "countryCodes": [
+        "CL"
+      ],
+      "coordinates": "-4534-07204",
+      "zone": "America/Coyhaique",
+      "comment": "Aysén Region"
+    },
+    {
+      "countryCodes": [
+        "CL"
+      ],
+      "coordinates": "-5309-07055",
+      "zone": "America/Punta_Arenas",
+      "comment": "Magallanes Region"
+    },
+    {
+      "countryCodes": [
+        "CL"
+      ],
+      "coordinates": "-2709-10926",
+      "zone": "Pacific/Easter",
+      "comment": "Easter Island"
+    },
+    {
+      "countryCodes": [
+        "CN"
+      ],
+      "coordinates": "+3114+12128",
+      "zone": "Asia/Shanghai",
+      "comment": "Beijing Time"
+    },
+    {
+      "countryCodes": [
+        "CN"
+      ],
+      "coordinates": "+4348+08735",
+      "zone": "Asia/Urumqi",
+      "comment": "Xinjiang Time"
+    },
+    {
+      "countryCodes": [
+        "CO"
+      ],
+      "coordinates": "+0436-07405",
+      "zone": "America/Bogota"
+    },
+    {
+      "countryCodes": [
+        "CR"
+      ],
+      "coordinates": "+0956-08405",
+      "zone": "America/Costa_Rica"
+    },
+    {
+      "countryCodes": [
+        "CU"
+      ],
+      "coordinates": "+2308-08222",
+      "zone": "America/Havana"
+    },
+    {
+      "countryCodes": [
+        "CV"
+      ],
+      "coordinates": "+1455-02331",
+      "zone": "Atlantic/Cape_Verde"
+    },
+    {
+      "countryCodes": [
+        "CY"
+      ],
+      "coordinates": "+3510+03322",
+      "zone": "Asia/Nicosia",
+      "comment": "most of Cyprus"
+    },
+    {
+      "countryCodes": [
+        "CY"
+      ],
+      "coordinates": "+3507+03357",
+      "zone": "Asia/Famagusta",
+      "comment": "Northern Cyprus"
+    },
+    {
+      "countryCodes": [
+        "CZ",
+        "SK"
+      ],
+      "coordinates": "+5005+01426",
+      "zone": "Europe/Prague"
+    },
+    {
+      "countryCodes": [
+        "DE",
+        "DK",
+        "NO",
+        "SE",
+        "SJ"
+      ],
+      "coordinates": "+5230+01322",
+      "zone": "Europe/Berlin",
+      "comment": "most of Germany"
+    },
+    {
+      "countryCodes": [
+        "DO"
+      ],
+      "coordinates": "+1828-06954",
+      "zone": "America/Santo_Domingo"
+    },
+    {
+      "countryCodes": [
+        "DZ"
+      ],
+      "coordinates": "+3647+00303",
+      "zone": "Africa/Algiers"
+    },
+    {
+      "countryCodes": [
+        "EC"
+      ],
+      "coordinates": "-0210-07950",
+      "zone": "America/Guayaquil",
+      "comment": "Ecuador (mainland)"
+    },
+    {
+      "countryCodes": [
+        "EC"
+      ],
+      "coordinates": "-0054-08936",
+      "zone": "Pacific/Galapagos",
+      "comment": "Galápagos Islands"
+    },
+    {
+      "countryCodes": [
+        "EE"
+      ],
+      "coordinates": "+5925+02445",
+      "zone": "Europe/Tallinn"
+    },
+    {
+      "countryCodes": [
+        "EG"
+      ],
+      "coordinates": "+3003+03115",
+      "zone": "Africa/Cairo"
+    },
+    {
+      "countryCodes": [
+        "EH"
+      ],
+      "coordinates": "+2709-01312",
+      "zone": "Africa/El_Aaiun"
+    },
+    {
+      "countryCodes": [
+        "ES"
+      ],
+      "coordinates": "+4024-00341",
+      "zone": "Europe/Madrid",
+      "comment": "Spain (mainland)"
+    },
+    {
+      "countryCodes": [
+        "ES"
+      ],
+      "coordinates": "+3553-00519",
+      "zone": "Africa/Ceuta",
+      "comment": "Ceuta, Melilla"
+    },
+    {
+      "countryCodes": [
+        "ES"
+      ],
+      "coordinates": "+2806-01524",
+      "zone": "Atlantic/Canary",
+      "comment": "Canary Islands"
+    },
+    {
+      "countryCodes": [
+        "FI",
+        "AX"
+      ],
+      "coordinates": "+6010+02458",
+      "zone": "Europe/Helsinki"
+    },
+    {
+      "countryCodes": [
+        "FJ"
+      ],
+      "coordinates": "-1808+17825",
+      "zone": "Pacific/Fiji"
+    },
+    {
+      "countryCodes": [
+        "FK"
+      ],
+      "coordinates": "-5142-05751",
+      "zone": "Atlantic/Stanley"
+    },
+    {
+      "countryCodes": [
+        "FM"
+      ],
+      "coordinates": "+0519+16259",
+      "zone": "Pacific/Kosrae",
+      "comment": "Kosrae"
+    },
+    {
+      "countryCodes": [
+        "FO"
+      ],
+      "coordinates": "+6201-00646",
+      "zone": "Atlantic/Faroe"
+    },
+    {
+      "countryCodes": [
+        "FR",
+        "MC"
+      ],
+      "coordinates": "+4852+00220",
+      "zone": "Europe/Paris"
+    },
+    {
+      "countryCodes": [
+        "GB",
+        "GG",
+        "IM",
+        "JE"
+      ],
+      "coordinates": "+513030-0000731",
+      "zone": "Europe/London"
+    },
+    {
+      "countryCodes": [
+        "GE"
+      ],
+      "coordinates": "+4143+04449",
+      "zone": "Asia/Tbilisi"
+    },
+    {
+      "countryCodes": [
+        "GF"
+      ],
+      "coordinates": "+0456-05220",
+      "zone": "America/Cayenne"
+    },
+    {
+      "countryCodes": [
+        "GI"
+      ],
+      "coordinates": "+3608-00521",
+      "zone": "Europe/Gibraltar"
+    },
+    {
+      "countryCodes": [
+        "GL"
+      ],
+      "coordinates": "+6411-05144",
+      "zone": "America/Nuuk",
+      "comment": "most of Greenland"
+    },
+    {
+      "countryCodes": [
+        "GL"
+      ],
+      "coordinates": "+7646-01840",
+      "zone": "America/Danmarkshavn",
+      "comment": "National Park (east coast)"
+    },
+    {
+      "countryCodes": [
+        "GL"
+      ],
+      "coordinates": "+7029-02158",
+      "zone": "America/Scoresbysund",
+      "comment": "Scoresbysund/Ittoqqortoormiit"
+    },
+    {
+      "countryCodes": [
+        "GL"
+      ],
+      "coordinates": "+7634-06847",
+      "zone": "America/Thule",
+      "comment": "Thule/Pituffik"
+    },
+    {
+      "countryCodes": [
+        "GR"
+      ],
+      "coordinates": "+3758+02343",
+      "zone": "Europe/Athens"
+    },
+    {
+      "countryCodes": [
+        "GS"
+      ],
+      "coordinates": "-5416-03632",
+      "zone": "Atlantic/South_Georgia"
+    },
+    {
+      "countryCodes": [
+        "GT"
+      ],
+      "coordinates": "+1438-09031",
+      "zone": "America/Guatemala"
+    },
+    {
+      "countryCodes": [
+        "GU",
+        "MP"
+      ],
+      "coordinates": "+1328+14445",
+      "zone": "Pacific/Guam"
+    },
+    {
+      "countryCodes": [
+        "GW"
+      ],
+      "coordinates": "+1151-01535",
+      "zone": "Africa/Bissau"
+    },
+    {
+      "countryCodes": [
+        "GY"
+      ],
+      "coordinates": "+0648-05810",
+      "zone": "America/Guyana"
+    },
+    {
+      "countryCodes": [
+        "HK"
+      ],
+      "coordinates": "+2217+11409",
+      "zone": "Asia/Hong_Kong"
+    },
+    {
+      "countryCodes": [
+        "HN"
+      ],
+      "coordinates": "+1406-08713",
+      "zone": "America/Tegucigalpa"
+    },
+    {
+      "countryCodes": [
+        "HT"
+      ],
+      "coordinates": "+1832-07220",
+      "zone": "America/Port-au-Prince"
+    },
+    {
+      "countryCodes": [
+        "HU"
+      ],
+      "coordinates": "+4730+01905",
+      "zone": "Europe/Budapest"
+    },
+    {
+      "countryCodes": [
+        "ID"
+      ],
+      "coordinates": "-0610+10648",
+      "zone": "Asia/Jakarta",
+      "comment": "Java, Sumatra"
+    },
+    {
+      "countryCodes": [
+        "ID"
+      ],
+      "coordinates": "-0002+10920",
+      "zone": "Asia/Pontianak",
+      "comment": "Borneo (west, central)"
+    },
+    {
+      "countryCodes": [
+        "ID"
+      ],
+      "coordinates": "-0507+11924",
+      "zone": "Asia/Makassar",
+      "comment": "Borneo (east, south), Sulawesi/Celebes, Bali, Nusa Tengarra, Timor (west)"
+    },
+    {
+      "countryCodes": [
+        "ID"
+      ],
+      "coordinates": "-0232+14042",
+      "zone": "Asia/Jayapura",
+      "comment": "New Guinea (West Papua / Irian Jaya), Malukus/Moluccas"
+    },
+    {
+      "countryCodes": [
+        "IE"
+      ],
+      "coordinates": "+5320-00615",
+      "zone": "Europe/Dublin"
+    },
+    {
+      "countryCodes": [
+        "IL"
+      ],
+      "coordinates": "+314650+0351326",
+      "zone": "Asia/Jerusalem"
+    },
+    {
+      "countryCodes": [
+        "IN"
+      ],
+      "coordinates": "+2232+08822",
+      "zone": "Asia/Kolkata"
+    },
+    {
+      "countryCodes": [
+        "IO"
+      ],
+      "coordinates": "-0720+07225",
+      "zone": "Indian/Chagos"
+    },
+    {
+      "countryCodes": [
+        "IQ"
+      ],
+      "coordinates": "+3321+04425",
+      "zone": "Asia/Baghdad"
+    },
+    {
+      "countryCodes": [
+        "IR"
+      ],
+      "coordinates": "+3540+05126",
+      "zone": "Asia/Tehran"
+    },
+    {
+      "countryCodes": [
+        "IT",
+        "SM",
+        "VA"
+      ],
+      "coordinates": "+4154+01229",
+      "zone": "Europe/Rome"
+    },
+    {
+      "countryCodes": [
+        "JM"
+      ],
+      "coordinates": "+175805-0764736",
+      "zone": "America/Jamaica"
+    },
+    {
+      "countryCodes": [
+        "JO"
+      ],
+      "coordinates": "+3157+03556",
+      "zone": "Asia/Amman"
+    },
+    {
+      "countryCodes": [
+        "JP",
+        "AU"
+      ],
+      "coordinates": "+353916+1394441",
+      "zone": "Asia/Tokyo",
+      "comment": "Eyre Bird Observatory"
+    },
+    {
+      "countryCodes": [
+        "KE",
+        "DJ",
+        "ER",
+        "ET",
+        "KM",
+        "MG",
+        "SO",
+        "TZ",
+        "UG",
+        "YT"
+      ],
+      "coordinates": "-0117+03649",
+      "zone": "Africa/Nairobi"
+    },
+    {
+      "countryCodes": [
+        "KG"
+      ],
+      "coordinates": "+4254+07436",
+      "zone": "Asia/Bishkek"
+    },
+    {
+      "countryCodes": [
+        "KI",
+        "MH",
+        "TV",
+        "UM",
+        "WF"
+      ],
+      "coordinates": "+0125+17300",
+      "zone": "Pacific/Tarawa",
+      "comment": "Gilberts, Marshalls, Wake"
+    },
+    {
+      "countryCodes": [
+        "KI"
+      ],
+      "coordinates": "-0247-17143",
+      "zone": "Pacific/Kanton",
+      "comment": "Phoenix Islands"
+    },
+    {
+      "countryCodes": [
+        "KI"
+      ],
+      "coordinates": "+0152-15720",
+      "zone": "Pacific/Kiritimati",
+      "comment": "Line Islands"
+    },
+    {
+      "countryCodes": [
+        "KP"
+      ],
+      "coordinates": "+3901+12545",
+      "zone": "Asia/Pyongyang"
+    },
+    {
+      "countryCodes": [
+        "KR"
+      ],
+      "coordinates": "+3733+12658",
+      "zone": "Asia/Seoul"
+    },
+    {
+      "countryCodes": [
+        "KZ"
+      ],
+      "coordinates": "+4315+07657",
+      "zone": "Asia/Almaty",
+      "comment": "most of Kazakhstan"
+    },
+    {
+      "countryCodes": [
+        "KZ"
+      ],
+      "coordinates": "+4448+06528",
+      "zone": "Asia/Qyzylorda",
+      "comment": "Qyzylorda/Kyzylorda/Kzyl-Orda"
+    },
+    {
+      "countryCodes": [
+        "KZ"
+      ],
+      "coordinates": "+5312+06337",
+      "zone": "Asia/Qostanay",
+      "comment": "Qostanay/Kostanay/Kustanay"
+    },
+    {
+      "countryCodes": [
+        "KZ"
+      ],
+      "coordinates": "+5017+05710",
+      "zone": "Asia/Aqtobe",
+      "comment": "Aqtöbe/Aktobe"
+    },
+    {
+      "countryCodes": [
+        "KZ"
+      ],
+      "coordinates": "+4431+05016",
+      "zone": "Asia/Aqtau",
+      "comment": "Mangghystaū/Mankistau"
+    },
+    {
+      "countryCodes": [
+        "KZ"
+      ],
+      "coordinates": "+4707+05156",
+      "zone": "Asia/Atyrau",
+      "comment": "Atyraū/Atirau/Gur’yev"
+    },
+    {
+      "countryCodes": [
+        "KZ"
+      ],
+      "coordinates": "+5113+05121",
+      "zone": "Asia/Oral",
+      "comment": "West Kazakhstan"
+    },
+    {
+      "countryCodes": [
+        "LB"
+      ],
+      "coordinates": "+3353+03530",
+      "zone": "Asia/Beirut"
+    },
+    {
+      "countryCodes": [
+        "LK"
+      ],
+      "coordinates": "+0656+07951",
+      "zone": "Asia/Colombo"
+    },
+    {
+      "countryCodes": [
+        "LR"
+      ],
+      "coordinates": "+0618-01047",
+      "zone": "Africa/Monrovia"
+    },
+    {
+      "countryCodes": [
+        "LT"
+      ],
+      "coordinates": "+5441+02519",
+      "zone": "Europe/Vilnius"
+    },
+    {
+      "countryCodes": [
+        "LV"
+      ],
+      "coordinates": "+5657+02406",
+      "zone": "Europe/Riga"
+    },
+    {
+      "countryCodes": [
+        "LY"
+      ],
+      "coordinates": "+3254+01311",
+      "zone": "Africa/Tripoli"
+    },
+    {
+      "countryCodes": [
+        "MA"
+      ],
+      "coordinates": "+3339-00735",
+      "zone": "Africa/Casablanca"
+    },
+    {
+      "countryCodes": [
+        "MD"
+      ],
+      "coordinates": "+4700+02850",
+      "zone": "Europe/Chisinau"
+    },
+    {
+      "countryCodes": [
+        "MH"
+      ],
+      "coordinates": "+0905+16720",
+      "zone": "Pacific/Kwajalein",
+      "comment": "Kwajalein"
+    },
+    {
+      "countryCodes": [
+        "MM",
+        "CC"
+      ],
+      "coordinates": "+1647+09610",
+      "zone": "Asia/Yangon"
+    },
+    {
+      "countryCodes": [
+        "MN"
+      ],
+      "coordinates": "+4755+10653",
+      "zone": "Asia/Ulaanbaatar",
+      "comment": "most of Mongolia"
+    },
+    {
+      "countryCodes": [
+        "MN"
+      ],
+      "coordinates": "+4801+09139",
+      "zone": "Asia/Hovd",
+      "comment": "Bayan-Ölgii, Hovd, Uvs"
+    },
+    {
+      "countryCodes": [
+        "MO"
+      ],
+      "coordinates": "+221150+1133230",
+      "zone": "Asia/Macau"
+    },
+    {
+      "countryCodes": [
+        "MQ"
+      ],
+      "coordinates": "+1436-06105",
+      "zone": "America/Martinique"
+    },
+    {
+      "countryCodes": [
+        "MT"
+      ],
+      "coordinates": "+3554+01431",
+      "zone": "Europe/Malta"
+    },
+    {
+      "countryCodes": [
+        "MU"
+      ],
+      "coordinates": "-2010+05730",
+      "zone": "Indian/Mauritius"
+    },
+    {
+      "countryCodes": [
+        "MV",
+        "TF"
+      ],
+      "coordinates": "+0410+07330",
+      "zone": "Indian/Maldives",
+      "comment": "Kerguelen, St Paul I, Amsterdam I"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+1924-09909",
+      "zone": "America/Mexico_City",
+      "comment": "Central Mexico"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2105-08646",
+      "zone": "America/Cancun",
+      "comment": "Quintana Roo"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2058-08937",
+      "zone": "America/Merida",
+      "comment": "Campeche, Yucatán"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2540-10019",
+      "zone": "America/Monterrey",
+      "comment": "Durango; Coahuila, Nuevo León, Tamaulipas (most areas)"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2550-09730",
+      "zone": "America/Matamoros",
+      "comment": "Coahuila, Nuevo León, Tamaulipas (US border)"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2838-10605",
+      "zone": "America/Chihuahua",
+      "comment": "Chihuahua (most areas)"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+3144-10629",
+      "zone": "America/Ciudad_Juarez",
+      "comment": "Chihuahua (US border - west)"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2934-10425",
+      "zone": "America/Ojinaga",
+      "comment": "Chihuahua (US border - east)"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2313-10625",
+      "zone": "America/Mazatlan",
+      "comment": "Baja California Sur, Nayarit (most areas), Sinaloa"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2048-10515",
+      "zone": "America/Bahia_Banderas",
+      "comment": "Bahía de Banderas"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+2904-11058",
+      "zone": "America/Hermosillo",
+      "comment": "Sonora"
+    },
+    {
+      "countryCodes": [
+        "MX"
+      ],
+      "coordinates": "+3232-11701",
+      "zone": "America/Tijuana",
+      "comment": "Baja California"
+    },
+    {
+      "countryCodes": [
+        "MY",
+        "BN"
+      ],
+      "coordinates": "+0133+11020",
+      "zone": "Asia/Kuching",
+      "comment": "Sabah, Sarawak"
+    },
+    {
+      "countryCodes": [
+        "MZ",
+        "BI",
+        "BW",
+        "CD",
+        "MW",
+        "RW",
+        "ZM",
+        "ZW"
+      ],
+      "coordinates": "-2558+03235",
+      "zone": "Africa/Maputo",
+      "comment": "Central Africa Time"
+    },
+    {
+      "countryCodes": [
+        "NA"
+      ],
+      "coordinates": "-2234+01706",
+      "zone": "Africa/Windhoek"
+    },
+    {
+      "countryCodes": [
+        "NC"
+      ],
+      "coordinates": "-2216+16627",
+      "zone": "Pacific/Noumea"
+    },
+    {
+      "countryCodes": [
+        "NF"
+      ],
+      "coordinates": "-2903+16758",
+      "zone": "Pacific/Norfolk"
+    },
+    {
+      "countryCodes": [
+        "NG",
+        "AO",
+        "BJ",
+        "CD",
+        "CF",
+        "CG",
+        "CM",
+        "GA",
+        "GQ",
+        "NE"
+      ],
+      "coordinates": "+0627+00324",
+      "zone": "Africa/Lagos",
+      "comment": "West Africa Time"
+    },
+    {
+      "countryCodes": [
+        "NI"
+      ],
+      "coordinates": "+1209-08617",
+      "zone": "America/Managua"
+    },
+    {
+      "countryCodes": [
+        "NP"
+      ],
+      "coordinates": "+2743+08519",
+      "zone": "Asia/Kathmandu"
+    },
+    {
+      "countryCodes": [
+        "NR"
+      ],
+      "coordinates": "-0031+16655",
+      "zone": "Pacific/Nauru"
+    },
+    {
+      "countryCodes": [
+        "NU"
+      ],
+      "coordinates": "-1901-16955",
+      "zone": "Pacific/Niue"
+    },
+    {
+      "countryCodes": [
+        "NZ",
+        "AQ"
+      ],
+      "coordinates": "-3652+17446",
+      "zone": "Pacific/Auckland",
+      "comment": "New Zealand time"
+    },
+    {
+      "countryCodes": [
+        "NZ"
+      ],
+      "coordinates": "-4357-17633",
+      "zone": "Pacific/Chatham",
+      "comment": "Chatham Islands"
+    },
+    {
+      "countryCodes": [
+        "PA",
+        "CA",
+        "KY"
+      ],
+      "coordinates": "+0858-07932",
+      "zone": "America/Panama",
+      "comment": "EST - ON (Atikokan), NU (Coral H)"
+    },
+    {
+      "countryCodes": [
+        "PE"
+      ],
+      "coordinates": "-1203-07703",
+      "zone": "America/Lima"
+    },
+    {
+      "countryCodes": [
+        "PF"
+      ],
+      "coordinates": "-1732-14934",
+      "zone": "Pacific/Tahiti",
+      "comment": "Society Islands"
+    },
+    {
+      "countryCodes": [
+        "PF"
+      ],
+      "coordinates": "-0900-13930",
+      "zone": "Pacific/Marquesas",
+      "comment": "Marquesas Islands"
+    },
+    {
+      "countryCodes": [
+        "PF"
+      ],
+      "coordinates": "-2308-13457",
+      "zone": "Pacific/Gambier",
+      "comment": "Gambier Islands"
+    },
+    {
+      "countryCodes": [
+        "PG",
+        "AQ",
+        "FM"
+      ],
+      "coordinates": "-0930+14710",
+      "zone": "Pacific/Port_Moresby",
+      "comment": "Papua New Guinea (most areas), Chuuk, Yap, Dumont d’Urville"
+    },
+    {
+      "countryCodes": [
+        "PG"
+      ],
+      "coordinates": "-0613+15534",
+      "zone": "Pacific/Bougainville",
+      "comment": "Bougainville"
+    },
+    {
+      "countryCodes": [
+        "PH"
+      ],
+      "coordinates": "+143512+1205804",
+      "zone": "Asia/Manila"
+    },
+    {
+      "countryCodes": [
+        "PK"
+      ],
+      "coordinates": "+2452+06703",
+      "zone": "Asia/Karachi"
+    },
+    {
+      "countryCodes": [
+        "PL"
+      ],
+      "coordinates": "+5215+02100",
+      "zone": "Europe/Warsaw"
+    },
+    {
+      "countryCodes": [
+        "PM"
+      ],
+      "coordinates": "+4703-05620",
+      "zone": "America/Miquelon"
+    },
+    {
+      "countryCodes": [
+        "PN"
+      ],
+      "coordinates": "-2504-13005",
+      "zone": "Pacific/Pitcairn"
+    },
+    {
+      "countryCodes": [
+        "PR",
+        "AG",
+        "CA",
+        "AI",
+        "AW",
+        "BL",
+        "BQ",
+        "CW",
+        "DM",
+        "GD",
+        "GP",
+        "KN",
+        "LC",
+        "MF",
+        "MS",
+        "SX",
+        "TT",
+        "VC",
+        "VG",
+        "VI"
+      ],
+      "coordinates": "+182806-0660622",
+      "zone": "America/Puerto_Rico",
+      "comment": "AST - QC (Lower North Shore)"
+    },
+    {
+      "countryCodes": [
+        "PS"
+      ],
+      "coordinates": "+3130+03428",
+      "zone": "Asia/Gaza",
+      "comment": "Gaza Strip"
+    },
+    {
+      "countryCodes": [
+        "PS"
+      ],
+      "coordinates": "+313200+0350542",
+      "zone": "Asia/Hebron",
+      "comment": "West Bank"
+    },
+    {
+      "countryCodes": [
+        "PT"
+      ],
+      "coordinates": "+3843-00908",
+      "zone": "Europe/Lisbon",
+      "comment": "Portugal (mainland)"
+    },
+    {
+      "countryCodes": [
+        "PT"
+      ],
+      "coordinates": "+3238-01654",
+      "zone": "Atlantic/Madeira",
+      "comment": "Madeira Islands"
+    },
+    {
+      "countryCodes": [
+        "PT"
+      ],
+      "coordinates": "+3744-02540",
+      "zone": "Atlantic/Azores",
+      "comment": "Azores"
+    },
+    {
+      "countryCodes": [
+        "PW"
+      ],
+      "coordinates": "+0720+13429",
+      "zone": "Pacific/Palau"
+    },
+    {
+      "countryCodes": [
+        "PY"
+      ],
+      "coordinates": "-2516-05740",
+      "zone": "America/Asuncion"
+    },
+    {
+      "countryCodes": [
+        "QA",
+        "BH"
+      ],
+      "coordinates": "+2517+05132",
+      "zone": "Asia/Qatar"
+    },
+    {
+      "countryCodes": [
+        "RO"
+      ],
+      "coordinates": "+4426+02606",
+      "zone": "Europe/Bucharest"
+    },
+    {
+      "countryCodes": [
+        "RS",
+        "BA",
+        "HR",
+        "ME",
+        "MK",
+        "SI"
+      ],
+      "coordinates": "+4450+02030",
+      "zone": "Europe/Belgrade"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5443+02030",
+      "zone": "Europe/Kaliningrad",
+      "comment": "MSK-01 - Kaliningrad"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+554521+0373704",
+      "zone": "Europe/Moscow",
+      "comment": "MSK+00 - Moscow area"
+    },
+    {
+      "countryCodes": [
+        "RU",
+        "UA"
+      ],
+      "coordinates": "+4457+03406",
+      "zone": "Europe/Simferopol",
+      "comment": "Crimea"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5836+04939",
+      "zone": "Europe/Kirov",
+      "comment": "MSK+00 - Kirov"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+4844+04425",
+      "zone": "Europe/Volgograd",
+      "comment": "MSK+00 - Volgograd"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+4621+04803",
+      "zone": "Europe/Astrakhan",
+      "comment": "MSK+01 - Astrakhan"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5134+04602",
+      "zone": "Europe/Saratov",
+      "comment": "MSK+01 - Saratov"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5420+04824",
+      "zone": "Europe/Ulyanovsk",
+      "comment": "MSK+01 - Ulyanovsk"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5312+05009",
+      "zone": "Europe/Samara",
+      "comment": "MSK+01 - Samara, Udmurtia"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5651+06036",
+      "zone": "Asia/Yekaterinburg",
+      "comment": "MSK+02 - Urals"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5500+07324",
+      "zone": "Asia/Omsk",
+      "comment": "MSK+03 - Omsk"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5502+08255",
+      "zone": "Asia/Novosibirsk",
+      "comment": "MSK+04 - Novosibirsk"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5322+08345",
+      "zone": "Asia/Barnaul",
+      "comment": "MSK+04 - Altai"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5630+08458",
+      "zone": "Asia/Tomsk",
+      "comment": "MSK+04 - Tomsk"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5345+08707",
+      "zone": "Asia/Novokuznetsk",
+      "comment": "MSK+04 - Kemerovo"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5601+09250",
+      "zone": "Asia/Krasnoyarsk",
+      "comment": "MSK+04 - Krasnoyarsk area"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5216+10420",
+      "zone": "Asia/Irkutsk",
+      "comment": "MSK+05 - Irkutsk, Buryatia"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5203+11328",
+      "zone": "Asia/Chita",
+      "comment": "MSK+06 - Zabaykalsky"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+6200+12940",
+      "zone": "Asia/Yakutsk",
+      "comment": "MSK+06 - Lena River"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+623923+1353314",
+      "zone": "Asia/Khandyga",
+      "comment": "MSK+06 - Tomponsky, Ust-Maysky"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+4310+13156",
+      "zone": "Asia/Vladivostok",
+      "comment": "MSK+07 - Amur River"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+643337+1431336",
+      "zone": "Asia/Ust-Nera",
+      "comment": "MSK+07 - Oymyakonsky"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5934+15048",
+      "zone": "Asia/Magadan",
+      "comment": "MSK+08 - Magadan"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+4658+14242",
+      "zone": "Asia/Sakhalin",
+      "comment": "MSK+08 - Sakhalin Island"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+6728+15343",
+      "zone": "Asia/Srednekolymsk",
+      "comment": "MSK+08 - Sakha (E), N Kuril Is"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+5301+15839",
+      "zone": "Asia/Kamchatka",
+      "comment": "MSK+09 - Kamchatka"
+    },
+    {
+      "countryCodes": [
+        "RU"
+      ],
+      "coordinates": "+6445+17729",
+      "zone": "Asia/Anadyr",
+      "comment": "MSK+09 - Bering Sea"
+    },
+    {
+      "countryCodes": [
+        "SA",
+        "AQ",
+        "KW",
+        "YE"
+      ],
+      "coordinates": "+2438+04643",
+      "zone": "Asia/Riyadh",
+      "comment": "Syowa"
+    },
+    {
+      "countryCodes": [
+        "SB",
+        "FM"
+      ],
+      "coordinates": "-0932+16012",
+      "zone": "Pacific/Guadalcanal",
+      "comment": "Pohnpei"
+    },
+    {
+      "countryCodes": [
+        "SD"
+      ],
+      "coordinates": "+1536+03232",
+      "zone": "Africa/Khartoum"
+    },
+    {
+      "countryCodes": [
+        "SG",
+        "AQ",
+        "MY"
+      ],
+      "coordinates": "+0117+10351",
+      "zone": "Asia/Singapore",
+      "comment": "peninsular Malaysia, Concordia"
+    },
+    {
+      "countryCodes": [
+        "SR"
+      ],
+      "coordinates": "+0550-05510",
+      "zone": "America/Paramaribo"
+    },
+    {
+      "countryCodes": [
+        "SS"
+      ],
+      "coordinates": "+0451+03137",
+      "zone": "Africa/Juba"
+    },
+    {
+      "countryCodes": [
+        "ST"
+      ],
+      "coordinates": "+0020+00644",
+      "zone": "Africa/Sao_Tome"
+    },
+    {
+      "countryCodes": [
+        "SV"
+      ],
+      "coordinates": "+1342-08912",
+      "zone": "America/El_Salvador"
+    },
+    {
+      "countryCodes": [
+        "SY"
+      ],
+      "coordinates": "+3330+03618",
+      "zone": "Asia/Damascus"
+    },
+    {
+      "countryCodes": [
+        "TC"
+      ],
+      "coordinates": "+2128-07108",
+      "zone": "America/Grand_Turk"
+    },
+    {
+      "countryCodes": [
+        "TD"
+      ],
+      "coordinates": "+1207+01503",
+      "zone": "Africa/Ndjamena"
+    },
+    {
+      "countryCodes": [
+        "TH",
+        "CX",
+        "KH",
+        "LA",
+        "VN"
+      ],
+      "coordinates": "+1345+10031",
+      "zone": "Asia/Bangkok",
+      "comment": "north Vietnam"
+    },
+    {
+      "countryCodes": [
+        "TJ"
+      ],
+      "coordinates": "+3835+06848",
+      "zone": "Asia/Dushanbe"
+    },
+    {
+      "countryCodes": [
+        "TK"
+      ],
+      "coordinates": "-0922-17114",
+      "zone": "Pacific/Fakaofo"
+    },
+    {
+      "countryCodes": [
+        "TL"
+      ],
+      "coordinates": "-0833+12535",
+      "zone": "Asia/Dili"
+    },
+    {
+      "countryCodes": [
+        "TM"
+      ],
+      "coordinates": "+3757+05823",
+      "zone": "Asia/Ashgabat"
+    },
+    {
+      "countryCodes": [
+        "TN"
+      ],
+      "coordinates": "+3648+01011",
+      "zone": "Africa/Tunis"
+    },
+    {
+      "countryCodes": [
+        "TO"
+      ],
+      "coordinates": "-210800-1751200",
+      "zone": "Pacific/Tongatapu"
+    },
+    {
+      "countryCodes": [
+        "TR"
+      ],
+      "coordinates": "+4101+02858",
+      "zone": "Europe/Istanbul"
+    },
+    {
+      "countryCodes": [
+        "TW"
+      ],
+      "coordinates": "+2503+12130",
+      "zone": "Asia/Taipei"
+    },
+    {
+      "countryCodes": [
+        "UA"
+      ],
+      "coordinates": "+5026+03031",
+      "zone": "Europe/Kyiv",
+      "comment": "most of Ukraine"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+404251-0740023",
+      "zone": "America/New_York",
+      "comment": "Eastern (most areas)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+421953-0830245",
+      "zone": "America/Detroit",
+      "comment": "Eastern - MI (most areas)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+381515-0854534",
+      "zone": "America/Kentucky/Louisville",
+      "comment": "Eastern - KY (Louisville area)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+364947-0845057",
+      "zone": "America/Kentucky/Monticello",
+      "comment": "Eastern - KY (Wayne)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+394606-0860929",
+      "zone": "America/Indiana/Indianapolis",
+      "comment": "Eastern - IN (most areas)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+384038-0873143",
+      "zone": "America/Indiana/Vincennes",
+      "comment": "Eastern - IN (Da, Du, K, Mn)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+410305-0863611",
+      "zone": "America/Indiana/Winamac",
+      "comment": "Eastern - IN (Pulaski)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+382232-0862041",
+      "zone": "America/Indiana/Marengo",
+      "comment": "Eastern - IN (Crawford)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+382931-0871643",
+      "zone": "America/Indiana/Petersburg",
+      "comment": "Eastern - IN (Pike)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+384452-0850402",
+      "zone": "America/Indiana/Vevay",
+      "comment": "Eastern - IN (Switzerland)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+415100-0873900",
+      "zone": "America/Chicago",
+      "comment": "Central (most areas)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+375711-0864541",
+      "zone": "America/Indiana/Tell_City",
+      "comment": "Central - IN (Perry)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+411745-0863730",
+      "zone": "America/Indiana/Knox",
+      "comment": "Central - IN (Starke)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+450628-0873651",
+      "zone": "America/Menominee",
+      "comment": "Central - MI (Wisconsin border)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+470659-1011757",
+      "zone": "America/North_Dakota/Center",
+      "comment": "Central - ND (Oliver)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+465042-1012439",
+      "zone": "America/North_Dakota/New_Salem",
+      "comment": "Central - ND (Morton rural)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+471551-1014640",
+      "zone": "America/North_Dakota/Beulah",
+      "comment": "Central - ND (Mercer)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+394421-1045903",
+      "zone": "America/Denver",
+      "comment": "Mountain (most areas)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+433649-1161209",
+      "zone": "America/Boise",
+      "comment": "Mountain - ID (south), OR (east)"
+    },
+    {
+      "countryCodes": [
+        "US",
+        "CA"
+      ],
+      "coordinates": "+332654-1120424",
+      "zone": "America/Phoenix",
+      "comment": "MST - AZ (most areas), Creston BC"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+340308-1181434",
+      "zone": "America/Los_Angeles",
+      "comment": "Pacific"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+611305-1495401",
+      "zone": "America/Anchorage",
+      "comment": "Alaska (most areas)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+581807-1342511",
+      "zone": "America/Juneau",
+      "comment": "Alaska - Juneau area"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+571035-1351807",
+      "zone": "America/Sitka",
+      "comment": "Alaska - Sitka area"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+550737-1313435",
+      "zone": "America/Metlakatla",
+      "comment": "Alaska - Annette Island"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+593249-1394338",
+      "zone": "America/Yakutat",
+      "comment": "Alaska - Yakutat"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+643004-1652423",
+      "zone": "America/Nome",
+      "comment": "Alaska (west)"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+515248-1763929",
+      "zone": "America/Adak",
+      "comment": "Alaska - western Aleutians"
+    },
+    {
+      "countryCodes": [
+        "US"
+      ],
+      "coordinates": "+211825-1575130",
+      "zone": "Pacific/Honolulu",
+      "comment": "Hawaii"
+    },
+    {
+      "countryCodes": [
+        "UY"
+      ],
+      "coordinates": "-345433-0561245",
+      "zone": "America/Montevideo"
+    },
+    {
+      "countryCodes": [
+        "UZ"
+      ],
+      "coordinates": "+3940+06648",
+      "zone": "Asia/Samarkand",
+      "comment": "Uzbekistan (west)"
+    },
+    {
+      "countryCodes": [
+        "UZ"
+      ],
+      "coordinates": "+4120+06918",
+      "zone": "Asia/Tashkent",
+      "comment": "Uzbekistan (east)"
+    },
+    {
+      "countryCodes": [
+        "VE"
+      ],
+      "coordinates": "+1030-06656",
+      "zone": "America/Caracas"
+    },
+    {
+      "countryCodes": [
+        "VN"
+      ],
+      "coordinates": "+1045+10640",
+      "zone": "Asia/Ho_Chi_Minh",
+      "comment": "south Vietnam"
+    },
+    {
+      "countryCodes": [
+        "VU"
+      ],
+      "coordinates": "-1740+16825",
+      "zone": "Pacific/Efate"
+    },
+    {
+      "countryCodes": [
+        "WS"
+      ],
+      "coordinates": "-1350-17144",
+      "zone": "Pacific/Apia"
+    },
+    {
+      "countryCodes": [
+        "ZA",
+        "LS",
+        "SZ"
+      ],
+      "coordinates": "-2615+02800",
+      "zone": "Africa/Johannesburg"
+    }
+  ]
+}

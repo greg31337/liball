@@ -1,0 +1,4435 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>ASP.NET Core Razor components | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn how to create and use Razor components in Blazor apps, including guidance on Razor syntax, component naming, namespaces, and component parameters." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-10.0" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="ASP.NET Core Razor components | Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/dotnet/media/dotnet-logo.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="ASP.NET Core Razor components" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-10.0" />
+			<meta property="og:description" content="Learn how to create and use Razor components in Blazor apps, including guidance on Razor syntax, component naming, namespaces, and component parameters." />
+			<meta name="platform_id" content="c9e974ea-47a7-c9e1-cfb3-a42839dac18f" /> <meta name="scope" content="ASP.NET Core" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-AspNet" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/aspnet/core/breadcrumb/toc.json" />
+	
+		<meta name="feedback_system" content="OpenSource" />
+	
+		<meta name="feedback_product_url" content="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md" />
+	
+		<meta name="ms.service" content="aspnet-core" />
+	
+		<meta name="ms.topic" content="concept-article" />
+	
+		<meta name="ms.subservice" content="blazor" />
+	
+		<meta name="ms.update-cycle" content="365-days" />
+	
+		<meta name="ai-usage" content="ai-assisted" />
+	
+		<meta name="author" content="guardrex" />
+	
+		<meta name="monikerRange" content="&gt;= aspnetcore-3.1" />
+	
+		<meta name="ms.author" content="wpickett" />
+	
+		<meta name="ms.date" content="2026-07-14T00:00:00Z" />
+	
+		<meta name="uid" content="blazor/components/index" />
+	
+		<meta name="document_id" content="81a32115-33f8-7d06-aaf0-b8ce918b5527" />
+	
+		<meta name="document_version_independent_id" content="31ad18df-1904-bbdd-cfed-8d0d0267c10e" />
+	
+		<meta name="updated_at" content="2026-08-26T18:03:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/blazor/components/index.md" />
+	
+		<meta name="gitcommit" content="https://github.com/dotnet/AspNetCore.Docs/blob/6c866017b2ee90a82e5cc34ddc9961bd42f9c92c/aspnetcore/blazor/components/index.md" />
+	
+		<meta name="git_commit_id" content="6c866017b2ee90a82e5cc34ddc9961bd42f9c92c" />
+	
+		<meta name="monikers" content="aspnetcore-3.1" />
+	
+		<meta name="monikers" content="aspnetcore-5.0" />
+	
+		<meta name="monikers" content="aspnetcore-6.0" />
+	
+		<meta name="monikers" content="aspnetcore-7.0" />
+	
+		<meta name="monikers" content="aspnetcore-8.0" />
+	
+		<meta name="monikers" content="aspnetcore-9.0" />
+	
+		<meta name="monikers" content="aspnetcore-10.0" />
+	
+		<meta name="monikers" content="aspnetcore-11.0" />
+	
+		<meta name="default_moniker" content="aspnetcore-10.0" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="MSDN.aspnet-core-conceptual" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/MSDN.aspnet-core-conceptual/{branchName}{pdfName}" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="10771" />
+	
+		<meta name="config_moniker_range" content="&gt;= aspnetcore-1.0" />
+	
+		<meta name="asset_id" content="blazor/components/index" />
+	
+		<meta name="moniker_range_name" content="4cfd5c821d66016c0c1ada9451d1ea32" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="aspnetcore/blazor/components/index.md" />
+	
+		<meta name="previous_tlsh_hash" content="294EAE13971D9725BFC15E0B644BFBC011F0C08E65F85B940036BAA7825A3D1B1A456DF7DA32674923B106D20290637D7DD3E7AE507CBBEB159128EA82DC1397A30E2FB6F9" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/components/index.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-10.0&amp;accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/06819054-3d1b-4589-8746-b33c4dc1ebf2" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/d452572f-6212-498f-9050-ca4a9e50a425" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/ae0d1d73-8b86-4e29-9ab4-867b4f9f6186" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/a12e40b7-59a2-4437-96e2-166ce622b864" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03524.8175-9553bcde/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": false,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "OpenSource",
+    "feedbackGitHubRepo": "dotnet/AspNetCore.Docs",
+    "feedbackProductUrl": "https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true,
+    "openSourceFeedbackIssueUrl": "https://github.com/dotnet/aspnetcore.docs/issues/new?template=customer-feedback.yml",
+    "openSourceFeedbackIssueTitle": "",
+    "openSourceFeedbackIssueLabels": "Source - Docs.ms,:watch: Not Triaged"
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03524.8175-9553bcde/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/components/index.md"
+			data-original_content_git_url="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/blazor/components/index.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/aspnetcore/blazor/components/index.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="aspnet-core-razor-components">ASP.NET Core Razor components</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	
+					<div class="content"><div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<div class="NOTE">
+<p>Note</p>
+<p>This isn't the latest version of this article. For the current release, see the <a href="?view=aspnetcore-10.0&amp;preserve-view=true" data-linktype="relative-path">.NET 10 version of this article</a>.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-7.0">
+<div class="WARNING">
+<p>Warning</p>
+<p>This version of ASP.NET Core is no longer supported. For more information, see the <a href="https://dotnet.microsoft.com/platform/support/policy/dotnet-core" data-linktype="external">.NET and .NET Core Support Policy</a>. For the current release, see the <a href="?view=aspnetcore-10.0&amp;preserve-view=true" data-linktype="relative-path">.NET 10 version of this article</a>.</p>
+</div>
+</div>
+<!-- Exclude until .NET 11 preview is added to the version selector collection
+(add triple colon here) moniker range="> aspnetcore-10.0"
+> [!IMPORTANT]
+> This information relates to a pre-release product that may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> For the current release, see the [.NET 10 version of this article](?view=aspnetcore-10.0&preserve-view=true).
+(add triple colon here) moniker-end
+-->
+<!--
+Include either this file or 'not-latest-version-without-not-supported-content.md' at the top 
+of articles.
+
+'not-latest-version.md' (this file): Includes not-supported content.
+'not-latest-version-without-not-supported-content.md': Doesn't include not-supported content.
+
+Use this file in articles that target >=7.0. For articles that target >=8.0 prior to 10.0
+reaching EOL, 'not-latest-version-without-not-supported-content.md' must be used to avoid
+a zone/file moniker range mismatch error.
+
+When a new version is released, it might be necessary to temporarily comment out the current 
+version moniker range section until the new moniker is created.
+
+Markdown to include this file:
+
+[!INCLUDE[](~/includes/not-latest-version.md)]
+-->
+<p>This article explains how to create and use Razor components in Blazor apps, including guidance on Razor syntax, component naming, namespaces, and component parameters.</p>
+<h2 id="razor-components">Razor components</h2>
+<p>Blazor apps are built using <em>Razor components</em>, informally known as <em>Blazor components</em> or only <em>components</em>. A component is a self-contained portion of user interface (UI) with processing logic to enable dynamic behavior. Components can be nested, reused, shared among projects, and used in MVC and Razor Pages apps.</p>
+<p>Components render into an in-memory representation of the browser's <a href="https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction" data-linktype="external">Document Object Model (DOM)</a> called a <em>render tree</em>, which is used to update the UI in a flexible and efficient way.</p>
+<p>Although "Razor components" shares some naming with other ASP.NET Core content-rendering technologies, Razor components must be distinguished from the following different features in ASP.NET Core:</p>
+<ul>
+<li><a href="../../tutorials/first-mvc-app/adding-view?view=aspnetcore-10.0" data-linktype="relative-path">Razor views</a>, which are <a href="../../mvc/views/razor?view=aspnetcore-10.0" data-linktype="relative-path">Razor-based</a> markup pages for MVC apps.</li>
+<li><a href="../../mvc/views/view-components?view=aspnetcore-10.0" data-linktype="relative-path">View components</a>, which are for rendering chunks of content rather than whole responses in Razor Pages and MVC apps.</li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<div class="IMPORTANT">
+<p>Important</p>
+<p>When using a Blazor Web App, most of the Blazor documentation example components <em><strong>require</strong></em> interactivity to function and demonstrate the concepts covered by the articles. <em>Interactivity</em> makes it possible for users to interact with rendered components. This includes app responses to <a href="https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction" data-linktype="external">Document Object Model (DOM)</a> events and state changes tied to C# members via Blazor's event handlers and binding. When you test an example component provided by an article in a Blazor Web App, make sure that either the app adopts global interactivity or the component adopts an interactive render mode. More information on this subject is provided by <a href="render-modes?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor render modes</a>, which is the next article in the table of contents after this article.</p>
+</div>
+</div>
+<h2 id="component-classes">Component classes</h2>
+<p>Components are implemented using a combination of C# and HTML markup in <a href="../../mvc/views/razor?view=aspnetcore-10.0" data-linktype="relative-path">Razor</a> component files with the <code>.razor</code> file extension.</p>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase" class="no-loc" data-linktype="absolute-path">ComponentBase</a> is the base class for components described by Razor component files. <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase" class="no-loc" data-linktype="absolute-path">ComponentBase</a> implements the lowest abstraction of components, the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.icomponent" class="no-loc" data-linktype="absolute-path">IComponent</a> interface. <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase" class="no-loc" data-linktype="absolute-path">ComponentBase</a> defines component properties and methods for basic functionality, for example, to process a set of built-in component lifecycle events.</p>
+<p><a href="https://github.com/dotnet/aspnetcore/blob/main/src/Components/Components/src/ComponentBase.cs" data-linktype="external"><code>ComponentBase</code> in <code>dotnet/aspnetcore</code> reference source</a>: The reference source contains additional remarks on the built-in lifecycle events. However, keep in mind that the internal implementations of component features are subject to change at any time without notice.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Documentation links to .NET reference source usually load the repository's default branch, which represents the current development for the next release of .NET. To select a tag for a specific release, use the <strong>Switch branches or tags</strong> dropdown list. For more information, see <a href="https://github.com/dotnet/AspNetCore.Docs/discussions/26205" data-linktype="external">How to select a version tag of ASP.NET Core source code (dotnet/AspNetCore.Docs #26205)</a>.</p>
+</div>
+<p>Developers typically create Razor components from Razor component files (<code>.razor</code>) or base their components on <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase" class="no-loc" data-linktype="absolute-path">ComponentBase</a>, but components can also be built by implementing <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.icomponent" class="no-loc" data-linktype="absolute-path">IComponent</a>. Developer-built components that implement <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.icomponent" class="no-loc" data-linktype="absolute-path">IComponent</a> can take low-level control over rendering at the cost of having to manually trigger rendering with events and lifecycle methods that the developer must create and maintain.</p>
+<p>Additional conventions adopted by Blazor documentation example code and sample apps is found in <a href="../fundamentals/?view=aspnetcore-10.0#razor-components" data-linktype="relative-path">ASP.NET Core Blazor fundamentals</a>.</p>
+<h3 id="razor-syntax">Razor syntax</h3>
+<p>Components use <a href="../../mvc/views/razor?view=aspnetcore-10.0" data-linktype="relative-path">Razor syntax</a>. Two Razor features are extensively used by components, <em>directives</em> and <em>directive attributes</em>. These are reserved keywords prefixed with <code>@</code> that appear in Razor markup:</p>
+<ul>
+<li><p><a href="../../mvc/views/razor?view=aspnetcore-10.0#directives" data-linktype="relative-path">Directives</a>: Change the way component markup is compiled or functions. For example, the <a href="../../mvc/views/razor?view=aspnetcore-10.0#page" data-linktype="relative-path"><code>@page</code></a> directive specifies a routable component with a route template that can be reached directly by a user's request in the browser at a specific URL.</p>
+<p>By convention, a component's directives at the top of a component definition (<code>.razor</code> file) are placed in a consistent order. For repeated directives, directives are placed alphabetically by namespace or type, except <code>@using</code> directives, which have special second-level ordering.</p>
+<p>The following order is adopted by Blazor sample apps and documentation. Components provided by a Blazor project template may differ from the following order and use a different format. For example, Blazor framework Identity components include blank lines between blocks of <code>@using</code> directives and blocks of <code>@inject</code> directives. You're free to use a custom ordering scheme and format in your own apps.</p>
+<p>Documentation and sample app Razor directive order:</p>
+<ul>
+<li><code>@page</code></li>
+<li><code>@rendermode</code> (.NET 8 or later)</li>
+<li><code>@using</code>
+<ul>
+<li><code>System</code> namespaces (alphabetical order)</li>
+<li><code>Microsoft</code> namespaces (alphabetical order)</li>
+<li>Third-party API namespaces (alphabetical order)</li>
+<li>App namespaces (alphabetical order)</li>
+</ul>
+</li>
+<li>Other directives (alphabetical order)</li>
+</ul>
+<div class="NOTE">
+<p>Note</p>
+<p>A <em>render mode</em> is only applied in Blazor Web Apps and includes modes that establish user interactivity with the rendered component. For more information, see <a href="render-modes?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor render modes</a>.</p>
+</div>
+<p>No blank lines appear among the directives. One blank line appears between the directives and the first line of Razor markup.</p>
+<p>Example:</p>
+<pre><code class="lang-razor">@page "/doctor-who-episodes/{season:int}"
+@rendermode InteractiveWebAssembly
+@using System.Globalization
+@using System.Text.Json
+@using Microsoft.AspNetCore.Localization
+@using Mandrill
+@using BlazorSample.Components.Layout
+@attribute [Authorize]
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+@inject ILogger&lt;DoctorWhoEpisodes&gt; Logger
+
+&lt;PageTitle&gt;Doctor Who Episode List&lt;/PageTitle&gt;
+
+...
+</code></pre>
+</li>
+<li><p><a href="../../mvc/views/razor?view=aspnetcore-10.0#directive-attributes" data-linktype="relative-path">Directive attributes</a>: Change the way a component element is compiled or functions.</p>
+<p>Example:</p>
+<pre><code class="lang-razor">&lt;input @bind="episodeId" /&gt;
+</code></pre>
+<p>You can prefix directive attribute values with the at symbol (<code>@</code>) for non-explicit Razor expressions (<code>@bind="@episodeId"</code>), but we don't recommend it, and the docs don't adopt the approach in examples.</p>
+</li>
+</ul>
+<p>Directives and directive attributes used in components are explained further in this article and other articles of the Blazor documentation set. For general information on Razor syntax, see <a href="../../mvc/views/razor?view=aspnetcore-10.0" data-linktype="relative-path">Razor syntax reference for ASP.NET Core</a>.</p>
+<h3 id="component-name-class-name-and-namespace">Component name, class name, and namespace</h3>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>A component's name must start with an uppercase character:</p>
+<p><span aria-hidden="true">✔️</span><span class="visually-hidden">Supported:</span> <code>ProductDetail.razor</code></p>
+<p><span aria-hidden="true">❌</span><span class="visually-hidden">Unsupported:</span> <code>productDetail.razor</code></p>
+<p>Common Blazor naming conventions used throughout the Blazor documentation include:</p>
+<ul>
+<li>File paths and file names use Pascal case† and appear before showing code examples. If a path is present, it indicates the typical folder location. For example, <code>Components/Pages/ProductDetail.razor</code> indicates that the <code>ProductDetail</code> component has a file name of <code>ProductDetail.razor</code> and resides in the <code>Pages</code> folder of the <code>Components</code> folder of the app.</li>
+<li>Component file paths for routable components match their URLs in kebab case‡ with hyphens appearing between words in a component's route template. For example, a <code>ProductDetail</code> component with a route template of <code>/product-detail</code> (<code>@page "/product-detail"</code>) is requested in a browser at the relative URL <code>/product-detail</code>.</li>
+</ul>
+<p>†Pascal case (upper camel case) is a naming convention without spaces and punctuation and with the first letter of each word capitalized, including the first word.<br>
+‡Kebab case is a naming convention without spaces and punctuation that uses lowercase letters and dashes between words.</p>
+<p>Components are ordinary <a href="/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes" data-linktype="absolute-path">C# classes</a> and can be placed anywhere within a project. Components that produce webpages usually reside in the <code>Components/Pages</code> folder. Non-page components are frequently placed in the <code>Components</code> folder or a custom folder added to the project.</p>
+<p>Typically, a component's namespace is derived from the app's root namespace and the component's location (folder) within the app. If the app's root namespace is <code>BlazorSample</code> and the <code>Counter</code> component resides in the <code>Components/Pages</code> folder:</p>
+<ul>
+<li>The <code>Counter</code> component's namespace is <code>BlazorSample.Components.Pages</code>.</li>
+<li>The fully qualified type name of the component is <code>BlazorSample.Components.Pages.Counter</code>.</li>
+</ul>
+<p>For custom folders that hold components, add an <a href="../../mvc/views/razor?view=aspnetcore-10.0#using" data-linktype="relative-path"><code>@using</code></a> directive to the parent component or to the app's imports file (<code>_Imports.razor</code>). The following example makes components in the <code>AdminComponents</code> folder available:</p>
+<pre><code class="lang-razor">@using BlazorSample.AdminComponents
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p><a href="../../mvc/views/razor?view=aspnetcore-10.0#using" data-linktype="relative-path"><code>@using</code></a> directives in the imports file (<code>_Imports.razor</code>) are only applied to Razor files (<code>.razor</code>), not C# files (<code>.cs</code>).</p>
+</div>
+<p>Aliased <a href="/en-us/dotnet/csharp/language-reference/keywords/using-directive" data-linktype="absolute-path"><code>using</code></a> statements are supported. In the following example, the public <code>WeatherForecast</code> class of the <code>GridRendering</code> component is made available as <code>WeatherForecast</code> in a component elsewhere in the app:</p>
+<pre><code class="lang-razor">@using WeatherForecast = Components.Pages.GridRendering.WeatherForecast
+</code></pre>
+<p>Components can also be referenced using their fully qualified names, which doesn't require an <a href="../../mvc/views/razor?view=aspnetcore-10.0#using" data-linktype="relative-path"><code>@using</code></a> directive. The following example directly references the <code>ProductDetail</code> component in the <code>AdminComponents/Pages</code> folder of the app:</p>
+<pre><code class="lang-razor">&lt;BlazorSample.AdminComponents.Pages.ProductDetail /&gt;
+</code></pre>
+<p>The namespace of a component authored with Razor is based on the following (in priority order):</p>
+<ul>
+<li>The <a href="../../mvc/views/razor?view=aspnetcore-10.0#namespace" data-linktype="relative-path"><code>@namespace</code></a> directive in the Razor file's markup (for example, <code>@namespace BlazorSample.CustomNamespace</code>).</li>
+<li>The project's <code>RootNamespace</code> in the project file (for example, <code>&lt;RootNamespace&gt;BlazorSample&lt;/RootNamespace&gt;</code>).</li>
+<li>The project namespace and the path from the project root to the component. For example, the framework resolves <code>{PROJECT NAMESPACE}/Components/Pages/Home.razor</code> with a project namespace of <code>BlazorSample</code> to the namespace <code>BlazorSample.Components.Pages</code> for the <code>Home</code> component. <code>{PROJECT NAMESPACE}</code> is the project namespace. Components follow C# name binding rules. For the <code>Home</code> component in this example, the components in scope are all of the components:
+<ul>
+<li>In the same folder, <code>Components/Pages</code>.</li>
+<li>The components in the project's root that don't explicitly specify a different namespace.</li>
+</ul>
+</li>
+</ul>
+<p>The following are <strong>not</strong> supported:</p>
+<ul>
+<li>The <a href="/en-us/dotnet/csharp/language-reference/operators/namespace-alias-qualifier" data-linktype="absolute-path"><code>global::</code></a> qualification.</li>
+<li>Partially-qualified names. For example, you can't add <code>@using BlazorSample.Components</code> to a component and then reference the <code>NavMenu</code> component in the app's <code>Components/Layout</code> folder (<code>Components/Layout/NavMenu.razor</code>) with <code>&lt;Layout.NavMenu&gt;&lt;/Layout.NavMenu&gt;</code>.</li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<p>A component's name must start with an uppercase character:</p>
+<p><span aria-hidden="true">✔️</span><span class="visually-hidden">Supported:</span> <code>ProductDetail.razor</code></p>
+<p><span aria-hidden="true">❌</span><span class="visually-hidden">Unsupported:</span> <code>productDetail.razor</code></p>
+<p>Common Blazor naming conventions used throughout the Blazor documentation include:</p>
+<ul>
+<li>File paths and file names use Pascal case† and appear before showing code examples. If a path is present, it indicates the typical folder location. For example, <code>Pages/ProductDetail.razor</code> indicates that the <code>ProductDetail</code> component has a file name of <code>ProductDetail.razor</code> and resides in the <code>Pages</code> folder of the app.</li>
+<li>Component file paths for routable components match their URLs in kebab case‡ with hyphens appearing between words in a component's route template. For example, a <code>ProductDetail</code> component with a route template of <code>/product-detail</code> (<code>@page "/product-detail"</code>) is requested in a browser at the relative URL <code>/product-detail</code>.</li>
+</ul>
+<p>†Pascal case (upper camel case) is a naming convention without spaces and punctuation and with the first letter of each word capitalized, including the first word.<br>
+‡Kebab case is a naming convention without spaces and punctuation that uses lowercase letters and dashes between words.</p>
+<p>Components are ordinary <a href="/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes" data-linktype="absolute-path">C# classes</a> and can be placed anywhere within a project. Components that produce webpages usually reside in the <code>Pages</code> folder. Non-page components are frequently placed in the <code>Shared</code> folder or a custom folder added to the project.</p>
+<p>Typically, a component's namespace is derived from the app's root namespace and the component's location (folder) within the app. If the app's root namespace is <code>BlazorSample</code> and the <code>Counter</code> component resides in the <code>Pages</code> folder:</p>
+<ul>
+<li>The <code>Counter</code> component's namespace is <code>BlazorSample.Pages</code>.</li>
+<li>The fully qualified type name of the component is <code>BlazorSample.Pages.Counter</code>.</li>
+</ul>
+<p>For custom folders that hold components, add an <a href="../../mvc/views/razor?view=aspnetcore-10.0#using" data-linktype="relative-path"><code>@using</code></a> directive to the parent component or to the app's imports file (<code>_Imports.razor</code>). The following example makes components in the <code>AdminComponents</code> folder available:</p>
+<pre><code class="lang-razor">@using BlazorSample.AdminComponents
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p><a href="../../mvc/views/razor?view=aspnetcore-10.0#using" data-linktype="relative-path"><code>@using</code></a> directives in the imports file (<code>_Imports.razor</code>) are only applied to Razor files (<code>.razor</code>), not C# files (<code>.cs</code>).</p>
+</div>
+<p>Aliased <a href="/en-us/dotnet/csharp/language-reference/keywords/using-directive" data-linktype="absolute-path"><code>using</code></a> statements are supported. In the following example, the public <code>WeatherForecast</code> class of the <code>GridRendering</code> component is made available as <code>WeatherForecast</code> in a component elsewhere in the app:</p>
+<pre><code class="lang-razor">@using WeatherForecast = Pages.GridRendering.WeatherForecast
+</code></pre>
+<p>Components can also be referenced using their fully qualified names, which doesn't require an <a href="../../mvc/views/razor?view=aspnetcore-10.0#using" data-linktype="relative-path"><code>@using</code></a> directive. The following example directly references the <code>ProductDetail</code> component in the <code>Components</code> folder of the app:</p>
+<pre><code class="lang-razor">&lt;BlazorSample.Components.ProductDetail /&gt;
+</code></pre>
+<p>The namespace of a component authored with Razor is based on the following (in priority order):</p>
+<ul>
+<li>The <a href="../../mvc/views/razor?view=aspnetcore-10.0#namespace" data-linktype="relative-path"><code>@namespace</code></a> directive in the Razor file's markup (for example, <code>@namespace BlazorSample.CustomNamespace</code>).</li>
+<li>The project's <code>RootNamespace</code> in the project file (for example, <code>&lt;RootNamespace&gt;BlazorSample&lt;/RootNamespace&gt;</code>).</li>
+<li>The project namespace and the path from the project root to the component. For example, the framework resolves <code>{PROJECT NAMESPACE}/Pages/Index.razor</code> with a project namespace of <code>BlazorSample</code> to the namespace <code>BlazorSample.Pages</code> for the <code>Index</code> component. <code>{PROJECT NAMESPACE}</code> is the project namespace. Components follow C# name binding rules. For the <code>Index</code> component in this example, the components in scope are all of the components:
+<ul>
+<li>In the same folder, <code>Pages</code>.</li>
+<li>The components in the project's root that don't explicitly specify a different namespace.</li>
+</ul>
+</li>
+</ul>
+<p>The following are <strong>not</strong> supported:</p>
+<ul>
+<li>The <a href="/en-us/dotnet/csharp/language-reference/operators/namespace-alias-qualifier" data-linktype="absolute-path"><code>global::</code></a> qualification.</li>
+<li>Partially-qualified names. For example, you can't add <code>@using BlazorSample</code> to a component and then reference the <code>NavMenu</code> component in the app's <code>Shared</code> folder (<code>Shared/NavMenu.razor</code>) with <code>&lt;Shared.NavMenu&gt;&lt;/Shared.NavMenu&gt;</code>.</li>
+</ul>
+</div>
+<h3 id="partial-class-support">Partial class support</h3>
+<p>Components are generated as <a href="/en-us/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods" data-linktype="absolute-path">C# partial classes</a> and are authored using either of the following approaches:</p>
+<ul>
+<li>A single file contains C# code defined in one or more <a href="../../mvc/views/razor?view=aspnetcore-10.0#code" data-linktype="relative-path"><code>@code</code></a> blocks, HTML markup, and Razor markup. Blazor project templates define their components using this single-file approach.</li>
+<li>HTML and Razor markup are placed in a Razor file (<code>.razor</code>). C# code is placed in a code-behind file defined as a partial class (<code>.cs</code>).</li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<div class="NOTE">
+<p>Note</p>
+<p>A component stylesheet that defines component-specific styles is a separate file (<code>.css</code>). Blazor CSS isolation is described later in <a href="css-isolation?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor CSS isolation</a>.</p>
+</div>
+</div>
+<p>The following example shows the default <code>Counter</code> component with an <a href="../../mvc/views/razor?view=aspnetcore-10.0#code" data-linktype="relative-path"><code>@code</code></a> block in an app generated from a Blazor project template. Markup and C# code are in the same file. This is the most common approach taken in component authoring.</p>
+<p><code>Counter.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/counter"
+
+&lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p role="status"&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount() =&gt; currentCount++;
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/counter"
+
+&lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p role="status"&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount() =&gt; currentCount++;
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/counter"
+
+&lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p role="status"&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/counter"
+
+&lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p role="status"&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/counter"
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/counter"
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+</code></pre>
+</div>
+<p>The following <code>Counter</code> component splits presentation HTML and Razor markup from the C# code using a code-behind file with a partial class. Splitting the markup from the C# code is favored by some organizations and developers to organize their component code to suit how they prefer to work. For example, the organization's UI expert can work on the presentation layer independently of another developer working on the component's C# logic. The approach is also useful when working with automatically-generated code or source generators. For more information, see <a href="/en-us/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods" data-linktype="absolute-path">Partial Classes and Methods (C# Programming Guide)</a>.</p>
+<p><code>CounterPartialClass.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/counter-partial-class"
+
+&lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p role="status"&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/counter-partial-class"
+
+&lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p role="status"&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/counter-partial-class"
+
+&lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p role="status"&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/counter-partial-class"
+
+&lt;PageTitle&gt;Counter&lt;/PageTitle&gt;
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p role="status"&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/counter-partial-class"
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/counter-partial-class"
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+
+&lt;p&gt;Current count: @currentCount&lt;/p&gt;
+
+&lt;button class="btn btn-primary" @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+</code></pre>
+</div>
+<p><code>CounterPartialClass.razor.cs</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-csharp">namespace BlazorSample.Components.Pages;
+
+public partial class CounterPartialClass
+{
+    private int currentCount = 0;
+
+    private void IncrementCount() =&gt; currentCount++;
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-csharp">namespace BlazorSample.Components.Pages;
+
+public partial class CounterPartialClass
+{
+    private int currentCount = 0;
+
+    private void IncrementCount() =&gt; currentCount++;
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0 aspnetcore-7.0">
+<pre><code class="lang-csharp">namespace BlazorSample.Pages;
+
+public partial class CounterPartialClass
+{
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0">
+<pre><code class="lang-csharp">namespace BlazorSample.Pages
+{
+    public partial class CounterPartialClass
+    {
+        private int currentCount = 0;
+
+        private void IncrementCount()
+        {
+            currentCount++;
+        }
+    }
+}
+</code></pre>
+</div>
+<p><a href="../../mvc/views/razor?view=aspnetcore-10.0#using" data-linktype="relative-path"><code>@using</code></a> directives in the imports file (<code>_Imports.razor</code>) are only applied to Razor files (<code>.razor</code>), not C# files (<code>.cs</code>). Add namespaces to a partial class file as needed.</p>
+<p>Typical namespaces used by components:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<pre><code class="lang-csharp">using System.Net.Http;
+using System.Net.Http.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Components.Sections
+using Microsoft.AspNetCore.Components.Web;
+using static Microsoft.AspNetCore.Components.Web.RenderMode;
+using Microsoft.AspNetCore.Components.Web.Virtualization;
+using Microsoft.JSInterop;
+</code></pre>
+<p>Typical namespaces also include the namespace of the app and the namespace corresponding to the app's <code>Components</code> folder:</p>
+<pre><code class="lang-csharp">using BlazorSample;
+using BlazorSample.Components;
+</code></pre>
+<p>Additional folders can also be included, such as the <code>Layout</code> folder:</p>
+<pre><code class="lang-razor">using BlazorSample.Components.Layout;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0 aspnetcore-7.0">
+<pre><code class="lang-csharp">using System.Net.Http;
+using System.Net.Http.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.Web.Virtualization;
+using Microsoft.JSInterop;
+</code></pre>
+<p>Typical namespaces also include the namespace of the app and the namespace corresponding to the app's <code>Shared</code> folder:</p>
+<pre><code class="lang-csharp">using BlazorSample;
+using BlazorSample.Shared;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0">
+<pre><code class="lang-csharp">using System.Net.Http;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
+</code></pre>
+<p>Typical namespaces also include the namespace of the app and the namespace corresponding to the app's <code>Shared</code> folder:</p>
+<pre><code class="lang-csharp">using BlazorSample;
+using BlazorSample.Shared;
+</code></pre>
+</div>
+<h3 id="specify-a-base-class">Specify a base class</h3>
+<p>The <a href="../../mvc/views/razor?view=aspnetcore-10.0#inherits" data-linktype="relative-path"><code>@inherits</code></a> directive is used to specify a base class for a component. Unlike using <a href="#partial-class-support" data-linktype="self-bookmark">partial classes</a>, which only split markup from C# logic, using a base class allows you to inherit C# code for use across a group of components that share the base class's properties and methods. Using base classes reduce code redundancy in apps and are useful when supplying base code from class libraries to multiple apps. For more information, see <a href="/en-us/dotnet/csharp/fundamentals/tutorials/inheritance" data-linktype="absolute-path">Inheritance in C# and .NET</a>.</p>
+<p>In the following example, the <code>BlazorRocksBase1</code> base class derives from <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase" class="no-loc" data-linktype="absolute-path">ComponentBase</a>.</p>
+<p><code>BlazorRocks1.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-1"
+@inherits BlazorRocksBase1
+
+&lt;PageTitle&gt;Blazor Rocks!&lt;/PageTitle&gt;
+
+&lt;h1&gt;Blazor Rocks! Example 1&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-1"
+@inherits BlazorRocksBase1
+
+&lt;PageTitle&gt;Blazor Rocks!&lt;/PageTitle&gt;
+
+&lt;h1&gt;Blazor Rocks! Example 1&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-1"
+@inherits BlazorRocksBase1
+
+&lt;PageTitle&gt;Blazor Rocks!&lt;/PageTitle&gt;
+
+&lt;h1&gt;Blazor Rocks! Example 1&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-1"
+@inherits BlazorRocksBase1
+
+&lt;PageTitle&gt;Blazor Rocks!&lt;/PageTitle&gt;
+
+&lt;h1&gt;Blazor Rocks! Example 1&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-1"
+@inherits BlazorRocksBase1
+
+&lt;h1&gt;Blazor Rocks! Example 1&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/blazor-rocks-1"
+@inherits BlazorRocksBase1
+
+&lt;h1&gt;Blazor Rocks! Example 1&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+</code></pre>
+</div>
+<p><code>BlazorRocksBase1.cs</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase1 : ComponentBase
+{
+    public string BlazorRocksText { get; set; } = "Blazor rocks the browser!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase1 : ComponentBase
+{
+    public string BlazorRocksText { get; set; } = "Blazor rocks the browser!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase1 : ComponentBase
+{
+    public string BlazorRocksText { get; set; } =
+        "Blazor rocks the browser!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase1 : ComponentBase
+{
+    public string BlazorRocksText { get; set; } =
+        "Blazor rocks the browser!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase1 : ComponentBase
+{
+    public string BlazorRocksText { get; set; } =
+        "Blazor rocks the browser!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase1 : ComponentBase
+{
+    public string BlazorRocksText { get; set; } =
+        "Blazor rocks the browser!";
+}
+</code></pre>
+</div>
+<h3 id="markup">Markup</h3>
+<p>A component's UI is defined using <a href="../../mvc/views/razor?view=aspnetcore-10.0" data-linktype="relative-path">Razor syntax</a>, which consists of Razor markup, C#, and HTML. When an app is compiled, the HTML markup and C# rendering logic are converted into a component class. The name of the generated class matches the name of the file.</p>
+<p>Members of the component class are defined in one or more <a href="../../mvc/views/razor?view=aspnetcore-10.0#code" data-linktype="relative-path"><code>@code</code></a> blocks. In <a href="../../mvc/views/razor?view=aspnetcore-10.0#code" data-linktype="relative-path"><code>@code</code></a> blocks, component state is specified and processed with C#:</p>
+<ul>
+<li>Property and field initializers.</li>
+<li>Parameter values from arguments passed by parent components and route parameters.</li>
+<li>Methods for user event handling, lifecycle events, and custom component logic.</li>
+</ul>
+<p>Component members are used in rendering logic using C# expressions that start with the <code>@</code> symbol. For example, a C# field is rendered by prefixing <code>@</code> to the field name. The following <code>Markup</code> component evaluates and renders:</p>
+<ul>
+<li><code>headingFontStyle</code> for the CSS property value <code>font-style</code> of the heading element.</li>
+<li><code>headingText</code> for the content of the heading element.</li>
+</ul>
+<p><code>Markup.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/markup"
+
+&lt;PageTitle&gt;Markup&lt;/PageTitle&gt;
+
+&lt;h1&gt;Markup Example&lt;/h1&gt;
+
+&lt;h2 style="font-style:@headingFontStyle"&gt;@headingText&lt;/h2&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+    private string headingText = "Put on your new Blazor!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/markup"
+
+&lt;PageTitle&gt;Markup&lt;/PageTitle&gt;
+
+&lt;h1&gt;Markup Example&lt;/h1&gt;
+
+&lt;h2 style="font-style:@headingFontStyle"&gt;@headingText&lt;/h2&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+    private string headingText = "Put on your new Blazor!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/markup"
+
+&lt;h1 style="font-style:@headingFontStyle"&gt;@headingText&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+    private string headingText = "Put on your new Blazor!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/markup"
+
+&lt;h1 style="font-style:@headingFontStyle"&gt;@headingText&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+    private string headingText = "Put on your new Blazor!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/markup"
+
+&lt;h1 style="font-style:@headingFontStyle"&gt;@headingText&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+    private string headingText = "Put on your new Blazor!";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/markup"
+
+&lt;h1 style="font-style:@headingFontStyle"&gt;@headingText&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+    private string headingText = "Put on your new Blazor!";
+}
+</code></pre>
+</div>
+<div class="NOTE">
+<p>Note</p>
+<p>Examples throughout the Blazor documentation specify the <a href="/en-us/dotnet/csharp/language-reference/keywords/private" data-linktype="absolute-path"><code>private</code> access modifier</a> for private members. Private members are scoped to a component's class. However, C# assumes the <code>private</code> access modifier when no access modifier is present, so explicitly marking members "<code>private</code>" in your own code is optional. For more information on access modifiers, see <a href="/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers" data-linktype="absolute-path">Access Modifiers (C# Programming Guide)</a>.</p>
+</div>
+<p>The Blazor framework processes a component internally as a <a href="https://developer.mozilla.org/docs/Web/Performance/How_browsers_work#render" data-linktype="external"><em>render tree</em></a>, which is the combination of a component's DOM and <a href="https://developer.mozilla.org/docs/Web/API/CSS_Object_Model" data-linktype="external">Cascading Style Sheet Object Model (CSSOM)</a>. After the component is initially rendered, the component's render tree is regenerated in response to events. Blazor compares the new render tree against the previous render tree and applies any modifications to the browser's DOM for display. For more information, see <a href="rendering?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component rendering</a>.</p>
+<p>Razor syntax for C# control structures, directives, and directive attributes are lowercase (examples: <a href="../../mvc/views/razor?view=aspnetcore-10.0#conditionals-if-else-if-else-and-switch" data-linktype="relative-path"><code>@if</code></a>, <a href="../../mvc/views/razor?view=aspnetcore-10.0#code" data-linktype="relative-path"><code>@code</code></a>, <a href="../../mvc/views/razor?view=aspnetcore-10.0#bind" data-linktype="relative-path"><code>@bind</code></a>). Property names are uppercase (example: <code>@Body</code> for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.layoutcomponentbase.body#microsoft-aspnetcore-components-layoutcomponentbase-body" class="no-loc" data-linktype="absolute-path">LayoutComponentBase.Body</a>).</p>
+<h3 id="asynchronous-methods-async-dont-support-returning-void">Asynchronous methods (<code>async</code>) don't support returning <code>void</code></h3>
+<p>The Blazor framework doesn't track <code>void</code>-returning asynchronous methods (<code>async</code>). As a result, the entire process fails when an exception isn't caught if <code>void</code> is returned. Always return a <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a>/<a href="/en-us/dotnet/api/system.threading.tasks.valuetask" class="no-loc" data-linktype="absolute-path">ValueTask</a> from asynchronous methods.</p>
+<h3 id="nested-components">Nested components</h3>
+<p>Components can include other components by declaring them using HTML syntax. The markup for using a component looks like an HTML tag where the name of the tag is the component type.</p>
+<p>Consider the following <code>Heading</code> component, which can be used by other components to display a heading.</p>
+<p><code>Heading.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">&lt;h1 style="font-style:@headingFontStyle"&gt;Heading Example&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">&lt;h1 style="font-style:@headingFontStyle"&gt;Heading Example&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">&lt;h1 style="font-style:@headingFontStyle"&gt;Heading Example&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">&lt;h1 style="font-style:@headingFontStyle"&gt;Heading Example&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">&lt;h1 style="font-style:@headingFontStyle"&gt;Heading Example&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">&lt;h1 style="font-style:@headingFontStyle"&gt;Heading Example&lt;/h1&gt;
+
+@code {
+    private string headingFontStyle = "italic";
+}
+</code></pre>
+</div>
+<p>The following markup in the <code>HeadingExample</code> component renders the preceding <code>Heading</code> component at the location where the <code>&lt;Heading /&gt;</code> tag appears.</p>
+<p><code>HeadingExample.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/heading-example"
+
+&lt;PageTitle&gt;Heading&lt;/PageTitle&gt;
+
+&lt;h1&gt;Heading Example&lt;/h1&gt;
+
+&lt;Heading /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/heading-example"
+
+&lt;PageTitle&gt;Heading&lt;/PageTitle&gt;
+
+&lt;h1&gt;Heading Example&lt;/h1&gt;
+
+&lt;Heading /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/heading-example"
+
+&lt;Heading /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/heading-example"
+
+&lt;Heading /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/heading-example"
+
+&lt;Heading /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/heading-example"
+
+&lt;Heading /&gt;
+</code></pre>
+</div>
+<p>If a component contains an HTML element with an uppercase first letter that doesn't match a component name within the same namespace, a warning is emitted indicating that the element has an unexpected name. Adding an <a href="../../mvc/views/razor?view=aspnetcore-10.0#using" data-linktype="relative-path"><code>@using</code></a> directive for the component's namespace makes the component available, which resolves the warning. For more information, see the <a href="#component-name-class-name-and-namespace" data-linktype="self-bookmark">Component name, class name, and namespace</a> section.</p>
+<p>The <code>Heading</code> component example shown in this section doesn't have an <a href="../../mvc/views/razor?view=aspnetcore-10.0#page" data-linktype="relative-path"><code>@page</code></a> directive, so the <code>Heading</code> component isn't directly accessible to a user via a direct request in the browser. However, any component with an <a href="../../mvc/views/razor?view=aspnetcore-10.0#page" data-linktype="relative-path"><code>@page</code></a> directive can be nested in another component. If the <code>Heading</code> component was directly accessible by including <code>@page "/heading"</code> at the top of its Razor file, then the component would be rendered for browser requests at both <code>/heading</code> and <code>/heading-example</code>.</p>
+<h2 id="component-parameters">Component parameters</h2>
+<p><em>Component parameters</em> pass data to components and are defined using public <a href="/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties" data-linktype="absolute-path">C# properties</a> on the component class with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterattribute" data-linktype="absolute-path"><code>[Parameter]</code> attribute</a>.</p>
+<p>In the following <code>ParameterChild</code> component, component parameters include:</p>
+<ul>
+<li><p>Built-in reference types.</p>
+<ul>
+<li><a href="/en-us/dotnet/api/system.string" class="no-loc" data-linktype="absolute-path">System.String</a> to pass a title in <code>Title</code>.</li>
+<li><a href="/en-us/dotnet/api/system.int32" class="no-loc" data-linktype="absolute-path">System.Int32</a> to pass a count in <code>Count</code>.</li>
+</ul>
+</li>
+<li><p>A user-defined reference type (<code>PanelBody</code>) to pass a Bootstrap card body in <code>Body</code>.</p>
+<p><code>PanelBody.cs</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-csharp">namespace BlazorSample;
+
+public class PanelBody
+{
+    public string? Text { get; set; }
+    public string? Style { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-csharp">namespace BlazorSample;
+
+public class PanelBody
+{
+    public string? Text { get; set; }
+    public string? Style { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-csharp">public class PanelBody
+{
+    public string? Text { get; set; }
+    public string? Style { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-csharp">public class PanelBody
+{
+    public string? Text { get; set; }
+    public string? Style { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-csharp">public class PanelBody
+{
+    public string Text { get; set; }
+    public string Style { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-csharp">public class PanelBody
+{
+    public string Text { get; set; }
+    public string Style { get; set; }
+}
+</code></pre>
+</div>
+</li>
+</ul>
+<p><code>ParameterChild.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;@Title&lt;/div&gt;
+    &lt;div class="card-body" style="font-style:@Body.Style"&gt;
+        &lt;p&gt;@Body.Text&lt;/p&gt;
+        @if (Count is not null)
+        {
+            &lt;p&gt;The count is @Count.&lt;/p&gt;
+        }
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "Set By Child";
+
+    [Parameter]
+    public PanelBody Body { get; set; } =
+        new()
+        {
+            Text = "Card content set by child.",
+            Style = "normal"
+        };
+
+    [Parameter]
+    public int? Count { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;@Title&lt;/div&gt;
+    &lt;div class="card-body" style="font-style:@Body.Style"&gt;
+        &lt;p&gt;@Body.Text&lt;/p&gt;
+        @if (Count is not null)
+        {
+            &lt;p&gt;The count is @Count.&lt;/p&gt;
+        }
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "Set By Child";
+
+    [Parameter]
+    public PanelBody Body { get; set; } =
+        new()
+        {
+            Text = "Card content set by child.",
+            Style = "normal"
+        };
+    
+    [Parameter]
+    public int? Count { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;@Title&lt;/div&gt;
+    &lt;div class="card-body" style="font-style:@Body.Style"&gt;
+        &lt;p&gt;@Body.Text&lt;/p&gt;
+        @if (Count is not null)
+        {
+            &lt;p&gt;The count is @Count.&lt;/p&gt;
+        }
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "Set By Child";
+
+    [Parameter]
+    public PanelBody Body { get; set; } =
+        new()
+        {
+            Text = "Set by child.",
+            Style = "normal"
+        };
+
+    [Parameter]
+    public int? Count { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;@Title&lt;/div&gt;
+    &lt;div class="card-body" style="font-style:@Body.Style"&gt;
+        &lt;p&gt;@Body.Text&lt;/p&gt;
+        @if (Count is not null)
+        {
+            &lt;p&gt;The count is @Count.&lt;/p&gt;
+        }
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "Set By Child";
+
+    [Parameter]
+    public PanelBody Body { get; set; } =
+        new()
+        {
+            Text = "Set by child.",
+            Style = "normal"
+        };
+
+    [Parameter]
+    public int? Count { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;@Title&lt;/div&gt;
+    &lt;div class="card-body" style="font-style:@Body.Style"&gt;
+        &lt;p&gt;@Body.Text&lt;/p&gt;
+        @if (Count is not null)
+        {
+            &lt;p&gt;The count is @Count.&lt;/p&gt;
+        }
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "Set By Child";
+
+    [Parameter]
+    public PanelBody Body { get; set; } =
+        new()
+        {
+            Text = "Set by child.",
+            Style = "normal"
+        };
+
+    [Parameter]
+    public int? Count { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;@Title&lt;/div&gt;
+    &lt;div class="card-body" style="font-style:@Body.Style"&gt;
+        &lt;p&gt;@Body.Text&lt;/p&gt;
+        @if (Count is not null)
+        {
+            &lt;p&gt;The count is @Count.&lt;/p&gt;
+        }
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "Set By Child";
+
+    [Parameter]
+    public PanelBody Body { get; set; } =
+        new PanelBody()
+        {
+            Text = "Set by child.",
+            Style = "normal"
+        };
+
+    [Parameter]
+    public int? Count { get; set; }
+}
+</code></pre>
+</div>
+<div class="WARNING">
+<p>Warning</p>
+<p>Providing initial values for component parameters is supported, but don't create a component that writes to its own parameters after the component is rendered for the first time. For more information, see <a href="overwriting-parameters?view=aspnetcore-10.0" data-linktype="relative-path">Avoid overwriting parameters in ASP.NET Core Blazor</a>.</p>
+</div>
+<p>The component parameters of the <code>ParameterChild</code> component can be set by arguments in the HTML tag that renders an instance of the <code>ParameterChild</code> component. The following parent component renders two <code>ParameterChild</code> components:</p>
+<ul>
+<li>The first <code>ParameterChild</code> component is rendered without supplying parameter arguments.</li>
+<li>The second <code>ParameterChild</code> component receives values for <code>Title</code> and <code>Body</code> from the parent component, which uses an <a href="../../mvc/views/razor?view=aspnetcore-10.0#explicit-razor-expressions" data-linktype="relative-path">explicit C# expression</a> to set the values of the <code>PanelBody</code>'s properties.</li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<p><code>Parameter1.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-1"
+
+&lt;PageTitle&gt;Parameter 1&lt;/PageTitle&gt;
+
+&lt;h1&gt;Parameter Example 1&lt;/h1&gt;
+
+&lt;h1&gt;Child component (without attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild /&gt;
+
+&lt;h1&gt;Child component (with attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild Title="Set by Parent" 
+    Body="@(new PanelBody() { Text = "Set by parent.", Style = "italic" })" /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<p><code>Parameter1.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-1"
+
+&lt;PageTitle&gt;Parameter 1&lt;/PageTitle&gt;
+
+&lt;h1&gt;Parameter Example 1&lt;/h1&gt;
+
+&lt;h1&gt;Child component (without attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild /&gt;
+
+&lt;h1&gt;Child component (with attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild Title="Set by Parent" 
+    Body="@(new PanelBody() { Text = "Set by parent.", Style = "italic" })" /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<p><code>ParameterParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent"
+
+&lt;h1&gt;Child component (without attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild /&gt;
+
+&lt;h1&gt;Child component (with attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild Title="Set by Parent"
+                Body="@(new PanelBody() { Text = "Set by parent.", Style = "italic" })" /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<p><code>ParameterParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent"
+
+&lt;h1&gt;Child component (without attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild /&gt;
+
+&lt;h1&gt;Child component (with attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild Title="Set by Parent"
+                Body="@(new PanelBody() { Text = "Set by parent.", Style = "italic" })" /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<p><code>ParameterParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent"
+
+&lt;h1&gt;Child component (without attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild /&gt;
+
+&lt;h1&gt;Child component (with attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild Title="Set by Parent"
+                Body="@(new PanelBody() { Text = "Set by parent.", Style = "italic" })" /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<p><code>ParameterParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent"
+
+&lt;h1&gt;Child component (without attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild /&gt;
+
+&lt;h1&gt;Child component (with attribute values)&lt;/h1&gt;
+
+&lt;ParameterChild Title="Set by Parent"
+                Body="@(new PanelBody() { Text = "Set by parent.", Style = "italic" })" /&gt;
+</code></pre>
+</div>
+<p>The following rendered HTML markup from the parent component shows <code>ParameterChild</code> component default values when the parent component doesn't supply component parameter values. When the parent component provides component parameter values, they replace the <code>ParameterChild</code> component's default values.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>For clarity, most of the rendered CSS style classes and some elements aren't shown in the following rendered HTML markup. The main concept demonstrated by the following example is that the parent component assigned values to the child component using its component parameters.</p>
+</div>
+<pre><code class="lang-html">&lt;h1&gt;Child component (without attribute values)&lt;/h1&gt;
+
+&lt;div&gt;Set By Child&lt;/div&gt;
+&lt;div style="font-style:normal"&gt;
+    &lt;p&gt;Card content set by child.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;Child component (with attribute values)&lt;/h1&gt;
+
+&lt;div&gt;Set by Parent&lt;/div&gt;
+&lt;div style="font-style:italic"&gt;
+    &lt;p&gt;Set by parent.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Assign a C# field, property, or result of a method to a component parameter as an HTML attribute value. The value of the attribute can typically be any C# expression that matches the type of the parameter. The value of the attribute can optionally lead with a <a href="../../mvc/views/razor?view=aspnetcore-10.0#razor-syntax" data-linktype="relative-path">Razor reserved <code>@</code> symbol</a>, but it isn't required.</p>
+<p>If the component parameter is of type string, then the attribute value is instead treated as a C# string literal. If you want to specify a C# expression instead, then use the <code>@</code> prefix.</p>
+<p>The following parent component displays four instances of the preceding <code>ParameterChild</code> component and sets their <code>Title</code> parameter values to:</p>
+<ul>
+<li>The value of the <code>title</code> field.</li>
+<li>The result of the <code>GetTitle</code> C# method.</li>
+<li>The current local date in long format with <a href="/en-us/dotnet/api/system.datetime.tolongdatestring" class="no-loc" data-linktype="absolute-path">ToLongDateString</a>, which uses an <a href="../../mvc/views/razor?view=aspnetcore-10.0#implicit-razor-expressions" data-linktype="relative-path">implicit C# expression</a>.</li>
+<li>The <code>panelData</code> object's <code>Title</code> property.</li>
+</ul>
+<p>The fifth <code>ParameterChild</code> component instance also sets the <code>Count</code> parameter. Note how a <code>string</code>-typed parameter requires an <code>@</code> prefix to ensure that an expression isn't treated as a string literal. However, <code>Count</code> is a nullable integer (<a href="/en-us/dotnet/api/system.int32" class="no-loc" data-linktype="absolute-path">System.Int32</a>), so <code>Count</code> can receive the value of <code>count</code> without an <code>@</code> prefix. You can establish an alternative code convention that requires developers in your organization to always prefix with <code>@</code>. Either way, we merely recommend that you adopt a consistent approach for how component parameters are passed in Razor markup.</p>
+<p>Quotes around parameter attribute values are optional in most cases per the HTML5 specification. For example, <code>Value=this</code> is supported, instead of <code>Value="this"</code>. However, we recommend using quotes because it's easier to remember and widely adopted across web-based technologies.</p>
+<p>Throughout the documentation, code examples:</p>
+<ul>
+<li>Always use quotes. Example: <code>Value="this"</code>.</li>
+<li>Don't use the <code>@</code> prefix with nonliterals unless required. Example: <code>Count="count"</code>, where <code>count</code> is a number-typed variable. <code>Count="@count"</code> is a valid stylistic approach, but the documentation and examples don't adopt the convention.</li>
+<li>Always avoid <code>@</code> for literals, outside of Razor expressions. Example: <code>IsFixed="true"</code>. This includes keywords (for example, <code>this</code>) and <code>null</code>, but you can choose to use them if you wish. For example, <code>IsFixed="@true"</code> is uncommon but supported.</li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<p><code>Parameter2.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-2"
+
+&lt;PageTitle&gt;Parameter 2&lt;/PageTitle&gt;
+
+&lt;h1&gt;Parameter Example 2&lt;/h1&gt;
+
+&lt;ParameterChild Title="@title" /&gt;
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+&lt;ParameterChild Title="@DateTime.Now.ToLongDateString()" /&gt;
+
+&lt;ParameterChild Title="@panelData.Title" /&gt;
+
+&lt;ParameterChild Title="String literal title" Count="count" /&gt;
+
+@code {
+    private string title = "From Parent field";
+    private PanelData panelData = new();
+    private int count = 12345;
+
+    private string GetTitle() =&gt; "From Parent method";
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "From Parent object";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<p><code>Parameter2.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-2"
+
+&lt;PageTitle&gt;Parameter 2&lt;/PageTitle&gt;
+
+&lt;h1&gt;Parameter Example 2&lt;/h1&gt;
+
+&lt;ParameterChild Title="@title" /&gt;
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+&lt;ParameterChild Title="@DateTime.Now.ToLongDateString()" /&gt;
+
+&lt;ParameterChild Title="@panelData.Title" /&gt;
+
+&lt;ParameterChild Title="String literal title" Count="count" /&gt;
+
+@code {
+    private string title = "From Parent field";
+    private PanelData panelData = new();
+    private int count = 12345;
+
+    private string GetTitle() =&gt; "From Parent method";
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "From Parent object";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<p><code>ParameterParent2.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent-2"
+
+&lt;ParameterChild Title="@title" /&gt;
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+&lt;ParameterChild Title="@DateTime.Now.ToLongDateString()" /&gt;
+
+&lt;ParameterChild Title="@panelData.Title" /&gt;
+
+&lt;ParameterChild Title="String literal title" Count="count" /&gt;
+
+@code {
+    private string title = "From Parent field";
+    private PanelData panelData = new();
+    private int count = 12345;
+
+    private string GetTitle()
+    {
+        return "From Parent method";
+    }
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "From Parent object";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<p><code>ParameterParent2.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent-2"
+
+&lt;ParameterChild Title="@title" /&gt;
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+&lt;ParameterChild Title="@DateTime.Now.ToLongDateString()" /&gt;
+
+&lt;ParameterChild Title="@panelData.Title" /&gt;
+
+&lt;ParameterChild Title="String literal title" Count="count" /&gt;
+
+@code {
+    private string title = "From Parent field";
+    private PanelData panelData = new();
+    private int count = 12345;
+
+    private string GetTitle()
+    {
+        return "From Parent method";
+    }
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "From Parent object";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<p><code>ParameterParent2.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent-2"
+
+&lt;ParameterChild Title="@title" /&gt;
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+&lt;ParameterChild Title="@DateTime.Now.ToLongDateString()" /&gt;
+
+&lt;ParameterChild Title="@panelData.Title" /&gt;
+
+&lt;ParameterChild Title="String literal title" Count="count" /&gt;
+
+@code {
+    private string title = "From Parent field";
+    private PanelData panelData = new PanelData();
+    private int count = 12345;
+
+    private string GetTitle()
+    {
+        return "From Parent method";
+    }
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "From Parent object";
+    }
+}
+</code></pre>
+</div>
+<div class="NOTE">
+<p>Note</p>
+<p>When assigning a C# member to a component parameter, don't prefix the parameter's HTML attribute with <code>@</code>.</p>
+<p>Correct (<code>Title</code> is a string parameter, <code>Count</code> is a number-typed parameter):</p>
+<pre><code class="lang-razor">&lt;ParameterChild Title="@title" Count="count" /&gt;
+</code></pre>
+<pre><code class="lang-razor">&lt;ParameterChild Title="@title" Count="@count" /&gt;
+</code></pre>
+<p>Incorrect:</p>
+<pre><code class="lang-razor">&lt;ParameterChild @Title="@title" @Count="count" /&gt;
+</code></pre>
+<pre><code class="lang-razor">&lt;ParameterChild @Title="@title" @Count="@count" /&gt;
+</code></pre>
+</div>
+<p>Unlike in Razor pages (<code>.cshtml</code>), Blazor can't perform asynchronous work in a Razor expression while rendering a component. This is because Blazor is designed for rendering interactive UIs. In an interactive UI, the screen must always display something, so it doesn't make sense to block the rendering flow. Instead, asynchronous work is performed during one of the <a href="lifecycle?view=aspnetcore-10.0" data-linktype="relative-path">asynchronous lifecycle events</a>. After each asynchronous lifecycle event, the component may render again. The following Razor syntax is <strong>not</strong> supported:</p>
+<pre><code class="lang-razor">&lt;ParameterChild Title="await ..." /&gt;
+&lt;ParameterChild Title="@await ..." /&gt;
+</code></pre>
+<p>The code in the preceding example generates a <em>compiler error</em> when the app is built:</p>
+<blockquote>
+<p>The 'await' operator can only be used within an async method. Consider marking this method with the 'async' modifier and changing its return type to 'Task'.</p>
+</blockquote>
+<p>To obtain a value for the <code>Title</code> parameter in the preceding example asynchronously, the component can use the <a href="lifecycle?view=aspnetcore-10.0#component-initialization-oninitializedasync" data-linktype="relative-path"><code>OnInitializedAsync</code> lifecycle event</a>, as the following example demonstrates:</p>
+<pre><code class="lang-razor">&lt;ParameterChild Title="@title" /&gt;
+
+@code {
+    private string? title;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        title = await ...;
+    }
+}
+</code></pre>
+<p>For more information, see <a href="lifecycle?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component lifecycle</a>.</p>
+<p>Use of an explicit Razor expression to concatenate text with an expression result for assignment to a parameter is <strong>not</strong> supported. The following example seeks to concatenate the text "<code>Set by </code>" with an object's property value. Although this syntax is supported in a Razor page (<code>.cshtml</code>), it isn't valid for assignment to the child's <code>Title</code> parameter in a component. The following Razor syntax is <strong>not</strong> supported:</p>
+<pre><code class="lang-razor">&lt;ParameterChild Title="Set by @(panelData.Title)" /&gt;
+</code></pre>
+<p>The code in the preceding example generates a <em>compiler error</em> when the app is built:</p>
+<blockquote>
+<p>Component attributes do not support complex content (mixed C# and markup).</p>
+</blockquote>
+<p>To support the assignment of a composed value, use a method, field, or property. The following example performs the concatenation of "<code>Set by </code>" and an object's property value in the C# method <code>GetTitle</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<p><code>Parameter3.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-3"
+
+&lt;PageTitle&gt;Parameter 3&lt;/PageTitle&gt;
+
+&lt;h1&gt;Parameter Example 3&lt;/h1&gt;
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+@code {
+    private PanelData panelData = new();
+
+    private string GetTitle() =&gt; $"Set by {panelData.Title}";
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "Parent";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<p><code>Parameter3.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-3"
+
+&lt;PageTitle&gt;Parameter 3&lt;/PageTitle&gt;
+
+&lt;h1&gt;Parameter Example 3&lt;/h1&gt;
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+@code {
+    private PanelData panelData = new();
+
+    private string GetTitle() =&gt; $"Set by {panelData.Title}";
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "Parent";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<p><code>ParameterParent3.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent-3"
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+@code {
+    private PanelData panelData = new();
+
+    private string GetTitle() =&gt; $"Set by {panelData.Title}";
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "Parent";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<p><code>ParameterParent3.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent-3"
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+@code {
+    private PanelData panelData = new();
+
+    private string GetTitle() =&gt; $"Set by {panelData.Title}";
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "Parent";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<p><code>ParameterParent3.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent-3"
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+@code {
+    private PanelData panelData = new();
+
+    private string GetTitle() =&gt; $"Set by {panelData.Title}";
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "Parent";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<p><code>ParameterParent3.razor</code>:</p>
+<pre><code class="lang-razor">@page "/parameter-parent-3"
+
+&lt;ParameterChild Title="@GetTitle()" /&gt;
+
+@code {
+    private PanelData panelData = new PanelData();
+
+    private string GetTitle() =&gt; $"Set by {panelData.Title}";
+
+    private class PanelData
+    {
+        public string Title { get; set; } = "Parent";
+    }
+}
+</code></pre>
+</div>
+<p>For more information, see <a href="../../mvc/views/razor?view=aspnetcore-10.0" data-linktype="relative-path">Razor syntax reference for ASP.NET Core</a>.</p>
+<div class="WARNING">
+<p>Warning</p>
+<p>Providing initial values for component parameters is supported, but don't create a component that writes to its own parameters after the component is rendered for the first time. For more information, see <a href="overwriting-parameters?view=aspnetcore-10.0" data-linktype="relative-path">Avoid overwriting parameters in ASP.NET Core Blazor</a>.</p>
+</div>
+<p>Component parameters should be declared as <a href="/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties" data-linktype="absolute-path">automatically-implemented properties (<em>auto properties</em>)</a>, meaning that they shouldn't contain custom logic in their <code>get</code> or <code>set</code> accessors. For example, the following <code>StartData</code> property is an auto property:</p>
+<pre><code class="lang-csharp">[Parameter]
+public DateTime StartData { get; set; }
+</code></pre>
+<p>Don't place custom logic in the <code>get</code> or <code>set</code> accessor because component parameters are purely intended for use as a channel for a parent component to flow information to a child component. If a <code>set</code> accessor of a child component property contains logic that causes rerendering of the parent component, an infinite rendering loop results. Other side effects include unexpected extra renderings and parameter value overwrites.</p>
+<p>To transform a received parameter value:</p>
+<ul>
+<li>Leave the parameter property as an auto-property to represent the supplied raw data.</li>
+<li>Create a different property or method to supply the transformed data based on the parameter property.</li>
+</ul>
+<p>Override <a href="lifecycle?view=aspnetcore-10.0#after-parameters-are-set-onparameterssetasync" data-linktype="relative-path"><code>OnParametersSetAsync</code></a> to transform a received parameter each time new data is received.</p>
+<p>Writing an initial value to a component parameter is supported because initial value assignments don't interfere with the Blazor's automatic component rendering. The following assignment of the current local <a href="/en-us/dotnet/api/system.datetime" class="no-loc" data-linktype="absolute-path">DateTime</a> with <a href="/en-us/dotnet/api/system.datetime.now#system-datetime-now" class="no-loc" data-linktype="absolute-path">DateTime.Now</a> to <code>StartData</code> is valid syntax in a component:</p>
+<pre><code class="lang-csharp">[Parameter]
+public DateTime StartData { get; set; } = DateTime.Now;
+</code></pre>
+<p>After the initial assignment of <a href="/en-us/dotnet/api/system.datetime.now#system-datetime-now" class="no-loc" data-linktype="absolute-path">DateTime.Now</a>, do <strong>not</strong> assign a value to <code>StartData</code> in developer code. For more information, see <a href="overwriting-parameters?view=aspnetcore-10.0" data-linktype="relative-path">Avoid overwriting parameters in ASP.NET Core Blazor</a>.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Apply the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.editorrequiredattribute" data-linktype="absolute-path"><code>[EditorRequired]</code> attribute</a> to specify a required component parameter. If a parameter value isn't provided, editors or build tools may display warnings to the user. This attribute is only valid on properties also marked with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterattribute" data-linktype="absolute-path"><code>[Parameter]</code> attribute</a>. The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.editorrequiredattribute" class="no-loc" data-linktype="absolute-path">EditorRequiredAttribute</a> is enforced at design-time and when the app is built. The attribute isn't enforced at runtime, and it doesn't guarantee a non-<code>null</code> parameter value.</p>
+<pre><code class="lang-csharp">[Parameter]
+[EditorRequired]
+public string? Title { get; set; }
+</code></pre>
+<p>Single-line attribute lists are also supported:</p>
+<pre><code class="lang-csharp">[Parameter, EditorRequired]
+public string? Title { get; set; }
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Don't use the <a href="/en-us/dotnet/csharp/language-reference/keywords/required" data-linktype="absolute-path"><code>required</code> modifier</a> or <a href="/en-us/dotnet/csharp/language-reference/keywords/init" data-linktype="absolute-path"><code>init</code> accessor</a> on component parameter properties. Components are usually instantiated and assigned parameter values using <a href="/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/" data-linktype="absolute-path">reflection</a>, which bypasses the guarantees that <code>init</code> and <code>required</code> are designed to make. Instead, use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.editorrequiredattribute" data-linktype="absolute-path"><code>[EditorRequired]</code> attribute</a> to specify a required component parameter.</p>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<p>Don't use the <a href="/en-us/dotnet/csharp/language-reference/keywords/init" data-linktype="absolute-path"><code>init</code> accessor</a> on component parameter properties because setting component parameter values with <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview.setparameterproperties" class="no-loc" data-linktype="absolute-path">ParameterView.SetParameterProperties</a> uses <a href="/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/" data-linktype="absolute-path">reflection</a>, which bypasses the init-only setter restriction. Use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.editorrequiredattribute" data-linktype="absolute-path"><code>[EditorRequired]</code> attribute</a> to specify a required component parameter.</p>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<p>Don't use the <a href="/en-us/dotnet/csharp/language-reference/keywords/init" data-linktype="absolute-path"><code>init</code> accessor</a> on component parameter properties because setting component parameter values with <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview.setparameterproperties" class="no-loc" data-linktype="absolute-path">ParameterView.SetParameterProperties</a> uses <a href="/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/" data-linktype="absolute-path">reflection</a>, which bypasses the init-only setter restriction.</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<p><a href="/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples" data-linktype="absolute-path"><code>Tuples</code></a> (<a href="/en-us/dotnet/api/system.tuple" data-linktype="absolute-path">API documentation</a>) are supported for component parameters and <a href="#child-content-render-fragments" data-linktype="self-bookmark"><code>RenderFragment</code></a> types. The following component parameter example passes three values in a <code>Tuple</code>:</p>
+<p><code>RenderTupleChild.razor</code>:</p>
+<pre><code class="lang-razor">&lt;div class="card w-50" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Tuple Card&lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Integer: @Data?.Item1&lt;/li&gt;
+            &lt;li&gt;String: @Data?.Item2&lt;/li&gt;
+            &lt;li&gt;Boolean: @Data?.Item3&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public (int, string, bool)? Data { get; set; }
+}
+</code></pre>
+<p><code>RenderTupleParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-tuple-parent"
+
+&lt;PageTitle&gt;Render Tuple Parent&lt;/PageTitle&gt;
+
+&lt;h1&gt;Render Tuple Parent Example&lt;/h1&gt;
+
+&lt;RenderTupleChild Data="data" /&gt;
+
+@code {
+    private (int, string, bool) data = new(999, "I aim to misbehave.", true);
+}
+</code></pre>
+<p><a href="/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-field-names" data-linktype="absolute-path">Named tuples</a> are supported, as seen in the following example:</p>
+<p><code>NamedTupleChild.razor</code>:</p>
+<pre><code class="lang-razor">&lt;div class="card w-50" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Tuple Card&lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Integer: @Data?.TheInteger&lt;/li&gt;
+            &lt;li&gt;String: @Data?.TheString&lt;/li&gt;
+            &lt;li&gt;Boolean: @Data?.TheBoolean&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public (int TheInteger, string TheString, bool TheBoolean)? Data { get; set; }
+}
+</code></pre>
+<p><code>NamedTuples.razor</code>:</p>
+<pre><code class="lang-razor">@page "/named-tuples"
+
+&lt;PageTitle&gt;Named Tuples&lt;/PageTitle&gt;
+
+&lt;h1&gt;Named Tuples Example&lt;/h1&gt;
+
+&lt;NamedTupleChild Data="data" /&gt;
+
+@code {
+    private (int TheInteger, string TheString, bool TheBoolean) data = 
+        new(999, "I aim to misbehave.", true);
+}
+</code></pre>
+<p>Quote ©2005 <a href="https://www.uphe.com" data-linktype="external">Universal Pictures</a>: <a href="https://www.uphe.com/movies/serenity-2005" data-linktype="external">Serenity</a> (<a href="https://www.imdb.com/name/nm0277213/" data-linktype="external">Nathan Fillion</a>)</p>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<p><a href="/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples" data-linktype="absolute-path"><code>Tuples</code></a> (<a href="/en-us/dotnet/api/system.tuple" data-linktype="absolute-path">API documentation</a>) are supported for component parameters and <a href="#child-content-render-fragments" data-linktype="self-bookmark"><code>RenderFragment</code></a> types. The following component parameter example passes three values in a <code>Tuple</code>:</p>
+<p><code>RenderTupleChild.razor</code>:</p>
+<pre><code class="lang-razor">&lt;div class="card w-50" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Tuple Card&lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Integer: @Data?.Item1&lt;/li&gt;
+            &lt;li&gt;String: @Data?.Item2&lt;/li&gt;
+            &lt;li&gt;Boolean: @Data?.Item3&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public (int, string, bool)? Data { get; set; }
+}
+</code></pre>
+<p><code>RenderTupleParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-tuple-parent"
+
+&lt;PageTitle&gt;Render Tuple Parent&lt;/PageTitle&gt;
+
+&lt;h1&gt;Render Tuple Parent Example&lt;/h1&gt;
+
+&lt;RenderTupleChild Data="data" /&gt;
+
+@code {
+    private (int, string, bool) data = new(999, "I aim to misbehave.", true);
+}
+</code></pre>
+<p><a href="/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-field-names" data-linktype="absolute-path">Named tuples</a> are supported, as seen in the following example:</p>
+<p><code>NamedTupleChild.razor</code>:</p>
+<pre><code class="lang-razor">&lt;div class="card w-50" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Tuple Card&lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Integer: @Data?.TheInteger&lt;/li&gt;
+            &lt;li&gt;String: @Data?.TheString&lt;/li&gt;
+            &lt;li&gt;Boolean: @Data?.TheBoolean&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public (int TheInteger, string TheString, bool TheBoolean)? Data { get; set; }
+}
+</code></pre>
+<p><code>NamedTuples.razor</code>:</p>
+<pre><code class="lang-razor">@page "/named-tuples"
+
+&lt;PageTitle&gt;Named Tuples&lt;/PageTitle&gt;
+
+&lt;h1&gt;Named Tuples Example&lt;/h1&gt;
+
+&lt;NamedTupleChild Data="data" /&gt;
+
+@code {
+    private (int TheInteger, string TheString, bool TheBoolean) data = 
+        new(999, "I aim to misbehave.", true);
+}
+</code></pre>
+<p>Quote ©2005 <a href="https://www.uphe.com" data-linktype="external">Universal Pictures</a>: <a href="https://www.uphe.com/movies/serenity-2005" data-linktype="external">Serenity</a> (<a href="https://www.imdb.com/name/nm0277213/" data-linktype="external">Nathan Fillion</a>)</p>
+</div>
+<div data-moniker="aspnetcore-6.0 aspnetcore-7.0">
+<p><a href="/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples" data-linktype="absolute-path"><code>Tuples</code></a> (<a href="/en-us/dotnet/api/system.tuple" data-linktype="absolute-path">API documentation</a>) are supported for component parameters and <a href="#child-content-render-fragments" data-linktype="self-bookmark"><code>RenderFragment</code></a> types. The following component parameter example passes three values in a <code>Tuple</code>:</p>
+<p><code>RenderTupleChild.razor</code>:</p>
+<pre><code class="lang-razor">&lt;div class="card w-50" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;&lt;code&gt;Tuple&lt;/code&gt; Card&lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Integer: @Data?.Item1&lt;/li&gt;
+            &lt;li&gt;String: @Data?.Item2&lt;/li&gt;
+            &lt;li&gt;Boolean: @Data?.Item3&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public (int, string, bool)? Data { get; set; }
+}
+</code></pre>
+<p><code>RenderTupleParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-tuple-parent"
+
+&lt;h1&gt;Render Tuple Parent&lt;/h1&gt;
+
+&lt;RenderTupleChild Data="data" /&gt;
+
+@code {
+    private (int, string, bool) data = new(999, "I aim to misbehave.", true);
+}
+</code></pre>
+<p><a href="/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-field-names" data-linktype="absolute-path">Named tuples</a> are supported, as seen in the following example:</p>
+<p><code>RenderNamedTupleChild.razor</code>:</p>
+<pre><code class="lang-razor">&lt;div class="card w-50" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;&lt;code&gt;Tuple&lt;/code&gt; Card&lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Integer: @Data?.TheInteger&lt;/li&gt;
+            &lt;li&gt;String: @Data?.TheString&lt;/li&gt;
+            &lt;li&gt;Boolean: @Data?.TheBoolean&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public (int TheInteger, string TheString, bool TheBoolean)? Data { get; set; }
+}
+</code></pre>
+<p><code>RenderNamedTupleParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-named-tuple-parent"
+
+&lt;h1&gt;Render Named Tuple Parent&lt;/h1&gt;
+
+&lt;RenderNamedTupleChild Data="data" /&gt;
+
+@code {
+    private (int TheInteger, string TheString, bool TheBoolean) data = 
+        new(999, "I aim to misbehave.", true);
+}
+</code></pre>
+<p>Quote ©2005 <a href="https://www.uphe.com" data-linktype="external">Universal Pictures</a>: <a href="https://www.uphe.com/movies/serenity-2005" data-linktype="external">Serenity</a> (<a href="https://www.imdb.com/name/nm0277213/" data-linktype="external">Nathan Fillion</a>)</p>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<p>Support for <a href="/en-us/dotnet/csharp/language-reference/builtin-types/union" data-linktype="absolute-path">C# union types</a> allows a single component parameter to represent a value that's exactly one of a fixed set of types with compiler-enforced exhaustive pattern matching. A component parameter is set by direct assignment when a component is rendered from Razor markup or through <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder.addcomponentparameter" class="no-loc" data-linktype="absolute-path">RenderTreeBuilder.AddComponentParameter</a>.</p>
+<!-- UPDATE 11.0 - Remove the NOTE at GA -->
+<div class="NOTE">
+<p>Note</p>
+<p>During the preview of .NET 11, the following example requires the app's project file to specify the "<code>preview</code>" C# language version:</p>
+<pre><code class="lang-xml">&lt;LangVersion&gt;preview&lt;/LangVersion&gt;
+</code></pre>
+</div>
+<p>The following C# union type, <code>SlotContent</code>, accepts text, a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.markupstring" class="no-loc" data-linktype="absolute-path">MarkupString</a>, or a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a>:</p>
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+public union SlotContent(string, MarkupString, RenderFragment);
+</code></pre>
+<p>The following <code>Slot</code> component exposes a component parameter typed to the <code>SlotContent</code> union and renders the union's content using two implementations of the <a href="/en-us/dotnet/csharp/language-reference/operators/switch-expression" data-linktype="absolute-path">C# <code>switch</code> expression</a>, one through an assignment to a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a> (<code>ContentSwitch</code>) and one via an inline <code>switch</code> expression. In the following example, the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.editorrequiredattribute" data-linktype="absolute-path"><code>[EditorRequired]</code> attribute</a> specifies that <code>Content</code> is a required component parameter at design-time or build-time.</p>
+<p><code>Slot.razor</code>:</p>
+<pre><code class="lang-razor">&lt;h2&gt;&lt;code&gt;ContentSwitch&lt;/code&gt;&lt;/h2&gt;
+
+&lt;div&gt;
+    @ContentSwitch()
+&lt;/div&gt;
+
+&lt;h2&gt;Inline &lt;code&gt;switch&lt;/code&gt; expression&lt;/h2&gt;
+
+&lt;div&gt;
+    @switch (Content)
+    {
+        case string text:
+            @text
+            break;
+        case MarkupString html:
+            @html
+            break;
+        case RenderFragment fragment:
+            @fragment
+            break;
+        default:
+            &lt;em&gt;Empty slot!&lt;/em&gt;
+            break;
+    }
+&lt;/div&gt;
+
+@code {
+    [Parameter, EditorRequired] 
+    public SlotContent Content { get; set; }
+
+    private RenderFragment ContentSwitch() =&gt; Content switch
+    {
+        string text =&gt; @&lt;span&gt;@text&lt;/span&gt;,
+        MarkupString html =&gt; @&lt;span&gt;@html&lt;/span&gt;,
+        RenderFragment fragment =&gt; fragment,
+        _ =&gt; @&lt;em&gt;Empty slot!&lt;/em&gt;
+    };
+}
+</code></pre>
+<p>The following <code>SlotExample</code> component uses the preceding <code>SlotContent</code> type and <code>Slot</code> component.</p>
+<p><code>SlotExample.razor</code>:</p>
+<pre><code class="lang-razor">@page "/slot-example"
+
+&lt;h1&gt;Plain text&lt;/h1&gt;
+
+&lt;Slot Content="@("Simple plain text slot")" /&gt;
+
+&lt;h1&gt;&lt;code&gt;MarkupString&lt;/code&gt;&lt;/h1&gt;
+
+&lt;Slot Content='@((MarkupString)"&lt;strong&gt;Bold HTML slot&lt;/strong&gt;")' /&gt;
+
+&lt;h1&gt;&lt;code&gt;RenderFragment&lt;/code&gt;&lt;/h1&gt;
+
+&lt;Slot Content="@content" /&gt;
+
+@code {
+    private SlotContent content;
+
+    protected override void OnInitialized()
+    {
+        content = new SlotContent((RenderFragment)(b =&gt;
+        {
+            b.OpenElement(0, "button");
+            b.AddAttribute(1, "onclick", EventCallback.Factory.Create(this, Increment));
+            b.AddContent(2, "Count: ");
+            b.AddContent(3, currentCount);
+            b.CloseElement();
+        }));
+    }
+
+    private int currentCount = 0;
+
+    private void Increment() =&gt; currentCount++;
+}
+</code></pre>
+<!-- UPDATE 11.0 - Remove the following paragraph per resolution of the PU issue -->
+<p>The string-literal shortcut applies only to parameters declared as <code>string</code>. A parameter declared as a C# union type, even one whose cases include <code>string</code>, isn't a <code>string</code>-typed parameter, so the attribute value must be a C# expression. Use the <code>@</code> prefix, as demonstrated by <code>Content="@("Simple plain text slot")"</code> in the preceding example.</p>
+<!-- UPDATE 11.0 - Track on https://github.com/dotnet/razor/issues/13200 for 
+                   the following feature. -->
+<p>Populating a union-typed parameter via a <a href="#child-content-render-fragments" data-linktype="self-bookmark">child content render fragment</a> (<code>&lt;Slot&gt;...&lt;/Slot&gt;</code>) isn't supported at this time but might be introduced in a future preview release.</p>
+<!-- UPDATE 13.0 - Remove the following cross-link when C# unions get some time on them (target removal for .NET 13) -->
+<p>For more information, see <a href="https://devblogs.microsoft.com/dotnet/csharp-15-union-types/" data-linktype="external">Explore union types in C# 15</a>.</p>
+</div>
+<h2 id="route-parameters">Route parameters</h2>
+<p>Components can specify route parameters in the route template of the <a href="../../mvc/views/razor?view=aspnetcore-10.0#page" data-linktype="relative-path"><code>@page</code></a> directive. The <a href="../fundamentals/routing?view=aspnetcore-10.0" data-linktype="relative-path">Blazor router</a> uses route parameters to populate corresponding component parameters.</p>
+<p><code>RouteParameter1.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/route-parameter-1/{text}"
+
+&lt;PageTitle&gt;Route Parameter 1&lt;/PageTitle&gt;
+
+&lt;h1&gt;Route Parameter Example 1&lt;/h1&gt;
+
+&lt;p&gt;Blazor is @Text!&lt;/p&gt;
+
+@code {
+    [Parameter]
+    public string? Text { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/route-parameter-1/{text}"
+
+&lt;PageTitle&gt;Route Parameter 1&lt;/PageTitle&gt;
+
+&lt;h1&gt;Route Parameter Example 1&lt;/h1&gt;
+
+&lt;p&gt;Blazor is @Text!&lt;/p&gt;
+
+@code {
+    [Parameter]
+    public string? Text { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/route-parameter-1/{text}"
+
+&lt;h1&gt;Blazor is @Text!&lt;/h1&gt;
+
+@code {
+    [Parameter]
+    public string? Text { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/route-parameter-1/{text}"
+
+&lt;h1&gt;Blazor is @Text!&lt;/h1&gt;
+
+@code {
+    [Parameter]
+    public string? Text { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/route-parameter-1/{text}"
+
+&lt;h1&gt;Blazor is @Text!&lt;/h1&gt;
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/route-parameter-1/{text}"
+
+&lt;h1&gt;Blazor is @Text!&lt;/h1&gt;
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>For more information, see the <em>Route parameters</em> section of <a href="../fundamentals/routing?view=aspnetcore-10.0#route-parameters" data-linktype="relative-path">ASP.NET Core Blazor routing</a>. Optional route parameters are also supported and covered in the same section. For information on catch-all route parameters (<code>{*pageRoute}</code>), which capture paths across multiple folder boundaries, see the <em>Catch-all route parameters</em> section of <a href="../fundamentals/routing?view=aspnetcore-10.0#catch-all-route-parameters" data-linktype="relative-path">ASP.NET Core Blazor routing</a>.</p>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<p>For more information, see the <em>Route parameters</em> section of <a href="../fundamentals/routing?view=aspnetcore-10.0#route-parameters" data-linktype="relative-path">ASP.NET Core Blazor routing</a>. Optional route parameters aren't supported, so two <a href="../../mvc/views/razor?view=aspnetcore-10.0#page" data-linktype="relative-path"><code>@page</code></a> directives are required (see the <em>Route parameters</em> section for more information). For information on catch-all route parameters (<code>{*pageRoute}</code>), which capture paths across multiple folder boundaries, see the <em>Catch-all route parameters</em> section of <a href="../fundamentals/routing?view=aspnetcore-10.0#catch-all-route-parameters" data-linktype="relative-path">ASP.NET Core Blazor routing</a>.</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<div class="WARNING">
+<p>Warning</p>
+<p>With compression, which is enabled by default, avoid creating secure (authenticated/authorized) interactive server-side components that render data from untrusted sources. Untrusted sources include route parameters, query strings, data from JS interop, and any other source of data that a third-party user can control (databases, external services). For more information, see <a href="../fundamentals/signalr?view=aspnetcore-10.0#websocket-compression-for-interactive-server-components" data-linktype="relative-path">ASP.NET Core Blazor SignalR guidance</a> and <a href="../security/interactive-server-side-rendering?view=aspnetcore-9.0#interactive-server-components-with-websocket-compression-enabled" data-linktype="relative-path">Threat mitigation guidance for ASP.NET Core Blazor interactive server-side rendering</a>.</p>
+</div>
+</div>
+<h2 id="child-content-render-fragments">Child content render fragments</h2>
+<p>Components can set the content of another component. The assigning component provides the content between the child component's opening and closing tags.</p>
+<p>In the following example, the <code>RenderFragmentChild</code> component has a <code>ChildContent</code> component parameter that represents a segment of the UI to render as a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a>. The position of <code>ChildContent</code> in the component's Razor markup is where the content is rendered in the final HTML output.</p>
+<p><code>RenderFragmentChild.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Child content&lt;/div&gt;
+    &lt;div class="card-body"&gt;@ChildContent&lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Child content&lt;/div&gt;
+    &lt;div class="card-body"&gt;@ChildContent&lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Child content&lt;/div&gt;
+    &lt;div class="card-body"&gt;@ChildContent&lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Child content&lt;/div&gt;
+    &lt;div class="card-body"&gt;@ChildContent&lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Child content&lt;/div&gt;
+    &lt;div class="card-body"&gt;@ChildContent&lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Child content&lt;/div&gt;
+    &lt;div class="card-body"&gt;@ChildContent&lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}
+</code></pre>
+</div>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>The property receiving the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a> content must be named <code>ChildContent</code> by convention.</p>
+<p><a href="event-handling?view=aspnetcore-10.0#eventcallback" data-linktype="relative-path">Event callbacks</a> aren't supported for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a>.</p>
+</div>
+<p>The following component provides content for rendering the <code>RenderFragmentChild</code> by placing the content inside the child component's opening and closing tags.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<p><code>RenderFragments.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-fragments"
+
+&lt;PageTitle&gt;Render Fragments&lt;/PageTitle&gt;
+
+&lt;h1&gt;Render Fragments Example&lt;/h1&gt;
+
+&lt;RenderFragmentChild&gt;
+    Content of the child component is supplied
+    by the parent component.
+&lt;/RenderFragmentChild&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<p><code>RenderFragments.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-fragments"
+
+&lt;PageTitle&gt;Render Fragments&lt;/PageTitle&gt;
+
+&lt;h1&gt;Render Fragments Example&lt;/h1&gt;
+
+&lt;RenderFragmentChild&gt;
+    Content of the child component is supplied
+    by the parent component.
+&lt;/RenderFragmentChild&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<p><code>RenderFragmentParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-fragment-parent"
+
+&lt;h1&gt;Render child content&lt;/h1&gt;
+
+&lt;RenderFragmentChild&gt;
+    Content of the child component is supplied
+    by the parent component.
+&lt;/RenderFragmentChild&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<p><code>RenderFragmentParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-fragment-parent"
+
+&lt;h1&gt;Render child content&lt;/h1&gt;
+
+&lt;RenderFragmentChild&gt;
+    Content of the child component is supplied
+    by the parent component.
+&lt;/RenderFragmentChild&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<p><code>RenderFragmentParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-fragment-parent"
+
+&lt;h1&gt;Render child content&lt;/h1&gt;
+
+&lt;RenderFragmentChild&gt;
+    Content of the child component is supplied
+    by the parent component.
+&lt;/RenderFragmentChild&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<p><code>RenderFragmentParent.razor</code>:</p>
+<pre><code class="lang-razor">@page "/render-fragment-parent"
+
+&lt;h1&gt;Render child content&lt;/h1&gt;
+
+&lt;RenderFragmentChild&gt;
+    Content of the child component is supplied
+    by the parent component.
+&lt;/RenderFragmentChild&gt;
+</code></pre>
+</div>
+<p>Render fragments are used to render child content throughout Blazor apps and are described with examples in the following articles and article sections:</p>
+<ul>
+<li><a href="layouts?view=aspnetcore-10.0" data-linktype="relative-path">Blazor layouts</a></li>
+<li><a href="cascading-values-and-parameters?view=aspnetcore-10.0#pass-data-across-a-component-hierarchy" data-linktype="relative-path">Pass data across a component hierarchy</a></li>
+<li><a href="templated-components?view=aspnetcore-10.0" data-linktype="relative-path">Templated components</a></li>
+<li><a href="../fundamentals/handle-errors?view=aspnetcore-10.0#global-exception-handling" data-linktype="relative-path">Global exception handling</a></li>
+</ul>
+<div class="NOTE">
+<p>Note</p>
+<p>Blazor framework's <a href="built-in-components?view=aspnetcore-10.0" data-linktype="relative-path">built-in Razor components</a> use the same <code>ChildContent</code> component parameter convention to set their content. You can see the components that set child content by searching for the component parameter property name <code>ChildContent</code> in the <a href="/en-us/dotnet/api/?term=ChildContent" data-linktype="absolute-path">API documentation (filters API with the search term "ChildContent")</a>.</p>
+</div>
+<h2 id="render-fragments-for-reusable-rendering-logic">Render fragments for reusable rendering logic</h2>
+<p>You can factor out child components purely as a way of reusing rendering logic. In any component's <code>@code</code> block, define a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a> and render the fragment from any location as many times as needed:</p>
+<pre><code class="lang-razor">@RenderWelcomeInfo
+
+&lt;p&gt;Render the welcome info a second time:&lt;/p&gt;
+
+@RenderWelcomeInfo
+
+@code {
+    private RenderFragment RenderWelcomeInfo =  @&lt;p&gt;Welcome to your new app!&lt;/p&gt;;
+}
+</code></pre>
+<p>For more information, see <a href="../performance/rendering?view=aspnetcore-10.0#define-reusable-renderfragments-in-code" data-linktype="relative-path">Reuse rendering logic</a>.</p>
+<h2 id="loop-variables-with-component-parameters-and-child-content">Loop variables with component parameters and child content</h2>
+<p>Rendering components inside a <a href="/en-us/dotnet/csharp/language-reference/keywords/for" data-linktype="absolute-path"><code>for</code></a> loop requires a local index variable if the incrementing loop variable is used by the component's parameters or <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a> child content.</p>
+<p>Consider the following <code>RenderFragmentChild2</code> component that has both a component parameter (<code>Id</code>) and a render fragment to display child content (<code>ChildContent</code>).</p>
+<p><code>RenderFragmentChild2.razor</code>:</p>
+<pre><code class="lang-razor">&lt;div class="card w-25" style="margin-bottom:15px"&gt;
+    &lt;div class="card-header font-weight-bold"&gt;Child content (@Id)&lt;/div&gt;
+    &lt;div class="card-body"&gt;@ChildContent&lt;/div&gt;
+&lt;/div&gt;
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
+</code></pre>
+<p>When rendering the <code>RenderFragmentChild2</code> component in a parent component, use a local index variable (<code>ct</code> in the following example) instead of the loop variable (<code>c</code>) when assigning the component parameter value and providing the child component's content:</p>
+<pre><code class="lang-razor">@for (int c = 1; c &lt; 4; c++)
+{
+    var ct = c;
+
+    &lt;RenderFragmentChild2 Id="@($"Child{ct}")"&gt;
+        Count: @ct
+    &lt;/RenderFragmentChild2&gt;
+}
+</code></pre>
+<p>Alternatively, use a <a href="/en-us/dotnet/csharp/language-reference/keywords/foreach-in" data-linktype="absolute-path"><code>foreach</code></a> loop with <a href="/en-us/dotnet/api/system.linq.enumerable.range" class="no-loc" data-linktype="absolute-path">Enumerable.Range</a> instead of a <a href="/en-us/dotnet/csharp/language-reference/keywords/for" data-linktype="absolute-path"><code>for</code></a> loop:</p>
+<pre><code class="lang-razor">@foreach (var c in Enumerable.Range(1, 3))
+{
+    &lt;RenderFragmentChild2 Id="@($"Child{c}")"&gt;
+        Count: @c
+    &lt;/RenderFragmentChild2&gt;
+}
+</code></pre>
+<h2 id="capture-references-to-components">Capture references to components</h2>
+<p>Component references provide a way to reference a component instance for issuing commands. To capture a component reference:</p>
+<ul>
+<li>Add an <a href="../../mvc/views/razor?view=aspnetcore-10.0#ref" data-linktype="relative-path"><code>@ref</code></a> attribute to the child component.</li>
+<li>Define a field with the same type as the child component.</li>
+</ul>
+<p>When the component is rendered, the field is populated with the component instance. You can then invoke .NET methods on the instance.</p>
+<p>Consider the following <code>ReferenceChild</code> component that logs a message when its <code>ChildMethod</code> is called.</p>
+<p><code>ReferenceChild.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@inject ILogger&lt;ReferenceChild&gt; Logger
+
+@if (value &gt; 0)
+{
+    &lt;p&gt;
+        &lt;code&gt;value&lt;/code&gt;: @value
+    &lt;/p&gt;
+}
+
+@code {
+    private int value;
+
+    public void ChildMethod(int value)
+    {
+        Logger.LogInformation("Received {Value} in ChildMethod", value);
+
+        this.value = value;
+        StateHasChanged();
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@inject ILogger&lt;ReferenceChild&gt; Logger
+
+@if (value &gt; 0)
+{
+    &lt;p&gt;
+        &lt;code&gt;value&lt;/code&gt;: @value
+    &lt;/p&gt;
+}
+
+@code {
+    private int value;
+
+    public void ChildMethod(int value)
+    {
+        Logger.LogInformation("Received {Value} in ChildMethod", value);
+
+        this.value = value;
+        StateHasChanged();
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@using Microsoft.Extensions.Logging
+@inject ILogger&lt;ReferenceChild&gt; Logger
+
+@code {
+    public void ChildMethod(int value)
+    {
+        Logger.LogInformation("Received {Value} in ChildMethod", value);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@using Microsoft.Extensions.Logging
+@inject ILogger&lt;ReferenceChild&gt; Logger
+
+@code {
+    public void ChildMethod(int value)
+    {
+        Logger.LogInformation("Received {Value} in ChildMethod", value);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@using Microsoft.Extensions.Logging
+@inject ILogger&lt;ReferenceChild&gt; Logger
+
+@code {
+    public void ChildMethod(int value)
+    {
+        Logger.LogInformation("Received {Value} in ChildMethod", value);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@using Microsoft.Extensions.Logging
+@inject ILogger&lt;ReferenceChild&gt; Logger
+
+@code {
+    public void ChildMethod(int value)
+    {
+        Logger.LogInformation("Received {Value} in ChildMethod", value);
+    }
+}
+</code></pre>
+</div>
+<p>A component reference is only populated after the component is rendered and its output includes <code>ReferenceChild</code>'s element. Until the component is rendered, there's nothing to reference. Don't attempt to call a referenced component method to an event handler directly (for example, <code>@onclick="childComponent!.ChildMethod(5)"</code>) because the reference variable may not be assigned at the time the click event is assigned.</p>
+<p>To manipulate component references after the component has finished rendering, use the <a href="lifecycle?view=aspnetcore-10.0#after-component-render-onafterrenderasync" data-linktype="relative-path"><code>OnAfterRender</code> or <code>OnAfterRenderAsync</code> methods</a>.</p>
+<p>The following example uses the preceding <code>ReferenceChild</code> component.</p>
+<p><code>ReferenceParent.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/reference-parent"
+
+&lt;div&gt;
+    &lt;button @onclick="@(() =&gt; childComponent1!.ChildMethod(5))"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (first instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent1" /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;button @onclick="CallChildMethod"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (second instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent2" /&gt;
+&lt;/div&gt;
+
+@code {
+    private ReferenceChild? childComponent1;
+    private ReferenceChild? childComponent2;
+
+    private void CallChildMethod() =&gt; childComponent2!.ChildMethod(5);
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/reference-parent"
+
+&lt;div&gt;
+    &lt;button @onclick="@(() =&gt; childComponent1!.ChildMethod(5))"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (first instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent1" /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;button @onclick="CallChildMethod"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (second instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent2" /&gt;
+&lt;/div&gt;
+
+@code {
+    private ReferenceChild? childComponent1;
+    private ReferenceChild? childComponent2;
+
+    private void CallChildMethod() =&gt; childComponent2!.ChildMethod(5);
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/reference-parent"
+
+&lt;div&gt;
+    &lt;button @onclick="@(() =&gt; childComponent1!.ChildMethod(5))"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (first instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent1" /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;button @onclick="CallChildMethod"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (second instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent2" /&gt;
+&lt;/div&gt;
+
+@code {
+    private ReferenceChild? childComponent1;
+    private ReferenceChild? childComponent2;
+
+    private void CallChildMethod()
+    {
+        childComponent2!.ChildMethod(5);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/reference-parent"
+
+&lt;div&gt;
+    &lt;button @onclick="@(() =&gt; childComponent1!.ChildMethod(5))"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (first instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent1" /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;button @onclick="CallChildMethod"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (second instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent2" /&gt;
+&lt;/div&gt;
+
+@code {
+    private ReferenceChild? childComponent1;
+    private ReferenceChild? childComponent2;
+
+    private void CallChildMethod()
+    {
+        childComponent2!.ChildMethod(5);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/reference-parent"
+
+&lt;div&gt;
+    &lt;button @onclick="@(() =&gt; childComponent1!.ChildMethod(5))"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (first instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent1" /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;button @onclick="CallChildMethod"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (second instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent2" /&gt;
+&lt;/div&gt;
+
+@code {
+    private ReferenceChild childComponent1;
+    private ReferenceChild childComponent2;
+
+    private void CallChildMethod()
+    {
+        childComponent2!.ChildMethod(5);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/reference-parent"
+
+&lt;div&gt;
+    &lt;button @onclick="@(() =&gt; childComponent1!.ChildMethod(5))"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (first instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent1" /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;button @onclick="CallChildMethod"&gt;
+        Call &lt;code&gt;ReferenceChild.ChildMethod&lt;/code&gt; (second instance) 
+        with an argument of 5
+    &lt;/button&gt;
+
+    &lt;ReferenceChild @ref="childComponent2" /&gt;
+&lt;/div&gt;
+
+@code {
+    private ReferenceChild childComponent1;
+    private ReferenceChild childComponent2;
+
+    private void CallChildMethod()
+    {
+        childComponent2!.ChildMethod(5);
+    }
+}
+</code></pre>
+</div>
+<p>While capturing component references use a similar syntax to <a href="../javascript-interoperability/call-javascript-from-dotnet?view=aspnetcore-10.0#capture-references-to-elements" data-linktype="relative-path">capturing element references</a>, capturing component references isn't a JavaScript interop feature. Component references aren't passed to JavaScript code. Component references are only used in .NET code.</p>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>Do <strong>not</strong> use component references to mutate the state of child components. Instead, use normal declarative component parameters to pass data to child components. Use of component parameters result in child components that rerender at the correct times automatically. For more information, see the <a href="#component-parameters" data-linktype="self-bookmark">component parameters</a> section and the <a href="data-binding?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor data binding</a> article.</p>
+</div>
+<h2 id="apply-an-attribute">Apply an attribute</h2>
+<p>Attributes can be applied to components with the <a href="../../mvc/views/razor?view=aspnetcore-10.0#attribute" data-linktype="relative-path"><code>@attribute</code></a> directive. The following example applies the <a href="/en-us/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute" data-linktype="absolute-path"><code>[Authorize]</code> attribute</a> to the component's class:</p>
+<pre><code class="lang-razor">@page "/"
+@attribute [Authorize]
+</code></pre>
+<h2 id="conditional-html-element-attributes-and-dom-properties">Conditional HTML element attributes and DOM properties</h2>
+<p>Blazor adopts the following general behaviors:</p>
+<ul>
+<li>For HTML attributes, Blazor sets or removes the attribute conditionally based on the .NET value. If the .NET value is <code>false</code> or <code>null</code>, the attribute isn't set or is removed if it was previously set.</li>
+<li>For DOM properties, such as <code>checked</code> or <code>value</code>, Blazor sets the DOM property based on the .NET value. If the .NET value is <code>false</code> or <code>null</code>, the DOM property is reset to a default value.</li>
+</ul>
+<p>Which Razor syntax attributes correspond to HTML attributes and which ones correspond to DOM properties remains undocumented because this is a framework implementation detail that might change without notice.</p>
+<div class="WARNING">
+<p>Warning</p>
+<p>Some HTML attributes, such as <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons" data-linktype="external"><code>aria-pressed</code></a>, must have a string value of either "true" or "false". Since they require a string value and not a boolean, you must use a .NET <code>string</code> and not a <code>bool</code> for their value. This is a requirement set by browser DOM APIs.</p>
+</div>
+<h2 id="raw-html">Raw HTML</h2>
+<p>Strings are normally rendered using DOM text nodes, which means that any markup they may contain is ignored and treated as literal text. To render raw HTML, wrap the HTML content in a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.markupstring" class="no-loc" data-linktype="absolute-path">MarkupString</a> value. The value is parsed as HTML or SVG and inserted into the DOM.</p>
+<div class="WARNING">
+<p>Warning</p>
+<p>Rendering raw HTML constructed from any untrusted source is a <strong>security risk</strong> and should <strong>always</strong> be avoided.</p>
+</div>
+<p>The following example shows using the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.markupstring" class="no-loc" data-linktype="absolute-path">MarkupString</a> type to add a block of static HTML content to the rendered output of a component.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<p><code>MarkupStrings.razor</code>:</p>
+<pre><code class="lang-razor">@page "/markup-strings"
+
+&lt;PageTitle&gt;Markup Strings&lt;/PageTitle&gt;
+
+&lt;h1&gt;Markup Strings Example&lt;/h1&gt;
+
+@((MarkupString)myMarkup)
+
+@code {
+    private string myMarkup =
+        "&lt;p class=\"text-danger\"&gt;This is a dangerous &lt;em&gt;markup string&lt;/em&gt;.&lt;/p&gt;";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<p><code>MarkupStrings.razor</code>:</p>
+<pre><code class="lang-razor">@page "/markup-strings"
+
+&lt;PageTitle&gt;Markup Strings&lt;/PageTitle&gt;
+
+&lt;h1&gt;Markup Strings Example&lt;/h1&gt;
+
+@((MarkupString)myMarkup)
+
+@code {
+    private string myMarkup =
+        "&lt;p class=\"text-danger\"&gt;This is a dangerous &lt;em&gt;markup string&lt;/em&gt;.&lt;/p&gt;";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<p><code>MarkupStringExample.razor</code>:</p>
+<pre><code class="lang-razor">@page "/markup-string-example"
+
+@((MarkupString)myMarkup)
+
+@code {
+    private string myMarkup =
+        "&lt;p class=\"text-danger\"&gt;This is a dangerous &lt;em&gt;markup string&lt;/em&gt;.&lt;/p&gt;";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<p><code>MarkupStringExample.razor</code>:</p>
+<pre><code class="lang-razor">@page "/markup-string-example"
+
+@((MarkupString)myMarkup)
+
+@code {
+    private string myMarkup =
+        "&lt;p class=\"text-danger\"&gt;This is a dangerous &lt;em&gt;markup string&lt;/em&gt;.&lt;/p&gt;";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<p><code>MarkupStringExample.razor</code>:</p>
+<pre><code class="lang-razor">@page "/markup-string-example"
+
+@((MarkupString)myMarkup)
+
+@code {
+    private string myMarkup =
+        "&lt;p class=\"text-danger\"&gt;This is a dangerous &lt;em&gt;markup string&lt;/em&gt;.&lt;/p&gt;";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<p><code>MarkupStringExample.razor</code>:</p>
+<pre><code class="lang-razor">@page "/markup-string-example"
+
+@((MarkupString)myMarkup)
+
+@code {
+    private string myMarkup =
+        "&lt;p class=\"text-danger\"&gt;This is a dangerous &lt;em&gt;markup string&lt;/em&gt;.&lt;/p&gt;";
+}
+</code></pre>
+</div>
+<h2 id="razor-templates">Razor templates</h2>
+<p>Render fragments can be defined using Razor template syntax to define a UI snippet. Razor templates use the following format:</p>
+<pre><code class="lang-razor">@&lt;{HTML tag}&gt;...&lt;/{HTML tag}&gt;
+</code></pre>
+<p>The following example illustrates how to specify <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment-1" class="no-loc" data-linktype="absolute-path">RenderFragment&lt;TValue&gt;</a> values and render templates directly in a component. Render fragments can also be passed as arguments to <a href="templated-components?view=aspnetcore-10.0" data-linktype="relative-path">templated components</a>.</p>
+<p><code>RazorTemplate.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/razor-template"
+
+&lt;PageTitle&gt;Razor Template&lt;/PageTitle&gt;
+
+&lt;h1&gt;Razor Template Example&lt;/h1&gt;
+
+@timeTemplate
+
+@petTemplate(new Pet { Name = "Nutty Rex" })
+
+@code {
+    private RenderFragment timeTemplate = @&lt;p&gt;The time is @DateTime.Now.&lt;/p&gt;;
+    private RenderFragment&lt;Pet&gt; petTemplate = (pet) =&gt; @&lt;p&gt;Pet: @pet.Name&lt;/p&gt;;
+
+    private class Pet
+    {
+        public string? Name { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/razor-template"
+
+&lt;PageTitle&gt;Razor Template&lt;/PageTitle&gt;
+
+&lt;h1&gt;Razor Template Example&lt;/h1&gt;
+
+@timeTemplate
+
+@petTemplate(new Pet { Name = "Nutty Rex" })
+
+@code {
+    private RenderFragment timeTemplate = @&lt;p&gt;The time is @DateTime.Now.&lt;/p&gt;;
+    private RenderFragment&lt;Pet&gt; petTemplate = (pet) =&gt; @&lt;p&gt;Pet: @pet.Name&lt;/p&gt;;
+
+    private class Pet
+    {
+        public string? Name { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/razor-template"
+
+@timeTemplate
+
+@petTemplate(new Pet { Name = "Nutty Rex" })
+
+@code {
+    private RenderFragment timeTemplate = @&lt;p&gt;The time is @DateTime.Now.&lt;/p&gt;;
+    private RenderFragment&lt;Pet&gt; petTemplate = (pet) =&gt; @&lt;p&gt;Pet: @pet.Name&lt;/p&gt;;
+
+    private class Pet
+    {
+        public string? Name { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/razor-template"
+
+@timeTemplate
+
+@petTemplate(new Pet { Name = "Nutty Rex" })
+
+@code {
+    private RenderFragment timeTemplate = @&lt;p&gt;The time is @DateTime.Now.&lt;/p&gt;;
+    private RenderFragment&lt;Pet&gt; petTemplate = (pet) =&gt; @&lt;p&gt;Pet: @pet.Name&lt;/p&gt;;
+
+    private class Pet
+    {
+        public string? Name { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/razor-template"
+
+@timeTemplate
+
+@petTemplate(new Pet { Name = "Nutty Rex" })
+
+@code {
+    private RenderFragment timeTemplate = @&lt;p&gt;The time is @DateTime.Now.&lt;/p&gt;;
+    private RenderFragment&lt;Pet&gt; petTemplate = (pet) =&gt; @&lt;p&gt;Pet: @pet.Name&lt;/p&gt;;
+
+    private class Pet
+    {
+        public string Name { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/razor-template"
+
+@timeTemplate
+
+@petTemplate(new Pet { Name = "Nutty Rex" })
+
+@code {
+    private RenderFragment timeTemplate = @&lt;p&gt;The time is @DateTime.Now.&lt;/p&gt;;
+    private RenderFragment&lt;Pet&gt; petTemplate = (pet) =&gt; @&lt;p&gt;Pet: @pet.Name&lt;/p&gt;;
+
+    private class Pet
+    {
+        public string Name { get; set; }
+    }
+}
+</code></pre>
+</div>
+<p>Rendered output of the preceding code:</p>
+<pre><code class="lang-html">&lt;p&gt;The time is 4/19/2021 8:54:46 AM.&lt;/p&gt;
+&lt;p&gt;Pet: Nutty Rex&lt;/p&gt;
+</code></pre>
+<p>When the Razor delegate must return more than one HTML element, wrap the result in a <code>&lt;text&gt;</code> tag for an <a href="../../mvc/views/razor?view=aspnetcore-10.0#explicit-delimited-transition" data-linktype="relative-path">explicit delimited transition</a>:</p>
+<pre><code class="lang-razor">@RenderTwoElements()
+
+&lt;h2&gt;ReturnIf&lt;/h2&gt;
+@ReturnIf()
+
+&lt;h2&gt;ReturnForeach&lt;/h2&gt;
+@ReturnForeach()
+
+@code {
+    private bool showTrueStatement = true;
+
+    private RenderFragment RenderTwoElements() =&gt;
+        @&lt;text&gt;
+            &lt;h2&gt;Render Two Elements&lt;/h2&gt;
+            @ChildFragment
+        &lt;/text&gt;;
+
+    private RenderFragment ChildFragment =&gt; @&lt;p&gt;This is a paragraph.&lt;/p&gt;;
+
+    private RenderFragment ReturnIf() =&gt;
+        @&lt;text&gt;
+            @if (showTrueStatement)
+            {
+                &lt;p&gt;This is true!&lt;/p&gt;
+            }
+            else
+            {
+                &lt;p&gt;This is false!&lt;/p&gt;
+            }
+        &lt;/text&gt;;
+
+    private RenderFragment ReturnForeach() =&gt;
+        @&lt;text&gt;
+            @foreach (var item in new[] { 1, 2, 3 })
+            {
+                &lt;p&gt;Item: @item&lt;/p&gt;
+            }
+        &lt;/text&gt;;
+}
+</code></pre>
+<h2 id="static-assets">Static assets</h2>
+<p>Blazor follows the convention of ASP.NET Core apps for static assets. Static assets are located in the project's <a href="../../fundamentals/?view=aspnetcore-10.0#web-root" data-linktype="relative-path"><code>web root</code> (<code>wwwroot</code>) folder</a> or folders under the <code>wwwroot</code> folder.</p>
+<p>Use a base-relative path (<code>/</code>) to refer to the web root for a static asset. In the following example, <code>logo.png</code> is physically located in the <code>{PROJECT ROOT}/wwwroot/images</code> folder. <code>{PROJECT ROOT}</code> is the app's project root.</p>
+<pre><code class="lang-razor">&lt;img alt="Company logo" src="/images/logo.png" /&gt;
+</code></pre>
+<p>Components do <strong>not</strong> support tilde-slash notation (<code>~/</code>).</p>
+<p>For information on setting an app's base path, see <a href="../host-and-deploy/app-base-path?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor app base path</a>.</p>
+<h2 id="tag-helpers-arent-supported-in-components">Tag Helpers aren't supported in components</h2>
+<p><a href="../../mvc/views/tag-helpers/intro?view=aspnetcore-10.0" data-linktype="relative-path"><code>Tag Helpers</code></a> aren't supported in components. To provide Tag Helper-like functionality in Blazor, create a component with the same functionality as the Tag Helper and use the component instead.</p>
+<h2 id="scalable-vector-graphics-svg-images">Scalable Vector Graphics (SVG) images</h2>
+<p>Since Blazor renders HTML, browser-supported images, including <a href="https://developer.mozilla.org/docs/Web/SVG" data-linktype="external">Scalable Vector Graphics (SVG) images (<code>.svg</code>)</a>, are supported via the <code>&lt;img&gt;</code> tag:</p>
+<pre><code class="lang-html">&lt;img alt="Example image" src="image.svg" /&gt;
+</code></pre>
+<p>Similarly, SVG images are supported in the CSS rules of a stylesheet file (<code>.css</code>):</p>
+<pre><code class="lang-css">.element-class {
+    background-image: url("image.svg");
+}
+</code></pre>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Blazor supports the <a href="https://developer.mozilla.org/docs/Web/SVG/Element/foreignObject" data-linktype="external"><code>&lt;foreignObject&gt;</code></a> element to display arbitrary HTML within an SVG. The markup can represent arbitrary HTML, a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a>, or a Razor component.</p>
+<p>The following example demonstrates:</p>
+<ul>
+<li>Display of a <code>string</code> (<code>@message</code>).</li>
+<li>Two-way binding with an <code>&lt;input&gt;</code> element and a <code>value</code> field.</li>
+<li>A <code>Robot</code> component.</li>
+</ul>
+<pre><code class="lang-razor">&lt;svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;rect x="0" y="0" rx="10" ry="10" width="200" height="200" stroke="black" 
+        fill="none" /&gt;
+    &lt;foreignObject x="20" y="20" width="160" height="160"&gt;
+        &lt;p&gt;@message&lt;/p&gt;
+    &lt;/foreignObject&gt;
+&lt;/svg&gt;
+
+&lt;svg xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;foreignObject width="200" height="200"&gt;
+        &lt;label&gt;
+            Two-way binding:
+            &lt;input @bind="value" @bind:event="oninput" /&gt;
+        &lt;/label&gt;
+    &lt;/foreignObject&gt;
+&lt;/svg&gt;
+
+&lt;svg xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;foreignObject&gt;
+        &lt;Robot /&gt;
+    &lt;/foreignObject&gt;
+&lt;/svg&gt;
+
+@code {
+    private string message = "Lorem ipsum dolor sit amet, consectetur adipiscing " +
+        "elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+    private string? value;
+}
+</code></pre>
+</div>
+<h2 id="whitespace-rendering-behavior">Whitespace rendering behavior</h2>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Unless the <a href="../../mvc/views/razor?view=aspnetcore-10.0#preservewhitespace" data-linktype="relative-path"><code>@preservewhitespace</code></a> directive is used with a value of <code>true</code>, extra whitespace is removed if:</p>
+<ul>
+<li>Leading or trailing within an element.</li>
+<li>Leading or trailing within a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a>/<a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment-1" class="no-loc" data-linktype="absolute-path">RenderFragment&lt;TValue&gt;</a> parameter (for example, child content passed to another component).</li>
+<li>It precedes or follows a C# code block, such as <code>@if</code> or <code>@foreach</code>.</li>
+</ul>
+<p>Whitespace removal might affect the rendered output when using a CSS rule, such as <code>white-space: pre</code>. To disable this performance optimization and preserve the whitespace, take one of the following actions:</p>
+<ul>
+<li>Add the <code>@preservewhitespace true</code> directive at the top of the Razor file (<code>.razor</code>) to apply the preference to a specific component.</li>
+<li>Add the <code>@preservewhitespace true</code> directive inside an imports file (<code>_Imports.razor</code>) to apply the preference to a subdirectory or to the entire project.</li>
+</ul>
+<p>In most cases, no action is required, as apps typically continue to behave normally (but faster). If stripping whitespace causes a rendering problem for a particular component, use <code>@preservewhitespace true</code> in that component to disable this optimization.</p>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<p>Whitespace is retained in a component's source markup. Whitespace-only text renders in the browser's DOM even when there's no visual effect.</p>
+<p>Consider the following component markup:</p>
+<pre><code class="lang-razor">&lt;ul&gt;
+    @foreach (var item in Items)
+    {
+        &lt;li&gt;
+            @item.Text
+        &lt;/li&gt;
+    }
+&lt;/ul&gt;
+</code></pre>
+<p>The preceding example renders the following unnecessary whitespace:</p>
+<ul>
+<li>Outside of the <code>@foreach</code> code block.</li>
+<li>Around the <code>&lt;li&gt;</code> element.</li>
+<li>Around the <code>@item.Text</code> output.</li>
+</ul>
+<p>A list of 100 items results in over 400 areas of whitespace. None of the extra whitespace visually affects the rendered output.</p>
+<p>When rendering static HTML for components, whitespace inside a tag isn't preserved. For example, view the rendered output of the following <code>&lt;img&gt;</code> tag in a component Razor file (<code>.razor</code>):</p>
+<pre><code class="lang-razor">&lt;img     alt="Example image"   src="img.png"     /&gt;
+</code></pre>
+<p>Whitespace isn't preserved from the preceding markup:</p>
+<pre><code class="lang-razor">&lt;img alt="Example image" src="img.png" /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="root-component">Root component</h2>
+<p>A <em>root Razor component</em> (<em>root component</em>) is the first component loaded of any component hierarchy created by the app.</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>In an app created from the Blazor Web App project template, the <code>App</code> component (<code>App.razor</code>) is specified as the default root component by the type parameter declared for the call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.razorcomponentsendpointroutebuilderextensions.maprazorcomponents" data-linktype="absolute-path"><code>MapRazorComponents&lt;TRootComponent&gt;</code></a> in the server-side <code>Program</code> file. The following example shows the use of the <code>App</code> component as the root component, which is the default for an app created from the Blazor project template:</p>
+<pre><code class="lang-csharp">app.MapRazorComponents&lt;App&gt;();
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>Making a root component interactive, such as the <code>App</code> component, isn't supported.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-6.0 aspnetcore-7.0">
+<p>In an app created from the Blazor Server project template, the <code>App</code> component (<code>App.razor</code>) is specified as the default root component in <code>Pages/_Host.cshtml</code> using the <a href="../../mvc/views/tag-helpers/built-in/component-tag-helper?view=aspnetcore-10.0" data-linktype="relative-path">Component Tag Helper</a>:</p>
+<pre><code class="lang-cshtml">&lt;component type="typeof(App)" render-mode="ServerPrerendered" /&gt;
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>In an app created from the Blazor WebAssembly project template, the <code>App</code> component (<code>App.razor</code>) is specified as the default root component in the <code>Program</code> file:</p>
+<pre><code class="lang-csharp">builder.RootComponents.Add&lt;App&gt;("#app");
+</code></pre>
+<p>In the preceding code, the CSS selector, <code>#app</code>, indicates that the <code>App</code> component is specified for the <code>&lt;div&gt;</code> in <code>wwwroot/index.html</code> with an <code>id</code> of <code>app</code>:</p>
+<pre><code class="lang-html">&lt;div id="app"&gt;...&lt;/app&gt;
+</code></pre>
+</div>
+<p>MVC and Razor Pages apps can also use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.componenttaghelper" data-linktype="absolute-path">Component Tag Helper</a> to register statically-rendered Blazor WebAssembly root components:</p>
+<pre><code class="lang-cshtml">&lt;component type="typeof(App)" render-mode="WebAssemblyPrerendered" /&gt;
+</code></pre>
+<p>Statically-rendered components can only be added to the app. They can't be removed or updated afterwards.</p>
+<p>For more information, see the following resources:</p>
+<ul>
+<li><a href="../../mvc/views/tag-helpers/built-in/component-tag-helper?view=aspnetcore-10.0" data-linktype="relative-path">Component Tag Helper in ASP.NET Core</a></li>
+<li><a href="integration?view=aspnetcore-10.0" data-linktype="relative-path">Integrate ASP.NET Core Razor components with MVC or Razor Pages</a></li>
+</ul>
+<!--Reference links in article-->
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+			
+		<!-- feedback section -->
+		<section
+			class="feedback-section position-relative margin-top-lg border border-radius padding-xxs display-none-print"
+			data-bi-name="open-source-feedback-section"
+			data-open-source-feedback-section
+			hidden
+		>
+			<div class="display-flex flex-direction-column flex-direction-row-tablet">
+				<div
+					class="width-450-tablet padding-inline-xs padding-inline-xs-tablet padding-top-xs padding-bottom-sm padding-top-xs-tablet background-color-body-medium"
+				>
+					<div class="display-flex flex-direction-column">
+						<div class="padding-bottom-xxs">
+							<span class="icon margin-right-xxs" aria-hidden="true">
+								<span class="docon docon-brand-github"></span>
+							</span>
+							<span class="font-weight-semibold">
+								Collaborate with us on GitHub
+							</span>
+						</div>
+						<span class="line-height-normal">
+							The source for this content can be found on GitHub, where you can also create and review issues and pull requests. For more information, see <a href="https://learn.microsoft.com/contribute/content/dotnet/dotnet-contribute">our contributor guide</a>.
+						</span>
+					</div>
+				</div>
+				<div
+					class="display-flex gap-xs width-full-tablet flex-direction-column padding-xs justify-content-space-evenly"
+				>
+					<div class="media">
+						
+					<div class="media-left">
+						<div class="image image-36x36" hidden data-open-source-image-container>
+							<img
+								class="theme-display is-light"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-light
+							/>
+							<img
+								class="theme-display is-dark is-high-contrast"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-dark
+							/>
+						</div>
+					</div>
+			  
+
+						<div class="media-content">
+							<p
+								class="font-size-xl font-weight-semibold margin-bottom-xxs"
+								data-open-source-product-title
+							>
+								ASP.NET Core
+							</p>
+							<div class="display-flex gap-xs flex-direction-column">
+								<p class="line-height-normal" data-open-source-product-description></p>
+								<div class="display-flex gap-xs flex-direction-column">
+									<a href="#" data-github-link>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-bug"></span>
+										</span>
+										<span>Open a documentation issue</span>
+									</a>
+									<a
+										href="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md"
+										class="display-block margin-top-auto font-size-md"
+										data-feedback-product-url
+									>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-feedback"></span>
+										</span>
+										<span>Provide product feedback</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+			
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+		
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-07-14T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-07-14
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

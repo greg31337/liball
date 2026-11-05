@@ -1,0 +1,765 @@
+<!doctype html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="/css/main.css" media="screen" rel="stylesheet">
+<link href="/feed.xml" type="application/rss+xml" rel="alternate" title="RSS feed" />
+
+<title>SVG 1.1 Support - CairoSVG</title>
+<meta name="description" content="Convert your SVG files to PDF and PNG.">
+
+<nav>
+  <ul>
+    <li><a href="/">Home</a></h1>
+    <li><a href="/news/">News</a>
+    <li><a href="/documentation/">Documentation</a>
+  </ul>
+</nav>
+
+<section>
+  <h1>SVG 1.1 Support</h1>
+  <p>Here is the support status of the different elements of SVG 1.1. The different
+sections correspond to those from
+<a href="http://www.w3.org/TR/SVG11/">the specification</a>. You’ll find more simple
+information and tips on the <a href="/documentation/">documentation page</a>.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<h3 id="about-svg">About SVG</h3>
+
+<p>No animations are supported in CairoSVG, as the output formats are mainly
+static. More generally, no real DOM support is offered, highly limiting the
+possibility of implementing features such as JavaScript support.</p>
+
+<h3 id="svg-mime-type-file-name-extension-and-macintosh-file-type">SVG MIME type, file name extension and Macintosh file type</h3>
+
+<p>CairoSVG can directly read gzip-compressed SVG files, relying on the <code class="language-plaintext highlighter-rouge">.svg</code>
+or <code class="language-plaintext highlighter-rouge">.svgz</code> input file extension to know if the file should be uncompressed.</p>
+
+<h3 id="svg-namespace-public-identifier-and-system-identifier">SVG Namespace, Public Identifier and System Identifier</h3>
+
+<p>CairoSVG does not rely on the namespace URL, public identifier and system
+identifier URL. No DTD validation is provided.</p>
+
+<h3 id="compatibility-with-other-standards-efforts">Compatibility with Other Standards Efforts</h3>
+
+<p>Based on ElementTree, CairoSVG needs a real XML path and is not fault tolerant
+when parsing the XML. However, basic XML features such as namespaces are
+internally used. XLink is partially supported and should work for the standard
+usage.</p>
+
+<p>Inline and external CSS is basically supported.</p>
+
+<p>External XSLT, DOM, XML-SS, SMIL and Web Accessibility are not supported at
+all.</p>
+
+<p>The basic Unicode features are supported, and should work for latin
+left-to-right-written languages. Other configurations are not tested yet.</p>
+
+<h3 id="terminology">Terminology</h3>
+
+<p>This document is not an RFC.</p>
+
+<h3 id="definitions">Definitions</h3>
+
+<p>This document does not really follow the definitions coming from this part (see
+previous chapter).</p>
+
+<h2 id="concepts">Concepts</h2>
+
+<h3 id="explaining-the-name-svg">Explaining the name: SVG</h3>
+
+<p>CairoSVG respects the scalable and vector parts of the format, when
+possible. PDF and PostScript formats allow vector graphics, and Cairo exports
+to these formats without rastering when possible.</p>
+
+<p>Based on ElementTree, CairoSVG needs SVG files that are XML tree, and is not
+fault-tolerent. Namespaces are well supported.</p>
+
+<p>Inline CSS and external stylesheets are supported.</p>
+
+<h3 id="important-svg-concepts">Important SVG concepts</h3>
+
+<p>Raster effects are not supported, because they are not supported by Cairo.</p>
+
+<p>Fonts are also managed by Cairo, known to be just a ‘toy’ about fonts. Pango
+would be a much better choice, but it is a heavy dependency. Nevertheless,
+fonts can be selected in PDF documents.</p>
+
+<p>Animations are not supported.</p>
+
+<h3 id="options-for-using-svg-in-web-pages">Options for using SVG in Web pages</h3>
+
+<p>CairoSVG can generate standard Cairo surfaces that can be used in Cairo-based
+web clients such as <a href="http://weasyprint.org/">WeasyPrint</a>.</p>
+
+<h2 id="rendering-model">Rendering Model</h2>
+
+<h3 id="introduction-1">Introduction</h3>
+
+<p>CairoSVG generally follows the rendering model described by the specification.</p>
+
+<h3 id="the-painters-model">The painters model</h3>
+
+<p>The painter model of Cairo, used by CairoSVG, is the same as the one from the
+specification. This includes alpha blending.</p>
+
+<h3 id="rendering-order">Rendering Order</h3>
+
+<p>The elements are rendered in the order of the SVG document.</p>
+
+<h3 id="how-groups-are-rendered">How groups are rendered</h3>
+
+<p>Opacity values of groups are applied to the rendered inner elements. Simple
+masks, clips and filters are supported.</p>
+
+<h3 id="how-elements-are-rendered">How elements are rendered</h3>
+
+<p>Opacity values of elements are applied. Simple masks, clips and filters are
+supported.</p>
+
+<h3 id="types-of-graphics-elements">Types of graphics elements</h3>
+
+<h4 id="painting-shapes-and-text">Painting shapes and text</h4>
+
+<p>Elements are filled and stroked. Filling and stroking support plain colors,
+simple gradients and simple patterns, with or without opacity.</p>
+
+<h4 id="painting-raster-images">Painting raster images</h4>
+
+<p>Included raster images are supported by the
+<a href="http://python-pillow.github.io/">Pillow</a> package.</p>
+
+<h3 id="filtering-painted-regions">Filtering painted regions</h3>
+
+<p>3 filter effects are supported:</p>
+
+<ul>
+  <li>feBlend,</li>
+  <li>feFlood,</li>
+  <li>feOffset.</li>
+</ul>
+
+<h3 id="clipping-masking-and-object-opacity">Clipping, masking and object opacity</h3>
+
+<p>Path clipping and alpha masking are supported. Clip and overflow of new
+viewports is not supported. Masks based on luminance are not supported.</p>
+
+<p>Transparency, with simple alpha blending, is supported for semi-transparent
+colors and opacity values.</p>
+
+<h3 id="parent-compositing">Parent Compositing</h3>
+
+<p>Transparency for the parent document are supported as long as the output format
+supports it. Semi-transparent PNGs can be generated.</p>
+
+<h2 id="basic-data-types-and-interfaces">Basic Data Types and Interfaces</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<p>Thank you EBNF.</p>
+
+<h3 id="basic-data-types">Basic data types</h3>
+
+<p>Angles are only supported when given in degrees, without explicit unit.</p>
+
+<p>Colors are supported with <code class="language-plaintext highlighter-rouge">rgb()</code>, <code class="language-plaintext highlighter-rouge">rgba()</code>, <code class="language-plaintext highlighter-rouge">#RGB</code>, and <code class="language-plaintext highlighter-rouge">#RRGGBB</code>
+forms. Color keyword names are supported.</p>
+
+<p>Frequencies are not supported.</p>
+
+<p>Standard URI and IRI forms are supported, including fragment identifiers.</p>
+
+<p>Numbers are supported, including exponents, integers and floats with the
+negative values.</p>
+
+<p>Lengths are supported, with <code class="language-plaintext highlighter-rouge">mm</code>, <code class="language-plaintext highlighter-rouge">cm</code>, <code class="language-plaintext highlighter-rouge">in</code>, <code class="language-plaintext highlighter-rouge">pt</code>, <code class="language-plaintext highlighter-rouge">pc</code>, <code class="language-plaintext highlighter-rouge">em</code>,
+<code class="language-plaintext highlighter-rouge">ex</code> and <code class="language-plaintext highlighter-rouge">%</code> units.</p>
+
+<p>Lists of various values are supported.</p>
+
+<p>Times are not supported.</p>
+
+<h3 id="real-number-precision">Real number precision</h3>
+
+<p>The real number precision is the same as the one of Python.</p>
+
+<h3 id="recognized-color-keyword-names">Recognized color keyword names</h3>
+
+<p>Color keyword names are supported.</p>
+
+<h3 id="basic-dom-interfaces">Basic DOM interfaces</h3>
+
+<p>CairoSVG uses ElementTree internally, and has no real DOM interface.</p>
+
+<h2 id="document-structure">Document Structure</h2>
+
+<h3 id="defining-an-svg-document-fragment-the-svg-element">Defining an SVG document fragment: the <code class="language-plaintext highlighter-rouge">svg</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">svg</code> tag is supported.</p>
+
+<h3 id="grouping-the-g-element">Grouping: the <code class="language-plaintext highlighter-rouge">g</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">g</code> tag is supported.</p>
+
+<h3 id="defining-content-for-reuse-and-the-defs-element">Defining content for reuse, and the <code class="language-plaintext highlighter-rouge">defs</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">defs</code> tag is supported for markers, gradients, patterns and paths reused
+in the document.</p>
+
+<h3 id="the-desc-and-title-elements">The <code class="language-plaintext highlighter-rouge">desc</code> and <code class="language-plaintext highlighter-rouge">title</code> elements</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">desc</code> and <code class="language-plaintext highlighter-rouge">title</code> tag are not supported.</p>
+
+<h3 id="the-symbol-element">The <code class="language-plaintext highlighter-rouge">symbol</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">symbol</code> tag is not supported.</p>
+
+<h3 id="the-use-element">The <code class="language-plaintext highlighter-rouge">use</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">use</code> tag supports local and distant (i.e. available through HTTP)
+external SVG files.</p>
+
+<h3 id="the-image-element">The <code class="language-plaintext highlighter-rouge">image</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">image</code> tag is supported by Pillow.</p>
+
+<h3 id="conditional-processing">Conditional processing</h3>
+
+<p>Conditional processing is not supported.</p>
+
+<h3 id="specifying-whether-external-resources-are-required-for-proper-rendering">Specifying whether external resources are required for proper rendering</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">externalResourcesRequired</code> attribute is not supported.</p>
+
+<h3 id="common-attributes">Common attributes</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">id</code> attribute is supported.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">xml:base</code> attribute is supported for images.</p>
+
+<h3 id="dom-interfaces">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="styling">Styling</h2>
+
+<p>Styling cannot be done with XSL. Inline and external CSS are basically
+supported.</p>
+
+<p>Here are some properties that can be used as XML attributes:</p>
+
+<p>Font properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">font</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">font-family</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">font-size</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">font-size-adjust</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">font-stretch</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">font-style</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">font-variant</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">font-weight</code>: basically supported</li>
+</ul>
+
+<p>Text properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">direction</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">letter-spacing</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">text-decoration</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">unicode-bidi</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">word-spacing</code>: not supported</li>
+</ul>
+
+<p>Other properties for visual media:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">clip</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">cursor</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">display</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">overflow</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">visibility</code>: supported</li>
+</ul>
+
+<p>Clipping, Masking and Compositing properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">clip-path</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">clip-rule</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">mask</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">opacity</code>: supported</li>
+</ul>
+
+<p>Filter Effects properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">enable-background</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">filter</code>: feBlend, feFlood and feOffset supported</li>
+  <li><code class="language-plaintext highlighter-rouge">flood-color</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">flood-opacity</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">lighting-color</code>: not supported</li>
+</ul>
+
+<p>Gradient properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">stop-color</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stop-opacity</code>: supported</li>
+</ul>
+
+<p>Interactivity properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pointer-events</code>: not supported</li>
+</ul>
+
+<p>Color and Painting properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">color-interpolation</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">color-interpolation-filters</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">color-profile</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">color-rendering</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">fill</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">fill-opacity</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">fill-rule</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">image-rendering</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">marker</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">marker-end</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">marker-mid</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">marker-start</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">shape-rendering</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stroke</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stroke-dasharray</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stroke-dashoffset</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stroke-linecap</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stroke-linejoin</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stroke-miterlimit</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stroke-opacity</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">stroke-width</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">text-rendering</code>: supported</li>
+</ul>
+
+<p>Text properties:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">alignment-baseline</code>: basically supported</li>
+  <li><code class="language-plaintext highlighter-rouge">baseline-shift</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">dominant-baseline</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">glyph-orientation-horizontal</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">glyph-orientation-vertical</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">kerning</code>: not supported</li>
+  <li><code class="language-plaintext highlighter-rouge">text-anchor</code>: supported</li>
+  <li><code class="language-plaintext highlighter-rouge">writing-mode</code>: not supported</li>
+</ul>
+
+<h2 id="coordinate-systems-transformations-and-units">Coordinate Systems, Transformations and Units</h2>
+
+<h3 id="introduction-2">Introduction</h3>
+
+<p>CairoSVG renders its output on finite rectangular regions called viewport in
+the W3 recommendation, and Cairo surfaces in the application.</p>
+
+<p>The viewport size must be given in the tag, as no negotiation process can be
+realized with the parent surface.</p>
+
+<p>The coordinates transformations are correctly handled by CairoSVG, including
+nested transformations. Most of the transformations applied to external
+elements, including the ones in the gradients and the patterns, are supported.</p>
+
+<h3 id="the-initial-viewport">The initial viewport</h3>
+
+<p>As the pages are not embedded, no negotiation process is possible when trying
+to determine the pages sizes.</p>
+
+<h3 id="the-initial-coordinate-system">The initial coordinate system</h3>
+
+<p>CairoSVG follows the recommendation about the initial coordinate system.</p>
+
+<h3 id="coordinate-system-transformations">Coordinate system transformations</h3>
+
+<p>The coordinate system transformation given by the <code class="language-plaintext highlighter-rouge">viewBox</code> is correctly
+managed by CairoSVG. Rotations, translations and skews are correctly managed.</p>
+
+<h3 id="nested-transformations">Nested transformations</h3>
+
+<p>Transformations can be nested in CairoSVG.</p>
+
+<h3 id="the-transform-attribute">The <code class="language-plaintext highlighter-rouge">transform</code> attribute</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">transform</code> attribute parses and applies the <code class="language-plaintext highlighter-rouge">matrix</code>, <code class="language-plaintext highlighter-rouge">translate</code>,
+<code class="language-plaintext highlighter-rouge">scale</code>, <code class="language-plaintext highlighter-rouge">rotate</code>, <code class="language-plaintext highlighter-rouge">skewX</code> and <code class="language-plaintext highlighter-rouge">skewY</code> operations.</p>
+
+<h3 id="the-viewbox-attribute">The <code class="language-plaintext highlighter-rouge">viewBox</code> attribute</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">viewBox</code> attribute is supported.</p>
+
+<h3 id="the-preserveaspectratio-attribute">The <code class="language-plaintext highlighter-rouge">preserveAspectRatio</code> attribute</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">preserveAspectRatio</code> attribute is supported for <code class="language-plaintext highlighter-rouge">svg</code> elements, and
+not supported the other elements.</p>
+
+<h3 id="establishing-a-new-viewport">Establishing a new viewport</h3>
+
+<p>Only the <code class="language-plaintext highlighter-rouge">svg</code> element establishes a new viewport in CairoSVG.</p>
+
+<h3 id="units">Units</h3>
+
+<p><code class="language-plaintext highlighter-rouge">mm</code>, <code class="language-plaintext highlighter-rouge">cm</code>, <code class="language-plaintext highlighter-rouge">in</code>, <code class="language-plaintext highlighter-rouge">pt</code>, <code class="language-plaintext highlighter-rouge">pc</code>, <code class="language-plaintext highlighter-rouge">em</code>, <code class="language-plaintext highlighter-rouge">ex</code> and percentages units
+are supported.</p>
+
+<h3 id="object-bounding-box-units">Object bounding box units</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">objectBoundingBox</code> attribute is not supported.</p>
+
+<h3 id="intrinsic-sizing-properties-of-the-viewport-of-svg-content">Intrinsic sizing properties of the viewport of SVG content</h3>
+
+<p>When the <code class="language-plaintext highlighter-rouge">viewBox</code> attribute is set to <code class="language-plaintext highlighter-rouge">none</code>, and no <code class="language-plaintext highlighter-rouge">width</code> or
+<code class="language-plaintext highlighter-rouge">height</code> is given, the intrinsic sizing properties of the viewport is not
+set, and the behaviour of CairoSVG is undetermined.</p>
+
+<h3 id="geographic-coordinate-systems">Geographic coordinate systems</h3>
+
+<p>No geographic coordinate system is managed in CairoSVG.</p>
+
+<h3 id="the-svgtransform-attribute">The <code class="language-plaintext highlighter-rouge">svg:transform</code> attribute</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">transform</code> attribute is correctly handled by CairoSVG.</p>
+
+<h3 id="dom-interfaces-1">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="paths">Paths</h2>
+
+<h3 id="introduction-3">Introduction</h3>
+
+<p>Paths are supported, including subpaths.</p>
+
+<h3 id="the-path-element">The <code class="language-plaintext highlighter-rouge">path</code> element</h3>
+
+<p>The main path attributes are supported.</p>
+
+<h3 id="path-data">Path data</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">moveto</code>, <code class="language-plaintext highlighter-rouge">closepath</code>, <code class="language-plaintext highlighter-rouge">lineto</code>, <code class="language-plaintext highlighter-rouge">curveto</code>, quadratic Bézier
+<code class="language-plaintext highlighter-rouge">curveto</code> and <code class="language-plaintext highlighter-rouge">arcto</code> commands are supported.</p>
+
+<h3 id="distance-along-a-path">Distance along a path</h3>
+
+<p>Distance is calculated for text on a path.</p>
+
+<h3 id="dom-interfaces-2">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="basic-shapes">Basic Shapes</h2>
+
+<h3 id="introduction-4">Introduction</h3>
+
+<p>Basic shapes (rectangles, circles, ellipses, lines, polylines and polygons) are
+supported.</p>
+
+<h3 id="the-rect-element">The <code class="language-plaintext highlighter-rouge">rect</code> element</h3>
+
+<p>Rectangles, including rounded corners, are supported.</p>
+
+<h3 id="the-circle-element">The <code class="language-plaintext highlighter-rouge">circle</code> element</h3>
+
+<p>Circles are supported.</p>
+
+<h3 id="the-ellipse-element">The <code class="language-plaintext highlighter-rouge">ellipse</code> element</h3>
+
+<p>Ellipses are supported.</p>
+
+<h3 id="the-line-element">The <code class="language-plaintext highlighter-rouge">line</code> element</h3>
+
+<p>Lines are supported.</p>
+
+<h3 id="the-polyline-element">The <code class="language-plaintext highlighter-rouge">polyline</code> element</h3>
+
+<p>Polylines are supported.</p>
+
+<h3 id="the-polygon-element">The <code class="language-plaintext highlighter-rouge">polygon</code> element</h3>
+
+<p>Polygons are supported.</p>
+
+<h3 id="dom-interfaces-3">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="text">Text</h2>
+
+<h3 id="introduction-5">Introduction</h3>
+
+<p>The main features of text rendering are supported. The <code class="language-plaintext highlighter-rouge">text</code> and <code class="language-plaintext highlighter-rouge">tspan</code>
+tags are supported.</p>
+
+<h3 id="characters-and-their-corresponding-glyphs">Characters and their corresponding glyphs</h3>
+
+<p>Characters are rendered by Cairo, text rendering relies on its simple rendering
+engine. There should be no ligatures, composite characters or glyph
+supstitutions.</p>
+
+<h3 id="fonts-font-tables-and-baselines">Fonts, font tables and baselines</h3>
+
+<p>There’s no real baseline management with Cairo. The really simple vertical
+management doesn’t rely on the baseline.</p>
+
+<h3 id="the-text-element">The <code class="language-plaintext highlighter-rouge">text</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">text</code> element is supported, including its <code class="language-plaintext highlighter-rouge">rotate</code> attribute.</p>
+
+<h3 id="the-tspan-element">The <code class="language-plaintext highlighter-rouge">tspan</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">tspan</code> element is supported, including its <code class="language-plaintext highlighter-rouge">rotate</code> attribute.</p>
+
+<h3 id="the-tref-element">The <code class="language-plaintext highlighter-rouge">tref</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">tref</code> element is supported.</p>
+
+<h3 id="text-layout">Text layout</h3>
+
+<p>Simple text layout is managed for latin scripts, but not for bidirectional and
+vertical scripts.</p>
+
+<h3 id="text-rendering-order">Text rendering order</h3>
+
+<p>The glyphs are not rendered independently.</p>
+
+<h3 id="alignment-properties">Alignment properties</h3>
+
+<p>Horizontal text alignment is supported for latin scripts.</p>
+
+<p>Vertical text alignment is basically supported, but does no rely on the
+baseline and is only capable of top, middle or bottom alignment.</p>
+
+<h3 id="font-selection-properties">Font selection properties</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">font-family</code>, <code class="language-plaintext highlighter-rouge">font-size</code>, <code class="language-plaintext highlighter-rouge">font-style</code> and <code class="language-plaintext highlighter-rouge">font-weight</code> are
+basically supported, and should work as expected for common cases. The other
+attributes, including the <code class="language-plaintext highlighter-rouge">font</code> shorthand, are not supported.</p>
+
+<h3 id="spacing-properties">Spacing properties</h3>
+
+<p>The spacing properties are not supported.</p>
+
+<h3 id="text-decoration">Text decoration</h3>
+
+<p>Text decoration is not supported.</p>
+
+<h3 id="text-on-a-path">Text on a path</h3>
+
+<p>Text on a path is supported, including the <code class="language-plaintext highlighter-rouge">startOffset</code> attribute.</p>
+
+<h3 id="alternate-glyphs">Alternate glyphs</h3>
+
+<p>Alternate glyphs are not supported.</p>
+
+<h3 id="white-space-handling">White space handling</h3>
+
+<p>White space are correctly handled and follow the rules given by the
+<code class="language-plaintext highlighter-rouge">xml:space</code> attribute.</p>
+
+<h3 id="text-selection-and-clipboard-operations">Text selection and clipboard operations</h3>
+
+<p>Text selection is possible for PDF documents generated by CairoSVG, when the
+text is rendered with no extra effects including stroke and transformations.</p>
+
+<h3 id="dom-interfaces-4">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="painting-filling-stroking-and-marker-symbols">Painting: Filling, Stroking and Marker Symbols</h2>
+
+<h3 id="introduction-6">Introduction</h3>
+
+<p>Filling and stroking operations are supported for paths, texts and basic
+shapes. Markers are supported for paths, polylines, polygons and lines.</p>
+
+<h3 id="specifying-paint">Specifying paint</h3>
+
+<p>Painting values are supported, with no ICC support. Gradients ant patterns are
+supported.</p>
+
+<h3 id="fill-properties">Fill properties</h3>
+
+<p>Filling operations are supported, including the <code class="language-plaintext highlighter-rouge">fill-rule</code> property.</p>
+
+<h3 id="stroke-properties">Stroke properties</h3>
+
+<p>Stroking operations are supported, including all the <code class="language-plaintext highlighter-rouge">stroke-*</code> properties.</p>
+
+<h3 id="controlling-visibility">Controlling visibility</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">display</code> and <code class="language-plaintext highlighter-rouge">visibility</code> properties are supported.</p>
+
+<h3 id="markers">Markers</h3>
+
+<p>Simple markers are supported, including the <code class="language-plaintext highlighter-rouge">marker-*</code> and <code class="language-plaintext highlighter-rouge">orient</code>
+attributes. Clipping thanks to the <code class="language-plaintext highlighter-rouge">overflow</code> property is not supported.</p>
+
+<h3 id="rendering-properties">Rendering properties</h3>
+
+<p>Color interpolation and rendering properties are not supported. Shape, text and
+image rendering options are supported.</p>
+
+<h3 id="inheritance-of-painting-properties">Inheritance of painting properties</h3>
+
+<p>Painting properties are supported.</p>
+
+<h3 id="dom-interfaces-5">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="color">Color</h2>
+
+<h3 id="introduction-7">Introduction</h3>
+
+<p>CairoSVG handles the RGB part of this module.</p>
+
+<h3 id="the-color-property">The <code class="language-plaintext highlighter-rouge">color</code> property</h3>
+
+<p>The property as defined by the CSS2 specification is correctly handled.</p>
+
+<h3 id="color-profile-descriptions">Color profile descriptions</h3>
+
+<p>Color profiles are not handled.</p>
+
+<h3 id="dom-interfaces-6">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="gradients-and-patterns">Gradients and Patterns</h2>
+
+<h3 id="introduction-8">Introduction</h3>
+
+<p>Gradients are generally correctly handled whereas patterns are poorly handled.</p>
+
+<h3 id="gradients">Gradients</h3>
+
+<p>Gradients are correctly handled, as long as Cairo can handle them. Some little
+details may not be rendered correctly, but you can rely on most of the
+generally used features.</p>
+
+<h3 id="patterns">Patterns</h3>
+
+<p>Patterns are poorly handled. Naive pattens are rendered, but simple features
+such as the <code class="language-plaintext highlighter-rouge">viewBox</code> property are ignored.</p>
+
+<h3 id="dom-interfaces-7">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="clipping-masking-and-compositing">Clipping, Masking and Compositing</h2>
+
+<h3 id="introduction-9">Introduction</h3>
+
+<p>Some of the clipping and masking features are handled. Simple alpha compositing
+and opacity are partially supported,</p>
+
+<h3 id="simple-alpha-compositing">Simple alpha compositing</h3>
+
+<p>Alpha compositing is supported in Cairo, but <code class="language-plaintext highlighter-rouge">color-interpolation</code> and
+<code class="language-plaintext highlighter-rouge">color-rendering</code> properties are ignored.</p>
+
+<h3 id="clipping-paths">Clipping paths</h3>
+
+<p>Path clipping is handled, but new viewports are not clipped.</p>
+
+<h3 id="masking">Masking</h3>
+
+<p>Masking is handled with alpha-based masks, but not with luminance-based ones.</p>
+
+<h3 id="opacity">Opacity</h3>
+
+<p>The different <code class="language-plaintext highlighter-rouge">*-opacity</code> parameters are correctly handled.</p>
+
+<h3 id="dom-interfaces-8">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="filter-effects">Filter Effects</h2>
+
+<p>3 filter effects are supported:</p>
+
+<ul>
+  <li>feBlend,</li>
+  <li>feFlood,</li>
+  <li>feOffset.</li>
+</ul>
+
+<h2 id="interactivity">Interactivity</h2>
+
+<p>No interactivity features are handled in CairoSVG.</p>
+
+<h2 id="linking">Linking</h2>
+
+<p>Linking is not handled.</p>
+
+<h2 id="scripting">Scripting</h2>
+
+<p>Scripting is not handled.</p>
+
+<h2 id="animation">Animation</h2>
+
+<p>Animations are not handled.</p>
+
+<h2 id="fonts">Fonts</h2>
+
+<h3 id="introduction-10">Introduction</h3>
+
+<p>Simple font features, as described by the CSS2 specification, are handled, but
+Cairo has a poor support of complex features about fonts.</p>
+
+<p>SVG fonts are not handled at all.</p>
+
+<h3 id="overview-of-svg-fonts">Overview of SVG fonts</h3>
+
+<p>SVG fonts are not handled.</p>
+
+<h3 id="the-font-element">The <code class="language-plaintext highlighter-rouge">font</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">font</code> element is ignored.</p>
+
+<h3 id="the-glyph-element">The <code class="language-plaintext highlighter-rouge">glyph</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">glyph</code> element is ignored.</p>
+
+<h3 id="the-missing-glyph-element">The <code class="language-plaintext highlighter-rouge">missing-glyph</code> element</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">missing-glyph</code> element is ignored.</p>
+
+<h3 id="glyph-selection-rules">Glyph selection rules</h3>
+
+<p>Glyphs are not handled.</p>
+
+<h3 id="the-hkern-and-vkern-elements">The <code class="language-plaintext highlighter-rouge">hkern</code> and <code class="language-plaintext highlighter-rouge">vkern</code> elements</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">hkern</code> and <code class="language-plaintext highlighter-rouge">vkern</code> elements are ignored.</p>
+
+<h3 id="describing-a-font">Describing a font</h3>
+
+<p>Fonts, as defined by CSS2, are naively handled. Nevertheless, there is no real
+strategy to choose a font from its name, CairoSVG relies on Cairo for this
+choice.</p>
+
+<h3 id="dom-interfaces-9">DOM interfaces</h3>
+
+<p>The DOM interfaces are not supported.</p>
+
+<h2 id="metadata">Metadata</h2>
+
+<p>Metadata are ignored.</p>
+
+</section>
+
+
+<footer>
+  <ul>
+    <li><a href="https://www.courtbouillon.org">A CourtBouillon Project</a></li>
+    <li><a href="https://github.com/Kozea/CairoSVG">Fork me on GitHub</a></li>
+  </ul>
+</footer>

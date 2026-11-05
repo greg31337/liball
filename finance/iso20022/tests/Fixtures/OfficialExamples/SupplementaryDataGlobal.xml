@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:Document
+    xmlns:core="urn:iso:std:iso:20022:tech:xsd:seev.031.001.03"
+    xmlns:ext="urn:iso:std:iso:20022:tech:xsd:supl.001.001.01">
+  <core:CorpActnNtfctn>
+    <core:CorpActnOptnDtls>
+      <core:CshMvmntDtls>first</core:CshMvmntDtls>
+      <core:CshMvmntDtls>second</core:CshMvmntDtls>
+    </core:CorpActnOptnDtls>
+  </core:CorpActnNtfctn>
+  <core:SplmtryData>
+    <core:PlcAndNm>core:CorpActnNtfctn/core:CorpActnOptnDtls[1]/core:CshMvmntDtls[2]</core:PlcAndNm>
+    <core:Envlp>
+      <ext:Document>
+        <ext:CashMvmntDtls>
+          <ext:MyExtensionData>This extends the second occurrence</ext:MyExtensionData>
+        </ext:CashMvmntDtls>
+      </ext:Document>
+    </core:Envlp>
+  </core:SplmtryData>
+</core:Document>

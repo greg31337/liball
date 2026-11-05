@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "default": "urn:iso:std:iso:20022:tech:json:"
+    }
+  },
+  "definitions": {
+    "ExternalForwardStatus1Code": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4,
+      "description": "Forward-compatible external status codes.\n*`KNWN`-A code known by this catalogue edition.",
+      "enum": [
+        "KNWN"
+      ]
+    }
+  }
+}

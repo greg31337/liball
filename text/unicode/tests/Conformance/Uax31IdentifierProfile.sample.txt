@@ -1,0 +1,7 @@
+# code points ; default valid ; immutable valid ; normalized valid ; case-insensitive valid ; normalized form ; case-insensitive key
+0041 0030 005F 0061 0301 ; true ; true ; false ; false ; 0041 0030 005F 00E1 ; 0061 0030 005F 00E1 # A0_a + acute
+0030 0041 ; false ; true ; false ; false ; 0030 0041 ; 0030 0061 # immutable identifiers have no separate start class
+0041 0300 ; true ; true ; false ; false ; 00C0 ; 00E0 # A + grave needs NFC/NFKC
+0378 ; false ; true ; false ; false ; 0378 ; 0378 # immutable allows unassigned code points
+0041 0020 ; false ; false ; false ; false ; 0041 0020 ; 0061 0020 # pattern whitespace remains disallowed
+0041 0021 ; false ; false ; false ; false ; 0041 0021 ; 0061 0021 # pattern syntax remains disallowed

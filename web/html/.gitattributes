@@ -1,0 +1,4 @@
+* text=auto
+
+tools/GenerateTables/inputs/*.json text eol=lf
+src/Core/Generated*.cs text eol=lf

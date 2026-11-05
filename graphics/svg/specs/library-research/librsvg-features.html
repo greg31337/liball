@@ -1,0 +1,1846 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Roadmap" href="roadmap.html"><link rel="prev" title="Librsvg as a product" href="product.html">
+
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Supported SVG and CSS features - Development guide for librsvg documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Development guide for librsvg  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">Development guide for librsvg  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">For Distributors and End Users</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="supported_versions.html">Supported versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="product.html">Librsvg as a product</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Supported SVG and CSS features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiling.html">Detailed compilation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting bugs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started as a Contributor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="devel_environment.html">Setting up your development environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learning.html">Learning resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Understand the Code</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://gnome.pages.gitlab.gnome.org/librsvg/internals/rsvg/index.html">Documentation of the library's internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_a_property.html">How to add a new CSS property</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory_leaks.html">Apparent memory leaks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Design Documents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text_layout.html">Text layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="render_tree.html">Render tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_observability.html">Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance_tracking.html">Performance tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewport.html">Viewport abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_properties.html">CSS Custom Properties — <code class="docutils literal notranslate"><span class="pre">var()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_deps_in_ci.html">Building dependencies in CI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xml_parser.html">XML Parser in Rust</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Info for Maintainers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Release process checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ci.html">Continuous Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oss_fuzz.html">OSS-Fuzz</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rsvg_bench.html">rsvg-bench</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/features.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="supported-svg-and-css-features">
+<h1>Supported SVG and CSS features<a class="headerlink" href="#supported-svg-and-css-features" title="Link to this heading">¶</a></h1>
+<p>Librsvg tries to be a mostly complete renderer for <a class="reference external" href="https://www.w3.org/TR/SVG11/">SVG1.1</a> and <a class="reference external" href="https://www.w3.org/TR/SVG2/">SVG2</a>.</p>
+<p>In terms of processing external references, librsvg is a bit more
+strict than SVG’s “static mode” and a bit more lenient than “secure
+static mode”. See “<a class="reference external" href="https://gnome.pages.gitlab.gnome.org/librsvg/Rsvg-2.0/class.Handle.html#security-and-locations-of-referenced-files">Security and locations of referenced files</a>”
+in the reference documentation for details.</p>
+<p>Animation, interactivity, and scripting are not supported.</p>
+<p>The SVG1.2 specification never made it past draft status in the W3C’s
+process, and librsvg does not support it. Note that SVG2 removed some of
+the features proposed for SVG1.2.</p>
+<p>Generally, librsvg tries to keep up with features in the SVG2 Candidate
+Recommendation spec. It ignores features in the SVG2 drafts that are not
+finalized yet.</p>
+<p>Alternative versions of SVG (SVG Tiny, SVG Basic, <a class="reference external" href="https://gitlab.gnome.org/GNOME/librsvg/-/issues/689">SVG Native</a>) are not explicitly supported. Their features which are a subset
+of SVG1.1 or SVG2 are supported if they are equivalent to the ones
+listed below.</p>
+<p>SVG2 offloads many of its features to the family of CSS3 specifications.
+Librsvg does not try to support them exhaustively (there are too many
+features in CSS!). Instead, we try to prioritize new features based on
+the needs which people express in librsvg’s bug tracker. Do you want a
+feature? <a class="reference external" href="https://gitlab.gnome.org/GNOME/librsvg/-/issues">File an
+issue</a>!</p>
+<section id="supported-raster-image-formats">
+<h2>Supported raster image formats<a class="headerlink" href="#supported-raster-image-formats" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">feImage</span></code> elements allow including an external
+file as raster data.  Librsvg supports loading JPEG, PNG, GIF, and
+WEBP.  Librsvg can optionally be compiled with support for AVIF, too;
+see the “Compile-time options” section in <a class="reference internal" href="compiling.html"><span class="doc">Detailed compilation instructions</span></a> for details.</p>
+</section>
+<section id="attributes-supported-by-all-elements">
+<h2>Attributes supported by all elements<a class="headerlink" href="#attributes-supported-by-all-elements" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>class</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>id</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>requiredExtensions</p></td>
+<td><p>Used in children of the
+<code class="docutils literal notranslate"><span class="pre">switch</span></code> element.</p></td>
+</tr>
+<tr class="row-odd"><td><p>requiredFeatures</p></td>
+<td><p>Used in children of the
+<code class="docutils literal notranslate"><span class="pre">switch</span></code> element.</p></td>
+</tr>
+<tr class="row-even"><td><p>systemLanguage</p></td>
+<td><p>Used in children of the
+<code class="docutils literal notranslate"><span class="pre">switch</span></code> element.</p></td>
+</tr>
+<tr class="row-odd"><td><p>style</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>transform</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">transform</span></code> attribute has a
+different syntax than the CSS
+<code class="docutils literal notranslate"><span class="pre">transform</span></code> property.</p></td>
+</tr>
+<tr class="row-odd"><td><p>xml:lang</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>xml:space</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="elements-and-their-specific-attributes">
+<span id="elements"></span><h2>Elements and their specific attributes<a class="headerlink" href="#elements-and-their-specific-attributes" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Attributes</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>xlink:href</p></td>
+<td><p>Needs xlink namespace</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>href</p></td>
+<td><p>SVG2</p></td>
+</tr>
+<tr class="row-odd"><td><p>circle</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>cx</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>cy</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>r</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>clipPath</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>clipPathUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>defs</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ellipse</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>cx</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>cy</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>rx</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ry</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feBlend</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>mode</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feColorMatrix</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>type</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>values</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feComponentTransfer</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feComposite</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>operator</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>k1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>k2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>k3</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>k4</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feConvolveMatrix</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>order</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>divisor</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>bias</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>targetX</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>targetY</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>edgeMode</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>kernelMatrix</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>kernelUnitLength</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>preserveAlpha</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>feDiffuseLighting</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>surfaceScale</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>kernelUnitLength</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>diffuseConstant</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feDisplacementMap</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>scale</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>xChannelSelector</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>yChannelSelector</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feDistantLight</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>azimuth</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>elevation</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>feDropShadow</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p>
+<p>Also takes the
+flood-color and
+flood-opacity
+properties.</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dx</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stdDeviation</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feFuncA</p></td>
+<td></td>
+<td><p>See
+<a class="reference internal" href="#fecomponenttransfer"><span class="std std-ref">Filter effect feComponentTransfer</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>feFuncB</p></td>
+<td></td>
+<td><p>See
+<a class="reference internal" href="#fecomponenttransfer"><span class="std std-ref">Filter effect feComponentTransfer</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>feFuncG</p></td>
+<td></td>
+<td><p>See
+<a class="reference internal" href="#fecomponenttransfer"><span class="std std-ref">Filter effect feComponentTransfer</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>feFuncR</p></td>
+<td></td>
+<td><p>See
+<a class="reference internal" href="#fecomponenttransfer"><span class="std std-ref">Filter effect feComponentTransfer</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>feFlood</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>Parameters come from
+the flood-color and
+flood-opacity
+properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p>feGaussianBlur</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stdDeviation</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>feImage</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>xlink:href</p></td>
+<td><p>Needs xlink namespace</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>href</p></td>
+<td><p>SVG2</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>path</p></td>
+<td><p>Non-standard; used by
+old Adobe Illustrator
+versions.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>preserveAspectRatio</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feMerge</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>feMergeNode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>feMorphology</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>operator</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>radius</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>feOffset</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dx</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>fePointLight</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>z</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>feSpecularLighting</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>surfaceScale</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>kernelUnitLength</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>specularConstant</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>specularExponent</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>feSpotLight</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>z</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>pointsAtX</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>pointsAtY</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>pointsAtZ</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>specularExponent</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>limitingConeAngle</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feTile</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>in</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>feTurbulence</p></td>
+<td></td>
+<td><p>See <a class="reference internal" href="#filter-effects"><span class="std std-ref">Filter effects</span></a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>baseFrequency</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>numOctaves</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>seed</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stitchTiles</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>type</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>filter</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>filterUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>primitiveUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>width</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>height</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>g</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>image</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>xlink:href</p></td>
+<td><p>Needs xlink namespace</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>href</p></td>
+<td><p>SVG2</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>path</p></td>
+<td><p>Non-standard; used by
+old Adobe Illustrator
+versions.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>width</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>height</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>preserveAspectRatio</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>line</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>linearGradient</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>gradientUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>gradientTransform</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>spreadMethod</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>marker</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>markerUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>refX</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>refY</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>markerWidth</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>markerHeight</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>orient</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>preserveAspectRatio</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>viewBox</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mask</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>width</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>height</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>maskUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>maskContentUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>path</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>d</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pattern</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>xlink:href</p></td>
+<td><p>Needs xlink namespace</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>href</p></td>
+<td><p>SVG2</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>patternUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>patternContentUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>patternTransform</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>preserveAspectRatio</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>viewBox</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>width</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>height</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>polygon</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>points</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>polyline</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>points</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>radialGradient</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>gradientUnits</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>gradientTransform</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>spreadMethod</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>cx</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>cy</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>r</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>fx</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>fx</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>fr</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>width</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>height</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>rx</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ry</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>stop</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>offset</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>style</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>type</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>svg</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>width</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>height</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>viewBox</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>preserveAspectRatio</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>switch</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>symbol</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>preserveAspectRatio</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>viewBox</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>text</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dx</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>tref</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>xlink:href</p></td>
+<td><p>Needs xlink namespace</p></td>
+</tr>
+<tr class="row-even"><td><p>tspan</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dx</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dy</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>use</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>xlink:href</p></td>
+<td><p>Needs xlink namespace</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>href</p></td>
+<td><p>SVG2</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>width</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>height</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="css-properties">
+<h2>CSS properties<a class="headerlink" href="#css-properties" title="Link to this heading">¶</a></h2>
+<p>The following are shorthand properties. They are not available as
+presentation attributes, only as style properties, so for example you
+have to use <code class="docutils literal notranslate"><span class="pre">&lt;path</span> <span class="pre">style=&quot;marker:</span> <span class="pre">url(#foo);&quot;/&gt;</span></code>, since there is no
+<code class="docutils literal notranslate"><span class="pre">marker</span></code> attribute.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>font</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>glyph-orientation-vertical</p></td>
+<td><p>Supports only CSS Writing Modes 3 values: auto, 0, 90, 0deg, 90deg</p></td>
+</tr>
+<tr class="row-even"><td><p>marker</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following are longhand properties. Most of them are available as
+presentation attributes, e.g. you can use <code class="docutils literal notranslate"><span class="pre">&lt;rect</span> <span class="pre">fill=&quot;blue&quot;/&gt;</span></code> as
+well as <code class="docutils literal notranslate"><span class="pre">&lt;rect</span> <span class="pre">style=&quot;fill:</span> <span class="pre">blue;&quot;/&gt;</span></code>. The Notes column indicates
+which properties are not available as presentation attributes.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>baseline-shift</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>clip-path</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>clip-rule</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>color</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>color-
+interpolation-filters</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>direction</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>display</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>enable-background</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>fill</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>fill-opacity</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>fill-rule</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>filter</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>flood-color</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>flood-opacity</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>font-family</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>font-size</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>font-stretch</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>font-style</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>font-variant</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>font-weight</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>image-rendering</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>isolation</p></td>
+<td><p>Not available as a presentation attribute.</p></td>
+</tr>
+<tr class="row-even"><td><p>letter-spacing</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>lighting-color</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>line-height</p></td>
+<td><p>Not available as a presentation attribute.</p></td>
+</tr>
+<tr class="row-odd"><td><p>marker-end</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>marker-mid</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>marker-start</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mask</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mask-type</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mix-blend-mode</p></td>
+<td><p>Not available as a presentation attribute.</p></td>
+</tr>
+<tr class="row-odd"><td><p>opacity</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>overflow</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>paint-order</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>shape-rendering</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>stop-color</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>stop-opacity</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>stroke</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>stroke-dasharray</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>stroke-dashoffset</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>stroke-linecap</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>stroke-linejoin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>stroke-miterlimit</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>stroke-opacity</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>stroke-width</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>text-anchor</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>text-decoration</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>text-orientation</p></td>
+<td><p>Not available as a presentation attribute.</p></td>
+</tr>
+<tr class="row-even"><td><p>text-rendering</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>transform</p></td>
+<td><p>SVG2; different syntax from the
+<code class="docutils literal notranslate"><span class="pre">transform</span></code> attribute.</p></td>
+</tr>
+<tr class="row-even"><td><p>unicode-bidi</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>vector-effect</p></td>
+<td><p>Only <code class="docutils literal notranslate"><span class="pre">non-scaling-stroke</span></code> is supported for
+paths.</p></td>
+</tr>
+<tr class="row-even"><td><p>visibility</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>white-space</p></td>
+<td><p>Not available as a presentation attribute.</p></td>
+</tr>
+<tr class="row-even"><td><p>writing-mode</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="filter-effects">
+<span id="id1"></span><h2>Filter effects<a class="headerlink" href="#filter-effects" title="Link to this heading">¶</a></h2>
+<p>The following elements are filter effects:</p>
+<ul class="simple">
+<li><p>feBlend</p></li>
+<li><p>feColorMatrix</p></li>
+<li><p>feComponentTransfer</p></li>
+<li><p>feComposite</p></li>
+<li><p>feConvolveMatrix</p></li>
+<li><p>feDiffuseLighting</p></li>
+<li><p>feDisplacementMap</p></li>
+<li><p>feDropShadow</p></li>
+<li><p>feFlood</p></li>
+<li><p>feGaussianBlur</p></li>
+<li><p>feImage</p></li>
+<li><p>feMerge</p></li>
+<li><p>feMorphology</p></li>
+<li><p>feOffset</p></li>
+<li><p>feSpecularLighting</p></li>
+<li><p>feTile</p></li>
+<li><p>feTurbulence</p></li>
+</ul>
+<p>All of those elements for filter effects support these attributes:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>y</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>width</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>height</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>result</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Some filter effect elements take one input in the <code class="docutils literal notranslate"><span class="pre">in</span></code> attribute, and
+some others take two inputs in the <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">in2</span></code> attributes. See the
+<a class="reference internal" href="#elements"><span class="std std-ref">table of elements</span></a> above for details.</p>
+</section>
+<section id="filter-effect-fecomponenttransfer">
+<span id="fecomponenttransfer"></span><h2>Filter effect feComponentTransfer<a class="headerlink" href="#filter-effect-fecomponenttransfer" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">feComponentTransfer</span></code> element can contain children <code class="docutils literal notranslate"><span class="pre">feFuncA</span></code>,
+<code class="docutils literal notranslate"><span class="pre">feFuncR</span></code>, <code class="docutils literal notranslate"><span class="pre">feFuncG</span></code>, <code class="docutils literal notranslate"><span class="pre">feFuncB</span></code>, and those all support these
+attributes:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>tableValues</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>slope</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>intercept</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>amplitude</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>exponent</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>offset</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="css-features">
+<h2>CSS features<a class="headerlink" href="#css-features" title="Link to this heading">¶</a></h2>
+<section id="pseudo-classes">
+<h3>Pseudo-classes<a class="headerlink" href="#pseudo-classes" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pseudo-class</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>:link</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>:visited</p></td>
+<td><p>Because librsvg does not maintain
+browser history, this is parsed,
+but never matches</p></td>
+</tr>
+<tr class="row-even"><td><p>:lang()</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>:not()</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>:first-child</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>:last-child</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>:only-child</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>:root</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>:empty</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>:nth-child()</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>:nth-last-child()</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>:nth-of-type()</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>:nth-last-of-type()</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>:first-of-type</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>:last-of-type</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>:only-of-type</p></td>
+<td><p><a class="footnote-reference brackets" href="#id15" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>FIXME: which selectors, combinators, at-rules.</p>
+</section>
+</section>
+<section id="xml-features">
+<h2>XML features<a class="headerlink" href="#xml-features" title="Link to this heading">¶</a></h2>
+<section id="xinclude">
+<h3>XInclude<a class="headerlink" href="#xinclude" title="Link to this heading">¶</a></h3>
+<p>Librsvg supports the following subset of <a class="reference external" href="https://www.w3.org/TR/xinclude-11/">XML Inclusions (XInclude)</a>.</p>
+<p>A document or element may declare the namespace for
+<code class="docutils literal notranslate"><span class="pre">http://www.w3.org/2001/XInclude</span></code>, conventionally as an attribute
+<code class="docutils literal notranslate"><span class="pre">xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot;</span></code>.</p>
+<p>The following discussion assumes an <code class="docutils literal notranslate"><span class="pre">xi:</span></code> shorthand; your namespace
+declaration may use a different one, but <code class="docutils literal notranslate"><span class="pre">xi:</span></code> is conventional for
+XInclude.</p>
+<p>The following are examples of valid inclusions:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xi:include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;foo.xml&quot;</span><span class="w"> </span><span class="na">parse=</span><span class="s">&quot;xml&quot;</span><span class="nt">/&gt;</span>
+<span class="cm">&lt;!-- If foo.xml cannot be read, parsing stops with an error --&gt;</span>
+
+<span class="nt">&lt;xi:include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;foo.xml&quot;</span><span class="w"> </span><span class="na">parse=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xi:fallback&gt;</span>
+<span class="w">    </span><span class="nt">&lt;some_fallback_element/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;another_fallback_element/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xi:fallback&gt;</span>
+<span class="nt">&lt;/xi:include&gt;</span>
+<span class="cm">&lt;!-- If foo.xml cannot be read, the elements inside xi:fallback are used instead.</span>
+<span class="cm">     If foo.xml has a syntax error, parsing stops with an error. --&gt;</span>
+
+<span class="nt">&lt;xi:include</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;foo.txt&quot;</span><span class="w"> </span><span class="na">parse=</span><span class="s">&quot;text&quot;</span><span class="w"> </span><span class="na">encoding=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xi:fallback&gt;</span>
+<span class="w">    </span>Text<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>included<span class="w"> </span>if<span class="w"> </span>foo.txt<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>read.
+<span class="w">  </span><span class="nt">&lt;/xi:fallback&gt;</span>
+<span class="nt">&lt;/xi:include&gt;</span>
+</pre></div>
+</div>
+<p>For the <code class="docutils literal notranslate"><span class="pre">xi:include</span></code> element, the <code class="docutils literal notranslate"><span class="pre">href</span></code> attribute is mandatory,
+and <code class="docutils literal notranslate"><span class="pre">parse</span></code> and <code class="docutils literal notranslate"><span class="pre">encoding</span></code> are optional:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">href</span></code> - mandatory for librsvg.  This is <strong>different from the
+XInclude specification</strong>: the attribute is mandatory in librsvg,
+while the spec assumes that if it is not present, then an
+<code class="docutils literal notranslate"><span class="pre">xpointer</span></code> or <code class="docutils literal notranslate"><span class="pre">fragid</span></code> attributes are used instead.  Librsvg
+does not support those.  If there is no <code class="docutils literal notranslate"><span class="pre">href</span></code> attribute, librsvg
+will ignore the whole <code class="docutils literal notranslate"><span class="pre">xi:include</span></code> element.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse</span></code> - optional; supported values are <code class="docutils literal notranslate"><span class="pre">xml</span></code> and <code class="docutils literal notranslate"><span class="pre">text</span></code>; the
+default is <code class="docutils literal notranslate"><span class="pre">xml</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encoding</span></code> - optional; only used for including text files with
+<code class="docutils literal notranslate"><span class="pre">parse=&quot;text&quot;</span></code>.  The value should be a <a class="reference external" href="https://encoding.spec.whatwg.org/#concept-encoding-get">WHATWG label for an
+encoding</a>,
+for example, <code class="docutils literal notranslate"><span class="pre">utf-8</span></code> or <code class="docutils literal notranslate"><span class="pre">koi8-r</span></code>.</p></li>
+</ul>
+<p>Inside <code class="docutils literal notranslate"><span class="pre">&lt;xi:include&gt;</span></code>, there can be an <code class="docutils literal notranslate"><span class="pre">&lt;xi:fallback&gt;</span></code> element to
+specify what should be included if the <code class="docutils literal notranslate"><span class="pre">href</span></code> cannot be read.</p>
+</section>
+<section id="xml-lang-and-xml-space">
+<h3><code class="docutils literal notranslate"><span class="pre">xml:lang</span></code> and <code class="docutils literal notranslate"><span class="pre">xml:space</span></code><a class="headerlink" href="#xml-lang-and-xml-space" title="Link to this heading">¶</a></h3>
+<p>Individual elements can specify an <a class="reference external" href="https://www.w3.org/TR/xml/#sec-lang-tag">xml:lang attribute</a> to specify their language.
+This can be used in a <code class="docutils literal notranslate"><span class="pre">&lt;text&gt;</span></code> element for the main language of its
+content, or generally for the purposes of CSS selector matching.  Note
+that this is different from the use of <code class="docutils literal notranslate"><span class="pre">systemLanguage</span></code> in children
+of the <code class="docutils literal notranslate"><span class="pre">&lt;switch&gt;</span></code> element, which is used to <a class="reference external" href="https://www.w3.org/TR/SVG2/struct.html#SwitchElement">render different
+elements depending on the system’s language</a>.</p>
+<p>Librsvg supports the <a class="reference external" href="https://www.w3.org/TR/xml/#sec-white-space">xml:space attribute</a> and its handling per
+SVG1.1.  Note that this has been superseded in SVG2 with CSS
+whitespace handling; librsvg does not support this yet as of
+2023/Feb/10.</p>
+</section>
+</section>
+<section id="explicitly-unsupported-features">
+<h2>Explicitly Unsupported features<a class="headerlink" href="#explicitly-unsupported-features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">flowRoot</span></code> element and its children - Inkscape, SVG 1.2 only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glyph-orientation-horizontal</span></code> property - SVG1.1 only, removed in
+SVG2</p></li>
+<li><p>The pseudo-classes <code class="docutils literal notranslate"><span class="pre">:is()</span></code> and <code class="docutils literal notranslate"><span class="pre">:where()</span></code> are part of Selectors
+Level 4, which is still a working draft.</p></li>
+</ul>
+</section>
+<section id="footnotes">
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">¶</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id15" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id4">3</a>,<a role="doc-backlink" href="#id5">4</a>,<a role="doc-backlink" href="#id6">5</a>,<a role="doc-backlink" href="#id7">6</a>,<a role="doc-backlink" href="#id8">7</a>,<a role="doc-backlink" href="#id9">8</a>,<a role="doc-backlink" href="#id10">9</a>,<a role="doc-backlink" href="#id11">10</a>,<a role="doc-backlink" href="#id12">11</a>,<a role="doc-backlink" href="#id13">12</a>,<a role="doc-backlink" href="#id14">13</a>)</span>
+<p>These structural pseudo-classes are implemented in rust-selectors,
+which librsvg uses.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="roadmap.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Roadmap</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="product.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Librsvg as a product</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Federico Mena Quintero
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Supported SVG and CSS features</a><ul>
+<li><a class="reference internal" href="#supported-raster-image-formats">Supported raster image formats</a></li>
+<li><a class="reference internal" href="#attributes-supported-by-all-elements">Attributes supported by all elements</a></li>
+<li><a class="reference internal" href="#elements-and-their-specific-attributes">Elements and their specific attributes</a></li>
+<li><a class="reference internal" href="#css-properties">CSS properties</a></li>
+<li><a class="reference internal" href="#filter-effects">Filter effects</a></li>
+<li><a class="reference internal" href="#filter-effect-fecomponenttransfer">Filter effect feComponentTransfer</a></li>
+<li><a class="reference internal" href="#css-features">CSS features</a><ul>
+<li><a class="reference internal" href="#pseudo-classes">Pseudo-classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xml-features">XML features</a><ul>
+<li><a class="reference internal" href="#xinclude">XInclude</a></li>
+<li><a class="reference internal" href="#xml-lang-and-xml-space"><code class="docutils literal notranslate"><span class="pre">xml:lang</span></code> and <code class="docutils literal notranslate"><span class="pre">xml:space</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#explicitly-unsupported-features">Explicitly Unsupported features</a></li>
+<li><a class="reference internal" href="#footnotes">Footnotes</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<us-patent-application xmlns="urn:uspto:ice" lang="EN" dtd-version="v4.6" file="US20240000001A1.xml" date-produced="20231220" date-publ="20240104">
+  <us-bibliographic-data-application>
+    <publication-reference><document-id><country>US</country><doc-number>20240000001</doc-number><kind>A1</kind><date>20240104</date></document-id></publication-reference>
+    <application-reference appl-type="utility"><document-id><country>US</country><doc-number>18000001</doc-number><date>20220601</date></document-id></application-reference>
+    <invention-title>Fixture application</invention-title>
+    <references-cited><citation><nplcit num="1"><othercit>Application fixture reference.</othercit></nplcit></citation></references-cited>
+    <related-documents><related-publication><document-id><country>WO</country><doc-number>2023000001</doc-number><kind>A1</kind></document-id></related-publication></related-documents>
+  </us-bibliographic-data-application>
+  <abstract>Fixture application abstract.</abstract>
+  <description><p>Fixture application description.</p></description>
+  <claims><claim id="c1" num="1"><claim-text>1. A fixture application claim.</claim-text></claim></claims>
+</us-patent-application>

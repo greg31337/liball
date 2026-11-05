@@ -1,0 +1,20 @@
+{
+  "stryker-config": {
+    "project": "barcode.csproj",
+    "mutate": [
+      "**/Api/**/*.cs"
+    ],
+    "coverage-analysis": "all",
+    "test-case-filter": "FullyQualifiedName~OperationShellTests|FullyQualifiedName~PublicIntegrationTests|FullyQualifiedName~PublicApiInventoryTests|FullyQualifiedName~DomainExceptionTests|FullyQualifiedName~SharedDataTests|FullyQualifiedName~EncodeDataTests|FullyQualifiedName~RenderDataTests|FullyQualifiedName~ImageDecodeDetectionDataTests|FullyQualifiedName~BarcodeConfigurationTests",
+    "reporters": [
+      "cleartext",
+      "json"
+    ],
+    "thresholds": {
+      "high": 100,
+      "low": 100,
+      "break": 100
+    },
+    "break-on-initial-test-failure": true
+  }
+}

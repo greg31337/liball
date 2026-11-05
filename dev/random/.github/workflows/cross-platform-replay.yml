@@ -1,0 +1,56 @@
+name: Cross-platform replay
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux x64
+            runner: ubuntu-24.04
+            architecture: x64
+          - name: Linux arm64
+            runner: ubuntu-24.04-arm
+            architecture: arm64
+          - name: Windows x64
+            runner: windows-2025
+            architecture: x64
+          - name: Windows arm64
+            runner: windows-11-arm
+            architecture: arm64
+          - name: macOS x64
+            runner: macos-15-intel
+            architecture: x64
+          - name: macOS arm64
+            runner: macos-15
+            architecture: arm64
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install .NET 10
+        uses: actions/setup-dotnet@v5
+        with:
+          architecture: ${{ matrix.architecture }}
+          dotnet-version: 10.0.x
+
+      - name: Restore test dependencies
+        run: dotnet restore tests/random.Tests.csproj
+
+      - name: Verify portable exact replay
+        run: dotnet test tests/random.Tests.csproj --no-restore --filter TestCategory=PortableReplay
+
+      - name: Verify system-math tolerance replay
+        run: dotnet test tests/random.Tests.csproj --no-restore --filter TestCategory=SystemMathTolerance

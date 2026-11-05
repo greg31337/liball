@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "sets": [
+    {
+      "method": "IsKnownElement",
+      "names": [
+        "a", "abbr", "acronym", "address", "applet", "area", "article", "aside", "audio", "b", "base", "basefont", "bdi", "bdo", "bgsound", "big", "blockquote", "body", "br", "button", "canvas", "caption", "center", "cite", "code", "col", "colgroup", "data", "datalist", "dd", "del", "details", "dfn", "dialog", "dir", "div", "dl", "dt", "em", "embed", "fieldset", "figcaption", "figure", "font", "footer", "form", "frame", "frameset", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "i", "iframe", "img", "input", "ins", "kbd", "keygen", "label", "legend", "li", "link", "listing", "main", "map", "mark", "marquee", "math", "menu", "meta", "meter", "nav", "nobr", "noembed", "noframes", "noscript", "object", "ol", "optgroup", "option", "output", "p", "param", "picture", "plaintext", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "script", "search", "section", "select", "selectedcontent", "slot", "small", "source", "span", "strike", "strong", "style", "sub", "summary", "sup", "svg", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "title", "tr", "track", "tt", "u", "ul", "var", "video", "wbr", "xmp"
+      ]
+    },
+    {
+      "method": "IsMetadataElement",
+      "names": ["base", "link", "meta", "noscript", "script", "style", "template", "title"]
+    },
+    {
+      "method": "IsFlowElement",
+      "names": [
+        "a", "abbr", "address", "area", "article", "aside", "audio", "b", "bdi", "bdo", "blockquote", "br", "button", "canvas", "cite", "code", "data", "datalist", "del", "details", "dfn", "dialog", "div", "dl", "em", "embed", "fieldset", "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "hgroup", "hr", "i", "iframe", "img", "input", "ins", "kbd", "label", "link", "main", "map", "mark", "math", "menu", "meta", "meter", "nav", "noscript", "object", "ol", "output", "p", "picture", "pre", "progress", "q", "ruby", "s", "samp", "script", "search", "section", "select", "selectedcontent", "slot", "small", "span", "strong", "sub", "sup", "svg", "table", "template", "textarea", "time", "u", "ul", "var", "video", "wbr"
+      ]
+    },
+    {
+      "method": "IsSectioningElement",
+      "names": ["article", "aside", "nav", "section"]
+    },
+    {
+      "method": "IsHeadingElement",
+      "names": ["h1", "h2", "h3", "h4", "h5", "h6", "hgroup"]
+    },
+    {
+      "method": "IsPhrasingElement",
+      "names": [
+        "a", "abbr", "area", "audio", "b", "bdi", "bdo", "br", "button", "canvas", "cite", "code", "data", "datalist", "del", "dfn", "em", "embed", "i", "iframe", "img", "input", "ins", "kbd", "label", "link", "map", "mark", "math", "meta", "meter", "noscript", "object", "output", "picture", "progress", "q", "ruby", "s", "samp", "script", "select", "selectedcontent", "slot", "small", "span", "strong", "sub", "sup", "svg", "template", "textarea", "time", "u", "var", "video", "wbr"
+      ]
+    },
+    {
+      "method": "IsEmbeddedElement",
+      "names": ["audio", "canvas", "embed", "iframe", "img", "math", "object", "picture", "svg", "video"]
+    },
+    {
+      "method": "IsInteractiveElement",
+      "names": ["a", "audio", "button", "details", "embed", "iframe", "img", "input", "label", "select", "summary", "textarea", "video"]
+    },
+    {
+      "method": "IsPalpableElement",
+      "names": [
+        "a", "abbr", "address", "article", "aside", "audio", "b", "bdi", "bdo", "blockquote", "button", "canvas", "cite", "code", "data", "details", "dfn", "div", "dl", "em", "embed", "fieldset", "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "hgroup", "i", "iframe", "img", "input", "ins", "kbd", "label", "main", "map", "mark", "math", "menu", "meter", "nav", "object", "ol", "output", "p", "picture", "pre", "progress", "q", "ruby", "s", "samp", "search", "section", "select", "small", "span", "strong", "sub", "sup", "svg", "table", "textarea", "time", "u", "ul", "var", "video"
+      ]
+    },
+    {
+      "method": "IsScriptSupportingElement",
+      "names": ["script", "template"]
+    },
+    {
+      "method": "IsVoidElement",
+      "names": ["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"]
+    },
+    {
+      "method": "IsRawTextElement",
+      "names": ["iframe", "noembed", "noframes", "script", "style", "xmp"]
+    },
+    {
+      "method": "IsEscapableRawTextElement",
+      "names": ["textarea", "title"]
+    },
+    {
+      "method": "IsPreformattedElement",
+      "names": ["listing", "plaintext", "pre", "textarea", "xmp"]
+    },
+    {
+      "method": "IsFormattingElement",
+      "names": ["a", "b", "big", "code", "em", "font", "i", "nobr", "s", "small", "strike", "strong", "tt", "u"]
+    },
+    {
+      "method": "IsSpecialElement",
+      "names": [
+        "address", "applet", "area", "article", "aside", "base", "basefont", "bgsound", "blockquote", "body", "br", "button", "caption", "center", "col", "colgroup", "dd", "details", "dir", "div", "dl", "dt", "embed", "fieldset", "figcaption", "figure", "footer", "form", "frame", "frameset", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "iframe", "img", "input", "keygen", "li", "link", "listing", "main", "marquee", "menu", "meta", "nav", "noembed", "noframes", "noscript", "object", "ol", "p", "param", "plaintext", "pre", "script", "search", "section", "select", "source", "style", "summary", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "title", "tr", "track", "ul", "wbr", "xmp"
+      ]
+    },
+    {
+      "method": "IsScopingElement",
+      "names": ["applet", "caption", "html", "marquee", "object", "select", "table", "td", "template", "th"]
+    },
+    {
+      "method": "IsListItemScopingElement",
+      "names": ["applet", "caption", "html", "marquee", "object", "ol", "select", "table", "td", "template", "th", "ul"]
+    },
+    {
+      "method": "IsButtonScopingElement",
+      "names": ["applet", "button", "caption", "html", "marquee", "object", "select", "table", "td", "template", "th"]
+    },
+    {
+      "method": "IsTableScopingElement",
+      "names": ["html", "table", "template"]
+    },
+    {
+      "method": "IsBooleanAttribute",
+      "names": ["allowfullscreen", "async", "autofocus", "autoplay", "checked", "controls", "default", "defer", "disabled", "formnovalidate", "inert", "ismap", "itemscope", "loop", "multiple", "muted", "nomodule", "novalidate", "open", "playsinline", "readonly", "required", "reversed", "selected"]
+    },
+    {
+      "method": "IsUrlAttribute",
+      "names": ["action", "cite", "data", "formaction", "href", "itemid", "itemtype", "ping", "poster", "src", "srcset", "usemap"]
+    },
+    {
+      "method": "IsSpaceSeparatedAttribute",
+      "names": ["accept-charset", "accesskey", "class", "headers", "itemprop", "itemref", "itemtype", "part", "ping", "rel", "sandbox"]
+    },
+    {
+      "method": "IsCommaSeparatedAttribute",
+      "names": ["accept", "coords", "imagesizes", "imagesrcset", "sizes", "srcset"]
+    },
+    {
+      "method": "IsEnumeratedAttribute",
+      "names": ["autocomplete", "contenteditable", "crossorigin", "decoding", "dir", "draggable", "enctype", "enterkeyhint", "fetchpriority", "formenctype", "formmethod", "hidden", "inputmode", "kind", "loading", "method", "popover", "popovertargetaction", "preload", "referrerpolicy", "scope", "shape", "spellcheck", "translate", "wrap"]
+    }
+  ]
+}

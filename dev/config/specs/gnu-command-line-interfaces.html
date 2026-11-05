@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- The GNU coding standards, last updated April 27, 2026.
+
+Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 Free
+Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Command-Line Interfaces (GNU Coding Standards)</title>
+
+<meta name="description" content="Command-Line Interfaces (GNU Coding Standards)">
+<meta name="keywords" content="Command-Line Interfaces (GNU Coding Standards)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Program-Behavior.html" rel="up" title="Program Behavior">
+<link href="Dynamic-Plug_002dIn-Interfaces.html" rel="next" title="Dynamic Plug-In Interfaces">
+<link href="Graphical-Interfaces.html" rel="prev" title="Graphical Interfaces">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section" id="Command_002dLine-Interfaces">
+<div class="header">
+<p>
+Next: <a href="Dynamic-Plug_002dIn-Interfaces.html" accesskey="n" rel="next">Standards for Dynamic Plug-in Interfaces</a>, Previous: <a href="Graphical-Interfaces.html" accesskey="p" rel="prev">Standards for Graphical Interfaces</a>, Up: <a href="Program-Behavior.html" accesskey="u" rel="up">Program Behavior for All Programs</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Standards-for-Command-Line-Interfaces"></span><h3 class="section">4.8 Standards for Command Line Interfaces</h3>
+<span id="index-command_002dline-interface"></span>
+
+<span id="index-getopt"></span>
+<p>It is a good idea to follow the POSIX guidelines for the
+command-line options of a program.  The easiest way to do this is to use
+<code>getopt</code> to parse them.  Note that the GNU version of <code>getopt</code>
+will normally permit options anywhere among the arguments unless the
+special argument &lsquo;<samp>--</samp>&rsquo; is used.  This is not what POSIX
+specifies; it is a GNU extension.
+</p>
+<span id="index-long_002dnamed-options"></span>
+<p>Please define long-named options that are equivalent to the
+single-letter Unix-style options.  We hope to make GNU more user
+friendly this way.  This is easy to do with the GNU function
+<code>getopt_long</code>.
+</p>
+<p>One of the advantages of long-named options is that they can be
+consistent from program to program.  For example, users should be able
+to expect the &ldquo;verbose&rdquo; option of any GNU program which has one, to be
+spelled precisely &lsquo;<samp>--verbose</samp>&rsquo;.  To achieve this uniformity, look at
+the table of common long-option names when you choose the option names
+for your program (see <a href="Option-Table.html">Table of Long Options</a>).
+</p>
+<p>It is usually a good idea for file names given as ordinary arguments to
+be input files only; any output files would be specified using options
+(preferably &lsquo;<samp>-o</samp>&rsquo; or &lsquo;<samp>--output</samp>&rsquo;).  Even if you allow an output
+file name as an ordinary argument for compatibility, try to provide an
+option as another way to specify it.  This will lead to more consistency
+among GNU utilities, and fewer idiosyncrasies for users to remember.
+</p>
+<span id="index-standard-command_002dline-options"></span>
+<span id="index-options_002c-standard-command_002dline"></span>
+<span id="index-CGI-programs_002c-standard-options-for"></span>
+<span id="index-PATH_005fINFO_002c-specifying-standard-options-as"></span>
+<p>All programs should support two standard options: &lsquo;<samp>--version</samp>&rsquo;
+and &lsquo;<samp>--help</samp>&rsquo;.  CGI programs should accept these as command-line
+options, and also if given as the <code>PATH_INFO</code>; for instance,
+visiting &lsquo;<code>http://example.org/p.cgi/--help</code>&rsquo; in a browser should
+output the same information as invoking &lsquo;<samp>p.cgi --help</samp>&rsquo; from the
+command line.
+</p>
+
+<ul class="section-toc">
+<li><a href="_002d_002dversion.html" accesskey="1"><samp>--version</samp></a></li>
+<li><a href="_002d_002dhelp.html" accesskey="2"><samp>--help</samp></a></li>
+</ul>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Dynamic-Plug_002dIn-Interfaces.html">Standards for Dynamic Plug-in Interfaces</a>, Previous: <a href="Graphical-Interfaces.html">Standards for Graphical Interfaces</a>, Up: <a href="Program-Behavior.html">Program Behavior for All Programs</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

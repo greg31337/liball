@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "scope": "Redistributable font programs and raw font-table fixtures stored as files or Base64 constants under tests/. Fonts synthesized transiently by test builders are test inputs, not retained fixtures, and are outside this manifest.",
+  "integrity": "All sha256 values identify the exact decoded bytes consumed by tests. For an archive member, the member hash identifies the uncompressed font bytes.",
+  "provenanceNotes": [
+    "Project-authored fixtures have no separate third-party font license.",
+    "The eight Noto subsets predate this manifest. Their exact decoded hashes, embedded font versions, source projects, and license were retained, but their upstream Git commit IDs were not. They are therefore pinned by content hash rather than by an unverified commit claim."
+  ],
+  "containers": [
+    {
+      "id": "noto-shaping-subsets-archive",
+      "location": "tests/Differential/HarfBuzzShapingModelCorpusData.cs#ArchiveBase64",
+      "format": "ZIP containing eight TrueType-flavored OpenType fonts",
+      "sha256": "22154711ec31d7d72ceb9c3cd2bd0258ccf998e411c6176d72528f77f09132f3",
+      "revision": "Introduced in this repository at 394a68b768d5c3e33e6f4e2c6753c0f626e0c98e",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "color-colrv1-variable",
+      "location": "tests/Assets/ColorFonts/test_glyphs-glyf_colr_1_variable.ttf",
+      "source": "https://github.com/googlefonts/color-fonts/blob/0046ea4c3b69e9fbbe464c2594816894e3aa5e4b/fonts/test_glyphs-glyf_colr_1_variable.ttf",
+      "revision": "googlefonts/color-fonts commit 0046ea4c3b69e9fbbe464c2594816894e3aa5e4b",
+      "sha256": "ad575a09d6748aebcb3b90ffd384c64d5c64b5fd9927967e7cd7cc0d70c98d34",
+      "license": "Apache License 2.0",
+      "licenseFile": "tests/Assets/ColorFonts/LICENSE.txt",
+      "formats": ["OpenType", "TrueType outlines", "COLR v1", "CPAL", "variable font"],
+      "scripts": ["Common", "Latin test labels"],
+      "features": ["COLR v1 paint graph", "color palettes", "glyf variations", "HVAR", "STAT"]
+    },
+    {
+      "id": "color-svg",
+      "location": "tests/Assets/ColorFonts/samples-untouchedsvg.ttf",
+      "source": "https://github.com/googlefonts/color-fonts/blob/0046ea4c3b69e9fbbe464c2594816894e3aa5e4b/fonts/samples-untouchedsvg.ttf",
+      "revision": "googlefonts/color-fonts commit 0046ea4c3b69e9fbbe464c2594816894e3aa5e4b",
+      "sha256": "ab86aec653bdd9d412e2d6670ba9485fd56a4e89dcd3c034ae43abca921c7e25",
+      "license": "Apache License 2.0",
+      "licenseFile": "tests/Assets/ColorFonts/LICENSE.txt",
+      "formats": ["OpenType", "TrueType outlines", "SVG table"],
+      "scripts": ["Common", "emoji samples"],
+      "features": ["SVG glyph documents", "shared SVG documents", "ordinary glyf fallback"]
+    },
+    {
+      "id": "color-sbix",
+      "location": "tests/Assets/ColorFonts/samples-sbix.ttf",
+      "source": "https://github.com/googlefonts/color-fonts/blob/0046ea4c3b69e9fbbe464c2594816894e3aa5e4b/fonts/samples-sbix.ttf",
+      "revision": "googlefonts/color-fonts commit 0046ea4c3b69e9fbbe464c2594816894e3aa5e4b",
+      "sha256": "0fd0a23379b0e982db8bef5f9a50cf7960a6ee3504778a9a9c039bde4d2f573d",
+      "license": "Apache License 2.0",
+      "licenseFile": "tests/Assets/ColorFonts/LICENSE.txt",
+      "formats": ["OpenType", "TrueType outlines", "sbix bitmap strikes"],
+      "scripts": ["Common", "emoji samples"],
+      "features": ["PNG bitmap glyphs", "multiple strike metadata", "ordinary glyf fallback"]
+    },
+    {
+      "id": "oracle-fonttools-freetype",
+      "location": "tests/Differential/FontToolsFreeTypeDifferentialTests.cs#OracleFontBase64",
+      "source": "Project-authored Oracle Sans synthetic font",
+      "revision": "Introduced in this repository at 2839c994c12ff1d6c53ff0d687731e1fcc40a4fd",
+      "sha256": "6302e227a1b58510938a1f8ae24113e8ed3be24ccff6f245cb25fab3af21cc45",
+      "license": "Project-authored test data; no separate third-party font license",
+      "licenseFile": null,
+      "formats": ["OpenType", "TrueType outlines"],
+      "scripts": ["Latin", "Common"],
+      "features": ["Mac and Windows names", "localized names", "BMP cmap", "OS/2 no-subsetting rights", "horizontal metrics"]
+    },
+    {
+      "id": "oracle-harfbuzz-layout",
+      "location": "tests/Differential/HarfBuzzLayoutDifferentialTests.cs#OracleFontBase64",
+      "source": "Project-authored T118 HarfBuzz Oracle generated with fontTools 4.60.2",
+      "revision": "Introduced in this repository at e5d2ab3506e302148b42feb3abcf629bd6722f51; expected results captured with HarfBuzz 14.3.0",
+      "sha256": "977acd76ffbe6b956ecc6189964f8f49a8ef90d811c45ed3c60dcb3bfd91287e",
+      "license": "Project-authored test data; no separate third-party font license",
+      "licenseFile": null,
+      "formats": ["OpenType", "TrueType outlines"],
+      "scripts": ["Latin", "Greek", "Cyrillic", "Common"],
+      "features": ["GDEF", "GSUB ligatures", "GPOS kerning", "mark attachment", "cursive attachment", "feature ranges"]
+    },
+    {
+      "id": "oracle-variable-wght",
+      "location": "tests/Differential/VariableStaticInstanceDifferentialTests.cs#VariableFontBase64",
+      "source": "Project-authored two-master T094 Oracle generated with fontTools 4.60.2",
+      "revision": "Introduced in this repository at 2f700fc7df98c5c38dd7cd732dd5559a414305cb",
+      "sha256": "c8f44ea92a5365e5b14a5f47a9794316488701a7669e78eff378bfbb69b585b0",
+      "license": "Project-authored test data; no separate third-party font license",
+      "licenseFile": null,
+      "formats": ["OpenType", "TrueType outlines", "variable font"],
+      "scripts": ["Latin"],
+      "features": ["wght axis", "glyf variations", "HVAR", "STAT", "two masters"]
+    },
+    {
+      "id": "oracle-static-wght-700",
+      "location": "tests/Differential/VariableStaticInstanceDifferentialTests.cs#FontToolsInstanceBase64",
+      "source": "Static wght=700 instance of oracle-variable-wght generated by fontTools.varLib.instancer 4.60.2",
+      "revision": "Introduced in this repository at 2f700fc7df98c5c38dd7cd732dd5559a414305cb",
+      "sha256": "63d4ff2f6d6ab34462de45fa0b202db4f6d26c2ee9259eef6ca0fe31ce85c836",
+      "license": "Project-authored test data; no separate third-party font license",
+      "licenseFile": null,
+      "formats": ["OpenType", "TrueType outlines", "static instance"],
+      "scripts": ["Latin"],
+      "features": ["pinned wght=700 outlines", "pinned advance metrics", "variation tables removed"]
+    },
+    {
+      "id": "source-serif-cff1-table",
+      "location": "tests/Differential/CffOutlineDifferentialTests.cs#SourceSerifCffBase64",
+      "source": "https://github.com/adobe-fonts/source-serif/tree/5f220b17d27ed64873f22cde0dd593685387bd19",
+      "revision": "Source Serif 4 commit 5f220b17d27ed64873f22cde0dd593685387bd19; subset with fontTools 4.60.2",
+      "sha256": "2062d1751c42aab0131fe6ff065219d2374efa72be2edcddad3e251deb25c33a",
+      "license": "SIL Open Font License 1.1 with Reserved Font Name Source",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["raw CFF 1 table", "PostScript outlines"],
+      "scripts": ["Latin"],
+      "features": [".notdef and o subset", "Type 2 charstrings", "CFF charset", "private dictionary"]
+    },
+    {
+      "id": "source-serif-cff2-table",
+      "location": "tests/Differential/CffOutlineDifferentialTests.cs#SourceSerifCff2Base64",
+      "source": "https://github.com/adobe-fonts/source-serif/tree/5f220b17d27ed64873f22cde0dd593685387bd19",
+      "revision": "Source Serif 4 commit 5f220b17d27ed64873f22cde0dd593685387bd19; subset with fontTools 4.60.2",
+      "sha256": "80ccac181b5c82107e98f2b1431defb5943a5b9152dc932de9be269f73e0d096",
+      "license": "SIL Open Font License 1.1 with Reserved Font Name Source",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["raw CFF 2 table", "variable PostScript outlines"],
+      "scripts": ["Latin"],
+      "features": [".notdef and o subset", "Type 2 charstrings", "variation store", "two variation axes"]
+    },
+    {
+      "id": "noto-arabic-subset",
+      "location": "noto-shaping-subsets-archive:arabic.ttf",
+      "source": "https://github.com/notofonts/arabic",
+      "revision": "Embedded font version 2.013; exact subset pinned by sha256",
+      "sha256": "c0412be162f6fc0bbe9f5e265ecf8c9ef189455d7a953d11b255dee474d0ee21",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["OpenType", "TrueType outlines", "static subset"],
+      "scripts": ["Arabic"],
+      "features": ["Arabic shaping model", "GDEF", "GSUB", "GPOS"]
+    },
+    {
+      "id": "noto-hebrew-subset",
+      "location": "noto-shaping-subsets-archive:hebrew.ttf",
+      "source": "https://github.com/notofonts/hebrew",
+      "revision": "Embedded font version 3.001; exact subset pinned by sha256",
+      "sha256": "5c2d76d6244ab560d3471482756b83b5eb35b2068b7bfebb7defbd7485b53241",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["OpenType", "TrueType outlines", "static subset"],
+      "scripts": ["Hebrew"],
+      "features": ["Hebrew shaping model", "GDEF", "GSUB", "GPOS"]
+    },
+    {
+      "id": "noto-devanagari-subset",
+      "location": "noto-shaping-subsets-archive:indic.ttf",
+      "source": "https://github.com/notofonts/devanagari",
+      "revision": "Embedded font version 2.006; exact subset pinned by sha256",
+      "sha256": "e64eee4d4f756ace3c46b47c7d0e86d4e19ae1036419930c20e1de4f87a4d12f",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["OpenType", "TrueType outlines", "static subset"],
+      "scripts": ["Devanagari"],
+      "features": ["Indic shaping model", "GDEF", "GSUB", "GPOS"]
+    },
+    {
+      "id": "noto-khmer-subset",
+      "location": "noto-shaping-subsets-archive:khmer.ttf",
+      "source": "https://github.com/notofonts/khmer",
+      "revision": "Embedded font version 2.004; exact subset pinned by sha256",
+      "sha256": "70173e627e33669ea69933101f6aace88a7af79067a4d3ca0200cf4eeed1e39a",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["OpenType", "TrueType outlines", "static subset"],
+      "scripts": ["Khmer"],
+      "features": ["Khmer shaping model", "GDEF", "GSUB", "GPOS"]
+    },
+    {
+      "id": "noto-myanmar-subset",
+      "location": "noto-shaping-subsets-archive:myanmar.ttf",
+      "source": "https://github.com/notofonts/myanmar",
+      "revision": "Embedded font version 2.107; exact subset pinned by sha256",
+      "sha256": "0408c47e1af61e6df49fb72f4fdeea59c59258d8ea92479c9c48b4c1711b8bdd",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["OpenType", "TrueType outlines", "static subset"],
+      "scripts": ["Myanmar"],
+      "features": ["Myanmar shaping model", "GDEF", "GSUB", "GPOS"]
+    },
+    {
+      "id": "noto-thai-subset",
+      "location": "noto-shaping-subsets-archive:thai.ttf",
+      "source": "https://github.com/notofonts/thai",
+      "revision": "Embedded font version 2.002; exact subset pinned by sha256",
+      "sha256": "1d2c7b66562288519be23f3758f5ecd9300e08bacf7cb3d5533648c562526223",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["OpenType", "TrueType outlines", "static subset"],
+      "scripts": ["Thai"],
+      "features": ["Thai/Lao shaping model", "GDEF", "GSUB", "GPOS"]
+    },
+    {
+      "id": "noto-korean-variable-subset",
+      "location": "noto-shaping-subsets-archive:hangul.ttf",
+      "source": "https://github.com/notofonts/noto-cjk",
+      "revision": "Embedded font version 2.004; exact subset pinned by sha256",
+      "sha256": "cdff524931dabef313e2d6d4fde1e68f7227c06bda9c45c76b45b4ed896d86bb",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["OpenType", "TrueType outlines", "variable subset"],
+      "scripts": ["Hangul"],
+      "features": ["Hangul shaping model", "wght axis", "glyf variations", "HVAR", "vertical metrics", "GSUB", "GPOS"]
+    },
+    {
+      "id": "noto-lepcha-subset",
+      "location": "noto-shaping-subsets-archive:use.ttf",
+      "source": "https://github.com/notofonts/lepcha",
+      "revision": "Embedded font version 2.006; exact subset pinned by sha256",
+      "sha256": "f3dfccdd0f9a69ebe2172242ae0cd6687a3f23c40ce8dd47f9c854df4d3b712e",
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "tests/Fixtures/NotoOFL.txt",
+      "formats": ["OpenType", "TrueType outlines", "static subset"],
+      "scripts": ["Lepcha"],
+      "features": ["Universal Shaping Engine model", "GDEF", "GSUB", "GPOS"]
+    }
+  ]
+}

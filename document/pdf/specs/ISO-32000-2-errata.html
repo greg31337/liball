@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(2)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>ISO 32000-2:2020 PDF 2.0 | Errata for PDF specifications</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="ISO 32000-2:2020 PDF 2.0" />
+<meta name="author" content="PDF Association" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Industry-agreed resolutions for errata reported against PDF standards and specifications." />
+<meta name="twitter:description" property="og:description" content="Industry-agreed resolutions for errata reported against PDF standards and specifications." />
+<link rel="canonical" href="https://pdf-issues.pdfa.org/32000-2-2020/" />
+<meta property="og:url" content="https://pdf-issues.pdfa.org/32000-2-2020/" />
+<meta property="og:site_name" content="Errata for PDF specifications" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="ISO 32000-2:2020 PDF 2.0" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"PDF Association"},"description":"Industry-agreed resolutions for errata reported against PDF standards and specifications.","headline":"ISO 32000-2:2020 PDF 2.0","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://pdf-issues.pdfa.org/assets/PDFa-logo-black-text.png"},"name":"PDF Association"},"url":"https://pdf-issues.pdfa.org/32000-2-2020/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- 
+Any HTML added to this file will be inserted before the closing <head> tag. This might include additional <meta>, <link>, or <script> tags.
+The <head> tag automatically includes a link to an existing favicon if you set favicon_ico to the corresponding path in your configuration, 
+or if the path to the favicon is /favicon.ico.
+-->
+<!-- link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" --> 
+
+<script>
+var lastTimeout;
+
+window.addEventListener("load", function() {
+    var n = 0;
+    var s = "";
+    var iss = null;
+    var iso = null;
+    var p;
+
+    var edits = document.getElementsByTagName('ins');
+    for (n = 0, nEdits = edits.length; n < nEdits; n++) {
+        if (edits[n].getAttribute("data-issue") != null) {
+            iss = edits[n].getAttribute("data-issue").split(',');
+            if (edits[n].getAttribute("data-iso") != null) {
+                iso = edits[n].getAttribute("data-iso").split(',');
+                if (iss.length != iso.length) {
+                    console.log("Insertion data-issue and data-iso not the same length for " + obj.getAttribute("data-issue"));
+                }
+            }
+        }
+        s = "";
+        for (let i in iss) {
+            if (s != "") {
+                s = s + ", "; /* add a gap between each URL */
+            }
+            if ((iso != null) && (iso.length > i)) {
+                if (iso[i] == "approved") {
+                    s = s + '<img src="../assets/Logo-ISO-small.png" alt="ISO approved" style="height:15px">&nbsp;';
+                }
+                else if (iso[i] == "submitted") {
+                    s = s + '<img src="../assets/Logo-ISO-submitted-small.png" alt="ISO submitted" style="height:15px">&nbsp;';
+                }
+            }
+            s = s + '<a href="https://github.com/pdf-association/pdf-issues/issues/' + iss[i] + '" target="_blank">Issue&nbsp;#' + iss[i] + '</a>';
+        }
+        edits[n].insertAdjacentHTML("beforebegin", "<span class=\"onlyprint\" style=\"font-family:cursive;font-size:small\"> [" + s + "] </span>");
+    }
+
+    var edits = document.getElementsByTagName('del');
+    iso = null;
+    for (n = 0, nEdits = edits.length; n < nEdits; n++) {
+        if (edits[n].getAttribute("data-issue") != null) {
+            iss = edits[n].getAttribute("data-issue").split(',');
+            if (edits[n].getAttribute("data-iso") != null) {
+                iso = edits[n].getAttribute("data-iso").split(',');
+                if ((iso != null) && (iss.length != iso.length)) {
+                    console.log("Deletion data-issue and data-iso not the same length for " + obj.getAttribute("data-issue"));
+                }
+            }
+        }
+        s = "";
+        for (let i in iss) {
+            if (s != "") {
+                s = s + ", "; /* add a gap between each URL */
+            }
+            if ((iso != null) && (iso.length > i)) {
+                if (iso[i] == "approved") {
+                    s = s + '<img src="../assets/Logo-ISO-small.png" alt="ISO approved" style="height:15px">&nbsp;';
+                }
+                else if (iso[i] == "submitted") {
+                    s = s + '<img src="../assets/Logo-ISO-submitted-small.png" alt="ISO submitted" style="height:15px">&nbsp;';
+                }
+            }
+            s = s + '<a href="https://github.com/pdf-association/pdf-issues/issues/' + iss[i] + '" target="_blank">Issue&nbsp;#' + iss[i] + '</a>';
+        }
+        edits[n].insertAdjacentHTML("beforebegin", "<span class=\"onlyprint\" style=\"font-family:cursive;font-size:small\"> [" + s + "] </span>");
+    }
+});
+
+function mouseEnter(obj) {
+    var iss = null;
+    var iso = null;
+    clearTimeout(lastTimeout);
+    if (obj.getAttribute("data-issue") != null) {
+        iss = obj.getAttribute("data-issue").split(',');
+        if (obj.getAttribute("data-iso") != null) {
+            iso = obj.getAttribute("data-iso").split(',');
+            if ((iso != null) && (iss.length != iso.length)) {
+                console.log("data-issue and data-iso not the same length for " + obj.getAttribute("data-issue"));
+            }
+        }
+    }
+    var s = "";
+    /* Iterate over comma-separated issue numbers */
+    for (let i in iss) {
+        if (s != "") {
+            s = s + "<br\>"; /* add a linebreak between each URL */
+        }
+        if ((iso != null) && (iso.length > i)) {
+            if (iso[i] == "approved") {
+                s = s + '<img src="../assets/Logo-ISO-small.png" alt="ISO approved" style="height:15px">&nbsp;';
+            }
+            else if (iso[i] == "submitted") {
+                s = s + '<img src="../assets/Logo-ISO-submitted-small.png" alt="ISO submitted" style="height:15px">&nbsp;';
+            }
+        }
+        s = s + '<a href="https://github.com/pdf-association/pdf-issues/issues/' + iss[i] + '" target="_blank">Issue&nbsp;#' + iss[i] + '</a>';
+    }
+    var trg = document.getElementById("issuelink");
+    trg.innerHTML = s;
+    var box = obj.getBoundingClientRect();
+    trg.style.left = Math.max(0, (box.left - 80)) + 'px';
+    trg.style.top  = Math.max(0, (box.top - 20)) + 'px';
+    trg.style.visibility = 'visible';
+    lastTimeout = setTimeout(hideIssue, 3000);
+}
+
+function hideIssue() { /* after 3 second timeout */
+    var trg = document.getElementById("issuelink");
+    trg.style.visibility = 'hidden';
+}
+</script>
+
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <header class="side-bar">
+  <div class="site-header">
+    <a href="/" class="site-title lh-tight">
+  <div class="site-logo" role="img" aria-label="Errata for PDF specifications"></div>
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Overview</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="ISO 32000-2:2020 PDF 2.0 submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/32000-2-2020/" class="nav-list-link">ISO 32000-2:2020 PDF 2.0</a><ul class="nav-list"><li class="nav-list-item"><a href="/32000-2-2020/clause00.html" class="nav-list-link">Introduction</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause02.html" class="nav-list-link">2. Normative references</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause03.html" class="nav-list-link">3. Terms and definitions</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause04.html" class="nav-list-link">4. Notation</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause07.html" class="nav-list-link">7. Syntax</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause08.html" class="nav-list-link">8. Graphics</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause09.html" class="nav-list-link">9. Text</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause10.html" class="nav-list-link">10. Rendering</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause11.html" class="nav-list-link">11. Transparency</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause12.html" class="nav-list-link">12. Interactive features</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause13.html" class="nav-list-link">13. Multimedia features</a></li><li class="nav-list-item"><a href="/32000-2-2020/clause14.html" class="nav-list-link">14. Document interchange</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseAnnexA.html" class="nav-list-link">Annex A: (informative) Operator Summary</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseAnnexD.html" class="nav-list-link">Annex D: (normative) Character sets and encodings</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseAnnexE.html" class="nav-list-link">Annex E: (normative) Extending PDF</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseAnnexF.html" class="nav-list-link">Annex F: (normative) Linearized PDF</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseAnnexH.html" class="nav-list-link">Annex H: (informative) Example PDF files</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseAnnexL.html" class="nav-list-link">Annex L: (normative) Parent-child relationships between the standard structure elements in the standard structure namespace for PDF 2.0</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseAnnexO.html" class="nav-list-link">Annex O: (normative) Fragent identifiers</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseAnnexQ.html" class="nav-list-link">Annex Q: (normative) Method for determining transparency on a page</a></li><li class="nav-list-item"><a href="/32000-2-2020/clauseBibliography.html" class="nav-list-link">Bibliography</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="ISO TS 32001: PDF 2.0 Hash Algorithm extensions submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/32001-2022/" class="nav-list-link">ISO TS 32001: PDF 2.0 Hash Algorithm extensions</a><ul class="nav-list"><li class="nav-list-item"><a href="/32001-2022/clause05.html" class="nav-list-link">5. Digital signature enhancements</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="ISO TS 32002: PDF 2.0 Digital Signature extensions submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/32002-2022/" class="nav-list-link">ISO TS 32002: PDF 2.0 Digital Signature extensions</a><ul class="nav-list"><li class="nav-list-item"><a href="/32002-2022/clause01.html" class="nav-list-link">1. Scope</a></li><li class="nav-list-item"><a href="/32002-2022/clause05.html" class="nav-list-link">5. Digital signature enhancements</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="ISO TS 32005: PDF 1.7 and 2.0 inclusion rules in PDF 2.0 submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/32005-2023/" class="nav-list-link">ISO TS 32005: PDF 1.7 and 2.0 inclusion rules in PDF 2.0</a><ul class="nav-list"><li class="nav-list-item"><a href="/32005-2023/clause07.html" class="nav-list-link">7. Parent-child relationships between the standard structure elements in the standard structure namespace for PDF 2.0 and PDF 1.7</a></li></ul></li><li class="nav-list-item"><a href="/14289-1-2014/" class="nav-list-link">ISO 14289-1:2014 PDF/UA-1</a></li><li class="nav-list-item"><a href="/14739-1-2014/" class="nav-list-link">ISO 14739-1:2014 PRC</a></li><li class="nav-list-item"><a href="/15930-9-2020/" class="nav-list-link">ISO 15930-9:2020 PDF/X-6</a></li><li class="nav-list-item"><a href="/16612-3-2020/" class="nav-list-link">ISO 16612-3:2020 PDF/VT-3</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="ISO 16684-2:2014 XMP RELAX NG schema submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/16684-2-2014/" class="nav-list-link">ISO 16684-2:2014 XMP RELAX NG schema</a><ul class="nav-list"><li class="nav-list-item"><a href="/16684-2-2014/clauseAnnexC.html" class="nav-list-link">Annex C: (informative) RELAX NG schema for the XMP namespace</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="ISO 19005-4:2020 PDF/A-4 submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/19005-4-2020/" class="nav-list-link">ISO 19005-4:2020 PDF/A-4</a><ul class="nav-list"><li class="nav-list-item"><a href="/19005-4-2020/clause06.html" class="nav-list-link">6. Technical requirements</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="ISO 21757-1:2020 ECMAScript for PDF 2.0 submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/21757-1-2020/" class="nav-list-link">ISO 21757-1:2020 ECMAScript for PDF 2.0</a><ul class="nav-list"><li class="nav-list-item"><a href="/21757-1-2020/clause02.html" class="nav-list-link">2. Normative references</a></li><li class="nav-list-item"><a href="/21757-1-2020/clause03.html" class="nav-list-link">3. Terms and definitions</a></li><li class="nav-list-item"><a href="/21757-1-2020/clause10.html" class="nav-list-link">10. ECMAScript API</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Well-Tagged PDF 1.0 submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/wtpdf-1/" class="nav-list-link">Well-Tagged PDF 1.0</a><ul class="nav-list"><li class="nav-list-item"><a href="/wtpdf-1/clause06.html" class="nav-list-link">6. Conformance</a></li><li class="nav-list-item"><a href="/wtpdf-1/clause08.html" class="nav-list-link">8. File format requirements</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="PDF Declarations submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/pdf-declarations/" class="nav-list-link">PDF Declarations</a><ul class="nav-list"><li class="nav-list-item"><a href="/pdf-declarations/clause07.html" class="nav-list-link">7. PDF Declaration syntax</a></li><li class="nav-list-item"><a href="/pdf-declarations/clause08.html" class="nav-list-link">8. PDF Declaration requirements</a></li></ul></li></ul>
+  
+</nav>
+
+
+<div class="d-md-block d-none site-footer">
+  
+  
+    <!-- 
+ Any content added to this file will appear at the bottom left of the page below the site's navigation. 
+ By default an attribution to Just the Docs is displayed which reads, "This site uses Just the Docs, a documentation theme for Jekyll.""
+-->
+<!-- p style="text-align:left; font-size:larger;">
+<a href="https://pdfa.org/" target="_blank" rel="noopener"><span class="fa fa-globe"></span></a>
+<a href="https://github.com/pdf-association/pdf-issues" target="_blank" rel="noopener"><span class="fa fa-github"></span></a>
+</p -->
+  
+  </div>
+</header>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Errata for PDF specifications" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search Errata for PDF specifications</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  <!--
+Content added to this file appears at the top of every page's main content between the site search and auxiliary links if they are enabled. 
+If search_enabled were set to false and aux_links were removed, the content of header_custom.html would occupy the space at the top of 
+every page.
+-->
+
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://pdfa.org/" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          PDF Association
+        </a>
+      </li>
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/pdf-association/pdf-issues" class="site-button"
+          
+          target="_blank" rel="noopener noreferrer"
+          
+        >
+          Github
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1>
+  
+  
+    ISO 32000-2:2020: <i>Document management - Portable document format - Part 2: PDF 2.0</i>
+  
+  
+</h1>
+    
+
+<p>
+This document lists all industry-approved corrections to PDF 2.0 as defined by "ISO 32000-2:2020 <i>Document management - Portable document format - Part 2: PDF 2.0</i>".
+All issues related to PDF 2.0 are recorded in the PDF Association's <a href="https://github.com/pdf-association/pdf-issues" target="_blank">GitHub pdf-issues</a>.
+</p>
+
+<p>Corrections are organized by the top level clauses in ISO 32000-2:2020:</p>
+
+<nav>
+<ul>
+    
+         
+            
+            <li><a href="clause00.html">Introduction</a></li>
+           
+            <li><a href="clause02.html">Clause 2: Normative references</a></li>
+           
+            <li><a href="clause03.html">Clause 3: Terms and definitions</a></li>
+           
+            <li><a href="clause04.html">Clause 4: Notation</a></li>
+           
+            <li><a href="clause07.html">Clause 7: Syntax</a></li>
+           
+            <li><a href="clause08.html">Clause 8: Graphics</a></li>
+           
+            <li><a href="clause09.html">Clause 9: Text</a></li>
+           
+            <li><a href="clause10.html">Clause 10: Rendering</a></li>
+           
+            <li><a href="clause11.html">Clause 11: Transparency</a></li>
+           
+            <li><a href="clause12.html">Clause 12: Interactive features</a></li>
+           
+            <li><a href="clause13.html">Clause 13: Multimedia features</a></li>
+           
+            <li><a href="clause14.html">Clause 14: Document interchange</a></li>
+           
+            <li><a href="clauseAnnexA.html">Annex A: (informative) Operator Summary</a></li>
+           
+            <li><a href="clauseAnnexD.html">Annex D: (normative) Character sets and encodings</a></li>
+           
+            <li><a href="clauseAnnexE.html">Annex E: (normative) Extending PDF</a></li>
+           
+            <li><a href="clauseAnnexF.html">Annex F: (normative) Linearized PDF</a></li>
+           
+            <li><a href="clauseAnnexH.html">Annex H: (informative) Example PDF files</a></li>
+           
+            <li><a href="clauseAnnexL.html">Annex L: (normative) Parent-child relationships between the standard structure elements in the standard structure namespace for PDF 2.0</a></li>
+           
+            <li><a href="clauseAnnexO.html">Annex O: (normative) Fragment identifiers</a></li>
+           
+            <li><a href="clauseAnnexQ.html">Annex Q: (normative) Method for determining transparency on a page</a></li>
+           
+            <li><a href="clauseBibliography.html">Bibliography</a></li>
+           
+        
+    
+         
+    
+         
+    
+         
+    
+         
+    
+         
+    
+         
+    
+         
+    
+         
+    
+         
+    
+         
+    
+         
+    
+         
+    
+</ul>
+</nav>
+
+<p>The following tables have all been corrected:</p>
+
+<nav>
+<ul>
+<li><a href="clause07.html#Table3">Table 3 - Escape sequences in literal strings</a></li>
+<li><a href="clause07.html#Table5">Table 5 - Entries common to all stream dictionaries</a></li>
+<li><a href="clause07.html#Table8">Table 8 - Optional parameters for LZWDecode and FlateDecode filters</a></li>
+<li><a href="clause07.html#Table15">Table 15 - Entries in the file trailer dictionary</a></li>
+<li><a href="clause07.html#Table17">Table 17 - Additional entries specific to a cross-reference stream dictionary</a></li>
+<li><a href="clause07.html#Table18">Table 18 - Entries in a cross-reference stream</a></li>
+<li><a href="clause07.html#Table19">Table 19 - Additional entries in a hybrid-reference file's trailer dictionary</a></li>
+<li><a href="clause07.html#Table21">Table 21 - Additional encryption dictionary entries for the standard security handler</a></li>
+<li><a href="clause07.html#Table24">Table 24 - Public-key security handler user access permissions</a></li>
+<li><a href="clause07.html#Table25">Table 25 - Entries common to all crypt filter dictionaries</a></li>
+<li><a href="clause07.html#Table27">Table 27 - Additional crypt filter dictionary entries for public-key security handlers</a></li>
+<li><a href="clause07.html#Table29">Table 29 - Entries in the catalog dictionary</a></li>
+<li><a href="clause07.html#Table30">Table 30 - Required entries in a page tree node</a></li>
+<li><a href="clause07.html#Table31">Table 31 - Entries in a page object</a></li>
+<li><a href="clause07.html#Table32">Table 32 - Entries in the name dictionary</a></li>
+<li><a href="clause07.html#Table34">Table 34 - Entries in a resource dictionary</a></li>
+<li><a href="clause07.html#Table35">Table 35 - PDF data types <ins onmouseenter="mouseEnter(this)" data-issue="322" data-iso="approved">(informative)</ins></a></li>
+<li><a href="clause07.html#Table36">Table 36 - Entries in a name tree node dictionary</a></li>
+<li><a href="clause07.html#Table37">Table 37 - Entries in a number tree node dictionary</a></li>
+<li><a href="clause07.html#Table42">Table 42 - Operators in Type 4 functions</a></li>
+<li><a href="clause07.html#Table43">Table 43 - Entries in a file specification dictionary</a></li>
+<li><a href="clause07.html#Table44">Table 44 - Additional entries in an embedded file stream dictionary</a></li>
+<li><a href="clause07.html#Table45">Table 45 - Entries in an embedded file parameter dictionary</a></li>
+<li><a href="clause07.html#Table47">Table 47 - Entries in a collection subitem dictionary</a></li>
+<li><a href="clause07.html#Table48">Table 48 - Entries in an extensions dictionary</a></li>
+<li><a href="clause07.html#Table49">Table 49 - Entries in a developer extensions dictionary</a></li>
+<li><a href="clause08.html#Table50">Table 50 - Operator categories</a></li>
+<li><a href="clause08.html#Table52">Table 52 - Device-dependent graphics state parameters</a></li>
+<li><a href="clause08.html#Table56">Table 56 - Graphics state operators</a></li>
+<li><a href="clause08.html#Table57">Table 57 - Graphics state parameter dictionaries</a></li>
+<li><a href="clause08.html#Table59">Table 59 - Path-painting categories</a></li>
+<li><a href="clause08.html#Table66">Table 66 - <del onmouseenter="mouseEnter(this)" data-issue="181" data-iso="approved">ICC Specification versions supported by ICC based colour spaces</del><ins onmouseenter="mouseEnter(this)" data-issue="181" data-iso="approved">ICC profile versions supported by <b>ICCBased</b> colour spaces</ins></a></li>
+<li><a href="clause08.html#Table73">Table 73 - Colour operators</a></li>
+<li><a href="clause08.html#Table74">Table 74 - Additional entries specific to a Type 1 pattern <ins onmouseenter="mouseEnter(this)" data-issue="294" data-iso="approved">stream</ins> dictionary</a></li>
+<li><a href="clause08.html#Table87">Table 87 - Additional entries specific to an image dictionary</a></li>
+<li><a href="clause08.html#Table91">Table 91 - Entries in an inline image object</a></li>
+<li><a href="clause08.html#Table93">Table 93 - Additional entries specific to a Type 1 form dictionary</a></li>
+<li><a href="clause08.html#Table99">Table 99 - Entries in an optional content configuration dictionary</a></li>
+<li><a href="clause08.html#Table100">Table 100 - Entries in an optional content usage dictionary</a></li>
+<li><a href="clause09.html#Table106">Table 106 - Table 106 — Text-positioning operators</a></li>
+<li><a href="clause09.html#Table109">Table 109 - Entries in a Type 1 font dictionary</a></li>
+<li><a href="clause09.html#Table110">Table 110 - Entries in a Type 3 font dictionary</a></li>
+<li><a href="clause09.html#Table111">Table 111 - Type 3 font operators</a></li>
+<li><a href="clause09.html#Table115">Table 115 - Entries in a CIDFont dictionary</a></li>
+<li><a href="clause09.html#Table119">Table 119 - Entries in a Type 0 font dictionary</a></li>
+<li><a href="clause09.html#Table120">Table 120 - Entries common to all font descriptors</a></li>
+<li><a href="clause09.html#Table125a"><ins onmouseenter="mouseEnter(this)" data-issue="462" data-iso="approved">Table 125a - Additional entries in a ToUnicode CMap stream dictionary</ins></a></li>
+<li><a href="clause10.html#Table129">Table 129 - Additional entries specific to a Type 6 halftone dictionary</a></li>
+<li><a href="clause10.html#Table132">Table 132 - Entries in a Type 5 halftone dictionary</a></li>
+<li><a href="clause11.html#Table143">Table 143 - Restrictions on the entries in a soft-mask image dictionary</a></li>
+<li><a href="clause11.html#Table145">Table 145 - Additional entries specific to a transparency group attributes dictionary</a></li>
+<li><a href="clause12.html#Table147">Table 147 - Entries in a viewer preferences dictionary</a></li>
+<li><a href="clause12.html#Table149">Table 149 - Destination syntax</a></li>
+<li><a href="clause12.html#Table151">Table 151 - Entries in an outline item dictionary</a></li>
+<li><a href="clause12.html#Table154">Table 154 - Entries in a collection schema dictionary</a></li>
+<li><a href="clause12.html#Table161">Table 161 - Entries in a page label dictionary</a></li>
+<li><a href="clause12.html#Table164">Table 164 - Entries in a transition dictionary</a></li>
+<li><a href="clause12.html#Table166">Table 166 - Entries common to all annotation dictionaries</a></li>
+<li><a href="clause12.html#Table176">Table 176 - Additional entries specific to a link annotation</a></li>
+<li><a href="clause12.html#Table177">Table 177 - Additional entries specific to a free text annotation</a></li>
+<li><a href="clause12.html#Table179">Table 179 - Line ending styles</a></li>
+<li><a href="clause12.html#Table180">Table 180 - Additional entries specific to a square or circle annotation</a></li>
+<li><a href="clause12.html#Table181">Table 181 - Additional entries specific to a polygon or polyline annotation</a></li>
+<li><a href="clause12.html#Table183">Table 183 - Additional entries specific to a caret annotation</a></li>
+<li><a href="clause12.html#Table185">Table 185 - Additional entries specific to an ink annotation</a></li>
+<li><a href="clause12.html#Table189">Table 189 - Additional entries specific to a movie annotation</a></li>
+<li><a href="clause12.html#Table202">Table 202 - Additional entries specific to a go-to action</a></li>
+<li><a href="clause12.html#Table205">Table 205 - Entries specific to a target dictionary</a></li>
+<li><a href="clause12.html#Table208">Table 208 - Entries in a Microsoft Windows&trade; launch parameter dictionary</a></li>
+<li><a href="clause12.html#Table220">Table 220 - Additional entries specific to a go-to-3D-view action</a></li>
+<li><a href="clause12.html#Table223">Table 223 - Entries in a RichMediaCommand dictionary</a></li>
+<li><a href="clause12.html#Table224">Table 224 - Entries in the interactive form dictionary</a></li>
+<li><a href="clause12.html#Table226">Table 226 - Entries common to all field dictionaries</a></li>
+<li><a href="clause12.html#Table228">Table 228 - Additional entries common to all fields containing variable text</a></li>
+<li><a href="clause12.html#Table232">Table 232 - Additional entry specific to a text field</a></li>
+<li><a href="clause12.html#Table234">Table 234 - Additional entries specific to a choice field</a></li>
+<li><a href="clause12.html#Table236">Table 236 - Entries in a signature field lock dictionary</a></li>
+<li><a href="clause12.html#Table237">Table 237 - Entries in a signature field seed value dictionary</a></li>
+<li><a href="clause12.html#Table238">Table 238 - Entries in a certificate seed value dictionary</a></li>
+<li><a href="clause12.html#Table239">Table 239 - Additional entries specific to a submit-form action</a></li>
+<li><a href="clause12.html#Table241">Table 241 - Additional entries specific to a reset-form action</a></li>
+<li><a href="clause12.html#Table242">Table 242 - Flag for reset-form actions</a></li>
+<li><a href="clause12.html#Table254">Table 254 - Additional entry for annotation dictionaries in an FDF file</a></li>
+<li><a href="clause12.html#Table255">Table 255 - Entries in a signature dictionary</a></li>
+<li><a href="clause12.html#Table256">Table 256 - Entries in a signature reference dictionary</a></li>
+<li><a href="clause12.html#Table257">Table 257 - Entries in the DocMDP transform parameters dictionary</a></li>
+<li><a href="clause12.html#Table259">Table 259 - Entries in the FieldMDP transform parameters dictionary</a></li>
+<li><a href="clause12.html#Table260">Table 260 - SubFilter value algorithm support</a></li>
+<li><a href="clause12.html#Table263">Table 263 - Entries in a permissions dictionary</a></li>
+<li><a href="clause12.html#Table269">Table 269 - Additional entries in a geospatial measure dictionary</a></li>
+<li><a href="clause12.html#Table273">Table 273 - Entries common to all requirement dictionaries</a></li>
+<li><a href="clause12.html#Table274">Table 274 - <del onmouseenter="mouseEnter(this)" data-issue="187" data-iso="approved">Entries</del><ins onmouseenter="mouseEnter(this)" data-issue="187" data-iso="approved">Additional entries</ins> for specific types of requirements</a></li>
+<li><a href="clause12.html#Table275">Table 275 - Requirement types</a></li>
+<li><a href="clause13.html#Table277">Table 277 - Entries common to all rendition dictionaries</a></li>
+<li><a href="clause13.html#Table285">Table 285 - Additional entries in a media clip data dictionary</a></li>
+<li><a href="clause13.html#Table293">Table 293 - Entries in a media screen parameters dictionary</a></li>
+<li><a href="clause13.html#Table311">Table 311 - Entries in a 3D stream dictionary</a></li>
+<li><a href="clause13.html#Table315">Table 315 - Entries in a 3D view dictionary</a></li>
+<li><a href="clause13.html#Table317">Table 317 - Entries in a 3D background dictionary</a></li>
+<li><a href="clause13.html#Table322">Table 322 - Entries in a 3D cross section dictionary</a></li>
+<li><a href="clause13.html#Table323">Table 323 - Entries in a 3D node dictionary</a></li>
+<li><ins onmouseenter="mouseEnter(this)" data-issue="156" data-iso="approved"><a href="clause13.html#Table323a">Table 323a - Interpretation of 3D Node Subtype entry</a></ins></li>
+<li><a href="clause13.html#Table328">Table 328 - Additional entries in a 3D measurement/markup dictionary for a 3D perpendicular dimension measurement</a></li>
+<li><a href="clause13.html#Table331">Table 331 - Additional entries in a 3D measurement/markup dictionary for a 3D comment note</a></li>
+<li><a href="clause13.html#Table333">Table 333 - Additional entries specific to a RichMedia annotation</a></li>
+<li><a href="clause13.html#Table335">Table 335 - Entries in a RichMediaActivation dictionary</a></li>
+<li><a href="clause13.html#Table341">Table 341 - Entries in a RichMediaContent dictionary</a></li>
+<li><a href="clause13.html#Table343">Table 343 - Entries in a RichMediaInstance dictionary</a></li>
+<li><a href="clause14.html#Table350">Table 350 - Entries in a page-piece dictionary</a></li>
+<li><a href="clause14.html#Table352">Table 352 - Marked content operators</a></li>
+<li><a href="clause14.html#Table352a"><ins onmouseenter="mouseEnter(this)" data-issue="334" data-iso="approved">Table 352a - Marked content tags defined in PDF 2.0 (<i>informative</i>)</ins></a></li>
+<li><a href="clause14.html#Table354">Table 354 - Entries in the structure tree root</a></li>
+<li><a href="clause14.html#Table355">Table 355 - Entries in a structure element dictionary</a></li>
+<li><a href="clause14.html#Table357">Table 357 - Entries in a marked-content reference dictionary</a></li>
+<li><a href="clause14.html#Table358">Table 358 - Entries in an object reference dictionary</a></li>
+<li><a href="clause14.html#Table359">Table 359 - Additional dictionary entries for structure element access</a></li>
+<li><a href="clause14.html#Table360">Table 360 - Entries common to all attribute object dictionaries</a></li>
+<li><a href="clause14.html#Table365">Table 365 - Grouping level structure types</a></li>
+<li><a href="clause14.html#Table368">Table 368 - General inline level structure types</a></li>
+<li><a href="clause14.html#Table371">Table 371 - Table standard structure types</a></li>
+<li><a href="clause14.html#Table372">Table 372 - Standard structure type Caption</a></li>
+<li><a href="clause14.html#Table376">Table 376 - Standard structure attribute owners</a></li>
+<li><a href="clause14.html#Table377">Table 377 - Standard layout attributes</a></li>
+<li><a href="clause14.html#Table378">Table 378 - Standard layout attributes common to all standard structure types</a></li>
+<li><a href="clause14.html#Table379">Table 379 - Standard layout attributes specific to block-level structure elements</a></li>
+<li><a href="clause14.html#Table380">Table 380 - Standard layout attributes specific to inline-level structure elements</a></li>
+<li><a href="clause14.html#Table382">Table 382 - Standard list attributes</a></li>
+<li><a href="clause14.html#Table383">Table 383 - PrintField attributes</a></li>
+<li><a href="clause14.html#Table385">Table 385 - Standard artifact attributes</a></li>
+<li><a href="clause14.html#Table393">Table 393 - Entries in a Web Capture command dictionary</a></li>
+<li><a href="clause14.html#Table402">Table 402 - Entries in a DestOutputProfileRef dictionary</a></li>
+<li><a href="clause14.html#Table407">Table 407 - Entries in a version 2.0 OPI dictionary</a></li>
+<li><a href="clause14.html#Table408">Table 408 - Entries in a DPartRoot dictionary</a></li>
+<li><a href="clause14.html#Table409">Table 409 - Entries in a DPart dictionary</a></li>
+<li><a href="clause14.html#Table409a">Table 409a - Property list entries for associated files</a></li>
+<li><a href="clauseAnnexA.html#TableA.1">Table A.1 - PDF content stream operators</a></li>
+<li><a href="clauseAnnexD.html#TableD.3">Table D.3 - PDFDocEncoding character set</a></li>
+<li><a href="clauseAnnexF.html#TableF.1">Table F.1 - Entries in the linearization parameter dictionary</a></li>
+<li><a href="clauseAnnexL.html#TableL.2">Table Annex L.2 - Parent-child relationships between the standard structure elements in the standard structure namespace for PDF 2.0</a></li>
+</ul>
+</nav>
+
+          
+
+          
+        </main>
+        
+<hr>
+<footer>
+  
+    <p><a href="#top" id="back-to-top">Back to top (Table of Contents for this clause)</a></p>
+  
+
+  <p style="text-align:center; font-size:small;">© PDF Association</p>
+
+
+  
+    <div class="d-flex mt-2">
+      
+        <p class="text-small mb-0 mr-2">
+          Page last modified: <span class="d-inline-block">Mar 13 2026</span>.
+        </p>
+      
+      
+    </div>
+  <div class="d-md-none mt-4 fs-2">
+    
+    
+      <!-- 
+ Any content added to this file will appear at the bottom left of the page below the site's navigation. 
+ By default an attribution to Just the Docs is displayed which reads, "This site uses Just the Docs, a documentation theme for Jekyll.""
+-->
+<!-- p style="text-align:left; font-size:larger;">
+<a href="https://pdfa.org/" target="_blank" rel="noopener"><span class="fa fa-globe"></span></a>
+<a href="https://github.com/pdf-association/pdf-issues" target="_blank" rel="noopener"><span class="fa fa-github"></span></a>
+</p -->
+    
+  </div>
+</footer>
+
+      </div>
+    </div>
+    
+      
+<button id="search-button" class="search-button btn-reset" aria-label="Focus on search">
+  <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+</button>
+
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+
+

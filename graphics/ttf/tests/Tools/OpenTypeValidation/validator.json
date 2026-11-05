@@ -1,0 +1,9 @@
+{
+  "formatVersion": 1,
+  "name": "OpenType Sanitizer",
+  "version": "9.3.0",
+  "release": "v9.3.0",
+  "commit": "884861e0103b41d7e9845fdaf9fd1e3c12819103",
+  "source": "https://github.com/khaledhosny/ots/tree/884861e0103b41d7e9845fdaf9fd1e3c12819103",
+  "license": "BSD 3-Clause"
+}

@@ -1,0 +1,85 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Production build, tests, and coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_NOLOGO: 1
+      NUGET_XMLDOC_MODE: skip
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore solution
+        run: dotnet restore iso20022.slnx
+
+      - name: Verify production dependencies
+        run: |
+          mkdir -p artifacts
+          dotnet list src/iso20022.csproj package --include-transitive \
+            --format json --no-restore \
+            > artifacts/production-packages.json
+          python3 eng/verify_production_dependencies.py \
+            artifacts/production-packages.json
+
+      - name: Build production library
+        run: >-
+          dotnet build src/iso20022.csproj
+          --configuration Release
+          --no-restore
+
+      - name: Run all tests with coverage
+        run: |
+          mkdir -p artifacts/test-results
+          dotnet test tests/iso20022.Tests.csproj \
+            --no-restore \
+            --settings coverage.runsettings \
+            --collect:"XPlat Code Coverage" \
+            --results-directory artifacts/test-results \
+            --logger "trx;LogFileName=iso20022-tests.trx" \
+            --logger "console;verbosity=minimal"
+
+      - name: Verify API coverage
+        run: |
+          coverage_file=$(find artifacts/test-results \
+            -name coverage.cobertura.xml -print -quit)
+          if [ -z "$coverage_file" ]; then
+            echo "API coverage report was not produced." >&2
+            exit 1
+          fi
+          python3 eng/verify_api_coverage.py "$coverage_file" \
+            eng/api-coverage-exclusions.tsv
+
+      - name: Publish coverage and test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ github.run_id }}
+          path: |
+            artifacts/test-results/**/*.cobertura.xml
+            artifacts/test-results/**/*.trx
+            artifacts/production-packages.json
+          if-no-files-found: warn
+          retention-days: 14

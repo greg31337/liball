@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ice:us-patent-grant SYSTEM "us-patent-grant-v47.dtd">
+<ice:us-patent-grant xmlns:ice="urn:uspto:ice" xmlns:xlink="http://www.w3.org/1999/xlink" lang="EN" dtd-version="v4.7" file="US123-B2.XML" id="grant-fixture" country="US" date-produced="20240102" date-publ="20240109">
+  <ice:us-bibliographic-data-grant>
+    <ice:publication-reference>
+      <ice:document-id><ice:country>US</ice:country><ice:doc-number>123</ice:doc-number><ice:kind>B2</ice:kind><ice:date>20240109</ice:date></ice:document-id>
+    </ice:publication-reference>
+    <ice:application-reference appl-type="utility">
+      <ice:document-id><ice:country>US</ice:country><ice:doc-number>18123456</ice:doc-number><ice:date>20230304</ice:date></ice:document-id>
+    </ice:application-reference>
+    <ice:us-application-series-code>18</ice:us-application-series-code>
+    <ice:invention-title>Namespaced fixture patent</ice:invention-title>
+    <ice:number-of-claims>2</ice:number-of-claims>
+    <ice:classifications-ipcr>
+      <ice:classification-ipcr>
+        <ice:ipc-version-indicator><ice:date>20230101</ice:date></ice:ipc-version-indicator>
+        <ice:section>G</ice:section><ice:class>06</ice:class><ice:subclass>F</ice:subclass><ice:main-group>16</ice:main-group><ice:subgroup>245</ice:subgroup>
+      </ice:classification-ipcr>
+    </ice:classifications-ipcr>
+    <ice:classifications-cpc>
+      <ice:main-cpc><ice:classification-cpc><ice:section>G</ice:section><ice:class>06</ice:class><ice:subclass>F</ice:subclass><ice:main-group>16</ice:main-group><ice:subgroup>245</ice:subgroup><ice:classification-value>I</ice:classification-value></ice:classification-cpc></ice:main-cpc>
+    </ice:classifications-cpc>
+    <ice:classification-national><ice:country>US</ice:country><ice:main-classification>707 001</ice:main-classification></ice:classification-national>
+    <ice:classification-wipo><ice:field-code>6</ice:field-code><ice:field-name>Computer technology</ice:field-name><ice:sector>Electrical engineering</ice:sector></ice:classification-wipo>
+    <ice:us-references-cited>
+      <ice:us-citation><ice:patcit num="1"><ice:document-id><ice:country>US</ice:country><ice:doc-number>999</ice:doc-number><ice:kind>A1</ice:kind></ice:document-id></ice:patcit><ice:category>examiner</ice:category></ice:us-citation>
+      <ice:us-citation><ice:nplcit num="2"><ice:othercit>A fixture paper.</ice:othercit></ice:nplcit><ice:category>applicant</ice:category></ice:us-citation>
+    </ice:us-references-cited>
+    <ice:us-related-documents>
+      <ice:continuation><ice:parent-doc><ice:document-id><ice:country>US</ice:country><ice:doc-number>17000000</ice:doc-number></ice:document-id></ice:parent-doc><ice:child-doc><ice:document-id><ice:country>US</ice:country><ice:doc-number>18123456</ice:doc-number></ice:document-id></ice:child-doc></ice:continuation>
+    </ice:us-related-documents>
+  </ice:us-bibliographic-data-grant>
+  <ice:abstract><ice:p id="a1">An <ice:b>ordered</ice:b> abstract.</ice:p></ice:abstract>
+  <ice:description><ice:heading level="1">DETAILS</ice:heading><ice:p>First <ice:i>mixed</ice:i> paragraph.</ice:p></ice:description>
+  <ice:claims>
+    <ice:claim id="CLM-1" num="1"><ice:claim-text>1. A fixture system.</ice:claim-text></ice:claim>
+    <ice:claim id="CLM-2" num="2"><ice:claim-text>2. The system of <ice:claim-ref idref="CLM-1">claim 1</ice:claim-ref>.</ice:claim-text></ice:claim>
+  </ice:claims>
+  <ice:drawings>
+    <ice:figure id="fig-1" num="1">
+      <ice:external-resource id="vector-1" xlink:href="drawing.svg"/>
+      <ice:img id="image-1" file="drawing.tif" img-format="tif"/>
+    </ice:figure>
+  </ice:drawings>
+</ice:us-patent-grant>

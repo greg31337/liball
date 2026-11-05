@@ -1,0 +1,35 @@
+namespace icc;
+
+internal enum Icc2TagRole
+{
+    Unknown = 0,
+    ColorimetricTransform = 1,
+    SpectralTransform = 2,
+    MaterialTransform = 3,
+    BrdfParameterTransform = 4,
+    BrdfTransform = 5,
+    DirectionalTransform = 6,
+    HdrToSdrTransform = 7,
+    Calibration = 8,
+    Characterization = 9,
+    Metadata = 10,
+    ColorEncoding = 11,
+    ColorantOrder = 12,
+    ColorantInformation = 13,
+    ImageState = 14,
+    Description = 15,
+    PccTransform = 16,
+    MeasurementData = 17,
+    GamutBoundary = 18,
+    Multiplex = 19,
+    Measurement = 20,
+    NamedColor = 21,
+    ProfileSequence = 22,
+    Pcc = 23,
+    SpectralConditions = 24,
+    SpectralWhitePoint = 25,
+    Surface = 26,
+    Technology = 27,
+    DevicePcc = 28,
+    DeviceSpectralRange = 29
+}

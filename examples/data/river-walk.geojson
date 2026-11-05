@@ -1,0 +1,16 @@
+{
+  "type": "Feature",
+  "properties": {
+    "name": "River walk",
+    "description": "An illustrative walk along the Thames in central London.",
+    "surface": "paved"
+  },
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [-0.1200, 51.5000],
+      [-0.1100, 51.5100],
+      [-0.1000, 51.5200]
+    ]
+  }
+}

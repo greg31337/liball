@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+  
+
+
+  
+
+
+  
+<!-- Mirrored from www.freediameter.net/trac/wiki/Extensions by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 07:45:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+       <title>
+      Extensions – freeDiameter
+    </title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="search" href="../search.html" /><link rel="help" href="TracGuide.html" /><link rel="alternate" href="Extensions56e6.html?format=txt" type="text/x-trac-wiki" title="Plain Text" /><link rel="start" href="../wiki.html" /><link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../chrome/theme/crystalx.css" type="text/css" /><link rel="stylesheet" href="../chrome/site/theme.css" type="text/css" /><link rel="icon" href="../../favicon" /><style id="trac-noscript" type="text/css">.trac-noscript { display: none !important }</style><link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search freeDiameter" /><script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script><script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script><script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script><script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script><script type="text/javascript">
+      jQuery("#trac-noscript").remove();
+      jQuery(document).ready(function($) {
+        $(".trac-autofocus").focus();
+        $(".trac-target-new").attr("target", "_blank");
+        if ($.ui) { /* is jquery-ui added? */
+          $(".trac-datepicker:not([readonly])").prop("autocomplete", "off").datepicker();
+          $(".trac-datetimepicker:not([readonly])").prop("autocomplete", "off").datetimepicker();
+          $("#main").addClass("trac-nodatetimehint");
+        }
+        $(".trac-disable").disableSubmit(".trac-disable-determinant");
+        setTimeout(function() { $(".trac-scroll").scrollToTop() }, 1);
+        $(".trac-disable-on-submit").disableOnSubmit();
+      });
+    </script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script><meta name="description" content="freeDiameter, the reference Diameter open-source implementation." /><meta name="keywords" content="Diameter implementation C rfc3588 rfc3588bis rfc4005 rfc4072 rfc4740 framework open-source" />
+       <meta name="description" content="freeDiameter, the reference Diameter open-source implementation." />
+       <meta name="keywords" content="Diameter implementation C rfc3588 rfc3588bis rfc4005 rfc4072 rfc4740 framework open-source" />
+     </head>
+  <body>
+    <div id="siteheader">
+    </div>
+    <div id="siteheader">
+    </div>
+    <div id="center-content" class="box">
+      <div id="header">
+          <div id="logo">
+            <a href="#"><img src="../chrome/site/freeDiameter_header.png" alt="The source for the freeDiameter implementation" /></a>
+          </div>
+          <hr class="noscreen" />
+          <div class="noscreen noprint">
+              <p><em>Quick links: <a href="#main">content</a>, <a href="#mainnav">navigation</a>, <a href="#theme-search">search</a>.</em></p>
+              <hr />
+          </div>
+          <div id="theme-search" class="noprint">
+              <form action="http://www.freediameter.net/trac/search" method="get">
+                  <fieldset><legend>Search</legend>
+                      <label><span class="noscreen">Find:</span>
+                      <span id="search-input-out"><input type="text" name="q" id="search-input" size="30" /></span></label>
+                      <input type="hidden" name="wiki" value="on" />
+                      <input type="hidden" name="changeset" value="on" />
+                      <input type="hidden" name="ticket" value="on" />
+                      <input type="image" src="../chrome/theme/img/search_submit.gif" id="search-submit" value="OK" />
+                  </fieldset>
+              </form>
+          </div>
+      </div>
+       <div id="theme-mainnav" class="noprint">
+              <h3 class="noscreen">Navigation</h3>
+              <ul class="box">
+                  <li class="first">
+                        <a href="../blog.html">News<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li class="active">
+                        <a href="../wiki.html">Documentation<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li>
+                        <a class="ext-link" href="../../book.html"><span class="icon">​</span>Book<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li>
+                        <a class="ext-link" href="https://github.com/freeDiameter/freeDiameter"><span class="icon">​</span>github<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li class="last">
+                        <a href="../search.html">Search<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li>
+              </ul>
+          <hr class="noscreen" />
+       </div>
+       <!-- Page (2 columns) -->
+       <div id="page" class="box">
+         <div id="page-in" class="box">
+           <div id="strip" class="box noprint">
+             <div id="ctxtnav" class="nav">
+                 <ul>
+                   <li class="first "><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li class="last"><a href="Extensionsd9df.html?action=history">History</a></li>
+                 </ul>
+             </div>
+            <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../about.html">About Trac</a></li><li><a href="http://www.freediameter.net/trac/login">Login</a></li><li class="last"><a href="../prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+          </div>
+          <div id="main">
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><p>
+</p><div class="wiki-toc">
+    <ol>
+      <li>
+        <a href="#Introduction">Introduction</a>
+      </li>
+      <li>
+        <a href="#Whatisanextension">What is an extension</a>
+      </li>
+      <li>
+        <a href="#Listofextensions">List of extensions</a>
+        <ol>
+          <li>
+            <a href="#Applications">Applications</a>
+          </li>
+          <li>
+            <a href="#Server">Server</a>
+          </li>
+          <li>
+            <a href="#Routing">Routing</a>
+          </li>
+          <li>
+            <a href="#Dictionary">Dictionary</a>
+          </li>
+          <li>
+            <a href="#Debugandtests">Debug and tests</a>
+          </li>
+        </ol>
+      </li>
+    </ol>
+</div><p>
+</p>
+<h1 id="Extensions">Extensions</h1>
+<h2 id="Introduction">Introduction</h2>
+<p>
+The <code>freeDiameter</code> framework is able to load <em>extensions</em> when it starts. The framework alone only provides support for Diameter Base Protocol (RFC3588) which is common to all Diameter peers. But this Base protocol by itself is only useful to establish and maintain a secure and reliable Diameter transport network. One then needs <em>Diameter applications</em> that are deployed on this Diameter network. Examples of applications are Diameter EAP (RFC4072), Diameter SIP (RFC4740), etc. 
+</p>
+<p>
+freeDiameter extensions are used to implement Diameter applications, but not limited to this. Extensions can also be used to extend the behavior of the framework in term of routing, peers management, and so on. See the list of extensions bellow in this page for more information.
+</p>
+<h2 id="Whatisanextension">What is an extension</h2>
+<p>
+A <code>freeDiameter</code> extension is really simply a library compiled as shared object. This library must at the very least provide a symbol <code>fd_ext_init</code> which will be called when the framework loads the extension, to initialize it. See the <a class="wiki" href="Developers.html">Developers</a> page for more information on how to create a new extension.
+</p>
+<p>
+Extension files are usually renamed as ".fdx" (<strong>f</strong>ree<strong>D</strong>iameter e<strong>X</strong>tension) to easily recognize them.
+</p>
+<p>
+See the <a class="wiki" href="Configuration.html">Configuration</a> file for instructions on how to load an extension from the framework.
+</p>
+<h2 id="Listofextensions">List of extensions</h2>
+<p>
+Please remember that all extensions are not built by default. Check the <a class="wiki" href="Installation.html#cmakeflags">Installation</a> page for information on how to select extensions to build.
+</p>
+<h3 id="Applications">Applications</h3>
+<dl class="wiki"><dt><a class="wiki" href="app_acct.html">app_acct.fdx</a></dt><dd>
+Very simple server implementation for the Diameter Base Accounting application (RFC3588). It dumps the received information in a local PostgreSQL database in a fully configurable format. A separate application (not based on freeDiameter) can then pick and process this data.
+</dd></dl>
+<dl class="wiki"><dt><a class="wiki" href="app_diameap.html">app_diameap.fdx</a></dt><dd>
+A Diameter EAP server (RFC4072) implementation that supports several EAP methods for authenticating the users.  
+</dd></dl>
+<dl class="wiki"><dt><a class="wiki" href="app_radgw.html">app_radgw.fdx</a></dt><dd>
+An extensible Diameter/RADIUS gateway implementation.  
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">app_redirect.fdx?</a></dt><dd>
+A configurable Diameter Redirect agent.  
+</dd></dl>
+<dl class="wiki"><dt><a class="wiki" href="app_sip-2.html">app_sip.fdx</a></dt><dd>
+An implementation of the Diameter SIP specification (RFC4740).  
+</dd></dl>
+<h3 id="Server">Server</h3>
+<dl class="wiki"><dt><a class="missing wiki">acl_wl.fdx?</a></dt><dd>
+White-list some peers to connect to the local system. By default, all remote peers Diameter Identities must be explicitly listed in the configuration. This extension allows wildcards to be used (for example allow all peers "*.domain.net" to connect).
+</dd></dl>
+<h3 id="Routing">Routing</h3>
+<dl class="wiki"><dt><a class="missing wiki">rt_default.fdx?</a></dt><dd>
+Configure the routing table of the local peer.
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">rt_ereg.fdx?</a></dt><dd>
+Route Diameter messages according to an AVP value in the message matching some configurable regular expressions.
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">rt_redirect.fdx?</a></dt><dd>
+Handle Diameter Redirect indications and add routing rules accordingly.
+</dd></dl>
+<h3 id="Dictionary">Dictionary</h3>
+<dl class="wiki"><dt><a class="missing wiki">dict_eap.fdx?</a></dt><dd>
+Dictionary objects defined in RFC4072 (Diameter EAP application).
+</dd></dl>
+<dl class="wiki"><dt><a class="wiki" href="dict_legacy_xml.html">dict_legacy_xml.fdx</a></dt><dd>
+Allows the use of XML dictionary files, the format used by <a class="ext-link" href="http://diameter.sourceforge.net/"><span class="icon">​</span>OpenDiameter</a>.
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">dict_mip6a.fdx?</a>, <a class="missing wiki">dict_mip6i.fdx?</a>, <a class="missing wiki">dict_nas_mipv6.fdx?</a>, <a class="missing wiki">dict_rfc5777.fdx?</a></dt><dd>
+Dictionary objects related to IPv6 mobility.
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">dict_nasreq.fdx?</a></dt><dd>
+Dictionary objects defined in RFC4005 (Diameter Network Access Server application).
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">dict_rfc5580.fdx?</a></dt><dd>
+Dictionary objects defined in RFC5580 (Location Objects).
+</dd></dl>
+<dl class="wiki"><dt><a class="wiki" href="dict_sip.html">dict_sip.fdx</a></dt><dd>
+Dictionary objects defined in RFC4740 (Diameter SIP application).
+</dd></dl>
+<h3 id="Debugandtests">Debug and tests</h3>
+<dl class="wiki"><dt><a class="wiki" href="dbg_interactive.html">dbg_interactive.fdx</a></dt><dd>
+Interact with the framework, "live" or from a batch file, from a <a class="ext-link" href="http://www.python.org/"><span class="icon">​</span>Python</a> interpreter.
+</dd></dl>
+<dl class="wiki"><dt><a class="wiki" href="dbg_monitor.html">dbg_monitor.fdx</a></dt><dd>
+Monitor the state of freeDiameter framework by displaying periodical status information.
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">dbg_rt.fdx?</a></dt><dd>
+Display information about messages routing (pertaining to the choice of route for each message).
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">test_acct.fdx?</a></dt><dd>
+A dummy Diameter Base Accounting server that simply acknowledges any message without any storage.
+</dd></dl>
+<dl class="wiki"><dt><a class="wiki" href="test_app.html">test_app.fdx</a></dt><dd>
+The Test application extension, a kind of "ping" for freeDiameter.
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">test_netemul.fdx?</a></dt><dd>
+A kind of Diameter network emulator: introduces configurable delays and duplicates when relaying Diameter messages.
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">test_rt_any.fdx?</a></dt><dd>
+Pick a random peer to send the message to, without any concern for routing AVPs or routing configuration.
+</dd></dl>
+<dl class="wiki"><dt><a class="missing wiki">test_sip.fdx?</a></dt><dd>
+A dummy Diameter SIP server used for testing of the <a class="wiki" href="app_sip-2.html">app_sip.fdx</a> extension.
+</dd></dl>
+<hr />
+</div>
+          
+          <div class="trac-modifiedby">
+            <span><a href="Extensions4534.html?action=diff&amp;version=6" title="Version 6 by Sebastien Decugis">Last modified</a> <span title="Mar 4, 2011, 5:47:45 PM">13 years ago</span></span>
+            <span class="trac-print">Last modified on Mar 4, 2011, 5:47:45 PM</span>
+          </div>
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="Extensions56e6.html?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer" lang="en" xml:lang="en">
+        <div id="top" class="noprint"><p><span class="noscreen">Back on top</span> <a href="#header" title="Back on top ^">^<span></span></a></p></div>
+        <hr class="noscreen" />
+        <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+        <p class="left">
+          Powered by <a href="../about.html"><strong>Trac 1.2.3.1</strong></a><br />
+          By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        </p>
+        <p id="createdby">
+          Original theme created<br />by <a href="http://www.nuvio.cz/">Nuvio | Webdesign</a> <!-- DON´T REMOVE, PLEASE! -->
+        </p>
+        <p class="right">For any question contact help@freediameter.net</p>
+      </div>
+    </div>
+    <div id="sitefooter">
+    </div>
+    <script type="text/javascript">
+     var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.freediameter.net/piwik/" : "http://www.freediameter.net/piwik/");
+     document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+     try {
+      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+      piwikTracker.trackPageView();
+      piwikTracker.enableLinkTracking();
+     } catch( err ) {}
+    </script><noscript><p><img src="../../piwik/piwik0412.gif?idsite=1" style="border:0" alt="Project-Id-Version: Trac 0.12
+Report-Msgid-Bugs-To: trac-dev@googlegroups.com
+POT-Creation-Date: 2018-07-07 16:55+0000
+PO-Revision-Date: 2010-07-19 23:05+0200
+Last-Translator: Jeroen Ruigrok van der Werven &lt;asmodai@in-nomine.org&gt;
+Language: en_US
+Language-Team: en_US &lt;trac-dev@googlegroups.com&gt;
+Plural-Forms: nplurals=2; plural=(n != 1)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+Generated-By: Babel 2.6.0
+" /></p></noscript>
+    <div id="sitefooter">
+    </div>
+    <!-- Piwik -->
+    <script type="text/javascript">
+     var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.freediameter.net/piwik/" : "http://www.freediameter.net/piwik/");
+     document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+     try {
+      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+      piwikTracker.trackPageView();
+      piwikTracker.enableLinkTracking();
+     } catch( err ) {}
+    </script><noscript><p><img src="../../piwik/piwik0412.gif?idsite=1" style="border:0" alt="Project-Id-Version: Trac 0.12
+Report-Msgid-Bugs-To: trac-dev@googlegroups.com
+POT-Creation-Date: 2018-07-07 16:55+0000
+PO-Revision-Date: 2010-07-19 23:05+0200
+Last-Translator: Jeroen Ruigrok van der Werven &lt;asmodai@in-nomine.org&gt;
+Language: en_US
+Language-Team: en_US &lt;trac-dev@googlegroups.com&gt;
+Plural-Forms: nplurals=2; plural=(n != 1)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+Generated-By: Babel 2.6.0
+" /></p></noscript>
+    <!-- End Piwik Tag -->
+  </body>
+
+<!-- Mirrored from www.freediameter.net/trac/wiki/Extensions by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 07:45:47 GMT -->
+</html>

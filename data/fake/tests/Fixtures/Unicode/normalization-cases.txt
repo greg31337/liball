@@ -1,0 +1,9 @@
+# Source | NFC | NFD | NFKC | NFKD | UAX #15 case
+00C5|00C5|0041 030A|00C5|0041 030A|Latin canonical decomposition
+212B|00C5|0041 030A|00C5|0041 030A|Angstrom canonical equivalence
+0065 0301|00E9|0065 0301|00E9|0065 0301|combining acute composition
+FB01|FB01|FB01|0066 0069|0066 0069|Latin ligature compatibility decomposition
+2460|2460|2460|0031|0031|circled digit compatibility decomposition
+FF21|FF21|FF21|0041|0041|fullwidth Latin compatibility decomposition
+00A0|00A0|00A0|0020|0020|no-break space compatibility decomposition
+AC00|AC00|1100 1161|AC00|1100 1161|Hangul algorithmic decomposition

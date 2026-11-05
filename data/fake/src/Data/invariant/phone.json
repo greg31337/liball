@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "invariant",
+  "fallbacks": [],
+  "reviewStatus": "standards-reviewed",
+  "provenance": [
+    {
+      "id": "project-authored-phone",
+      "source": "Project-authored North American phone fixture conventions",
+      "sourceVersion": "2026-08-15",
+      "license": "project-license",
+      "reviewer": "repository-data-review-2026-08-15"
+    }
+  ],
+  "fields": [
+    {
+      "name": "phone.catalog",
+      "provenance": "project-authored-phone",
+      "value": {
+        "regionCode": "US",
+        "callingCode": "+1",
+        "internationalDialingPrefix": "011",
+        "nationalPrefix": "1",
+        "areaCodeMask": "N##",
+        "subscriberMask": "N##-####",
+        "extensionPrefix": " ext. ",
+        "minimumExtensionDigits": 1,
+        "maximumExtensionDigits": 6,
+        "supportsPhoneWords": true,
+        "safeRangeField": "phone.nanpa.fictional-subscriber-range",
+        "formats": [
+          {
+            "category": "general",
+            "areaCodeMask": "N##",
+            "subscriberMask": "N##-####",
+            "nationalMask": "(N##) N##-####",
+            "internationalMask": "+1 N## N## ####",
+            "e164Mask": "+1N##N######",
+            "areaCodes": [],
+            "allowsExtension": true,
+            "distinguishableByNumber": false
+          },
+          {
+            "category": "landline",
+            "areaCodeMask": "N##",
+            "subscriberMask": "N##-####",
+            "nationalMask": "(N##) N##-####",
+            "internationalMask": "+1 N## N## ####",
+            "e164Mask": "+1N##N######",
+            "areaCodes": [],
+            "allowsExtension": true,
+            "distinguishableByNumber": false
+          },
+          {
+            "category": "mobile",
+            "areaCodeMask": "N##",
+            "subscriberMask": "N##-####",
+            "nationalMask": "(N##) N##-####",
+            "internationalMask": "+1 N## N## ####",
+            "e164Mask": "+1N##N######",
+            "areaCodes": [],
+            "allowsExtension": true,
+            "distinguishableByNumber": false
+          },
+          {
+            "category": "toll-free",
+            "areaCodeMask": "###",
+            "subscriberMask": "N##-####",
+            "nationalMask": "(###) N##-####",
+            "internationalMask": "+1 ### N## ####",
+            "e164Mask": "+1###N######",
+            "areaCodes": ["800", "833", "844", "855", "866", "877", "888"],
+            "allowsExtension": true,
+            "distinguishableByNumber": true
+          },
+          {
+            "category": "premium",
+            "areaCodeMask": "900",
+            "subscriberMask": "N##-####",
+            "nationalMask": "(900) N##-####",
+            "internationalMask": "+1 900 N## ####",
+            "e164Mask": "+1900N######",
+            "areaCodes": ["900"],
+            "allowsExtension": true,
+            "distinguishableByNumber": true
+          }
+        ]
+      }
+    }
+  ]
+}

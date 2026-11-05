@@ -1,0 +1,3588 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>User Guide to Quarkus JDiameter 2.5.1 :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-jdiameter/dev/Diameter_User_Guide.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="Implementing-Diameter-Service.html">
+    <meta name="description" content="Quarkus JDiameter documentation">
+    <meta name="generator" content="Antora 3.1.15">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+    <script type="module" src="../../_/js/vendor/search-wc.js"></script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/get-started/">Get Started</a>
+              <a class="navbar-item" href="https://quarkus.io/guides/">Documentation</a>
+              <a class="navbar-item" href="https://quarkus.io/qtips/">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="https://quarkus.io/books/">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions/">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="https://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="https://quarkus.io/blog/">Blog</a>
+            <a class="navbar-item" href="https://quarkus.io/discussion/">Discussion</a>
+            <a class="navbar-item" href="https://quarkus.io/insights/">Podcast</a>
+            <a class="navbar-item" href="https://quarkus.io/events/">Events</a>
+            <a class="navbar-item" href="https://quarkus.io/newsletter/">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-jdiameter" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">JDiameter</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="Diameter_User_Guide.html">Original JDiameter User Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="Implementing-Diameter-Service.html">Implementing Diameter Service</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">JDiameter</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/3.16.x/index.html">3.16.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/3.15.x/index.html">3.15.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/3.13.x/index.html">3.13.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/3.11.x/index.html">3.11.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/3.9.x/index.html">3.9.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/3.3.x/index.html">3.3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.18.x/index.html">2.18.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-angus-mail/dev/index.html">Angus Mail</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-angus-mail/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antora/dev/index.html">Antora</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antora/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-arangodb-client-ext/dev/index.html">ArangoDB Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-arangodb-client-ext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-argocd/dev/index.html">Argocd</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-argocd/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.13.x/index.html">3.13.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.9.x/index.html">3.9.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.7.x/index.html">3.7.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.5.x/index.html">3.5.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.2.x/index.html">3.2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.1.x/index.html">3.1.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-backstage/dev/index.html">Backstage</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-backstage/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-barcode/dev/index.html">Barcode</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-barcode/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-batik/dev/index.html">Batik</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-batik/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-business-score/dev/index.html">Business Score</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-business-score/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-camunda/dev/index.html">Camunda</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-camunda/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/3.33/index.html">3.33</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/3.27/index.html">3.27</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/3.20/index.html">3.20</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/3.15/index.html">3.15</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/3.8/index.html">3.8</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-db-scheduler/dev/index.html">Db Scheduler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-db-scheduler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-docker-client/dev/index.html">Docker Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-docker-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-docling/dev/index.html">Docling</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-docling/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-doma/dev/index.html">Doma</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-doma/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-easy-retrofit/dev/index.html">Easy Retrofit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-easy-retrofit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-endive/dev/index.html">Endive</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-endive/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-flags/dev/index.html">Feature Flags</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-flags/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-flow/dev/index.html">Flow</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-flow/dev/index.html">latest</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-fluentjdbc/dev/index.html">Fluentjdbc</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-fluentjdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-fluss/dev/index.html">Fluss</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-fluss/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-fory/dev/index.html">Fory</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-fory/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-fx/dev/index.html">FX</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-fx/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/4.x/index.html">4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate Types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-http-idempotency/dev/index.html">HTTP Idempotency</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-http-idempotency/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-infinispan-embedded/dev/index.html">Infinispan Embedded</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-infinispan-embedded/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jasperreports/dev/index.html">JasperReports</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jasperreports/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jberet/dev/index.html">JBeret</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jberet/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-edb/dev/index.html">JDBC EDB</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-edb/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-singlestore/dev/index.html">JDBC Singlestore</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-singlestore/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite4j/dev/index.html">JDBC Sqlite4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">JDiameter</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">JNoSQL</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-json-rpc/dev/index.html">Json Rpc</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-json-rpc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langfuse/dev/index.html">Langfuse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langfuse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-manager/dev/index.html">Logging Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-manager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mapstruct/dev/index.html">Mapstruct</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mapstruct/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mcp-server/dev/index.html">MCP Server</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mcp-server/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mcp-server/1.13.x/index.html">1.13.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mcp-server/1.12.x/index.html">1.12.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mcp-server/1.10.x/index.html">1.10.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mdns/dev/index.html">Mdns</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mdns/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/2.3.x/index.html">2.3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/2.1.x/index.html">2.1.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mongock/dev/index.html">Mongock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mongock/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-multitenancy/dev/index.html">Multitenancy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-multitenancy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-nagios/dev/index.html">Nagios</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-nagios/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ngrok/dev/index.html">Ngrok</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ngrok/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-oidc-proxy/dev/index.html">OIDC Proxy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-oidc-proxy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">OpenAPI Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-openapi-generator/2.4.x/index.html">2.4.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfeature/dev/index.html">OpenFeature</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfeature/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openid-ssf/dev/index.html">OpenID SSF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openid-ssf/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opentelemetry-exporter/dev/index.html">Opentelemetry Exporter</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opentelemetry-exporter/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-opentelemetry-exporter/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-oras/dev/index.html">ORAS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-oras/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pi4j/dev/index.html">Pi4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pi4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-presidio/dev/index.html">Presidio</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-presidio/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-proxy-wasm/dev/index.html">Proxy Wasm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-proxy-wasm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qdrant/dev/index.html">Qdrant</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qdrant/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-banner/dev/index.html">Quarkus Banner Extension</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-banner/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-generic/dev/index.html">Quarkus JDBC Generic</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-generic/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qubit/dev/index.html">Qubit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qubit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-nats-jetstream/dev/index.html">Reactive messaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-redoc/dev/index.html">Redoc</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-redoc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-roq/dev/index.html">Roq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-roq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shedlock/dev/index.html">Shedlock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shedlock/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shim/dev/index.html">Shim</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shim/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-snappy/dev/index.html">Snappy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-snappy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-solr/dev/index.html">Solr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-solr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-temporal/dev/index.html">Temporal</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-temporal/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-web-bundler/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">JDiameter</a></li>
+    <li><a href="Diameter_User_Guide.html">Original JDiameter User Guide</a></li>
+  </ul>
+</nav>
+<qs-form server="https://search.quarkus.io"
+         language="en"
+         initial-timeout="1500"
+         more-timeout="2500"
+         min-chars="3"
+         origin-filter="quarkiverse-hub"
+>
+  <div class="search">
+    <input name="q" type="search" placeholder="Search by keyword" autocomplete="off">
+  </div>
+</qs-form>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-jdiameter/edit/main/docs/modules/ROOT/pages/Diameter_User_Guide.adoc">Edit this Page</a></div>
+  </div>
+
+  <qs-target class="qs-target" search-results-title="Search results:">
+    <div class="content">
+        <aside class="toc sidebar" data-title="Contents" data-levels="2">
+ <div class="sidebar">
+  <div class="toc-menu"></div>
+     <a class="git-link" href="https://github.com/quarkiverse/quarkus-jdiameter"><div class="git-link-logo"></div><div>Extension source</div></a>
+ </div>
+</aside>
+        <article class="doc">
+<h1 class="page">User Guide to Quarkus JDiameter 2.5.1</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction to Quarkus JDiameter Diameter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Diameter is a computer networking protocol for Authentication, Authorization and Accounting (), as defined in RFC3588.
+It is a successor to RADIUS, and has been designed to overcome certain RADIUS limitations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No transport reliability and flexibility (Diameter uses TCP/SCTP instead of UDP).</p>
+</li>
+<li>
+<p>No security within protocol (Diameter supports IPSec (mandatory) and TLS (optional)).</p>
+</li>
+<li>
+<p>Limited address space for AVPs (Diameter uses 32-bit address space instead of 8-bit).</p>
+</li>
+<li>
+<p>Only stateless mode is possible (Diameter supports both stateful and stateless modes).</p>
+</li>
+<li>
+<p>Static peers (Diameter offers dynamic discovery, using DNS, SRV and NAPTR).</p>
+</li>
+<li>
+<p>No peer alignment capabilities (Diameter introduces capabilities negotiation).</p>
+</li>
+<li>
+<p>No support for transport layer failover.
+Diameter follows <a href="http://tools.ietf.org/html/rfc3539">RFC3539</a>, which introduces correct procedures.</p>
+</li>
+<li>
+<p>Limited support for roaming (Diameter introduces mechanisms for secure and scalable roaming).</p>
+</li>
+<li>
+<p>No extension possible (Diameter allows extension - new commands and AVPs to be defined).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Diameter offers all of the capabilities of the RADIUS protocol, and is compatible with RADIUS.
+It can also define extensions, or "Applications".</p>
+</div>
+<div class="paragraph">
+<p>Each application may introduce new types of messages, AVP codes, and state machines.
+The Message and AVP codes are assigned by the .
+Each application has its own Application ID and Vendor ID that is used to distinguish between applications.
+Application code is used to signal to other peers which operations are supported by the connecting peer (Capabilities Exchange / Negotiation).</p>
+</div>
+<div class="sect2">
+<h3 id="_mf_message_format"><a class="anchor" href="#_mf_message_format"></a>Message Format</h3>
+<div class="paragraph">
+<p>Diameter is a byte based protocol.
+Each message has a fixed structure, which consists of two parts: header and payload.</p>
+</div>
+<div class="paragraph">
+<p>The message header structure is common for every message.
+The content is fixed, as is the length.
+Message header content includes the code, application and certain bit flags, which helps identify the message in Diameter scope.</p>
+</div>
+<div class="paragraph">
+<p>The message payload is built up of AVPs.
+Its content differs for each command and application, though they all define the Session-ID AVP as mandatory.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dia-Introduction-dia-DiameterPacketFormat.png" alt="dia Introduction dia DiameterPacketFormat">
+</div>
+<div class="title">Figure 1. Diameter Message Structure</div>
+</div>
+<div class="paragraph">
+<p>The header has the following fields:</p>
+</div>
+<div class="dlist">
+<div class="title">Message Headers</div>
+<dl>
+<dt class="hdlist1">Version</dt>
+<dd>
+<p>Indicates the Diameter protocol version.
+This value is always set to <code>1</code>.</p>
+</dd>
+<dt class="hdlist1">Message Length</dt>
+<dd>
+<p>Indicates the Diameter message length, including the header fields.</p>
+</dd>
+<dt class="hdlist1">Flags</dt>
+<dd>
+<p>Composed by eight bits, to provide information regarding the message.
+The first four bits in the flags octet have the following meaning:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>R = The message is a request (1) or an answer (0).</p>
+</li>
+<li>
+<p>P = The message is proxiable (1) and may be proxied, relayed or redirected, or it must be processed locally (0).</p>
+</li>
+<li>
+<p>E = The message is an error message (1) or a regular message (0).</p>
+</li>
+<li>
+<p>T = The message is potentially being re-transmitted (1) or being sent for the first time (0).</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The last four bits are reserved for future use, and should be set to 0.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Command Code</dt>
+<dd>
+<p>Indicates the command associated with the message.</p>
+</dd>
+<dt class="hdlist1">Application-ID</dt>
+<dd>
+<p>Identifies the application to which the message is applicable for.
+The application is an authentication, accounting, or vendor specific application.
+The <code>application-id</code> in the header must be the same as what is contained in any relevant AVPs in the message.</p>
+</dd>
+<dt class="hdlist1">Hop-by-Hop ID</dt>
+<dd>
+<p>A unique ID that is used to match requests and answers.
+The header field of the answer message must contain the same value present in the corresponding request.
+This is how answers are routed back to the peer that sent the message.</p>
+</dd>
+<dt class="hdlist1">End-to-End ID</dt>
+<dd>
+<p>A time-limited unique ID that is used to to detect duplicate messages.
+The ID must be unique for at least four minutes.
+The answer message originator must ensure that this header contains the same value present in the corresponding request.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The message payload is built up from AVPs.
+Each AVP has a similar structure: a header, and encoded data.
+Data can be simple (eg, integer, long) or complex (another encoded AVP).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dia-Introduction-dia-DiameterAVPLayout.png" alt="dia Introduction dia DiameterAVPLayout">
+</div>
+<div class="title">Figure 2. Payload Structure</div>
+</div>
+<div class="dlist">
+<div class="title">Payload AVPs</div>
+<dl>
+<dt class="hdlist1">AVP Code</dt>
+<dd>
+<p>Uniquely identifies the attribute, by combining the specified code with the value contained within the Vendor-ID header field.
+AVP numbers 1 to 255 are reserved for RADIUS backwards compatibility, and do not require the Vendor-ID header field.
+AVP numbers 256 and above are used exclusively for the Diameter protocol, and are allocated by IANA.</p>
+</dd>
+<dt class="hdlist1">Flags</dt>
+<dd>
+<p>Bit flags that specify how each attribute must be handled.
+Flags octets have the following structure: V M P r r r r r.
+A full description is available in <a href="http://tools.ietf.org/html/rfc3588#section-4.1">Section 4.1 of RFC3588</a>.
+The first three bits have the following meaning:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>V If set, indicates that optional octets (Vendor-ID) is present in AVP header.</p>
+</li>
+<li>
+<p>M If set, it indicates that receiving peer must understand this AVP or send error answer.</p>
+</li>
+<li>
+<p>P If set, it indicates the need for encryption for end-to-end security.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The last 5 bits are reserved for future use, and should be set to 0.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">AVP Length</dt>
+<dd>
+<p>Indicates the number of octets in the AVP, including the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>AVP Code</p>
+</li>
+<li>
+<p>AVP Length</p>
+</li>
+<li>
+<p>AVP Flags</p>
+</li>
+<li>
+<p>Vendor-ID field (if present)</p>
+</li>
+<li>
+<p>AVP Data</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Vendor-ID</dt>
+<dd>
+<p>An optional octet that identifies the AVP in application space.
+AVP code and AVP Vendor-ID create a unique identifier for the AVP.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_introduction_contents"><a class="anchor" href="#_introduction_contents"></a>Contents</h3>
+<div class="paragraph">
+<p>Quarkus JDiameter core is built on top of three basic components:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Stack</dt>
+<dd>
+<p>Extensible Diameter Stack.
+It provides basic session support along with application specific sessions.</p>
+</dd>
+<dt class="hdlist1">Multiplexer (MUX)</dt>
+<dd>
+<p>Diameter Stack multiplexer.
+Allows different listeners to share the same stack instance.</p>
+</dd>
+<dt class="hdlist1">Dictionary</dt>
+<dd>
+<p>Diameter Message and AVP Dictionary.
+Provides an API to access information about AVPs.
+Dictionary is embedded in the MUX.
+:leveloffset: -1</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jdiameter"><a class="anchor" href="#_jdiameter"></a>Quarkus JDiameter Stack</h3>
+<div class="paragraph">
+<p>The Diameter Stack is the core component of the presented Diameter solution.
+It performs all necessary tasks to allow user interaction with the Diameter network.
+It manages the state of diameter peers and allows to route messages between them.
+For more details, refer to <a href="http://tools.ietf.org/html/rfc3588">RFC 3588</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Diameter Stack currently supports the following application sessions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Base</p>
+</li>
+<li>
+<p>Credit Control Application (CCA)</p>
+</li>
+<li>
+<p>Sh</p>
+</li>
+<li>
+<p>Ro</p>
+</li>
+<li>
+<p>Rf</p>
+</li>
+<li>
+<p>Cx/Dx</p>
+</li>
+<li>
+<p>Gx</p>
+</li>
+<li>
+<p>Gq'</p>
+</li>
+<li>
+<p>Rx</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_jdiameter_design"><a class="anchor" href="#_jdiameter_design"></a>Diameter Stack Design</h4>
+<div class="sect4">
+<h5 id="_jdiameter_design_extensibility"><a class="anchor" href="#_jdiameter_design_extensibility"></a>Diameter Stack Extensibility</h5>
+<div class="paragraph">
+<p>Diameter Stack has been designed to be extensible.
+In order to achieve that, two set of APIs are defined by the stack - one that defines basic contracts between the user application and the stack, and one that defines contracts allowing the instance to inject custom objects into the stack to perform certain tasks (for example, <code class="class">SessionFactory</code>). <code class="class">ISessionFactory</code> declares additional methods that allow the developer to declare custom behaviour (for example, custom application sessions).
+Please refer to <a href="#_jdiameter_source_overview_session_factory">Session Factory</a> for more detailed information.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/DIA_2_x_JD_DESIGN.png" alt="DIA 2 x JD DESIGN">
+</div>
+<div class="title">Figure 3. Diameter Stack Extensibility Visualization</div>
+</div>
+<div class="paragraph">
+<p>The general pattern for interface declaration is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The interface <code>ComponentInterface</code> declares the minimal set of methods for a component to perform its task.</p>
+</li>
+<li>
+<p>The interface <code>IComponentInterface</code> provides additional behavior methods.
+Please refer to the java doc for a list of interfaces and descriptions of method contracts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_jdiameter_design_model"><a class="anchor" href="#_jdiameter_design_model"></a>Diameter Stack Model</h5>
+<div class="paragraph">
+<p>Diameter Stack performs the following tasks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Manages connections to remote peers.</p>
+</li>
+<li>
+<p>Manages session objects.</p>
+</li>
+<li>
+<p>Routes messages on behalf of sessions.</p>
+</li>
+<li>
+<p>Receives and delivers messages to assigned listeners (usually a session object).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sessions use the stack and the services it provides to communicate with remote peers.
+The application is the only place that holds references to sessions.
+It can be seen as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/DIA_2_x_JD_stack_model.png" alt="DIA 2 x JD stack model">
+</div>
+<div class="title">Figure 4. Diameter Application and Stack Model</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_jdiameter_app_session_factories"><a class="anchor" href="#_jdiameter_app_session_factories"></a>Application Session Factories</h5>
+<div class="paragraph">
+<p>Application session factories perform two tasks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>server stack as factory for sessions.</p>
+</li>
+<li>
+<p>server session objects as holders for session related resources, like state change listener, event listeners and context.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The figure below shows the relationship between Application Session Factories and User Applications:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/DIA_2_x_JD_stack_appsession_1.png" alt="DIA 2 x JD stack appsession 1">
+</div>
+<div class="title">Figure 5. Application Session Factory and User Application</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Session context is a callback interface defined by some sessions.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_session_replication"><a class="anchor" href="#_session_replication"></a>Session Replication</h5>
+<div class="paragraph">
+<p>Diameter Stack supports replication of session data and state.
+Clustered stack instances can perform operations on session regardless of physical location.
+Imagine the logically clustered stack as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/DIA_2_x_JD_stack_cluster_1.png" alt="DIA 2 x JD stack cluster 1">
+</div>
+<div class="title">Figure 6. Diameter Cluster</div>
+</div>
+<div class="paragraph">
+<p>Stack only replicates non simple sessions.
+This is because simple sessions do not hold state and can be simply recreated by the application.
+Simple sessions include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>RawSessions</p>
+</li>
+<li>
+<p>Sessions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Diameter Cluster replicates the full state of sessions.
+However, it does not replicate resources that are entirely local to the stack instance, like session listeners.
+Local resource references are recreated once the session is being prepared to be used in the stack instance.
+Listeners (state and events) are fetched from the respective session factory instance.
+See <a href="#_jdiameter_app_session_factories">Application Session Factories</a> for more details.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jdiameter_setup"><a class="anchor" href="#_jdiameter_setup"></a>Quarkus JDiameter Stack Setup</h4>
+<div class="sect4">
+<h5 id="_jdiameter_preinstall_requirements_and_prerequisites"><a class="anchor" href="#_jdiameter_preinstall_requirements_and_prerequisites"></a>Pre-Install Requirements and Prerequisites</h5>
+<div class="paragraph">
+<p>Ensure that the following requirements have been met before continuing with the install.</p>
+</div>
+<div class="sect5">
+<h6 id="_jdiameter_hardware_requirements"><a class="anchor" href="#_jdiameter_hardware_requirements"></a>Hardware Requirements</h6>
+<div class="paragraph">
+<p>Quarkus JDiameter Stack does not have any hardware requirements.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_jdiameter_software_prerequisites"><a class="anchor" href="#_jdiameter_software_prerequisites"></a>Software Prerequisites</h6>
+<div class="paragraph">
+<p>Quarkus JDiameter Stack has the following software dependencies:
+* slf4j</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_jdiameter_source_code"><a class="anchor" href="#_jdiameter_source_code"></a>Source Code</h5>
+<div class="paragraph">
+<p>This section provides instructions on how to obtain and build the Quarkus JDiameter Stack from source code.</p>
+</div>
+<div class="sect5">
+<h6 id="_jdiameter_release_source_building"><a class="anchor" href="#_jdiameter_release_source_building"></a>Release Source Code Building</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Downloading the source code</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Subversion is used to manage its source code.
+Instructions for using Subversion, including install, can be found at <a href="http://svnbook.red-bean.com" class="bare">http://svnbook.red-bean.com</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Use SVN to checkout a specific release source, the base URL is <a href="https://github.com/quarkisverse/quarkus-jdiameter" class="bare">https://github.com/quarkisverse/quarkus-jdiameter</a> , then add the specific release version, lets consider &amp;THIS.VERSION;.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[usr]$ git clone git@github.com:RestComm/jss7.git</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Building the source code</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Maven 3.2.5 (or higher) is used to build the release.
+Instructions for using Maven2, including install, can be found at <a href="http://maven.apache.org" class="bare">http://maven.apache.org</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Use Maven to build the deployable unit binary.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">						[usr]$ cd -
+						[usr]$ mvn install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the process finishes you should have the files deployed in maven archive.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_jdiameter_trunk_source_building"><a class="anchor" href="#_jdiameter_trunk_source_building"></a>Development Trunk Source Building</h6>
+<div class="paragraph">
+<p>Follow the process in <a href="#_jdiameter_release_source_building">Release Source Code Building</a>, replacing the SVN source code URL with <a href="https://github.com/quarkisverse/quarkus-jdiameter" class="bare">https://github.com/quarkisverse/quarkus-jdiameter</a> .</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jdiameter_configuration"><a class="anchor" href="#_jdiameter_configuration"></a>Diameter Stack Configuration</h4>
+<div class="paragraph">
+<p>The stack is initially configured by parsing an XML file.
+The top level structure of the file is described below.
+Further explanation of each child element, and the applicable attributes, is provided later in this section.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;Configuration xmlns="http://www.jdiameter.org/jdiameter-server"&gt;
+
+	&lt;LocalPeer&gt;&lt;/LocalPeer&gt;
+	&lt;Parameters&gt;&lt;/Parameters&gt;
+	&lt;Network&gt;&lt;/Network&gt;
+	&lt;Extensions&gt;&lt;/Extensions&gt;
+
+&lt;/Configuration&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;LocalPeer&gt;
+	&lt;URI value="aaa://localhost:3868"/&gt;
+	&lt;IPAddresses&gt;
+		&lt;IPAddress value="127.0.0.1"/&gt;
+	&lt;/IPAddresses&gt;
+
+	&lt;Realm value="mobicents.org"/&gt;
+	&lt;VendorID value="193"/&gt;
+	&lt;ProductName value="jDiameter"/&gt;
+	&lt;FirmwareRevision value="1"/&gt;
+
+	&lt;OverloadMonitor&gt;
+		&lt;Entry index="1" lowThreshold="0.5" highThreshold="0.6"&gt;
+			&lt;ApplicationID&gt;
+				&lt;VendorId value="193"/&gt;
+				&lt;AuthApplId value="0"/&gt;
+				&lt;AcctApplId value="19302"/&gt;
+			&lt;/ApplicationID&gt;
+		&lt;/Entry&gt;
+	&lt;/OverloadMonitor&gt;
+	&lt;Applications&gt;
+		&lt;ApplicationID&gt;
+			&lt;VendorId value="193"/&gt;
+			&lt;AuthApplId value="0"/&gt;
+			&lt;AcctApplId value="19302"/&gt;
+		&lt;/ApplicationID&gt;
+	&lt;/Applications&gt;
+&lt;/LocalPeer&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The &lt;LocalPeer&gt; element contains parameters that affect the local Diameter peer.
+The available elements and attributes are listed for reference.</p>
+</div>
+<div class="dlist">
+<div class="title">&lt;LocalPeer&gt; Elements and Attributes</div>
+<dl>
+<dt class="hdlist1">&lt;URI&gt;</dt>
+<dd>
+<p>Specifies the URI for the local peer.
+The URI has the following format: "aaa://FQDN:port".</p>
+</dd>
+<dt class="hdlist1">&lt;IPAddresses&gt;</dt>
+<dd>
+<p>Contains one or more child &lt;IPAddress&gt; element, which contain a single, valid IP address for the local peer, stored in the <code class="parameter">value</code> attribute of the IPAddress.</p>
+</dd>
+<dt class="hdlist1">&lt;Realm&gt;</dt>
+<dd>
+<p>Specifies the realm of the local peer, using the <code class="parameter">value</code> attribute.</p>
+</dd>
+<dt class="hdlist1">&lt;VendorID&gt;</dt>
+<dd>
+<p>Specifies a numeric identifier that corresponds to the vendor ID allocated by IANA.</p>
+</dd>
+<dt class="hdlist1">&lt;ProductName&gt;</dt>
+<dd>
+<p>Specifies the name of the local peer product.</p>
+</dd>
+<dt class="hdlist1">&lt;FirmwareRevision&gt;</dt>
+<dd>
+<p>Specifies the version of the firmware.</p>
+</dd>
+<dt class="hdlist1">&lt;OverloadMonitor&gt;</dt>
+<dd>
+<p>Optional parent element containing child elements that specify settings relating to the Overload Monitor.</p>
+</dd>
+<dt class="hdlist1">&lt;Entry&gt;</dt>
+<dd>
+<p>Supports &lt;ApplicationID&gt; child elements that specify the ID of the tracked application(s).
+It also supports the following properties:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>index Defines the index of this overload monitor, so priorities/orders can be specified.</p>
+</div>
+<div class="paragraph">
+<p>lowThreshold The low threshold for activation of the overload monitor.</p>
+</div>
+<div class="paragraph">
+<p>highThreshold The high threshold for activation of the overload monitor.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;ApplicationID&gt;</dt>
+<dd>
+<p>Parent element containing child elements that specify information about the application.
+The child elements create a unique application identifier.
+The child elements are:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>&lt;VendorId&gt; Specifies the vendor ID for application definition.
+It supports a single property: "value".</p>
+</div>
+<div class="paragraph">
+<p>&lt;AuthAppId&gt; The Authentication Application ID for application definition.
+It supports a single property: "value".</p>
+</div>
+<div class="paragraph">
+<p>&lt;AcctAplId&gt; The Account Application ID for application definition.
+It supports a single property: "value".</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;Applications&gt;</dt>
+<dd>
+<p>Contains a child element &lt;ApplicationID&gt;, which defines the list of default supported applications.
+It is used for the server side, when the stack is configured to accept incoming calls and there is an empty list of preconfigured peers (server is configured to accept any connection).</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;Parameters&gt;
+
+	&lt;AcceptUndefinedPeer value="true"/&gt;
+	&lt;DuplicateProtection value="true"/&gt;
+  &lt;DuplicateTimer value="240000"/&gt;
+  &lt;DuplicateSize value="5000"/&gt;
+	&lt;UseUriAsFqdn value="true"/&gt; &lt;!-- Needed for Ericsson SDK Emulator --&gt;
+	&lt;QueueSize value="10000"/&gt;
+	&lt;MessageTimeOut value="60000"/&gt;
+	&lt;StopTimeOut value="10000"/&gt;
+	&lt;CeaTimeOut value="10000"/&gt;
+	&lt;IacTimeOut value="30000"/&gt;
+	&lt;DwaTimeOut value="10000"/&gt;
+	&lt;DpaTimeOut value="5000"/&gt;
+	&lt;RecTimeOut value="10000"/&gt;
+
+	&lt;!-- Peer FSM Thread Count Configuration --&gt;
+	&lt;PeerFSMThreadCount value="3" /&gt;
+
+	&lt;Concurrent&gt;
+		&lt;Entity name="ThreadGroup" size="64"/&gt;
+		&lt;Entity name="ProcessingMessageTimer" size="1"/&gt;
+		&lt;Entity name="DuplicationMessageTimer" size="1"/&gt;
+		&lt;Entity name="RedirectMessageTimer" size="1"/&gt;
+		&lt;Entity name="PeerOverloadTimer" size="1"/&gt;
+		&lt;Entity name="ConnectionTimer" size="1"/&gt;
+		&lt;Entity name="StatisticTimer" size="1"/&gt;
+		&lt;Entity name="ApplicationSession" size="16"/&gt;
+	&lt;/Concurrent&gt;
+
+&lt;/Parameters&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The &lt;Parameters&gt; element contains elements that specify parameters for the Diameter stack.
+The available elements and attributes are listed for reference.
+If not specified otherwise, each tag supports a single property - "value", which indicates the value of the tag.</p>
+</div>
+<div class="dlist">
+<div class="title">&lt;Parameters&gt; Elements and Attributes</div>
+<dl>
+<dt class="hdlist1">&lt;AcceptUndefinedPeer&gt;</dt>
+<dd>
+<p>Specifies whether the stack will accept connections from undefined peers.
+The default value is <code>false</code>.</p>
+</dd>
+<dt class="hdlist1">&lt;DuplicateProtection&gt;</dt>
+<dd>
+<p>Specifies whether duplicate message protection is enabled.
+The default value is <code>false</code>.</p>
+</dd>
+<dt class="hdlist1">&lt;DuplicateTimer&gt;</dt>
+<dd>
+<p>Specifies the time each duplicate message is valid for (in extreme cases, it can live up to 2 * DuplicateTimer - 1 milliseconds).
+The default, minimum value is <code>240000</code> (4 minutes in milliseconds).</p>
+</dd>
+<dt class="hdlist1">&lt;DuplicateSize&gt;</dt>
+<dd>
+<p>Specifies the number of requests stored for duplicate protection.
+The default value is <code>5000</code>.</p>
+</dd>
+<dt class="hdlist1">&lt;UseUriAsFqdn&gt;</dt>
+<dd>
+<p>Determines whether the URI should be used as FQDN.
+If it is set to <code>true</code>, the stack expects the destination/origin host to be in the format of "aaa://isdn.domain.com:3868" rather than the normal "isdn.domain.com".
+The default value is <code>false</code>.</p>
+</dd>
+<dt class="hdlist1">&lt;QueueSize&gt;</dt>
+<dd>
+<p>Determines how many tasks the peer state machine can have before rejecting the next task.
+This queue contains FSM events and messaging.</p>
+</dd>
+<dt class="hdlist1">&lt;MessageTimeOut&gt;</dt>
+<dd>
+<p>Determines the timeout for messages other than protocol FSM messages.
+The delay is in milliseconds.</p>
+</dd>
+<dt class="hdlist1">&lt;StopTimeOut&gt;</dt>
+<dd>
+<p>Determines how long the stack waits for all resources to stop.
+The delays are in milliseconds.</p>
+</dd>
+<dt class="hdlist1">&lt;CeaTimeOut&gt;</dt>
+<dd>
+<p>Determines how long it takes for CER/CEA exchanges to timeout if there is no response.
+The delays are in milliseconds.</p>
+</dd>
+<dt class="hdlist1">&lt;IacTimeOut&gt;</dt>
+<dd>
+<p>Determines how long the stack waits to retry the communication with a peer that has stopped answering DWR messages.
+The delay is in milliseconds.</p>
+</dd>
+<dt class="hdlist1">&lt;DwaTimeOut&gt;</dt>
+<dd>
+<p>Determines how long it takes for a DWR/DWA exchange to timeout if there is no response.
+The delay is in milliseconds.</p>
+</dd>
+<dt class="hdlist1">&lt;DpaTimeOut&gt;</dt>
+<dd>
+<p>Determines how long it takes for a DPR/DPA exchange to timeout if there is no response.
+The delay is in milliseconds.</p>
+</dd>
+<dt class="hdlist1">&lt;RecTimeOut&gt;</dt>
+<dd>
+<p>Determines how long it takes for the reconnection procedure to timeout.
+The delay is in milliseconds.</p>
+</dd>
+<dt class="hdlist1">&lt;PeerFSMThreadCount&gt;</dt>
+<dd>
+<p>Determines the number of threads for handling events in the Peer FSM.</p>
+</dd>
+<dt class="hdlist1">&lt;Concurrent /&gt;</dt>
+<dd>
+<p>Controls the thread pool sizes for different aspects of the stack.
+It supports multiple <code class="parameter">Entity</code> child elements. <code class="parameter">Entity</code> elements configure thread groups.
+These elements support the following properties:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>name Specifies the name of the entity.</p>
+</div>
+<div class="paragraph">
+<p>size Specifies the thread pool size of the entity.</p>
+</div>
+<div class="paragraph">
+<p>The default supported entities are:</p>
+</div>
+<div class="paragraph">
+<p>ThreadGroup Determines the maximum thread count in other entities.</p>
+</div>
+<div class="paragraph">
+<p>ProcessingMessageTimer Determines the thread count for message processing tasks.</p>
+</div>
+<div class="paragraph">
+<p>DuplicationMessageTimer Specifies the thread pool for identifying duplicate messages.</p>
+</div>
+<div class="paragraph">
+<p>RedirectMessageTimer Specifies the thread pool for redirecting messages that do not need any further processing.</p>
+</div>
+<div class="paragraph">
+<p>PeerOverloadTimer Determines the thread pool for managing the overload monitor.</p>
+</div>
+<div class="paragraph">
+<p>ConnectionTimer Determines the thread pool for managing tasks regarding peer connection FSM.</p>
+</div>
+<div class="paragraph">
+<p>StatisticTimer Determines the thread pool for statistic gathering tasks.</p>
+</div>
+<div class="paragraph">
+<p>ApplicationSession Determines the thread pool for managing the invocation of application session FSMs, which will invoke listeners.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;Network&gt;
+
+	&lt;Peers&gt;
+		&lt;!-- This peer is a server, if it's a client attempt_connect should be set to false --&gt;
+		&lt;Peer name="aaa://127.0.0.1:3868" attempt_connect="true" rating="1"/&gt;
+	&lt;/Peers&gt;
+
+	&lt;Realms&gt;
+		&lt;Realm name="mobicents.org" peers="127.0.0.1" local_action="LOCAL" dynamic="false" exp_time="1"&gt;
+			&lt;ApplicationID&gt;
+				&lt;VendorId value="193"/&gt;
+				&lt;AuthApplId value="0"/&gt;
+				&lt;AcctApplId value="19302"/&gt;
+			&lt;/ApplicationID&gt;
+		&lt;/Realm&gt;
+	&lt;/Realms&gt;
+
+&lt;/Network&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The &lt;Network&gt; element contains elements that specify parameters for external peers.
+The available elements and attributes are listed for reference.</p>
+</div>
+<div class="dlist">
+<div class="title">&lt;Network&gt; Elements and Attributes</div>
+<dl>
+<dt class="hdlist1">&lt;Peers&gt;</dt>
+<dd>
+<p>Parent element containing the child element &lt;Peer&gt;, which specifies external peers and the way they connect.
+&lt;Peer&gt; specifies the name of external peers, whether they should be treated as a server or client, and what rating the peer has externally.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>&lt;Peer&gt; supports the following properties:</p>
+</div>
+<div class="paragraph">
+<p>name Specifies the name of the peer in the form of a URI.
+The structure is "aaa://[fqdn|ip]:port" (for example, "aaa://192.168.1.1:3868").</p>
+</div>
+<div class="paragraph">
+<p>attempt_connect Determines if the stack should try to connect to this peer.
+This property accepts boolean values.</p>
+</div>
+<div class="paragraph">
+<p>rating Specifies the rating of this peer in order to achieve peer priorities/sorting.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;Realms&gt;</dt>
+<dd>
+<p>Parent element containing the child element &lt;Realm&gt;, which specifies all realms that connect into the Diameter network.
+&lt;Realm&gt; contains attributes and elements that describe different realms configured for the Core.
+It supports &lt;ApplicationID&gt; child elements, which define the applications supported.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>&lt;Realm&gt; supports the following parameters:</p>
+</div>
+<div class="paragraph">
+<p>peers Comma separated list of peers.
+Each peer is represented by an IP Address or FQDN.</p>
+</div>
+<div class="paragraph">
+<p>local_action Determines the action the Local Peer will play on the specified realm: Act as a LOCAL peer.</p>
+</div>
+<div class="paragraph">
+<p>dynamic Specifies if this realm is dynamic.
+That is, peers that connect to peers with this realm name will be added to the realm peer list if not present already.</p>
+</div>
+<div class="paragraph">
+<p>exp_time The time before a peer belonging to this realm is removed if no connection is available.</p>
+</div>
+<div class="paragraph">
+<p>Below is an example configuration file for a server supporting the CCA, Sh and Ro Applications:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0"?&gt;
+&lt;Configuration xmlns="http://www.jdiameter.org/jdiameter-server"&gt;
+
+	&lt;LocalPeer&gt;
+		&lt;URI value="aaa://127.0.0.1:3868" /&gt;
+		&lt;Realm value="mobicents.org" /&gt;
+		&lt;VendorID value="193" /&gt;
+		&lt;ProductName value="jDiameter" /&gt;
+		&lt;FirmwareRevision value="1" /&gt;
+		&lt;OverloadMonitor&gt;
+			&lt;Entry index="1" lowThreshold="0.5" highThreshold="0.6"&gt;
+				&lt;ApplicationID&gt;
+					&lt;VendorId value="193" /&gt;
+					&lt;AuthApplId value="0" /&gt;
+					&lt;AcctApplId value="19302" /&gt;
+				&lt;/ApplicationID&gt;
+			&lt;/Entry&gt;
+		&lt;/OverloadMonitor&gt;
+	&lt;/LocalPeer&gt;
+
+	&lt;Parameters&gt;
+		&lt;AcceptUndefinedPeer value="true" /&gt;
+		&lt;DuplicateProtection value="true" /&gt;
+    &lt;DuplicateTimer value="240000" /&gt;
+    &lt;DuplicateSize value="5000" /&gt;
+		&lt;UseUriAsFqdn value="false" /&gt; &lt;!-- Needed for Ericsson Emulator (set to true) --&gt;
+		&lt;QueueSize value="10000" /&gt;
+		&lt;MessageTimeOut value="60000" /&gt;
+		&lt;StopTimeOut value="10000" /&gt;
+		&lt;CeaTimeOut value="10000" /&gt;
+		&lt;IacTimeOut value="30000" /&gt;
+		&lt;DwaTimeOut value="10000" /&gt;
+		&lt;DpaTimeOut value="5000" /&gt;
+		&lt;RecTimeOut value="10000" /&gt;
+
+		&lt;PeerFSMThreadCount value="3" /&gt;
+
+		&lt;Concurrent&gt;
+			 &lt;Entity name="ThreadGroup" size="64"/&gt;
+			 &lt;Entity name="ProcessingMessageTimer" size="1"/&gt;
+			 &lt;Entity name="DuplicationMessageTimer" size="1"/&gt;
+			 &lt;Entity name="RedirectMessageTimer" size="1"/&gt;
+			 &lt;Entity name="PeerOverloadTimer" size="1"/&gt;
+			 &lt;Entity name="ConnectionTimer" size="1"/&gt;
+			 &lt;Entity name="StatisticTimer" size="1"/&gt;
+			 &lt;Entity name="ApplicationSession" size="16"/&gt;
+		&lt;/Concurrent&gt;
+	&lt;/Parameters&gt;
+
+	&lt;Network&gt;
+		&lt;Peers&gt;
+			&lt;Peer name="aaa://127.0.0.1:1218" attempt_connect="false" rating="1" /&gt;
+		&lt;/Peers&gt;
+		&lt;Realms&gt;
+			&lt;!-- CCA --&gt;
+			&lt;Realm name="mobicents.org" peers="127.0.0.1" local_action="LOCAL"
+				dynamic="false" exp_time="1"&gt;
+				&lt;ApplicationID&gt;
+					&lt;VendorId value="0" /&gt;
+					&lt;AuthApplId value="4" /&gt;
+					&lt;AcctApplId value="0" /&gt;
+				&lt;/ApplicationID&gt;
+			&lt;/Realm&gt;
+
+			&lt;!-- Sh --&gt;
+			&lt;Realm name="mobicents.org" peers="127.0.0.1" local_action="LOCAL"
+				dynamic="false" exp_time="1"&gt;
+				&lt;ApplicationID&gt;
+					&lt;VendorId value="10415" /&gt;
+					&lt;AuthApplId value="16777217" /&gt;
+					&lt;AcctApplId value="0" /&gt;
+				&lt;/ApplicationID&gt;
+			&lt;/Realm&gt;
+
+			&lt;!-- Ro --&gt;
+			&lt;Realm name="mobicents.org" peers="127.0.0.1" local_action="LOCAL"
+				dynamic="false" exp_time="1"&gt;
+				&lt;ApplicationID&gt;
+					&lt;VendorId value="10415" /&gt;
+					&lt;AuthApplId value="4" /&gt;
+					&lt;AcctApplId value="0" /&gt;
+				&lt;/ApplicationID&gt;
+			&lt;/Realm&gt;
+		&lt;/Realms&gt;
+	&lt;/Network&gt;
+
+	&lt;Extensions /&gt;
+
+&lt;/Configuration&gt;</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_jdiameter_cluster_configuration"><a class="anchor" href="#_jdiameter_cluster_configuration"></a>Cluster configuration</h5>
+<div class="paragraph">
+<p>The following list defines the requirements for enabling stack cluster mode</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add the following entries to the <code>Parameters</code> section of <em class="path">jdiameter-config.xml</em>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;SessionDatasource&gt;org.jdiameter.impl. ha.data.ReplicatedData&lt;/SessionDatasource&gt;
+&lt;TimerFacility&gt;org.jdiameter.impl.ha. timer.ReplicatedTimerFacilityImpl&lt;/TimerFacility&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>A proper <code>JBoss Cache</code> configuration file: <em class="path">jdiameter-jbc.xml</em> (located in the <em class="path">config</em> directory).</p>
+<div class="paragraph">
+<p>The following content is sufficient for the JBoss Cache configuration file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;jbosscache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="urn:jboss:jbosscache-core:config:3.0"&gt;
+
+	&lt;locking isolationLevel="REPEATABLE_READ"
+		lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000"
+		nodeLockingScheme="mvcc" writeSkewCheck="false" concurrencyLevel="500" /&gt;
+
+	&lt;jmxStatistics enabled="false" /&gt;
+
+	&lt;startup regionsInactiveOnStartup="false" /&gt;
+	&lt;shutdown hookBehavior="DEFAULT" /&gt;
+	&lt;listeners asyncPoolSize="1" asyncQueueSize="100000" /&gt;
+
+	&lt;invocationBatching enabled="false" /&gt;
+
+	&lt;serialization objectInputStreamPoolSize="12"
+		objectOutputStreamPoolSize="14" version="3.0.0"
+		marshallerClass="org.jboss.cache.marshall.CacheMarshaller300"
+		useLazyDeserialization="false" useRegionBasedMarshalling="false" /&gt;
+
+	&lt;clustering mode="replication" clusterName="DiameterCluster"&gt;
+
+		&lt;async useReplQueue="true" replQueueInterval="1000"
+			replQueueMaxElements="500" serializationExecutorPoolSize="20"
+			serializationExecutorQueueSize="5000000"/&gt;
+
+		&lt;jgroupsConfig&gt;
+			&lt;UDP
+				mcast_addr="${jgroups.udp.mcast_addr:228.10.10.10}"
+				mcast_port="${jgroups.udp.mcast_port:18811}"
+				discard_incompatible_packets="true"
+				max_bundle_size="60000"
+				max_bundle_timeout="30"
+				ip_ttl="${jgroups.udp.ip_ttl:2}"
+				enable_bundling="true"
+				thread_pool.enabled="true"
+				thread_pool.min_threads="1"
+				thread_pool.max_threads="25"
+				thread_pool.keep_alive_time="5000"
+				thread_pool.queue_enabled="false"
+				thread_pool.queue_max_size="100"
+				thread_pool.rejection_policy="Run"
+				oob_thread_pool.enabled="true"
+				oob_thread_pool.min_threads="1"
+				oob_thread_pool.max_threads="8"
+				oob_thread_pool.keep_alive_time="5000"
+				oob_thread_pool.queue_enabled="false"
+				oob_thread_pool.queue_max_size="100"
+				oob_thread_pool.rejection_policy="Run"/&gt;
+
+			&lt;PING timeout="2000"
+				num_initial_members="3"/&gt;
+			&lt;MERGE2 max_interval="30000"
+				min_interval="10000"/&gt;
+			&lt;FD_SOCK/&gt;
+			&lt;FD timeout="10000" max_tries="5" /&gt;
+			&lt;VERIFY_SUSPECT timeout="1500"  /&gt;
+			&lt;BARRIER /&gt;
+			&lt;pbcast.NAKACK
+				use_mcast_xmit="false" gc_lag="0"
+				retransmit_timeout="300,600,1200,2400,4800"
+				discard_delivered_msgs="true"/&gt;
+			&lt;UNICAST timeout="300,600,1200,2400,3600"/&gt;
+			&lt;pbcast.STABLE stability_delay="1000" desired_avg_gossip="50000"
+				max_bytes="400000"/&gt;
+			&lt;VIEW_SYNC avg_send_interval="60000"   /&gt;
+			&lt;pbcast.GMS print_local_addr="true" join_timeout="3000"
+				view_bundling="true"/&gt;
+			&lt;FC max_credits="20000000"
+				min_threshold="0.10"/&gt;
+			&lt;FRAG2 frag_size="60000"  /&gt;
+			&lt;pbcast.STATE_TRANSFER  /&gt;
+		&lt;/jgroupsConfig&gt;
+	&lt;/clustering&gt;
+
+&lt;/jbosscache&gt;</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jdiameter_source_overview"><a class="anchor" href="#_jdiameter_source_overview"></a>Diameter Stack Source overview</h4>
+<div class="paragraph">
+<p>Diameter stack is built with the following basic components:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Session Factory</dt>
+<dd>
+<p>The Session Factory governs the creation of sessions - raw and specific application sessions.</p>
+</dd>
+<dt class="hdlist1">Raw and Application Sessions</dt>
+<dd>
+<p>Sessions govern stateful message routing between peers.
+Specific application sessions consume different type of messages and act differently based on the data present.</p>
+</dd>
+<dt class="hdlist1">Stack</dt>
+<dd>
+<p>The Stack governs all necessary components, which are used to establish connection and communicate with remote peers.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For more detailed information, please refer to the Javadoc or the simple examples that can be found here: <a href="https://github.com/RestComm/jdiameter/tree/master/testsuite/load">Git Testsuite HEAD</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_jdiameter_source_overview_session_factory"><a class="anchor" href="#_jdiameter_source_overview_session_factory"></a>Session Factory</h5>
+<div class="paragraph">
+<p><code class="class">SessionFactory</code> provides the stack user with access to session objects.
+It manages registered application session factories in order to allow for the creation of specific application sessions.
+A Session Factory instance can be obtained from the stack using the <code class="method">getSessionFactory()</code> method.
+The base <code class="class">SessionFactory</code> interface is defined below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jdiameter.api;
+
+import org.jdiameter.api.app.AppSession;
+
+public interface SessionFactory {
+
+	RawSession getNewRawSession() throws InternalException;
+
+	Session getNewSession() throws InternalException;
+
+	Session getNewSession(String sessionId) throws InternalException;
+
+	&lt;T extends AppSession&gt; T getNewAppSession(ApplicationId applicationId,
+		Class&lt;? extends AppSession&gt; userSession) throws InternalException;
+
+	&lt;T extends AppSession&gt; T getNewAppSession(String sessionId, ApplicationId
+		applicationId, Class&lt;? extends AppSession&gt; userSession) throws InternalException;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, since the stack is extensible, it is safe to cast the <code class="class">SessionFactory</code> object to this interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package org.jdiameter.client.api;
+
+
+public interface ISessionFactory extends SessionFactory {
+
+	&lt;T extends AppSession&gt; T getNewAppSession(String sessionId,
+		ApplicationId applicationId, java.lang.Class&lt;? extends AppSession&gt;
+		aClass, Object... args) throws InternalException;
+
+	void registerAppFacory(Class&lt;? extends AppSession&gt; sessionClass,
+		IAppSessionFactory factory);
+
+	void unRegisterAppFacory(Class&lt;? extends AppSession&gt; sessionClass);
+
+	IConcurrentFactory getConcurrentFactory();
+
+}</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code class="method">RawSession getNewRawSession() throws InternalException;</code></dt>
+<dd>
+<p>This method creates a <code class="class">RawSession</code>.
+Raw sessions are meant as handles for code performing part of the routing decision on the stack&#8217;s, such as rely agents for instance.</p>
+</dd>
+<dt class="hdlist1"><code class="method">Session getNewSession() throws InternalException;</code></dt>
+<dd>
+<p>This method creates a session that acts as the endpoint for peer communication (for a given session ID).
+It declares the method that works with the <code class="class">Request</code> and <code class="class">Answer</code> objects.
+A session created with this method has an autogenerated ID.
+It should be considered as a client session.</p>
+</dd>
+<dt class="hdlist1"><code class="method">Session getNewSession(String sessionId) throws InternalException;</code></dt>
+<dd>
+<p>As above.
+However, the created session has an ID equal to that passsed as an argument.
+This created session should be considered a server session.</p>
+</dd>
+<dt class="hdlist1"><code class="method">&lt;T extends AppSession&gt; T getNewAppSession(ApplicationId applicationId, Class&lt;? extends AppSession&gt; userSession) throws InternalException;</code></dt>
+<dd>
+<p>This method creates a new specific application session, identified by the application ID and class of the session passed.
+The session ID is generated by implementation.
+New application sessions should be considered as client sessions.
+It is safe to type cast the return value to class passed as an argument.
+This method delegates the call to a specific application session factory.</p>
+</dd>
+<dt class="hdlist1"><code class="method">&lt;T extends AppSession&gt; T getNewAppSession(String sessionId, ApplicationId applicationId, Class&lt;? extends AppSession&gt; userSession) throws InternalException;</code></dt>
+<dd>
+<p>As above.
+However, the session Id is equal to the argument passed.
+New sessions should be considered server sessions.</p>
+</dd>
+<dt class="hdlist1"><code class="method">&lt;T extends AppSession&gt; T getNewAppSession(String sessionId, ApplicationId applicationId, java.lang.Class&lt;? extends AppSession&gt; aClass, Object&#8230;&#8203; args) throws InternalException;</code></dt>
+<dd>
+<p>As above.
+However, it allows the stack to pass some additional arguments.
+Passed values are implementation specifc.</p>
+</dd>
+<dt class="hdlist1"><code class="method">void registerAppFacory(Class&lt;? extends AppSession&gt; sessionClass, IAppSessionFactory factory);</code></dt>
+<dd>
+<p>Registers the <code class="parameter">factory</code> for a certain <code class="parameter">sessionClass</code>.
+This factory will receive a delegated call when ever the <code class="method">getNewAppSession</code> method is called with an application class matching one from the register method.</p>
+</dd>
+<dt class="hdlist1"><code class="method">void unRegisterAppFacory(Class&lt;? extends AppSession&gt; sessionClass);</code></dt>
+<dd>
+<p>Removes the application session factory registered for the <code class="parameter">sessionClass</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. SessionFactory use example</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class Test implements EventListener&lt;Request, Answer&gt;
+{
+
+....
+public void test(){
+	Stack stack = new StackImpl();
+	XMLConfiguration config = new XMLConfiguration(new FileInputStream(new File(configFile));
+
+	SessionFactory sessionFactory = stack.init(config);
+	stack.start();
+	//perferctly legal, both factories are the same.
+	sessionFactor = stack.getSessionFactory();
+	Session session = sessionFactory.getNewSession();
+	session.setRequestListener(this);
+	Request r = session.createRequest(308,ApplicationId.createByAuth(100L,10101L),
+		"mobicents.org","aaa://uas.fancyapp.mobicents.org");
+
+	//add avps specific for app
+	session.send(r,this);
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. SessionFactory use example</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class Test implements EventListener&lt;Request, Answer&gt;
+{
+	Stack stack = new StackImpl();
+	XMLConfiguration config = new XMLConfiguration(new FileInputStream(new File(configFile));
+
+	ISessionFactory sessionFactory = (ISessionFactory)stack.init(config);
+	stack.start();
+	//perferctly legal, both factories are the same.
+	sessionFactor = (ISessionFactory)stack.getSessionFactory();
+	sessionFactory.registerAppFacory(ClientShSession.class, new ShClientSessionFactory(this));
+
+	//our implementation of factory does not require any parameters
+	ClientShSession session = (ClientShSession) sessionFactory.getNewAppSession(null, null
+		, ClientShSession.class, null);
+
+	...
+	session.sendUserDataRequest(udr);
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_jdiameter_source_overview_session"><a class="anchor" href="#_jdiameter_source_overview_session"></a>Sessions</h5>
+<div class="paragraph">
+<p><code class="class">RawSessions</code>, <code class="class">Sessions</code> and <code class="class">ApplicationSessions</code> provide the means for dispatching and receiving messages.
+Specific implementation of <code class="class">ApplicationSession</code> may provide non standard methods.</p>
+</div>
+<div class="paragraph">
+<p>The <code class="class">RawSession</code> and the <code class="class">Session</code> life span is controlled entirely by the application.
+However, the <code class="class">ApplicationSession</code> life time depends on the implemented state machine.</p>
+</div>
+<div class="paragraph">
+<p><code class="class">RawSession</code> is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public interface BaseSession extends Wrapper, Serializable {
+
+	long getCreationTime();
+
+	long getLastAccessedTime();
+
+	boolean isValid();
+
+	Future&lt;Message&gt; send(Message message) throws InternalException,
+		IllegalDiameterStateException, RouteException, OverloadException;
+
+	Future&lt;Message&gt; send(Message message, long timeOut, TimeUnit timeUnit)
+		throws InternalException, IllegalDiameterStateException, RouteException, OverloadException;
+
+	void release();
+}
+
+public interface RawSession extends BaseSession {
+
+	Message createMessage(int commandCode, ApplicationId applicationId, Avp... avp);
+
+	Message createMessage(int commandCode, ApplicationId applicationId,
+		long hopByHopIdentifier, long endToEndIdentifier, Avp... avp);
+
+	Message createMessage(Message message, boolean copyAvps);
+
+	void send(Message message, EventListener&lt;Message, Message&gt; listener)
+		throws InternalException, IllegalDiameterStateException, RouteException, OverloadException;
+
+	void send(Message message, EventListener&lt;Message, Message&gt; listener,
+		long timeOut, TimeUnit timeUnit) throws InternalException,
+		IllegalDiameterStateException, RouteException, OverloadException;
+}</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code class="method">long getCreationTime();</code></dt>
+<dd>
+<p>Returns the time stamp of this session creation.</p>
+</dd>
+<dt class="hdlist1"><code class="method">long getLastAccessedTime();</code></dt>
+<dd>
+<p>Returns the time stamp indicating the last sent or received operation.</p>
+</dd>
+<dt class="hdlist1"><code class="method">boolean isValid();</code></dt>
+<dd>
+<p>Returns <code>true</code> when this session is still valid (ie, <code class="method">release()</code> has not been called).</p>
+</dd>
+<dt class="hdlist1"><code class="method">void release();</code></dt>
+<dd>
+<p>Application calls this method to inform the user that the session should free any associated resource - it shall not be used anymore.</p>
+</dd>
+<dt class="hdlist1"><code class="method">Future&lt;Message&gt; send(Message message)</code></dt>
+<dd>
+<p>Sends a message in async mode.
+The <code class="class">Future</code> reference provides the means of accessing the answer once it is received</p>
+</dd>
+<dt class="hdlist1"><code class="method">void send(Message message, EventListener&lt;Message, Message&gt; listener, long timeOut, TimeUnit timeUnit)</code></dt>
+<dd>
+<p>As above.
+Allows to specify the time out value for send operations.</p>
+</dd>
+<dt class="hdlist1"><code class="method">Message createMessage(int commandCode, ApplicationId applicationId, Avp&#8230;&#8203; avp);</code></dt>
+<dd>
+<p>Creates a Diameter message.
+It should be explicitly set either as a request or answer.
+Passed parameters are used to build messages.</p>
+</dd>
+<dt class="hdlist1"><code class="method">Message createMessage(int commandCode, ApplicationId applicationId, long hopByHopIdentifier, long endToEndIdentifier, Avp&#8230;&#8203; avp);</code></dt>
+<dd>
+<p>As above.
+However, it also allows for the Hop-by-Hop and End-to-End Identifiers in the message header to be set.
+This method should be used to create answers.</p>
+</dd>
+<dt class="hdlist1"><code class="method">Message createMessage(Message message, boolean copyAvps);</code></dt>
+<dd>
+<p>Clones a message and returns the created object.
+The copyAvps parameter defines whether basic AVPs (Session, Route and Proxy information) should be copied to the new object.</p>
+</dd>
+<dt class="hdlist1"><code class="method">void send(Message message, EventListener&lt;Message, Message&gt; listener)</code></dt>
+<dd>
+<p>Sends a message.
+The answer will be delivered by the specified listener</p>
+</dd>
+<dt class="hdlist1"><code class="method">void send(Message message, EventListener&lt;Message, Message&gt; listener, long timeOut, TimeUnit timeUnit)</code></dt>
+<dd>
+<p>As above.
+It also allows for the answer to be passed after timeout.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><code class="class">Session</code> defines similar methods, with exactly the same purpose:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public interface Session extends BaseSession {
+	String getSessionId();
+
+	void setRequestListener(NetworkReqListener listener);
+
+	Request createRequest(int commandCode, ApplicationId appId, String destRealm);
+
+	Request createRequest(int commandCode, ApplicationId appId, String destRealm, String destHost);
+
+	Request createRequest(Request prevRequest);
+
+	void send(Message message, EventListener&lt;Request, Answer&gt; listener)
+		throws InternalException, IllegalDiameterStateException, RouteException, OverloadException;
+
+	void send(Message message, EventListener&lt;Request, Answer&gt; listener, long timeOut,
+		TimeUnit timeUnit) throws InternalException, IllegalDiameterStateException,
+		RouteException, OverloadException;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_application_session_factories"><a class="anchor" href="#_application_session_factories"></a>Application Session Factories</h5>
+<div class="paragraph">
+<p>In the table below, you can find session factories provided by current implementation, along with a short description:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Application Factories</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Factory class</th>
+<th class="tableblock halign-left valign-top">Application type &amp; id</th>
+<th class="tableblock halign-left valign-top">Application</th>
+<th class="tableblock halign-left valign-top">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.jdiameter.common.impl.app.acc.AccSessionFactoryImpl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountingId[0:3]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Acc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RFC3588</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.jdiameter.common.impl.app.auth.AuthSessionFactoryImpl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specific</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RFC3588</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.jdiameter.common.impl.app.cca.CCASessionFactoryImpl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AuthId[0:4]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CCA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RFC4006</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.jdiameter.common.impl.app.sh.ShSessionFactoryImpl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AuthId[10415:16777217]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TS.29328, TS.29329</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.jdiameter.common.impl.app.cxdx.CxDxSessionFactoryImpl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AuthId[13019:16777216]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cx</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TS.29228, TS.29229</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.jdiameter.common.impl.app.cxdx.CxDxSessionFactoryImpl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AuthId[10415:16777216]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dx</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TS.29228, TS.29229</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.jdiameter.common.impl.app.acc.AccSessionFactoryImpl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountingId[10415:3]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TS.32240</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.jdiameter.common.impl.app.cca.CCASessionFactoryImpl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AuthId[10415:4]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ro</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TS.32240</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There is no specific factory for Ro and Rf.
+Those applications reuse the respective session and session factories.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Application IDs contain two numbers - [VendorId:ApplicationId].
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Spaces have been introduced in the <code>Factory class</code> column values to correctly render the table.
+Please remove them when using copy/paste.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jdiameter_validator"><a class="anchor" href="#_jdiameter_validator"></a>Diameter Stack Validator</h4>
+<div class="paragraph">
+<p>Validator is one of the Stack features.
+The primary purpose of the Validator is to detect malformed messages, such as an Answer message containing a Destination-Host Attribute Value Pair (AVP).</p>
+</div>
+<div class="paragraph">
+<p>The Validator is capable of validating multi-leveled, grouped AVPs, excluding the following content types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>URI, or Identifier types.</p>
+</li>
+<li>
+<p>Enumerated types against defined values.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Validator is only capable of checking structural integrity, not the content of the message.</p>
+</div>
+<div class="paragraph">
+<p>The Validator performs the following checks:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Index</dt>
+<dd>
+<p>Checks that the AVPs are in the correct place.
+For example, <code>Session-Id</code> must always be encoded before any other AVP.</p>
+</dd>
+<dt class="hdlist1">Multiplicity</dt>
+<dd>
+<p>Checks that the message AVPs occur the proper number of times.
+For example, the Session-ID should only be present once.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The <code>Validator</code> is called by the stack implementation.
+It is invoked after the message is received, but before it is dispatched to a remote peer.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This means that if the peer does not exist in the local peer table, the validator is not called, as the stack fails before calling it.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_jdiameter_validator_configuration"><a class="anchor" href="#_jdiameter_validator_configuration"></a>Validator Configuration</h5>
+<div class="paragraph">
+<p>The Validator is configured with a single XML file.
+This file contains the structure definition for both messages and AVPs.</p>
+</div>
+<div class="paragraph">
+<p>Upon creation of the Diameter Stack, the validator is initialized.
+It performs the initialization by looking up the <em class="path">dictionary.xml</em> file in classpath.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The configuration file contains more data that <code>Validator</code> uses to build its data base.
+This is because the <code>Dictionary</code> uses the same file to configure itself.
+It reuses the AVP definitions, with some extra information like AVP type and flags.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The configuration file has the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dictonary&gt;
+	&lt;validator enabled="true|false" sendLevel="OFF|MESSAGE|ALL" receiveLevel="OFF|MESSAGE|ALL" /&gt;
+	&lt;vendor name="" vendor-id="" code=""/&gt;
+	&lt;typedefn type-name="" type-parent=""/&gt;
+	&lt;application id="" name=""&gt;
+		&lt;avp ...&gt;
+			&lt;type type-name=""/&gt;
+			&lt;enum name="" code=""/&gt;
+			&lt;grouped&gt;
+				&lt;gavp name=""/&gt;
+			&lt;grouped/&gt;
+		&lt;avp/&gt;
+		&lt;command name="" code="" request="true|false"/&gt;
+		&lt;avp ...&gt;
+			&lt;type type-name=""/&gt;
+			&lt;enum name="" code=""/&gt;
+			&lt;grouped&gt;
+				&lt;gavp name=""/&gt;
+			&lt;grouped/&gt;
+		&lt;avp/&gt;
+	&lt;application&gt;
+&lt;dictionary/&gt;</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;dictionary&gt;</dt>
+<dd>
+<p>The root element that contains the child elements comprising the validator and dictionary components.
+This element does not support any attributes.</p>
+</dd>
+<dt class="hdlist1">&lt;validator&gt;</dt>
+<dd>
+<p>Specifies whether message validation is activated for sent and received stack messages.
+The element supports the following optional attributes:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>enabled Specifies whether the validator is activated or deactivated.
+If not specified, the validator is deactivated.</p>
+</div>
+<div class="paragraph">
+<p>sendLevel Determines the validation level for messages sent by the stack instance.
+Values determine if sent messages are not validated at all (OFF), only message level AVPs are checked (MESSAGE) or all AVPs are checked (ALL).</p>
+</div>
+<div class="paragraph">
+<p>receiveLevel Determines the validation level for messages received by the stack instance.
+Values determine if sent messages are not validated at all (OFF), only message level AVPs are checked (MESSAGE) or all AVPs are checked (ALL).</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;vendor&gt;</dt>
+<dd>
+<p>Optional element that specifies the mapping between the vendor name, vendor ID, and vendor code.
+The element supports the following required attributes:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>name Specifies the vendor name.
+For example, "Hewlett Packard".</p>
+</div>
+<div class="paragraph">
+<p>vendor-id Specifies the unique ID associated with the vendor.
+For example, "HP".</p>
+</div>
+<div class="paragraph">
+<p>code Specifies the alpha-numeric code allocated to the vendor by IANA.
+For example, "11".
+The value must be unique for each &lt;vendor&gt; declaration.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 3. &lt;vendor&gt; XML Attributes</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">...
+&lt;vendor vendor-id="None" code="0" name="None" /&gt;
+&lt;vendor vendor-id="HP" code="11" name="Hewlett Packard" /&gt;
+&lt;vendor vendor-id="Merit" code="61" name="Merit Networks" /&gt;
+&lt;vendor vendor-id="Sun" code="42" name="Sun Microsystems, Inc." /&gt;
+&lt;vendor vendor-id="USR" code="429" name="US Robotics Corp." /&gt;
+&lt;vendor vendor-id="3GPP2" code="5535" name="3GPP2" /&gt;
+&lt;vendor vendor-id="TGPP" code="10415" name="3GPP" /&gt;
+&lt;vendor vendor-id="TGPPCX" code="16777216" name="3GPP CX/DX" /&gt;
+&lt;vendor vendor-id="TGPPSH" code="16777217" name="3GPP SH" /&gt;
+&lt;vendor vendor-id="Ericsson" code="193" name="Ericsson" /&gt;
+&lt;vendor vendor-id="ETSI" code="13019" name="ETSI" /&gt;
+&lt;vendor vendor-id="Vodafone" code="12645" name="Vodafone" /&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;typedefn&gt;</dt>
+<dd>
+<p>Defines the simple Attribute Value Pair (AVP) types.
+The element supports the following required attributes:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>type-name Specifies a type name in accordance with the acceptable base types defined in RFC 3588. For example; "Enumerated", "OctetString", "Integer32".</p>
+</div>
+<div class="paragraph">
+<p>type-parent Specifies the parent type name used to define the base characteristics of the type.
+The values are restricted to defined &lt;typedefn&gt; elements.
+For example; "OctetString", "UTF8String", "IPAddress".</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 4. &lt;typedefn&gt; XML Attributes</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- Primitive types, see http://tools.ietf.org/html/rfc3588#section-4.2 --&gt;
+&lt;typedefn type-name="OctetString" /&gt;
+&lt;typedefn type-name="Float64" /&gt;
+&lt;typedefn type-name="Float32" /&gt;
+&lt;typedefn type-name="Integer64" /&gt;
+&lt;typedefn type-name="Integer32" /&gt;
+&lt;typedefn type-name="Unsigned64" /&gt;
+&lt;typedefn type-name="Unsigned32" /&gt;
+
+&lt;!-- derived avp types, see http://tools.ietf.org/html/rfc3588#section-4.3 --&gt;
+&lt;typedefn type-name="Address" type-parent="OctetString" /&gt;
+&lt;typedefn type-name="Time" type-parent="OctetString" /&gt;
+&lt;typedefn type-name="UTF8String" type-parent="OctetString" /&gt;
+&lt;typedefn type-name="DiameterIdentity" type-parent="OctetString" /&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;application&gt;</dt>
+<dd>
+<p>Defines the specific applications used within the dictionary.
+Two child elements are supported by &lt;application&gt;: &lt;avp&gt; and &lt;command&gt;.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The &lt;application&gt; element supports the following attributes:</p>
+</div>
+<div class="paragraph">
+<p>id Specifies the unique ID allocated to the application.
+The attribute is used in all messages and forms part of the message header.</p>
+</div>
+<div class="paragraph">
+<p>name Optional attribute that specifies the logical name of the application.</p>
+</div>
+<div class="paragraph">
+<p>uri Optional attribute that specifies a link to additional application information.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 5. &lt;application&gt; XML Attributes</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;application id="16777216" name="3GPP Cx/Dx" uri="http://www.ietf.org/rfc/rfc3588.txt?number=3588"&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;avp&gt;</dt>
+<dd>
+<p>Element containing information necessary to configure the Attribute Value Pairs. <a href="#_table_avp_attributes">[_table_avp_attributes]</a> contains the complete list of supported attributes, and their available values (if applicable).
+The &lt;avp&gt; element supports a number of child elements that are used to set finer parameters for the individual AVP.
+The supported elements are &lt;type&gt;, &lt;enum&gt;, and &lt;grouped&gt;.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Different sets of elements are supported by &lt;avp&gt; depending on its position in the dictionary.xml file.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 6. &lt;avp&gt; Child Elements and Attributes</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;avp name="Server-Assignment-Type" code="614" mandatory="must" vendor-bit="must"
+ vendor-id="TGPP" may-encrypt="no"&gt;
+	 &lt;type type-name="Unsigned32" /&gt;
+	 &lt;enum name="NO_ASSIGMENT" code="0" /&gt;
+	 &lt;enum name="REGISTRATION" code="1" /&gt;
+	 &lt;enum name="RE_REGISTRATION" code="2" /&gt;
+	 &lt;enum name="UNREGISTERED_USER" code="3" /&gt;
+	 &lt;grouped&gt;
+		 &lt;gavp name="SIP-Item-Number" multiplicity="0-1"/&gt;
+		 &lt;gavp name="SIP-Authentication-Scheme" multiplicity="0-1"/&gt;
+		 &lt;gavp name="SIP-Authenticate" multiplicity="0-1"/&gt;
+		 &lt;gavp name="Line-Identifier" multiplicity="0+"/&gt;
+	 &lt;/grouped&gt;
+&lt;/avp&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;type&gt;</dt>
+<dd>
+<p>Child element of &lt;avp&gt; that is used to match the AVP with the AVP type as defined in the &lt;typedefn&gt; element.
+The element supports the following mandatory attribute:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>type-name Specifies the type-name of the element.
+This is used to match the type-name value in the &lt;typedefn&gt; element.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+&lt;type&gt; is ignored if the &lt;avp&gt; element contains the &lt;grouped&gt; element.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;enum&gt;</dt>
+<dd>
+<p>Child element of &lt;avp&gt; that specifies the enumeration value for the specified AVP.
+&lt;enum&gt; is used only when the type-name attribute of &lt;type&gt; is specified.
+The element supports the following mandatory attributes:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>name Specifies the name of a constant value that applies to the AVP.</p>
+</div>
+<div class="paragraph">
+<p>code Specifies the integer value associated with the name of the constant.
+The value is passed as a value of the AVP, and maps to the name attribute.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+&lt;enum&gt; is ignored if the &lt;avp&gt; element contains the &lt;grouped&gt; element.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;grouped&gt;</dt>
+<dd>
+<p>Child element of &lt;avp&gt; that specifies the AVP is a grouped type.
+A grouped AVP is one that has no &lt;typedefn&gt; element present.
+The element does not support any attributes, however the &lt;gavp&gt; element is allowed as a child element.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The &lt;gavp&gt;, which specifies a reference to a grouped AVP, supports one mandatory attribute:</p>
+</div>
+<div class="paragraph">
+<p>name Specifies the name of the grouped AVP member.
+The value must match the defined AVP name.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. &lt;avp&gt; Attributes</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute Name (optional in brackets)</th>
+<th class="tableblock halign-left valign-top">Explicit Values (default in brackets)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the AVP. This is used to match the AVP definition to any grouped AVP references. For further information about grouped AVPs, refer to the element description in this section.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the integer code of the AVP.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(vendor-id)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(none)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to match the vendor ID reference to the value defined in the &lt;vendor&gt; element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(multiplicity)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the number of acceptable AVPs in a message using an explicit value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An AVP must not be present in the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(0+)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zero or more instances of the AVP must be present in the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zero, or one instance of the AVP may be present in the message. An error occurs if the message contains more than one instance of the AVP.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One instance of the AVP must be present in the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1+</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">At least one instance of the AVP must be present in the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">may-encrypt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes | (No)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether the AVP can be encrypted.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">protected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">may | must | mustnot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determines actual state of AVP that is expected, if it MUST be encrypted , may or MUST NOT.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vendor-bit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">must | mustnot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether the Vendor ID should be set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mandatory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">may | must | mustnot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determines if support for this AVP is mandatory in order to consume/process message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vendor</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the defined vendor code, which is used by the &lt;command&gt; child element</p></td>
+</tr>
+</tbody>
+</table>
+<div class="exampleblock">
+<div class="title">Example 7. &lt;avp&gt; XML Attributes</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- MUST --&gt;
+&lt;avp name="Session-Id" code="263" vendor="0" multiplicity="1" index="0" /&gt;
+&lt;avp name="Auth-Session-State" code="277" vendor="0" multiplicity="1" index="-1" /&gt;
+
+&lt;!-- MAY --&gt;
+&lt;avp name="Destination-Host" code="293" vendor="0" multiplicity="0-1" index="-1" /&gt;
+&lt;avp name="Supported-Features" code="628" vendor="10415" multiplicity="0+" index="-1" /&gt;
+
+&lt;!-- FORBBIDEN --&gt;
+&lt;avp name="Auth-Application-Id" code="258" vendor="0" multiplicity="0" index="-1" /&gt;
+&lt;avp name="Error-Reporting-Host" code="294" vendor="0" multiplicity="0" index="-1" /&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">&lt;command&gt;</dt>
+<dd>
+<p>Specifies the command for the application.
+The element supports the &lt;avp&gt; element, which specifies the structure of the command.
+The element supports the following attributes:</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>name Optional parameter that specifies the message name for descriptive purposes.</p>
+</div>
+<div class="paragraph">
+<p>code Mandatory parameter that specifies the integer code of the message.</p>
+</div>
+<div class="paragraph">
+<p>request Mandatory parameter that specifies whether the declared command is a request or answer.
+The available values are "true" (request) or "false" (answer).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the &lt;avp&gt; element is specified in &lt;command&gt;, it does not support any child elements.
+The &lt;avp&gt; element only refers to defined AVPs when used in this context.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 8. &lt;command&gt; Elements and Attributes</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;command name="User-Authorization" code="300" vendor-id="TGPP" request="true"&gt;
+	&lt;avp name="Server-Assignment-Type" code="614" mandatory="must" vendor-bit="must" vendor-id="TGPP" may-encrypt="no"/&gt;
+&lt;/command&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_jdiameter_validator_source_overview"><a class="anchor" href="#_jdiameter_validator_source_overview"></a>Validator Source Overview</h5>
+<div class="paragraph">
+<p>The Validator API defines methods to access its database of AVPs and check if the AVP and message have the proper structure.</p>
+</div>
+<div class="paragraph">
+<p>The Validator is currently message oriented.
+This means that it declares methods that center on message consistency checks.
+The class containing all validation logic is <code class="class">org.jdiameter.common.impl.validation.DiameterMessageValidator</code>.<br>
+It exposes the following methods:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">public boolean isOn();</dt>
+<dd>
+<p>Simple method to determine if the <code>Validator</code> is enabled.</p>
+</dd>
+<dt class="hdlist1">public ValidatorLevel getSendLevel();</dt>
+<dd>
+<p>Returns the validation level of outgoing messages.
+It can have one of the following values: <code>OFF</code>, <code>MESSAGE</code>, <code>ALL</code>.</p>
+</dd>
+<dt class="hdlist1">public ValidatorLevel getReceiveLevel()</dt>
+<dd>
+<p>Returns the validation level of incoming messages.
+It can have one of the following values: <code>OFF</code>, <code>MESSAGE</code>, <code>ALL</code>.</p>
+</dd>
+<dt class="hdlist1">public void validate(Message msg, boolean incoming) throws JAvpNotAllowedException</dt>
+<dd>
+<p>Performs validation on a message.
+Based on the <code class="parameter">incoming</code> flag, the correct validation level is applied.
+If validation fails, an exception with details is thrown.</p>
+</dd>
+<dt class="hdlist1">public void validate(Message msg, ValidatorLevel validatorLevel) throws JAvpNotAllowedException</dt>
+<dd>
+<p>Performs validation on messages with a specified level.
+It is a programatical way to allow different levels of validation from those configured.
+If validation fails, a <code class="class">JAvpNotAllowedException</code> with details is thrown.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The current implementation provides more methods, however those are out of scope for this documentation.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A simple example of a Validator use case is shown below:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 9. Validator Message Check Example</div>
+<div class="content">
+<div class="paragraph">
+<p>The example below is pseudo-code.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">...
+boolean isRequest = true;
+boolean isIncoming = false;
+
+DiameterMessageValidator messageValidator = DiameterMessageValidator.getInstance();
+Message message = createMessage(UserDataRequest.MESSAGE_CODE, isRequest,
+	applicationId);
+
+//add AVPs
+...
+//perform check
+try{
+  messageValidator.validate(message, isIncoming);
+}
+catch(JAvpNotAllowedException e) {
+	System.err.println("Failed to validate ..., avp code: " + e.getAvpCode() + " avp vendor:" + e.getVendorId() + ", message:" + e.getMessage());
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Appendix A: Revision History</h3>
+
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Introduction</a></span>
+  <span class="next"><a href="Implementing-Diameter-Service.html">Implementing Diameter Service</a></span>
+</nav>
+</article>
+    </div>
+  </qs-target>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2026 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

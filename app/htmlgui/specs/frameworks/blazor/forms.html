@@ -1,0 +1,2137 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>ASP.NET Core Blazor forms overview | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn how to use forms in Blazor." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/?view=aspnetcore-10.0" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="ASP.NET Core Blazor forms overview | Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/dotnet/media/dotnet-logo.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="ASP.NET Core Blazor forms overview" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/?view=aspnetcore-10.0" />
+			<meta property="og:description" content="Learn how to use forms in Blazor." />
+			<meta name="platform_id" content="b280ee46-842c-1729-6df4-c52122b27535" /> <meta name="scope" content="ASP.NET Core" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-AspNet" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/aspnet/core/breadcrumb/toc.json" />
+	
+		<meta name="feedback_system" content="OpenSource" />
+	
+		<meta name="feedback_product_url" content="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md" />
+	
+		<meta name="ms.service" content="aspnet-core" />
+	
+		<meta name="ms.topic" content="concept-article" />
+	
+		<meta name="ms.subservice" content="blazor" />
+	
+		<meta name="ms.update-cycle" content="365-days" />
+	
+		<meta name="author" content="guardrex" />
+	
+		<meta name="monikerRange" content="&gt;= aspnetcore-3.1" />
+	
+		<meta name="ms.author" content="wpickett" />
+	
+		<meta name="ms.date" content="2025-11-11T00:00:00Z" />
+	
+		<meta name="uid" content="blazor/forms/index" />
+	
+		<meta name="document_id" content="d6347620-1029-3051-7ecd-673641cdde22" />
+	
+		<meta name="document_version_independent_id" content="d6347620-1029-3051-7ecd-673641cdde22" />
+	
+		<meta name="updated_at" content="2026-08-26T18:03:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/blazor/forms/index.md" />
+	
+		<meta name="gitcommit" content="https://github.com/dotnet/AspNetCore.Docs/blob/6c866017b2ee90a82e5cc34ddc9961bd42f9c92c/aspnetcore/blazor/forms/index.md" />
+	
+		<meta name="git_commit_id" content="6c866017b2ee90a82e5cc34ddc9961bd42f9c92c" />
+	
+		<meta name="monikers" content="aspnetcore-3.1" />
+	
+		<meta name="monikers" content="aspnetcore-5.0" />
+	
+		<meta name="monikers" content="aspnetcore-6.0" />
+	
+		<meta name="monikers" content="aspnetcore-7.0" />
+	
+		<meta name="monikers" content="aspnetcore-8.0" />
+	
+		<meta name="monikers" content="aspnetcore-9.0" />
+	
+		<meta name="monikers" content="aspnetcore-10.0" />
+	
+		<meta name="monikers" content="aspnetcore-11.0" />
+	
+		<meta name="default_moniker" content="aspnetcore-10.0" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="MSDN.aspnet-core-conceptual" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/MSDN.aspnet-core-conceptual/{branchName}{pdfName}" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="3549" />
+	
+		<meta name="config_moniker_range" content="&gt;= aspnetcore-1.0" />
+	
+		<meta name="asset_id" content="blazor/forms/index" />
+	
+		<meta name="moniker_range_name" content="4cfd5c821d66016c0c1ada9451d1ea32" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="aspnetcore/blazor/forms/index.md" />
+	
+		<meta name="previous_tlsh_hash" content="59111792B60C9330BFC24D0B7CA7368197F4C0886EE427C81132A26689097E2B57E55DF6F762730823710AA212D2B6DD97E3D7AFE17C67A210D164B5C29D1691971A3FB7ED" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/forms/index.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/?view=aspnetcore-10.0&amp;accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/97159432-14a9-4307-a469-d2f2c75f0e33" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/06819054-3d1b-4589-8746-b33c4dc1ebf2" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/50565c62-5f6b-4687-be38-323113c72c2e" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/ae0d1d73-8b86-4e29-9ab4-867b4f9f6186" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03524.8175-9553bcde/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": false,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "OpenSource",
+    "feedbackGitHubRepo": "dotnet/AspNetCore.Docs",
+    "feedbackProductUrl": "https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true,
+    "openSourceFeedbackIssueUrl": "https://github.com/dotnet/aspnetcore.docs/issues/new?template=customer-feedback.yml",
+    "openSourceFeedbackIssueTitle": "",
+    "openSourceFeedbackIssueLabels": "Source - Docs.ms,:watch: Not Triaged"
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03524.8175-9553bcde/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/forms/index.md"
+			data-original_content_git_url="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/blazor/forms/index.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/aspnetcore/blazor/forms/index.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="aspnet-core-blazor-forms-overview">ASP.NET Core Blazor forms overview</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	
+					<div class="content"><div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<div class="NOTE">
+<p>Note</p>
+<p>This isn't the latest version of this article. For the current release, see the <a href="?view=aspnetcore-10.0&amp;preserve-view=true" data-linktype="relative-path">.NET 10 version of this article</a>.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-7.0">
+<div class="WARNING">
+<p>Warning</p>
+<p>This version of ASP.NET Core is no longer supported. For more information, see the <a href="https://dotnet.microsoft.com/platform/support/policy/dotnet-core" data-linktype="external">.NET and .NET Core Support Policy</a>. For the current release, see the <a href="?view=aspnetcore-10.0&amp;preserve-view=true" data-linktype="relative-path">.NET 10 version of this article</a>.</p>
+</div>
+</div>
+<!-- Exclude until .NET 11 preview is added to the version selector collection
+(add triple colon here) moniker range="> aspnetcore-10.0"
+> [!IMPORTANT]
+> This information relates to a pre-release product that may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> For the current release, see the [.NET 10 version of this article](?view=aspnetcore-10.0&preserve-view=true).
+(add triple colon here) moniker-end
+-->
+<!--
+Include either this file or 'not-latest-version-without-not-supported-content.md' at the top 
+of articles.
+
+'not-latest-version.md' (this file): Includes not-supported content.
+'not-latest-version-without-not-supported-content.md': Doesn't include not-supported content.
+
+Use this file in articles that target >=7.0. For articles that target >=8.0 prior to 10.0
+reaching EOL, 'not-latest-version-without-not-supported-content.md' must be used to avoid
+a zone/file moniker range mismatch error.
+
+When a new version is released, it might be necessary to temporarily comment out the current 
+version moniker range section until the new moniker is created.
+
+Markdown to include this file:
+
+[!INCLUDE[](~/includes/not-latest-version.md)]
+-->
+<p>This article explains how to use forms in Blazor.</p>
+<h2 id="input-components-and-forms">Input components and forms</h2>
+<p>The Blazor framework supports forms and provides built-in input components:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<ul>
+<li>Bound to an object or model that can use <a href="../../mvc/models/validation?view=aspnetcore-10.0" data-linktype="relative-path">data annotations</a>.
+<ul>
+<li>HTML forms with the <code>&lt;form&gt;</code> element.</li>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> components.</li>
+</ul>
+</li>
+<li><a href="input-components?view=aspnetcore-10.0" data-linktype="relative-path">Built-in input components</a>.</li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<ul>
+<li>An <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> component bound to an object or model that can use <a href="../../mvc/models/validation?view=aspnetcore-10.0" data-linktype="relative-path">data annotations</a>.</li>
+<li><a href="input-components?view=aspnetcore-10.0" data-linktype="relative-path">Built-in input components</a>.</li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<p>In Blazor Web Apps that use static server-side rendering (static SSR), input components automatically participate in client-side validation when the form contains a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator" class="no-loc" data-linktype="absolute-path">DataAnnotationsValidator</a> component. For details, see <a href="validation?view=aspnetcore-10.0#client-side-validation-in-static-ssr-forms" data-linktype="relative-path">ASP.NET Core Blazor forms validation</a>.</p>
+</div>
+<div class="NOTE">
+<p>Note</p>
+<p>Unsupported ASP.NET Core validation features are covered in the <a href="#unsupported-validation-features" data-linktype="self-bookmark">Unsupported validation features</a> section.</p>
+</div>
+<p>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms" class="no-loc" data-linktype="absolute-path">Microsoft.AspNetCore.Components.Forms</a> namespace provides:</p>
+<ul>
+<li>Classes for managing form elements, state, and validation.</li>
+<li>Access to built-in <span class="no-loc" dir="ltr" lang="en-us">Input*</span> components.</li>
+</ul>
+<p>A project created from the Blazor project template includes the namespace in the app's imports file (<code>_Imports.razor</code>), which makes the namespace available to the app's Razor components.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Standard HTML forms are supported. Create a form using the normal HTML <code>&lt;form&gt;</code> tag and specify an <code>@onsubmit</code> handler for handling the submitted form request.</p>
+<p><code>StarshipPlainForm.razor</code>:</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/starship-plain-form"
+@inject ILogger&lt;StarshipPlainForm&gt; Logger
+
+&lt;form method="post" @onsubmit="Submit" @formname="starship-plain-form"&gt;
+    &lt;AntiforgeryToken /&gt;
+    &lt;div&gt;
+        &lt;label&gt;
+            Identifier: 
+            &lt;InputText @bind-Value="Model!.Id" /&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+@code {
+    [SupplyParameterFromForm]
+    private Starship? Model { get; set; }
+
+    protected override void OnInitialized() =&gt; Model ??= new();
+
+    private void Submit() =&gt; Logger.LogInformation("Id = {Id}", Model?.Id);
+
+    public class Starship
+    {
+        public string? Id { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/starship-plain-form"
+@inject ILogger&lt;StarshipPlainForm&gt; Logger
+
+&lt;form method="post" @onsubmit="Submit" @formname="starship-plain-form"&gt;
+    &lt;AntiforgeryToken /&gt;
+    &lt;div&gt;
+        &lt;label&gt;
+            Identifier: 
+            &lt;InputText @bind-Value="Model!.Id" /&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+@code {
+    [SupplyParameterFromForm]
+    private Starship? Model { get; set; }
+
+    protected override void OnInitialized() =&gt; Model ??= new();
+
+    private void Submit() =&gt; Logger.LogInformation("Id = {Id}", Model?.Id);
+
+    public class Starship
+    {
+        public string? Id { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>In the preceding <code>StarshipPlainForm</code> component:</p>
+<ul>
+<li>The form is rendered where the <code>&lt;form&gt;</code> element appears. The form is named with the <a href="../../mvc/views/razor?view=aspnetcore-10.0#formname" data-linktype="relative-path"><code>@formname</code></a> directive attribute, which uniquely identifies the form to the Blazor framework.</li>
+<li>The model is created in the component's <code>@code</code> block and held in a <code>public</code> property (<code>Model</code>). The <code>[SupplyParameterFromForm]</code> attribute indicates that the value of the associated property should be supplied from the form data. Data in the request that matches the property's name is bound to the property.</li>
+<li>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputtext" class="no-loc" data-linktype="absolute-path">InputText</a> component is an input component for editing string values. The <code>@bind-Value</code> directive attribute binds the <code>Model.Id</code> model property to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputtext" class="no-loc" data-linktype="absolute-path">InputText</a> component's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputbase-1.value" class="no-loc" data-linktype="absolute-path">Value</a> property.</li>
+<li>The <code>Submit</code> method is registered as a handler for the <!-- <xref:Microsoft.AspNetCore.Components.Forms.EditForm.OnSubmit> --> <code>@onsubmit</code> callback. The handler is called when the form is submitted by the user.</li>
+</ul>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>Always use the <a href="../../mvc/views/razor?view=aspnetcore-10.0#formname" data-linktype="relative-path"><code>@formname</code></a> directive attribute with a unique form name.</p>
+</div>
+<p>Blazor enhances page navigation and form handling by intercepting the request in order to apply the response to the existing DOM, preserving as much of the rendered form as possible. The enhancement avoids the need to fully load the page and provides a much smoother user experience, similar to a single-page app (SPA), although the component is rendered on the server. For more information, see <a href="../fundamentals/navigation?view=aspnetcore-10.0#enhanced-navigation-and-form-handling" data-linktype="relative-path">ASP.NET Core Blazor navigation</a>.</p>
+<!-- UPDATE 11.0 - Check the PU issue (backlogged as of 2/27/25 -->
+<p><a href="../components/rendering?view=aspnetcore-10.0#streaming-rendering" data-linktype="relative-path">Streaming rendering</a> is supported for plain HTML forms. Note that when <code>POST</code>ing a form, only DOM updates inside the form's handlers are streamed (for example, <code>@onsubmit</code>). Updates inside <code>OnInitializedAsync</code> are only streamed for <code>GET</code> requests. For more information, see <a href="https://github.com/dotnet/aspnetcore/issues/50994" data-linktype="external">Allow streaming the loading phase of POST responses (<code>dotnet/aspnetcore</code> #50994)</a>.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Documentation links to .NET reference source usually load the repository's default branch, which represents the current development for the next release of .NET. To select a tag for a specific release, use the <strong>Switch branches or tags</strong> dropdown list. For more information, see <a href="https://github.com/dotnet/AspNetCore.Docs/discussions/26205" data-linktype="external">How to select a version tag of ASP.NET Core source code (dotnet/AspNetCore.Docs #26205)</a>.</p>
+</div>
+<p>The preceding example includes antiforgery support by including an <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.antiforgerytoken" class="no-loc" data-linktype="absolute-path">AntiforgeryToken</a> component in the form. Antiforgery support is explained further in the <a href="#antiforgery-support" data-linktype="self-bookmark">Antiforgery support</a> section of this article.</p>
+<p>To submit a form based on another element's DOM events, for example <code>oninput</code> or <code>onblur</code>, use JavaScript to submit the form (<a href="https://developer.mozilla.org/docs/Web/API/HTMLFormElement/submit" data-linktype="external"><code>submit</code></a>).</p>
+<p>Instead of using plain forms in Blazor apps, a form is typically defined with Blazor's built-in form support using the framework's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> component. The following Razor component demonstrates typical elements, components, and Razor code to render a webform using an <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> component.</p>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<p>A form is defined using the Blazor framework's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> component. The following Razor component demonstrates typical elements, components, and Razor code to render a webform using an <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> component.</p>
+</div>
+<p><code>Starship1.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/starship-1"
+@inject ILogger&lt;Starship1&gt; Logger
+
+&lt;EditForm Model="Model" OnSubmit="Submit" FormName="Starship1"&gt;
+    &lt;div&gt;
+        &lt;label&gt;
+            Identifier:
+            &lt;InputText @bind-Value="Model!.Id" /&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/EditForm&gt;
+
+@code {
+    [SupplyParameterFromForm]
+    private Starship? Model { get; set; }
+
+    protected override void OnInitialized() =&gt; Model ??= new();
+
+    private void Submit() =&gt; Logger.LogInformation("Id = {Id}", Model?.Id);
+
+    public class Starship
+    {
+        public string? Id { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/starship-1"
+@inject ILogger&lt;Starship1&gt; Logger
+
+&lt;EditForm Model="Model" OnSubmit="Submit" FormName="Starship1"&gt;
+    &lt;div&gt;
+        &lt;label&gt;
+            Identifier:
+            &lt;InputText @bind-Value="Model!.Id" /&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/EditForm&gt;
+
+@code {
+    [SupplyParameterFromForm]
+    private Starship? Model { get; set; }
+
+    protected override void OnInitialized() =&gt; Model ??= new();
+
+    private void Submit() =&gt; Logger.LogInformation("Id = {Id}", Model?.Id);
+
+    public class Starship
+    {
+        public string? Id { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>In the preceding <code>Starship1</code> component:</p>
+<ul>
+<li>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> component is rendered where the <code>&lt;EditForm&gt;</code> element appears. The form is named with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.formname#microsoft-aspnetcore-components-forms-editform-formname" class="no-loc" data-linktype="absolute-path">FormName</a> property, which uniquely identifies the form to the Blazor framework.</li>
+<li>The model is created in the component's <code>@code</code> block and held in a <code>public</code> property (<code>Model</code>). The property is assigned to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.model#microsoft-aspnetcore-components-forms-editform-model" class="no-loc" data-linktype="absolute-path">EditForm.Model</a> parameter. The <code>[SupplyParameterFromForm]</code> attribute indicates that the value of the associated property should be supplied from the form data. Data in the request that matches the property's name is bound to the property.</li>
+<li>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputtext" class="no-loc" data-linktype="absolute-path">InputText</a> component is an <a href="input-components?view=aspnetcore-10.0" data-linktype="relative-path">input component</a> for editing string values. The <code>@bind-Value</code> directive attribute binds the <code>Model.Id</code> model property to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputtext" class="no-loc" data-linktype="absolute-path">InputText</a> component's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputbase-1.value" class="no-loc" data-linktype="absolute-path">Value</a> property.</li>
+<li>The <code>Submit</code> method is registered as a handler for the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.onsubmit#microsoft-aspnetcore-components-forms-editform-onsubmit" class="no-loc" data-linktype="absolute-path">OnSubmit</a> callback. The handler is called when the form is submitted by the user.</li>
+</ul>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>Always use the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.formname#microsoft-aspnetcore-components-forms-editform-formname" class="no-loc" data-linktype="absolute-path">FormName</a> property with a unique form name.</p>
+</div>
+<p>Blazor enhances page navigation and form handling for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> components. For more information, see <a href="../fundamentals/navigation?view=aspnetcore-10.0#enhanced-navigation-and-form-handling" data-linktype="relative-path">ASP.NET Core Blazor navigation</a>.</p>
+<!-- UPDATE 11.0 - Check the PU issue (backlogged as of 2/27/25 -->
+<p><a href="../components/rendering?view=aspnetcore-10.0#streaming-rendering" data-linktype="relative-path">Streaming rendering</a> is supported for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a>. Note that when <code>POST</code>ing a form, only DOM updates inside the form's handlers are streamed (for example, <code>OnValidSubmit</code>). Updates inside <code>OnInitializedAsync</code> are only streamed for <code>GET</code> requests. For more information, see <a href="https://github.com/dotnet/aspnetcore/issues/50994" data-linktype="external">Allow streaming the loading phase of POST responses (<code>dotnet/aspnetcore</code> #50994)</a>.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Documentation links to .NET reference source usually load the repository's default branch, which represents the current development for the next release of .NET. To select a tag for a specific release, use the <strong>Switch branches or tags</strong> dropdown list. For more information, see <a href="https://github.com/dotnet/AspNetCore.Docs/discussions/26205" data-linktype="external">How to select a version tag of ASP.NET Core source code (dotnet/AspNetCore.Docs #26205)</a>.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/starship-1"
+@inject ILogger&lt;Starship1&gt; Logger
+
+&lt;EditForm Model="Model" OnSubmit="Submit"&gt;
+    &lt;InputText @bind-Value="Model!.Id" /&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/EditForm&gt;
+
+@code {
+    public Starship? Model { get; set; }
+
+    protected override void OnInitialized() =&gt; Model ??= new();
+
+    private void Submit()
+    {
+        Logger.LogInformation("Model.Id = {Id}", Model?.Id);
+    }
+
+    public class Starship
+    {
+        public string? Id { get; set; }
+    }
+}
+</code></pre>
+<p>In the preceding <code>Starship1</code> component:</p>
+<ul>
+<li>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> component is rendered where the <code>&lt;EditForm&gt;</code> element appears.</li>
+<li>The model is created in the component's <code>@code</code> block and held in a private field (<code>model</code>). The field is assigned to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.model#microsoft-aspnetcore-components-forms-editform-model" class="no-loc" data-linktype="absolute-path">EditForm.Model</a> parameter.</li>
+<li>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputtext" class="no-loc" data-linktype="absolute-path">InputText</a> component is an input component for editing string values. The <code>@bind-Value</code> directive attribute binds the <code>Model.Id</code> model property to the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputtext" class="no-loc" data-linktype="absolute-path">InputText</a> component's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.inputbase-1.value" class="no-loc" data-linktype="absolute-path">Value</a> property†.</li>
+<li>The <code>Submit</code> method is registered as a handler for the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.onsubmit#microsoft-aspnetcore-components-forms-editform-onsubmit" class="no-loc" data-linktype="absolute-path">OnSubmit</a> callback. The handler is called when the form is submitted by the user.</li>
+</ul>
+</div>
+<p>†For more information on property binding, see <a href="../components/data-binding?view=aspnetcore-10.0#binding-with-component-parameters" data-linktype="relative-path">ASP.NET Core Blazor data binding</a>.</p>
+<p>In the next example, the preceding component is modified to create the form in the <code>Starship2</code> component:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.onsubmit#microsoft-aspnetcore-components-forms-editform-onsubmit" class="no-loc" data-linktype="absolute-path">OnSubmit</a> is replaced with <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.onvalidsubmit#microsoft-aspnetcore-components-forms-editform-onvalidsubmit" class="no-loc" data-linktype="absolute-path">OnValidSubmit</a>, which processes assigned event handler if the form is valid when submitted by the user.</li>
+<li>A <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationsummary" class="no-loc" data-linktype="absolute-path">ValidationSummary</a> component is added to display validation messages when the form is invalid on form submission.</li>
+<li>The data annotations validator (<a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator" class="no-loc" data-linktype="absolute-path">DataAnnotationsValidator</a> component†) attaches validation support using data annotations:
+<ul>
+<li>If the <code>&lt;input&gt;</code> form field is left blank when the <strong><code>Submit</code></strong> button is selected, an error appears in the validation summary (<a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationsummary" class="no-loc" data-linktype="absolute-path">ValidationSummary</a> component‡) ("<code>The Id field is required.</code>") and <code>Submit</code> is <strong>not</strong> called.</li>
+<li>If the <code>&lt;input&gt;</code> form field contains more than ten characters when the <strong><code>Submit</code></strong> button is selected, an error appears in the validation summary ("<code>Id is too long.</code>"). <code>Submit</code> is <strong>not</strong> called.</li>
+<li>If the <code>&lt;input&gt;</code> form field contains a valid value when the <strong><code>Submit</code></strong> button is selected, <code>Submit</code> is called.</li>
+</ul>
+</li>
+</ul>
+<p>†The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator" class="no-loc" data-linktype="absolute-path">DataAnnotationsValidator</a> component is covered in the <a href="validation?view=aspnetcore-10.0#validator-components" data-linktype="relative-path">Validator component</a> section. ‡The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationsummary" class="no-loc" data-linktype="absolute-path">ValidationSummary</a> component is covered in the <a href="validation?view=aspnetcore-10.0#validation-summary-and-validation-message-components" data-linktype="relative-path">Validation Summary and Validation Message components</a> section.</p>
+<p><code>Starship2.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/starship-2"
+@using System.ComponentModel.DataAnnotations
+@inject ILogger&lt;Starship2&gt; Logger
+
+&lt;EditForm Model="Model" OnValidSubmit="Submit" FormName="Starship2"&gt;
+    &lt;DataAnnotationsValidator /&gt;
+    &lt;ValidationSummary /&gt;
+    &lt;label&gt;
+        Identifier: 
+        &lt;InputText @bind-Value="Model!.Id" /&gt;
+    &lt;/label&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/EditForm&gt;
+
+@code {
+    [SupplyParameterFromForm]
+    private Starship? Model { get; set; }
+
+    protected override void OnInitialized() =&gt; Model ??= new();
+
+    private void Submit() =&gt; Logger.LogInformation("Id = {Id}", Model?.Id);
+
+    public class Starship
+    {
+        [Required]
+        [StringLength(10, ErrorMessage = "Id is too long.")]
+        public string? Id { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/starship-2"
+@using System.ComponentModel.DataAnnotations
+@inject ILogger&lt;Starship2&gt; Logger
+
+&lt;EditForm Model="Model" OnValidSubmit="Submit" FormName="Starship2"&gt;
+    &lt;DataAnnotationsValidator /&gt;
+    &lt;ValidationSummary /&gt;
+    &lt;label&gt;
+        Identifier: 
+        &lt;InputText @bind-Value="Model!.Id" /&gt;
+    &lt;/label&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/EditForm&gt;
+
+@code {
+    [SupplyParameterFromForm]
+    private Starship? Model { get; set; }
+
+    protected override void OnInitialized() =&gt; Model ??= new();
+
+    private void Submit() =&gt; Logger.LogInformation("Id = {Id}", Model?.Id);
+
+    public class Starship
+    {
+        [Required]
+        [StringLength(10, ErrorMessage = "Id is too long.")]
+        public string? Id { get; set; }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/starship-2"
+@using System.ComponentModel.DataAnnotations
+@inject ILogger&lt;Starship2&gt; Logger
+
+&lt;EditForm Model="Model" OnValidSubmit="Submit"&gt;
+    &lt;DataAnnotationsValidator /&gt;
+    &lt;ValidationSummary /&gt;
+    &lt;InputText @bind-Value="Model!.Id" /&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/EditForm&gt;
+
+@code {
+    public Starship? Model { get; set; }
+
+    protected override void OnInitialized() =&gt; Model ??= new();
+
+    private void Submit()
+    {
+        Logger.LogInformation("Id = {Id}", Model?.Id);
+    }
+
+    public class Starship
+    {
+        [Required]
+        [StringLength(10, ErrorMessage = "Id is too long.")]
+        public string? Id { get; set; }
+    }
+}
+</code></pre>
+</div>
+<h2 id="handle-form-submission">Handle form submission</h2>
+<p>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> provides the following callbacks for handling form submission:</p>
+<ul>
+<li>Use <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.onvalidsubmit#microsoft-aspnetcore-components-forms-editform-onvalidsubmit" class="no-loc" data-linktype="absolute-path">OnValidSubmit</a> to assign an event handler to run when a form with valid fields is submitted.</li>
+<li>Use <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.oninvalidsubmit#microsoft-aspnetcore-components-forms-editform-oninvalidsubmit" class="no-loc" data-linktype="absolute-path">OnInvalidSubmit</a> to assign an event handler to run when a form with invalid fields is submitted.</li>
+<li>Use <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.onsubmit#microsoft-aspnetcore-components-forms-editform-onsubmit" class="no-loc" data-linktype="absolute-path">OnSubmit</a> to assign an event handler to run regardless of the form fields' validation status. The form is validated by calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext.validate" class="no-loc" data-linktype="absolute-path">EditContext.Validate</a> in the event handler method. If <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext.validate" class="no-loc" data-linktype="absolute-path">Validate</a> returns <code>true</code>, the form is valid.</li>
+</ul>
+<h2 id="clear-a-form-or-field">Clear a form or field</h2>
+<p>Reset a form by clearing its model back to its default state, which can be performed inside or outside of an <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a>'s markup:</p>
+<pre><code class="lang-razor">&lt;button @onclick="ClearForm"&gt;Clear form&lt;/button&gt;
+
+...
+
+private void ClearForm() =&gt; Model = new();
+</code></pre>
+<p>Alternatively, use an explicit Razor expression:</p>
+<pre><code class="lang-razor">&lt;button @onclick="@(() =&gt; Model = new())"&gt;Clear form&lt;/button&gt;
+</code></pre>
+<p>Reset a field by clearing its model value back to its default state:</p>
+<pre><code class="lang-razor">&lt;button @onclick="ResetId"&gt;Reset Identifier&lt;/button&gt;
+
+...
+
+private void ResetId() =&gt; Model!.Id = string.Empty;
+</code></pre>
+<p>Alternatively, use an explicit Razor expression:</p>
+<pre><code class="lang-razor">&lt;button @onclick="@(() =&gt; Model!.Id = string.Empty)"&gt;Reset Identifier&lt;/button&gt;
+</code></pre>
+<p>There's no need to call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" class="no-loc" data-linktype="absolute-path">StateHasChanged</a> in the preceding examples because <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" class="no-loc" data-linktype="absolute-path">StateHasChanged</a> is automatically called by the Blazor framework to rerender the component after an event handler is invoked. If an event handler isn't used to invoke the methods that clear a form or field, then developer code should call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" class="no-loc" data-linktype="absolute-path">StateHasChanged</a> to rerender the component.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="antiforgery-support">Antiforgery support</h2>
+<p>Antiforgery services are automatically added to Blazor apps when <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.razorcomponentsservicecollectionextensions.addrazorcomponents" class="no-loc" data-linktype="absolute-path">AddRazorComponents</a> is called in the <code>Program</code> file.</p>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<p>Automatic Cross-Site Request Forgery (CSRF) protection middleware is enabled by default in apps built with <code>WebApplication.CreateBuilder</code>. The middleware inspects the <code>Sec-Fetch-Site</code> and <code>Origin</code> headers on unsafe HTTP methods and records a validation verdict on the request. Blazor server-side rendering (SSR) form posts enforce that verdict and return <code>400 Bad Request</code> for cross-origin form posts that aren't trusted.</p>
+<p>Token-based antiforgery services are added to the app when <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.razorcomponentsservicecollectionextensions.addrazorcomponents" class="no-loc" data-linktype="absolute-path">AddRazorComponents</a> is called in the <code>Program</code> file. However, token validation only runs when antiforgery middleware is explicitly added to the request processing pipeline by calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a>.</p>
+<p>Adding token-based antiforgery middleware doesn't replace the automatic header-based CSRF protection middleware. When an app calls <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a>, both defense mechanisms run for a form post:</p>
+<ul>
+<li>The header-based CSRF protection middleware runs first and records its verdict.</li>
+<li>Antiforgery middleware performs token-based validation.</li>
+</ul>
+<p>The token-based result from antiforgery middleware is authoritative and overrides the earlier header-based CSRF middleware verdict.</p>
+<p>To explicitly add antiforgery middleware, call <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a> after the call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.endpointroutingapplicationbuilderextensions.userouting" class="no-loc" data-linktype="absolute-path">UseRouting</a>. If there are calls to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.endpointroutingapplicationbuilderextensions.userouting" class="no-loc" data-linktype="absolute-path">UseRouting</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.endpointroutingapplicationbuilderextensions.useendpoints" class="no-loc" data-linktype="absolute-path">UseEndpoints</a>, the call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a> must go between them. A call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a> must be placed after calls to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication" class="no-loc" data-linktype="absolute-path">UseAuthentication</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.authorizationappbuilderextensions.useauthorization" class="no-loc" data-linktype="absolute-path">UseAuthorization</a>.</p>
+<p>To disable the automatic header-based CSRF protection middleware, set the <code>DisableCsrfProtection</code> configuration key to true. For example, use the app settings file (<code>appsettings.json</code>) to disable the middleware:</p>
+<pre><code class="lang-json">{
+  "DisableCsrfProtection": true
+}
+</code></pre>
+<p>The <code>DisableCsrfProtection</code> configuration setting can be supplied by any configuration source, including via an environment variable (<code>DisableCsrfProtection=true</code>).</p>
+<div class="WARNING">
+<p>Warning</p>
+<p>Disabling the automatic CSRF protection middleware removes the default header-based (<code>Sec-Fetch-Site</code>/<code>Origin</code>) protection for the entire app. Only disable it if you provide an alternative CSRF defense, such as explicitly adopting token-based antiforgery middleware by calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a>.</p>
+</div>
+<p>For more information, see <a href="../../security/anti-request-forgery?view=aspnetcore-10.0#automatic-csrf-protection-in-aspnet-core" data-linktype="relative-path">Automatic CSRF protection</a>.</p>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>The following guidance on the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.antiforgerytoken" class="no-loc" data-linktype="absolute-path">AntiforgeryToken</a> component and the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.antiforgerystateprovider" class="no-loc" data-linktype="absolute-path">AntiforgeryStateProvider</a> service only apply to an app that explicitly adopts token-based antiforgery middleware by calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a> in its request processing pipeline.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>The app uses antiforgery middleware by calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a> in its request processing pipeline in the <code>Program</code> file. <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a> is called after the call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.endpointroutingapplicationbuilderextensions.userouting" class="no-loc" data-linktype="absolute-path">UseRouting</a>. If there are calls to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.endpointroutingapplicationbuilderextensions.userouting" class="no-loc" data-linktype="absolute-path">UseRouting</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.endpointroutingapplicationbuilderextensions.useendpoints" class="no-loc" data-linktype="absolute-path">UseEndpoints</a>, the call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a> must go between them. A call to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.antiforgeryapplicationbuilderextensions.useantiforgery" class="no-loc" data-linktype="absolute-path">UseAntiforgery</a> must be placed after calls to <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication" class="no-loc" data-linktype="absolute-path">UseAuthentication</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.authorizationappbuilderextensions.useauthorization" class="no-loc" data-linktype="absolute-path">UseAuthorization</a>.</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.antiforgerytoken" class="no-loc" data-linktype="absolute-path">AntiforgeryToken</a> component renders an antiforgery token as a hidden field, and the <code>[RequireAntiforgeryToken]</code> attribute enables antiforgery protection. If an antiforgery check fails, a <a href="https://developer.mozilla.org/docs/Web/HTTP/Status/400" data-linktype="external"><code>400 - Bad Request</code></a> response is thrown and the form isn't processed.</p>
+<p>For forms based on <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a>, the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.antiforgerytoken" class="no-loc" data-linktype="absolute-path">AntiforgeryToken</a> component and <code>[RequireAntiforgeryToken]</code> attribute are automatically added to provide antiforgery protection.</p>
+<p>For forms based on the HTML <code>&lt;form&gt;</code> element, manually add the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.antiforgerytoken" class="no-loc" data-linktype="absolute-path">AntiforgeryToken</a> component to the form:</p>
+<pre><code class="lang-razor">&lt;form method="post" @onsubmit="Submit" @formname="starshipForm"&gt;
+    &lt;AntiforgeryToken /&gt;
+    &lt;input id="send" type="submit" value="Send" /&gt;
+&lt;/form&gt;
+
+@if (submitted)
+{
+    &lt;p&gt;Form submitted!&lt;/p&gt;
+}
+
+@code{
+    private bool submitted = false;
+
+    private void Submit() =&gt; submitted = true;
+}
+</code></pre>
+<div class="WARNING">
+<p>Warning</p>
+<p>For forms based on either <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> or the HTML <code>&lt;form&gt;</code> element, antiforgery protection can be disabled by passing <code>required: false</code> to the <code>[RequireAntiforgeryToken]</code> attribute. The following example disables antiforgery and is <em><strong>not recommended</strong></em> for public apps:</p>
+<pre><code class="lang-razor">@using Microsoft.AspNetCore.Antiforgery
+@attribute [RequireAntiforgeryToken(required: false)]
+</code></pre>
+</div>
+<p>For more information, see <a href="../security/?view=aspnetcore-10.0#antiforgery-support" data-linktype="relative-path">ASP.NET Core Blazor authentication and authorization</a>.</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="mitigate-overposting-attacks">Mitigate overposting attacks</h2>
+<p>Statically-rendered server-side forms, such as those typically used in components that create and edit records in a database with a form model, can be vulnerable to an <em>overposting</em> attack, also known as a <em>mass assignment</em> attack. An overposting attack occurs when a malicious user issues an HTML form POST to the server that processes data for properties that aren't part of the rendered form and that the developer doesn't wish to allow users to modify. The term "overposting" literally means that the malicious user has <em>over</em>-POSTed with the form.</p>
+<p>Overposting isn't a concern when the model doesn't include restricted properties for create and update operations. However, it's important to keep overposting in mind when working with static SSR-based Blazor forms that you maintain.</p>
+<p>To mitigate overposting, we recommend using a separate view model/data transfer object (DTO) for the form and database with create (insert) and update operations. When the form is submitted, only properties of the view model/DTO are used by the component and C# code to modify the database. Any extra data included by a malicious user is discarded, so the malicious user is prevented from conducting an overposting attack.</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="enhanced-form-handling">Enhanced form handling</h2>
+<p><a href="../fundamentals/navigation?view=aspnetcore-10.0#enhanced-navigation-and-form-handling" data-linktype="relative-path">Enhance navigation</a> for form POST requests with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.enhance" class="no-loc" data-linktype="absolute-path">Enhance</a> parameter for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> forms or the <code>data-enhance</code> attribute for HTML forms (<code>&lt;form&gt;</code>):</p>
+<pre><code class="lang-razor">&lt;EditForm ... Enhance ...&gt;
+    ...
+&lt;/EditForm&gt;
+</code></pre>
+<pre><code class="lang-html">&lt;form ... data-enhance ...&gt;
+    ...
+&lt;/form&gt;
+</code></pre>
+<p><span aria-hidden="true">❌</span><span class="visually-hidden">Unsupported:</span> You can't set enhanced navigation on a form's ancestor element to enable enhanced form handling.</p>
+<pre><code class="lang-html">&lt;div ... data-enhance ...&gt;
+    &lt;form ...&gt;
+        &lt;!-- NOT enhanced --&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Enhanced form posts only work with Blazor endpoints. Posting an enhanced form to non-Blazor endpoint results in an error.</p>
+<p>To disable enhanced form handling:</p>
+<ul>
+<li>For an <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a>, remove the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.enhance" class="no-loc" data-linktype="absolute-path">Enhance</a> parameter from the form element (or set it to <code>false</code>: <code>Enhance="false"</code>).</li>
+<li>For an HTML <code>&lt;form&gt;</code>, remove the <code>data-enhance</code> attribute from form element (or set it to <code>false</code>: <code>data-enhance="false"</code>).</li>
+</ul>
+<p>Blazor's enhanced navigation and form handling may undo dynamic changes to the DOM if the updated content isn't part of the server rendering. To preserve the content of an element, use the <code>data-permanent</code> attribute.</p>
+<p>In the following example, the content of the <code>&lt;div&gt;</code> element is updated dynamically by a script when the page loads:</p>
+<pre><code class="lang-html">&lt;div data-permanent&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+<p>To disable enhanced navigation and form handling globally, see <a href="../fundamentals/startup?view=aspnetcore-10.0#enhanced-navigation-and-form-handling" data-linktype="relative-path">ASP.NET Core Blazor startup</a>.</p>
+<p>For guidance on using the <code>enhancedload</code> event to listen for enhanced page updates, see <a href="../fundamentals/navigation?view=aspnetcore-10.0#enhanced-navigation-and-form-handling" data-linktype="relative-path">ASP.NET Core Blazor navigation</a>.</p>
+</div>
+<h2 id="examples">Examples</h2>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Examples don't adopt enhanced form handling for form POST requests, but all of the examples can be updated to adopt the enhanced features by following the guidance in the <a href="#enhanced-form-handling" data-linktype="self-bookmark">Enhanced form handling</a> section.</p>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<p>Examples use the <a href="/en-us/dotnet/csharp/language-reference/operators/new-operator#target-typed-new" data-linktype="absolute-path">target-typed <code>new</code> operator</a>, which was introduced with C# 9 and .NET 5. In the following example, the type isn't explicitly stated for the <code>new</code> operator:</p>
+<pre><code class="lang-csharp">public ShipDescription ShipDescription { get; set; } = new();
+</code></pre>
+<p>If using C# 8 or earlier (ASP.NET Core 3.1), modify the example code to state the type to the <code>new</code> operator:</p>
+<pre><code class="lang-csharp">public ShipDescription ShipDescription { get; set; } = new ShipDescription();
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0">
+<p>Components use nullable reference types (NRTs), and the .NET compiler performs null-state static analysis, both of which are supported in .NET 6 or later. For more information, see <a href="../../migration/50-to-60?view=aspnetcore-10.0#nullable-reference-types-nrts-and-net-compiler-null-state-static-analysis" data-linktype="relative-path">Migrate from ASP.NET Core in .NET 5 to .NET 6</a>.</p>
+<p>If using C# 9 or earlier (.NET 5 or earlier), remove the NRTs from the examples. Usually, this merely involves removing the question marks (<code>?</code>) and exclamation points (<code>!</code>) from the types in the example code.</p>
+<p>The .NET SDK applies implicit global <code>using</code> directives to projects when targeting .NET 6 or later. The examples use a logger to log information about form processing, but it isn't necessary to specify an <code>@using</code> directive for the <a href="/en-us/dotnet/api/microsoft.extensions.logging" class="no-loc" data-linktype="absolute-path">Microsoft.Extensions.Logging</a> namespace in the component examples. For more information, see <a href="/en-us/dotnet/core/project-sdk/overview#implicit-using-directives" data-linktype="absolute-path">.NET project SDKs: Implicit using directives</a>.</p>
+<p>If using C# 9 or earlier (.NET 5 or earlier), add <code>@using</code> directives to the top of the component after the <code>@page</code> directive for any API required by the example. Find API namespaces through Visual Studio (right-click the object and select <strong>Peek Definition</strong>) or the <a href="/en-us/dotnet/api/" data-linktype="absolute-path">.NET API browser</a>.</p>
+</div>
+<p>To demonstrate how forms work with <a href="../../mvc/models/validation?view=aspnetcore-10.0" data-linktype="relative-path">data annotations</a> validation, example components rely on <a href="/en-us/dotnet/api/system.componentmodel.dataannotations" class="no-loc" data-linktype="absolute-path">System.ComponentModel.DataAnnotations</a> API. If you wish to avoid an extra line of code in components that use data annotations, make the namespace available throughout the app's components with the imports file (<code>_Imports.razor</code>):</p>
+<pre><code class="lang-razor">@using System.ComponentModel.DataAnnotations
+</code></pre>
+<p>Form examples reference aspects of the <a href="http://www.startrek.com/" data-linktype="external">Star Trek</a> universe. Star Trek is a copyright ©1966-2023 of <a href="https://www.paramount.com/brand/cbs-studios" data-linktype="external">CBS Studios</a> and <a href="https://www.paramount.com" data-linktype="external">Paramount</a>.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-8.0 aspnetcore-9.0">
+<h2 id="client-side-validation-requires-a-circuit">Client-side validation requires a circuit</h2>
+<p>In Blazor Web Apps, client-side validation requires an active Blazor SignalR circuit. Client-side validation isn't available to forms in components that have adopted static server-side rendering (static SSR). Forms that adopt static SSR are validated on the server after the form is submitted.</p>
+</div>
+<div data-moniker="aspnetcore-11.0">
+<h2 id="client-side-validation-in-static-ssr-forms">Client-side validation in static SSR forms</h2>
+<p>In Blazor Web Apps, forms in components that adopt static server-side rendering (static SSR) gain client-side validation automatically when a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator" class="no-loc" data-linktype="absolute-path">DataAnnotationsValidator</a> component is present in the form. For details, see <a href="validation?view=aspnetcore-10.0#client-side-validation-in-static-ssr-forms" data-linktype="relative-path">ASP.NET Core Blazor forms validation</a>.</p>
+</div>
+<h2 id="unsupported-validation-features">Unsupported validation features</h2>
+<p>All of the <a href="../../mvc/models/validation?view=aspnetcore-10.0#built-in-attributes" data-linktype="relative-path">data annotation built-in validators</a> are supported in Blazor except for the <a href="../../mvc/models/validation?view=aspnetcore-10.0#remote-attribute" data-linktype="relative-path"><code>[Remote]</code> validation attribute</a>.</p>
+<p>jQuery validation isn't supported in Razor components. We recommend any of the following approaches:</p>
+<div data-moniker="aspnetcore-11.0">
+<ul>
+<li>Follow the guidance in <a href="validation?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor forms validation</a> for any of the following scenarios:
+<ul>
+<li>Server-side validation in a Blazor Web App that adopts an interactive render mode.</li>
+<li>Client-side validation in <a href="validation?view=aspnetcore-10.0#client-side-validation-in-static-ssr-forms" data-linktype="relative-path">static SSR forms</a>.</li>
+<li>Client-side validation in a standalone Blazor WebAssembly app.</li>
+</ul>
+</li>
+<li>Use native HTML validation attributes (see <a href="https://developer.mozilla.org/docs/Learn/Forms/Form_validation" data-linktype="external">Client-side form validation</a>).</li>
+<li>Adopt a third-party validation JavaScript library.</li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<ul>
+<li>Follow the guidance in <a href="validation?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor forms validation</a> for either:
+<ul>
+<li>Server-side validation in a Blazor Web App that adopts an interactive render mode.</li>
+<li>Client-side validation in a standalone Blazor WebAssembly app.</li>
+</ul>
+</li>
+<li>Use native HTML validation attributes (see <a href="https://developer.mozilla.org/docs/Learn/Forms/Form_validation" data-linktype="external">Client-side form validation</a>).</li>
+<li>Adopt a third-party validation JavaScript library.</li>
+</ul>
+</div>
+<h2 id="additional-resources">Additional resources</h2>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<ul>
+<li><a href="../file-uploads?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor file uploads</a></li>
+<li><a href="https://github.com/dotnet/blazor-samples" data-linktype="external">Blazor samples GitHub repository (<code>dotnet/blazor-samples</code>)</a> (<a href="../fundamentals/?view=aspnetcore-10.0#sample-apps" data-linktype="relative-path">how to download</a>)</li>
+<li><a href="https://github.com/dotnet/aspnetcore/tree/main/src/Components/test/testassets/Components.TestServer/RazorComponents/Pages/Forms" data-linktype="external">ASP.NET Core GitHub repository (<code>dotnet/aspnetcore</code>) forms test assets</a></li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<ul>
+<li><a href="../file-uploads?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor file uploads</a></li>
+<li><a href="../security/webassembly/hosted-with-microsoft-entra-id?view=aspnetcore-10.0" data-linktype="relative-path">Secure a hosted ASP.NET Core Blazor WebAssembly app with Microsoft Entra ID</a></li>
+<li><a href="../security/webassembly/hosted-with-azure-active-directory-b2c?view=aspnetcore-10.0" data-linktype="relative-path">Secure a hosted ASP.NET Core Blazor WebAssembly app with Azure Active Directory B2C</a></li>
+<li><a href="../security/webassembly/hosted-with-identity-server?view=aspnetcore-10.0" data-linktype="relative-path">Secure a hosted ASP.NET Core Blazor WebAssembly app with Identity Server</a></li>
+<li><a href="https://github.com/dotnet/blazor-samples" data-linktype="external">Blazor samples GitHub repository (<code>dotnet/blazor-samples</code>)</a> (<a href="../fundamentals/?view=aspnetcore-10.0#sample-apps" data-linktype="relative-path">how to download</a>)</li>
+<li><a href="https://github.com/dotnet/aspnetcore/tree/main/src/Components/test/testassets/Components.TestServer/RazorComponents/Pages/Forms" data-linktype="external">ASP.NET Core GitHub repository (<code>dotnet/aspnetcore</code>) forms test assets</a></li>
+</ul>
+</div>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+			
+		<!-- feedback section -->
+		<section
+			class="feedback-section position-relative margin-top-lg border border-radius padding-xxs display-none-print"
+			data-bi-name="open-source-feedback-section"
+			data-open-source-feedback-section
+			hidden
+		>
+			<div class="display-flex flex-direction-column flex-direction-row-tablet">
+				<div
+					class="width-450-tablet padding-inline-xs padding-inline-xs-tablet padding-top-xs padding-bottom-sm padding-top-xs-tablet background-color-body-medium"
+				>
+					<div class="display-flex flex-direction-column">
+						<div class="padding-bottom-xxs">
+							<span class="icon margin-right-xxs" aria-hidden="true">
+								<span class="docon docon-brand-github"></span>
+							</span>
+							<span class="font-weight-semibold">
+								Collaborate with us on GitHub
+							</span>
+						</div>
+						<span class="line-height-normal">
+							The source for this content can be found on GitHub, where you can also create and review issues and pull requests. For more information, see <a href="https://learn.microsoft.com/contribute/content/dotnet/dotnet-contribute">our contributor guide</a>.
+						</span>
+					</div>
+				</div>
+				<div
+					class="display-flex gap-xs width-full-tablet flex-direction-column padding-xs justify-content-space-evenly"
+				>
+					<div class="media">
+						
+					<div class="media-left">
+						<div class="image image-36x36" hidden data-open-source-image-container>
+							<img
+								class="theme-display is-light"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-light
+							/>
+							<img
+								class="theme-display is-dark is-high-contrast"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-dark
+							/>
+						</div>
+					</div>
+			  
+
+						<div class="media-content">
+							<p
+								class="font-size-xl font-weight-semibold margin-bottom-xxs"
+								data-open-source-product-title
+							>
+								ASP.NET Core
+							</p>
+							<div class="display-flex gap-xs flex-direction-column">
+								<p class="line-height-normal" data-open-source-product-description></p>
+								<div class="display-flex gap-xs flex-direction-column">
+									<a href="#" data-github-link>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-bug"></span>
+										</span>
+										<span>Open a documentation issue</span>
+									</a>
+									<a
+										href="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md"
+										class="display-block margin-top-auto font-size-md"
+										data-feedback-product-url
+									>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-feedback"></span>
+										</span>
+										<span>Provide product feedback</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+			
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+		
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-07-20T17:50:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-07-20
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

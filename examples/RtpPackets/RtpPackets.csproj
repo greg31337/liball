@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../network/rtp/src/rtp.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html40/loose.dtd">
+<HTML>
+<HEAD>
+  <TITLE>GIF Application Extension: NETSCAPE2.0</TITLE>
+  <BASE target="_top">
+  <style type="text/css">
+  <!--
+  body {
+    margin-left: 5%;
+    width: 90%
+  }
+  // -->
+  </style>
+</HEAD>
+<BODY BGCOLOR="#eeeeee" TEXT="#000000"
+  LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+<script><!--
+if(!top.PeterCJKleiwegIndex)
+    document.writeln('<small><a target="_top" href="http://www.let.rug.nl/~kleiweg/">Home<\/a><\/small><br><hr>');
+// --></script>
+
+<H1>GIF Application Extension:  NETSCAPE2.0</H1>
+
+<p><b>Programming Reference</b>
+<p>
+Netscape Navigator has an <a href="GIF89a.html#application"
+target="_self">Application
+Extension Block</a> that tells Navigator to loop the entire GIF file.
+The Netscape block <b>must appear immediately after the global color
+table of the logical screen descriptor.</b> Only Navigator 2.0 Beta4 or
+better willl recognize this Extension block. The block is 19 bytes long
+composed off: (note: hexadecimal equivalent supplied for programmers)
+<pre>
+byte   1       : 33 (hex 0x21) GIF Extension code
+byte   2       : 255 (hex 0xFF) Application Extension Label
+byte   3       : 11 (hex 0x0B) Length of Application Block
+                 (eleven bytes of data to follow)
+bytes  4 to 11 : "NETSCAPE"
+bytes 12 to 14 : "2.0"
+byte  15       : 3 (hex 0x03) Length of Data Sub-Block
+                 (three bytes of data to follow)
+byte  16       : 1 (hex 0x01)
+bytes 17 to 18 : 0 to 65535, an unsigned integer in
+                 lo-hi byte format. This indicate the
+                 number of iterations the loop should
+                 be executed.
+byte  19       : 0 (hex 0x00) a Data Sub-Block Terminator.
+</pre>
+<p>As of Beta5, the iteration count is ignored and the loop is infinite (an
+iteration count of zero indicates infinite). I strongly suggest you code
+the count accurate, so that when iterations begin working your GIF will
+not need to be modified. Technically that is all that needs to be done with
+this block.
+<p>
+Source: &copy; 1996, 1997 <a
+href="http://www.ecafe.org/tools/gifanim/royal.htm">Royal E. Frazier
+Jr.</a> Updated: March 1997
+
+</BODY>
+</HTML>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:nil
+sgml-declaration:"HTML4.01/HTML4.decl"
+End:
+-->

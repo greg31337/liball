@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": 1,
+  "overrides": [
+    {
+      "id": "delta-un-m49-twn",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "TWN",
+      "field": "current-country-numeric-identifier",
+      "values": [
+        "TW",
+        "TWN",
+        "158",
+        "missing"
+      ],
+      "provenance": {
+        "sourceId": "un-m49",
+        "upstreamKey": "TWN",
+        "evidence": "The pinned UN country and hierarchy tables omit TWN/158 in every included locale."
+      },
+      "reason": "Retain the Debian ISO-derived triple without claiming an UN cross-check.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "un-m49",
+        "revision": "rolling-pages-retrieved-2026-08-27",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-parent-fr-67",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "FR-67",
+      "field": "subdivision-parent",
+      "values": [
+        "FR-6AE",
+        "FR-GES"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "FR-67",
+        "evidence": "Debian declares FR-6AE as parent while CLDR containment declares FR-GES."
+      },
+      "reason": "Preserve both provenances and leave Debian authoritative until the sources converge.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-parent-fr-68",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "FR-68",
+      "field": "subdivision-parent",
+      "values": [
+        "FR-6AE",
+        "FR-GES"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "FR-68",
+        "evidence": "Debian declares FR-6AE as parent while CLDR containment declares FR-GES."
+      },
+      "reason": "Preserve both provenances and leave Debian authoritative until the sources converge.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-cn-15",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "CN-15",
+      "field": "subdivision-transition",
+      "values": [
+        "CN-MN"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "CN-15",
+        "evidence": "CLDR maps CN-15 to CN-MN, which is absent from the pinned Debian subdivision snapshot."
+      },
+      "reason": "Retain the CLDR transition as unresolved evidence without inventing a current identifier.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-cz-10a",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "CZ-10A",
+      "field": "subdivision-transition",
+      "values": [
+        "CZ-110"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "CZ-10A",
+        "evidence": "CLDR points to withdrawn Prague identifier CZ-110, absent from the pinned Debian snapshot."
+      },
+      "reason": "Retain the unresolved CLDR transition without treating its replacement as current.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-cz-10b",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "CZ-10B",
+      "field": "subdivision-transition",
+      "values": [
+        "CZ-111"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "CZ-10B",
+        "evidence": "CLDR points to withdrawn Prague identifier CZ-111, absent from the pinned Debian snapshot."
+      },
+      "reason": "Retain the unresolved CLDR transition without treating its replacement as current.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-cz-10c",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "CZ-10C",
+      "field": "subdivision-transition",
+      "values": [
+        "CZ-112"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "CZ-10C",
+        "evidence": "CLDR points to withdrawn Prague identifier CZ-112, absent from the pinned Debian snapshot."
+      },
+      "reason": "Retain the unresolved CLDR transition without treating its replacement as current.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-cz-10d",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "CZ-10D",
+      "field": "subdivision-transition",
+      "values": [
+        "CZ-113"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "CZ-10D",
+        "evidence": "CLDR points to withdrawn Prague identifier CZ-113, absent from the pinned Debian snapshot."
+      },
+      "reason": "Retain the unresolved CLDR transition without treating its replacement as current.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-cz-10e",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "CZ-10E",
+      "field": "subdivision-transition",
+      "values": [
+        "CZ-114"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "CZ-10E",
+        "evidence": "CLDR points to withdrawn Prague identifier CZ-114, absent from the pinned Debian snapshot."
+      },
+      "reason": "Retain the unresolved CLDR transition without treating its replacement as current.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-cz-10f",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "CZ-10F",
+      "field": "subdivision-transition",
+      "values": [
+        "CZ-115"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "CZ-10F",
+        "evidence": "CLDR points to withdrawn Prague identifier CZ-115, absent from the pinned Debian snapshot."
+      },
+      "reason": "Retain the unresolved CLDR transition without treating its replacement as current.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-cz-611",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "CZ-611",
+      "field": "subdivision-transition",
+      "values": [
+        "CZ-663"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "CZ-611",
+        "evidence": "CLDR points to withdrawn Czech district identifier CZ-663, absent from the pinned Debian snapshot."
+      },
+      "reason": "Retain the unresolved CLDR transition without treating its replacement as current.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    },
+    {
+      "id": "delta-cldr-transition-fr-h",
+      "kind": "source-delta",
+      "targetKind": "source-delta",
+      "targetKey": "FR-H",
+      "field": "subdivision-transition",
+      "values": [
+        "FR-COR"
+      ],
+      "provenance": {
+        "sourceId": "cldr-48-2",
+        "upstreamKey": "FR-H",
+        "evidence": "CLDR points to withdrawn Corsica identifier FR-COR, absent from the pinned Debian snapshot."
+      },
+      "reason": "Retain the unresolved CLDR transition without treating its replacement as current.",
+      "reviewer": "dataset-policy-v1-review",
+      "effectiveDate": "2026-08-27",
+      "expiryCondition": {
+        "sourceId": "cldr-48-2",
+        "revision": "release-48-2@11299982335beb974c1c63c45265184e759c0f41",
+        "condition": "remove-or-rereview-when-source-revision-changes"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:Document
+    xmlns:core="urn:iso:std:iso:20022:tech:xsd:seev.031.001.03"
+    xmlns:ext="urn:iso:std:iso:20022:tech:xsd:supl.001.001.01">
+  <core:CorpActnNtfctn>
+    <core:CorpActnOptnDtls>
+      <core:CshMvmntDtls>Information that is extended</core:CshMvmntDtls>
+    </core:CorpActnOptnDtls>
+  </core:CorpActnNtfctn>
+  <core:SplmtryData>
+    <core:PlcAndNm>core:CorpActnNtfctn/core:CorpActnOptnDtls/core:CshMvmntDtls</core:PlcAndNm>
+    <core:Envlp>
+      <ext:Document>
+        <ext:MyNewElement>abc</ext:MyNewElement>
+        <ext:MyNewElement2>def</ext:MyNewElement2>
+      </ext:Document>
+    </core:Envlp>
+  </core:SplmtryData>
+</core:Document>

@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="2397" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records">Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (2)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc2397" rel="noopener" target="_blank">RFC 2397</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc2397.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> Legacy</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2009/">2009</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alexander Gebel</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-01-18</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Alexey Melnikov</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2010-03-11</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>data:text/plain;charset=iso-8859-7,%be%fg%be</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>data:text/plain;charset=iso-8859-7,%be%d3%be</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The given hex encoding &quot;%fg&quot; is incorrect, because there is no hexadecimal digit &quot;g&quot; (&quot;f&quot; is last). A correct hex encoding of any character is permissible here.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2045/">2045</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Julian Reschke</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-02-17</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Alexey Melnikov</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2010-03-11</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>3. Syntax
+
+
+       dataurl    := &quot;data:&quot; [ mediatype ] [ &quot;;base64&quot; ] &quot;,&quot; data
+       mediatype  := [ type &quot;/&quot; subtype ] *( &quot;;&quot; parameter )
+       data       := *urlchar
+       parameter  := attribute &quot;=&quot; value
+
+   where &quot;urlchar&quot; is imported from [RFC2396], and &quot;type&quot;, &quot;subtype&quot;,
+   &quot;attribute&quot; and &quot;value&quot; are the corresponding tokens from [RFC2045],
+   represented using URL escaped encoding of [RFC2396] as necessary.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>3. Syntax
+
+
+       dataurl    := &quot;data:&quot; [ mediatype ] [ &quot;;base64&quot; ] &quot;,&quot; data
+       mediatype  := [ type &quot;/&quot; subtype ] *( &quot;;&quot; parameter )
+       data       := *uric
+       parameter  := attribute &quot;=&quot; value
+
+   where &quot;uric&quot; is imported from [RFC2396], and &quot;type&quot;, &quot;subtype&quot;,
+   &quot;attribute&quot; and &quot;value&quot; are the corresponding tokens from [RFC2045],
+   represented using URL escaped encoding of [RFC2396] as necessary.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>&quot;urlchar&quot; is not defined in RFC2396, but &quot;uric&quot; is (which I think is what was supposed to be used).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Reported (1)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc2397" rel="noopener" target="_blank">RFC 2397</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc2397.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> Legacy</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5923/">5923</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Reported</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Richard Gibson</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2019-11-29</span>
+                                                    </dd>
+
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>3. Syntax
+
+       dataurl    := &quot;data:&quot; [ mediatype ] [ &quot;;base64&quot; ] &quot;,&quot; data
+       mediatype  := [ type &quot;/&quot; subtype ] *( &quot;;&quot; parameter )
+       data       := *uric
+       parameter  := attribute &quot;=&quot; value
+
+   where &quot;uric&quot; is imported from [RFC2396], and &quot;type&quot;, &quot;subtype&quot;,
+   &quot;attribute&quot; and &quot;value&quot; are the corresponding tokens from [RFC2045],
+   represented using URL escaped encoding of [RFC2396] as necessary.
+
+   Attribute values in [RFC2045] are allowed to be either represented as
+   tokens or as quoted strings. However, within a &quot;data&quot; URL, the
+   &quot;quoted-string&quot; representation would be awkward, since the quote mark
+   is itself not a valid urlchar. For this reason, parameter values
+   should use the URL Escaped encoding instead of quoted string if the
+   parameter values contain any &quot;tspecial&quot;.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>3. Syntax
+
+       dataurl    := &quot;data:&quot; [ mediatype ] [ &quot;;base64&quot; ] &quot;,&quot; data
+       mediatype  := [ type &quot;/&quot; subtype ] *( &quot;;&quot; parameter )
+       data       := *uric
+       parameter  := attribute &quot;=&quot; value
+       value      := token
+
+   where &quot;uric&quot; is imported from [RFC2396], and &quot;type&quot;, &quot;subtype&quot;,
+   &quot;attribute&quot; and &quot;token&quot; are the corresponding syntax from [RFC2045],
+   with values represented using %xx escaped encoding of [RFC2396] as
+   necessary.
+
+   Parameter values in [RFC2045] are allowed to be either represented as
+   tokens or as quoted strings. However, within a &quot;data&quot; URL, the
+   &quot;quoted-string&quot; representation would be awkward, since the quote mark
+   is itself not a valid urlchar. For this reason, parameter values are
+   required to be represented as tokens and %xx encoding MUST be used for
+   &quot;tspecials&quot; characters within them.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Section 3 is not clear about excluding the &quot;quoted-string&quot; production completely as opposed to permitting it through percent-encoding, resulting in ambiguity for interpretation of URLs such as &quot;data:text/example;foo=%22bar%22,*baz*&quot;. But Section 5 refers to accepted changes that &#x27;eliminate &quot;quoted printable&quot; as an encoding since it would not easily yield valid URLs without additional %xx encoding, which itself is sufficient&#x27;, so it seems that the intent is to *replace* quoted-string and always interpret percent-encoded characters as content (i.e., that my example corresponds with `Content-Type: text/example; foo=&quot;\&quot;bar\&quot;&quot;` rather than `Content-Type: text/example;foo=&quot;bar&quot;).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Held for Document Update (2)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc2397" rel="noopener" target="_blank">RFC 2397</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc2397.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> Legacy</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3214/">3214</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Julian Reschke</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-05-06</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   Attribute values in [RFC2045] are allowed to be either represented as
+   tokens or as quoted strings. However, within a &quot;data&quot; URL, the
+   &quot;quoted-string&quot; representation would be awkward, since the quote mark
+   is itself not a valid urlchar. For this reason, parameter values
+   should use the URL Escaped encoding instead of quoted string if the
+   parameter values contain any &quot;tspecial&quot;.</code></pre>
+                                                
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>This advice does not work when the character is a delimiter such as &quot;;&quot;.
+
+Example media type:
+
+  text/plain;foo=&quot;bar;charset=iso-8859-1&quot;;charset=UTF-8
+
+...represented as-is in data uri:
+
+  data:text/plain;foo=%22bar;charset=iso-8859-1%22;charset=UTF-8,...
+
+...but following the advice from Section 3:
+
+  data:text/plain;foo=bar;charset=iso-8859-1;charset=UTF-8,...
+
+which makes the charset parameter ambiguous.
+
+Proposal for document update:
+
+1) Keep the text pointing out double quotes will look awkward.
+
+2) Insist on them being handled as per RFC 2045, when present.
+
+3) Either remove the last sentence (after checking whether it&#x27;s done in practice), or clarify which additional non-token characters are allowed here.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4124/">4124</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Xue Fuqiao</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-09-26</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-09-27</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   The &lt;mediatype&gt; is an Internet media type specification (with
+   optional parameters.)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   The &lt;mediatype&gt; is an Internet media type specification (with
+   optional parameters).</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Periods go inside parentheses only if an entire sentence is inside the parentheses.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (1)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc2397" rel="noopener" target="_blank">RFC 2397</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc2397.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> Legacy</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3360/">3360</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Lance E Sloan</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-09-20</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2012-09-20</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Throughout the document, when it says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>The &quot;data&quot; URL scheme</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>The &quot;data&quot; URI scheme</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The text refers to &quot;URL&quot; throughout, but to be correct, these are actually URIs.
+ --VERIFIER NOTES-- 
+&quot;URI&quot;s are first documented in RFC 2396, which was developed at the same time as RFC 2397.  At the time the document that became 2397 was approved, &quot;URL&quot; was the correct term.  While it&#x27;s correct that &quot;URI&quot; is the preferred term now, &quot;URL&quot; is also correct, and is the term that was in use when this document was written.  This is not an error in the document.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

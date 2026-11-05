@@ -1,0 +1,7 @@
+package	mimetype@1980-01-01T00:00:00|META-INF/manifest.xml@1980-01-01T00:00:00|a.bin@1980-01-01T00:00:00|content.xml@1980-01-01T00:00:00|z.bin@1980-01-01T00:00:00
+namespaces	<?xml version="1.0" encoding="utf-8"?><office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:version="1.4"><office:body><office:text><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">Golden</text:p></office:text></office:body></office:document>
+xml	<?xml version="1.0" encoding="utf-8"?>\n<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:mimetype="application/vnd.oasis.opendocument.text" office:version="1.4">\n  <office:body>\n    <office:text>\n      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"></text:p>\n    </office:text>\n  </office:body>\n</office:document>
+automatic-names	Hero Copy 3|group-3|Pictures/image-3.png
+formulas	of:=SUM(1;2*(3+4))|of:=[.B3]+[.$B4]+[.D$3]|of:=['New Sheet'.A1]
+styles	Auto3|Paragraph|right
+conversions	Package:mimetype,META-INF/manifest.xml,content.xml,meta.xml,settings.xml,styles.xml|Flat:Converted

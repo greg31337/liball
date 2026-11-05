@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "es-ES",
+  "fallbacks": [
+    "es",
+    "invariant"
+  ],
+  "reviewStatus": "native-authoritative-reviewed",
+  "provenance": [
+    {
+      "id": "locale-registries",
+      "source": "Unicode CLDR 47 locale metadata, ITU-T E.164 assigned country codes, ISO 3166-1 territory codes, ISO 4217 currency codes, and IANA Time Zone Database",
+      "sourceVersion": "CLDR 47; registries reviewed 2026-08-15",
+      "license": "Unicode-3.0 and factual-registry-data",
+      "reviewer": "repository-authoritative-review-2026-08-15"
+    },
+    {
+      "id": "unicode-cldr-47",
+      "source": "Unicode CLDR 47 Gregorian calendar locale data",
+      "sourceVersion": "CLDR 47, 2025-03-13",
+      "license": "Unicode-3.0",
+      "reviewer": "repository-authoritative-review-2026-08-15"
+    },
+    {
+      "id": "locale-fallback-audit",
+      "source": "Repository audit of native locale scope, invariant fallbacks, and sensitive terminology",
+      "sourceVersion": "2026-08-15",
+      "license": "project-license",
+      "reviewer": "repository-authoritative-review-2026-08-15"
+    }
+  ],
+  "fields": [
+    {
+      "name": "locale.profile",
+      "provenance": "locale-registries",
+      "value": {
+        "englishName": "Spanish (Spain)",
+        "nativeName": "español (España)",
+        "language": "es",
+        "script": "Latn",
+        "direction": "ltr",
+        "territory": "ES",
+        "currency": "EUR",
+        "callingCode": "+34",
+        "timeZones": [
+          "Europe/Madrid"
+        ],
+        "dateOrder": "dmy",
+        "decimalSeparator": ",",
+        "nativeProviders": [
+          "date",
+          "locale"
+        ],
+        "fallbackProviders": [
+          "address",
+          "education",
+          "internet",
+          "person",
+          "phone",
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "locale.review",
+      "provenance": "locale-fallback-audit",
+      "value": {
+        "status": "authoritative-reviewed",
+        "reviewedOn": "2026-08-15",
+        "categories": {
+          "nameOrder": {
+            "status": "fallback-only",
+            "source": "Unicode CLDR 47 person-name rules reviewed; no native person-name field is shipped"
+          },
+          "addressFormat": {
+            "status": "fallback-only",
+            "source": "No native address catalog or postal-format claim is shipped"
+          },
+          "phoneMasks": {
+            "status": "fallback-only",
+            "source": "ITU-T E.164 calling code reviewed; no native national phone mask is shipped"
+          },
+          "dates": {
+            "status": "native-reviewed",
+            "source": "Unicode CLDR 47 Gregorian stand-alone month and weekday names and short-date order"
+          },
+          "identifiers": {
+            "status": "fallback-only",
+            "source": "ISO territory and currency metadata reviewed; no native personal identifier format is shipped"
+          },
+          "sensitiveTerminology": {
+            "status": "reviewed-no-native-terms",
+            "source": "No native sensitive demographic, medical, legal, or identity terminology is shipped"
+          }
+        },
+        "fallbackProviders": [
+          "address",
+          "education",
+          "internet",
+          "person",
+          "phone",
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "date.month.wide",
+      "provenance": "unicode-cldr-47",
+      "value": [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre"
+      ]
+    },
+    {
+      "name": "date.month.abbreviated",
+      "provenance": "unicode-cldr-47",
+      "value": [
+        "ene",
+        "feb",
+        "mar",
+        "abr",
+        "may",
+        "jun",
+        "jul",
+        "ago",
+        "sept",
+        "oct",
+        "nov",
+        "dic"
+      ]
+    },
+    {
+      "name": "date.weekday.wide",
+      "provenance": "unicode-cldr-47",
+      "value": [
+        "domingo",
+        "lunes",
+        "martes",
+        "miércoles",
+        "jueves",
+        "viernes",
+        "sábado"
+      ]
+    },
+    {
+      "name": "date.weekday.abbreviated",
+      "provenance": "unicode-cldr-47",
+      "value": [
+        "dom",
+        "lun",
+        "mar",
+        "mié",
+        "jue",
+        "vie",
+        "sáb"
+      ]
+    },
+    {
+      "name": "date.order",
+      "provenance": "unicode-cldr-47",
+      "value": "dmy"
+    }
+  ]
+}

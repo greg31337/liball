@@ -1,0 +1,16 @@
+download-manifest-version	1
+cldr-release	48.2
+file	specs/cldr-48.2-license.txt	https://raw.githubusercontent.com/unicode-org/cldr/release-48-2/LICENSE	text
+file	specs/cldr-48.2-numberingSystems.xml	https://raw.githubusercontent.com/unicode-org/cldr/release-48-2/common/supplemental/numberingSystems.xml	xml
+file	specs/cldr-48.2-supplementalData.xml	https://raw.githubusercontent.com/unicode-org/cldr/release-48-2/common/supplemental/supplementalData.xml	xml
+file	specs/cldr-48.2-supplementalMetadata.xml	https://raw.githubusercontent.com/unicode-org/cldr/release-48-2/common/supplemental/supplementalMetadata.xml	xml
+file	specs/iso-4217-amendment-180.pdf	https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/dl-currency-iso-amendment-180.pdf	pdf
+file	specs/iso-4217-amendments-overview.xlsx	https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/lists/overview-amendments.xlsx	xlsx
+file	specs/iso-4217-list-one.xml	https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml	xml
+file	specs/iso-4217-list-three.xml	https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-three.xml	xml
+file	specs/iso-4217-list-two.doc	https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-two.doc	doc
+file	specs/rfc5646.txt	https://www.rfc-editor.org/rfc/rfc5646.txt	text
+file	specs/six-iso-4217-maintenance.html	https://www.six-group.com/en/products-services/financial-information/market-reference-data/data-standards.html	html
+file	specs/un-m49-overview.html	https://unstats.un.org/unsd/methodology/m49/overview/	html
+file	specs/unicode-tr35-numbers.html	https://www.unicode.org/reports/tr35/tr35-numbers.html	html
+file	specs/unicode-tr35.html	https://www.unicode.org/reports/tr35/	html

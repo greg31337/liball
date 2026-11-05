@@ -1,0 +1,1519 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="5321" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records">Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (3)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc5321" rel="noopener" target="_blank">RFC 5321</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc5321.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> IETF - NON WORKING GROUP</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC7504</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1683/">1683</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Roberto Javier Godoy</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2009-02-15</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Alexey Melnikov</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2009-09-07</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Additional-Registered-Clauses  = CFWS Atom FWS String</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Additional-Registered-Clauses  = 1*(CFWS Atom FWS String)</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>1. The rule Additional-Registered-Clauses is used by the rule Opt-info (also in section 4.4, page 59) as:
+
+Opt-info       = [Via] [With] [ID] [For] [Additional-Registered-Clauses]
+
+2. The ABNF comment for Additional-Registered-Clauses states that &quot;Additional standard clauses may be added in this location by future standards and registration with IANA.&quot;
+
+3. Each sequence (CFWS Atom FWS String) represents a single clause.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4198/">4198</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Jasen Betts</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-12-09</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-12-09</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Whenever possible, a receiver-
+SMTP SHOULD test the first digit (severity indication) of the reply
+code.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Whenever possible, a sender-
+SMTP SHOULD test the first digit (severity indication) of a reply
+code it receives.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The &quot;sender&quot; is the entity that issues commands and receives response codes (from the &quot;receiver&quot;).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2578/">2578</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Dominic Sayers</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-10-18</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Peter Saint-Andre</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2010-11-12</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   Terminals not defined in
+   this document, such as ALPHA, DIGIT, SP, CR, LF, CRLF, are as defined
+   in the &quot;core&quot; syntax in Section 6 of RFC 5234 [7] or in the message
+   format syntax in RFC 5322 [4].</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   Terminals not defined in
+   this document, such as ALPHA, DIGIT, SP, CR, LF, CRLF, are as defined
+   in the &quot;core&quot; syntax in Appendix B of RFC 5234 [7] or in the message
+   format syntax in RFC 5322 [4].</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The core syntax of ABNF is defined in Appendix B &quot;Core ABNF of ABNF&quot; of RFC 5234, not Section 6, which lists the document&#x27;s references.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Held for Document Update (6)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc5321" rel="noopener" target="_blank">RFC 5321</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc5321.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> IETF - NON WORKING GROUP</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC7504</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1543/">1543</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Brett Watson</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2008-10-08</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.8 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   SMTP clients that experience a connection close, reset, or other
+   communications failure due to circumstances not under their control
+   (in violation of the intent of this specification but sometimes
+   unavoidable) SHOULD, to maintain the robustness of the mail system,
+   treat the mail transaction as if a 451 response had been received and
+   act accordingly.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   SMTP clients that experience a connection close, reset, or other
+   communications failure due to circumstances not under their control
+   (in violation of the intent of this specification but sometimes
+   unavoidable) SHOULD, to maintain the robustness of the mail system,
+   treat the mail transaction as if a 421 response had been received and
+   act accordingly.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>SMTP clients are told to act as though a 451 response (&quot;Requested action aborted: local error in processing&quot;) had been received when context clearly indicates that a 421 response (&quot;Service not available, closing transmission channel&quot;) was intended.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4315/">4315</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Rodrigo Speller</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2015-03-27</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-03-28</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   IPv6-full      = IPv6-hex 7(&quot;:&quot; IPv6-hex)
+
+   IPv6-comp      = [IPv6-hex *5(&quot;:&quot; IPv6-hex)] &quot;::&quot;
+                  [IPv6-hex *5(&quot;:&quot; IPv6-hex)]
+                  ; The &quot;::&quot; represents at least 2 16-bit groups of
+                  ; zeros.  No more than 6 groups in addition to the
+                  ; &quot;::&quot; may be present.
+
+   IPv6v4-full    = IPv6-hex 5(&quot;:&quot; IPv6-hex) &quot;:&quot; IPv4-address-literal
+
+   IPv6v4-comp    = [IPv6-hex *3(&quot;:&quot; IPv6-hex)] &quot;::&quot;
+                  [IPv6-hex *3(&quot;:&quot; IPv6-hex) &quot;:&quot;]
+                  IPv4-address-literal
+                  ; The &quot;::&quot; represents at least 2 16-bit groups of
+                  ; zeros.  No more than 4 groups in addition to the
+                  ; &quot;::&quot; and IPv4-address-literal may be present.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   IPv6-full      = IPv6-hex 7(&quot;:&quot; IPv6-hex)
+
+   IPv6-comp      = &quot;::&quot; [IPv6-hex *6(&quot;:&quot; IPv6-hex)]
+                  | IPv6-hex &quot;::&quot; [IPv6-hex *5(&quot;:&quot; IPv6-hex)]
+                  | IPv6-hex 1(&quot;:&quot; IPv6-hex) &quot;::&quot;
+                  [IPv6-hex *4(&quot;:&quot; IPv6-hex)]
+                  | IPv6-hex 2(&quot;:&quot; IPv6-hex) &quot;::&quot;
+                  [IPv6-hex *3(&quot;:&quot; IPv6-hex)]
+                  | IPv6-hex 3(&quot;:&quot; IPv6-hex) &quot;::&quot;
+                  [IPv6-hex *2(&quot;:&quot; IPv6-hex)]
+                  | IPv6-hex 4(&quot;:&quot; IPv6-hex) &quot;::&quot;
+                  [IPv6-hex *1(&quot;:&quot; IPv6-hex)]
+                  | IPv6-hex 5(&quot;:&quot; IPv6-hex) &quot;::&quot; [IPv6-hex]
+                  | IPv6-hex 6(&quot;:&quot; IPv6-hex) &quot;::&quot;
+                  ; The &quot;::&quot; represents at least one 16-bit groups of
+                  ; zeros.  No more than 7 groups in addition to the
+                  ; &quot;::&quot; may be present.
+
+   IPv6v4-full    = IPv6-hex 5(&quot;:&quot; IPv6-hex) &quot;:&quot; IPv4-address-literal
+
+   IPv6v4-comp    = (&quot;::&quot; [IPv6-hex *4(&quot;:&quot; IPv6-hex) &quot;:&quot;] 
+                  | IPv6-hex &quot;::&quot; [IPv6-hex *3(&quot;:&quot; IPv6-hex) &quot;:&quot;]
+                  | IPv6-hex 1(&quot;:&quot; IPv6-hex) &quot;::&quot;
+                  [IPv6-hex *2(&quot;:&quot; IPv6-hex) &quot;:&quot;]
+                  | IPv6-hex 2(&quot;:&quot; IPv6-hex) &quot;::&quot;
+                  [IPv6-hex *1(&quot;:&quot; IPv6-hex) &quot;:&quot;]
+                  | IPv6-hex 3(&quot;:&quot; IPv6-hex) &quot;::&quot; [IPv6-hex &quot;:&quot;]
+                  | IPv6-hex 4(&quot;:&quot; IPv6-hex) &quot;::&quot;)
+                  IPv4-address-literal
+                  ; The &quot;::&quot; represents at least one 16-bit groups of
+                  ; zeros.  No more than 5 groups in addition to the
+                  ; &quot;::&quot; and IPv4-address-literal may be present.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>I had the same impression that Michael Rushton (Errata 2467).
+
+Searching about what says the others RFCs ([RFC 3986] , [RFC 4291] , [RFC 5952]), I believe that Michael Rushton&#x27;s affirmative may be right.
+
+
+Case 1 - Section 3.2.2 of [RFC 3986] says:
+
+&quot;(...) A sequence of one or more consecutive zero-valued 16-bit pieces within the address may be elided, omitting all their digits and leaving exactly two consecutive colons in their place to mark the elision.&quot; (sic).
+
+
+Transcription of Section 3.2.2 of [RFC 3986]
+
+&quot;(...)
+
+A 128-bit IPv6 address is divided into eight 16-bit pieces.  Each piece is represented numerically in case-insensitive hexadecimal, using one to four hexadecimal digits (leading zeroes are permitted). The eight encoded pieces are given most-significant first, separated by colon characters.  Optionally, the least-significant two pieces may instead be represented in IPv4 address textual format.  A sequence of one or more consecutive zero-valued 16-bit pieces within the address may be elided, omitting all their digits and leaving exactly two consecutive colons in their place to mark the elision.
+
+(...)&quot;
+
+
+
+Case 2 - Section 2.2 of [RFC 4291] says:
+
+&quot;(...) The use of &quot;::&quot; indicates one or more groups of 16 bits of zeros. (...)&quot; (sic).
+
+
+Transcription of Item 2, Section 2.2 of [RFC 4291]
+
+&quot;2. Due to some methods of allocating certain styles of IPv6 addresses, it will be common for addresses to contain long strings of zero bits.  In order to make writing addresses containing zero bits easier, a special syntax is available to compress the zeros. The use of &quot;::&quot; indicates one or more groups of 16 bits of zeros. The &quot;::&quot; can only appear once in an address.  The &quot;::&quot; can also be used to compress leading or trailing zeros in an address.
+
+(...)&quot;
+
+
+
+Case 3 - Recommendations of [RFC 5952]
+
+In reply to the question of Errata 2467, was quoted the words of Section 4.2.2 of [RFC 5952], that recommends:
+
+&quot;The symbol &quot;::&quot; MUST NOT be used to shorten just one 16-bit 0 field. For example, the representation 2001:db8:0:1:1:1:1:1 is correct, but 2001:db8::1:1:1:1:1 is not correct.&quot; (sic).
+
+
+But the Section 4 of the same RFC, says:
+
+&quot;(...) The recommendation in this section SHOULD be followed by systems when generating an address to be represented as text, but all implementations MUST accept and be able to handle any legitimate [RFC4291] format.&quot;
+
+
+Transcription of Section 4 and 4.2.2 of [RFC 5952]
+
+&quot;4.  A Recommendation for IPv6 Text Representation
+
+A recommendation for a canonical text representation format of IPv6 addresses is presented in this section.  The recommendation in this document is one that complies fully with [RFC4291], is implemented by various operating systems, and is human friendly.  The recommendation in this section SHOULD be followed by systems when generating an address to be represented as text, but all implementations MUST accept and be able to handle any legitimate [RFC4291] format.  It is advised that humans also follow these recommendations when spelling an address.
+
+(...)
+   
+4.2.2.  Handling One 16-Bit 0 Field
+
+The symbol &quot;::&quot; MUST NOT be used to shorten just one 16-bit 0 field. For example, the representation 2001:db8:0:1:1:1:1:1 is correct, but 2001:db8::1:1:1:1:1 is not correct.
+
+(...)&quot;
+
+
+
+Therefore, it is clear that the intent of what was said in Section 4.2.2 only serves to standardize the generation and not to interpretation of a IPv6 representation.
+
+
+
+For more explanations see:
+
+RFC 4291 - Errata 2702, 2735 and 2466
+http://www.rfc-editor.org/errata_search.php?rfc=4291
+
+RFC 4291 - Errata 2735 discussion
+http://www.ietf.org/mail-archive/web/v6ops/current/msg07722.html
+	
+
+	
+[RFC 3986] Berners-Lee, T., Fielding, R., and L. Masinter, &quot;Uniform Resource Identifier (URI): Generic Syntax&quot;, STD 66, RFC 3986, January 2005.
+
+[RFC 4291] Hinden, R. and S. Deering, &quot;IP Version 6 Addressing Architecture&quot;, RFC 4291, February 2006.
+
+[RFC 5952] Kawamura, S. and M. Kawashima, &quot;A Recommendation for IPv6 Address Text Representation&quot;, RFC 5952, August 2010.
+
+===== Verifier notes =====
+The text in 5321 was correct at the time of publication, according to advice from the IPv6 folks.  This was, of course, well before 5952 came out.  This report has been noted in the notes for a future 5321bis document.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5414/">5414</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>David Romerstein</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2018-06-29</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-11-13</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Quoted-string  = DQUOTE *QcontentSMTP DQUOTE</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Quoted-string  = DQUOTE 1*QcontentSMTP DQUOTE</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>As written, this allows for an email envelope recipient (Forward-path) with a NULL value for the local part of their address. This is a functional departure from similar wording in the preceding RFC 821, which defines quoted-string in such a way as to require at least one character that is not one of the surrounding quotation marks.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1851/">1851</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alessandro Vesely</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2009-09-08</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.1.5. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>There are circumstances, contrary to the intent of this
+specification, in which an SMTP server may receive an indication that
+the underlying TCP connection has been closed or reset.  To preserve
+the robustness of the mail system, SMTP servers SHOULD be prepared
+for this condition and SHOULD treat it as if a QUIT had been received
+before the connection disappeared.</code></pre>
+                                                
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>That text seems inappropriate in the RESET (RSET) section. It should presumably be moved to section 4.1.1.10. QUIT (QUIT), or, better yet, to section 3.8. Terminating Sessions and Connections.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3447/">3447</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Adrien de Croy</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-01-07</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-01-09</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>When the delivery SMTP server makes the &quot;final delivery&quot; of a
+   message, it inserts a return-path line at the beginning of the mail
+   data.  This use of return-path is required; mail systems MUST support
+   it.
+
+...
+
+SMTP servers performing
+   a relay function MUST NOT inspect the message data
+
+...
+
+For this to be unambiguous, exactly one return path
+   SHOULD be present when the message is delivered.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>When the delivery SMTP server makes the &quot;final delivery&quot; of a
+   message, it MUST insert a return-path line at the beginning of the mail
+   data. 
+
+
+For this to be unambiguous, exactly one return path
+   MUST be present when the message is delivered. </code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>There are contradictory and ambiguous statements in this section.  Return-path is classified in 5322 as optional.  It&#x27;s not 100% clear in the original text whether the server MUST prepend the return-path header or not.
+
+Do we really want to prohibit inspection by relays in this section?  I would imagine this MUST level requirement is routinely ignored anyway.
+
+Alternatively, we decide that Return-path is truly optional and change the first sentence to make that clear instead of the strongly implied MUST.
+
+--- VERIFIER NOTES ---
+This erratum would normally meet the criteria for &quot;Rejected&quot;, but
+it points out that as it currently stands, RFC 5321 is in need of
+some work, perhaps in the process of advancing it on the Standards
+Track to Internet Standard.  The erratum raises some issues, which
+I&#x27;ll note here:
+
+1. RFC 5321 uses the capitalized key words from RFC 2119 only sparingly,
+and much of the normative language in the document is written in plain
+English (&quot;the server does this&quot;, rather than &quot;the server MUST do this&quot;).
+This is by intent, and is certainly not an error in the document, but
+some people find it less clear.
+
+2. While RFC 5321 and RFC 5322 go hand in hand for most of us most of
+the time, they are quite separable.  RFC 5321 can be used to transfer
+data that does not conform to the format in RFC 5322, and message stores
+can contain messages in RFC 5322 format that were not put there via
+SMTP (RFC 5321).  As a result, there are sometimes things that seem
+contradictory between the two documents, if one is not aware of this
+situation.
+
+3. RFC 5321 specifies a protocol that we know is not fully followed
+everywhere.  That there are known variants does not mean that we should
+define the protocol any less rigorously, and the claim that a requirement
+of the protocol is &quot;routinely ignored&quot; may well be true, but is not
+relevant to how the protocol is defined.
+
+All that said, the points need to be considered when a revision of
+RFC 5321 is taken on, and I&#x27;m marking this as &quot;Held for Document Update&quot;
+so that it will be staring us in the face is and when that happens.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5711/">5711</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Guillaume Fortin-Debigaré</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2019-04-29</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-11-13</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section D.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>      C: Bill:
+      C: The next meeting of the board of directors will be
+      C: on Tuesday.
+      C: John.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>      C: Bill:
+      C: The next meeting of the board of directors will be
+      C: on Tuesday.
+      C:                         John.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Since step 1 and step 2 are transmitting the same message, the relay host should not change its body.
+
+The previous version of this document, RFC 2821, had the &quot;John.&quot; signature centered by padding spaces before it on both steps, not just step 2.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (6)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc5321" rel="noopener" target="_blank">RFC 5321</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc5321.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> IETF - NON WORKING GROUP</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC7504</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4055/">4055</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Dave Crocker</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-07-19</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-07-19</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   This specification does not deal with the verification of return
+   paths for use in delivery notifications.  Recent work, such as that
+   on SPF [29] and DKIM [30] [31], has been done to provide ways to
+   ascertain that an address is valid or belongs to the person who
+   actually sent the message.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   This specification does not deal with the verification of return
+   paths for use in delivery notifications.  </code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Neither SPF nor DKIM determine &quot;validity&quot; of an address.  SPF determines whether an IP Address is &#x27;authorized&#x27; to send mail with a particular domain name in the return address, but that does not validate the entire address, nevermind validating any destination or author addresses.  DKIM has nothing at all to do with any existing address or domain name elsewhere in the message.
+
+So I suggest merely dropping the problematic sentence.
+ --VERIFIER NOTES-- 
+This is a change request, not an errata report.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4079/">4079</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Sergey Afonin</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-08-12</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-09-29</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.3.2. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>      DATA
+
+         I: 354 -&gt; data -&gt; S: 250
+
+                           E: 552, 554, 451, 452
+
+                           E: 450, 550 (rejections for policy reasons)
+
+         E: 503, 554
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>      DATA
+
+         I: 354 -&gt; data -&gt; S: 250
+
+                           E: 552, 554, 451, 452
+
+                           E: 450, 550 (rejections for policy reasons)
+
+         E: 451, 503, 554
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>&quot;E: 451&quot; after DATA exists in section 4.3.2 of RFC 2821:
+
+   DATA
+      I: 354 -&gt; data -&gt; S: 250
+                        E: 552, 554, 451, 452
+      E: 451, 554, 503
+ --VERIFIER NOTES-- 
+As discussed with the reporter: As far as we can tell, it was the intention to remove 451 in the transition from 2821 to 5321. This is not an error in the document. Error codes can be used by extensions without an update to 5321.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4265/">4265</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Vance Kochenderfer</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2015-02-07</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-03-01</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section F.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>SMTP servers MUST continue to accept source route syntax as specified
+in the main body of this document and in RFC 1123.  They MAY, if
+necessary, ignore the routes and utilize only the target domain in the
+address.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>SMTP servers MUST continue to accept source route syntax within RFC
+5322 headers as specified in the main body of this document and in RFC
+1123.  They SHOULD ignore source routes specified in envelope addresses
+and utilize only the target domain, or MAY decline to accept envelope
+addresses that specify source routes.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The current wording of Section F.2 appears to contradict Sections 3.3 and 3.6.1.
+
+Section 3.3 states: &quot;Servers MUST be prepared to encounter a list of source routes in the forward-path, but they SHOULD ignore the routes or MAY decline to support the relaying they imply.&quot;
+
+Section 3.6.1 states: &quot;SMTP servers MAY decline to act as mail relays or to accept addresses that specify source routes.&quot;
+
+RFC 1123 contains *two* separate relevant requirements: Section 5.2.6 states &quot;A receiver-SMTP MUST accept the explicit source route syntax in the envelope...&quot; and Section 5.2.19 states &quot;Internet host software SHOULD NOT create an RFC-822 header containing an address with an explicit source route, but MUST accept such headers for compatibility with earlier systems.&quot;
+
+It appears that Sections 3.3 and 3.6.1 are intended to remove the requirement to accept source route syntax within envelope addresses, but the current wording of Section F.2 contradicts this.  If the intent of Section F.2 is only to continue the requirement to accept source route syntax within message headers, this should be made clear.  The proposed text is written with this assumption in mind.  If the intent of RFC 5321 is to remove both requirements, the proposed wording for Section F.2 requires further revision.
+
+Also, if the intent of Sections 3.3 and 3.6.1 is to treat source routing differently for a &lt;forward-path&gt; and &lt;reverse-path&gt;, this should be clarified in all three sections.  The proposed text assumes the requirements for both are the same.
+ --VERIFIER NOTES-- 
+The text as it is, is what was intended.  Moreover, this is another step along the way toward the deprecation of source routes, a path we started on a good many years ago.  John Klensin is taking input for his working copy of a 5321bis, if specific text changes are suggested.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6561/">6561</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Seiichi Hamada</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2021-04-27</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2022-03-25</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.2. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Domain         = sub-domain *(&quot;.&quot; sub-domain)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Domain         = sub-domain *(&quot;.&quot; sub-domain)[.]
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>RFC-1034 section 3.1 say &quot; Since a complete domain name ends with the root label, this leads to a printed form which ends in a dot.&quot; and also say &#x27;a character string which represents a complete domain name (often called &quot;absolute&quot;). For example, &quot;poneria.ISI.EDU.&quot; &#x27;.
+ It is necessary to allow a dot at the end of the domain name.
+ --VERIFIER NOTES-- 
+As reported by John C Klensin in https://mailarchive.ietf.org/arch/msg/iesg/sAzZQpgOkD75eKQiS-RlWrmPhDk/ : The syntax used in SMTP predates RFC 1034.   This possible change was discussed in the DRUMS WG when RFC 2821 was being assembled and rejected as likely to cause harm with existing implementations.  If he recalls, that topic was revisited in the YAM WG that developed RFC 5321 with the conclusion to not reopen it.
+
+So it is a substantive matter and not an editorial change and hence, as an erratum, it is rejected.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1820/">1820</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alessandro Vesely</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2009-07-30</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Lisa Dusseault</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2009-07-31</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.9.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   A mailing list may be said to operate by &quot;redistribution&quot; rather than
+   by &quot;forwarding&quot;.     [...]     Note that
+   the key difference between handling aliases (Section 3.9.1) and
+   forwarding (this subsection) is the change to the backward-pointing
+   address in this case.  [...]
+
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   A mailing list may be said to operate by &quot;redistribution&quot; rather than
+   by &quot;forwarding&quot;.     [...]     Note that
+   the key difference between handling aliases (Section 3.9.1) and
+   lists (this subsection) is the change to the backward-pointing
+   address in this case.     [...]
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The change replaces the second occurrence of &quot;forwarding&quot; with &quot;lists&quot; in the first paragraph of section 3.9.2.
+
+The term &quot;forwarding&quot; is generally used as a synonym of transmitting as opposed to delivering locally. The beginning of this section attempts to introduce the term &quot;redistribution&quot; for the specific type of transmission described therein. The phrase where the change is necessary, in its original wording, contradicts both the first phrase in its own paragraph, and the last phrase of the preceding section about aliases, which says that handling aliases may result in forwarding.
+ --VERIFIER NOTES-- 
+   This should be taken up with the group revising SMTP.  The language chosen was intentional, so a fix is not as simple as an errata.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2467/">2467</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Michael Rushton</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-08-16</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-06-11</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   IPv6-comp      = [IPv6-hex *5(&quot;:&quot; IPv6-hex)] &quot;::&quot;
+                  [IPv6-hex *5(&quot;:&quot; IPv6-hex)]
+                  ; The &quot;::&quot; represents at least 2 16-bit groups of
+                  ; zeros.  No more than 6 groups in addition to the
+                  ; &quot;::&quot; may be present.
+
+   IPv6v4-full    = IPv6-hex 5(&quot;:&quot; IPv6-hex) &quot;:&quot; IPv4-address-literal
+
+   IPv6v4-comp    = [IPv6-hex *3(&quot;:&quot; IPv6-hex)] &quot;::&quot;
+                  [IPv6-hex *3(&quot;:&quot; IPv6-hex) &quot;:&quot;]
+                  IPv4-address-literal
+                  ; The &quot;::&quot; represents at least 2 16-bit groups of
+                  ; zeros.  No more than 4 groups in addition to the
+                  ; &quot;::&quot; and IPv4-address-literal may be present.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   IPv6-comp      = [IPv6-hex *6(&quot;:&quot; IPv6-hex)] &quot;::&quot;
+                  [IPv6-hex *6(&quot;:&quot; IPv6-hex)]
+                  ; The &quot;::&quot; represents at least 1 16-bit groups of
+                  ; zeros.  No more than 7 groups in addition to the
+                  ; &quot;::&quot; may be present.
+
+   IPv6v4-full    = IPv6-hex 5(&quot;:&quot; IPv6-hex) &quot;:&quot; IPv4-address-literal
+
+   IPv6v4-comp    = [IPv6-hex *4(&quot;:&quot; IPv6-hex)] &quot;::&quot;
+                  [IPv6-hex *4(&quot;:&quot; IPv6-hex) &quot;:&quot;]
+                  IPv4-address-literal
+                  ; The &quot;::&quot; represents at least 1 16-bit groups of
+                  ; zeros.  No more than 5 groups in addition to the
+                  ; &quot;::&quot; and IPv4-address-literal may be present.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>As per RFC 4291 and RFC 3986, &quot;::&quot; can represent a single 16-bit group of zeroes.
+ --VERIFIER NOTES-- 
+As per RFC 5952:
+
+4.2.2.  Handling One 16-Bit 0 Field
+
+   The symbol &quot;::&quot; MUST NOT be used to shorten just one 16-bit 0 field.
+   For example, the representation 2001:db8:0:1:1:1:1:1 is correct, but
+   2001:db8::1:1:1:1:1 is not correct.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

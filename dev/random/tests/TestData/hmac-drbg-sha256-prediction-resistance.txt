@@ -1,0 +1,18 @@
+# Source: specs/nist-drbg-test-vectors.zip/drbgvectors_pr_true.zip/HMAC_DRBG.rsp
+[SHA-256]
+[PredictionResistance = True]
+[EntropyInputLen = 256]
+[NonceLen = 128]
+[PersonalizationStringLen = 256]
+[AdditionalInputLen = 256]
+[ReturnedBitsLen = 1024]
+
+COUNT = 0
+EntropyInput = 4294671d493dc085b5184607d7de2ff2b6aceb734a1b026f6cfee7c5a90f03da
+Nonce = d071544e599235d5eb38b64b551d2a6e
+PersonalizationString = 63bc769ae1d95a98bde870e4db7776297041d37c8a5c688d4e024b78d83f4d78
+AdditionalInput = 28848becd3f47696f124f4b14853a456156f69be583a7d4682cff8d44b39e1d3
+EntropyInputPR = db9b4790b62336fbb9a684b82947065393eeef8f57bd2477141ad17e776dac34
+AdditionalInput = 8bfce0b7132661c3cd78175d83926f643e36f7608eec2c5dac3ddcbacc8c2182
+EntropyInputPR = 4a9abe80f6f522f29878bedf8245b27940a76471006fb4a4110beb4decb6c341
+ReturnedBits = e580dc969194b2b18a97478aef9d1a72390aff14562747bf080d741527a6655ce7fc135325b457483a9f9c70f91165a811cf4524b50d51199a0df3bd60d12abac27d0bf6618e6b114e05420352e23f3603dfe8a225dc19b3d1fff1dc245dc6b1df24c741744bec3f9437dbbf222df84881a457a589e7815ef132f686b760f012

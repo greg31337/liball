@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/unicode.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/unicode.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/UnicodeDataGenerator/UnicodeDataGenerator.csproj" />
+  </Folder>
+</Solution>

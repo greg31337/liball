@@ -1,0 +1,38 @@
+# iso20022.js
+
+## Docs
+
+- [Overview](https://docs.iso20022js.com/overview.md): Learn about ISO20022 and how to use this library
+- [Quickstart - SEPA](https://docs.iso20022js.com/quickstart.md): Learn how to use iso20022.js to create a SEPA payment instruction in three lines of code.
+- [ISO20022](https://docs.iso20022js.com/core/iso20022.md): Core class of iso20022.js
+- [ACH Credit](https://docs.iso20022js.com/pain/achcredit.md): Create an ACH Credit Payment Initiation message
+- [RTP Credit](https://docs.iso20022js.com/pain/rtpcredit.md): Create a RTP Credit Payment Initiation message
+- [SEPA Credit](https://docs.iso20022js.com/pain/sepacredit.md): Create a SEPA Credit Payment Initiation message
+- [SWIFT Credit](https://docs.iso20022js.com/pain/swiftcredit.md): Create a SWIFT Credit Payment Initiation message
+- [Payment Status Report](https://docs.iso20022js.com/pain/payment-status-report.md): Payment Status Report (PAIN.002)
+- [End of Day Report](https://docs.iso20022js.com/camt/camt.md): Cash Management End of Day Report (CAMT.053)
+- [Overview](https://docs.iso20022js.com/data-reference/overview.md): Core types used in the payment system
+- [Parties](https://docs.iso20022js.com/data-reference/party.md): A party involved in the transaction.
+- [Accounts](https://docs.iso20022js.com/data-reference/account.md): Accounts and Agents
+- [Addresses](https://docs.iso20022js.com/data-reference/address.md): A structured format for representing addresses.
+- [Payment Instructions](https://docs.iso20022js.com/data-reference/payment-instruction.md): How to format payment instructions
+- [Payment Status](https://docs.iso20022js.com/data-reference/payment-status.md): Data types related to payment status
+- [Statement](https://docs.iso20022js.com/data-reference/statement.md): Represents a bank statement in the CAMT.053 format
+- [Balance](https://docs.iso20022js.com/data-reference/balance.md): Represents a balance in the CAMT.053 format
+- [Entries](https://docs.iso20022js.com/data-reference/entries.md): Entries in the CAMT.053 format
+- [Transactions](https://docs.iso20022js.com/data-reference/transactions.md): Transactions in the CAMT.053 format
+- [Get ping](https://docs.iso20022js.com/api-reference/get-ping.md)
+- [Post payment transfersswift](https://docs.iso20022js.com/api-reference/post-payment-transfersswift.md)
+- [Post payment transferssepa](https://docs.iso20022js.com/api-reference/post-payment-transferssepa.md)
+- [Post payment transfersach](https://docs.iso20022js.com/api-reference/post-payment-transfersach.md)
+- [Post payment transfersrtp](https://docs.iso20022js.com/api-reference/post-payment-transfersrtp.md)
+
+## OpenAPI Specs
+
+- [openapi.documented](https://docs.iso20022js.com/openapi.documented.json)
+
+## Optional
+
+- [Home](https://iso20022js.com)
+- [NPM Package](https://www.npmjs.com/package/iso20022.js)
+- [GitHub](https://github.com/svapnil/iso20022.js)

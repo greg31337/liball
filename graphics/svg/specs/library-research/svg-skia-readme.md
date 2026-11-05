@@ -1,0 +1,952 @@
+# Svg.Skia
+
+[![Gitter](https://badges.gitter.im/wieslawsoltes/Svg.Skia.svg)](https://gitter.im/wieslawsoltes/Svg.Skia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+[![Build Status](https://dev.azure.com/wieslawsoltes/GitHub/_apis/build/status/wieslawsoltes.Svg.Skia?branchName=master)](https://dev.azure.com/wieslawsoltes/GitHub/_build/latest?definitionId=93&branchName=master)
+![CI](https://github.com/wieslawsoltes/Svg.Skia/workflows/CI/badge.svg)
+
+[![NuGet](https://img.shields.io/nuget/v/svg.skia.svg)](https://www.nuget.org/packages/svg.skia)
+[![NuGet](https://img.shields.io/nuget/dt/svg.skia.svg)](https://www.nuget.org/packages/svg.skia)
+[![MyGet](https://img.shields.io/myget/svgskia-nightly/vpre/svg.skia.svg?label=myget)](https://www.myget.org/gallery/svgskia-nightly)
+
+[![GitHub release](https://img.shields.io/github/release/wieslawsoltes/svg.skia.svg)](https://github.com/wieslawsoltes/svg.skia)
+[![Github All Releases](https://img.shields.io/github/downloads/wieslawsoltes/svg.skia/total.svg)](https://github.com/wieslawsoltes/svg.skia)
+[![Github Releases](https://img.shields.io/github/downloads/wieslawsoltes/svg.skia/latest/total.svg)](https://github.com/wieslawsoltes/svg.skia)
+
+| Package ID | NuGet | Downloads |
+| --- | --- | --- |
+| `ShimSkiaSharp` | [![NuGet](https://img.shields.io/nuget/v/ShimSkiaSharp.svg)](https://www.nuget.org/packages/ShimSkiaSharp/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/ShimSkiaSharp.svg)](https://www.nuget.org/packages/ShimSkiaSharp/) |
+| `Skia.Controls.Avalonia` | [![NuGet](https://img.shields.io/nuget/v/Skia.Controls.Avalonia.svg)](https://www.nuget.org/packages/Skia.Controls.Avalonia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Skia.Controls.Avalonia.svg)](https://www.nuget.org/packages/Skia.Controls.Avalonia/) |
+| `Svg.Animation` | [![NuGet](https://img.shields.io/nuget/v/Svg.Animation.svg)](https://www.nuget.org/packages/Svg.Animation/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Animation.svg)](https://www.nuget.org/packages/Svg.Animation/) |
+| `Svg.CodeGen.Skia` | [![NuGet](https://img.shields.io/nuget/v/Svg.CodeGen.Skia.svg)](https://www.nuget.org/packages/Svg.CodeGen.Skia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.CodeGen.Skia.svg)](https://www.nuget.org/packages/Svg.CodeGen.Skia/) |
+| `Svg.Controls.Avalonia` | [![NuGet](https://img.shields.io/nuget/v/Svg.Controls.Avalonia.svg)](https://www.nuget.org/packages/Svg.Controls.Avalonia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Controls.Avalonia.svg)](https://www.nuget.org/packages/Svg.Controls.Avalonia/) |
+| `Svg.Controls.Skia.Avalonia` | [![NuGet](https://img.shields.io/nuget/v/Svg.Controls.Skia.Avalonia.svg)](https://www.nuget.org/packages/Svg.Controls.Skia.Avalonia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Controls.Skia.Avalonia.svg)](https://www.nuget.org/packages/Svg.Controls.Skia.Avalonia/) |
+| `Svg.Controls.Skia.Maui` | [![NuGet](https://img.shields.io/nuget/v/Svg.Controls.Skia.Maui.svg)](https://www.nuget.org/packages/Svg.Controls.Skia.Maui/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Controls.Skia.Maui.svg)](https://www.nuget.org/packages/Svg.Controls.Skia.Maui/) |
+| `Svg.Controls.Skia.Uno` | [![NuGet](https://img.shields.io/nuget/v/Svg.Controls.Skia.Uno.svg)](https://www.nuget.org/packages/Svg.Controls.Skia.Uno/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Controls.Skia.Uno.svg)](https://www.nuget.org/packages/Svg.Controls.Skia.Uno/) |
+| `Svg.Custom` | [![NuGet](https://img.shields.io/nuget/v/Svg.Custom.svg)](https://www.nuget.org/packages/Svg.Custom/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Custom.svg)](https://www.nuget.org/packages/Svg.Custom/) |
+| `Svg.Editor.Avalonia` | [![NuGet](https://img.shields.io/nuget/v/Svg.Editor.Avalonia.svg)](https://www.nuget.org/packages/Svg.Editor.Avalonia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Editor.Avalonia.svg)](https://www.nuget.org/packages/Svg.Editor.Avalonia/) |
+| `Svg.Editor.Core` | [![NuGet](https://img.shields.io/nuget/v/Svg.Editor.Core.svg)](https://www.nuget.org/packages/Svg.Editor.Core/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Editor.Core.svg)](https://www.nuget.org/packages/Svg.Editor.Core/) |
+| `Svg.Editor.Skia` | [![NuGet](https://img.shields.io/nuget/v/Svg.Editor.Skia.svg)](https://www.nuget.org/packages/Svg.Editor.Skia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Editor.Skia.svg)](https://www.nuget.org/packages/Svg.Editor.Skia/) |
+| `Svg.Editor.Skia.Avalonia` | [![NuGet](https://img.shields.io/nuget/v/Svg.Editor.Skia.Avalonia.svg)](https://www.nuget.org/packages/Svg.Editor.Skia.Avalonia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Editor.Skia.Avalonia.svg)](https://www.nuget.org/packages/Svg.Editor.Skia.Avalonia/) |
+| `Svg.Editor.Svg` | [![NuGet](https://img.shields.io/nuget/v/Svg.Editor.Svg.svg)](https://www.nuget.org/packages/Svg.Editor.Svg/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Editor.Svg.svg)](https://www.nuget.org/packages/Svg.Editor.Svg/) |
+| `Svg.Model` | [![NuGet](https://img.shields.io/nuget/v/Svg.Model.svg)](https://www.nuget.org/packages/Svg.Model/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Model.svg)](https://www.nuget.org/packages/Svg.Model/) |
+| `Svg.SceneGraph` | [![NuGet](https://img.shields.io/nuget/v/Svg.SceneGraph.svg)](https://www.nuget.org/packages/Svg.SceneGraph/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.SceneGraph.svg)](https://www.nuget.org/packages/Svg.SceneGraph/) |
+| `Svg.Skia` | [![NuGet](https://img.shields.io/nuget/v/Svg.Skia.svg)](https://www.nuget.org/packages/Svg.Skia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Skia.svg)](https://www.nuget.org/packages/Svg.Skia/) |
+| `Svg.Skia.JavaScript` | [![NuGet](https://img.shields.io/nuget/v/Svg.Skia.JavaScript.svg)](https://www.nuget.org/packages/Svg.Skia.JavaScript/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Skia.JavaScript.svg)](https://www.nuget.org/packages/Svg.Skia.JavaScript/) |
+| `Svg.Skia.Converter` | [![NuGet](https://img.shields.io/nuget/v/Svg.Skia.Converter.svg)](https://www.nuget.org/packages/Svg.Skia.Converter/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.Skia.Converter.svg)](https://www.nuget.org/packages/Svg.Skia.Converter/) |
+| `Svg.SourceGenerator.Skia` | [![NuGet](https://img.shields.io/nuget/v/Svg.SourceGenerator.Skia.svg)](https://www.nuget.org/packages/Svg.SourceGenerator.Skia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Svg.SourceGenerator.Skia.svg)](https://www.nuget.org/packages/Svg.SourceGenerator.Skia/) |
+| `SvgML.Avalonia` | [![NuGet](https://img.shields.io/nuget/v/SvgML.Avalonia.svg)](https://www.nuget.org/packages/SvgML.Avalonia/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/SvgML.Avalonia.svg)](https://www.nuget.org/packages/SvgML.Avalonia/) |
+| `SvgML.Maui` | [![NuGet](https://img.shields.io/nuget/v/SvgML.Maui.svg)](https://www.nuget.org/packages/SvgML.Maui/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/SvgML.Maui.svg)](https://www.nuget.org/packages/SvgML.Maui/) |
+| `SvgML.Uno` | [![NuGet](https://img.shields.io/nuget/v/SvgML.Uno.svg)](https://www.nuget.org/packages/SvgML.Uno/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/SvgML.Uno.svg)](https://www.nuget.org/packages/SvgML.Uno/) |
+| `svgc` | [![NuGet](https://img.shields.io/nuget/v/svgc.svg)](https://www.nuget.org/packages/svgc/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/svgc.svg)](https://www.nuget.org/packages/svgc/) |
+| `SvgToPng` | [![NuGet](https://img.shields.io/nuget/v/SvgToPng.svg)](https://www.nuget.org/packages/SvgToPng/) | [![NuGet Downloads](https://img.shields.io/nuget/dt/SvgToPng.svg)](https://www.nuget.org/packages/SvgToPng/) |
+
+*Svg.Skia* is an [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) rendering library.
+
+## About
+
+*Svg.Skia* can be used as a .NET library or as a CLI application
+to render SVG files based on the [SVG Full 1.1](https://www.w3.org/TR/SVG11/)
+document model plus the supported [SVG 2](https://www.w3.org/TR/SVG2/)
+static subset to raster images or to a backend's canvas.
+
+The `Svg.Skia` is using [SVG](https://github.com/vvvv/SVG) library to load `Svg` object model. 
+
+The `Svg.Skia` library is implemented using the `SkiaSharp` rendering backend that aims to be on par 
+or more complete than the original `System.Drawing` implementation and more performant and cross-platform.
+
+The `Svg.Skia` can be used in same way as the [SkiaSharp.Extended.Svg](https://github.com/mono/SkiaSharp.Extended/tree/main/source/SkiaSharp.Extended.Svg) 
+(load `svg` files as `SKPicture`). 
+
+The `Svg` library has a more complete implementation of the `Svg` document model than [SkiaSharp.Extended.Svg](https://github.com/mono/SkiaSharp.Extended/tree/main/source/SkiaSharp.Extended.Svg)
+and the `Svg.Skia` renderer will provide more complete rendering subsystem implementation.
+
+## SVG standards support
+
+The static renderer treats SVG 1.1 as the compatibility baseline and layers
+browser-compatible SVG 2 static features on top. Detailed reference articles
+are available for [SVG 1.1 static subset support](site/articles/reference/svg-11-static-subset-support.md)
+and [SVG 2 static subset support](site/articles/reference/svg-2-static-subset-support.md).
+
+| Area | SVG 1.1 static support | SVG 2 static subset support |
+| --- | --- | --- |
+| Document model and loading | Parses and preserves core SVG documents, nested fragments, groups, definitions, symbols, use references, images, metadata, and compatibility attributes. | Adds processing mode and external-resource policy contracts through `SvgDocumentLoadOptions` and `SvgParameters`, including secure static resource behavior in covered paths. |
+| References and resources | Supports `xlink:href`, `xml:base`, data URLs, SVG/SVGZ image resources, raster images, local/file/HTTP resources, and asset-loader controlled resolution. | Supports unnamespaced `href` with SVG 2 precedence by default, empty/invalid href fail-closed behavior, and `PreferSvg2Href = false` for strict legacy mixed-href imports. |
+| Geometry and paths | Supports path commands, relative commands, arcs, close paths, rectangles, circles, ellipses, lines, polylines, polygons, rounded rectangles, point lists, and shape-to-path conversion. | Supports styleable geometry for covered elements, CSS `d` on paths, `d: none`, basic-shape `pathLength` normalization, equivalent paths for shared rendering consumers, and selected image intrinsic sizing behavior. |
+| Viewports and coordinate systems | Supports `viewBox`, `preserveAspectRatio`, nested viewports, object-bounding-box units, user units, percentages, font-relative units, physical units, and transform lists. | Adds SVG 2 symbol geometry fields, origin-aware transform handling for covered retained nodes, and static processing contracts that preserve deprecated profile/version switches without using them to block rendering. |
+| Paint and stroke | Supports fill, stroke, opacity, fill/clip rules, stroke width, dash arrays, line caps, line joins, miter limits, visibility, display, `currentColor`, and shape rendering. | Supports `paint-order` in covered paths, context paint in selected marker/use/text/fallback chains, `vector-effect` fallback behavior, and CSS Color/static paint extensions in supported renderer paths. |
+| Gradients and patterns | Supports linear gradients, radial gradients, stops, patterns, paint-server inheritance, units, transforms, spread methods, stop color, and stop opacity. | Adds SVG 2 radial gradient `fr` mapping in verified static paths and broader URL paint fallback/context-paint contracts where covered. |
+| Markers | Supports `marker-start`, `marker-mid`, `marker-end`, marker geometry, marker units, and marker orientation for common path-like content. | Adds `orient="auto-start-reverse"` and broader path/basic-shape marker placement coverage, with exhaustive marker edge cases still tracked as partial. |
+| Text and text paths | Supports practical static text rendering with font family, size, style, weight, stretch, anchor, baseline, direction, writing mode, decorations, spacing, `textLength`, and `lengthAdjust`. | Adds inline `textPath path`, textPath references to basic shapes, `textPath side`, pathLength-aware textPath distance mapping, closed-loop/open-path handling, and focused `white-space` preservation. |
+| Styling and CSS | Supports `class`, `style`, presentation attributes, stylesheets, `@import`, media-qualified imports, and `@media` for common static cases. | Adds SVG 2 style-property recognition, CSS custom properties in covered paths, static pseudo-class handling, CSS geometry, CSS-only `mix-blend-mode` and `isolation`, and screen-like static media evaluation. |
+| Filters, masks, and compositing | Supports many SVG 1.1 filter primitives, filter regions, primitive units, primitive chaining, light sources, linked filters, clip paths, and masks in common static paths. | Adds focused SVG 2/CSS masking and filter behavior such as `mask-type`, `feDropShadow`, `feImage` policy handling, CSS blending, and isolation save-layer behavior where supported. |
+| Inline XAML authoring | `SvgML.Avalonia`, `SvgML.Maui`, and `SvgML.Uno` expose generated SVG 1.1 element and attribute surfaces for inline XAML trees. | SvgML root controls expose SVG 2 load options, and generated surfaces include SVG 2 shape `pathLength`, symbol geometry, transform/paint/text properties, `mask-type`, and `feDropShadow`. |
+| Animation, scripting, and interaction | Preserves animation and script object-model data; JavaScript execution is opt-in through `Svg.Skia.JavaScript`; static rendering does not provide a browser DOM, CSSOM, event loop, or navigation UI. | SVG 2 dynamic/interactive behavior is represented only where it matters to parsing, preservation, or host-driven APIs; the default renderer remains a static subset renderer. |
+| Test coverage | Uses W3C SVG 1.1, resvg, model, retained scene graph, host, and renderer tests with explicit skips for browser-only/runtime rows. | Adds focused WPT SVG 2 static rows and unit coverage for href precedence, CSS geometry, CSS `d`, paint-order, radial gradient `fr`, context paint, textPath additions, resource policy, and compatibility defaults. |
+
+## Highlights
+
+- `Svg.Custom`, `Svg.Model`, `Svg.SceneGraph`, `ShimSkiaSharp`, and `Svg.Skia` now support a documented SVG 2 static subset on top of the SVG 1.1 compatibility baseline.
+- `Svg.Custom` now exposes the SVG 1.1 animation object model for `animate`, `set`, `animateMotion`, `animateColor`, `animateTransform`, and `mpath`.
+- `Svg.Custom` and `Svg.Skia` now include typed `pointer-events` handling plus geometry-aware topmost hit testing.
+- `Svg.Skia` now includes a shared interaction dispatcher, shared animation clock/controller, and host-driven animation playback APIs.
+- `Svg.Controls.Skia.Avalonia`, `Svg.Controls.Skia.Maui`, and `Svg.Controls.Skia.Uno` now expose animation backend selection, playback rate, frame interval, and resolved-backend diagnostics.
+- JavaScript execution is disabled by default and lives behind the optional `Svg.Skia.JavaScript` package, so `Svg.Skia` does not pull in the Jint runtime for regular rendering or NativeAOT builds.
+- `SvgML.Avalonia`, `SvgML.Maui`, and `SvgML.Uno` now live in the same repository, so inline Avalonia, .NET MAUI, and Uno XAML-authored SVG trees, including native controls hosted through SVG `foreignObject` and the supported SVG 2 static subset, build against the local `Svg.Skia` sources and ship from the same release pipeline.
+- Avalonia adds an optional `NativeComposition` animation backend with fallback to `RenderLoop` or `DispatcherTimer` when retained composition is unavailable.
+- `tests/Svg.Skia.Benchmarks` adds a local BenchmarkDotNet harness for the shared animation renderer, and `samples/TestApp` exposes backend and playback controls for manual verification.
+
+## NuGet
+
+Svg.Skia is delivered as a NuGet package.
+
+You can find the packages here [NuGet](https://www.nuget.org/packages/Svg.Skia/) and install the package like this:
+
+`Install-Package Svg.Skia`
+
+or by using nightly build feed:
+* Add `https://www.myget.org/F/svgskia-nightly/api/v2` to your package sources
+* Alternative nightly build feed `https://pkgs.dev.azure.com/wieslawsoltes/GitHub/_packaging/Nightly/nuget/v3/index.json`
+* Update your package using `Svg.Skia` feed
+
+and install the package like this:
+
+`Install-Package Svg.Skia -Pre`
+
+## Usage
+
+### Library
+
+#### Install Package
+
+```
+dotnet add package Svg.Skia
+```
+
+```
+Install-Package Svg.Skia
+```
+
+#### Linux native assets
+
+Linux applications must also deploy the SkiaSharp native library that matches
+the target distribution. On Alpine Linux and other small container images,
+prefer `SkiaSharp.NativeAssets.Linux.NoDependencies` instead of
+`SkiaSharp.NativeAssets.Linux`:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Svg.Skia" Version="..." />
+  <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="..." />
+</ItemGroup>
+```
+
+Do not reference both Linux native asset packages in the same application. If
+the application already references `SkiaSharp.NativeAssets.Linux`, replace that
+reference with `SkiaSharp.NativeAssets.Linux.NoDependencies` for Alpine-style
+deployments.
+
+The `NoDependencies` package contains a `libSkiaSharp.so` build that does not
+depend on third-party Linux libraries such as Fontconfig. This reduces native
+library assumptions in Alpine/musl and minimal container images. It still does
+not provide the operating system font configuration or fonts. Install
+`fontconfig` and at least one font package in the runtime image so text and SVG
+font fallback can work:
+
+```dockerfile
+RUN apk add --no-cache fontconfig ttf-dejavu
+```
+
+Add any other font packages required by the SVG content. When publishing
+RID-specific applications for Alpine Linux, use a musl RID such as
+`linux-musl-x64` or `linux-musl-arm64`.
+
+JavaScript support is opt-in:
+
+```
+dotnet add package Svg.Skia.JavaScript
+```
+
+```C#
+using Svg.Skia;
+
+SKSvgJavaScriptRuntime.Register();
+
+var svg = new SKSvg();
+svg.Settings.EnableJavaScript = true;
+svg.Load("interactive.svg");
+```
+
+#### Draw on Canvas
+
+```C#
+using SkiaSharp;
+using Svg.Skia;
+
+var svg = new SKSvg();
+
+svg.Load("image.svg");
+
+SKCanvas canvas = ...
+canvas.DrawPicture(svg.Picture);
+```
+
+#### Save as Png
+
+```C#
+using SkiaSharp;
+using Svg.Skia;
+
+using (var svg = new SKSvg())
+{
+    if (svg.Load("image.svg") is { })
+    {
+        svg.Save("image.png", SKEncodedImageFormat.Png, 100, 1f, 1f);
+    }
+}
+```
+
+```C#
+using System.IO;
+using SkiaSharp;
+using Svg.Skia;
+
+using (var svg = new SKSvg())
+{
+    if (svg.Load("image.svg") is { })
+    {
+        using (var stream = File.OpenWrite("image.png"))
+        {
+            svg.Picture.ToImage(stream, SKColors.Empty, SKEncodedImageFormat.Png, 100, 1f, 1f);
+        }
+    }
+}
+```
+
+```C#
+using SkiaSharp;
+using Svg.Skia;
+
+using (var svg = new SKSvg())
+{
+    if (svg.Load("image.svgz") is { })
+    {
+        svg.Save("image.png", SKEncodedImageFormat.Png, 100, 1f, 1f);
+    }
+}
+```
+
+```C#
+using System.IO;
+using SkiaSharp;
+using Svg.Skia;
+
+using (var svg = new SKSvg())
+{
+    if (svg.Load("image.svgz") is { })
+    {
+        using (var stream = File.OpenWrite("image.png"))
+        {
+            svg.Picture.ToImage(stream, SKColors.Empty, SKEncodedImageFormat.Png, 100, 1f, 1f);
+        }
+    }
+}
+```
+
+#### Save as Pdf
+
+```C#
+using SkiaSharp;
+using Svg.Skia;
+
+using (var svg = new SKSvg())
+{
+    if (svg.Load("image.svg") is { })
+    {
+        svg.Picture.ToPdf("image.pdf", SKColors.Empty, 1f, 1f);
+    }
+}
+```
+
+#### Save as Xps
+
+```C#
+using SkiaSharp;
+using Svg.Skia;
+
+using (var svg = new SKSvg())
+{
+    if (svg.Load("image.svg") is { })
+    {
+        svg.Picture.ToXps("image.xps", SKColors.Empty, 1f, 1f);
+    }
+}
+```
+
+#### Load Android VectorDrawable
+
+```C#
+using Svg.Skia;
+
+using (var svg = new SKSvg())
+{
+    if (svg.LoadVectorDrawable("icon.xml") is { })
+    {
+        svg.Save("icon.png", SkiaSharp.SKColors.Transparent);
+    }
+}
+```
+
+```C#
+using Svg.Model.Services;
+
+var document = SvgService.OpenVectorDrawable("icon.xml");
+document?.Write("icon.svg");
+```
+
+When loading from a file path, `SKSvg.Load("icon.xml")` also auto-detects
+Android `VectorDrawable` XML and routes it through the VectorDrawable importer.
+
+### Hit Testing
+
+#### SKSvg
+
+The `SKSvg` class provides helpers for retrieving elements or drawables at a
+given point. The hit-testing methods expect coordinates in picture space:
+
+```C#
+using ShimSkiaSharp;
+using Svg.Skia;
+
+var svg = new SKSvg();
+if (svg.Load("image.svg") is { })
+{
+    var element = svg.HitTestElements(new SKPoint(10, 10)).FirstOrDefault();
+    if (element is { })
+    {
+        Console.WriteLine(element.ID);
+    }
+}
+```
+
+When drawing on a transformed canvas you can convert canvas coordinates to
+picture coordinates using `TryGetPicturePoint` and then use the hit-testing
+methods.
+
+The runtime also exposes `HitTestTopmostElement(...)` for pointer-dispatch
+scenarios where only the topmost routed target should be returned, and the hit
+test path now respects typed `pointer-events` values.
+
+#### Svg control
+
+The `Svg` Avalonia control exposes a `HitTestElements` method that accepts
+a point in control coordinates and returns the matching SVG elements:
+
+```C#
+var hits = svgControl.HitTestElements(new Point(x, y));
+```
+
+### Animation and interaction
+
+`SKSvg` now exposes a shared animation runtime and a routed interaction layer
+that can be hosted from Avalonia, Uno, or custom Skia surfaces.
+
+```C#
+using System;
+using ShimSkiaSharp;
+using Svg.Skia;
+
+using var svg = new SKSvg();
+
+if (svg.Load("animated.svg") is not null && svg.HasAnimations)
+{
+    svg.AnimationInvalidated += (_, e) => Console.WriteLine(e.Time);
+
+    svg.SetAnimationTime(TimeSpan.FromSeconds(1));
+    svg.AdvanceAnimation(TimeSpan.FromMilliseconds(16));
+    svg.ResetAnimation();
+}
+
+var target = svg.HitTestTopmostElement(new SKPoint(10, 10));
+```
+
+The shared runtime surface includes:
+
+- `HasAnimations`
+- `AnimationTime`
+- `SetAnimationTime(...)`
+- `AdvanceAnimation(...)`
+- `ResetAnimation()`
+- `AnimationInvalidated`
+- `AnimationMinimumRenderInterval`
+- `HasPendingAnimationFrame`
+- `FlushPendingAnimationFrame()`
+- `LastAnimationDirtyTargetCount`
+
+The shared interaction surface includes `SvgInteractionDispatcher`,
+`SvgPointerInput`, routed `Dispatched` events, cursor hints, and optional
+compatibility bridging back into `SvgElement` mouse events.
+
+
+### Avalonia
+
+#### Install Package
+
+```
+dotnet add package Svg.Controls.Skia.Avalonia
+```
+
+```
+Install-Package Svg.Controls.Skia.Avalonia
+```
+
+### Svg control
+
+```XAML
+<Svg Path="/Assets/__AJ_Digital_Camera.svg"/>
+```
+
+For animated content, the Skia-backed Avalonia and Uno controls also expose:
+
+- `AnimationBackend`
+- `AnimationFrameInterval`
+- `AnimationPlaybackRate`
+- `ActualAnimationBackend`
+- `AnimationBackendFallbackReason`
+
+Avalonia supports `Default`, `Manual`, `DispatcherTimer`, `RenderLoop`, and
+`NativeComposition`. Uno supports the same host-driven playback model but falls
+back from `NativeComposition` because it does not currently expose a working
+retained child-visual path.
+
+```XAML
+<Svg Path="/Assets/animated.svg"
+     AnimationBackend="Default"
+     AnimationPlaybackRate="1.0"
+     AnimationFrameInterval="0:0:0.016" />
+```
+
+#### Image control
+
+```XAML
+<Image Source="{SvgImage /Assets/__AJ_Digital_Camera.svg}"/>
+```
+
+#### Background
+
+```XAML
+<Border Width="100"
+        Height="100"
+        Background="{SvgImage /Assets/__AJ_Digital_Camera.svg}" />
+```
+
+### CSS styling
+
+```XAML
+<Svg Path="/Assets/__tiger.svg" 
+     Css=".Black { fill: #FF0000; }"  />
+```
+
+For SVG assets that use `fill="currentColor"` or `stroke="currentColor"`,
+set the inherited SVG `color` value directly:
+
+```XAML
+<Svg Path="/Assets/icon.svg"
+     CurrentColor="#FFFFFFFF" />
+```
+
+```XAML
+<Style Selector="Svg">
+  <Setter Property="(Svg.Css)" Value=".Black { fill: #FF0000; }" />
+</Style>
+```
+
+```XAML
+<SvgSource x:Key="TigerIcon"
+           Path="/Assets/__tiger.svg"
+           Css=".Black { fill: #FF0000; }" />
+```
+
+```XAML
+<Image>
+  <Image.Source>
+    <SvgImage Source="{DynamicResource TigerIcon}" />
+  </Image.Source>
+</Image>
+```
+
+```XAML
+<Image>
+  <Image.Source>
+    <SvgImage Source="/Assets/__tiger.svg" Css=".Black { fill: #FF0000; }" />
+  </Image.Source>
+</Image>
+```
+
+### Model editing and rebuild
+
+If you want to modify the generated draw commands, update the model and rebuild the picture:
+
+```csharp
+using System.Linq;
+using ShimSkiaSharp;
+using ShimSkiaSharp.Editing;
+using Svg.Skia;
+
+var skSvg = new SKSvg();
+skSvg.FromSvg(svgText);
+
+foreach (var cmd in skSvg.Model?.Commands?.OfType<DrawPathCanvasCommand>() ?? Enumerable.Empty<DrawPathCanvasCommand>())
+{
+    if (cmd.Paint?.Color is { } color)
+    {
+        cmd.Paint.Color = new SKColor(color.Red, color.Red, color.Red, color.Alpha);
+    }
+}
+
+skSvg.RebuildFromModel();
+```
+
+Commands produced from SVG elements include source metadata. Use the source element id or address to update only the commands that came from a specific element:
+
+```csharp
+foreach (var cmd in skSvg.Model?.FindCommandsBySourceElementId<DrawPathCanvasCommand>("target-path") ?? Enumerable.Empty<DrawPathCanvasCommand>())
+{
+    if (cmd.Paint?.Color is { } color)
+    {
+        cmd.Paint.Color = new SKColor(0, 128, 0, color.Alpha);
+    }
+}
+
+skSvg.RebuildFromModel();
+```
+
+The same rebuild flow is available on Avalonia sources:
+
+```csharp
+using System.Linq;
+using Avalonia.Svg.Skia;
+using ShimSkiaSharp;
+using ShimSkiaSharp.Editing;
+
+var source = SvgSource.Load("avares://MyAssembly/Assets/Icon.svg", baseUri: null);
+
+foreach (var cmd in source.Svg?.Model?.Commands?.OfType<DrawPathCanvasCommand>() ?? Enumerable.Empty<DrawPathCanvasCommand>())
+{
+    if (cmd.Paint?.Color is { } color)
+    {
+        cmd.Paint.Color = new SKColor(color.Red, color.Red, color.Red, color.Alpha);
+    }
+}
+
+source.RebuildFromModel();
+```
+
+For the non-Skia Avalonia controls (`Avalonia.Svg`), update `SvgSource.Picture` commands and call `SvgSource.RebuildFromModel()` to refresh the rendered picture.
+
+#### SvgResourceExtension Markup Extension
+
+The former `SvgBrush` markup extension has been renamed to `SvgResourceExtension`. In XAML you can use the short `{SvgResource ...}` syntax to paint any brush property directly:
+
+```XAML
+<Border CornerRadius="12"
+        Background="{SvgResource /Assets/__tiger.svg}" />
+```
+
+To reuse the brush across your view, declare it in resources (the markup extension type named `SvgResourceExtension` still trims to `SvgResource` when used in XAML):
+
+```XAML
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:svg="clr-namespace:Avalonia.Svg.Skia;assembly=Svg.Controls.Skia.Avalonia">
+    <UserControl.Resources>
+        <svg:SvgResource x:Key="TigerBrush"
+                         Stretch="UniformToFill"
+                         AlignmentX="Center"
+                         AlignmentY="Center"
+                         TileMode="Tile"
+                         DestinationRect="0,0,1,1"
+                         Opacity="0.85">/Assets/__tiger.svg</svg:SvgResource>
+    </UserControl.Resources>
+
+    <Border Background="{DynamicResource TigerBrush}" />
+</UserControl>
+```
+
+The optional properties mirror those on `VisualBrush`, so you can tweak layout, tiling, opacity, and transforms directly in XAML while the control takes care of loading and rendering the SVG content.
+
+When you need the brush from code-behind, the extension now exposes a `ToBrush(IServiceProvider? serviceProvider = null)` helper and supports implicit conversion to `Brush`, which can be assigned to any `IBrush` property:
+
+```csharp
+// Resolve relative paths by providing BaseUri when running outside of XAML.
+var brush = new SvgResourceExtension("avares://MyAssembly/Assets/Icon.svg")
+{
+    BaseUri = new Uri("avares://MyAssembly/")
+}.ToBrush();
+
+// Or rely on the implicit conversion to Brush/IBrush.
+IBrush background = new SvgResourceExtension("avares://MyAssembly/Assets/Icon.svg");
+
+// When you already have an SvgImage instance, create a brush directly.
+var svgImage = new SvgImage
+{
+    Source = SvgSource.Load("avares://MyAssembly/Assets/Icon.svg", baseUri: null)
+};
+var fromImage = SvgResourceExtension.CreateBrush(
+    svgImage,
+    stretch: Stretch.Uniform,
+    alignmentX: AlignmentX.Center,
+    alignmentY: AlignmentY.Center);
+
+// Or skip creating the markup extension entirely and build a brush from the SVG path in one call.
+var fromPath = SvgResourceExtension.CreateBrush(
+    "avares://MyAssembly/Assets/Icon.svg",
+    stretch: Stretch.Fill,
+    alignmentX: AlignmentX.Right,
+    alignmentY: AlignmentY.Bottom);
+```
+
+The Skia-backed controls also accept optional `css` and `currentCss` arguments on the static helper so you can apply styles while creating the brush from code.
+
+#### Avalonia Previewer
+
+To make controls work with `Avalonia Previewer` please add the following lines to `BuildAvaloniaApp()` method:
+```C#
+GC.KeepAlive(typeof(SvgImageExtension).Assembly);
+GC.KeepAlive(typeof(Svg.Controls.Skia.Avalonia.Svg).Assembly);
+```
+
+The `BuildAvaloniaApp()` should look similar to this:
+```C#
+public static AppBuilder BuildAvaloniaApp()
+{
+    GC.KeepAlive(typeof(SvgImageExtension).Assembly);
+    GC.KeepAlive(typeof(Svg.Controls.Skia.Avalonia.Svg).Assembly);
+    return AppBuilder.Configure<App>()
+        .UsePlatformDetect()
+        .LogToTrace();
+}
+```
+
+This is known issue as previewer not always loads all dependencies, especially custom controls in Avalonia xmlns, other solution would be to add xmlns prefix to control with provided assembly path.
+
+### .NET MAUI
+
+Use `Svg.Controls.Skia.Maui` when a .NET MAUI application needs an `Svg` control
+for external `.svg` assets, inline source strings, reusable `SvgSource`
+resources, hit testing, zoom/pan, render flags, and host-driven animation
+playback on `SKCanvasView`.
+
+Use `SvgML.Maui` when the SVG element tree itself should be authored inline in
+.NET MAUI XAML and when SVG `foreignObject` should host native MAUI controls.
+
+#### Install Package
+
+```
+dotnet add package Svg.Controls.Skia.Maui
+```
+
+```
+dotnet add package SvgML.Maui
+```
+
+```
+Install-Package Svg.Controls.Skia.Maui
+```
+
+```
+Install-Package SvgML.Maui
+```
+
+Register the SkiaSharp MAUI host during startup. Add `UseSvgML()` only when
+using the inline SvgML package:
+
+```C#
+using SkiaSharp.Views.Maui.Controls.Hosting;
+
+builder
+    .UseMauiApp<App>()
+    .UseSkiaSharp();
+```
+
+For external SVG assets, add the files as MAUI package assets and point the
+control at the logical asset name:
+
+```xml
+<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+```
+
+```XAML
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:svg="https://github.com/svgskia/maui">
+  <svg:Svg Path="Icons/tiger.svg"
+           HeightRequest="220"
+           Stretch="Uniform"
+           EnableCache="True" />
+</ContentPage>
+```
+
+For inline SvgML authoring, scope the SVG subtree to the SvgML XML namespace:
+
+```XAML
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui">
+  <svg xmlns="https://github.com/svgml"
+       viewBox="0 0 100 100"
+       HeightRequest="120">
+    <rect x="0" y="0" width="100" height="100" fill="#E0F2FE" />
+    <circle cx="50" cy="50" r="32" fill="#0284C7" />
+  </svg>
+</ContentPage>
+```
+
+The MAUI packages currently target Android, iOS, and Mac Catalyst. See the
+[Svg.Controls.Skia.Maui package guide](site/articles/packages/svg-controls-skia-maui.md),
+[SvgML.Maui package guide](site/articles/packages/svgml-maui.md), and
+[MauiSvgSkiaSample](samples/MauiSvgSkiaSample) for the control flow and
+[SvgML.Maui.Demo](samples/SvgML.Maui.Demo) for the inline SvgML flow.
+
+### Avalonia SkiaSharp Controls
+
+#### Install Package
+
+```
+dotnet add package Skia.Controls.Avalonia
+```
+
+```
+Install-Package Skia.Controls.Avalonia
+```
+
+#### Canvas
+
+Usage:
+```xaml
+<SKCanvasControl Name="CanvasControl" />
+```
+
+```C#
+CanvasControl.Draw += (_, e) =>
+{
+    e.Canvas.DrawRect(SKRect.Create(0f, 0f, 100f, 100f), new SKPaint { Color = SKColors.Aqua });
+};
+```
+
+### Command-line tool
+
+```
+dotnet tool install -g Svg.Skia.Converter
+```
+
+```
+Svg.Skia.Converter:
+  Converts a svg file to an encoded bitmap image.
+
+Usage:
+  Svg.Skia.Converter [options]
+
+Options:
+  -f, --inputFiles <inputfiles>              The relative or absolute path to the input files
+  -d, --inputDirectory <inputdirectory>      The relative or absolute path to the input directory
+  -o, --outputDirectory <outputdirectory>    The relative or absolute path to the output directory
+  --outputFiles <outputfiles>                The relative or absolute path to the output files
+  -p, --pattern <pattern>                    The search string to match against the names of files in the input directory
+  --format <format>                          The output image format
+  -q, --quality <quality>                    The output image quality
+  -b, --background <background>              The output image background
+  -s, --scale <scale>                        The output image horizontal and vertical scaling factor
+  --scaleX, -sx <scalex>                     The output image horizontal scaling factor
+  --scaleY, -sy <scaley>                     The output image vertical scaling factor
+  --systemLanguage <systemlanguage>          The system language name as defined in BCP 47
+  --quiet                                    Set verbosity level to quiet
+  -c, --load-config <load-config>            The relative or absolute path to the config file
+  --save-config <save-config>                The relative or absolute path to the config file
+  --version                                  Show version information
+  -?, -h, --help                             Show help and usage information
+```
+
+Supported formats: png, jpg, jpeg, webp, pdf, xps
+
+## SVG to C# Compiler
+
+### About
+
+SVGC compiles SVG drawing markup to C# using SkiaSharp as rendering engine. SVGC can be also used as codegen for upcoming C# 9 Source Generator feature.
+
+[![Demo](images/Demo.png)](images/Demo.png)
+
+### Source Generator Usage
+
+Add NuGet package reference to your `csproj`.
+
+```xml
+<PropertyGroup>
+  <OutputType>Exe</OutputType>
+  <TargetFramework>net6.0</TargetFramework>
+  <LangVersion>latest</LangVersion>
+</PropertyGroup>
+```
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Svg.SourceGenerator.Skia" Version="0.5.0" />
+</ItemGroup>
+```
+
+Include `svg` assets file in your `csproj`.
+
+```xml
+<ItemGroup>
+  <AdditionalFiles Include="Assets/Sample.svg" NamespaceName="Assets" ClassName="Sample" />
+</ItemGroup>
+```
+
+Use generated `SKPicture` using static `Picture` property from `Sample` class.
+
+```C#
+using SkiaSharp;
+using Assets;
+
+public void Draw(SKCanvas canvas)
+{
+    canvas.DrawPicture(Sample.Picture);
+}
+```
+
+### Avalonia Usage
+
+`csproj`
+```xml
+<ItemGroup>
+  <AdditionalFiles Include="Assets/__tiger.svg" NamespaceName="AvaloniaSample" ClassName="Tiger" />
+</ItemGroup>
+```
+```xml
+<ItemGroup>
+  <PackageReference Include="Svg.SourceGenerator.Skia" Version="0.5.0" />
+  <PackageReference Include="Skia.Controls.Avalonia" Version="0.5.0" />
+</ItemGroup>
+```
+
+`xaml`
+```xaml
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AvaloniaSample;assembly=AvaloniaSample"
+        xmlns:skp="clr-namespace:Skia.Controls.Avalonia;assembly=Skia.Controls.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="900" Height="650" WindowStartupLocation="CenterScreen"
+        x:Class="AvaloniaSample.MainWindow"
+        Title="AvaloniaSample">
+    <Window.Resources>
+        <skp:SKPictureImage x:Key="TigeImage" Source="{x:Static local:Tiger.Picture}" />
+    </Window.Resources>
+    <Grid>
+        <Image Source="{StaticResource TigeImage}" />
+    </Grid>
+</Window>
+```
+
+### svgc Usage
+
+```
+svgc:
+  Converts a svg file to a C# code.
+
+Usage:
+  svgc [options]
+
+Options:
+  -i, --inputFile <inputfile>      The relative or absolute path to the input file [default: ]
+  -o, --outputFile <outputfile>    The relative or absolute path to the output file [default: ]
+  -j, --jsonFile <jsonfile>        The relative or absolute path to the json file [default: ]
+  -n, --namespace <namespace>      The generated C# namespace name [default: Svg]
+  -c, --class <class>              The generated C# class name [default: Generated]
+  --version                        Show version information
+  -?, -h, --help                   Show help and usage information
+```
+
+Json File Format
+```json
+[
+    { "InputFile":"file1.svg", "OutputFile":"file1.svg.cs", "Class":"ClassName1", "Namespace":"NamespaceName" },
+    { "InputFile":"file2.svg", "OutputFile":"file2.svg.cs", "Class":"ClassName2", "Namespace":"NamespaceName" }
+]
+```
+
+### Links
+
+* [Source Generators Cookbook](https://github.com/dotnet/roslyn/blob/master/docs/features/source-generators.cookbook.md)
+* [Source Generators](https://github.com/dotnet/roslyn/blob/master/docs/features/source-generators.md)
+* [Source Generators Samples](https://github.com/dotnet/roslyn-sdk/tree/master/samples/CSharp/SourceGenerators)
+* [Introducing C# Source Generators](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/)
+
+## Build
+
+To build the projects you need to install [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0) version `SDK 5.0.100`.
+
+```
+git clone git@github.com:wieslawsoltes/Svg.Skia.git
+cd Svg.Skia
+git submodule update --init --recursive
+dotnet build -c Release
+```
+
+### Publish Managed
+
+```
+cd ./src/Svg.Skia.Converter
+dotnet publish -c Release -f net6.0 -r win7-x64 /p:PublishTrimmed=True /p:PublishReadyToRun=True -o Svg.Skia.Converter_net6.0_win7-x64
+```
+
+```
+cd ./src/Svg.Skia.Converter
+dotnet publish -c Release -f net6.0 -r ubuntu.14.04-x64 /p:PublishTrimmed=True /p:PublishReadyToRun=True -o Svg.Skia.Converter_net6.0_ubuntu.14.04-x64
+```
+
+```
+cd ./src/Svg.Skia.Converter
+dotnet publish -c Release -f net6.0 -r osx.10.12-x64 /p:PublishTrimmed=True /p:PublishReadyToRun=True -o Svg.Skia.Converter_net6.0_osx.10.12-x64
+```
+
+```
+cd ./src/Svg.Skia.Converter
+dotnet publish -c Release -f net6.0 -r debian.8-x64 /p:PublishTrimmed=True /p:PublishReadyToRun=True -o Svg.Skia.Converter_net6.0_debian.8-x64
+```
+
+```
+cd ./src/SvgToPng
+dotnet publish -c Release -f net6.0 -r win7-x64 -o SvgToPng_net6.0_win7-x64
+```
+
+```
+cd ./src/SvgXml.Diagnostics
+dotnet publish -c Release -f net6.0 -r win7-x64 -o SvgXml.Diagnostics_net6.0_win7-x64
+```
+
+### Publish Native
+
+```
+cd ./src/Svg.Skia.Converter
+dotnet publish -c Release -f net6.0 -r win-x64 -o Svg.Skia.Converter_net6.0_win-x64
+```
+
+```
+cd ./src/Svg.Skia.Converter
+dotnet publish -c Release -f net6.0 -r linux-x64 -o Svg.Skia.Converter_net6.0_linux-x64
+```
+
+```
+cd ./src/Svg.Skia.Converter
+dotnet publish -c Release -f net6.0 -r osx-x64 -o Svg.Skia.Converter_net6.0_osx-x64
+```
+
+## Externals
+
+The `Svg.Skia` library is using code from the https://github.com/vvvv/SVG
+
+## License
+
+Parts of Svg.Skia source code are adapted from the https://github.com/vvvv/SVG
+
+Svg.Skia is licensed under the [MIT license](LICENSE.TXT).

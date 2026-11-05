@@ -1,0 +1,3774 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>ASP.NET Core Razor component lifecycle | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn about the ASP.NET Core Razor component lifecycle and how to use lifecycle events." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-10.0" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="ASP.NET Core Razor component lifecycle | Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/dotnet/media/dotnet-logo.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="ASP.NET Core Razor component lifecycle" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-10.0" />
+			<meta property="og:description" content="Learn about the ASP.NET Core Razor component lifecycle and how to use lifecycle events." />
+			<meta name="platform_id" content="a41c2444-0d45-8009-f27f-3d9d051f76d7" /> <meta name="scope" content="ASP.NET Core" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-AspNet" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/aspnet/core/breadcrumb/toc.json" />
+	
+		<meta name="feedback_system" content="OpenSource" />
+	
+		<meta name="feedback_product_url" content="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md" />
+	
+		<meta name="ms.service" content="aspnet-core" />
+	
+		<meta name="ms.topic" content="concept-article" />
+	
+		<meta name="ms.subservice" content="blazor" />
+	
+		<meta name="ms.update-cycle" content="365-days" />
+	
+		<meta name="author" content="guardrex" />
+	
+		<meta name="monikerRange" content="&gt;= aspnetcore-3.1" />
+	
+		<meta name="ms.author" content="wpickett" />
+	
+		<meta name="ms.date" content="2025-11-11T00:00:00Z" />
+	
+		<meta name="uid" content="blazor/components/lifecycle" />
+	
+		<meta name="document_id" content="a970fb72-3dd0-d173-585d-2ccdd7923f81" />
+	
+		<meta name="document_version_independent_id" content="4871f4f7-9cf6-ac7a-0f21-c65d34bd1119" />
+	
+		<meta name="updated_at" content="2026-07-22T17:33:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/blazor/components/lifecycle.md" />
+	
+		<meta name="gitcommit" content="https://github.com/dotnet/AspNetCore.Docs/blob/9113ac216383b028c9fb7a8f942063d2d897636f/aspnetcore/blazor/components/lifecycle.md" />
+	
+		<meta name="git_commit_id" content="9113ac216383b028c9fb7a8f942063d2d897636f" />
+	
+		<meta name="monikers" content="aspnetcore-3.1" />
+	
+		<meta name="monikers" content="aspnetcore-5.0" />
+	
+		<meta name="monikers" content="aspnetcore-6.0" />
+	
+		<meta name="monikers" content="aspnetcore-7.0" />
+	
+		<meta name="monikers" content="aspnetcore-8.0" />
+	
+		<meta name="monikers" content="aspnetcore-9.0" />
+	
+		<meta name="monikers" content="aspnetcore-10.0" />
+	
+		<meta name="monikers" content="aspnetcore-11.0" />
+	
+		<meta name="default_moniker" content="aspnetcore-10.0" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="MSDN.aspnet-core-conceptual" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/MSDN.aspnet-core-conceptual/{branchName}{pdfName}" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="7828" />
+	
+		<meta name="config_moniker_range" content="&gt;= aspnetcore-1.0" />
+	
+		<meta name="asset_id" content="blazor/components/lifecycle" />
+	
+		<meta name="moniker_range_name" content="4cfd5c821d66016c0c1ada9451d1ea32" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="aspnetcore/blazor/components/lifecycle.md" />
+	
+		<meta name="previous_tlsh_hash" content="E591FBD2970C4330FFC35D0F1557BF8101F0C08976E41B940426A9B7958A3E7B2F885EEB973367492332019663A1A27E29D7A7BF606967AB1095A89EC19D12AB835E37F7DC" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/components/lifecycle.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-10.0&amp;accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/d452572f-6212-498f-9050-ca4a9e50a425" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/06819054-3d1b-4589-8746-b33c4dc1ebf2" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/7696cda6-0510-47f6-8302-71bb5d2e28cf" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/a12e40b7-59a2-4437-96e2-166ce622b864" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/ae0d1d73-8b86-4e29-9ab4-867b4f9f6186" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/69c76c32-967e-4c65-b89a-74cc527db725" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03524.8175-9553bcde/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": false,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "OpenSource",
+    "feedbackGitHubRepo": "dotnet/AspNetCore.Docs",
+    "feedbackProductUrl": "https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true,
+    "openSourceFeedbackIssueUrl": "https://github.com/dotnet/aspnetcore.docs/issues/new?template=customer-feedback.yml",
+    "openSourceFeedbackIssueTitle": "",
+    "openSourceFeedbackIssueLabels": "Source - Docs.ms,:watch: Not Triaged"
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03524.8175-9553bcde/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/blazor/components/lifecycle.md"
+			data-original_content_git_url="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/blazor/components/lifecycle.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/aspnetcore/blazor/components/lifecycle.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="aspnet-core-razor-component-lifecycle">ASP.NET Core Razor component lifecycle</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	
+					<div class="content"><div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<div class="NOTE">
+<p>Note</p>
+<p>This isn't the latest version of this article. For the current release, see the <a href="?view=aspnetcore-10.0&amp;preserve-view=true" data-linktype="relative-path">.NET 10 version of this article</a>.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-7.0">
+<div class="WARNING">
+<p>Warning</p>
+<p>This version of ASP.NET Core is no longer supported. For more information, see the <a href="https://dotnet.microsoft.com/platform/support/policy/dotnet-core" data-linktype="external">.NET and .NET Core Support Policy</a>. For the current release, see the <a href="?view=aspnetcore-10.0&amp;preserve-view=true" data-linktype="relative-path">.NET 10 version of this article</a>.</p>
+</div>
+</div>
+<!-- Exclude until .NET 11 preview is added to the version selector collection
+(add triple colon here) moniker range="> aspnetcore-10.0"
+> [!IMPORTANT]
+> This information relates to a pre-release product that may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+>
+> For the current release, see the [.NET 10 version of this article](?view=aspnetcore-10.0&preserve-view=true).
+(add triple colon here) moniker-end
+-->
+<!--
+Include either this file or 'not-latest-version-without-not-supported-content.md' at the top 
+of articles.
+
+'not-latest-version.md' (this file): Includes not-supported content.
+'not-latest-version-without-not-supported-content.md': Doesn't include not-supported content.
+
+Use this file in articles that target >=7.0. For articles that target >=8.0 prior to 10.0
+reaching EOL, 'not-latest-version-without-not-supported-content.md' must be used to avoid
+a zone/file moniker range mismatch error.
+
+When a new version is released, it might be necessary to temporarily comment out the current 
+version moniker range section until the new moniker is created.
+
+Markdown to include this file:
+
+[!INCLUDE[](~/includes/not-latest-version.md)]
+-->
+<p>This article explains the ASP.NET Core Razor component lifecycle and how to use lifecycle events.</p>
+<h2 id="lifecycle-events">Lifecycle events</h2>
+<p>The Razor component processes Razor component lifecycle events in a set of synchronous and asynchronous lifecycle methods. The lifecycle methods can be overridden to perform additional operations in components during component initialization and rendering.</p>
+<p>This article simplifies component lifecycle event processing in order to clarify complex framework logic and doesn't cover every change that was made over the years. You may need to access the <a href="https://github.com/dotnet/aspnetcore/blob/main/src/Components/Components/src/ComponentBase.cs" data-linktype="external"><code>ComponentBase</code> reference source</a> to integrate custom event processing with Blazor's lifecycle event processing. Code comments in the reference source include additional remarks on lifecycle event processing that don't appear in this article or in the <a href="/en-us/dotnet/api/" data-linktype="absolute-path">API documentation</a>.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Documentation links to .NET reference source usually load the repository's default branch, which represents the current development for the next release of .NET. To select a tag for a specific release, use the <strong>Switch branches or tags</strong> dropdown list. For more information, see <a href="https://github.com/dotnet/AspNetCore.Docs/discussions/26205" data-linktype="external">How to select a version tag of ASP.NET Core source code (dotnet/AspNetCore.Docs #26205)</a>.</p>
+</div>
+<p>The following simplified diagrams illustrate Razor component lifecycle event processing. The C# methods associated with the lifecycle events are defined with examples in the following sections of this article.</p>
+<p>Component lifecycle events:</p>
+<ol>
+<li>If the component is rendering for the first time on a request:
+<ul>
+<li>Create the component's instance.</li>
+<li>Perform property injection.</li>
+<li>Call <a href="#component-initialization-oninitializedasync" data-linktype="self-bookmark"><code>OnInitialized{Async}</code></a>. If an incomplete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a> is returned, the <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a> is awaited and then the component is rerendered. The synchronous method is called prior to the asynchronous method.</li>
+</ul>
+</li>
+<li>Call <a href="#after-parameters-are-set-onparameterssetasync" data-linktype="self-bookmark"><code>OnParametersSet{Async}</code></a>. If an incomplete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a> is returned, the <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a> is awaited and then the component is rerendered. The synchronous method is called prior to the asynchronous method.</li>
+<li>Render for all synchronous work and complete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a>s.</li>
+</ol>
+<div class="NOTE">
+<p>Note</p>
+<p>Asynchronous actions performed in lifecycle events might delay component rendering or displaying data. For more information, see the <a href="#handle-incomplete-asynchronous-actions-at-render" data-linktype="self-bookmark">Handle incomplete asynchronous actions at render</a> section later in this article.</p>
+</div>
+<p>A parent component renders before its children components because rendering is what determines which children are present. If synchronous parent component initialization is used, the parent initialization is guaranteed to complete first. If asynchronous parent component initialization is used, the completion order of parent and child component initialization can't be determined because it depends on the initialization code running.</p>
+<p><img src="lifecycle/_static/lifecycle1.png?view=aspnetcore-10.0" alt="Component lifecycle events of a Razor component in Blazor" data-linktype="relative-path"></p>
+<p>DOM event processing:</p>
+<ol>
+<li>The event handler is run.</li>
+<li>If an incomplete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a> is returned, the <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a> is awaited and then the component is rerendered.</li>
+<li>Render for all synchronous work and complete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a>s.</li>
+</ol>
+<p><img src="lifecycle/_static/lifecycle2.png?view=aspnetcore-10.0" alt="DOM event processing" data-linktype="relative-path"></p>
+<p>The <code>Render</code> lifecycle:</p>
+<ol>
+<li>Avoid further rendering operations on the component when both of the following conditions are met:
+<ul>
+<li>It is not the first render.</li>
+<li><a href="rendering?view=aspnetcore-10.0#suppress-ui-refreshing-shouldrender" data-linktype="relative-path"><code>ShouldRender</code></a> returns <code>false</code>.</li>
+</ul>
+</li>
+<li>Build the render tree diff (difference) and render the component.</li>
+<li>Await the DOM to update.</li>
+<li>Call <a href="#after-component-render-onafterrenderasync" data-linktype="self-bookmark"><code>OnAfterRender{Async}</code></a>. The synchronous method is called prior to the asynchronous method.</li>
+</ol>
+<p><img src="lifecycle/_static/lifecycle3.png?view=aspnetcore-10.0" alt="Render lifecycle" data-linktype="relative-path"></p>
+<p>Developer calls to <a href="#state-changes-statehaschanged" data-linktype="self-bookmark"><code>StateHasChanged</code></a> result in a rerender. For more information, see <a href="rendering?view=aspnetcore-10.0#statehaschanged" data-linktype="relative-path">ASP.NET Core Razor component rendering</a>.</p>
+<h2 id="quiescence-during-prerendering">Quiescence during prerendering</h2>
+<p>In server-side Blazor apps, prerendering waits for <em>quiescence</em>, which means that a component doesn't render until all of the components in the render tree have finished rendering. Quiescence can lead to noticeable delays in rendering when a component performs long-running tasks during initialization and other lifecycle methods, leading to a poor user experience. For more information, see the <a href="#handle-incomplete-asynchronous-actions-at-render" data-linktype="self-bookmark">Handle incomplete asynchronous actions at render</a> section later in this article.</p>
+<h2 id="when-parameters-are-set-setparametersasync">When parameters are set (<code>SetParametersAsync</code>)</h2>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync" class="no-loc" data-linktype="absolute-path">SetParametersAsync</a> sets parameters supplied by the component's parent in the render tree or from route parameters.</p>
+<p>The method's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview" class="no-loc" data-linktype="absolute-path">ParameterView</a> parameter contains the set of <a href="./?view=aspnetcore-10.0#component-parameters" data-linktype="relative-path">component parameter</a> values for the component each time <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync" class="no-loc" data-linktype="absolute-path">SetParametersAsync</a> is called. By overriding the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync" class="no-loc" data-linktype="absolute-path">SetParametersAsync</a> method, developer code can interact directly with <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview" class="no-loc" data-linktype="absolute-path">ParameterView</a>'s parameters.</p>
+<p>The default implementation of <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync" class="no-loc" data-linktype="absolute-path">SetParametersAsync</a> sets the value of each property with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterattribute" data-linktype="absolute-path"><code>[Parameter]</code></a> or <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.cascadingparameterattribute" data-linktype="absolute-path"><code>[CascadingParameter]</code> attribute</a> that has a corresponding value in the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview" class="no-loc" data-linktype="absolute-path">ParameterView</a>. Parameters that don't have a corresponding value in <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview" class="no-loc" data-linktype="absolute-path">ParameterView</a> are left unchanged.</p>
+<p>Generally, your code should call the base class method (<code>await base.SetParametersAsync(parameters);</code>) when overriding <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync" class="no-loc" data-linktype="absolute-path">SetParametersAsync</a>. In advanced scenarios, developer code can interpret the incoming parameters' values in any way required by not invoking the base class method. For example, there's no requirement to assign the incoming parameters to the properties of the class. However, you must refer to the <a href="https://github.com/dotnet/aspnetcore/blob/main/src/Components/Components/src/ComponentBase.cs" data-linktype="external"><code>ComponentBase</code> reference source</a> when structuring your code without calling the base class method because it calls other lifecycle methods and triggers rendering in a complex fashion.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Documentation links to .NET reference source usually load the repository's default branch, which represents the current development for the next release of .NET. To select a tag for a specific release, use the <strong>Switch branches or tags</strong> dropdown list. For more information, see <a href="https://github.com/dotnet/AspNetCore.Docs/discussions/26205" data-linktype="external">How to select a version tag of ASP.NET Core source code (dotnet/AspNetCore.Docs #26205)</a>.</p>
+</div>
+<p>If you want to rely on the initialization and rendering logic of <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync" class="no-loc" data-linktype="absolute-path">ComponentBase.SetParametersAsync</a> but not process incoming parameters, you have the option of passing an empty <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview" class="no-loc" data-linktype="absolute-path">ParameterView</a> to the base class method:</p>
+<pre><code class="lang-csharp">await base.SetParametersAsync(ParameterView.Empty);
+</code></pre>
+<p>If event handlers are provided in developer code, unhook them on disposal. For more information, see <a href="component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<p>In the following example, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview.trygetvalue" class="no-loc" data-linktype="absolute-path">ParameterView.TryGetValue</a> assigns the <code>Param</code> parameter's value to <code>value</code> if parsing a route parameter for <code>Param</code> is successful. When <code>value</code> isn't <code>null</code>, the value is displayed by the component.</p>
+<p>Although <a href="../fundamentals/routing?view=aspnetcore-10.0#route-parameters" data-linktype="relative-path">route parameter matching is case insensitive</a>, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview.trygetvalue" class="no-loc" data-linktype="absolute-path">TryGetValue</a> only matches case-sensitive parameter names in the route template. The following example requires the use of <code>/{Param?}</code> in the route template in order to get the value with <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview.trygetvalue" class="no-loc" data-linktype="absolute-path">TryGetValue</a>, not <code>/{param?}</code>. If <code>/{param?}</code> is used in this scenario, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.parameterview.trygetvalue" class="no-loc" data-linktype="absolute-path">TryGetValue</a> returns <code>false</code> and <code>message</code> isn't set to either <code>message</code> string.</p>
+<p><code>SetParamsAsync.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/set-params-async/{Param?}"
+
+&lt;PageTitle&gt;Set Parameters Async&lt;/PageTitle&gt;
+
+&lt;h1&gt;Set Parameters Async Example&lt;/h1&gt;
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message = "Not set";
+
+    [Parameter]
+    public string? Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue&lt;string&gt;(nameof(Param), out var value))
+        {
+            if (value is null)
+            {
+                message = "The value of 'Param' is null.";
+            }
+            else
+            {
+                message = $"The value of 'Param' is {value}.";
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/set-params-async/{Param?}"
+
+&lt;PageTitle&gt;Set Parameters Async&lt;/PageTitle&gt;
+
+&lt;h1&gt;Set Parameters Async Example&lt;/h1&gt;
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message = "Not set";
+
+    [Parameter]
+    public string? Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue&lt;string&gt;(nameof(Param), out var value))
+        {
+            if (value is null)
+            {
+                message = "The value of 'Param' is null.";
+            }
+            else
+            {
+                message = $"The value of 'Param' is {value}.";
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/set-params-async/{Param?}"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message = "Not set";
+
+    [Parameter]
+    public string? Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue&lt;string&gt;(nameof(Param), out var value))
+        {
+            if (value is null)
+            {
+                message = "The value of 'Param' is null.";
+            }
+            else
+            {
+                message = $"The value of 'Param' is {value}.";
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/set-params-async/{Param?}"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message = "Not set";
+
+    [Parameter]
+    public string? Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue&lt;string&gt;(nameof(Param), out var value))
+        {
+            if (value is null)
+            {
+                message = "The value of 'Param' is null.";
+            }
+            else
+            {
+                message = $"The value of 'Param' is {value}.";
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/set-params-async/{Param?}"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message = "Not set";
+
+    [Parameter]
+    public string Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue&lt;string&gt;(nameof(Param), out var value))
+        {
+            if (value is null)
+            {
+                message = "The value of 'Param' is null.";
+            }
+            else
+            {
+                message = $"The value of 'Param' is {value}.";
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/set-params-async"
+@page "/set-params-async/{Param}"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message = "Not set";
+
+    [Parameter]
+    public string Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue&lt;string&gt;(nameof(Param), out var value))
+        {
+            if (value is null)
+            {
+                message = "The value of 'Param' is null.";
+            }
+            else
+            {
+                message = $"The value of 'Param' is {value}.";
+            }
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
+}
+</code></pre>
+</div>
+<h2 id="component-initialization-oninitializedasync">Component initialization (<code>OnInitialized{Async}</code>)</h2>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitialized" class="no-loc" data-linktype="absolute-path">OnInitialized</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> are used exclusively to initialize a component for the entire lifetime of the component instance. Parameter values and parameter value changes shouldn't affect the initialization performed in these methods. For example, loading static options into a dropdown list that doesn't change for the lifetime of the component and that isn't dependent on parameter values is performed in one of these lifecycle methods. If parameter values or changes in parameter values affect component state, use <a href="#when-parameters-are-set-setparametersasync" data-linktype="self-bookmark"><code>OnParametersSet{Async}</code></a> instead.</p>
+<p>These methods are invoked when the component is initialized after having received its initial parameters in <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync" class="no-loc" data-linktype="absolute-path">SetParametersAsync</a>. The synchronous method is called prior to the asynchronous method.</p>
+<p>If synchronous parent component initialization is used, the parent initialization is guaranteed to complete before child component initialization. If asynchronous parent component initialization is used, the completion order of parent and child component initialization can't be determined because it depends on the initialization code running.</p>
+<p>For a synchronous operation, override <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitialized" class="no-loc" data-linktype="absolute-path">OnInitialized</a>:</p>
+<p><code>OnInit.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/on-init"
+
+&lt;PageTitle&gt;On Initialized&lt;/PageTitle&gt;
+
+&lt;h1&gt;On Initialized Example&lt;/h1&gt;
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string? message;
+
+    protected override void OnInitialized() =&gt; 
+        message = $"Initialized at {DateTime.Now}";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/on-init"
+
+&lt;PageTitle&gt;On Initialized&lt;/PageTitle&gt;
+
+&lt;h1&gt;On Initialized Example&lt;/h1&gt;
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string? message;
+
+    protected override void OnInitialized() =&gt; 
+        message = $"Initialized at {DateTime.Now}";
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/on-init"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string? message;
+
+    protected override void OnInitialized()
+    {
+        message = $"Initialized at {DateTime.Now}";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/on-init"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string? message;
+
+    protected override void OnInitialized()
+    {
+        message = $"Initialized at {DateTime.Now}";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/on-init"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message;
+
+    protected override void OnInitialized()
+    {
+        message = $"Initialized at {DateTime.Now}";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/on-init"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message;
+
+    protected override void OnInitialized()
+    {
+        message = $"Initialized at {DateTime.Now}";
+    }
+}
+</code></pre>
+</div>
+<p>To perform an asynchronous operation, override <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> and use the <a href="/en-us/dotnet/csharp/language-reference/operators/await" data-linktype="absolute-path"><code>await</code></a> operator:</p>
+<pre><code class="lang-csharp">protected override async Task OnInitializedAsync()
+{
+    await ...
+}
+</code></pre>
+<p>If a custom <a href="./?view=aspnetcore-10.0#specify-a-base-class" data-linktype="relative-path">base class</a> is used with custom initialization logic, call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> on the base class:</p>
+<pre><code class="lang-csharp">protected override async Task OnInitializedAsync()
+{
+    await ...
+
+    await base.OnInitializedAsync();
+}
+</code></pre>
+<p>It isn't necessary to call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">ComponentBase.OnInitializedAsync</a> unless a custom base class is used with custom logic. For more information, see the <a href="#base-class-lifecycle-methods" data-linktype="self-bookmark">Base class lifecycle methods</a> section.</p>
+<p>A component must ensure that it's in a valid state for rendering when <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> awaits a potentially incomplete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a>. If the method returns an incomplete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a>, the part of the method that completes synchronously must leave the component in a valid state for rendering. For more information, see the introductory remarks of <a href="synchronization-context?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor synchronization context</a> and <a href="component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<p>Blazor apps that prerender their content on the server call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> <em>twice</em>:</p>
+<ul>
+<li>Once when the component is initially rendered statically as part of the page.</li>
+<li>A second time when the browser renders the component.</li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>To prevent developer code in <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> from running twice when prerendering, see the <a href="#stateful-reconnection-after-prerendering" data-linktype="self-bookmark">Stateful reconnection after prerendering</a> section. The content in the section focuses on Blazor Web Apps and stateful SignalR <em>reconnection</em>. To preserve state during the execution of initialization code while prerendering, see <a href="../state-management/prerendered-state-persistence?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor prerendered state persistence</a>.</p>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<p>To prevent developer code in <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> from running twice when prerendering, see the <a href="#stateful-reconnection-after-prerendering" data-linktype="self-bookmark">Stateful reconnection after prerendering</a> section. Although the content in the section focuses on Blazor Server and stateful SignalR <em>reconnection</em>, the scenario for prerendering in hosted Blazor WebAssembly solutions (<a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.rendering.rendermode#microsoft-aspnetcore-mvc-rendering-rendermode-webassemblyprerendered" class="no-loc" data-linktype="absolute-path">WebAssemblyPrerendered</a>) involves similar conditions and approaches to prevent executing developer code twice. To preserve state during the execution of initialization code while prerendering, see <a href="integration?view=aspnetcore-10.0#persist-prerendered-state" data-linktype="relative-path">Integrate ASP.NET Core Razor components with MVC or Razor Pages</a>.</p>
+</div>
+<p>While a Blazor app is prerendering, certain actions, such as calling into JavaScript (JS interop), aren't possible. Components may need to render differently when prerendered. For more information, see the <a href="#prerendering-with-javascript-interop" data-linktype="self-bookmark">Prerendering with JavaScript interop</a> section.</p>
+<p>If event handlers are provided in developer code, unhook them on disposal. For more information, see <a href="component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Use <em>streaming rendering</em> with static server-side rendering (static SSR) or prerendering to improve the user experience for components that perform long-running asynchronous tasks in <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> to fully render. For more information, see the following resources:</p>
+<ul>
+<li><a href="#handle-incomplete-asynchronous-actions-at-render" data-linktype="self-bookmark">Handle incomplete asynchronous actions at render</a> (this article)</li>
+<li><a href="rendering?view=aspnetcore-10.0#streaming-rendering" data-linktype="relative-path">ASP.NET Core Razor component rendering</a></li>
+</ul>
+</div>
+<h2 id="after-parameters-are-set-onparameterssetasync">After parameters are set (<code>OnParametersSet{Async}</code>)</h2>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparametersset" class="no-loc" data-linktype="absolute-path">OnParametersSet</a> or <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync" class="no-loc" data-linktype="absolute-path">OnParametersSetAsync</a> are called:</p>
+<ul>
+<li><p>After the component is initialized in <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitialized" class="no-loc" data-linktype="absolute-path">OnInitialized</a> or <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a>.</p>
+</li>
+<li><p>When the parent component rerenders and supplies:</p>
+<ul>
+<li>Known or primitive immutable types when at least one parameter has changed.</li>
+<li>Complex-typed parameters. The framework can't know whether the values of a complex-typed parameter have mutated internally, so the framework always treats the parameter set as changed when one or more complex-typed parameters are present.</li>
+</ul>
+<p>For more information on rendering conventions, see <a href="rendering?view=aspnetcore-10.0#rendering-conventions-for-componentbase" data-linktype="relative-path">ASP.NET Core Razor component rendering</a>.</p>
+</li>
+</ul>
+<p>The synchronous method is called prior to the asynchronous method.</p>
+<p>The methods can be invoked even if the parameter values haven't changed. This behavior underscores the need for developers to implement additional logic within the methods to check whether parameter values have indeed changed before re-initializing data or state dependent on those parameters.</p>
+<p>For the following example component, navigate to the component's page at a URL:</p>
+<ul>
+<li>With a start date that's received by <code>StartDate</code>: <code>/on-parameters-set/2021-03-19</code></li>
+<li>Without a start date, where <code>StartDate</code> is assigned a value of the current local time: <code>/on-parameters-set</code></li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<div class="NOTE">
+<p>Note</p>
+<p>In a component route, it isn't possible to both constrain a <a href="/en-us/dotnet/api/system.datetime" class="no-loc" data-linktype="absolute-path">DateTime</a> parameter with the <a href="../fundamentals/routing?view=aspnetcore-10.0#route-constraints" data-linktype="relative-path">route constraint <code>datetime</code></a> and <a href="../fundamentals/routing?view=aspnetcore-10.0#route-parameters" data-linktype="relative-path">make the parameter optional</a>. Therefore, the following <code>OnParamsSet</code> component uses two <a href="../../mvc/views/razor?view=aspnetcore-10.0#page" data-linktype="relative-path"><code>@page</code></a> directives to handle routing with and without a supplied date segment in the URL.</p>
+</div>
+</div>
+<p><code>OnParamsSet.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/on-params-set"
+@page "/on-params-set/{StartDate:datetime}"
+
+&lt;PageTitle&gt;On Parameters Set&lt;/PageTitle&gt;
+
+&lt;h1&gt;On Parameters Set Example&lt;/h1&gt;
+
+&lt;p&gt;
+    Pass a datetime in the URI of the browser's address bar. 
+    For example, add &lt;code&gt;/1-1-2024&lt;/code&gt; to the address.
+&lt;/p&gt;
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string? message;
+
+    [Parameter]
+    public DateTime StartDate { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (StartDate == default)
+        {
+            StartDate = DateTime.Now;
+
+            message = $"No start date in URL. Default value applied " +
+                $"(StartDate: {StartDate}).";
+        }
+        else
+        {
+            message = $"The start date in the URL was used " +
+                $"(StartDate: {StartDate}).";
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/on-params-set"
+@page "/on-params-set/{StartDate:datetime}"
+
+&lt;PageTitle&gt;On Parameters Set&lt;/PageTitle&gt;
+
+&lt;h1&gt;On Parameters Set Example&lt;/h1&gt;
+
+&lt;p&gt;
+    Pass a datetime in the URI of the browser's address bar. 
+    For example, add &lt;code&gt;/1-1-2024&lt;/code&gt; to the address.
+&lt;/p&gt;
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string? message;
+
+    [Parameter]
+    public DateTime StartDate { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (StartDate == default)
+        {
+            StartDate = DateTime.Now;
+
+            message = $"No start date in URL. Default value applied " +
+                $"(StartDate: {StartDate}).";
+        }
+        else
+        {
+            message = $"The start date in the URL was used " +
+                $"(StartDate: {StartDate}).";
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/on-params-set"
+@page "/on-params-set/{StartDate:datetime}"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string? message;
+
+    [Parameter]
+    public DateTime StartDate { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (StartDate == default)
+        {
+            StartDate = DateTime.Now;
+
+            message = $"No start date in URL. Default value applied (StartDate: {StartDate}).";
+        }
+        else
+        {
+            message = $"The start date in the URL was used (StartDate: {StartDate}).";
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/on-params-set"
+@page "/on-params-set/{StartDate:datetime}"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string? message;
+
+    [Parameter]
+    public DateTime StartDate { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (StartDate == default)
+        {
+            StartDate = DateTime.Now;
+
+            message = $"No start date in URL. Default value applied (StartDate: {StartDate}).";
+        }
+        else
+        {
+            message = $"The start date in the URL was used (StartDate: {StartDate}).";
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/on-params-set"
+@page "/on-params-set/{StartDate:datetime}"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message;
+
+    [Parameter]
+    public DateTime StartDate { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (StartDate == default)
+        {
+            StartDate = DateTime.Now;
+
+            message = $"No start date in URL. Default value applied (StartDate: {StartDate}).";
+        }
+        else
+        {
+            message = $"The start date in the URL was used (StartDate: {StartDate}).";
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/on-params-set"
+@page "/on-params-set/{StartDate:datetime}"
+
+&lt;p&gt;@message&lt;/p&gt;
+
+@code {
+    private string message;
+
+    [Parameter]
+    public DateTime StartDate { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (StartDate == default)
+        {
+            StartDate = DateTime.Now;
+
+            message = $"No start date in URL. Default value applied (StartDate: {StartDate}).";
+        }
+        else
+        {
+            message = $"The start date in the URL was used (StartDate: {StartDate}).";
+        }
+    }
+}
+</code></pre>
+</div>
+<p>Asynchronous work when applying parameters and property values must occur during the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync" class="no-loc" data-linktype="absolute-path">OnParametersSetAsync</a> lifecycle event:</p>
+<pre><code class="lang-csharp">protected override async Task OnParametersSetAsync()
+{
+    await ...
+}
+</code></pre>
+<p>If a custom <a href="./?view=aspnetcore-10.0#specify-a-base-class" data-linktype="relative-path">base class</a> is used with custom initialization logic, call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync" class="no-loc" data-linktype="absolute-path">OnParametersSetAsync</a> on the base class:</p>
+<pre><code class="lang-csharp">protected override async Task OnParametersSetAsync()
+{
+    await ...
+
+    await base.OnParametersSetAsync();
+}
+</code></pre>
+<p>It isn't necessary to call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync" class="no-loc" data-linktype="absolute-path">ComponentBase.OnParametersSetAsync</a> unless a custom base class is used with custom logic. For more information, see the <a href="#base-class-lifecycle-methods" data-linktype="self-bookmark">Base class lifecycle methods</a> section.</p>
+<p>A component must ensure that it's in a valid state for rendering when <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync" class="no-loc" data-linktype="absolute-path">OnParametersSetAsync</a> awaits a potentially incomplete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a>. If the method returns an incomplete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a>, the part of the method that completes synchronously must leave the component in a valid state for rendering. For more information, see the introductory remarks of <a href="synchronization-context?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor synchronization context</a> and <a href="component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<p>If event handlers are provided in developer code, unhook them on disposal. For more information, see <a href="component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<p>If a disposable component doesn't use a <a href="/en-us/dotnet/api/system.threading.cancellationtoken" class="no-loc" data-linktype="absolute-path">CancellationToken</a>, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparametersset" class="no-loc" data-linktype="absolute-path">OnParametersSet</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync" class="no-loc" data-linktype="absolute-path">OnParametersSetAsync</a> should check if the component is disposed. If <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync" class="no-loc" data-linktype="absolute-path">OnParametersSetAsync</a> returns an incomplete <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a>, the component must ensure that the part of the method that completes synchronously leaves the component in a valid state for rendering. For more information, see the introductory remarks of <a href="synchronization-context?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor synchronization context</a> and <a href="component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<p>For more information on route parameters and constraints, see <a href="../fundamentals/routing?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor routing</a>.</p>
+<p>For an example of implementing <code>SetParametersAsync</code> manually to improve performance in some scenarios, see <a href="../performance/rendering?view=aspnetcore-10.0#implement-setparametersasync-manually" data-linktype="relative-path">ASP.NET Core Blazor rendering performance best practices</a>.</p>
+<h2 id="after-component-render-onafterrenderasync">After component render (<code>OnAfterRender{Async}</code>)</h2>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender" class="no-loc" data-linktype="absolute-path">OnAfterRender</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a> are invoked after a component has rendered interactively and the UI has finished updating (for example, after elements are added to the browser DOM). Element and component references are populated at this point. Use this stage to perform additional initialization steps with the rendered content, such as JS interop calls that interact with the rendered DOM elements. The synchronous method is called prior to the asynchronous method.</p>
+<p>These methods aren't invoked during prerendering or static server-side rendering (static SSR) on the server because those processes aren't attached to a live browser DOM and are already complete before the DOM is updated.</p>
+<p>For <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a>, the component doesn't automatically rerender after the completion of any returned <code>Task</code> to avoid an infinite render loop.</p>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender" class="no-loc" data-linktype="absolute-path">OnAfterRender</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a> are called after a component has finished rendering. Element and component references are populated at this point. Use this stage to perform additional initialization steps with the rendered content, such as JS interop calls that interact with the rendered DOM elements. The synchronous method is called prior to the asynchronous method.</p>
+<p>These methods aren't invoked during prerendering because prerendering isn't attached to a live browser DOM and is already complete before the DOM is updated.</p>
+<p>For <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a>, the component doesn't automatically rerender after the completion of any returned <code>Task</code> to avoid an infinite render loop.</p>
+</div>
+<p>The <code>firstRender</code> parameter for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender" class="no-loc" data-linktype="absolute-path">OnAfterRender</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a>:</p>
+<ul>
+<li>Is set to <code>true</code> the first time that the component instance is rendered.</li>
+<li>Can be used to ensure that initialization work is only performed once.</li>
+</ul>
+<p><code>AfterRender.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/after-render"
+@inject ILogger&lt;AfterRender&gt; Logger 
+
+&lt;PageTitle&gt;After Render&lt;/PageTitle&gt;
+
+&lt;h1&gt;After Render Example&lt;/h1&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="HandleClick"&gt;Log information (and trigger a render)&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Study logged messages in the console.&lt;/p&gt;
+
+@code {
+    protected override void OnAfterRender(bool firstRender) =&gt;
+        Logger.LogInformation("firstRender = {FirstRender}", firstRender);
+
+    private void HandleClick() =&gt; Logger.LogInformation("HandleClick called");
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/after-render"
+@inject ILogger&lt;AfterRender&gt; Logger 
+
+&lt;PageTitle&gt;After Render&lt;/PageTitle&gt;
+
+&lt;h1&gt;After Render Example&lt;/h1&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="HandleClick"&gt;Log information (and trigger a render)&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Study logged messages in the console.&lt;/p&gt;
+
+@code {
+    protected override void OnAfterRender(bool firstRender) =&gt;
+        Logger.LogInformation("firstRender = {FirstRender}", firstRender);
+
+    private void HandleClick() =&gt; Logger.LogInformation("HandleClick called");
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/after-render"
+@inject ILogger&lt;AfterRender&gt; Logger
+
+&lt;PageTitle&gt;After Render&lt;/PageTitle&gt;
+
+&lt;h1&gt;After Render Example&lt;/h1&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="HandleClick"&gt;Log information (and trigger a render)&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Study logged messages in the console.&lt;/p&gt;
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Logger.LogInformation("OnAfterRender: firstRender = {FirstRender}", firstRender);
+    }
+
+    private void HandleClick()
+    {
+        Logger.LogInformation("HandleClick called");
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/after-render"
+@inject ILogger&lt;AfterRender&gt; Logger 
+
+&lt;PageTitle&gt;After Render&lt;/PageTitle&gt;
+
+&lt;h1&gt;After Render Example&lt;/h1&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="HandleClick"&gt;Log information (and trigger a render)&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Study logged messages in the console.&lt;/p&gt;
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Logger.LogInformation("OnAfterRender: firstRender = {FirstRender}", firstRender);
+    }
+
+    private void HandleClick()
+    {
+        Logger.LogInformation("HandleClick called");
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/after-render"
+@using Microsoft.Extensions.Logging
+@inject ILogger&lt;AfterRender&gt; Logger 
+
+&lt;h1&gt;After Render Example&lt;/h1&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="HandleClick"&gt;Log information (and trigger a render)&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Study logged messages in the console.&lt;/p&gt;
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Logger.LogInformation("OnAfterRender: firstRender = {FirstRender}", firstRender);
+    }
+
+    private void HandleClick()
+    {
+        Logger.LogInformation("HandleClick called");
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/after-render"
+@using Microsoft.Extensions.Logging
+@inject ILogger&lt;AfterRender&gt; Logger
+
+&lt;h1&gt;After Render Example&lt;/h1&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="HandleClick"&gt;Log information (and trigger a render)&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Study logged messages in the console.&lt;/p&gt;
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Logger.LogInformation("OnAfterRender: firstRender = {FirstRender}", firstRender);
+    }
+
+    private void HandleClick()
+    {
+        Logger.LogInformation("HandleClick called");
+    }
+}
+</code></pre>
+</div>
+<p>The <code>AfterRender.razor</code> sample produces following output to console when the page is loaded and the button is selected:</p>
+<blockquote>
+<p><span class="no-loc" dir="ltr" lang="en-us">OnAfterRender: firstRender = True</span><br>
+<span class="no-loc" dir="ltr" lang="en-us">HandleClick called</span><br>
+<span class="no-loc" dir="ltr" lang="en-us">OnAfterRender: firstRender = False</span></p>
+</blockquote>
+<p>Asynchronous work immediately after rendering must occur during the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a> lifecycle event:</p>
+<pre><code class="lang-csharp">protected override async Task OnAfterRenderAsync(bool firstRender)
+{
+    ...
+}
+</code></pre>
+<p>If a custom <a href="./?view=aspnetcore-10.0#specify-a-base-class" data-linktype="relative-path">base class</a> is used with custom initialization logic, call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a> on the base class:</p>
+<pre><code class="lang-csharp">protected override async Task OnAfterRenderAsync(bool firstRender)
+{
+    ...
+
+    await base.OnAfterRenderAsync(firstRender);
+}
+</code></pre>
+<p>It isn't necessary to call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">ComponentBase.OnAfterRenderAsync</a> unless a custom base class is used with custom logic. For more information, see the <a href="#base-class-lifecycle-methods" data-linktype="self-bookmark">Base class lifecycle methods</a> section.</p>
+<p>Even if you return a <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a> from <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a>, the framework doesn't schedule a further render cycle for your component once that task completes. This is to avoid an infinite render loop. This is different from the other lifecycle methods, which schedule a further render cycle once a returned <a href="/en-us/dotnet/api/system.threading.tasks.task" class="no-loc" data-linktype="absolute-path">Task</a> completes.</p>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender" class="no-loc" data-linktype="absolute-path">OnAfterRender</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a> <em>aren't called during the prerendering process on the server</em>. The methods are called when the component is rendered interactively after prerendering. When the app prerenders:</p>
+<ol>
+<li>The component executes on the server to produce some static HTML markup in the HTTP response. During this phase, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender" class="no-loc" data-linktype="absolute-path">OnAfterRender</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a> aren't called.</li>
+<li>When the Blazor script (<code>blazor.{server|webassembly|web}.js</code>) starts in the browser, the component is restarted in an interactive rendering mode. After a component is restarted, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender" class="no-loc" data-linktype="absolute-path">OnAfterRender</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a> <strong>are</strong> called because the app isn't in the prerendering phase any longer.</li>
+</ol>
+<p>If event handlers are provided in developer code, unhook them on disposal. For more information, see <a href="component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component disposal</a>.</p>
+<h2 id="base-class-lifecycle-methods">Base class lifecycle methods</h2>
+<p>When overriding Blazor's lifecycle methods, it isn't necessary to call base class lifecycle methods for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase" class="no-loc" data-linktype="absolute-path">ComponentBase</a>. However, a component should call an overridden base class lifecycle method in the following situations:</p>
+<ul>
+<li>When overriding <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync" class="no-loc" data-linktype="absolute-path">ComponentBase.SetParametersAsync</a>, <code>await base.SetParametersAsync(parameters);</code> is usually invoked because the base class method calls other lifecycle methods and triggers rendering in a complex fashion. For more information, see the <a href="#when-parameters-are-set-setparametersasync" data-linktype="self-bookmark">When parameters are set (<code>SetParametersAsync</code>)</a> section.</li>
+<li>If the base class method contains logic that must be executed. Library consumers usually call base class lifecycle methods when inheriting a base class because library base classes often have custom lifecycle logic to execute. If the app uses a base class from a library, consult the library's documentation for guidance.</li>
+</ul>
+<p>In the following example, <code>base.OnInitialized();</code> is called to ensure that the base class's <code>OnInitialized</code> method is executed. Without the call, <code>BlazorRocksBase2.OnInitialized</code> doesn't execute.</p>
+<p><code>BlazorRocks2.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-2"
+@inherits BlazorRocksBase2
+@inject ILogger&lt;BlazorRocks2&gt; Logger
+
+&lt;PageTitle&gt;Blazor Rocks!&lt;/PageTitle&gt;
+
+&lt;h1&gt;Blazor Rocks! Example 2&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+
+@code {
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocks2 executed!");
+
+        base.OnInitialized();
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-2"
+@inherits BlazorRocksBase2
+@inject ILogger&lt;BlazorRocks2&gt; Logger
+
+&lt;PageTitle&gt;Blazor Rocks!&lt;/PageTitle&gt;
+
+&lt;h1&gt;Blazor Rocks! Example 2&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+
+@code {
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocks2 executed!");
+
+        base.OnInitialized();
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-2"
+@inherits BlazorRocksBase2
+@inject ILogger&lt;BlazorRocks2&gt; Logger
+
+&lt;PageTitle&gt;Blazor Rocks!&lt;/PageTitle&gt;
+
+&lt;h1&gt;Blazor Rocks! Example 2&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+
+@code {
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocks2 executed!");
+
+        base.OnInitialized();
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-2"
+@inherits BlazorRocksBase2
+@inject ILogger&lt;BlazorRocks2&gt; Logger
+
+&lt;PageTitle&gt;Blazor Rocks!&lt;/PageTitle&gt;
+
+&lt;h1&gt;Blazor Rocks! Example 2&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+
+@code {
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocks2 executed!");
+
+        base.OnInitialized();
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/blazor-rocks-2"
+@using Microsoft.Extensions.Logging
+@inherits BlazorRocksBase2
+@inject ILogger&lt;BlazorRocks2&gt; Logger
+
+&lt;h1&gt;Blazor Rocks! Example 2&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+
+@code {
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocks2 executed!");
+
+        base.OnInitialized();
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/blazor-rocks-2"
+@using Microsoft.Extensions.Logging
+@inherits BlazorRocksBase2
+@inject ILogger&lt;BlazorRocks2&gt; Logger
+
+&lt;h1&gt;Blazor Rocks! Example 2&lt;/h1&gt;
+
+&lt;p&gt;
+    @BlazorRocksText
+&lt;/p&gt;
+
+@code {
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocks2 executed!");
+
+        base.OnInitialized();
+    }
+}
+</code></pre>
+</div>
+<p><code>BlazorRocksBase2.cs</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase2 : ComponentBase
+{
+    [Inject]
+    private ILogger&lt;BlazorRocksBase2&gt; Logger { get; set; } = default!;
+
+    public string BlazorRocksText { get; set; } = "Blazor rocks the browser!";
+
+    protected override void OnInitialized() =&gt;
+        Logger.LogInformation("Initialization code of BlazorRocksBase2 executed!");
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase2 : ComponentBase
+{
+    [Inject]
+    private ILogger&lt;BlazorRocksBase2&gt; Logger { get; set; } = default!;
+
+    public string BlazorRocksText { get; set; } = "Blazor rocks the browser!";
+
+    protected override void OnInitialized() =&gt;
+        Logger.LogInformation("Initialization code of BlazorRocksBase2 executed!");
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase2 : ComponentBase
+{
+    [Inject]
+    private ILogger&lt;BlazorRocksBase2&gt; Logger { get; set; } = default!;
+
+    public string BlazorRocksText { get; set; } =
+        "Blazor rocks the browser!";
+
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocksBase2 executed!");
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase2 : ComponentBase
+{
+    [Inject]
+    private ILogger&lt;BlazorRocksBase2&gt; Logger { get; set; } = default!;
+
+    public string BlazorRocksText { get; set; } =
+        "Blazor rocks the browser!";
+
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocksBase2 executed!");
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Logging;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase2 : ComponentBase
+{
+    [Inject]
+    private ILogger&lt;BlazorRocksBase2&gt; Logger { get; set; } = default!;
+
+    public string BlazorRocksText { get; set; } =
+        "Blazor rocks the browser!";
+
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocksBase2 executed!");
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Logging;
+
+namespace BlazorSample;
+
+public class BlazorRocksBase2 : ComponentBase
+{
+    [Inject]
+    private ILogger&lt;BlazorRocksBase2&gt; Logger { get; set; } = default!;
+
+    public string BlazorRocksText { get; set; } =
+        "Blazor rocks the browser!";
+
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Initialization code of BlazorRocksBase2 executed!");
+    }
+}
+</code></pre>
+</div>
+<h2 id="state-changes-statehaschanged">State changes (<code>StateHasChanged</code>)</h2>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" class="no-loc" data-linktype="absolute-path">StateHasChanged</a> notifies the component that its state has changed. When applicable, calling <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" class="no-loc" data-linktype="absolute-path">StateHasChanged</a> enqueues a rerender that occurs when the app's main thread is free.</p>
+<p><a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" class="no-loc" data-linktype="absolute-path">StateHasChanged</a> is called automatically for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.eventcallback" class="no-loc" data-linktype="absolute-path">EventCallback</a> methods. For more information on event callbacks, see <a href="event-handling?view=aspnetcore-10.0#eventcallback" data-linktype="relative-path">ASP.NET Core Blazor event handling</a>.</p>
+<p>For more information on component rendering and when to call <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" class="no-loc" data-linktype="absolute-path">StateHasChanged</a>, including when to invoke it with <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync" class="no-loc" data-linktype="absolute-path">ComponentBase.InvokeAsync</a>, see <a href="rendering?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component rendering</a>.</p>
+<h2 id="handle-incomplete-asynchronous-actions-at-render">Handle incomplete asynchronous actions at render</h2>
+<p>Asynchronous actions performed in lifecycle events might not have completed before the component is rendered. Objects might be <code>null</code> or incompletely populated with data while the lifecycle method is executing. Provide rendering logic to confirm that objects are initialized. Render placeholder UI elements (for example, a loading message) while objects are <code>null</code>.</p>
+<p>In the following <code>Slow</code> component, <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> is overridden to asynchronously execute a long-running task. While <code>isLoading</code> is <code>true</code>, a loading message is displayed to the user. After the <code>Task</code> returned by <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> completes, the component is rerendered with the updated state, showing the "<code>Finished!</code>" message.</p>
+<p><code>Slow.razor</code>:</p>
+<pre><code class="lang-razor">@page "/slow"
+
+&lt;h2&gt;Slow Component&lt;/h2&gt;
+
+@if (isLoading)
+{
+    &lt;div&gt;&lt;em&gt;Loading...&lt;/em&gt;&lt;/div&gt;
+}
+else
+{
+    &lt;div&gt;Finished!&lt;/div&gt;
+}
+
+@code {
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadDataAsync();
+        isLoading = false;
+    }
+
+    private Task LoadDataAsync()
+    {
+        return Task.Delay(10000);
+    }
+}
+</code></pre>
+<p>The preceding component uses an <code>isLoading</code> variable to display the loading message. A similar approach is used for a component that loads data into a collection and checks if the collection is <code>null</code> to present the loading message. The following example checks the <code>movies</code> collection for <code>null</code> to either display the loading message or display the collection of movies:</p>
+<pre><code class="lang-razor">@if (movies == null)
+{
+    &lt;p&gt;&lt;em&gt;Loading...&lt;/em&gt;&lt;/p&gt;
+}
+else
+{
+    @* display movies *@
+}
+
+@code {
+    private Movies[]? movies;
+
+    protected override async Task OnInitializedAsync()
+    {
+        movies = await GetMovies();
+    }
+}
+</code></pre>
+<p>Prerendering waits for <em>quiescence</em>, which means that a component doesn't render until all of the components in the render tree have finished rendering. This means that a loading message doesn't display while a child component's <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> method is executing a long-running task during prerendering. To demonstrate this behavior, place the preceding <code>Slow</code> component into a test app's <code>Home</code> component:</p>
+<pre><code class="lang-razor">@page "/"
+
+&lt;PageTitle&gt;Home&lt;/PageTitle&gt;
+
+&lt;h1&gt;Hello, world!&lt;/h1&gt;
+
+Welcome to your new app.
+
+&lt;Slow /&gt;
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>Although the examples in this section discuss the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync" class="no-loc" data-linktype="absolute-path">OnInitializedAsync</a> lifecycle method, other lifecycle methods that execute during prerendering may delay final rendering of a component. Only <a href="#after-component-render-onafterrenderasync" data-linktype="self-bookmark"><code>OnAfterRender{Async}</code></a> isn't executed during prerendering and is immune to delays due to quiescence.</p>
+</div>
+<p>During prerendering, the <code>Home</code> component doesn't render until the <code>Slow</code> component is rendered, which takes ten seconds. The UI is blank during this ten-second period, and there's no loading message. After prerendering, the <code>Home</code> component renders, and the <code>Slow</code> component's loading message is displayed. After ten more seconds, the <code>Slow</code> component finally displays the finished message.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>As the preceding demonstration illustrates, quiescence during prerendering results in a poor user experience. To improve the user experience, begin by implementing <a href="rendering?view=aspnetcore-10.0#streaming-rendering" data-linktype="relative-path">streaming rendering</a> to avoid waiting for the asynchronous task to complete while prerendering.</p>
+<p>Add the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.streamrenderingattribute" data-linktype="absolute-path"><code>[StreamRendering]</code> attribute</a> to the <code>Slow</code> component (use <code>[StreamRendering(true)]</code> in .NET 8):</p>
+<pre><code class="lang-razor">@attribute [StreamRendering]
+</code></pre>
+<p>When the <code>Home</code> component is prerendering, the <code>Slow</code> component is quickly rendered with its loading message. The <code>Home</code> component doesn't wait for ten seconds for the <code>Slow</code> component to finish rendering. However, the finished message displayed at the end of prerendering is replaced by the loading message while the component finally renders, which is another ten-second delay. This occurs because the <code>Slow</code> component is rendering twice, along with <code>LoadDataAsync</code> executing twice. When a component is accessing resources, such as services and databases, double execution of service calls and database queries creates undesirable load on the app's resources.</p>
+<p>To address the double rendering of the loading message and the re-execution of service and database calls, persist prerendered state with <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.persistentcomponentstate" class="no-loc" data-linktype="absolute-path">PersistentComponentState</a> for final rendering of the component, as seen in the following updates to the <code>Slow</code> component:</p>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0">
+<pre><code class="lang-razor">@page "/slow"
+@attribute [StreamRendering]
+
+&lt;h2&gt;Slow Component&lt;/h2&gt;
+
+@if (Data is null)
+{
+    &lt;div&gt;&lt;em&gt;Loading...&lt;/em&gt;&lt;/div&gt;
+}
+else
+{
+    &lt;div&gt;@Data&lt;/div&gt;
+}
+
+@code {
+    [PersistentState]
+    public string? Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data ??= await LoadDataAsync();
+    }
+
+    private async Task&lt;string&gt; LoadDataAsync()
+    {
+        await Task.Delay(5000);
+        return "Finished!";
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/slow"
+@attribute [StreamRendering]
+@implements IDisposable
+@inject PersistentComponentState ApplicationState
+
+&lt;h2&gt;Slow Component&lt;/h2&gt;
+
+@if (data is null)
+{
+    &lt;div&gt;&lt;em&gt;Loading...&lt;/em&gt;&lt;/div&gt;
+}
+else
+{
+    &lt;div&gt;@data&lt;/div&gt;
+}
+
+@code {
+    private string? data;
+    private PersistingComponentStateSubscription persistingSubscription;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!ApplicationState.TryTakeFromJson&lt;string&gt;(nameof(data), out var restored))
+        {
+            data = await LoadDataAsync();
+        }
+        else
+        {
+            data = restored!;
+        }
+
+        // Call at the end to avoid a potential race condition at app shutdown
+        persistingSubscription = ApplicationState.RegisterOnPersisting(PersistData);
+    }
+
+    private Task PersistData()
+    {
+        ApplicationState.PersistAsJson(nameof(data), data);
+
+        return Task.CompletedTask;
+    }
+
+    private async Task&lt;string&gt; LoadDataAsync()
+    {
+        await Task.Delay(5000);
+        return "Finished!";
+    }
+
+    void IDisposable.Dispose()
+    {
+        persistingSubscription.Dispose();
+    }
+}
+</code></pre>
+</div>
+<p>By combining streaming rendering with persistent component state:</p>
+<ul>
+<li>Services and databases only require a single call for component initialization.</li>
+<li>Components render their UIs quickly with loading messages during long-running tasks for the best user experience.</li>
+</ul>
+<p>For more information, see the following resources:</p>
+<ul>
+<li><a href="rendering?view=aspnetcore-10.0#streaming-rendering" data-linktype="relative-path">ASP.NET Core Razor component rendering</a></li>
+<li><a href="../state-management/prerendered-state-persistence?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor prerendered state persistence</a>.</li>
+</ul>
+<p>:::moniker-end</p>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<p>Quiescence during prerendering results in a poor user experience. The delay can be addressed in apps that target .NET 8 or later with a feature called <em>streaming rendering</em>, usually combined with <a href="integration?view=aspnetcore-10.0#persist-prerendered-state" data-linktype="relative-path">persisting component state during prerendering</a> to avoid waiting for the asynchronous task to complete. In versions of .NET earlier than .NET 8, executing a <a href="#cancelable-background-work" data-linktype="self-bookmark">long-running background task</a> that loads the data after final rendering can address a long rendering delay due to quiescence.</p>
+</div>
+<h2 id="handle-errors">Handle errors</h2>
+<p>For information on handling errors during lifecycle method execution, see <a href="../fundamentals/handle-errors?view=aspnetcore-10.0" data-linktype="relative-path">Handle errors in ASP.NET Core Blazor apps</a>.</p>
+<h2 id="stateful-reconnection-after-prerendering">Stateful reconnection after prerendering</h2>
+<p>When prerendering on the server, a component is initially rendered statically as part of the page. Once the browser establishes a SignalR connection back to the server, the component is rendered <em>again</em> and interactive. If the <a href="#component-initialization-oninitializedasync" data-linktype="self-bookmark"><code>OnInitialized{Async}</code></a> lifecycle method for initializing the component is present, the method is executed <em>twice</em>:</p>
+<ul>
+<li>When the component is prerendered statically.</li>
+<li>After the server connection has been established.</li>
+</ul>
+<p>This can result in a noticeable change in the data displayed in the UI when the component is finally rendered. To avoid this behavior, pass in an identifier to cache the state during prerendering and to retrieve the state after prerendering.</p>
+<p>The following code demonstrates a <code>WeatherForecastService</code> that avoids the change in data display due to prerendering. The awaited <a href="/en-us/dotnet/api/system.threading.tasks.task.delay" class="no-loc" data-linktype="absolute-path">Delay</a> (<code>await Task.Delay(...)</code>) simulates a short delay before returning data from the <code>GetForecastAsync</code> method.</p>
+<p>Add <a href="/en-us/dotnet/api/microsoft.extensions.caching.memory.imemorycache" class="no-loc" data-linktype="absolute-path">IMemoryCache</a> services with <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.addmemorycache" class="no-loc" data-linktype="absolute-path">AddMemoryCache</a> on the service collection in the app's <code>Program</code> file:</p>
+<pre><code class="lang-csharp">builder.Services.AddMemoryCache();
+</code></pre>
+<p><code>WeatherForecastService.cs</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-csharp">using Microsoft.Extensions.Caching.Memory;
+
+namespace BlazorSample;
+
+public class WeatherForecastService(IMemoryCache memoryCache)
+{
+    private static readonly string[] summaries =
+    [
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    ];
+
+    public IMemoryCache MemoryCache { get; } = memoryCache;
+
+    public Task&lt;WeatherForecast[]?&gt; GetForecastAsync(DateOnly startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =&gt;
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow =
+                    TimeSpan.FromSeconds(30)
+            });
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index =&gt; new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = summaries[Random.Shared.Next(summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-csharp">using Microsoft.Extensions.Caching.Memory;
+
+namespace BlazorSample;
+
+public class WeatherForecastService(IMemoryCache memoryCache)
+{
+    private static readonly string[] summaries =
+    [
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    ];
+
+    public IMemoryCache MemoryCache { get; } = memoryCache;
+
+    public Task&lt;WeatherForecast[]?&gt; GetForecastAsync(DateOnly startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =&gt;
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow =
+                    TimeSpan.FromSeconds(30)
+            });
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index =&gt; new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = summaries[Random.Shared.Next(summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-csharp">using Microsoft.Extensions.Caching.Memory;
+
+public class WeatherForecastService
+{
+    private static readonly string[] summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+
+    public IMemoryCache MemoryCache { get; }
+
+    public Task&lt;WeatherForecast[]?&gt; GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =&gt;
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow =
+                    TimeSpan.FromSeconds(30)
+            });
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index =&gt; new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = summaries[Random.Shared.Next(summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-csharp">using Microsoft.Extensions.Caching.Memory;
+
+public class WeatherForecastService
+{
+    private static readonly string[] summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+
+    public IMemoryCache MemoryCache { get; }
+
+    public Task&lt;WeatherForecast[]&gt; GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =&gt;
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow =
+                    TimeSpan.FromSeconds(30)
+            });
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index =&gt; new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = summaries[Random.Shared.Next(summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-csharp">using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
+using BlazorSample.Shared;
+
+public class WeatherForecastService
+{
+    private static readonly string[] summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+
+    public IMemoryCache MemoryCache { get; }
+
+    public Task&lt;WeatherForecast[]&gt; GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =&gt;
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow =
+                    TimeSpan.FromSeconds(30)
+            });
+
+            var rng = new Random();
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index =&gt; new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = summaries[rng.Next(summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-csharp">using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
+using BlazorSample.Shared;
+
+public class WeatherForecastService
+{
+    private static readonly string[] summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+
+    public IMemoryCache MemoryCache { get; }
+
+    public Task&lt;WeatherForecast[]&gt; GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =&gt;
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow =
+                    TimeSpan.FromSeconds(30)
+            });
+
+            var rng = new Random();
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index =&gt; new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = summaries[rng.Next(summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+</code></pre>
+</div>
+<p>For more information on the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.componenttaghelper.rendermode#microsoft-aspnetcore-mvc-taghelpers-componenttaghelper-rendermode" class="no-loc" data-linktype="absolute-path">RenderMode</a>, see <a href="../fundamentals/signalr?view=aspnetcore-10.0#server-side-render-mode" data-linktype="relative-path">ASP.NET Core Blazor SignalR guidance</a>.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>The content in this section focuses on Blazor Web Apps and stateful SignalR <em>reconnection</em>. To preserve state during the execution of initialization code while prerendering, see <a href="../state-management/prerendered-state-persistence?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor prerendered state persistence</a>.</p>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<p>Although the content in this section focuses on Blazor Server and stateful SignalR <em>reconnection</em>, the scenario for prerendering in hosted Blazor WebAssembly solutions (<a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.rendering.rendermode#microsoft-aspnetcore-mvc-rendering-rendermode-webassemblyprerendered" class="no-loc" data-linktype="absolute-path">WebAssemblyPrerendered</a>) involves similar conditions and approaches to prevent executing developer code twice. To preserve state during the execution of initialization code while prerendering, see <a href="integration?view=aspnetcore-10.0#persist-prerendered-state" data-linktype="relative-path">Integrate ASP.NET Core Razor components with MVC or Razor Pages</a>.</p>
+</div>
+<h2 id="prerendering-with-javascript-interop">Prerendering with JavaScript interop</h2>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0">
+<p><em>This section applies to server-side apps that prerender Razor components. Prerendering is covered in <a href="prerender?view=aspnetcore-10.0" data-linktype="relative-path">Prerender ASP.NET Core Razor components</a>.</em></p>
+</div>
+<div data-moniker="aspnetcore-8.0 aspnetcore-9.0">
+<p><em>This section applies to server-side apps that prerender Razor components. Prerendering is covered in <a href="prerender?view=aspnetcore-10.0" data-linktype="relative-path">Prerender ASP.NET Core Razor components</a>.</em></p>
+<div class="NOTE">
+<p>Note</p>
+<p>Internal navigation for <a href="../fundamentals/routing?view=aspnetcore-10.0#static-versus-interactive-routing" data-linktype="relative-path">interactive routing</a> in Blazor Web Apps doesn't involve requesting new page content from the server. Therefore, prerendering doesn't occur for internal page requests. If the app adopts interactive routing, perform a full page reload for component examples that demonstrate prerendering behavior. For more information, see <a href="../state-management/prerendered-state-persistence?view=aspnetcore-10.0#interactive-routing-and-prerendering" data-linktype="relative-path">ASP.NET Core Blazor prerendered state persistence</a>.</p>
+</div>
+</div>
+<div data-moniker="aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0">
+<p><em>This section applies to server-side apps and hosted Blazor WebAssembly apps that prerender Razor components. Prerendering is covered in <a href="integration?view=aspnetcore-10.0" data-linktype="relative-path">Integrate ASP.NET Core Razor components with MVC or Razor Pages</a>.</em></p>
+</div>
+<p>During prerendering, calling into JavaScript (JS) isn't possible. The following example demonstrates how to use JS interop as part of a component's initialization logic in a way that's compatible with prerendering.</p>
+<p>The following <code>scrollElementIntoView</code> function:</p>
+<ul>
+<li>Scrolls to the passed element with <a href="https://developer.mozilla.org/docs/Web/API/Element/scrollIntoView" data-linktype="external"><code>scrollIntoView</code></a>.</li>
+<li>Returns the element's <code>top</code> property value from the <a href="https://developer.mozilla.org/docs/Web/API/Element/getBoundingClientRect" data-linktype="external"><code>getBoundingClientRect</code></a> method.</li>
+</ul>
+<pre><code class="lang-javascript">window.scrollElementIntoView = (element) =&gt; {
+  element.scrollIntoView();
+  return element.getBoundingClientRect().top;
+}
+</code></pre>
+<p>Where <a href="/en-us/dotnet/api/microsoft.jsinterop.ijsruntime.invokeasync" class="no-loc" data-linktype="absolute-path">IJSRuntime.InvokeAsync</a> calls the JS function in component code, the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.elementreference" class="no-loc" data-linktype="absolute-path">ElementReference</a> is only used in <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync" class="no-loc" data-linktype="absolute-path">OnAfterRenderAsync</a> and not in any earlier lifecycle method because there's no HTML DOM element until after the component is rendered.</p>
+<p><a href="lifecycle?view=aspnetcore-10.0#state-changes-statehaschanged" data-linktype="relative-path"><code>StateHasChanged</code></a> (<a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" data-linktype="absolute-path">reference source</a>) is called to enqueue rerendering of the component with the new state obtained from the JS interop call (for more information, see <a href="rendering?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component rendering</a>). An infinite loop isn't created because <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged" class="no-loc" data-linktype="absolute-path">StateHasChanged</a> is only called when <code>scrollPosition</code> is <code>null</code>.</p>
+<p><code>PrerenderedInterop.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/prerendered-interop"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+&lt;PageTitle&gt;Prerendered Interop&lt;/PageTitle&gt;
+
+&lt;h1&gt;Prerendered Interop Example&lt;/h1&gt;
+
+&lt;div @ref="divElement" style="margin-top:2000px"&gt;
+    Set value via JS interop call: &lt;strong&gt;@scrollPosition&lt;/strong&gt;
+&lt;/div&gt;
+
+@code {
+    private ElementReference divElement;
+    private double? scrollPosition;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender &amp;&amp; scrollPosition is null)
+        {
+            scrollPosition = await JS.InvokeAsync&lt;double&gt;(
+                "scrollElementIntoView", divElement);
+
+            StateHasChanged();
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/prerendered-interop"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+&lt;h1&gt;Prerendered Interop Example&lt;/h1&gt;
+
+&lt;div @ref="divElement" style="margin-top:2000px"&gt;
+    Set value via JS interop call: &lt;strong&gt;@scrollPosition&lt;/strong&gt;
+&lt;/div&gt;
+
+@code {
+    private ElementReference divElement;
+    private double? scrollPosition;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender &amp;&amp; scrollPosition is null)
+        {
+            scrollPosition = await JS.InvokeAsync&lt;double&gt;(
+                "scrollElementIntoView", divElement);
+
+            StateHasChanged();
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/prerendered-interop"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+&lt;h1&gt;Prerendered Interop Example&lt;/h1&gt;
+
+&lt;div @ref="divElement" style="margin-top:2000px"&gt;
+    Set value via JS interop call: &lt;strong&gt;@scrollPosition&lt;/strong&gt;
+&lt;/div&gt;
+
+@code {
+    private ElementReference divElement;
+    private double? scrollPosition;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender &amp;&amp; scrollPosition is null)
+        {
+            scrollPosition = await JS.InvokeAsync&lt;double&gt;(
+                "scrollElementIntoView", divElement);
+
+            StateHasChanged();
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/prerendered-interop"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+&lt;h1&gt;Prerendered Interop Example&lt;/h1&gt;
+
+&lt;div @ref="divElement" style="margin-top:2000px"&gt;
+    Set value via JS interop call: &lt;strong&gt;@scrollPosition&lt;/strong&gt;
+&lt;/div&gt;
+
+@code {
+    private ElementReference divElement;
+    private double? scrollPosition;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender &amp;&amp; scrollPosition is null)
+        {
+            scrollPosition = await JS.InvokeAsync&lt;double&gt;(
+                "scrollElementIntoView", divElement);
+
+            StateHasChanged();
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/prerendered-interop"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+&lt;h1&gt;Prerendered Interop Example&lt;/h1&gt;
+
+&lt;div @ref="divElement" style="margin-top:2000px"&gt;
+    Set value via JS interop call: &lt;strong&gt;@scrollPosition&lt;/strong&gt;
+&lt;/div&gt;
+
+@code {
+    private ElementReference divElement;
+    private double? scrollPosition;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender &amp;&amp; scrollPosition is null)
+        {
+            scrollPosition = await JS.InvokeAsync&lt;double&gt;(
+                "scrollElementIntoView", divElement);
+
+            StateHasChanged();
+        }
+    }
+}
+</code></pre>
+</div>
+<p>The preceding example pollutes the client with a global function. For a better approach in production apps, see <a href="../javascript-interoperability/call-javascript-from-dotnet?view=aspnetcore-10.0#javascript-isolation-in-javascript-modules" data-linktype="relative-path">JavaScript isolation in JavaScript modules</a>.</p>
+<h2 id="cancelable-background-work">Cancelable background work</h2>
+<p>Components often perform long-running background work, such as making network calls (<a href="/en-us/dotnet/api/system.net.http.httpclient" class="no-loc" data-linktype="absolute-path">HttpClient</a>) and interacting with databases. It's desirable to stop the background work to conserve system resources in several situations. For example, background asynchronous operations don't automatically stop when a user navigates away from a component.</p>
+<p>Other reasons why background work items might require cancellation include:</p>
+<ul>
+<li>An executing background task was started with faulty input data or processing parameters.</li>
+<li>The current set of executing background work items must be replaced with a new set of work items.</li>
+<li>The priority of currently executing tasks must be changed.</li>
+<li>The app must be shut down for server redeployment.</li>
+<li>Server resources become limited, necessitating the rescheduling of background work items.</li>
+</ul>
+<p>To implement a cancelable background work pattern in a component:</p>
+<ul>
+<li>Use a <a href="/en-us/dotnet/api/system.threading.cancellationtokensource" class="no-loc" data-linktype="absolute-path">CancellationTokenSource</a> and <a href="/en-us/dotnet/api/system.threading.cancellationtoken" class="no-loc" data-linktype="absolute-path">CancellationToken</a>.</li>
+<li>Upon <a href="component-disposal?view=aspnetcore-10.0" data-linktype="relative-path">disposal of the component</a> and at any point cancellation is desired by manually canceling the token, call <a href="/en-us/dotnet/api/system.threading.cancellationtokensource.cancel" data-linktype="absolute-path"><code>CancellationTokenSource.Cancel</code></a> to signal that the background work should be cancelled.</li>
+<li>After the asynchronous call returns, call <a href="/en-us/dotnet/api/system.threading.cancellationtoken.throwifcancellationrequested" class="no-loc" data-linktype="absolute-path">ThrowIfCancellationRequested</a> on the token.</li>
+</ul>
+<p>In the following example:</p>
+<ul>
+<li><code>await Task.Delay(10000, cts.Token);</code> represents long-running asynchronous background work.</li>
+<li><code>BackgroundResourceMethod</code> represents a long-running background method that shouldn't start if the <code>Resource</code> is disposed before the method is called.</li>
+</ul>
+<p><code>BackgroundWork.razor</code>:</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-9.0">
+<pre><code class="lang-razor">@page "/background-work"
+@implements IDisposable
+@inject ILogger&lt;BackgroundWork&gt; Logger
+
+&lt;PageTitle&gt;Background Work&lt;/PageTitle&gt;
+
+&lt;h1&gt;Background Work Example&lt;/h1&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="LongRunningWork"&gt;Trigger long running work&lt;/button&gt;
+    &lt;button @onclick="Dispose"&gt;Trigger Disposal&lt;/button&gt;
+&lt;/p&gt;
+&lt;p&gt;Study logged messages in the console.&lt;/p&gt;
+&lt;p&gt;
+    If you trigger disposal within 10 seconds of page load, the 
+    &lt;code&gt;BackgroundResourceMethod&lt;/code&gt; isn't executed.
+&lt;/p&gt;
+&lt;p&gt;
+    If disposal occurs after &lt;code&gt;BackgroundResourceMethod&lt;/code&gt; is called but
+    before action is taken on the resource, an &lt;code&gt;ObjectDisposedException&lt;/code&gt;
+    is thrown by &lt;code&gt;BackgroundResourceMethod&lt;/code&gt;, and the resource isn't
+    processed.
+&lt;/p&gt;
+
+@code {
+    private Resource resource = new();
+    private CancellationTokenSource cts = new();
+    private IList&lt;string&gt; messages = [];
+
+    protected async Task LongRunningWork()
+    {
+        Logger.LogInformation("Long running work started");
+
+        await Task.Delay(10000, cts.Token);
+
+        cts.Token.ThrowIfCancellationRequested();
+        resource.BackgroundResourceMethod(Logger);
+    }
+
+    public void Dispose()
+    {
+        Logger.LogInformation("Executing Dispose");
+
+        if (!cts.IsCancellationRequested)
+        {
+            cts.Cancel();
+        }
+        
+        cts?.Dispose();
+        resource?.Dispose();
+    }
+
+    private class Resource : IDisposable
+    {
+        private bool disposed;
+
+        public void BackgroundResourceMethod(ILogger&lt;BackgroundWork&gt; logger)
+        {
+            logger.LogInformation("BackgroundResourceMethod: Start method");
+
+            if (disposed)
+            {
+                logger.LogInformation("BackgroundResourceMethod: Disposed");
+                throw new ObjectDisposedException(nameof(Resource));
+            }
+
+            // Take action on the Resource
+
+            logger.LogInformation("BackgroundResourceMethod: Action on Resource");
+        }
+
+        public void Dispose() =&gt; disposed = true;
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-8.0">
+<pre><code class="lang-razor">@page "/background-work"
+@implements IDisposable
+@inject ILogger&lt;BackgroundWork&gt; Logger
+
+&lt;PageTitle&gt;Background Work&lt;/PageTitle&gt;
+
+&lt;h1&gt;Background Work Example&lt;/h1&gt;
+
+&lt;p&gt;
+    &lt;button @onclick="LongRunningWork"&gt;Trigger long running work&lt;/button&gt;
+    &lt;button @onclick="Dispose"&gt;Trigger Disposal&lt;/button&gt;
+&lt;/p&gt;
+&lt;p&gt;Study logged messages in the console.&lt;/p&gt;
+&lt;p&gt;
+    If you trigger disposal within 10 seconds of page load, the 
+    &lt;code&gt;BackgroundResourceMethod&lt;/code&gt; isn't executed.
+&lt;/p&gt;
+&lt;p&gt;
+    If disposal occurs after &lt;code&gt;BackgroundResourceMethod&lt;/code&gt; is called but
+    before action is taken on the resource, an &lt;code&gt;ObjectDisposedException&lt;/code&gt;
+    is thrown by &lt;code&gt;BackgroundResourceMethod&lt;/code&gt;, and the resource isn't
+    processed.
+&lt;/p&gt;
+
+@code {
+    private Resource resource = new();
+    private CancellationTokenSource cts = new();
+    private IList&lt;string&gt; messages = [];
+
+    protected async Task LongRunningWork()
+    {
+        Logger.LogInformation("Long running work started");
+
+        await Task.Delay(10000, cts.Token);
+
+        cts.Token.ThrowIfCancellationRequested();
+        resource.BackgroundResourceMethod(Logger);
+    }
+
+    public void Dispose()
+    {
+        Logger.LogInformation("Executing Dispose");
+
+        if (!cts.IsCancellationRequested)
+        {
+            cts.Cancel();
+        }
+        
+        cts?.Dispose();
+        resource?.Dispose();
+    }
+
+    private class Resource : IDisposable
+    {
+        private bool disposed;
+
+        public void BackgroundResourceMethod(ILogger&lt;BackgroundWork&gt; logger)
+        {
+            logger.LogInformation("BackgroundResourceMethod: Start method");
+
+            if (disposed)
+            {
+                logger.LogInformation("BackgroundResourceMethod: Disposed");
+                throw new ObjectDisposedException(nameof(Resource));
+            }
+
+            // Take action on the Resource
+
+            logger.LogInformation("BackgroundResourceMethod: Action on Resource");
+        }
+
+        public void Dispose() =&gt; disposed = true;
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-7.0">
+<pre><code class="lang-razor">@page "/background-work"
+@using System.Threading
+@using Microsoft.Extensions.Logging
+@implements IDisposable
+@inject ILogger&lt;BackgroundWork&gt; Logger
+
+&lt;button @onclick="LongRunningWork"&gt;Trigger long running work&lt;/button&gt;
+&lt;button @onclick="Dispose"&gt;Trigger Disposal&lt;/button&gt;
+
+@code {
+    private Resource resource = new();
+    private CancellationTokenSource cts = new();
+
+    protected async Task LongRunningWork()
+    {
+        Logger.LogInformation("Long running work started");
+
+        await Task.Delay(5000, cts.Token);
+
+        cts.Token.ThrowIfCancellationRequested();
+        resource.BackgroundResourceMethod(Logger);
+    }
+
+    public void Dispose()
+    {
+        Logger.LogInformation("Executing Dispose");
+        cts.Cancel();
+        cts.Dispose();
+        resource?.Dispose();
+    }
+
+    private class Resource : IDisposable
+    {
+        private bool disposed;
+
+        public void BackgroundResourceMethod(ILogger&lt;BackgroundWork&gt; logger)
+        {
+            logger.LogInformation("BackgroundResourceMethod: Start method");
+
+            if (disposed)
+            {
+                logger.LogInformation("BackgroundResourceMethod: Disposed");
+                throw new ObjectDisposedException(nameof(Resource));
+            }
+
+            // Take action on the Resource
+
+            logger.LogInformation("BackgroundResourceMethod: Action on Resource");
+        }
+
+        public void Dispose()
+        {
+            disposed = true;
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-6.0">
+<pre><code class="lang-razor">@page "/background-work"
+@using System.Threading
+@using Microsoft.Extensions.Logging
+@implements IDisposable
+@inject ILogger&lt;BackgroundWork&gt; Logger
+
+&lt;button @onclick="LongRunningWork"&gt;Trigger long running work&lt;/button&gt;
+&lt;button @onclick="Dispose"&gt;Trigger Disposal&lt;/button&gt;
+
+@code {
+    private Resource resource = new();
+    private CancellationTokenSource cts = new();
+
+    protected async Task LongRunningWork()
+    {
+        Logger.LogInformation("Long running work started");
+
+        await Task.Delay(5000, cts.Token);
+
+        cts.Token.ThrowIfCancellationRequested();
+        resource.BackgroundResourceMethod(Logger);
+    }
+
+    public void Dispose()
+    {
+        Logger.LogInformation("Executing Dispose");
+        cts.Cancel();
+        cts.Dispose();
+        resource?.Dispose();
+    }
+
+    private class Resource : IDisposable
+    {
+        private bool disposed;
+
+        public void BackgroundResourceMethod(ILogger&lt;BackgroundWork&gt; logger)
+        {
+            logger.LogInformation("BackgroundResourceMethod: Start method");
+
+            if (disposed)
+            {
+                logger.LogInformation("BackgroundResourceMethod: Disposed");
+                throw new ObjectDisposedException(nameof(Resource));
+            }
+
+            // Take action on the Resource
+
+            logger.LogInformation("BackgroundResourceMethod: Action on Resource");
+        }
+
+        public void Dispose()
+        {
+            disposed = true;
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-5.0">
+<pre><code class="lang-razor">@page "/background-work"
+@using System.Threading
+@using Microsoft.Extensions.Logging
+@implements IDisposable
+@inject ILogger&lt;BackgroundWork&gt; Logger
+
+&lt;button @onclick="LongRunningWork"&gt;Trigger long running work&lt;/button&gt;
+&lt;button @onclick="Dispose"&gt;Trigger Disposal&lt;/button&gt;
+
+@code {
+    private Resource resource = new();
+    private CancellationTokenSource cts = new();
+
+    protected async Task LongRunningWork()
+    {
+        Logger.LogInformation("Long running work started");
+
+        await Task.Delay(5000, cts.Token);
+
+        cts.Token.ThrowIfCancellationRequested();
+        resource.BackgroundResourceMethod(Logger);
+    }
+
+    public void Dispose()
+    {
+        Logger.LogInformation("Executing Dispose");
+        cts.Cancel();
+        cts.Dispose();
+        resource?.Dispose();
+    }
+
+    private class Resource : IDisposable
+    {
+        private bool disposed;
+
+        public void BackgroundResourceMethod(ILogger&lt;BackgroundWork&gt; logger)
+        {
+            logger.LogInformation("BackgroundResourceMethod: Start method");
+
+            if (disposed)
+            {
+                logger.LogInformation("BackgroundResourceMethod: Disposed");
+                throw new ObjectDisposedException(nameof(Resource));
+            }
+
+            // Take action on the Resource
+
+            logger.LogInformation("BackgroundResourceMethod: Action on Resource");
+        }
+
+        public void Dispose()
+        {
+            disposed = true;
+        }
+    }
+}
+</code></pre>
+</div>
+<div data-moniker="aspnetcore-3.1">
+<pre><code class="lang-razor">@page "/background-work"
+@using System.Threading
+@using Microsoft.Extensions.Logging
+@implements IDisposable
+@inject ILogger&lt;BackgroundWork&gt; Logger
+
+&lt;button @onclick="LongRunningWork"&gt;Trigger long running work&lt;/button&gt;
+&lt;button @onclick="Dispose"&gt;Trigger Disposal&lt;/button&gt;
+
+@code {
+    private Resource resource = new Resource();
+    private CancellationTokenSource cts = new CancellationTokenSource();
+
+    protected async Task LongRunningWork()
+    {
+        Logger.LogInformation("Long running work started");
+
+        await Task.Delay(5000, cts.Token);
+
+        cts.Token.ThrowIfCancellationRequested();
+        resource.BackgroundResourceMethod(Logger);
+    }
+
+    public void Dispose()
+    {
+        Logger.LogInformation("Executing Dispose");
+        cts.Cancel();
+        cts.Dispose();
+        resource?.Dispose();
+    }
+
+    private class Resource : IDisposable
+    {
+        private bool disposed;
+
+        public void BackgroundResourceMethod(ILogger&lt;BackgroundWork&gt; logger)
+        {
+            logger.LogInformation("BackgroundResourceMethod: Start method");
+
+            if (disposed)
+            {
+                logger.LogInformation("BackgroundResourceMethod: Disposed");
+                throw new ObjectDisposedException(nameof(Resource));
+            }
+
+            // Take action on the Resource
+
+            logger.LogInformation("BackgroundResourceMethod: Action on Resource");
+        }
+
+        public void Dispose()
+        {
+            disposed = true;
+        }
+    }
+}
+</code></pre>
+</div>
+<p>To display a loading indicator while the background work is taking place, use the following approach.</p>
+<p>Create a loading indicator component with a <code>Loading</code> parameter that can display child content in a <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment" class="no-loc" data-linktype="absolute-path">RenderFragment</a>. For the <code>Loading</code> parameter:</p>
+<ul>
+<li>When <code>true</code>, display a loading indicator.</li>
+<li>When <code>false</code>, render the component's content (<code>ChildContent</code>). For more information, see <a href="./?view=aspnetcore-10.0#child-content-render-fragments" data-linktype="relative-path">Child content render fragments</a>.</li>
+</ul>
+<p><code>ContentLoading.razor</code>:</p>
+<pre><code class="lang-razor">@if (Loading)
+{
+    &lt;progress id="loadingIndicator" aria-label="Content loading…"&gt;&lt;/progress&gt;
+}
+else
+{
+    @ChildContent
+}
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool Loading { get; set; }
+}
+</code></pre>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>To load CSS styles for the indicator, add the styles to <code>&lt;head&gt;</code> content with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.web.headcontent" class="no-loc" data-linktype="absolute-path">HeadContent</a> component. For more information, see <a href="control-head-content?view=aspnetcore-10.0" data-linktype="relative-path">Control head content in ASP.NET Core Blazor apps</a>.</p>
+<pre><code class="lang-razor">@if (Loading)
+{
+    &lt;!-- OPTIONAL ...
+    &lt;HeadContent&gt;
+        &lt;style&gt;
+            ...
+        &lt;/style&gt;
+    &lt;/HeadContent&gt;
+    --&gt;
+    &lt;progress id="loadingIndicator" aria-label="Content loading…"&gt;&lt;/progress&gt;
+}
+else
+{
+    @ChildContent
+}
+
+...
+</code></pre>
+</div>
+<p>Wrap the component's Razor markup with the <code>ContentLoading</code> component and pass a value in a C# field to the <code>Loading</code> parameter when initialization work is performed by the component:</p>
+<pre><code class="lang-razor">&lt;ContentLoading Loading="@loading"&gt;
+    ...
+&lt;/ContentLoading&gt;
+
+@code {
+    private bool loading = true;
+    ...
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LongRunningWork().ContinueWith(_ =&gt; loading = false);
+    }
+
+    ...
+}
+</code></pre>
+<h2 id="blazor-server-reconnection-events">Blazor Server reconnection events</h2>
+<p>The component lifecycle events covered in this article operate separately from <a href="../fundamentals/signalr?view=aspnetcore-10.0#reflect-the-server-side-connection-state-in-the-ui" data-linktype="relative-path">server-side reconnection event handlers</a>. When the SignalR connection to the client is lost, only UI updates are interrupted. UI updates are resumed when the connection is re-established. For more information on circuit handler events and configuration, see <a href="../fundamentals/signalr?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor SignalR guidance</a>.</p>
+<h2 id="additional-resources">Additional resources</h2>
+<p><a href="synchronization-context?view=aspnetcore-10.0#handle-caught-exceptions-outside-of-a-razor-components-lifecycle" data-linktype="relative-path">Handle caught exceptions outside of a Razor component's lifecycle</a></p>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+			
+		<!-- feedback section -->
+		<section
+			class="feedback-section position-relative margin-top-lg border border-radius padding-xxs display-none-print"
+			data-bi-name="open-source-feedback-section"
+			data-open-source-feedback-section
+			hidden
+		>
+			<div class="display-flex flex-direction-column flex-direction-row-tablet">
+				<div
+					class="width-450-tablet padding-inline-xs padding-inline-xs-tablet padding-top-xs padding-bottom-sm padding-top-xs-tablet background-color-body-medium"
+				>
+					<div class="display-flex flex-direction-column">
+						<div class="padding-bottom-xxs">
+							<span class="icon margin-right-xxs" aria-hidden="true">
+								<span class="docon docon-brand-github"></span>
+							</span>
+							<span class="font-weight-semibold">
+								Collaborate with us on GitHub
+							</span>
+						</div>
+						<span class="line-height-normal">
+							The source for this content can be found on GitHub, where you can also create and review issues and pull requests. For more information, see <a href="https://learn.microsoft.com/contribute/content/dotnet/dotnet-contribute">our contributor guide</a>.
+						</span>
+					</div>
+				</div>
+				<div
+					class="display-flex gap-xs width-full-tablet flex-direction-column padding-xs justify-content-space-evenly"
+				>
+					<div class="media">
+						
+					<div class="media-left">
+						<div class="image image-36x36" hidden data-open-source-image-container>
+							<img
+								class="theme-display is-light"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-light
+							/>
+							<img
+								class="theme-display is-dark is-high-contrast"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-dark
+							/>
+						</div>
+					</div>
+			  
+
+						<div class="media-content">
+							<p
+								class="font-size-xl font-weight-semibold margin-bottom-xxs"
+								data-open-source-product-title
+							>
+								ASP.NET Core
+							</p>
+							<div class="display-flex gap-xs flex-direction-column">
+								<p class="line-height-normal" data-open-source-product-description></p>
+								<div class="display-flex gap-xs flex-direction-column">
+									<a href="#" data-github-link>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-bug"></span>
+										</span>
+										<span>Open a documentation issue</span>
+									</a>
+									<a
+										href="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md"
+										class="display-block margin-top-auto font-size-md"
+										data-feedback-product-url
+									>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-feedback"></span>
+										</span>
+										<span>Provide product feedback</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+			
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+		
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2025-11-12T05:37:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2025-11-12
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

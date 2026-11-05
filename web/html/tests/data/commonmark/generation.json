@@ -1,0 +1,45 @@
+[
+  {
+    "example": 418,
+    "section": "Emphasis and strong emphasis",
+    "html": "<p><em>foo <strong>bar <em>baz</em> bim</strong> bop</em></p>\n",
+    "upstream_markdown": "*foo **bar *baz* bim** bop*\n",
+    "expected_markdown": "*foo **bar *baz* bim** bop*"
+  },
+  {
+    "example": 329,
+    "section": "Code spans",
+    "html": "<p><code>foo ` bar</code></p>\n",
+    "upstream_markdown": "`` foo ` bar ``\n",
+    "expected_markdown": "``foo ` bar``"
+  },
+  {
+    "example": 142,
+    "section": "Fenced code blocks",
+    "html": "<pre><code class=\"language-ruby\">def foo(x)\n  return 3\nend\n</code></pre>\n",
+    "upstream_markdown": "```ruby\ndef foo(x)\n  return 3\nend\n```\n",
+    "expected_markdown": "```ruby\ndef foo(x)\n  return 3\nend\n```"
+  },
+  {
+    "example": 228,
+    "section": "Block quotes",
+    "html": "<blockquote>\n<h1>Foo</h1>\n<p>bar\nbaz</p>\n</blockquote>\n",
+    "upstream_markdown": "> # Foo\n> bar\n> baz\n",
+    "expected_markdown": "> # Foo\n>\n> bar baz"
+  },
+  {
+    "example": 307,
+    "section": "Lists",
+    "html": "<ul>\n<li>foo\n<ul>\n<li>bar\n<ul>\n<li>\n<p>baz</p>\n<p>bim</p>\n</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n",
+    "upstream_markdown": "- foo\n  - bar\n    - baz\n\n\n      bim\n",
+    "expected_markdown": "- foo\n  - bar\n    - baz\n\n      bim"
+  },
+  {
+    "example": 516,
+    "section": "Links",
+    "html": "<p><a href=\"/uri\">link <em>foo <strong>bar</strong> <code>#</code></em></a></p>\n",
+    "upstream_markdown": "[link *foo **bar** `#`*](/uri)\n",
+    "expected_markdown": "[link *foo **bar** `#`*](/uri)"
+  }
+]
+

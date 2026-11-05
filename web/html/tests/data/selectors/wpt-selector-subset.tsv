@@ -1,0 +1,59 @@
+# mode	fixture	context	selector	expected IDs in document order, or -
+valid	scope	scope	:scope > p	p
+valid	scope	scope	:scope > span	-
+valid	scope	scope	#test + p	p
+valid	scope	p	#test + p	-
+valid	namespace	document	[*|href]	thesvg
+valid	namespace	root	circle	svg-circle,no-namespace-circle
+valid	namespace	root	*|circle	svg-circle,no-namespace-circle
+valid	namespace	root	|circle	no-namespace-circle
+valid	namespace	root	|*	no-namespace-circle
+valid	case	document	input[name*=user i]	testInput
+valid	case	case-root	[viewBox]	htmlCase,svgExact
+valid	case	case-root	[viewbox]	htmlCase,svgLower
+valid	case	case-root	[VIEWBOX]	htmlCase
+valid	escapes	escape-root	#\30 nextIsWhiteSpace	0nextIsWhiteSpace
+valid	escapes	escape-root	#\.comma	.comma
+valid	escapes	escape-root	#\1f511 nonBMP	🔑nonBMP
+valid	escapes	escape-root	#hel\6C o	hello
+valid	escapes	escape-root	.foo\:bar	class-colon
+valid	escapes	escape-root	#test\.foo\[5\]bar	test.foo[5]bar
+valid	escapes	escape-root	#null\0	null�
+valid	general	general-root	#id-div1, #id-div1	id-div1
+valid	general	general-root	#id-div1, #id-div2	id-div1,id-div2
+valid	general	general-root	#id-li-duplicate	id-li-duplicate,id-li-duplicate,id-li-duplicate,id-li-duplicate
+valid	general	general-root	:not(*|*)	-
+valid	general	general-root	#universal>*	universal-p1,universal-hr1,universal-pre1
+valid	general	general-root	#universal *	universal-p1,universal-code1,universal-hr1,universal-pre1,universal-span1
+valid	general	general-root	#attr-value [align="center"	attr-value-div1
+invalid	general	document		-
+invalid	general	document	[	-
+invalid	general	document	]	-
+invalid	general	document	(	-
+invalid	general	document	)	-
+invalid	general	document	{	-
+invalid	general	document	}	-
+invalid	general	document	<	-
+invalid	general	document	>	-
+invalid	general	document	#	-
+invalid	general	document	div,	-
+invalid	general	document	.	-
+invalid	general	document	.5cm	-
+invalid	general	document	..test	-
+invalid	general	document	.foo..quux	-
+invalid	general	document	.bar.	-
+invalid	general	document	div % address, p	-
+invalid	general	document	div ++ address, p	-
+invalid	general	document	div ~~ address, p	-
+invalid	general	document	[*=test]	-
+invalid	general	document	[*|*=test]	-
+invalid	general	document	[class= space unquoted ]	-
+invalid	general	document	div:example	-
+invalid	general	document	div::example	-
+invalid	general	document	:::before	-
+invalid	general	document	:: before	-
+invalid	general	document	ns|div	-
+invalid	general	document	:not(ns|div)	-
+invalid	general	document	^|div	-
+invalid	general	document	$|div	-
+invalid	general	document	>*	-

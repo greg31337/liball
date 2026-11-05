@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Templates</title>
+  <link rel="stylesheet" type="text/css" href="/css/messagetemplates.css" />
+  <link rel="shortcut icon" href="favicon.png" type="image/png" >
+</head>
+<body>
+  <div class="content">
+    <h1 id="message-templates">Message Templates</h1>
+
+<p>A language-neutral specification for 1) <em>capturing</em>, and 2) <em>rendering</em>, structured log events in a format that’s both human-friendly and machine-readable.</p>
+
+<p><a href="https://messagetemplates.org/img/MessageTemplates.png"><img src="https://messagetemplates.org/img/MessageTemplates.png" alt="Message Templates" class="hidpi" /></a></p>
+
+<p>This document explains the reasons message templates are used, and provides a specification of their syntax, capturing behavior, and rendering behavior, to assist in creating implementations for various programming languages and logging interfaces.</p>
+
+<h2 id="a-brief-history-of-structured-logging-apis">A brief history of structured logging APIs</h2>
+
+<p>Early application logging, or <strong><code class="language-plaintext highlighter-rouge">printf</code> debugging</strong>, produced a stream of text describing the events taking place within an application.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">log</span><span class="p">(</span><span class="s">"User %s logged in from %s"</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">ipAddress</span><span class="p">);</span>
+  <span class="c1">// -&gt; 2016-05-27T13:02:11.888 User alice logged in from 123.45.67.89</span>
+</code></pre></div></div>
+
+<p>This worked well for simple applications running on a single computer, and over the years many tools evolved to help support this format in ever-more-complex, and ever-more-distributed applications. Log parsing can extract most of the relevant information from the event above, but considerable effort is required for non-trivial diagnostic scenarios.</p>
+
+<p>At various times, alternatives to text logs have been proposed under the banner of <a href="http://gregoryszorc.com/blog/2012/12/06/thoughts-on-logging---part-1---structured-logging/">structured logging</a>, which considers log data to be a stream of fully-structured events with key/value properties. Structured log events are much easier to work with in large, complex and distributed applications, because relevant events can be identified using queries over their properties, rather than by regular expressions over a text payload.</p>
+
+<p>The obvious method of recording structured log events, found particularly in languages with terse key/value property syntax, is to <strong>encode the event directly</strong> as a map of key/value pairs:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">log</span><span class="p">({</span><span class="na">eventId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user_logged_in</span><span class="dl">"</span><span class="p">,</span> <span class="na">username</span><span class="p">:</span> <span class="nx">username</span><span class="p">,</span> <span class="na">ip_address</span><span class="p">:</span> <span class="nx">ipAddress</span> <span class="p">});</span>
+   <span class="c1">// -&gt; {"time": "2016-05-27T13:02:11.888", "eventId": "user_logged_in",</span>
+   <span class="c1">//     "username": "alice", "ip_address": "123.45.67.89"}</span>
+</code></pre></div></div>
+
+<p>JSON is used as an example rendering here, but the concept is not tied to a particular representation.</p>
+
+<p>This greatly improves machine-readability, enabling queries like <code class="language-plaintext highlighter-rouge">username = 'alice'</code> on the raw log stream, but the event itself is not <em>human-friendly</em>. Log events recorded in prose make full use of our language processing and pattern recognition abilities to ease cognition. A long stream of key/value pairs is painful to visually process. Compare the representative output of the two examples above to experience this effect - what’s happening in the second event?</p>
+
+<p>Another approach employs <strong>convention</strong> to identify properties within a <code class="language-plaintext highlighter-rouge">printf</code>-style message:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">log</span><span class="p">(</span><span class="s">"User username=%s logged in from ip_address=%s"</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">ipAddress</span><span class="p">);</span>
+  <span class="c1">// -&gt; 2016-05-27T13:02:11.888 User username=alice logged in from ip_address=123.45.67.89</span>
+</code></pre></div></div>
+
+<p>In principle, this technique benefits from greater readability, but in practice the looseness of the format causes ambiguities when parsing, and inconsistent usage within development teams. Ambiguities arise when a property inserted into the event contains embedded spaces and/or <code class="language-plaintext highlighter-rouge">=</code> characters. The lack of a defined grammar (and lack of awareness of the grammar in the logging tool) means developers have no opportunity to validate their use of the syntax – breaking the convention is easy and goes unnoticed.</p>
+
+<p>Finally, niche logging systems like <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa363668.aspx">Event Tracing for Windows</a> have taken a middle ground, combining event ids in the log event with a manifest of format specifiers describing how a particular event can be rendered as text. Despite the near-perfect balance of performance, human-friendliness and machine-readability, the effort associated with assigning event ids and managing manifests have an impact on development-time ergonomics that limit the appeal of this system.</p>
+
+<p>All of these issues and shortcomings have kept fully-structured logging from reaching widespread adoption, but the need for it has continued to grow.</p>
+
+<h2 id="message-templates-overview">Message templates overview</h2>
+
+<p>Message templates take the best of all these approaches to provide optimal human-friendliness, perfect machine-readability and excellent development-time ergonomics.</p>
+
+<p>A message template is a format specifier with <em>named holes</em> for event data:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User {username} logged in from {ip_address}
+</code></pre></div></div>
+
+<p>Message templates are unique in that they provide a means of <em>capturing</em> the event, as well as a means of <em>rendering</em> it into human-friendly text.</p>
+
+<p>Logging APIs capture log events by positionally matching arguments with the named holes:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">log</span><span class="p">(</span><span class="s">"User {username} logged in from {ip_address}"</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">ipAddress</span><span class="p">)</span>
+  <span class="c1">// -&gt; {</span>
+  <span class="c1">//      "time": "2016-05-27T13:02:11.888",</span>
+  <span class="c1">//      "template": "User {username} logged in from {ip_address}", </span>
+  <span class="c1">//      "username": "alice", </span>
+  <span class="c1">//      "ip_address": "123.45.67.89"</span>
+  <span class="c1">//    }</span>
+</code></pre></div></div>
+
+<p>An event captured using a message template is not immediately rendered into text unless it is being displayed directly to a user. Instead, the template itself is captured, along with property values for each argument. This is stored in an intermediate representation like JSON for processing.</p>
+
+<p>Because the template remains constant regardless of the actual property values substituted, it is possible to treat the template as an <em>event type</em> that identifies all events from the same template. In this example, log-ins from various users will carry the different <code class="language-plaintext highlighter-rouge">username</code> values, but the consistent message template shared by all of them means they can be retrieved as a group.</p>
+
+<p>When the event is displayed to a human user, or searched for text, it is <em>rendered</em> by replacing each of the named holes with the corresponding property:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// -&gt; User alice logged in from 123.45.67.89 </span>
+</code></pre></div></div>
+
+<h2 id="syntax">Syntax</h2>
+
+<p>A message template is a block of text with embedded <em>holes</em> that name a property to be captured and inserted into the text.</p>
+
+<ul>
+  <li>Property names are written between <code class="language-plaintext highlighter-rouge">{</code> and <code class="language-plaintext highlighter-rouge">}</code> brackets</li>
+  <li>Brackets can be escaped by doubling them, e.g. <code class="language-plaintext highlighter-rouge">{{</code> will be rendered as <code class="language-plaintext highlighter-rouge">{</code></li>
+  <li>Property names may be prefixed with an optional operator, <code class="language-plaintext highlighter-rouge">@</code> or <code class="language-plaintext highlighter-rouge">$</code>, to control how a property is captured</li>
+  <li>Property names may be suffixed with an optional format, e.g. <code class="language-plaintext highlighter-rouge">:000</code>, to control how the property is rendered; the formatting semantics are application-dependent, and thus require the formatted value to be captured alongside the raw property if rendering is to take place in a different environment</li>
+</ul>
+
+<p>The grammar below is maintained in the <a href="https://github.com/messagetemplates/grammar">messagetemplates/grammar</a> repository; images generated by <a href="https://www.bottlecaps.de/rr/ui">Railroad Diagram Generator</a>.</p>
+
+<h3 id="template">Template</h3>
+
+<p><img src="https://messagetemplates.org/img/railroad/Template.png" alt="Template" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Template ::= ( Text | Hole )*
+</code></pre></div></div>
+
+<h3 id="text">Text</h3>
+
+<p><img src="https://messagetemplates.org/img/railroad/Text.png" alt="Text" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Text ::= ( [^\{] | '{{' | '}}' )+
+</code></pre></div></div>
+
+<h3 id="hole">Hole</h3>
+
+<p><img src="https://messagetemplates.org/img/railroad/Hole.png" alt="Hole" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hole ::= '{' ( '@' | '$' )? ( Name | Index ) ( ',' Alignment )? ( ':' Format )? '}'
+</code></pre></div></div>
+
+<h3 id="name">Name</h3>
+
+<p><img src="https://messagetemplates.org/img/railroad/Name.png" alt="Name" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name ::= [0-9a-zA-Z_]+
+</code></pre></div></div>
+
+<h3 id="index">Index</h3>
+
+<p><img src="https://messagetemplates.org/img/railroad/Index.png" alt="Index" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Index ::= [0-9]+
+</code></pre></div></div>
+
+<h3 id="format">Format</h3>
+
+<p><img src="https://messagetemplates.org/img/railroad/Format.png" alt="Format" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Format ::= [^\}]+
+</code></pre></div></div>
+
+<h3 id="alignment">Alignment</h3>
+
+<p><img src="https://messagetemplates.org/img/railroad/Alignment.png" alt="Alignment" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Alignment ::= '-'? [0-9]+
+</code></pre></div></div>
+
+<h2 id="capturing-rules">Capturing rules</h2>
+
+<p>A message template may be used to <em>capture</em> properties when provided a list of argument values.</p>
+
+<h3 id="matching-template-properties-with-argument-values">Matching template properties with argument values</h3>
+
+<p>Each property in the message template is associated with exactly one value in the argument list.</p>
+
+<ul>
+  <li>Templates that use numeric property names like <code class="language-plaintext highlighter-rouge">{0}</code> and <code class="language-plaintext highlighter-rouge">{1}</code> exclusively imply that arguments to the template are captured by numeric index</li>
+  <li>If any of the property names are non-numeric, then all arguments are captured by matching left-to-right with holes in the order in which they appear</li>
+  <li>Repeated names are not allowed</li>
+</ul>
+
+<p>Behavior in the presence of invalid/repeated names is implementation-dependent.</p>
+
+<h3 id="operators">Operators</h3>
+
+<p>Prefixing a property name with the <code class="language-plaintext highlighter-rouge">@</code> <em>structure capturing operator</em> is a hint that the the structure of the corresponding argument should be preserved, for example, by serialization.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">$</code> <em>stringification operator</em> hints that the corresponding argument should be converted into a string represenation for capturing.</p>
+
+<p>If no operator is present, capturing behavior is implementation-dependent.</p>
+
+<h2 id="rendering-semantics">Rendering semantics</h2>
+
+<p>Given a set of property values, and a message template, implementations should render the template by substituting property values into the locations of the corresponding <em>named holes</em>.</p>
+
+<p>Message template rendering should optimize for legibility and the conventions, culture, and context into which the message is being rendered:</p>
+
+<ul>
+  <li>Named holes without corresponding property values may be rendered as the original <code class="language-plaintext highlighter-rouge">{...}</code> token, <em>or</em> a blank/empty/sentinel value may be substituted</li>
+  <li>Numeric values, dates, times and similar data may be rendered in culture-specific format</li>
+  <li>Complex data may be presented in a format most familiar to the user</li>
+</ul>
+
+<h2 id="implementations">Implementations</h2>
+
+<p>The following logging libraries have support for message templates.</p>
+
+<ul>
+  <li><a href="https://github.com/emit-rs/emit">Emit</a> (Rust*)</li>
+  <li><a href="https://github.com/messagetemplates/messagetemplates-fsharp">FsMessageTemplates</a> (F#)</li>
+  <li><a href="https://github.com/klogging/klogging">Klogging</a> (Kotlin)</li>
+  <li><a href="https://github.com/damianh/LibLog">LibLog</a> (C#)</li>
+  <li><a href="https://github.com/logary/logary">Logary</a> (F#)</li>
+  <li><a href="https://github.com/aloneguid/logmagic/#message-template-syntax">LogMagic</a> (C#)</li>
+  <li><a href="https://github.com/LunarECL/LunarLog">LunarLog</a> (C++)</li>
+  <li><a href="https://github.com/messagetemplates/messagetemplates-csharp">MessageTemplates</a> (C#)</li>
+  <li><a href="https://packagist.org/packages/arnapou/message-templates">arnapou/message-templates</a> (PHP)</li>
+  <li><a href="https://github.com/dotnet/runtime/tree/main/src/libraries/Microsoft.Extensions.Logging">Microsoft.Extensions.Logging</a> (C#)</li>
+  <li><a href="https://github.com/willibrandon/mtlog">mtlog</a> (Go)</li>
+  <li><a href="https://github.com/NLog/NLog/">NLog</a> (NLog 4.5+) (C#)</li>
+  <li><a href="https://github.com/semlogr/semlogr">Semlogr</a> (Ruby)</li>
+  <li><a href="https://seqlog.readthedocs.io/en/latest/">Seqlog</a> (Python)</li>
+  <li><a href="https://serilog.net">Serilog</a> (C#)</li>
+  <li><a href="https://github.com/davisb10/serilogger">serilogger</a> (TypeScript/JavaScript)</li>
+  <li><a href="https://github.com/80dB/serilogj">serilogj</a> (Java)</li>
+  <li><a href="https://github.com/danstiner/structlog">structlog</a> (Go)</li>
+  <li><a href="https://github.com/structured-log/structured-log">structured-log</a> (JavaScript)</li>
+  <li><a href="https://github.com/icecreamburglar/waterlogged">WaterLogged</a> (C#)</li>
+</ul>
+
+<p><em>* Converts a custom capturing syntax to message templates for rendering and storage</em></p>
+
+<p>Library missing from this list? <a href="https://github.com/messagetemplates/messagetemplates.org/issues/new">Let us know</a> so that we can add it.</p>
+
+
+  </div>
+</body>
+</html>

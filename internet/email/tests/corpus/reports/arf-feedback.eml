@@ -1,0 +1,32 @@
+From: Abuse Reporter <reporter@example.com>
+To: abuse@example.net
+Date: Tue, 14 Nov 2023 22:18:20 +0000
+Message-ID: <arf-corpus@example.com>
+MIME-Version: 1.0
+Subject: Synthetic abuse feedback report
+Content-Type: multipart/report; report-type=feedback-report; boundary=arf-corpus
+
+--arf-corpus
+Content-Type: text/plain; charset=us-ascii
+
+This is a synthetic, inert abuse report.
+--arf-corpus
+Content-Type: message/feedback-report
+
+Feedback-Type: abuse
+User-Agent: SyntheticCorpus/1.0
+Version: 1
+Original-Mail-From: <sender@example.org>
+Original-Rcpt-To: <reader@example.net>
+Source-IP: 192.0.2.45
+Arrival-Date: Tue, 14 Nov 2023 22:17:00 +0000
+
+--arf-corpus
+Content-Type: message/rfc822-headers
+
+From: sender@example.org
+To: reader@example.net
+Subject: Synthetic reported message
+Message-ID: <reported@example.org>
+
+--arf-corpus--

@@ -1,0 +1,20 @@
+From: OpenSSL Fixture <openssl@example.com>
+To: Security Reader <reader@example.net>
+Date: Tue, 14 Nov 2023 22:19:20 +0000
+Message-ID: <openssl-smime-corpus@example.com>
+MIME-Version: 1.0
+Subject: Synthetic OpenSSL CMS SignedData
+Content-Type: application/pkcs7-mime; smime-type=signed-data; name=smime.p7m
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=smime.p7m
+
+MIIBzgYJKoZIhvcNAQcCoIIBvzCCAbsCAQExDTALBglghkgBZQMEAgEwSQYJKoZI
+hvcNAQcBoDwEOkNvbnRlbnQtVHlwZTogdGV4dC9wbGFpbg0KDQpPcGVuU1NMIENN
+UyBpbnRlcm9wZXJhYmlsaXR5DQoxggFaMIIBVgIBATAxMCsxKTAnBgNVBAMMIE9w
+ZW5TU0wgaW50ZXJvcGVyYWJpbGl0eSBmaXh0dXJlAgIAlzALBglghkgBZQMEAgEw
+DQYJKoZIhvcNAQEBBQAEggEAiJoAS9nan+SAvioMBuzKUhRZsQ18PjtCKSRPdvRw
+BEjOejna5heSu+MxAYUi8W1jtDwjLLM6xJDrW4RvRDshz1YWu7K3soYl9EBQmvFs
+wpRtj9LgzxuVQ7s8VViDiT8IL4sEMYpQq+GYfiwultkgGm6QLrKLY0mYENaGhPOg
+a9AHRoZHR8FJlqPrTt1eNgTQUzrcf4Mufzon7Kp8uC3Rag3VhJBtGfkqkk7FjVM4
+WpRa3we25a0VMbNz6ZOYoZ3DISDr/7//eXYGi4Yo85YjNGxTLZKZMJnG7cMehNUB
+UO0Ua92qx4CNqC2KbBH4Dd4q7t1b4a2ZymXwauhi5A0etQ==

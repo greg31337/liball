@@ -1,0 +1,2423 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Razor syntax reference for ASP.NET Core | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn about Razor markup syntax for embedding server-based code into webpages." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-10.0" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Razor syntax reference for ASP.NET Core | Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/dotnet/media/dotnet-logo.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Razor syntax reference for ASP.NET Core" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-10.0" />
+			<meta property="og:description" content="Learn about Razor markup syntax for embedding server-based code into webpages." />
+			<meta name="platform_id" content="31e93270-00fd-6e9c-0832-760f9ddd965d" /> <meta name="scope" content="ASP.NET Core" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-AspNet" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/aspnet/core/breadcrumb/toc.json" />
+	
+		<meta name="feedback_system" content="OpenSource" />
+	
+		<meta name="feedback_product_url" content="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md" />
+	
+		<meta name="ms.service" content="aspnet-core" />
+	
+		<meta name="ms.topic" content="concept-article" />
+	
+		<meta name="ms.subservice" content="mvc" />
+	
+		<meta name="ms.update-cycle" content="365-days" />
+	
+		<meta name="author" content="tdykstra" />
+	
+		<meta name="ms.author" content="tdykstra" />
+	
+		<meta name="ms.date" content="2026-04-30T00:00:00Z" />
+	
+		<meta name="uid" content="mvc/views/razor" />
+	
+		<meta name="document_id" content="b87067b2-347c-072d-26c8-5a8c7c9c860b" />
+	
+		<meta name="document_version_independent_id" content="a0b3b70a-3b39-1b5f-a4ce-c41bd2d6b044" />
+	
+		<meta name="updated_at" content="2026-07-31T17:22:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/mvc/views/razor.md" />
+	
+		<meta name="gitcommit" content="https://github.com/dotnet/AspNetCore.Docs/blob/2f0a968e831b5862c6402261a5de98001caf27a4/aspnetcore/mvc/views/razor.md" />
+	
+		<meta name="git_commit_id" content="2f0a968e831b5862c6402261a5de98001caf27a4" />
+	
+		<meta name="monikers" content="aspnetcore-1.0" />
+	
+		<meta name="monikers" content="aspnetcore-1.1" />
+	
+		<meta name="monikers" content="aspnetcore-2.0" />
+	
+		<meta name="monikers" content="aspnetcore-2.1" />
+	
+		<meta name="monikers" content="aspnetcore-2.2" />
+	
+		<meta name="monikers" content="aspnetcore-3.0" />
+	
+		<meta name="monikers" content="aspnetcore-3.1" />
+	
+		<meta name="monikers" content="aspnetcore-5.0" />
+	
+		<meta name="monikers" content="aspnetcore-6.0" />
+	
+		<meta name="monikers" content="aspnetcore-7.0" />
+	
+		<meta name="monikers" content="aspnetcore-8.0" />
+	
+		<meta name="monikers" content="aspnetcore-9.0" />
+	
+		<meta name="monikers" content="aspnetcore-10.0" />
+	
+		<meta name="monikers" content="aspnetcore-11.0" />
+	
+		<meta name="default_moniker" content="aspnetcore-10.0" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="MSDN.aspnet-core-conceptual" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/MSDN.aspnet-core-conceptual/{branchName}{pdfName}" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="4275" />
+	
+		<meta name="config_moniker_range" content="&gt;= aspnetcore-1.0" />
+	
+		<meta name="asset_id" content="mvc/views/razor" />
+	
+		<meta name="moniker_range_name" content="aead4585a6be571bec331101a41532e9" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="aspnetcore/mvc/views/razor.md" />
+	
+		<meta name="previous_tlsh_hash" content="23A8FEA2950CC620BFC18E1BF85A7E8163F1C1CD79F097C41165B1E3D28E2D6A8A06EDBB67326584B37102935191A68F68C3F76F50AC67EB26D03C7D835D1259A1492BBAF9" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/mvc/views/razor.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-10.0&amp;accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/8b896464-3b7d-4e1f-84b0-9bb45aeb5f64" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/d452572f-6212-498f-9050-ca4a9e50a425" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/b1d2d671-9549-46e8-918c-24349120dbf5" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/a12e40b7-59a2-4437-96e2-166ce622b864" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03519.8161-0e3d77ca/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": false,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "OpenSource",
+    "feedbackGitHubRepo": "dotnet/AspNetCore.Docs",
+    "feedbackProductUrl": "https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true,
+    "openSourceFeedbackIssueUrl": "https://github.com/dotnet/aspnetcore.docs/issues/new?template=customer-feedback.yml",
+    "openSourceFeedbackIssueTitle": "",
+    "openSourceFeedbackIssueLabels": "Source - Docs.ms,:watch: Not Triaged"
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03519.8161-0e3d77ca/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div>
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/mvc/views/razor.md"
+			data-original_content_git_url="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/mvc/views/razor.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/aspnetcore/mvc/views/razor.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="razor-syntax-reference-for-aspnet-core">Razor syntax reference for ASP.NET Core</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	
+					<div class="content"><p>By <a href="https://twitter.com/RickAndMSFT" data-linktype="external">Rick Anderson</a>, <a href="https://twitter.com/ntaylormullen" data-linktype="external">Taylor Mullen</a>, and <a href="https://github.com/Rabadash8820" data-linktype="external">Dan Vicarel</a></p>
+<p>Razor is a markup syntax for embedding .NET based code into webpages. The Razor syntax consists of Razor markup, C#, and HTML. Files containing Razor generally have a <code>.cshtml</code> file extension. Razor is also found in <a href="../../blazor/components/?view=aspnetcore-10.0" data-linktype="relative-path">Razor component</a> files (<code>.razor</code>). Razor syntax is similar to the templating engines of various JavaScript single-page application (SPA) frameworks, such as Angular, React, VueJs, and Svelte. For more information, see <a href="../../client-side/spa-services?view=aspnetcore-10.0" data-linktype="relative-path">The features described in this article are obsolete as of ASP.NET Core 3.0</a>.</p>
+<p><a href="/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c" data-linktype="absolute-path">Introduction to ASP.NET Web Programming Using the Razor Syntax</a> provides many samples of programming with Razor syntax. Although the article was written for ASP.NET rather than ASP.NET Core, most of the samples apply to ASP.NET Core.</p>
+<h2 id="rendering-html">Rendering HTML</h2>
+<p>The default Razor language is HTML. Rendering HTML from Razor markup is no different than rendering HTML from an HTML file. HTML markup in <code>.cshtml</code> Razor files is rendered by the server unchanged.</p>
+<h2 id="razor-syntax">Razor syntax</h2>
+<p>Razor supports C# and uses the <code>@</code> symbol to transition from HTML to C#. Razor evaluates C# expressions and renders them in the HTML output.</p>
+<p>When an <code>@</code> symbol is followed by a <a href="#razor-reserved-keywords" data-linktype="self-bookmark">Razor reserved keyword</a>, it transitions into Razor-specific markup. Otherwise, it transitions into plain HTML.</p>
+<p>To escape an <code>@</code> symbol in Razor markup, use a second <code>@</code> symbol:</p>
+<pre><code class="lang-razor">&lt;p&gt;@@Username&lt;/p&gt;
+</code></pre>
+<p>The code is rendered in HTML with a single <code>@</code> symbol:</p>
+<pre><code class="lang-html">&lt;p&gt;@Username&lt;/p&gt;
+</code></pre>
+<p>HTML attributes and content containing email addresses don't treat the <code>@</code> symbol as a transition character. The email addresses in the following example are untouched by Razor parsing:</p>
+<pre><code class="lang-razor">&lt;a href="mailto:Support@contoso.com"&gt;Support@contoso.com&lt;/a&gt;
+</code></pre>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<h3 id="scalable-vector-graphics-svg">Scalable Vector Graphics (SVG)</h3>
+<p><a href="https://developer.mozilla.org/docs/Web/SVG" data-linktype="external">SVG</a> <a href="https://developer.mozilla.org/docs/Web/SVG/Reference/Element/foreignObject" data-linktype="external">foreignObject</a> elements are supported:</p>
+<pre><code class="lang-html">@{
+    string message = "foreignObject example with Scalable Vector Graphics (SVG)";
+}
+
+&lt;svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;rect x="0" y="0" rx="10" ry="10" width="200" height="200" stroke="black" 
+        fill="none" /&gt;
+    &lt;foreignObject x="20" y="20" width="160" height="160"&gt;
+        &lt;p&gt;@message&lt;/p&gt;
+    &lt;/foreignObject&gt;
+&lt;/svg&gt;
+</code></pre>
+</div>
+<h2 id="implicit-razor-expressions">Implicit Razor expressions</h2>
+<p>Implicit Razor expressions start with <code>@</code> followed by C# code:</p>
+<pre><code class="lang-razor">&lt;p&gt;@DateTime.Now&lt;/p&gt;
+&lt;p&gt;@DateTime.IsLeapYear(2016)&lt;/p&gt;
+</code></pre>
+<p>Except for the C# <code>await</code> keyword, implicit expressions must not contain spaces. If the C# statement has a clear ending, spaces can be intermingled:</p>
+<pre><code class="lang-razor">&lt;p&gt;@await DoSomething("hello", "world")&lt;/p&gt;
+</code></pre>
+<p>Implicit expressions <strong>cannot</strong> contain C# generics, as the characters inside the brackets (<code>&lt;&gt;</code>) are interpreted as an HTML tag. The following code is <strong>not</strong> valid:</p>
+<pre><code class="lang-razor">&lt;p&gt;@GenericMethod&lt;int&gt;()&lt;/p&gt;
+</code></pre>
+<p>The preceding code generates a compiler error similar to one of the following:</p>
+<ul>
+<li>The "int" element wasn't closed. All elements must be either self-closing or have a matching end tag.</li>
+<li>Cannot convert method group 'GenericMethod' to non-delegate type 'object'. Did you intend to invoke the method?`</li>
+</ul>
+<p>Generic method calls must be wrapped in an <a href="#explicit-razor-expressions" data-linktype="self-bookmark">explicit Razor expression</a> or a <a href="#razor-code-blocks" data-linktype="self-bookmark">Razor code block</a>.</p>
+<h2 id="explicit-razor-expressions">Explicit Razor expressions</h2>
+<p>Explicit Razor expressions consist of an <code>@</code> symbol with balanced parenthesis. To render last week's time, the following Razor markup is used:</p>
+<pre><code class="lang-razor">&lt;p&gt;Last week this time: @(DateTime.Now - TimeSpan.FromDays(7))&lt;/p&gt;
+</code></pre>
+<p>Any content within the <code>@()</code> parenthesis is evaluated and rendered to the output.</p>
+<p>Implicit expressions, described in the previous section, generally can't contain spaces. In the following code, one week isn't subtracted from the current time:</p>
+<pre><code class="lang-cshtml">&lt;p&gt;Last week: @DateTime.Now - TimeSpan.FromDays(7)&lt;/p&gt;
+</code></pre>
+<p>The code renders the following HTML:</p>
+<pre><code class="lang-html">&lt;p&gt;Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)&lt;/p&gt;
+</code></pre>
+<p>Explicit expressions can be used to concatenate text with an expression result:</p>
+<pre><code class="lang-razor">@{
+    var joe = new Person("Joe", 33);
+}
+
+&lt;p&gt;Age@(joe.Age)&lt;/p&gt;
+</code></pre>
+<p>Without the explicit expression, <code>&lt;p&gt;Age@joe.Age&lt;/p&gt;</code> is treated as an email address, and <code>&lt;p&gt;Age@joe.Age&lt;/p&gt;</code> is rendered. When written as an explicit expression, <code>&lt;p&gt;Age33&lt;/p&gt;</code> is rendered.</p>
+<p>Explicit expressions can be used to render output from generic methods in <code>.cshtml</code> files. The following markup shows how to correct the error shown earlier caused by the brackets of a C# generic. The code is written as an explicit expression:</p>
+<pre><code class="lang-razor">&lt;p&gt;@(GenericMethod&lt;int&gt;())&lt;/p&gt;
+</code></pre>
+<h2 id="expression-encoding">Expression encoding</h2>
+<p>C# expressions that evaluate to a string are HTML encoded. C# expressions that evaluate to <code>IHtmlContent</code> are rendered directly through <code>IHtmlContent.WriteTo</code>. C# expressions that don't evaluate to <code>IHtmlContent</code> are converted to a string by <code>ToString</code> and encoded before they're rendered.</p>
+<pre><code class="lang-razor">@("&lt;span&gt;Hello World&lt;/span&gt;")
+</code></pre>
+<p>The preceding code renders the following HTML:</p>
+<pre><code class="lang-html">&amp;lt;span&amp;gt;Hello World&amp;lt;/span&amp;gt;
+</code></pre>
+<p>The HTML is shown in the browser as plain text:</p>
+<p>&lt;span&gt;Hello World&lt;/span&gt;</p>
+<p><code>HtmlHelper.Raw</code> output isn't encoded but rendered as HTML markup.</p>
+<div class="WARNING">
+<p>Warning</p>
+<p>Using <code>HtmlHelper.Raw</code> on unsanitized user input is a security risk. User input might contain malicious JavaScript or other exploits. Sanitizing user input is difficult. Avoid using <code>HtmlHelper.Raw</code> with user input.</p>
+</div>
+<pre><code class="lang-razor">@Html.Raw("&lt;span&gt;Hello World&lt;/span&gt;")
+</code></pre>
+<p>The code renders the following HTML:</p>
+<pre><code class="lang-html">&lt;span&gt;Hello World&lt;/span&gt;
+</code></pre>
+<h2 id="razor-code-blocks">Razor code blocks</h2>
+<p>Razor code blocks start with <code>@</code> and are enclosed by <code>{}</code>. Unlike expressions, C# code inside code blocks isn't rendered. Code blocks and expressions in a view share the same scope and are defined in order:</p>
+<pre><code class="lang-razor">@{
+    var quote = "The future depends on what you do today. - Mahatma Gandhi";
+}
+
+&lt;p&gt;@quote&lt;/p&gt;
+
+@{
+    quote = "Hate cannot drive out hate, only love can do that. - Martin Luther King, Jr.";
+}
+
+&lt;p&gt;@quote&lt;/p&gt;
+</code></pre>
+<p>The code renders the following HTML:</p>
+<pre><code class="lang-html">&lt;p&gt;The future depends on what you do today. - Mahatma Gandhi&lt;/p&gt;
+&lt;p&gt;Hate cannot drive out hate, only love can do that. - Martin Luther King, Jr.&lt;/p&gt;
+</code></pre>
+<p>In code blocks, declare <a href="/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions" data-linktype="absolute-path">local functions</a> with markup to serve as templating methods:</p>
+<pre><code class="lang-razor">@{
+    void RenderName(string name)
+    {
+        &lt;p&gt;Name: &lt;strong&gt;@name&lt;/strong&gt;&lt;/p&gt;
+    }
+
+    RenderName("Mahatma Gandhi");
+    RenderName("Martin Luther King, Jr.");
+}
+</code></pre>
+<p>The code renders the following HTML:</p>
+<pre><code class="lang-html">&lt;p&gt;Name: &lt;strong&gt;Mahatma Gandhi&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Name: &lt;strong&gt;Martin Luther King, Jr.&lt;/strong&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="implicit-transitions">Implicit transitions</h3>
+<p>The default language in a code block is C#, but the Razor Page can transition back to HTML:</p>
+<pre><code class="lang-razor">@{
+    var inCSharp = true;
+    &lt;p&gt;Now in HTML, was in C# @inCSharp&lt;/p&gt;
+}
+</code></pre>
+<h3 id="explicit-delimited-transition">Explicit delimited transition</h3>
+<p>To define a subsection of a code block that should render HTML, surround the characters for rendering with the Razor <code>&lt;text&gt;</code> tag:</p>
+<pre><code class="lang-razor">@for (var i = 0; i &lt; people.Length; i++)
+{
+    var person = people[i];
+    &lt;text&gt;Name: @person.Name&lt;/text&gt;
+}
+</code></pre>
+<p>Use this approach to render HTML that isn't surrounded by an HTML tag. Without an HTML or Razor tag, a Razor runtime error occurs.</p>
+<p>The <code>&lt;text&gt;</code> tag is useful to control whitespace when rendering content:</p>
+<ul>
+<li>Only the content between the <code>&lt;text&gt;</code> tag is rendered.</li>
+<li>No whitespace before or after the <code>&lt;text&gt;</code> tag appears in the HTML output.</li>
+</ul>
+<h3 id="explicit-line-transition">Explicit line transition</h3>
+<p>To render the rest of an entire line as HTML inside a code block, use <code>@:</code> syntax:</p>
+<pre><code class="lang-razor">@for (var i = 0; i &lt; people.Length; i++)
+{
+    var person = people[i];
+    @:Name: @person.Name
+}
+</code></pre>
+<p>Without the <code>@:</code> in the code, a Razor runtime error is generated.</p>
+<p>Extra <code>@</code> characters in a Razor file can cause compiler errors at statements later in the block. These extra <code>@</code> compiler errors:</p>
+<ul>
+<li>Can be difficult to understand because the actual error occurs before the reported error.</li>
+<li>Is common after combining multiple implicit and explicit expressions into a single code block.</li>
+</ul>
+<h3 id="conditional-attribute-rendering">Conditional attribute rendering</h3>
+<p>Razor automatically omits attributes that aren't required. If the value passed in is <code>null</code> or <code>false</code>, the attribute isn't rendered.</p>
+<p>For example, consider the following Razor markup:</p>
+<pre><code class="lang-razor">&lt;div class="@false"&gt;False&lt;/div&gt;
+&lt;div class="@null"&gt;Null&lt;/div&gt;
+&lt;div class="@("")"&gt;Empty&lt;/div&gt;
+&lt;div class="@("false")"&gt;False String&lt;/div&gt;
+&lt;div class="@("active")"&gt;String&lt;/div&gt;
+&lt;input type="checkbox" checked="@true" name="true" /&gt;
+&lt;input type="checkbox" checked="@false" name="false" /&gt;
+&lt;input type="checkbox" checked="@null" name="null" /&gt;
+</code></pre>
+<p>The preceding Razor markup generates the following HTML:</p>
+<pre><code class="lang-html">&lt;div&gt;False&lt;/div&gt;
+&lt;div&gt;Null&lt;/div&gt;
+&lt;div class=""&gt;Empty&lt;/div&gt;
+&lt;div class="false"&gt;False String&lt;/div&gt;
+&lt;div class="active"&gt;String&lt;/div&gt;
+&lt;input type="checkbox" checked="checked" name="true"&gt;
+&lt;input type="checkbox" name="false"&gt;
+&lt;input type="checkbox" name="null"&gt;
+</code></pre>
+<p>Razor retains <code>data-</code> attributes if their values are <code>null</code> or <code>false</code>.</p>
+<p>Consider the following Razor markup:</p>
+<pre><code class="lang-razor">&lt;div data-id="@null" data-active="@false"&gt;&lt;/div&gt;
+</code></pre>
+<p>The preceding Razor markup generates the following HTML:</p>
+<pre><code class="lang-html">&lt;div data-id="" data-active="False"&gt;&lt;/div&gt;
+</code></pre>
+<h2 id="control-structures">Control structures</h2>
+<p>Control structures are an extension of code blocks. All aspects of code blocks (transitioning to markup, inline C#) also apply to the following structures:</p>
+<h3 id="conditionals-if-else-if-else-and-switch">Conditionals <code>@if, else if, else, and @switch</code></h3>
+<p><code>@if</code> controls when code runs:</p>
+<pre><code class="lang-razor">@if (value % 2 == 0)
+{
+    &lt;p&gt;The value was even.&lt;/p&gt;
+}
+</code></pre>
+<p><code>else</code> and <code>else if</code> don't require the <code>@</code> symbol:</p>
+<pre><code class="lang-razor">@if (value % 2 == 0)
+{
+    &lt;p&gt;The value was even.&lt;/p&gt;
+}
+else if (value &gt;= 1337)
+{
+    &lt;p&gt;The value is large.&lt;/p&gt;
+}
+else
+{
+    &lt;p&gt;The value is odd and small.&lt;/p&gt;
+}
+</code></pre>
+<p>The following markup shows how to use a switch statement:</p>
+<pre><code class="lang-razor">@switch (value)
+{
+    case 1:
+        &lt;p&gt;The value is 1!&lt;/p&gt;
+        break;
+    case 1337:
+        &lt;p&gt;Your number is 1337!&lt;/p&gt;
+        break;
+    default:
+        &lt;p&gt;Your number wasn't 1 or 1337.&lt;/p&gt;
+        break;
+}
+</code></pre>
+<h3 id="looping-for-foreach-while-and-do-while">Looping <code>@for, @foreach, @while, and @do while</code></h3>
+<p>Templated HTML can be rendered with looping control statements. To render a list of people:</p>
+<pre><code class="lang-razor">@{
+    var people = new Person[]
+    {
+          new Person("Weston", 33),
+          new Person("Johnathon", 41),
+          ...
+    };
+}
+</code></pre>
+<p>The following looping statements are supported:</p>
+<p><code>@for</code></p>
+<pre><code class="lang-razor">@for (var i = 0; i &lt; people.Length; i++)
+{
+    var person = people[i];
+    &lt;p&gt;Name: @person.Name&lt;/p&gt;
+    &lt;p&gt;Age: @person.Age&lt;/p&gt;
+}
+</code></pre>
+<p><code>@foreach</code></p>
+<pre><code class="lang-razor">@foreach (var person in people)
+{
+    &lt;p&gt;Name: @person.Name&lt;/p&gt;
+    &lt;p&gt;Age: @person.Age&lt;/p&gt;
+}
+</code></pre>
+<p><code>@while</code></p>
+<pre><code class="lang-razor">@{ var i = 0; }
+@while (i &lt; people.Length)
+{
+    var person = people[i];
+    &lt;p&gt;Name: @person.Name&lt;/p&gt;
+    &lt;p&gt;Age: @person.Age&lt;/p&gt;
+
+    i++;
+}
+</code></pre>
+<p><code>@do while</code></p>
+<pre><code class="lang-razor">@{ var i = 0; }
+@do
+{
+    var person = people[i];
+    &lt;p&gt;Name: @person.Name&lt;/p&gt;
+    &lt;p&gt;Age: @person.Age&lt;/p&gt;
+
+    i++;
+} while (i &lt; people.Length);
+</code></pre>
+<h3 id="compound-using">Compound <code>@using</code></h3>
+<p>In C#, a <code>using</code> statement is used to ensure an object is disposed. In Razor, the same mechanism is used to create HTML Helpers that contain additional content. In the following code, HTML Helpers render a <code>&lt;form&gt;</code> tag with the <code>@using</code> statement:</p>
+<pre><code class="lang-razor">@using (Html.BeginForm())
+{
+    &lt;div&gt;
+        &lt;label&gt;Email: &lt;input type="email" id="Email" value=""&gt;&lt;/label&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/div&gt;
+}
+</code></pre>
+<h3 id="try-catch-finally"><code>@try, catch, finally</code></h3>
+<p>Exception handling is similar to C#:</p>
+<pre><code class="lang-cshtml">@try
+{
+    throw new InvalidOperationException("You did something invalid.");
+}
+catch (Exception ex)
+{
+    &lt;p&gt;The exception message: @ex.Message&lt;/p&gt;
+}
+finally
+{
+    &lt;p&gt;The finally statement.&lt;/p&gt;
+}
+</code></pre><h3 id="lock"><code>@lock</code></h3>
+<p>Razor has the capability to protect critical sections with lock statements:</p>
+<pre><code class="lang-razor">@lock (SomeLock)
+{
+    // Do critical section work
+}
+</code></pre>
+<h3 id="comments">Comments</h3>
+<p>Razor supports C# and HTML comments:</p>
+<pre><code class="lang-razor">@{
+    /* C# comment */
+    // Another C# comment
+}
+&lt;!-- HTML comment --&gt;
+</code></pre>
+<p>The code renders the following HTML:</p>
+<pre><code class="lang-html">&lt;!-- HTML comment --&gt;
+</code></pre>
+<p>Razor comments are removed by the server before the webpage is rendered. Razor uses <code>@*  *@</code> to delimit comments. The following code is commented out, so the server doesn't render any markup:</p>
+<pre><code class="lang-razor">@*
+    @{
+        /* C# comment */
+        // Another C# comment
+    }
+    &lt;!-- HTML comment --&gt;
+*@
+</code></pre>
+<h2 id="directives">Directives</h2>
+<p>Razor directives are represented by implicit expressions with reserved keywords following the <code>@</code> symbol. A directive typically changes the way a view is compiled or functions.</p>
+<p>Understanding how Razor generates code for a view makes it easier to understand how directives work.</p>
+<pre><code class="lang-cshtml">@{
+    var quote = "Getting old ain't for wimps! - Anonymous";
+}
+
+&lt;div&gt;Quote of the Day: @quote&lt;/div&gt;
+</code></pre>
+<p>The code generates a class similar to the following:</p>
+<pre><code class="lang-csharp">public class _Views_Something_cshtml : RazorPage&lt;dynamic&gt;
+{
+    public override async Task ExecuteAsync()
+    {
+        var output = "Getting old ain't for wimps! - Anonymous";
+
+        WriteLiteral("/r/n&lt;div&gt;Quote of the Day: ");
+        Write(output);
+        WriteLiteral("&lt;/div&gt;");
+    }
+}
+</code></pre>
+<p>Later in this article, the section <a href="#inspect-the-razor-c-class-generated-for-a-view" data-linktype="self-bookmark">Inspect the Razor C# class generated for a view</a> explains how to view this generated class.</p>
+<h3 id="attribute"><code>@attribute</code></h3>
+<p>The <code>@attribute</code> directive adds the given attribute to the class of the generated page or view. The following example adds the <code>[Authorize]</code> attribute:</p>
+<pre><code class="lang-razor">@attribute [Authorize]
+</code></pre>
+<p>The <code>@attribute</code> directive can also be used to supply a constant-based route template in a Razor component. In the following example, the <code>@page</code> directive in a component is replaced with the <code>@attribute</code> directive and the constant-based route template in <code>Constants.CounterRoute</code>, which is set elsewhere in the app to "<code>/counter</code>":</p>
+<pre><code class="lang-diff">- @page "/counter"
++ @attribute [Route(Constants.CounterRoute)]
+</code></pre>
+<h3 id="code"><code>@code</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>The <code>@code</code> block enables a <a href="../../blazor/components/?view=aspnetcore-10.0" data-linktype="relative-path">Razor component</a> to add C# members (fields, properties, and methods) to a component:</p>
+<pre><code class="lang-razor">@code {
+    // C# members (fields, properties, and methods)
+}
+</code></pre>
+<p>For Razor components, <code>@code</code> is an alias of <a href="#functions" data-linktype="self-bookmark"><code>@functions</code></a> and recommended over <code>@functions</code>. More than one <code>@code</code> block is permissible.</p>
+<h3 id="functions"><code>@functions</code></h3>
+<p>The <code>@functions</code> directive enables adding C# members (fields, properties, and methods) to the generated class:</p>
+<pre><code class="lang-razor">@functions {
+    // C# members (fields, properties, and methods)
+}
+</code></pre>
+<p>In <a href="../../blazor/components/?view=aspnetcore-10.0" data-linktype="relative-path">Razor components</a>, use <code>@code</code> over <code>@functions</code> to add C# members.</p>
+<p>For example:</p>
+<pre><code class="lang-cshtml">@functions {
+    public string GetHello()
+    {
+        return "Hello";
+    }
+}
+
+&lt;div&gt;From method: @GetHello()&lt;/div&gt; 
+</code></pre>
+<p>The code generates the following HTML markup:</p>
+<pre><code class="lang-html">&lt;div&gt;From method: Hello&lt;/div&gt;
+</code></pre>
+<p>The following code is the generated Razor C# class:</p>
+<pre><code class="lang-csharp">using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Razor;
+
+public class _Views_Home_Test_cshtml : RazorPage&lt;dynamic&gt;
+{
+    // Functions placed between here 
+    public string GetHello()
+    {
+        return "Hello";
+    }
+    // And here.
+#pragma warning disable 1998
+    public override async Task ExecuteAsync()
+    {
+        WriteLiteral("\r\n&lt;div&gt;From method: ");
+        Write(GetHello());
+        WriteLiteral("&lt;/div&gt;\r\n");
+    }
+#pragma warning restore 1998
+</code></pre>
+<p><code>@functions</code> methods serve as templating methods when they have markup:</p>
+<pre><code class="lang-razor">@{
+    RenderName("Mahatma Gandhi");
+    RenderName("Martin Luther King, Jr.");
+}
+
+@functions {
+    private void RenderName(string name)
+    {
+        &lt;p&gt;Name: &lt;strong&gt;@name&lt;/strong&gt;&lt;/p&gt;
+    }
+}
+</code></pre>
+<p>The code renders the following HTML:</p>
+<pre><code class="lang-html">&lt;p&gt;Name: &lt;strong&gt;Mahatma Gandhi&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Name: &lt;strong&gt;Martin Luther King, Jr.&lt;/strong&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="implements"><code>@implements</code></h3>
+<p>The <code>@implements</code> directive implements an interface for the generated class.</p>
+<p>The following example implements <a href="/en-us/dotnet/api/system.idisposable" class="no-loc" data-linktype="absolute-path">System.IDisposable</a> so that the <a href="/en-us/dotnet/api/system.idisposable.dispose" class="no-loc" data-linktype="absolute-path">Dispose</a> method can be called:</p>
+<pre><code class="lang-razor">@implements IDisposable
+
+&lt;h1&gt;Example&lt;/h1&gt;
+
+@functions {
+    private bool _isDisposed;
+
+    ...
+
+    public void Dispose() =&gt; _isDisposed = true;
+}
+</code></pre>
+<h3 id="inherits"><code>@inherits</code></h3>
+<p>The <code>@inherits</code> directive provides full control of the class the view inherits:</p>
+<pre><code class="lang-razor">@inherits TypeNameOfClassToInheritFrom
+</code></pre>
+<p>The following code is a custom Razor page type:</p>
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Mvc.Razor;
+
+public abstract class CustomRazorPage&lt;TModel&gt; : RazorPage&lt;TModel&gt;
+{
+    public string CustomText { get; } = 
+        "Gardyloo! - A Scottish warning yelled from a window before dumping" +
+        "a slop bucket on the street below.";
+}
+</code></pre>
+<p>The <code>CustomText</code> is displayed in a view:</p>
+<pre><code class="lang-cshtml">@inherits CustomRazorPage&lt;TModel&gt;
+
+&lt;div&gt;Custom text: @CustomText&lt;/div&gt;
+</code></pre>
+<p>The code renders the following HTML:</p>
+<pre><code class="lang-html">&lt;div&gt;
+    Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping
+    a slop bucket on the street below.
+&lt;/div&gt;
+</code></pre>
+<p><code>@model</code> and <code>@inherits</code> can be used in the same view. <code>@inherits</code> can be in a <code>_ViewImports.cshtml</code> file that the view imports:</p>
+<pre><code class="lang-cshtml">@inherits CustomRazorPage&lt;TModel&gt;
+</code></pre>
+<p>The following code is an example of a strongly-typed view:</p>
+<pre><code class="lang-cshtml">@inherits CustomRazorPage&lt;TModel&gt;
+
+&lt;div&gt;The Login Email: @Model.Email&lt;/div&gt;
+&lt;div&gt;Custom text: @CustomText&lt;/div&gt;
+</code></pre>
+<p>If "rick@contoso.com" is passed in the model, the view generates the following HTML markup:</p>
+<pre><code class="lang-html">&lt;div&gt;The Login Email: rick@contoso.com&lt;/div&gt;
+&lt;div&gt;
+    Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping
+    a slop bucket on the street below.
+&lt;/div&gt;
+</code></pre>
+<h3 id="inject"><code>@inject</code></h3>
+<p>The <code>@inject</code> directive enables the Razor Page to inject a service from the <a href="../../fundamentals/dependency-injection?view=aspnetcore-10.0" data-linktype="relative-path">service container</a> into a view. For more information, see <a href="dependency-injection?view=aspnetcore-10.0" data-linktype="relative-path">Dependency injection into views</a>.</p>
+<h3 id="layout"><code>@layout</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>The <code>@layout</code> directive specifies a layout for routable Razor components that have an <a href="#page" data-linktype="self-bookmark"><code>@page</code></a> directive. Layout components are used to avoid code duplication and inconsistency. For more information, see <a href="../../blazor/components/layouts?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor layouts</a>.</p>
+<h3 id="model"><code>@model</code></h3>
+<p><em>This scenario only applies to MVC views and Razor Pages (<code>.cshtml</code>).</em></p>
+<p>The <code>@model</code> directive specifies the type of the model passed to a view or page:</p>
+<pre><code class="lang-razor">@model TypeNameOfModel
+</code></pre>
+<p>In an ASP.NET Core MVC or Razor Pages app created with individual accounts, <code>Views/Account/Login.cshtml</code> contains the following model declaration:</p>
+<pre><code class="lang-razor">@model LoginViewModel
+</code></pre>
+<p>The class generated inherits from <code>RazorPage&lt;LoginViewModel&gt;</code>:</p>
+<pre><code class="lang-csharp">public class _Views_Account_Login_cshtml : RazorPage&lt;LoginViewModel&gt;
+</code></pre>
+<p>Razor exposes a <code>Model</code> property for accessing the model passed to the view:</p>
+<pre><code class="lang-razor">&lt;div&gt;The Login Email: @Model.Email&lt;/div&gt;
+</code></pre>
+<p>The <code>@model</code> directive specifies the type of the <code>Model</code> property. The directive specifies the <code>T</code> in <code>RazorPage&lt;T&gt;</code> that the generated class that the view derives from. If the <code>@model</code> directive isn't specified, the <code>Model</code> property is of type <code>dynamic</code>. For more information, see <a href="../../tutorials/first-mvc-app/adding-model?view=aspnetcore-10.0#strongly-typed-models-and-the--keyword" data-linktype="relative-path">Strongly typed models and the <span class="no-loc" dir="ltr" lang="en-us">@model</span> keyword</a>.</p>
+<h3 id="namespace"><code>@namespace</code></h3>
+<p>The <code>@namespace</code> directive:</p>
+<ul>
+<li>Sets the namespace of the class of the generated Razor page, MVC view, or Razor component.</li>
+<li>Sets the root derived namespaces of a pages, views, or components classes from the closest imports file in the directory tree, <code>_ViewImports.cshtml</code> (views or pages) or <code>_Imports.razor</code> (Razor components).</li>
+</ul>
+<pre><code class="lang-razor">@namespace Your.Namespace.Here
+</code></pre>
+<p>For the Razor Pages example shown in the following table.</p>
+<ul>
+<li>Each page imports <code>Pages/_ViewImports.cshtml</code>.</li>
+<li><code>Pages/_ViewImports.cshtml</code> contains <code>@namespace Hello.World</code>.</li>
+<li>Each page has <code>Hello.World</code> as the root of it's namespace.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Namespace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Pages/Index.cshtml</code></td>
+<td><code>Hello.World</code></td>
+</tr>
+<tr>
+<td><code>Pages/MorePages/Page.cshtml</code></td>
+<td><code>Hello.World.MorePages</code></td>
+</tr>
+<tr>
+<td><code>Pages/MorePages/EvenMorePages/Page.cshtml</code></td>
+<td><code>Hello.World.MorePages.EvenMorePages</code></td>
+</tr>
+</tbody>
+</table>
+<p>The preceding relationships apply to import files used with MVC views and Razor components.</p>
+<p>When multiple import files have a <code>@namespace</code> directive, the file closest to the page, view, or component in the directory tree is used to set the root namespace.</p>
+<p>If the <code>EvenMorePages</code> folder in the preceding example has an imports file with <code>@namespace Another.Planet</code> (or the <code>Pages/MorePages/EvenMorePages/Page.cshtml</code> file contains <code>@namespace Another.Planet</code>), the result is shown in the following table.</p>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Namespace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Pages/Index.cshtml</code></td>
+<td><code>Hello.World</code></td>
+</tr>
+<tr>
+<td><code>Pages/MorePages/Page.cshtml</code></td>
+<td><code>Hello.World.MorePages</code></td>
+</tr>
+<tr>
+<td><code>Pages/MorePages/EvenMorePages/Page.cshtml</code></td>
+<td><code>Another.Planet</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="page"><code>@page</code></h3>
+<p>The <code>@page</code> directive has different effects depending on the type of the file where it appears. The directive:</p>
+<ul>
+<li>In a <code>.cshtml</code> file indicates that the file is a Razor Page. For more information, see <a href="../../razor-pages/?view=aspnetcore-10.0#custom-routes" data-linktype="relative-path">Custom routes</a> and <a href="../../razor-pages/?view=aspnetcore-10.0" data-linktype="relative-path">Razor Pages architecture and concepts in ASP.NET Core</a>.</li>
+<li>Specifies that a Razor component should handle requests directly. For more information, see <a href="../../blazor/fundamentals/routing?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor routing</a>.</li>
+</ul>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<h3 id="preservewhitespace"><code>@preservewhitespace</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>When set to <code>false</code> (default), whitespace in the rendered markup from Razor components (<code>.razor</code>) is removed if:</p>
+<ul>
+<li>Leading or trailing within an element.</li>
+<li>Leading or trailing within a <code>RenderFragment</code> parameter. For example, child content passed to another component.</li>
+<li>It precedes or follows a C# code block, such as <code>@if</code> or <code>@foreach</code>.</li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<h3 id="rendermode"><code>@rendermode</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>Sets the render mode of a Razor component:</p>
+<ul>
+<li><code>InteractiveServer</code>: Applies interactive server rendering using Blazor Server.</li>
+<li><code>InteractiveWebAssembly</code>: Applies interactive WebAssembly rendering using Blazor WebAssembly.</li>
+<li><code>InteractiveAuto</code>: Initially applies interactive WebAssembly rendering using Blazor Server, and then applies interactive WebAssembly rendering using WebAssembly on subsequent visits after the Blazor bundle is downloaded.</li>
+</ul>
+<p>For a component instance:</p>
+<pre><code class="lang-razor">&lt;... @rendermode="InteractiveServer" /&gt;
+</code></pre>
+<p>In the component definition:</p>
+<pre><code class="lang-razor">@rendermode InteractiveServer
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>Blazor templates include a static <code>using</code> directive for <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.web.rendermode" class="no-loc" data-linktype="absolute-path">RenderMode</a> in the app's <code>_Imports</code> file (<code>Components/_Imports.razor</code>) for shorter <code>@rendermode</code> syntax:</p>
+<pre><code class="lang-razor">@using static Microsoft.AspNetCore.Components.Web.RenderMode
+</code></pre>
+<p>Without the preceding directive, components must specify the static <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.web.rendermode" class="no-loc" data-linktype="absolute-path">RenderMode</a> class in <code>@rendermode</code> syntax explicitly:</p>
+<pre><code class="lang-razor">&lt;Dialog @rendermode="RenderMode.InteractiveServer" /&gt;
+</code></pre>
+</div>
+<p>For more information, including guidance on disabling prerendering with the directive/directive attribute, see <a href="../../blazor/components/render-modes?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor render modes</a>.</p>
+</div>
+<h3 id="section"><code>@section</code></h3>
+<p><em>This scenario only applies to MVC views and Razor Pages (<code>.cshtml</code>).</em></p>
+<p>The <code>@section</code> directive is used in conjunction with <a href="layout?view=aspnetcore-10.0" data-linktype="relative-path">MVC and Razor Pages layouts</a> to enable views or pages to render content in different parts of the HTML page. For more information, see <a href="layout?view=aspnetcore-10.0" data-linktype="relative-path">Layout in ASP.NET Core</a>.</p>
+<h3 id="typeparam"><code>@typeparam</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>The <code>@typeparam</code> directive declares a <a href="/en-us/dotnet/csharp/programming-guide/generics/generic-type-parameters" data-linktype="absolute-path">generic type parameter</a> for the generated component class:</p>
+<pre><code class="lang-razor">@typeparam TEntity
+</code></pre>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>Generic types with <a href="/en-us/dotnet/csharp/language-reference/keywords/where-generic-type-constraint" data-linktype="absolute-path"><code>where</code></a> type constraints are supported:</p>
+<pre><code class="lang-razor">@typeparam TEntity where TEntity : IEntity
+</code></pre>
+</div>
+<p>For more information, see the following articles:</p>
+<ul>
+<li><a href="../../blazor/components/generic-type-support?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Razor component generic type support</a></li>
+<li><a href="../../blazor/components/templated-components?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor templated components</a></li>
+</ul>
+<h3 id="using"><code>@using</code></h3>
+<p>The <code>@using</code> directive adds the C# <code>using</code> directive to the generated view:</p>
+<pre><code class="lang-cshtml">@using System.IO
+@{
+    var dir = Directory.GetCurrentDirectory();
+}
+&lt;p&gt;@dir&lt;/p&gt;
+</code></pre>
+<p>In <a href="../../blazor/components/?view=aspnetcore-10.0" data-linktype="relative-path">Razor components</a>, <code>@using</code> also controls which components are in scope.</p>
+<h2 id="directive-attributes">Directive attributes</h2>
+<p>Razor directive attributes are represented by implicit expressions with reserved keywords following the <code>@</code> symbol. A directive attribute typically changes the way an element is compiled or functions.</p>
+<h3 id="attributes"><code>@attributes</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p><code>@attributes</code> allows a component to render non-declared attributes. For more information, see <a href="../../blazor/components/splat-attributes-and-arbitrary-parameters?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor attribute splatting and arbitrary parameters</a>.</p>
+<h3 id="bind"><code>@bind</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>Data binding in components is accomplished with the <code>@bind</code> attribute. For more information, see <a href="../../blazor/components/data-binding?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor data binding</a>.</p>
+<h3 id="bindculture"><code>@bind:culture</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>Use the <code>@bind:culture</code> attribute with the <a href="#bind" data-linktype="self-bookmark"><code>@bind</code></a> attribute to provide a <a href="/en-us/dotnet/api/system.globalization.cultureinfo" class="no-loc" data-linktype="absolute-path">System.Globalization.CultureInfo</a> for parsing and formatting a value. For more information, see <a href="../../blazor/globalization-localization?view=aspnetcore-10.0#globalization" data-linktype="relative-path">ASP.NET Core Blazor globalization and localization</a>.</p>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-8.0 aspnetcore-9.0">
+<h3 id="formname"><code>@formname</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p><code>@formname</code> assigns a form name to a Razor component's plain HTML form or a form based on <a href="/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform" class="no-loc" data-linktype="absolute-path">EditForm</a> (<a href="../../blazor/forms/binding?view=aspnetcore-10.0#editformeditcontext-model" data-linktype="relative-path"><code>Editform</code> documentation</a>). The value of <code>@formname</code> should be unique, which prevents form collisions in the following situations:</p>
+<ul>
+<li>A form is placed in a component with multiple forms.</li>
+<li>A form is sourced from an external class library, commonly a NuGet package, for a component with multiple forms, and the app author doesn't control the source code of the library to set a different external form name than a name used by another form in the component.</li>
+</ul>
+<p>For more information and examples, see <a href="../../blazor/forms/?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor forms overview</a>.</p>
+</div>
+<h3 id="onevent"><code>@on{EVENT}</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>Razor provides event handling features for components. For more information, see <a href="../../blazor/components/event-handling?view=aspnetcore-10.0" data-linktype="relative-path">ASP.NET Core Blazor event handling</a>.</p>
+<h3 id="oneventpreventdefault"><code>@on{EVENT}:preventDefault</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>Prevents the default action for the event.</p>
+<h3 id="oneventstoppropagation"><code>@on{EVENT}:stopPropagation</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>Stops event propagation for the event.</p>
+<h3 id="key"><code>@key</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>The <code>@key</code> directive attribute causes the components diffing algorithm to guarantee preservation of elements or components based on the key's value. For more information, see <a href="../../blazor/components/element-component-model-relationships?view=aspnetcore-10.0" data-linktype="relative-path">Retain element, component, and model relationships in ASP.NET Core Blazor</a>.</p>
+<h3 id="ref"><code>@ref</code></h3>
+<p><em>This scenario only applies to Razor components (<code>.razor</code>).</em></p>
+<p>Component references (<code>@ref</code>) provide a way to reference a component instance so that you can issue commands to that instance. For more information, see <a href="../../blazor/components/?view=aspnetcore-10.0#capture-references-to-components" data-linktype="relative-path">ASP.NET Core Razor components</a>.</p>
+<h2 id="templated-razor-delegates">Templated Razor delegates</h2>
+<p><em>This scenario only applies to MVC views and Razor Pages (<code>.cshtml</code>).</em></p>
+<p>Razor templates allow you to define a UI snippet with the following format:</p>
+<pre><code class="lang-razor">@&lt;tag&gt;...&lt;/tag&gt;
+</code></pre>
+<p>The following example illustrates how to specify a templated Razor delegate as a <a href="/en-us/dotnet/api/system.func-2" class="no-loc" data-linktype="absolute-path">Func&lt;T,TResult&gt;</a>. The <a href="/en-us/dotnet/csharp/programming-guide/types/using-type-dynamic" data-linktype="absolute-path">dynamic type</a> is specified for the parameter of the method that the delegate encapsulates. An <a href="/en-us/dotnet/csharp/language-reference/builtin-types/reference-types" data-linktype="absolute-path">object type</a> is specified as the return value of the delegate. The template is used with a <a href="/en-us/dotnet/api/system.collections.generic.list-1" class="no-loc" data-linktype="absolute-path">List&lt;T&gt;</a> of <code>Pet</code> that has a <code>Name</code> property.</p>
+<pre><code class="lang-csharp">public class Pet
+{
+    public string Name { get; set; }
+}
+</code></pre>
+<pre><code class="lang-razor">@{
+    Func&lt;dynamic, object&gt; petTemplate = @&lt;p&gt;You have a pet named &lt;strong&gt;@item.Name&lt;/strong&gt;.&lt;/p&gt;;
+
+    var pets = new List&lt;Pet&gt;
+    {
+        new Pet { Name = "Rin Tin Tin" },
+        new Pet { Name = "Mr. Bigglesworth" },
+        new Pet { Name = "K-9" }
+    };
+}
+</code></pre>
+<p>The template is rendered with <code>pets</code> supplied by a <code>foreach</code> statement:</p>
+<pre><code class="lang-razor">@foreach (var pet in pets)
+{
+    @petTemplate(pet)
+}
+</code></pre>
+<p>Rendered output:</p>
+<pre><code class="lang-html">&lt;p&gt;You have a pet named &lt;strong&gt;Rin Tin Tin&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;You have a pet named &lt;strong&gt;Mr. Bigglesworth&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;You have a pet named &lt;strong&gt;K-9&lt;/strong&gt;.&lt;/p&gt;
+</code></pre>
+<p>You can also supply an inline Razor template as an argument to a method. In the following example, the <code>Repeat</code> method receives a Razor template. The method uses the template to produce HTML content with repeats of items supplied from a list:</p>
+<pre><code class="lang-razor">@using Microsoft.AspNetCore.Html
+
+@functions {
+    public static IHtmlContent Repeat(IEnumerable&lt;dynamic&gt; items, int times,
+        Func&lt;dynamic, IHtmlContent&gt; template)
+    {
+        var html = new HtmlContentBuilder();
+
+        foreach (var item in items)
+        {
+            for (var i = 0; i &lt; times; i++)
+            {
+                html.AppendHtml(template(item));
+            }
+        }
+
+        return html;
+    }
+}
+</code></pre>
+<p>Using the list of pets from the prior example, the <code>Repeat</code> method is called with:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/system.collections.generic.list-1" class="no-loc" data-linktype="absolute-path">List&lt;T&gt;</a> of <code>Pet</code>.</li>
+<li>Number of times to repeat each pet.</li>
+<li>Inline template to use for the list items of an unordered list.</li>
+</ul>
+<pre><code class="lang-razor">&lt;ul&gt;
+    @Repeat(pets, 3, @&lt;li&gt;@item.Name&lt;/li&gt;)
+&lt;/ul&gt;
+</code></pre>
+<p>Rendered output:</p>
+<pre><code class="lang-html">&lt;ul&gt;
+    &lt;li&gt;Rin Tin Tin&lt;/li&gt;
+    &lt;li&gt;Rin Tin Tin&lt;/li&gt;
+    &lt;li&gt;Rin Tin Tin&lt;/li&gt;
+    &lt;li&gt;Mr. Bigglesworth&lt;/li&gt;
+    &lt;li&gt;Mr. Bigglesworth&lt;/li&gt;
+    &lt;li&gt;Mr. Bigglesworth&lt;/li&gt;
+    &lt;li&gt;K-9&lt;/li&gt;
+    &lt;li&gt;K-9&lt;/li&gt;
+    &lt;li&gt;K-9&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h2 id="tag-helpers">Tag Helpers</h2>
+<p><em>This scenario only applies to MVC views and Razor Pages (<code>.cshtml</code>).</em></p>
+<p>There are three directives that pertain to <a href="tag-helpers/intro?view=aspnetcore-10.0" data-linktype="relative-path">Tag Helpers</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="tag-helpers/intro?view=aspnetcore-10.0#add-helper-label" data-linktype="relative-path"><code>@addTagHelper</code></a></td>
+<td>Makes Tag Helpers available to a view.</td>
+</tr>
+<tr>
+<td><a href="tag-helpers/intro?view=aspnetcore-10.0#remove-razor-directives-label" data-linktype="relative-path"><code>@removeTagHelper</code></a></td>
+<td>Removes Tag Helpers previously added from a view.</td>
+</tr>
+<tr>
+<td><a href="tag-helpers/intro?view=aspnetcore-10.0#prefix-razor-directives-label" data-linktype="relative-path"><code>@tagHelperPrefix</code></a></td>
+<td>Specifies a tag prefix to enable Tag Helper support and to make Tag Helper usage explicit.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="razor-reserved-keywords">Razor reserved keywords</h2>
+<h3 id="razor-keywords">Razor keywords</h3>
+<ul>
+<li><code>page</code></li>
+<li><code>namespace</code></li>
+<li><code>functions</code></li>
+<li><code>inherits</code></li>
+<li><code>model</code></li>
+<li><code>section</code></li>
+<li><code>helper</code> (Not currently supported by ASP.NET Core)</li>
+</ul>
+<p>Razor keywords are escaped with <code>@(Razor Keyword)</code> (for example, <code>@(functions)</code>).</p>
+<h3 id="c-razor-keywords">C# Razor keywords</h3>
+<ul>
+<li><code>case</code></li>
+<li><code>do</code></li>
+<li><code>default</code></li>
+<li><code>for</code></li>
+<li><code>foreach</code></li>
+<li><code>if</code></li>
+<li><code>else</code></li>
+<li><code>lock</code></li>
+<li><code>switch</code></li>
+<li><code>try</code></li>
+<li><code>catch</code></li>
+<li><code>finally</code></li>
+<li><code>using</code></li>
+<li><code>while</code></li>
+</ul>
+<p>C# Razor keywords must be double-escaped with <code>@(@C# Razor Keyword)</code> (for example, <code>@(@case)</code>). The first <code>@</code> escapes the Razor parser. The second <code>@</code> escapes the C# parser.</p>
+<h3 id="reserved-keywords-not-used-by-razor">Reserved keywords not used by Razor</h3>
+<ul>
+<li><code>class</code></li>
+</ul>
+<h2 id="inspect-the-razor-c-class-generated-for-a-view">Inspect the Razor C# class generated for a view</h2>
+<div data-moniker="aspnetcore-10.0 aspnetcore-11.0 aspnetcore-5.0 aspnetcore-6.0 aspnetcore-7.0 aspnetcore-8.0 aspnetcore-9.0">
+<p>The <a href="../../razor-pages/sdk?view=aspnetcore-10.0" data-linktype="relative-path">Razor SDK</a> handles compilation of Razor files. By default, the generated code files aren't emitted. To enable emitting the code files, set the <code>EmitCompilerGeneratedFiles</code> directive in the project file (<code>.csproj</code>) to <code>true</code>:</p>
+<pre><code class="lang-xml">&lt;PropertyGroup&gt;
+  &lt;EmitCompilerGeneratedFiles&gt;true&lt;/EmitCompilerGeneratedFiles&gt;
+&lt;/PropertyGroup&gt;
+</code></pre>
+<p>When building a 6.0 project (<code>net6.0</code>) in the <code>Debug</code> build configuration, the Razor SDK generates an <code>obj/Debug/net6.0/generated/</code> directory in the project root. Its subdirectory contains the emitted Razor page code files.</p>
+</div>
+<div data-moniker="aspnetcore-1.0 aspnetcore-1.1 aspnetcore-2.0 aspnetcore-2.1 aspnetcore-2.2 aspnetcore-3.0 aspnetcore-3.1">
+<p>The <a href="../../razor-pages/sdk?view=aspnetcore-10.0" data-linktype="relative-path">Razor SDK</a> handles compilation of Razor files. When building a project, the Razor SDK generates an <code>obj/{BUILD CONFIGURATION}/{TARGET FRAMEWORK MONIKER}/Razor</code> directory in the project root. The directory structure within the <code>Razor</code> directory mirrors the project's directory structure.</p>
+<p>Consider the following directory structure in an ASP.NET Core Razor Pages 2.1 project:</p>
+<pre><code> Areas/
+   Admin/
+     Pages/
+       Index.cshtml
+       Index.cshtml.cs
+ Pages/
+   Shared/
+     _Layout.cshtml
+   _ViewImports.cshtml
+   _ViewStart.cshtml
+   Index.cshtml
+   Index.cshtml.cs
+</code></pre>
+<p>Building the project in <code>Debug</code> configuration yields the following <code>obj</code> directory:</p>
+<pre><code> obj/
+   Debug/
+     netcoreapp2.1/
+       Razor/
+         Areas/
+           Admin/
+             Pages/
+               Index.g.cshtml.cs
+         Pages/
+           Shared/
+             _Layout.g.cshtml.cs
+           _ViewImports.g.cshtml.cs
+           _ViewStart.g.cshtml.cs
+           Index.g.cshtml.cs
+</code></pre>
+<p>To view the generated class for <code>Pages/Index.cshtml</code>, open <code>obj/Debug/netcoreapp2.1/Razor/Pages/Index.g.cshtml.cs</code>.</p>
+</div>
+<h2 id="view-lookups-and-case-sensitivity">View lookups and case sensitivity</h2>
+<p>The Razor view engine performs case-sensitive lookups for views. However, the underlying file system determines the actual lookup:</p>
+<ul>
+<li>File based source:
+<ul>
+<li>On operating systems with case insensitive file systems (for example, Windows), physical file provider lookups are case insensitive. For example, <code>return View("Test")</code> results in matches for <code>/Views/Home/Test.cshtml</code>, <code>/Views/home/test.cshtml</code>, and any other casing variant.</li>
+<li>On case-sensitive file systems (for example, Linux, OSX, and with <code>EmbeddedFileProvider</code>), lookups are case-sensitive. For example, <code>return View("Test")</code> specifically matches <code>/Views/Home/Test.cshtml</code>.</li>
+</ul>
+</li>
+<li>Precompiled views: With ASP.NET Core 2.0 or later, looking up precompiled views is case insensitive on all operating systems. The behavior is identical to physical file provider's behavior on Windows. If two precompiled views differ only in case, the result of lookup is non-deterministic.</li>
+</ul>
+<p>Developers are encouraged to match the casing of file and directory names to the casing of:</p>
+<ul>
+<li>Area, controller, and action names.</li>
+<li>Razor Pages.</li>
+</ul>
+<p>Matching case ensures the deployments find their views regardless of the underlying file system.</p>
+<h2 id="imports-used-by-razor">Imports used by Razor</h2>
+<p>The following imports are generated by the ASP.NET Core web templates to support Razor Files:</p>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+</code></pre>
+<h2 id="additional-resources">Additional resources</h2>
+<p><a href="/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c" data-linktype="absolute-path">Introduction to ASP.NET Web Programming Using the Razor Syntax</a> provides many samples of programming with Razor syntax.</p>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+			
+		<!-- feedback section -->
+		<section
+			class="feedback-section position-relative margin-top-lg border border-radius padding-xxs display-none-print"
+			data-bi-name="open-source-feedback-section"
+			data-open-source-feedback-section
+			hidden
+		>
+			<div class="display-flex flex-direction-column flex-direction-row-tablet">
+				<div
+					class="width-450-tablet padding-inline-xs padding-inline-xs-tablet padding-top-xs padding-bottom-sm padding-top-xs-tablet background-color-body-medium"
+				>
+					<div class="display-flex flex-direction-column">
+						<div class="padding-bottom-xxs">
+							<span class="icon margin-right-xxs" aria-hidden="true">
+								<span class="docon docon-brand-github"></span>
+							</span>
+							<span class="font-weight-semibold">
+								Collaborate with us on GitHub
+							</span>
+						</div>
+						<span class="line-height-normal">
+							The source for this content can be found on GitHub, where you can also create and review issues and pull requests. For more information, see <a href="https://learn.microsoft.com/contribute/content/dotnet/dotnet-contribute">our contributor guide</a>.
+						</span>
+					</div>
+				</div>
+				<div
+					class="display-flex gap-xs width-full-tablet flex-direction-column padding-xs justify-content-space-evenly"
+				>
+					<div class="media">
+						
+					<div class="media-left">
+						<div class="image image-36x36" hidden data-open-source-image-container>
+							<img
+								class="theme-display is-light"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-light
+							/>
+							<img
+								class="theme-display is-dark is-high-contrast"
+								src="https://learn.microsoft.com/media/logos/logo_net.svg"
+								aria-hidden="true"
+								data-open-source-image-dark
+							/>
+						</div>
+					</div>
+			  
+
+						<div class="media-content">
+							<p
+								class="font-size-xl font-weight-semibold margin-bottom-xxs"
+								data-open-source-product-title
+							>
+								ASP.NET Core
+							</p>
+							<div class="display-flex gap-xs flex-direction-column">
+								<p class="line-height-normal" data-open-source-product-description></p>
+								<div class="display-flex gap-xs flex-direction-column">
+									<a href="#" data-github-link>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-bug"></span>
+										</span>
+										<span>Open a documentation issue</span>
+									</a>
+									<a
+										href="https://github.com/dotnet/aspnetcore/blob/main/CONTRIBUTING.md"
+										class="display-block margin-top-auto font-size-md"
+										data-feedback-product-url
+									>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-feedback"></span>
+										</span>
+										<span>Provide product feedback</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+			
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+		
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-04-30T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-04-30
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+			
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

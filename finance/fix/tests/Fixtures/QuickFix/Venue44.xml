@@ -1,0 +1,53 @@
+<fix type="FIX" major="4" minor="4" servicepack="0">
+  <header>
+    <field name="BeginString" required="Y" />
+    <field name="BodyLength" required="Y" />
+    <field name="MsgType" required="Y" />
+    <component name="VenueRouting" required="N" />
+  </header>
+  <messages>
+    <message name="VenueOrder" msgtype="U99" msgcat="app">
+      <component name="VenueOrderCore" required="Y" />
+      <group name="NoVenueParties" required="N">
+        <field name="VenuePartyID" required="Y" />
+        <group name="NoVenuePartyRoles" required="N">
+          <field name="VenuePartyRole" required="Y" />
+        </group>
+      </group>
+      <field name="VenuePayloadLength" required="N" />
+      <field name="VenuePayload" required="N" />
+    </message>
+  </messages>
+  <trailer>
+    <field name="CheckSum" required="Y" />
+  </trailer>
+  <components>
+    <component name="VenueRouting">
+      <field name="VenueRouteID" required="N" />
+    </component>
+    <component name="VenueOrderCore">
+      <field name="VenueOrderID" required="Y" />
+      <field name="VenueTradeDate" required="N" />
+      <field name="VenueModes" required="N" />
+    </component>
+  </components>
+  <fields>
+    <field number="8" name="BeginString" type="STRING" />
+    <field number="9" name="BodyLength" type="LENGTH" />
+    <field number="10" name="CheckSum" type="STRING" />
+    <field number="35" name="MsgType" type="STRING" />
+    <field number="9001" name="VenueRouteID" type="XID" />
+    <field number="9002" name="VenueOrderID" type="STRING" />
+    <field number="9003" name="VenueTradeDate" type="UTCDATE" />
+    <field number="9004" name="VenueModes" type="MULTIPLEVALUESTRING">
+      <value enum="A" description="AUCTION" />
+      <value enum="C" description="CONTINUOUS" />
+    </field>
+    <field number="9010" name="NoVenueParties" type="NUMINGROUP" />
+    <field number="9011" name="VenuePartyID" type="STRING" />
+    <field number="9012" name="NoVenuePartyRoles" type="NUMINGROUP" />
+    <field number="9013" name="VenuePartyRole" type="INT" />
+    <field number="9020" name="VenuePayloadLength" type="LENGTH" />
+    <field number="9021" name="VenuePayload" type="DATA" />
+  </fields>
+</fix>

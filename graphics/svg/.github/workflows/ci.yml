@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_NOLOGO: "true"
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore svg.slnx
+
+      - name: Build with XML documentation warnings enabled
+        run: dotnet build svg.slnx --configuration Release --no-restore /p:ContinuousIntegrationBuild=true
+
+      - name: Run deterministic unit and integration tests
+        run: dotnet test tests/svg.Tests.csproj --configuration Release --no-build --filter "TestCategory!=External&TestCategory!=Functional"
+
+      - name: Run bounded functional tests
+        run: dotnet test tests/svg.Tests.csproj --configuration Release --no-build --filter "TestCategory=Functional"
+
+  package:
+    name: Pack platform-neutral NuGet package
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore library
+        run: dotnet restore src/svg.csproj
+
+      - name: Create package
+        run: dotnet pack src/svg.csproj --configuration Release --no-restore --output artifacts/packages /p:ContinuousIntegrationBuild=true
+
+      - name: Reject platform-native package assets
+        shell: bash
+        run: |
+          shopt -s nullglob
+          packages=(artifacts/packages/*.nupkg)
+          if (( ${#packages[@]} != 1 )); then
+            echo "Expected exactly one NuGet package, found ${#packages[@]}." >&2
+            exit 1
+          fi
+          entries="$(unzip -Z1 "${packages[0]}")"
+          printf '%s\n' "$entries"
+          if grep -E '(^|/)runtimes/|(^|/)native/|\.so$|\.dylib$' <<< "$entries"; then
+            echo "The package contains a platform-native asset." >&2
+            exit 1
+          fi
+          grep -Fxq 'lib/net10.0/svg.dll' <<< "$entries"
+          grep -Fxq 'lib/net10.0/svg.xml' <<< "$entries"
+
+      - name: Upload NuGet package
+        uses: actions/upload-artifact@v6
+        with:
+          name: svg-nuget
+          path: artifacts/packages/*.nupkg
+          if-no-files-found: error

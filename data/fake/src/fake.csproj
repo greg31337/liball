@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data/**/*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="fake.Tests" />
+  </ItemGroup>
+
+  <Target Name="VerifyProductDependencyClosure" BeforeTargets="PrepareForBuild">
+    <Error Condition="'@(PackageReference)' != ''"
+           Text="The fake product assembly must not reference NuGet packages." />
+    <Error Condition="'@(ProjectReference)' != ''"
+           Text="The fake product assembly must not reference other projects." />
+  </Target>
+
+</Project>

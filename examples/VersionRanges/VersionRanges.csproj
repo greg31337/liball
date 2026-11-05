@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../dev/version/src/version.csproj" />
+  </ItemGroup>
+</Project>

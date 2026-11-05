@@ -1,0 +1,581 @@
+{
+  "$schema": "./manifest.schema.json",
+  "schemaVersion": 1,
+  "samples": [
+    {
+      "id": "canon-eos-6d-mark-ii-raw-3x2-1.0.2",
+      "availability": "repository",
+      "path": "files/canon-eos-6d-mark-ii-raw-3x2-1.0.2.cr2",
+      "byteLength": 37892396,
+      "hashes": {
+        "fileSha256": "712815b910fa473f7aaeb97c0804292d996b16dd6b974a3ab9a7195a2e41d90c",
+        "decodedSamplesSha256": "980f8520ece3e4ee4f859853591a4d3cc5b037fdb67fd017362417de52b825de",
+        "renderSha256": "e8a08c3e49f56e1ef84a0e686f3d5e3dc521f9a36f28606644a20956fd673cbe"
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "rewrite-source",
+        "write-source"
+      ],
+      "provenance": {
+        "origin": "downloaded",
+        "sourceUri": "https://raw.pixls.us/getfile.php/1625/nice/Canon%20-%20EOS%206D%20Mark%20II%20-%20RAW%20%283%3A2%29.CR2",
+        "contributor": "raw.pixls.us",
+        "acquiredOn": "2026-08-19",
+        "notes": "Hash and source mirror the evidence recorded by the built-in profile catalogue."
+      },
+      "rights": {
+        "licenseId": "CC0-1.0",
+        "copyright": null,
+        "redistribution": "allowed",
+        "evidence": "raw.pixls.us publishes this sample as CC0; preserve the source record when vendoring it."
+      },
+      "labels": {
+        "format": "cr2",
+        "make": "Canon",
+        "model": "Canon EOS 6D Mark II",
+        "cameraId": "2147484678",
+        "firmware": "1.0.2",
+        "variant": "RAW 3:2",
+        "compression": "Canon lossless JPEG",
+        "bitDepth": 14
+      },
+      "profileIds": {
+        "read": [
+          "canon.eos-6d-mark-ii.cr2.raw-3x2.firmware-1.0.2.read"
+        ],
+        "write": [
+          "canon.eos-6d-mark-ii.cr2.raw-3x2.firmware-1.0.2.write.experimental"
+        ]
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "required",
+        "encoded": "not-evaluated",
+        "vendorConfirmed": "not-evaluated"
+      },
+      "notes": "T114 acquired the exact CC0 bytes, verified the source hash, selected the intended profile, and recorded the normalized little-endian decoded-sample hash."
+    },
+    {
+      "id": "canon-eos-6d-mark-ii-mraw-3x2-1.0.2",
+      "availability": "repository",
+      "path": "files/canon-eos-6d-mark-ii-mraw-3x2-1.0.2.cr2",
+      "byteLength": 28971919,
+      "hashes": {
+        "fileSha256": "c34f6dc459901b44a837cf30eacee19fef548ce5a66c4611d68ed3fae8997498",
+        "decodedSamplesSha256": "277271c3eb14a58790e2d6a9c349690d155fbaa823bad78585f3b5c02470a904",
+        "renderSha256": "7e22a735305bd47f2e8a13a42d7ad43b4c081703548746a049883cabf184d021"
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "rewrite-source"
+      ],
+      "provenance": {
+        "origin": "downloaded",
+        "sourceUri": "https://raw.pixls.us/getfile.php/1624/nice/Canon%20-%20EOS%206D%20Mark%20II%20-%20sRAW1%20%28mRAW%29%20%283%3A2%29.CR2",
+        "contributor": "raw.pixls.us",
+        "acquiredOn": "2026-08-19",
+        "notes": "Hash and source mirror the evidence recorded by the built-in profile catalogue."
+      },
+      "rights": {
+        "licenseId": "CC0-1.0",
+        "copyright": null,
+        "redistribution": "allowed",
+        "evidence": "raw.pixls.us publishes this sample as CC0; preserve the source record when vendoring it."
+      },
+      "labels": {
+        "format": "cr2",
+        "make": "Canon",
+        "model": "Canon EOS 6D Mark II",
+        "cameraId": "2147484678",
+        "firmware": "1.0.2",
+        "variant": "mRAW 3:2",
+        "compression": "Canon subsampled lossless JPEG",
+        "bitDepth": 15
+      },
+      "profileIds": {
+        "read": [
+          "canon.eos-6d-mark-ii.cr2.mraw-3x2.firmware-1.0.2.read"
+        ],
+        "write": []
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "required",
+        "encoded": "not-applicable",
+        "vendorConfirmed": "not-applicable"
+      },
+      "notes": "T114 acquired the exact CC0 bytes, verified the source hash, selected the intended profile, and recorded the normalized little-endian decoded-sample hash."
+    },
+    {
+      "id": "canon-eos-6d-mark-ii-sraw-3x2-1.0.2",
+      "availability": "repository",
+      "path": "files/canon-eos-6d-mark-ii-sraw-3x2-1.0.2.cr2",
+      "byteLength": 20556842,
+      "hashes": {
+        "fileSha256": "a4bf9842c2222b2eeb95ec71065f9d981c9b5be619b96db7f121e395968a119b",
+        "decodedSamplesSha256": "a4362c81695fceae3649c98d37bd4ce60eda813efabf23eed66c99fb7247d1c2",
+        "renderSha256": "98657dcf08601989a63658ad3e35c9a8f9d43308586f66b396b623e5d393d0df"
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "rewrite-source"
+      ],
+      "provenance": {
+        "origin": "downloaded",
+        "sourceUri": "https://raw.pixls.us/getfile.php/1623/nice/Canon%20-%20EOS%206D%20Mark%20II%20-%20sRAW2%20%28sRAW%29%20%283%3A2%29.CR2",
+        "contributor": "raw.pixls.us",
+        "acquiredOn": "2026-08-19",
+        "notes": "Hash and source mirror the evidence recorded by the built-in profile catalogue."
+      },
+      "rights": {
+        "licenseId": "CC0-1.0",
+        "copyright": null,
+        "redistribution": "allowed",
+        "evidence": "raw.pixls.us publishes this sample as CC0; preserve the source record when vendoring it."
+      },
+      "labels": {
+        "format": "cr2",
+        "make": "Canon",
+        "model": "Canon EOS 6D Mark II",
+        "cameraId": "2147484678",
+        "firmware": "1.0.2",
+        "variant": "sRAW 3:2",
+        "compression": "Canon subsampled lossless JPEG",
+        "bitDepth": 15
+      },
+      "profileIds": {
+        "read": [
+          "canon.eos-6d-mark-ii.cr2.sraw-3x2.firmware-1.0.2.read"
+        ],
+        "write": []
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "required",
+        "encoded": "not-applicable",
+        "vendorConfirmed": "not-applicable"
+      },
+      "notes": "T114 acquired the exact CC0 bytes, verified the source hash, selected the intended profile, and recorded the normalized little-endian decoded-sample hash."
+    },
+    {
+      "id": "canon-eos-20d-raw-3x2-2.0.3",
+      "availability": "repository",
+      "path": "files/canon-eos-20d-raw-3x2-2.0.3.cr2",
+      "byteLength": 7489116,
+      "hashes": {
+        "fileSha256": "db78660d48589130d99e0bc621424851eb0f84df052634fb5bc89c7a02fe7033",
+        "decodedSamplesSha256": "3091a2dff8a88ce85d17fcd0edabeb2143f053afc25028f023657978707686fc",
+        "renderSha256": "be96c25e76190aacef3222a95d68135d3fb135a088e12b2a3bb25e7ccf4d04e0"
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "rewrite-source"
+      ],
+      "provenance": {
+        "origin": "downloaded",
+        "sourceUri": "https://raw.pixls.us/getfile.php/1018/nice/Canon%20-%20EOS%2020D%20-%20RAW%20%283%3A2%29.CR2",
+        "contributor": "raw.pixls.us",
+        "acquiredOn": "2026-08-19",
+        "notes": "Hash and source mirror the evidence recorded by the built-in profile catalogue."
+      },
+      "rights": {
+        "licenseId": "CC0-1.0",
+        "copyright": null,
+        "redistribution": "allowed",
+        "evidence": "raw.pixls.us publishes this sample as CC0; preserve the source record when vendoring it."
+      },
+      "labels": {
+        "format": "cr2",
+        "make": "Canon",
+        "model": "Canon EOS 20D",
+        "cameraId": "2147484021",
+        "firmware": "2.0.3",
+        "variant": "RAW 3:2 early dimensionless IFD3",
+        "compression": "Canon lossless JPEG",
+        "bitDepth": 12
+      },
+      "profileIds": {
+        "read": [
+          "canon.eos-20d.cr2.raw-3x2.firmware-2.0.3.read"
+        ],
+        "write": []
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "required",
+        "encoded": "not-applicable",
+        "vendorConfirmed": "not-applicable"
+      },
+      "notes": "T114 acquired the exact CC0 bytes, verified the source hash, selected the intended profile, and recorded the normalized little-endian decoded-sample hash."
+    },
+    {
+      "id": "canon-eos-1d-raw-3x2-1.4.0",
+      "availability": "repository",
+      "path": "files/canon-eos-1d-raw-3x2-1.4.0.tif",
+      "byteLength": 4440160,
+      "hashes": {
+        "fileSha256": "e9856cb62ca32d6cbe83dbb35f16fe10b5d7d0ef92e84bdcb40be70aabe87e6a",
+        "decodedSamplesSha256": "616d501e21bf228be781333e7fa1fb5cca88e836262d439348f74b18b9f3f7ad",
+        "renderSha256": "2694c0b8e45e99c1c957a9517acca59adde69499d35b9db1b1b8c8cbd8f47a18"
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "rewrite-source"
+      ],
+      "provenance": {
+        "origin": "downloaded",
+        "sourceUri": "https://raw.pixls.us/getfile.php/1958/nice/Canon%20-%20EOS-1D%20-%20RAW%20%283%3A2%29.TIF",
+        "contributor": "raw.pixls.us",
+        "acquiredOn": "2026-08-19",
+        "notes": "Hash and source mirror the evidence recorded by the built-in profile catalogue."
+      },
+      "rights": {
+        "licenseId": "CC0-1.0",
+        "copyright": null,
+        "redistribution": "allowed",
+        "evidence": "raw.pixls.us publishes this sample as CC0; preserve the source record when vendoring it."
+      },
+      "labels": {
+        "format": "tiff",
+        "make": "Canon",
+        "model": "Canon EOS-1D",
+        "cameraId": "2147483649",
+        "firmware": "1.4.0",
+        "variant": "RAW 3:2 early TIFF",
+        "compression": "Canon lossless JPEG",
+        "bitDepth": 12
+      },
+      "profileIds": {
+        "read": [
+          "canon.eos-1d.tiff.raw-3x2.firmware-1.4.0.read"
+        ],
+        "write": []
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "required",
+        "encoded": "not-applicable",
+        "vendorConfirmed": "not-applicable"
+      },
+      "notes": "T114 acquired the exact CC0 bytes, verified the source hash, selected the intended profile, and recorded the normalized little-endian decoded-sample hash."
+    },
+    {
+      "id": "generated-canon-eos-6d-mark-ii-raw-3x2-write-golden",
+      "availability": "repository",
+      "path": "generated/canon-eos-6d-mark-ii-raw-3x2-write-golden.cr2",
+      "byteLength": 28518558,
+      "hashes": {
+        "fileSha256": "0ad80218c69396fec8219d50fdd103bbd7e09838d902be39c9408d080ad0163e",
+        "decodedSamplesSha256": "54a247a35ce8f32cc3b9b70187510252158c4c8e9e00a406da1d76134373589e",
+        "renderSha256": "00cb8b872819236ba12b2a9b869458086a61f4a24434fd58c90a26449990664e"
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "write-output-golden"
+      ],
+      "provenance": {
+        "origin": "generated",
+        "sourceUri": null,
+        "contributor": "raw project corpus generator",
+        "acquiredOn": "2026-08-20",
+        "notes": "Deterministically generated from the exact built-in write profile and a synthetic 14-bit sample pattern; its JPEG preview comes from the manifest's CC0 Canon source."
+      },
+      "rights": {
+        "licenseId": "CC0-1.0",
+        "copyright": null,
+        "redistribution": "allowed",
+        "evidence": "The sensor pattern and container were generated by this project; the only reused payload is a JPEG preview from the recorded CC0 source."
+      },
+      "labels": {
+        "format": "cr2",
+        "make": "Canon",
+        "model": "Canon EOS 6D Mark II",
+        "cameraId": "2147484678",
+        "firmware": "1.0.2",
+        "variant": "synthetic RAW 3:2 exact-profile writer output",
+        "compression": "Canon lossless JPEG",
+        "bitDepth": 14
+      },
+      "profileIds": {
+        "read": [
+          "canon.eos-6d-mark-ii.cr2.raw-3x2.firmware-1.0.2.read"
+        ],
+        "write": [
+          "canon.eos-6d-mark-ii.cr2.raw-3x2.firmware-1.0.2.write.experimental"
+        ]
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "not-evaluated",
+        "encoded": "required",
+        "vendorConfirmed": "not-evaluated"
+      },
+      "notes": "Generation requires structural reopen and decoded stored-pixel identity. The canonical little-endian input-sample SHA-256 is d518b347dd4b908dbef82370ca20bac7c123419a7450d8de79a24e4d6dce51de."
+    },
+    {
+      "id": "generated-nikon-z-7-uncompressed-14bit-fx-write-golden",
+      "availability": "repository",
+      "path": "generated/nikon-z-7-uncompressed-14bit-fx-write-golden.nef",
+      "byteLength": 79542582,
+      "hashes": {
+        "fileSha256": "93ed8c4858bebbca6f8e166375f5baf814ab9cdf210b29118db041b7c4a352d5",
+        "decodedSamplesSha256": "d91b5934dc0e01c057178348eb48ab1ca42831fb4200b0c61065e16377e305c1",
+        "renderSha256": "70f846c1cc208186539e35e737303916ba187f3ec259e2a4bd5a77016ce17478"
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "write-output-golden"
+      ],
+      "provenance": {
+        "origin": "generated",
+        "sourceUri": null,
+        "contributor": "raw project corpus generator",
+        "acquiredOn": "2026-08-20",
+        "notes": "Deterministically generated from the exact built-in write profile and a synthetic 14-bit sample pattern; its JPEG preview comes from the manifest's CC0 Canon source."
+      },
+      "rights": {
+        "licenseId": "CC0-1.0",
+        "copyright": null,
+        "redistribution": "allowed",
+        "evidence": "The sensor pattern and container were generated by this project; the only reused payload is a JPEG preview from the recorded CC0 source."
+      },
+      "labels": {
+        "format": "nef",
+        "make": "NIKON CORPORATION",
+        "model": "NIKON Z 7",
+        "cameraId": null,
+        "firmware": null,
+        "variant": "synthetic large FX uncompressed exact-profile writer output",
+        "compression": "uncompressed",
+        "bitDepth": 14
+      },
+      "profileIds": {
+        "read": [
+          "nikon.z-7.nef.uncompressed-14bit.fx.read.experimental"
+        ],
+        "write": [
+          "nikon.z-7.nef.uncompressed-14bit.fx.write.experimental"
+        ]
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "not-evaluated",
+        "encoded": "required",
+        "vendorConfirmed": "not-evaluated"
+      },
+      "notes": "Generation requires structural reopen and decoded stored-pixel identity. The canonical little-endian input-sample SHA-256 is 248d62669c7c303941bc1645acd9a30c486686956c83ba3e7392b40a0737a777."
+    },
+    {
+      "id": "generated-nikon-z-8-lossless-14bit-fx-write-golden",
+      "availability": "repository",
+      "path": "generated/nikon-z-8-lossless-14bit-fx-write-golden.nef",
+      "byteLength": 51667099,
+      "hashes": {
+        "fileSha256": "4100994e278b08d42e87f4a52e70fafc38527679c4563cc4f50ee7ca5e46a604",
+        "decodedSamplesSha256": "f63e4105f9805c435548e174a5d69c6d32929c8e7a639922aec0ff762c95629d",
+        "renderSha256": "d6b3e84d00ea9b95da0e881f018295f9e4db2bc8bc5086b3fa75706462eef414"
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "write-output-golden"
+      ],
+      "provenance": {
+        "origin": "generated",
+        "sourceUri": null,
+        "contributor": "raw project corpus generator",
+        "acquiredOn": "2026-08-20",
+        "notes": "Deterministically generated from the exact built-in write profile and a synthetic 14-bit sample pattern; its JPEG preview comes from the manifest's CC0 Canon source."
+      },
+      "rights": {
+        "licenseId": "CC0-1.0",
+        "copyright": null,
+        "redistribution": "allowed",
+        "evidence": "The sensor pattern and container were generated by this project; the only reused payload is a JPEG preview from the recorded CC0 source."
+      },
+      "labels": {
+        "format": "nef",
+        "make": "NIKON CORPORATION",
+        "model": "NIKON Z 8",
+        "cameraId": null,
+        "firmware": null,
+        "variant": "synthetic large FX lossless exact-profile writer output",
+        "compression": "Nikon lossless",
+        "bitDepth": 14
+      },
+      "profileIds": {
+        "read": [
+          "nikon.z-8.nef.lossless-14bit.fx.read.experimental"
+        ],
+        "write": [
+          "nikon.z-8.nef.lossless-14bit.fx.write.experimental"
+        ]
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "not-evaluated",
+        "encoded": "required",
+        "vendorConfirmed": "not-evaluated"
+      },
+      "notes": "Generation requires structural reopen and decoded stored-pixel identity. The canonical little-endian input-sample SHA-256 is 7cef19748d35fc4995a3f280e51e6cd81f8e920c339c2961481d6afba321685c."
+    },
+    {
+      "id": "private-nikon-z-7-uncompressed-14bit-fx",
+      "availability": "private-placeholder",
+      "path": null,
+      "byteLength": null,
+      "hashes": {
+        "fileSha256": null,
+        "decodedSamplesSha256": null,
+        "renderSha256": null
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "rewrite-source",
+        "write-source"
+      ],
+      "provenance": {
+        "origin": "private",
+        "sourceUri": null,
+        "contributor": null,
+        "acquiredOn": null,
+        "notes": "Placeholder for a lawfully held private camera sample; do not add identifying provenance to the public manifest."
+      },
+      "rights": {
+        "licenseId": "NOASSERTION",
+        "copyright": null,
+        "redistribution": "prohibited",
+        "evidence": "No redistribution permission is recorded. The eventual local file must remain under corpus/private/."
+      },
+      "labels": {
+        "format": "nef",
+        "make": "NIKON CORPORATION",
+        "model": "NIKON Z 7",
+        "cameraId": null,
+        "firmware": null,
+        "variant": "large FX uncompressed",
+        "compression": "uncompressed",
+        "bitDepth": 14
+      },
+      "profileIds": {
+        "read": [
+          "nikon.z-7.nef.uncompressed-14bit.fx.read.experimental"
+        ],
+        "write": [
+          "nikon.z-7.nef.uncompressed-14bit.fx.write.experimental"
+        ]
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "required",
+        "encoded": "not-evaluated",
+        "vendorConfirmed": "not-evaluated"
+      },
+      "notes": "Replace this placeholder with a hash-pinned private entry only after lawful acquisition."
+    },
+    {
+      "id": "private-nikon-z-8-lossless-14bit-fx",
+      "availability": "private-placeholder",
+      "path": null,
+      "byteLength": null,
+      "hashes": {
+        "fileSha256": null,
+        "decodedSamplesSha256": null,
+        "renderSha256": null
+      },
+      "roles": [
+        "read-conformance",
+        "metadata-conformance",
+        "decode-golden",
+        "rewrite-source",
+        "write-source"
+      ],
+      "provenance": {
+        "origin": "private",
+        "sourceUri": null,
+        "contributor": null,
+        "acquiredOn": null,
+        "notes": "Placeholder for a lawfully held private camera sample; do not add identifying provenance to the public manifest."
+      },
+      "rights": {
+        "licenseId": "NOASSERTION",
+        "copyright": null,
+        "redistribution": "prohibited",
+        "evidence": "No redistribution permission is recorded. The eventual local file must remain under corpus/private/."
+      },
+      "labels": {
+        "format": "nef",
+        "make": "NIKON CORPORATION",
+        "model": "NIKON Z 8",
+        "cameraId": null,
+        "firmware": null,
+        "variant": "large FX lossless",
+        "compression": "Nikon lossless",
+        "bitDepth": 14
+      },
+      "profileIds": {
+        "read": [
+          "nikon.z-8.nef.lossless-14bit.fx.read.experimental"
+        ],
+        "write": [
+          "nikon.z-8.nef.lossless-14bit.fx.write.experimental"
+        ]
+      },
+      "expectedCapabilities": {
+        "recognized": "required",
+        "inspected": "required",
+        "decoded": "required",
+        "rendered": "required",
+        "preservingRewrite": "required",
+        "encoded": "not-evaluated",
+        "vendorConfirmed": "not-evaluated"
+      },
+      "notes": "Replace this placeholder with a hash-pinned private entry only after lawful acquisition."
+    }
+  ]
+}

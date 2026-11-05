@@ -1,0 +1,2065 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="6733" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records">Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (9)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6733" rel="noopener" target="_blank">RFC 6733</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6733.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> dime (ops)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC7075, RFC8553</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3805/">3805</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Lionel</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-11-18</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-12-09</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>    Message Length
+
+      The Message Length field is three octets and indicates the length
+      of the Diameter message including the header fields and the padded
+      AVPs.  Thus, the Message Length field is always a multiple of 4.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>    Message Length
+
+      The Message Length field is three octets and indicates the number
+      of octets of the Diameter message, including the header fields and
+      the padded AVPs.  Thus, the Message Length field is always a 
+      multiple of 4 octets.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>the actual text does not indicate the unit of length unit, which may lead to confusion and IOT issues, especially if someone considers bits instead of bytes.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3806/">3806</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Lionel</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-11-18</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-11-19</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 2.7 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   Server Identifier
+
+      The identity of one or more servers to which the message is to be
+      routed.  This identity MUST also be present in the Host Identity
+      field of the peer table (Section 2.6).  When the Local Action is
+      set to RELAY or PROXY, this field contains the identity of the
+      server(s) to which the message MUST be routed.  When the Local
+      Action field is set to REDIRECT, this field contains the identity
+      of one or more servers to which the message MUST be redirected.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   Peer Identifier
+
+      The identity of one or more peers to which the message is to be
+      routed.  This identity MUST also be present in the Host Identity
+      field of the peer table (Section 2.6).  When the Local Action is
+      set to RELAY or PROXY, this field contains the identity of the
+      peer(s) to which the message MUST be routed.  When the Local
+      Action field is set to REDIRECT, this field contains the identity
+      of one or more peers to which the message MUST be redirected.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The host identified in a Routing Table entry is not necessarily a &quot;server&quot;. It can also be a Relay, a redirect or a proxy agent. Using &quot;peer&quot; instead of &quot;server&quot; is more appropriate.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3942/">3942</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Benoit Claise</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-04-01</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-04-01</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 8 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   When a Diameter server authorizes a user to implement network
+   resources for a finite amount of time, and it is willing to extend
+   the authorization via a future request, it MUST add the
+   Authorization- Lifetime AVP to the answer message.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   When a Diameter server authorizes a user to implement network
+   resources for a finite amount of time, and it is willing to extend
+   the authorization via a future request, it MUST add the
+   Authorization-Lifetime AVP to the answer message.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Authorization-Lifetime was mispelled</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3997/">3997</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Jouni Korhonen</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-05-24</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-06-04</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Throughout the document, when it says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Section 2.1.
+
+   The base Diameter protocol is run on port 3868 for both TCP [RFC0793]
+   and SCTP [RFC4960].  For TLS [RFC5246] and Datagram Transport Layer
+   Security (DTLS) [RFC6347], a Diameter node that initiates a
+   connection prior to any message exchanges MUST run on port 5658.  It
+   is assumed that TLS is run on top of TCP when it is used, and DTLS is
+   run on top of SCTP when it is used.
+
+   If the Diameter peer does not support receiving TLS/TCP and DTLS/SCTP
+   connections on port 5658 (i.e., the peer complies only with RFC
+   3588), then the initiator MAY revert to using TCP or SCTP on port
+   3868.  Note that this scheme is kept only for the purpose of backward
+   compatibility and that there are inherent security vulnerabilities
+   when the initial CER/CEA messages are sent unprotected (see
+   Section 5.6).
+
+   Diameter clients MUST support either TCP or SCTP; agents and servers
+   SHOULD support both.
+
+   A Diameter node MAY initiate connections from a source port other
+   than the one that it declares it accepts incoming connections on, and
+   it MUST always be prepared to receive connections on port 3868 for
+   TCP or SCTP and port 5658 for TLS/TCP and DTLS/SCTP connections.
+   When DNS-based peer discovery (Section 5.2) is used, the port numbers
+   received from SRV records take precedence over the default ports
+   (3868 and 5658).
+
+Section 4.3.1.
+
+      port               = &quot;:&quot; 1*DIGIT
+
+                      ; One of the ports used to listen for
+                      ; incoming connections.
+                      ; If absent, the default Diameter port
+                      ; (3868) is assumed if no transport
+                      ; security is used and port 5658 when
+                      ; transport security (TLS/TCP and DTLS/SCTP)
+                      ; is used.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Section 2.1.
+
+   The base Diameter protocol is run on port 3868 for both TCP [RFC0793]
+   and SCTP [RFC4960].  For TLS [RFC5246] and Datagram Transport Layer
+   Security (DTLS) [RFC6347], a Diameter node that initiates a
+   connection prior to any message exchanges MUST run on port 5868.  It
+   is assumed that TLS is run on top of TCP when it is used, and DTLS is
+   run on top of SCTP when it is used.
+
+   If the Diameter peer does not support receiving TLS/TCP and DTLS/SCTP
+   connections on port 5868 (i.e., the peer complies only with RFC
+   3588), then the initiator MAY revert to using TCP or SCTP on port
+   3868.  Note that this scheme is kept only for the purpose of backward
+   compatibility and that there are inherent security vulnerabilities
+   when the initial CER/CEA messages are sent unprotected (see
+   Section 5.6).
+
+   Diameter clients MUST support either TCP or SCTP; agents and servers
+   SHOULD support both.
+
+   A Diameter node MAY initiate connections from a source port other
+   than the one that it declares it accepts incoming connections on, and
+   it MUST always be prepared to receive connections on port 3868 for
+   TCP or SCTP and port 5868 for TLS/TCP and DTLS/SCTP connections.
+   When DNS-based peer discovery (Section 5.2) is used, the port numbers
+   received from SRV records take precedence over the default ports
+   (3868 and 5868).
+
+Section 4.3.1.
+
+      port               = &quot;:&quot; 1*DIGIT
+
+                      ; One of the ports used to listen for
+                      ; incoming connections.
+                      ; If absent, the default Diameter port
+                      ; (3868) is assumed if no transport
+                      ; security is used and port 5868 when
+                      ; transport security (TLS/TCP and DTLS/SCTP)
+                      ; is used.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>RFC 6733 defined the Diameter port number for secure transport in IANA considerations Section 11.4. to be 5868. This is also in IANA port numbers registry &quot;Service Name and Transport Protocol Port Number Registry&quot;. However, the RFC 6733 body text uses different port number in Sections 2.1. and 4.3.1. for secure transports. Since the IANA registry already contains the port number 5868 instead of the body text used value 5658, the values in Sections 2.1. and 4.3.1. should be 5868 instead of 5658.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4615/">4615</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Lionel Morand</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2016-02-05</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2016-05-17</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 7.1.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   DIAMETER_AVP_UNSUPPORTED 5001
+
+      The peer received a message that contained an AVP that is not
+      recognized or supported and was marked with the &#x27;M&#x27; (Mandatory)
+      bit.  A Diameter message with this error MUST contain one or more
+      Failed-AVP AVPs containing the AVPs that caused the failure.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   DIAMETER_AVP_UNSUPPORTED 5001
+
+      The peer received a message that contained an AVP that is not
+      recognized or supported and was marked with the &#x27;M&#x27; (Mandatory)
+      bit.  A Diameter message with this error MUST contain one 
+      Failed-AVP AVP containing the AVPs that caused the failure.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The RFC6733 has clarified that only one instance of Failed-AVP AVP can be present in the command answer. One Failed-AVP AVP is enough because this AVP is defined as Grouped AVP that can contain multiple AVPs. In the present case, each of the nested AVPs in the Failed-AVP AVP are the AVPs that caused the failure.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4808/">4808</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Zbigniew Rapnicki</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2016-09-22</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2017-01-04</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 1.1.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>This document obsoletes RFC 3588 but is fully backward compatible
+   with that document.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>This document obsoletes RFC 3588.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>When comparing the BNF for the answer messages CEA, DPA, DWA, RAA, STA and ASA it can be seen that FAILED-AVP avp is no longer marked with the * which means it can be present only once in the diameter message.
+Previous specification (rfc3588) defines multiple FAILED-AVP avp usage in a single diameter message.
+Similar case is for Vendor-Specific-Application-Id AVP definition. 
+Previous specification allows multiple usage of Vendor-Id avp in a single message while the new specification defines it as a single mandatory AVP:
+rfc3588:
+&lt;Vendor-Specific-Application-Id&gt; ::= &lt; AVP Header: 260 &gt;
+                                     1* [ Vendor-Id ]
+                                     0*1{ Auth-Application-Id }
+                                     0*1{ Acct-Application-Id }
+
+rfc6733:
+&lt;Vendor-Specific-Application-Id&gt; ::= &lt; AVP Header: 260 &gt;
+                                           { Vendor-Id }
+                                           [ Auth-Application-Id ]
+                                           [ Acct-Application-Id ]
+										   
+How this facts applies to the sentence about fully backward compatibility in the section 1.1.3?</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4887/">4887</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Mikhail Zaytsev</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2016-12-13</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2017-01-03</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code> When a request is locally processed, the following procedures MUST be
+   applied to create the associated answer, in addition to any
+   additional procedures that MAY be discussed in the Diameter
+   application defining the command:
+
+   o  The same Hop-by-Hop Identifier in the request is used in the
+      answer.
+
+   o  The local host&#x27;s identity is encoded in the Origin-Host AVP.
+
+   o  The Destination-Host and Destination-Realm AVPs MUST NOT be
+      present in the answer message.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code> When a request is locally processed, the following procedures MUST be
+   applied to create the associated answer, in addition to any
+   additional procedures that MAY be discussed in the Diameter
+   application defining the command:
+
+   o  The same Hop-by-Hop Identifier in the request is used in the
+      answer.
+
+   o  The local host&#x27;s identity is encoded in the Origin-Host AVP.
+
+   o  The local realm&#x27;s identity is encoded in the Origin-Realm AVP.
+
+   o  The Destination-Host and Destination-Realm AVPs MUST NOT be
+      present in the answer message.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Unlike Origin-Host AVP, it is not stated explicitly that Origin-Realm AVP MUST be encoded in the associated answer. While both these AVPs MUST be present in all Diameter messages according to their descriptions.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6171/">6171</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Valentin Micic</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2020-05-13</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Mohamed Boucadair</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-03-28</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.1.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>A relay or proxy agent MUST check for forwarding loops when receiving
+requests.  A loop is detected if the server finds its own identity in
+a Route-Record AVP.  When such an event occurs, the agent MUST answer
+with the Result-Code AVP set to DIAMETER_LOOP_DETECTED.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>A relay or proxy agent MUST check for forwarding loops when receiving
+requests. A loop is detected if a relay or proxy agent finds its own
+identity in a Route-Record AVP.  When such an event occurs, the agent
+MUST answer with the Result-Code AVP set to DIAMETER_LOOP_DETECTED.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The term &quot;server&quot; used to identify party which is to detect its own identity as a part of Route-Record AVP is semantically too close to the term Diameter Server. If &quot;relay or proxy agent MUST check&quot;, the question is what would be the consequence of such action if  the (Diameter) &quot;server&quot; is to do the &quot;detecting&quot;?
+
+== Verifier note
+
+This section is about relays/proxy agents checks to detect loops. See also Rob&#x27;s comment at https://mailarchive.ietf.org/arch/msg/dime/4GVvCGAcMOtfRLuPe3amF2xX2E8/
+
+</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4803/">4803</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Holger Freyther</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2016-09-13</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2017-07-27</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>In section 3.2
+
+      header           = &quot;&lt;Diameter-Header:&quot; command-id
+
+                         [r-bit] [p-bit] [e-bit] [application-id]&quot;&gt;&quot;
+
+
+In section 3.4
+
+         header           = &quot;&lt;&quot; &quot;AVP-Header:&quot; avpcode [vendor] &quot;&gt;&quot;</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>In section 3.2
+
+      header           = &quot;&lt;Diameter Header:&quot; command-id
+
+                         [r-bit] [p-bit] [e-bit] [application-id]&quot;&gt;&quot;
+
+In section 3.4
+
+         header           = &quot;&lt;&quot; &quot;AVP Header:&quot; avpcode [vendor] &quot;&gt;&quot;</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Background:
+There was an initial errata (kept for background information at the bottom of this note). After some discussion with the dime WG, this errata was modified.
+
+ This errata report is correct on the inconsistency regarding the definition of the command header and AVP header and how they are used in the rest of the document in the ABNF description of commands and Grouped AVPs.
+
+ 
+
+For commands, the header is defined as follow:
+
+ 
+
+   header           = &quot;&lt;Diameter-Header:&quot; command-id
+
+                         [r-bit] [p-bit] [e-bit] [application-id]&quot;&gt;&quot;
+
+ 
+
+whereas &quot;&lt;Diameter Header:&quot; is used when defining commands.
+
+ 
+
+Same for Grouped AVP. It is defined as follow:
+
+ 
+
+         header           = &quot;&lt;&quot; &quot;AVP-Header:&quot; avpcode [vendor] &quot;&gt;&quot;
+
+ 
+
+whereas &quot;&lt;AVP Header:&quot; is used when defining Grouped AVPs.
+
+ 
+
+Considering that most (if not all) the ABNF descriptions have been copied from the commands and Grouped AVPs defined in the RFC3588 or RFC6733, I would be in favor to correct the specification by modifying the definition of the headers, i.e.
+
+ 
+
+--&gt; In section 3.2.  Command Code Format Specification
+
+ 
+
+OLD:
+
+ 
+
+   header           = &quot;&lt;Diameter-Header:&quot; command-id
+
+                         [r-bit] [p-bit] [e-bit] [application-id]&quot;&gt;&quot;
+
+ 
+
+NEW:
+
+ 
+
+   header           = &quot;&lt;Diameter Header:&quot; command-id
+
+                         [r-bit] [p-bit] [e-bit] [application-id]&quot;&gt;&quot;
+
+ 
+
+ 
+
+--&gt; And in section 4.4
+
+ 
+
+OLD:
+
+ 
+
+         header           = &quot;&lt;&quot; &quot;AVP-Header:&quot; avpcode [vendor] &quot;&gt;&quot;
+
+ 
+
+NEW:
+
+ 
+
+         header           = &quot;&lt;&quot; &quot;AVP Header:&quot; avpcode [vendor] &quot;&gt;&quot;
+
+=============================================================================
+
+This initial errata is below:
+Original text:
+   Example-Request ::= &lt; Diameter Header: 9999999, REQ, PXY &gt;
+                       { User-Name }
+                    1* { Origin-Host }
+                     * [ AVP ]
+
+Corrected text:
+   &lt;Example-Request&gt; ::= &lt; Diameter-Header: 9999999, REQ, PXY &gt;
+                       { User-Name }
+                    1* { Origin-Host }
+                     * [ AVP ]
+
+I converted the BNF into a PetitParser parser in Smalltalk/Pharo and noticed that example and grammar do not match. The first issue is with the example following the grammar but most definitions do not follow the BNF so maybe it is best to update the BNF. 
+
+  header           = &quot;&lt;Diameter-Header:&quot; command-id
+                         [r-bit] [p-bit] [e-bit] [application-id]&quot;&gt;&quot;
+
+But &quot;Diameter-Header:&quot; is not used throughout the text so maybe it is better to update the grammar to &quot;Diameter Header:&quot;.
+
+
+ command-def      = &quot;&lt;&quot; command-name &quot;&gt;&quot; &quot;::=&quot; diameter-message
+
+but the example is not using &lt;&gt; for the command-name (&quot;Example-Request&quot;). For the grouped-avp-def application is sometimes used with &quot;&lt;&quot; name &quot;&gt;&quot; and sometimes just name.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Reported (1)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6733" rel="noopener" target="_blank">RFC 6733</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6733.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> dime (ops)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC7075, RFC8553</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6832/">6832</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Reported</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Kshitij Dutt</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-02-03</span>
+                                                    </dd>
+
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 7.1.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>DIAMETER_OUT_OF_SPACE 4002
+
+      A Diameter node received the accounting request but was unable to
+      commit it to stable storage due to a temporary lack of space.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>DIAMETER_OUT_OF_SPACE 4002
+
+      A Diameter node received the request but was unable to
+      commit it to stable storage due to a temporary lack of space.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Original text signifies accounting application explicitly. It can be any of Accounting or Authorization.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Held for Document Update (3)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6733" rel="noopener" target="_blank">RFC 6733</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6733.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> dime (ops)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC7075, RFC8553</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5084/">5084</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Priyatosh Mandal</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2017-08-11</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2017-09-17</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 8.16 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>By including Origin-State-Id in a message, it allows other Diameter
+entities to infer that sessions associated with a lower Origin-State-Id 
+are no longer active.
+If an access device does not intend for such inferences to be made, it 
+MUST either not include Origin-State-Id in any message or set its value 
+to 0.
+
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>By including Origin-State-Id in a message, it allows other Diameter
+entities to infer that sessions associated with a lower Origin-State-Id 
+are no longer active.
+If an access device does not intend for such inferences to be made, it 
+MUST either not include Origin-State-Id in any message or set its value 
+to 0. 
+As a special case when the value of Origin-State-Id changes from 
+4294967295 to 0, then also the access device  clear all the sessions.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Origin-State-Id is defined as Unsigned32 in RFC 6733, Section 8.16. So the maximum 
+value it can have is 4294967295. If the system restarts many times and the value of
+Origin-State-Id reaches the value which is same as its maximum value 4294967295. 
+Then what will happen for the next restart. At the next restart the value of Origin-State-Id 
+will be 0 if we try to increase the value of Origin-State-Id.
+It is not defined in the RFC 6733, that how the system should behave after 4294967295-th 
+restart with respect to Origin-State-Id.
+
+Generally when the peer receives an increased value of Origin-State-Id, then it clear all sessions.
+If the value of Origin-State-Id reaches its maximum i.e., 4294967295, then after another restart 
+its value will be 0. For a special case for transition of value of Origin-State-Id from 
+4294967295 to 0, the peer should clear its session.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4210/">4210</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Hans Liu</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-12-25</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-01-07</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.4.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   The Disconnect-Cause AVP (AVP Code 273) is of type Enumerated.  A
+   Diameter node MUST include this AVP in the Disconnect-Peer-Request
+   message to inform the peer of the reason for its intention to shut
+   down the transport connection.  The following values are supported:
+      REBOOTING                         0
+         A scheduled reboot is imminent.  A receiver of a DPR with
+         above result code MAY attempt reconnection.
+      BUSY                              1
+         The peer’s internal resources are constrained, and it has
+         determined that the transport connection needs to be closed.
+         A receiver of a DPR with above result code SHOULD NOT attempt
+         reconnection.
+      DO_NOT_WANT_TO_TALK_TO_YOU        2
+         The peer has determined that it does not see a need for the
+         transport connection to exist, since it does not expect any
+         messages to be exchanged in the near future.  A receiver of a
+         DPR with above result code SHOULD NOT attempt reconnection.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   The Disconnect-Cause AVP (AVP Code 273) is of type Enumerated.  A
+   Diameter node MUST include this AVP in the Disconnect-Peer-Request
+   message to inform the peer of the reason for its intention to shut
+   down the transport connection.  The following values are supported:
+      REBOOTING                         0
+         A scheduled reboot is imminent.  A receiver of a DPR with
+         above result code MAY attempt reconnection.
+      BUSY                              1
+         The internal resources are constrained, and it has
+         determined that the transport connection needs to be closed.
+         A receiver of a DPR with above result code SHOULD NOT attempt
+         reconnection.
+      DO_NOT_WANT_TO_TALK_TO_YOU        2
+         The node has determined that it does not see a need for the
+         transport connection to exist, since it does not expect any
+         messages to be exchanged in the near future.  A receiver of a
+         DPR with above result code SHOULD NOT attempt reconnection.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>A peer can either be a sender or receiver, depending on the contexst.
+
+However in same section describing usage for the same AVP (description for cause), the 1st appearance represents the role of receiver, the 2nd and 3rd appearances has changed to the role of senders, it&#x27;s confusing literally.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4234/">4234</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Lionel Morand</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2015-01-16</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Kathleen Moriarty</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-01-16</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>In the last sentence of first paragraph odf the section 5.4, it is said:
+
+   When a Diameter node disconnects one of its transport connections,
+   its peer cannot know the reason for the disconnect and will most
+   likely assume that a connectivity problem occurred or that the peer
+   has rebooted.  In these cases, the peer may periodically attempt to
+   reconnect, as stated in Section 2.1.  In the event that the
+   disconnect was a result of either a shortage of internal resources or
+   simply that the node in question has no intentions of forwarding any
+   Diameter messages to the peer in the foreseeable future, a periodic
+   connection request would not be welcomed.  The Disconnection-Reason
+   AVP contains the reason the Diameter node issued the Disconnect-Peer-
+   Request message.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>the sentence should be:
+
+
+   When a Diameter node disconnects one of its transport connections,
+   its peer cannot know the reason for the disconnect and will most
+   likely assume that a connectivity problem occurred or that the peer
+   has rebooted.  In these cases, the peer may periodically attempt to
+   reconnect, as stated in Section 2.1.  In the event that the
+   disconnect was a result of either a shortage of internal resources or
+   simply that the node in question has no intentions of forwarding any
+   Diameter messages to the peer in the foreseeable future, a periodic
+   connection request would not be welcomed.  The Disconnect-Cause AVP
+   contains the reason the Diameter node issued the Disconnect-Peer-
+   Request message.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The correct name of the AVP is &quot;Disconnect-Cause AVP&quot; and not &quot;Disconnection-Reason AVP&quot; that does not exist.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (6)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6733" rel="noopener" target="_blank">RFC 6733</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6733.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> dime (ops)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC7075, RFC8553</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4209/">4209</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Hans Liu</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-12-25</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-01-23</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.4.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>      BUSY                              1
+         The peer’s internal resources are constrained, and it has
+         determined that the transport connection needs to be closed.
+         A receiver of a DPR with above result code SHOULD NOT attempt
+         reconnection.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>      BUSY                              1
+         The peer’s internal resources are constrained, and it has
+         determined that the transport connection needs to be closed.
+         A receiver of a DPR with above result code SHOULD either 
+         connect to an alternate node, or attempt reconnection
+         after a time period.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>In most implementations, the Diameter node will continue to serve its peer after the resources recover and expect reconnection. If the Diameter node won&#x27;t like reconnection from peer, DO_NOT_WANT_TO_TALK_TO_YOU can be used instead of BUSY.
+ --VERIFIER NOTES-- 
+The text describing the &quot;BUSY&quot; and &quot;DO_NOT_WANT_TO_TALK_TO_YOU&quot; cases is consistent with the text found in the introduction of the section 5.4.
+
+  &quot;In the event that the
+   disconnect was a result of either a shortage of internal resources or
+   simply that the node in question has no intentions of forwarding any
+   Diameter messages to the peer in the foreseeable future, a periodic
+   connection request would not be welcomed.  The Disconnection-Reason
+   AVP contains the reason the Diameter node issued the Disconnect-Peer-
+   Request message.
+
+   The Disconnect-Peer-Request message is used by a Diameter node to
+   inform its peer of its intent to disconnect the transport layer and
+   that the peer shouldn&#x27;t reconnect unless it has a valid reason to do
+   so (e.g., message to be forwarded). &quot; 
+
+So the main purpose for sending a DPR with the causes &quot;BUSY&quot; and &quot;DO_NOT_WANT_TO_TALK_TO_YOU&quot; is actually to avoid the periodic reconnection attempts governed by the Tc timer.
+These exceptions are mentioned in the section 2.1:
+
+  &quot;When no transport connection exists with a peer, an attempt to
+   connect SHOULD be made periodically.  This behavior is handled via
+   the Tc timer (see Section 12 for details), whose recommended value is
+   30 seconds.  There are certain exceptions to this rule, such as when
+   a peer has terminated the transport connection stating that it does
+   not wish to communicate.&quot;
+
+Now, it is true that there is no clear guideline on how to behave when receiving the cause &quot;BUSY&quot; and this explains why some implementations in the field still attempt to re-open the connection, as after a normal transport failure detection. But it does not mean that the text in the RFC6733 is wrong.
+
+Finally, if it is an attempt to clarify/modify the behavior of the peer receiving DPR with the &quot;BUSY&quot; cause, I don&#x27;t think that using errata would be the most appropriate way. </code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4462/">4462</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Keshab Upadhya</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2015-09-01</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Stephen Farrell</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-09-11</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.1.4 6.1.6 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>6.1.4.  Processing Local Requests
+
+   A request is known to be for local consumption when one of the
+   following conditions occurs:
+
+   o  The Destination-Host AVP contains the local host&#x27;s identity;
+
+   o  The Destination-Host AVP is not present, the Destination-Realm AVP
+      contains a realm the server is configured to process locally, and
+      the Diameter application is locally supported; or
+
+   o  Both the Destination-Host and the Destination-Realm are not
+      present.
+
+6.1.6.  Request Routing
+
+   Diameter request message routing is done via realms and Application
+   Ids. A Diameter message that may be forwarded by Diameter agents
+   (proxies, redirect agents, or relay agents) MUST include the target
+   realm in the Destination-Realm AVP.  Request routing SHOULD rely on
+   the Destination-Realm AVP and the Application Id present in the
+   request message header to aid in the routing decision.  The realm MAY
+   be retrieved from the User-Name AVP, which is in the form of a
+   Network Access Identifier (NAI).  The realm portion of the NAI is
+   inserted in the Destination-Realm AVP.
+
+   Diameter agents MAY have a list of locally supported realms and
+   applications, and they MAY have a list of externally supported realms
+   and applications.  When a request is received that includes a realm
+   and/or application that is not locally supported, the message is
+   routed to the peer configured in the routing table (see Section 2.7).
+
+   Realm names and Application Ids are the minimum supported routing
+   criteria, additional information may be needed to support redirect
+   semantics.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>6.1.6 -
+  When a request is received that includes a realm
+   and/or application that is not locally supported, the message is
+   routed to the peer configured
+
+conflicts with 6.1.4 -
+   The Destination-Host AVP is not present, the Destination-Realm AVP
+      contains a realm the server is configured to process locally, and
+      the Diameter application is locally supported
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>please guide if 6.1.4 Local processing - &quot;hostname not present&quot; needs to be amended by &quot;not present in host peer routing table&quot;. otherwise it conflicts with 6.1.6.
+ --VERIFIER NOTES-- 
+DIME WG chairs report this is erroneous.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4463/">4463</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Keshab Upadhya</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2015-09-01</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Stephen Farrell</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-09-11</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.1.7 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>6.1.7.  Predictive Loop Avoidance</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>6.1.7.  Predictive Loop Detection and termination</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>one full cycle of loop execution happens before route record is identified and loop being realized. A scenario example where two Diameter Agents are configured to do precedence based routing to two different hss and where as if hss otherwise does loadshare using 4 different links each in such cases loop can even be reach stage 2 before being realized therefore it doesn&#x27;t qualify the avoidance or prevention rather detection and termination. thanks.
+ --VERIFIER NOTES-- 
+
+There is no need or benefit from this change.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4473/">4473</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Keshab Upadhya</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2015-09-14</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Stephen Farrell</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-10-07</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.1.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>6.1.4.  Processing Local Requests
+
+The Destination-Host AVP is not present, the Destination-Realm AVP
+contains a realm the server is configured to process locally, and
+the Diameter application is locally supported; or
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>6.1.4.  Processing Local Requests
+
+The Destination-Host AVP is not present in peer routing table, 
+the Destination-Realm AVP contains a realm the server is 
+configured to process locally, and 
+the Diameter application is locally supported; or
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>6.1.4 - Processing Local Requests
+
+      The Destination-Host AVP is not present, the Destination-Realm AVP
+      contains a realm the server is configured to process locally, and
+      the Diameter application is locally supported
+
+6.1.6 - Request Routing
+
+   When a request is received that includes a realm
+   and/or application that is not locally supported, the message is
+   routed to the peer configured
+
+As given above 6.1.4 second rule contradicts with 6.1.6 para 2.
+ --VERIFIER NOTES-- 
+   DIME chairs recommended reject</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4931/">4931</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Luiz Solis</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2017-02-09</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benoit Claise</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2017-02-10</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.1.9 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Figure 6.1 provides an example of message routing using the procedures
+listed in these sections.
+
+(Origin-Host=nas.example.net)    (Origin-Host=nas.example.net)
+(Origin-Realm=example.net)       (Origin-Realm=example.net)
+(Destination-Realm=example.com)  (Destination-Realm=example.com)
+                                 (Route-Record=nas.example.net)
+
++------+      ------&gt;      +------+      ------&gt;      +------+
+|      |     (Request)     |      |      (Request)    |      |
+| NAS  +-------------------+ DRL  +-------------------+ HMS  |
+|      |                   |      |                   |      |
++------+     &lt;------       +------+     &lt;------       +------+
+example.net    (Answer)   example.net     (Answer)   example.com
+(Origin-Host=hms.example.com)   (Origin-Host=hms.example.com)
+(Origin-Realm=example.com)      (Origin-Realm=example.com)
+
+       Figure 6: Routing of Diameter messages</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Figure 6.1 provides an example of message routing using the procedures
+listed in these sections.
+
+(Origin-Host=nas.example.net)    (Origin-Host=nas.example.net)
+(Origin-Realm=example.net)       (Origin-Realm=example.net)
+(Destination-Realm=example.com)  (Destination-Realm=example.com)
+(Route-Record=nas.example.net)*  (Route-Record=nas.example.net)
+                                 (Route-Record=drl.example.net)*
++------+      ------&gt;      +------+      ------&gt;      +------+
+|      |     (Request)     |      |      (Request)    |      |
+| NAS  +-------------------+ DRL  +-------------------+ HMS  |
+|      |                   |      |                   |      |
++------+     &lt;------       +------+     &lt;------       +------+
+example.net    (Answer)   example.net     (Answer)   example.com
+(Origin-Host=hms.example.com)   (Origin-Host=hms.example.com)
+(Origin-Realm=example.com)      (Origin-Realm=example.com)
+
+*Optional.
+
+                  Figure 6: Routing of Diameter messages</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The relay or proxy agent should append their own identity optionally in an additional Route-Record AVP (282).
+ --VERIFIER NOTES-- 
+The Route-Record is primarily used to detect loops:
+
+6.1.3.  Receiving Requests
+
+   A relay or proxy agent MUST check for forwarding loops when receiving
+   requests.  A loop is detected if the server finds its own identity in
+   a Route-Record AVP.  When such an event occurs, the agent MUST answer
+   with the Result-Code AVP set to DIAMETER_LOOP_DETECTED.
+
+How  to populate the Route-Record is described twice:
+
+Section 2.9:
+
+   As noted in Section 6.1.9, a relay or proxy agent MUST append a
+   Route-Record AVP to all requests forwarded.  The AVP contains the
+   identity of the peer from which the request was received.
+
+6.7.1.  Route-Record AVP
+
+   The Route-Record AVP (AVP Code 282) is of type DiameterIdentity.  The
+   identity added in this AVP MUST be the same as the one received in
+   the Origin-Host of the Capabilities Exchange message.
+
+Therefore, it&#x27;s  &quot;rather clear&quot; that a relay and a proxy MUST append a Route-Record to all requests forwarded with the identity of the peer from which the request was received
+
+I think that Luis was maybe misled by the following text:
+
+6.1.3.  Receiving Requests
+
+   A relay or proxy agent MUST check for forwarding loops when receiving
+   requests.  A loop is detected if the server finds its own identity in
+   a Route-Record AVP.  When such an event occurs, the agent MUST answer
+   with the Result-Code AVP set to DIAMETER_LOOP_DETECTED.
+
+in which &quot;find its own identity&quot; might have been confusing out of context. But sections 2.9 and 6.7.1 should have clarified this misunderstanding. 
+
+Whatever the reason for the proposed errata, it can be safely rejected.
+</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6833/">6833</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Kshitij Dutt</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-02-03</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Rob Wilton</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2023-10-02</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 2.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>The following Application Id values are defined:
+
+         Diameter common message       0
+         Diameter base accounting      3
+         Relay                         0xffffffff</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>The following Application Id values are defined:
+
+         Diameter common message       0
+         Diameter base accounting      3
+         Relay                         0xffffff</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>I presume relay application ID should be 0xffffff decimal equivalent of which is 16777215.
+Instead 0xffffffff decimal translates to 4294967295.
+
+This is assumption.
+ --VERIFIER NOTES-- 
+ The Application-ID field in the Diameter header is 32 bits long, hence the exist Application Id for &quot;Relay&quot; is correct.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

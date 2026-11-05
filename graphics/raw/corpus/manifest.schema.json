@@ -1,0 +1,473 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "raw corpus manifest",
+  "description": "Versioned inventory of public, generated, and private RAW conformance samples.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "samples"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "./manifest.schema.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "samples": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sample"
+      }
+    }
+  },
+  "$defs": {
+    "nullableString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nullableNonemptyString": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nullableSha256": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "expectation": {
+      "enum": [
+        "required",
+        "unsupported",
+        "not-applicable",
+        "not-evaluated"
+      ]
+    },
+    "sample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "availability",
+        "path",
+        "byteLength",
+        "hashes",
+        "roles",
+        "provenance",
+        "rights",
+        "labels",
+        "profileIds",
+        "expectedCapabilities",
+        "notes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"
+        },
+        "availability": {
+          "enum": [
+            "repository",
+            "remote",
+            "private",
+            "private-placeholder",
+            "missing"
+          ]
+        },
+        "path": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "byteLength": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hashes": {
+          "$ref": "#/$defs/hashes"
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "read-conformance",
+              "metadata-conformance",
+              "decode-golden",
+              "render-golden",
+              "rewrite-source",
+              "write-source",
+              "write-output-golden",
+              "corruption-seed"
+            ]
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "rights": {
+          "$ref": "#/$defs/rights"
+        },
+        "labels": {
+          "$ref": "#/$defs/labels"
+        },
+        "profileIds": {
+          "$ref": "#/$defs/profileIds"
+        },
+        "expectedCapabilities": {
+          "$ref": "#/$defs/expectedCapabilities"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "repository"
+              }
+            },
+            "required": [
+              "availability"
+            ]
+          },
+          "then": {
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "byteLength": {
+                "type": "integer"
+              },
+              "hashes": {
+                "properties": {
+                  "fileSha256": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "remote"
+              }
+            },
+            "required": [
+              "availability"
+            ]
+          },
+          "then": {
+            "properties": {
+              "hashes": {
+                "properties": {
+                  "fileSha256": {
+                    "type": "string"
+                  }
+                }
+              },
+              "provenance": {
+                "properties": {
+                  "sourceUri": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "private-placeholder"
+              }
+            },
+            "required": [
+              "availability"
+            ]
+          },
+          "then": {
+            "properties": {
+              "path": {
+                "type": "null"
+              },
+              "byteLength": {
+                "type": "null"
+              },
+              "hashes": {
+                "properties": {
+                  "fileSha256": {
+                    "type": "null"
+                  }
+                }
+              },
+              "rights": {
+                "properties": {
+                  "redistribution": {
+                    "enum": [
+                      "restricted",
+                      "prohibited",
+                      "unknown"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fileSha256",
+        "decodedSamplesSha256",
+        "renderSha256"
+      ],
+      "properties": {
+        "fileSha256": {
+          "$ref": "#/$defs/nullableSha256"
+        },
+        "decodedSamplesSha256": {
+          "$ref": "#/$defs/nullableSha256"
+        },
+        "renderSha256": {
+          "$ref": "#/$defs/nullableSha256"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "origin",
+        "sourceUri",
+        "contributor",
+        "acquiredOn",
+        "notes"
+      ],
+      "properties": {
+        "origin": {
+          "enum": [
+            "downloaded",
+            "captured",
+            "donated",
+            "generated",
+            "synthetic",
+            "private",
+            "unknown"
+          ]
+        },
+        "sourceUri": {
+          "$ref": "#/$defs/nullableNonemptyString"
+        },
+        "contributor": {
+          "$ref": "#/$defs/nullableNonemptyString"
+        },
+        "acquiredOn": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "licenseId",
+        "copyright",
+        "redistribution",
+        "evidence"
+      ],
+      "properties": {
+        "licenseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "copyright": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "redistribution": {
+          "enum": [
+            "allowed",
+            "restricted",
+            "prohibited",
+            "unknown"
+          ]
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "make",
+        "model",
+        "cameraId",
+        "firmware",
+        "variant",
+        "compression",
+        "bitDepth"
+      ],
+      "properties": {
+        "format": {
+          "enum": [
+            "raw",
+            "cr2",
+            "nef",
+            "tiff"
+          ]
+        },
+        "make": {
+          "$ref": "#/$defs/nullableNonemptyString"
+        },
+        "model": {
+          "$ref": "#/$defs/nullableNonemptyString"
+        },
+        "cameraId": {
+          "$ref": "#/$defs/nullableNonemptyString"
+        },
+        "firmware": {
+          "$ref": "#/$defs/nullableNonemptyString"
+        },
+        "variant": {
+          "type": "string",
+          "minLength": 1
+        },
+        "compression": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bitDepth": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 32
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "profileIds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "read",
+        "write"
+      ],
+      "properties": {
+        "read": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "write": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "expectedCapabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recognized",
+        "inspected",
+        "decoded",
+        "rendered",
+        "preservingRewrite",
+        "encoded",
+        "vendorConfirmed"
+      ],
+      "properties": {
+        "recognized": {
+          "$ref": "#/$defs/expectation"
+        },
+        "inspected": {
+          "$ref": "#/$defs/expectation"
+        },
+        "decoded": {
+          "$ref": "#/$defs/expectation"
+        },
+        "rendered": {
+          "$ref": "#/$defs/expectation"
+        },
+        "preservingRewrite": {
+          "$ref": "#/$defs/expectation"
+        },
+        "encoded": {
+          "$ref": "#/$defs/expectation"
+        },
+        "vendorConfirmed": {
+          "$ref": "#/$defs/expectation"
+        }
+      }
+    }
+  }
+}

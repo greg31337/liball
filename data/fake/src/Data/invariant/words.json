@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "invariant",
+  "fallbacks": [],
+  "reviewStatus": "standards-reviewed",
+  "provenance": [
+    {
+      "id": "project-authored-words",
+      "source": "Original project-authored invariant filler vocabulary",
+      "sourceVersion": "2026-08-14",
+      "license": "project-license",
+      "reviewer": "repository-data-review-2026-08-14"
+    }
+  ],
+  "fields": [
+    {
+      "name": "text.words",
+      "provenance": "project-authored-words",
+      "value": {
+        "values": [
+          {"text": "anchor", "partOfSpeech": "noun"},
+          {"text": "brook", "partOfSpeech": "noun"},
+          {"text": "canvas", "partOfSpeech": "noun"},
+          {"text": "garden", "partOfSpeech": "noun"},
+          {"text": "harbor", "partOfSpeech": "noun"},
+          {"text": "lantern", "partOfSpeech": "noun"},
+          {"text": "meadow", "partOfSpeech": "noun"},
+          {"text": "pattern", "partOfSpeech": "noun"},
+          {"text": "signal", "partOfSpeech": "noun"},
+          {"text": "window", "partOfSpeech": "noun"},
+          {"text": "balance", "partOfSpeech": "verb"},
+          {"text": "build", "partOfSpeech": "verb"},
+          {"text": "carry", "partOfSpeech": "verb"},
+          {"text": "gather", "partOfSpeech": "verb"},
+          {"text": "listen", "partOfSpeech": "verb"},
+          {"text": "notice", "partOfSpeech": "verb"},
+          {"text": "shape", "partOfSpeech": "verb"},
+          {"text": "travel", "partOfSpeech": "verb"},
+          {"text": "turn", "partOfSpeech": "verb"},
+          {"text": "weave", "partOfSpeech": "verb"},
+          {"text": "bright", "partOfSpeech": "adjective"},
+          {"text": "calm", "partOfSpeech": "adjective"},
+          {"text": "clear", "partOfSpeech": "adjective"},
+          {"text": "gentle", "partOfSpeech": "adjective"},
+          {"text": "open", "partOfSpeech": "adjective"},
+          {"text": "quiet", "partOfSpeech": "adjective"},
+          {"text": "steady", "partOfSpeech": "adjective"},
+          {"text": "subtle", "partOfSpeech": "adjective"},
+          {"text": "warm", "partOfSpeech": "adjective"},
+          {"text": "wide", "partOfSpeech": "adjective"},
+          {"text": "boldly", "partOfSpeech": "adverb"},
+          {"text": "evenly", "partOfSpeech": "adverb"},
+          {"text": "gently", "partOfSpeech": "adverb"},
+          {"text": "nearby", "partOfSpeech": "adverb"},
+          {"text": "often", "partOfSpeech": "adverb"},
+          {"text": "quietly", "partOfSpeech": "adverb"},
+          {"text": "slowly", "partOfSpeech": "adverb"},
+          {"text": "smoothly", "partOfSpeech": "adverb"},
+          {"text": "together", "partOfSpeech": "adverb"},
+          {"text": "widely", "partOfSpeech": "adverb"}
+        ],
+        "weights": [
+          5, 3, 3, 5, 4, 3, 4, 5, 4, 5,
+          3, 6, 5, 4, 4, 3, 5, 4, 5, 3,
+          4, 5, 6, 4, 5, 4, 5, 3, 4, 4,
+          2, 3, 4, 3, 5, 3, 4, 3, 4, 3
+        ]
+      }
+    }
+  ]
+}

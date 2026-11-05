@@ -1,0 +1,418 @@
+ <!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Java Software Library for parsing SQL Statements into Abstract Syntax Trees (AST) and manipulation of SQL Statements" name="description" />
+<meta content="java sql statement parser abstract syntax tree" name="keywords" />
+
+    <title>Java SQL Parser Library &#8212; JSQLParser 5.3.282 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=56bcbf23" />
+    <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=fae7147a" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="_static/javadoc.css?v=d268ceeb" />
+    <link rel="stylesheet" type="text/css" href="_static/svg.css?v=07ae23bc" />
+    <script src="_static/documentation_options.js?v=bcfe7f2e"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/tabs.js?v=3ee01567"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to use it" href="usage.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+    (function () {
+        var s;
+        try {
+            s = localStorage.getItem("bst-theme");
+        } catch (e) {}
+        if (s === "dark" || s === "light") {
+            document.documentElement.setAttribute("data-theme", s);
+        }
+    })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+/>
+<link rel="icon" href="_static/favicon.svg" />
+<style>
+    :root {
+      --bst-primary:      #0063db;
+      --bst-accent:       #d90000;
+      --bst-sidebar-bg:   #f5f6fa;
+      --bst-sidebar-text: #2d2d48;
+      --bst-content-max:  52rem;
+    }
+    aside.sidebar, div.sidebar {
+      float: right !important;
+      clear: right;
+      width: 33%;
+      max-width: none;
+      min-width: 10rem;
+      margin: 0.25em 0 1.25em 1.5em !important;
+      overflow: hidden;
+      border-left: 1px solid var(--bst-border) !important;
+    }
+    aside.sidebar img, div.sidebar img {
+      display: block !important;
+      float: none !important;
+      width: 100%;
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 0.3em auto !important;
+    }
+    aside.sidebar a.image-reference, div.sidebar a.image-reference {
+      display: block;
+    }
+</style>
+
+  </head>
+<body class="bst-body">
+     
+    <nav class="bst-mobile-bar" role="navigation" aria-label="mobile navigation">
+        <div class="bst-mobile-bar__inner">
+            <button class="bst-hamburger" id="bst-sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <a class="bst-mobile-bar__brand" href="#">
+                <img
+                    src="_static/logo-no-background.svg"
+                    alt="JSQL Parser"
+                    class="bst-mobile-bar__logo"
+                />
+                <span>JSQL Parser</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="bst-wrapper">
+        
+        <aside class="bst-sidebar" id="bst-sidebar" role="navigation" aria-label="main navigation">
+            <div class="bst-sidebar__scroll">
+                <div class="bst-sidebar__brand">
+                    <a href="#" class="bst-sidebar__brand-link">
+                        <img
+                            src="_static/logo-no-background.svg"
+                            alt="JSQL Parser"
+                            class="bst-sidebar__logo"
+                        />
+                        <span class="bst-sidebar__title">JSQLParser</span>
+                    </a>
+                </div>
+                <div class="bst-sidebar__search">
+                    <form action="search.html" method="get" autocomplete="off">
+                        <div class="bst-search-field">
+                            <svg
+                                class="bst-search-field__icon"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                width="16"
+                                height="16"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            <input
+                                type="text"
+                                name="q"
+                                placeholder="Search docs…"
+                                class="bst-search-field__input"
+                                aria-label="Search documentation"
+                            />
+                        </div>
+                    </form>
+                </div>
+                <nav class="bst-sidebar__nav" aria-label="Table of contents">
+                    <ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">How to use it</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration47.html">Migration to 4.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration50.html">Migration to 5.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_stable.html">SQL Grammar Stable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_snapshot.html">SQL Grammar Snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupported.html">Unsupported Grammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javadoc_stable.html">Java API Stable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javadoc_snapshot.html">Java API Snapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keywords.html">Reserved Keywords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+                </nav>
+            </div>
+        </aside>
+
+        
+        <main class="bst-main" role="main">
+            
+            <header class="bst-header" id="bst-header">
+                <div class="bst-header__left">
+                    <nav class="bst-breadcrumbs" aria-label="Breadcrumb">
+                        <ul class="bst-breadcrumbs__list">
+                            <li><a href="#">Home</a></li>
+                            <li class="is-active" aria-current="page">Java SQL Parser Library</li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bst-header__right">
+                    <button
+                        class="bst-theme-toggle"
+                        id="bst-theme-toggle"
+                        aria-label="Toggle colour scheme"
+                        title="Colour scheme"
+                    >
+                        <svg
+                            class="bst-theme-icon bst-theme-icon--light"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg>
+                        <svg
+                            class="bst-theme-icon bst-theme-icon--dark"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                        </svg>
+                        <svg
+                            class="bst-theme-icon bst-theme-icon--system"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </button>
+                    <a href="https://github.com/JSQLParser/JSqlParser" class="bst-header__repo" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path
+                                fill-rule="evenodd"
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                            />
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </header>
+
+            
+                <article class="bst-article">
+                  <div class="bst-article__content">
+                    
+  <section id="java-sql-parser-library">
+<h1>Java SQL Parser Library<a class="headerlink" href="#java-sql-parser-library" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<a class="reference external image-reference" href="https://github.com/JSQLParser/JSqlParser/releases"><img alt="GitGub Release Badge" src="https://img.shields.io/github/release/JSQLParser/JSqlParser?include_prereleases=&amp;sort=semver&amp;color=blue" />
+</a>
+<a class="reference external image-reference" href="https://github.com/JSQLParser/JSqlParser/issues"><img alt="GitGub Issues Badge" src="https://img.shields.io/github/issues/JSQLParser/JSqlParser" />
+</a>
+<a class="reference external image-reference" href="https://mvnrepository.com/artifact/com.github.jsqlparser/jsqlparser"><img alt="Maven Badge" src="https://badgen.net/maven/v/maven-central/com.github.jsqlparser/jsqlparser" />
+</a>
+<a class="reference external image-reference" href="https://github.com/JSQLParser/JSqlParser/actions/workflows/ci.yml"><img alt="CI Status" src="https://github.com/JSQLParser/JSqlParser/actions/workflows/ci.yml/badge.svg" />
+</a>
+<a class="reference external image-reference" href="https://coveralls.io/github/com.github.jsqlparser/jsqlparser?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/JSQLParser/JSqlParser/badge.svg?branch=master" />
+</a>
+<a class="reference external image-reference" href="https://app.codacy.com/gh/com.github.jsqlparser/jsqlparser/dashboard?utm_source=gh&amp;utm_medium=referral&amp;utm_content=&amp;utm_campaign=Badge_grade"><img alt="Codacy Status" src="https://app.codacy.com/project/badge/Grade/6f9a2d7eb98f45969749e101322634a1" />
+</a>
+<a class="reference external image-reference" href="https://javadoc.io/doc/com.github.jsqlparser/jsqlparser/latest/index.html"><img alt="Java Docs" src="https://www.javadoc.io/badge/com.github.jsqlparser/jsqlparser.svg" />
+</a>
+<p>A huge thank you to our sponsor, <a class="reference external" href="https://starlake.ai/">Starlake.ai</a> who simplifies data ingestion, transformation, and orchestration, enabling faster delivery of high-quality data. Starlake has been instrumental in providing Piped SQL and numerous test cases for BigQuery, Redshift, DataBricks, and DuckDB. Show your support for ongoing development by visiting Starlake.ai and giving us a star!</p>
+<aside class="sidebar">
+<p class="sidebar-title">Java API Website</p>
+<img alt="_images/JavaAST.png" src="_images/JavaAST.png" />
+</aside>
+<p><strong>JSQLParser</strong> is a SQL statement parser built from JavaCC. It translates SQLs in a traversable hierarchy of Java classes.
+Since the 5.0 release JSQLParser depends on Java 11 and has introduced new Visitors. Please see the <a class="reference internal" href="migration50.html#migration-to-5-0"><span class="std std-ref">Migration to 5.0</span></a> guide.</p>
+<p>Latest stable release: <a href='http://manticore-projects.com/download/JSQLParser-5.3.282/JSQLParser-5.3.282.jar'>JSQLParser-5.3.282.jar</a></p>
+<p>Development version: <a href='http://manticore-projects.com/download/JSQLParser-5.3.282/JSQLParser-5.4.282-SNAPSHOT.jar'>JSQLParser-5.4.282-SNAPSHOT.jar</a></p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Sample SQL Statement</span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="cm">/*+ PARALLEL */</span>
+<span class="w">    </span><span class="n">cfe</span><span class="p">.</span><span class="n">id_collateral_ref</span><span class="p">.</span><span class="n">nextval</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">id_collateral</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">            </span><span class="n">a</span><span class="p">.</span><span class="n">id_collateral</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">cfe</span><span class="p">.</span><span class="n">collateral</span><span class="w"> </span><span class="n">a</span>
+<span class="w">            </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">cfe</span><span class="p">.</span><span class="n">collateral_ref</span><span class="w"> </span><span class="n">b</span>
+<span class="w">                </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id_collateral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id_collateral</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id_collateral_ref</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="p">)</span>
+<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<section id="sql-dialects">
+<h2>SQL Dialects<a class="headerlink" href="#sql-dialects" title="Link to this heading">¶</a></h2>
+<p><strong>JSqlParser</strong> is RDBMS agnostic and provides support for many dialects such as:</p>
+<ul class="simple">
+<li><p>Oracle Database</p></li>
+<li><p>MS SqlServer</p></li>
+<li><p>MySQL and MariaDB</p></li>
+<li><p>PostgreSQL</p></li>
+<li><p>H2</p></li>
+<li><p>DuckDB</p></li>
+<li><p>Google BigQuery</p></li>
+<li><p>Amazon Redshift</p></li>
+<li><p>DataBricks</p></li>
+<li><p>Snowflake</p></li>
+</ul>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Comprehensive support for statements:</dt><dd><ul>
+<li><p>QUERY: <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">...</span></code></p></li>
+<li><p>DML: <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">...</span> <span class="pre">INTO</span> <span class="pre">...</span></code> <code class="docutils literal notranslate"><span class="pre">UPDATE</span> <span class="pre">...</span></code> <code class="docutils literal notranslate"><span class="pre">MERGE</span> <span class="pre">...</span> <span class="pre">INTO</span> <span class="pre">...</span></code> <code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">...</span> <span class="pre">FROM</span> <span class="pre">...</span></code></p></li>
+<li><p>DDL: <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">...</span></code> <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">...</span></code> <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">...</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Nested Expressions (e.g. Sub-Selects)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WITH</span></code> clauses</p></li>
+<li><p>Old Oracle <code class="docutils literal notranslate"><span class="pre">JOIN</span> <span class="pre">(+)</span></code></p></li>
+<li><p>PostgreSQL implicit <code class="docutils literal notranslate"><span class="pre">CAST</span> <span class="pre">::</span></code></p></li>
+<li><p>SQL Parameters (e.g. <code class="docutils literal notranslate"><span class="pre">?</span></code> or <code class="docutils literal notranslate"><span class="pre">:parameter</span></code>)</p></li>
+<li><p>Arrays vs. T-SQL Squared Bracket Quotes</p></li>
+<li><p>Fluent API to create SQL Statements from java Code</p></li>
+<li><p>Statement De-Parser to write SQL from Java Objects</p></li>
+<li><p>Piped SQL (also known as FROM SQL)</p></li>
+</ul>
+</section>
+</section>
+
+
+
+                  </div>
+                </article>
+
+            
+            <button
+                class="bst-toc-toggle"
+                id="bst-toc-toggle"
+                aria-label="Toggle page outline"
+                aria-expanded="true"
+                title="On this page"
+            >
+                <svg
+                    class="bst-toc-toggle__icon bst-toc-toggle__icon--list"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <line x1="8" y1="6" x2="21" y2="6" />
+                    <line x1="8" y1="12" x2="21" y2="12" />
+                    <line x1="8" y1="18" x2="21" y2="18" />
+                    <line x1="3" y1="6" x2="3.01" y2="6" />
+                    <line x1="3" y1="12" x2="3.01" y2="12" />
+                    <line x1="3" y1="18" x2="3.01" y2="18" />
+                </svg>
+                <svg
+                    class="bst-toc-toggle__icon bst-toc-toggle__icon--close"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+            <aside class="bst-page-toc" id="bst-page-toc" aria-label="On this page">
+                <p class="bst-page-toc__heading">On this page</p>
+                <div class="bst-page-toc__search">
+                    <input
+                        type="text"
+                        class="bst-page-toc__filter"
+                        id="bst-toc-filter"
+                        placeholder="Filter…"
+                        aria-label="Filter page sections"
+                        autocomplete="off"
+                    />
+                </div>
+                <ul>
+<li><a class="reference internal" href="#">Java SQL Parser Library</a><ul>
+<li><a class="reference internal" href="#sql-dialects">SQL Dialects</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+</ul>
+
+            </aside> 
+            <nav class="bst-pagination" aria-label="Page navigation"><span></span>
+                <a class="bst-pagination__next" href="usage.html">
+                    <span class="bst-pagination__text">
+                        <span class="bst-pagination__label">Next</span>
+                        <span class="bst-pagination__title">How to use it</span>
+                    </span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 6 15 12 9 18" />
+                    </svg>
+                </a>
+            </nav>
+
+            
+            <footer class="bst-footer">
+                <div class="bst-footer__inner">
+                    <p class="bst-footer__text">All rights reserved.</p>
+                    <p class="bst-footer__powered">
+                        Powered by
+                        <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+                        &amp;
+                        <a href="https://bulma.io/" target="_blank" rel="noopener">Bulma</a>
+                    </p>
+                    <p class="bst-footer__copy">&copy; Tobias Warneke, 2022</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <div class="bst-overlay" id="bst-overlay"></div>
+    <script src="_static/js/theme.js"></script>
+    
+  </body>
+</html>

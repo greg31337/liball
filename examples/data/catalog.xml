@@ -1,0 +1,5 @@
+<catalog>
+  <book id="b1" currency="GBP" price="24.50">C# &amp; XML</book>
+  <book id="b2" currency="GBP" price="19.95">Data &lt;Markup&gt;</book>
+  <book id="b3" currency="GBP" price="28.00">Practical Console Applications</book>
+</catalog>

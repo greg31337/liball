@@ -1,0 +1,14 @@
+{
+  "outdir": "/reports/servers",
+  "servers": [
+    {
+      "agent": "libs11-websocket",
+      "url": "ws://host.docker.internal:9001"
+    }
+  ],
+  "cases": ["*"],
+  "exclude-cases": [
+    "9.*"
+  ],
+  "exclude-agent-cases": {}
+}

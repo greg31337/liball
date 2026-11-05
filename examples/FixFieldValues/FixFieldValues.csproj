@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../finance/fix/src/fix.csproj" />
+  </ItemGroup>
+</Project>

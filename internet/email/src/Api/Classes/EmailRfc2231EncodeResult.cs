@@ -1,0 +1,147 @@
+using System;
+using System.Collections.Generic;
+
+namespace email;
+/// <summary>
+/// Describes the outcome of a rfc 2231 encode operation.
+/// </summary>
+/// <remarks>
+/// Inspect presence, status, or success methods when available before consuming optional output. A successful or partial result can still include warnings and informational issues.
+/// </remarks>
+public class EmailRfc2231EncodeResult : IEmailRfc2231EncodeResultContract
+{
+    byte[] bytes;
+    List<EmailRfc2231Parameter> parameters;
+    int foldCount;
+    int finalLineColumn;
+    /// <summary>
+    /// Creates a new rfc 2231 encode result.
+    /// </summary>
+    /// <param name = "bytes">The source bytes or data to process.</param>
+    /// <param name = "parameters">The parameters used by the operation.</param>
+    /// <param name = "foldCount">The number of items or bytes to process.</param>
+    /// <param name = "finalLineColumn">The final line column used by the operation.</param>
+    /// <exception cref = "ArgumentException">Thrown when an argument is empty, malformed, or inconsistent with the other inputs.</exception>
+    /// <exception cref = "ArgumentNullException">Thrown when a required reference argument is null.</exception>
+    /// <exception cref = "ArgumentOutOfRangeException">Thrown when a numeric, index, or enum argument is outside the supported range.</exception>
+    public EmailRfc2231EncodeResult(byte[] bytes, List<EmailRfc2231Parameter> parameters, int foldCount, int finalLineColumn)
+    {
+        if (bytes == null)
+        {
+            throw new ArgumentNullException("bytes");
+        }
+
+        if (parameters == null)
+        {
+            throw new ArgumentNullException("parameters");
+        }
+
+        if (parameters.Count < 1)
+        {
+            throw new ArgumentException("Generated RFC 2231 output must contain at least one parameter.", "parameters");
+        }
+
+        if (foldCount < 0)
+        {
+            throw new ArgumentOutOfRangeException("foldCount");
+        }
+
+        if (finalLineColumn < 0)
+        {
+            throw new ArgumentOutOfRangeException("finalLineColumn");
+        }
+
+        this.bytes = new byte[bytes.Length];
+        bytes.CopyTo(this.bytes, 0);
+        this.parameters = new List<EmailRfc2231Parameter>(parameters);
+        this.foldCount = foldCount;
+        this.finalLineColumn = finalLineColumn;
+    }
+
+    /// <summary>
+    /// Gets the bytes.
+    /// </summary>
+    /// <remarks>
+    /// Collection and array results should be treated as snapshots unless the owning type explicitly documents shared mutable state.
+    /// </remarks>
+    /// <returns>The current bytes.</returns>
+    public byte[] GetBytes()
+    {
+        byte[] copy = new byte[bytes.Length];
+        bytes.CopyTo(copy, 0);
+        return copy;
+    }
+
+    /// <summary>
+    /// Gets the byte count.
+    /// </summary>
+    /// <returns>The current byte count.</returns>
+    public long GetByteCount()
+    {
+        return bytes.Length;
+    }
+
+    /// <summary>
+    /// Gets the parameter count.
+    /// </summary>
+    /// <returns>The current parameter count.</returns>
+    public int GetParameterCount()
+    {
+        return parameters.Count;
+    }
+
+    /// <summary>
+    /// Gets the parameter.
+    /// </summary>
+    /// <param name = "index">The zero-based index of the requested item.</param>
+    /// <returns>The current parameter.</returns>
+    /// <exception cref = "ArgumentOutOfRangeException">Thrown when a numeric, index, or enum argument is outside the supported range.</exception>
+    public EmailRfc2231Parameter GetParameter(int index)
+    {
+        if (index < 0 || index >= parameters.Count)
+        {
+            throw new ArgumentOutOfRangeException("index");
+        }
+
+        return parameters[index];
+    }
+
+    /// <summary>
+    /// Gets the parameters.
+    /// </summary>
+    /// <remarks>
+    /// Collection and array results should be treated as snapshots unless the owning type explicitly documents shared mutable state.
+    /// </remarks>
+    /// <returns>The current parameters.</returns>
+    public List<EmailRfc2231Parameter> GetParameters()
+    {
+        return new List<EmailRfc2231Parameter>(parameters);
+    }
+
+    /// <summary>
+    /// Determines whether the current value or state uses continuations.
+    /// </summary>
+    /// <returns><c>true</c> when the value or state uses continuations; otherwise, <c>false</c>.</returns>
+    public bool UsesContinuations()
+    {
+        return parameters.Count > 1;
+    }
+
+    /// <summary>
+    /// Gets the fold count.
+    /// </summary>
+    /// <returns>The current fold count.</returns>
+    public int GetFoldCount()
+    {
+        return foldCount;
+    }
+
+    /// <summary>
+    /// Gets the final line column.
+    /// </summary>
+    /// <returns>The current final line column.</returns>
+    public int GetFinalLineColumn()
+    {
+        return finalLineColumn;
+    }
+}

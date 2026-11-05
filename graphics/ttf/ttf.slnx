@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ttf.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Consumer/ttf.ConsumerTests.csproj" />
+    <Project Path="tests/ttf.Tests.csproj" />
+  </Folder>
+</Solution>

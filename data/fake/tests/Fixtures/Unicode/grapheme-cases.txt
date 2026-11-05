@@ -1,0 +1,20 @@
+# Expected extended-grapheme count | Unicode scalar sequence | UAX #29 case
+0||empty
+1|0061|single Latin letter
+1|0061 0308|base plus combining mark
+2|0061 0308 0062|combining sequence followed by letter
+1|000D 000A|CRLF pair
+3|0061 000D 000A 0062|letters separated by CRLF
+1|1100 1161 11A8|Hangul L V T sequence
+1|0600 0061|prepend plus base
+1|0915 093E|Devanagari base plus spacing mark
+2|0915 094D 0937|Indic consonant conjunct in the platform text-element profile
+1|0308|degenerate combining-mark cluster
+1|1F1FA 1F1F8|regional-indicator flag pair
+2|1F1FA 1F1F8 1F1E8|three regional indicators pair from start
+2|1F1FA 1F1F8 1F1E8 1F1E6|two regional-indicator pairs
+1|1F44D 1F3FD|emoji plus skin-tone modifier
+1|0031 FE0F 20E3|keycap sequence
+1|1F469 200D 1F4BB|emoji ZWJ sequence
+1|1F468 200D 1F469 200D 1F467 200D 1F466|family emoji ZWJ sequence
+2|0061 200D 0062|ZWJ stays with preceding base but not following letter

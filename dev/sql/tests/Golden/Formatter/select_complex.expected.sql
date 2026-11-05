@@ -1,0 +1,1 @@
+WITH active_items AS (SELECT id, name, price FROM items WHERE active = 1) SELECT i.id, i.name, sum(o.qty) OVER (PARTITION BY i.id ORDER BY o.created ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_qty FROM active_items AS i LEFT JOIN orders AS o ON o.item_id = i.id WHERE i.price BETWEEN 10 AND 20 ORDER BY i.name DESC LIMIT 5 OFFSET 10;

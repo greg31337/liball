@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE us-patent-grant [
+  <!ENTITY secret SYSTEM "file:///etc/passwd">
+]>
+<us-patent-grant>
+  <us-bibliographic-data-grant>
+    <invention-title>&secret;</invention-title>
+  </us-bibliographic-data-grant>
+</us-patent-grant>

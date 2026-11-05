@@ -1,0 +1,8 @@
+{
+  "sensor": "cafe-cold-room-01",
+  "observedAt": "2026-01-05T08:30:00Z",
+  "temperature": 4.2,
+  "humidity": 64,
+  "online": true,
+  "samples": [4.1, 4.2, 4.2]
+}

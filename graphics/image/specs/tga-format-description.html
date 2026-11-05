@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="unsafe-url">
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<title>TGA: Summary from the Encyclopedia of Graphics File Formats</title>
+</head>
+<body>
+<div class="container-fluid p-3 bg-light d-none d-md-block">
+	<a href="/index.htm"><img src="/images/logos/ffi-horiz-dark.svg"></a>
+</div>
+<nav class="navbar bg-body-tertiary d-print-none" style="background-color: #336699 !important;">
+	<div class="container-fluid">
+		<form action="/search/search.htm" class="d-flex d-none d-md-block" method="get" role="search">
+			<div class="input-group">
+				<input class="form-control" name="q" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-light" type="submit">&#x1f50d;</button>
+			</div>
+		</form>
+		<a class="navbar-brand d-md-none" href="/index.htm">
+			<img src="/images/logos/ffi-horiz-light.svg" alt="Bootstrap" style="height:1.5rem;">
+		</a>
+		<span class="navbar-text text-white-50">
+<a class="text-white text-decoration-none" href="/index.htm">FileFormat.Info</a>&nbsp;&raquo;&nbsp;<a class="text-white text-decoration-none" href="/format/index.htm">Specific&#xa0;Formats</a>&nbsp;&raquo;&nbsp;<a class="text-white text-decoration-none" href="/format/tga/index.htm">TGA</a>		</span>
+	</div>
+</nav>
+<div class="container">
+	<div class="row-fluid">
+ 		<div class="span12 boxshadow">
+
+<div class="row justify-content-md-center my-3">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6975096118196151"
+     crossorigin="anonymous"></script>
+<!-- FileFormatInfo 2023-12 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-6975096118196151"
+     data-ad-slot="7200653382"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<h1>TGA File Format Summary</h1>
+
+
+<p>
+<b>Also Known As:</b> <P>Truevision Graphics Adapter, Targa Graphics Adapter Image File,
+	  VST, VDA,
+	  ICB, TPIC
+<p>
+<hr>
+<p>
+
+<p>
+<table class="table table-bordered table-striped table-auto">
+<tr valign=top>
+  <td align="left"><b>Type</b></td>
+  <td align="left">Bitmap</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>Colors</b></td>
+  <td align="left">8-bit, 16-bit, 24-bit, 32-bit</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>Compression</b></td>
+  <td align="left">RLE, uncompressed</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>Maximum Image Size</b></td>
+  <td align="left">None</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>Multiple Images Per File</b></td>
+  <td align="left">No</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>Numerical Format</b></td>
+  <td align="left">Little-endian</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>Originator</b></td>
+  <td align="left">Truevision, Inc.</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>Platform</b></td>
+  <td align="left">MS-DOS, Windows, UNIX, Atari, Amiga, others</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>Supporting Applications</b></td>
+  <td align="left">Too numerous to list</td>
+</tr>
+<tr valign=top>
+  <td align="left"><b>See Also</b></td>
+  <td align="left"><A HREF="../lumena/index.htm">Lumena Paint</A>, <A HREF="../rix/index.htm">RIX</A></td>
+</tr>
+</table>
+<p>
+<b>Usage</b><br>
+Used for the storage and interchange of deep-pixel images, paint, and image manipulation programs.
+<p>
+<b>Comments</b><br>
+A well-defined, well-documented format in wide use, which is
+quick and easy to read and decompress. It lacks, however, a superior
+	  compression scheme.
+<p>
+<a href="spec/index.htm">Vendor specifications</a>
+are available for this format.
+<p>
+<a href="code/index.htm">Code fragments</a>
+are available for this format.
+<p>
+<a href="sample/index.htm">Sample images</a>
+are available for this format.
+<p>
+<!--SOFTWARE:tga-->
+<p>
+<hr>
+<p>
+<A NAME="TGA-DMYID.1"><!-- Overview anchor --></A>
+<P>
+
+
+The TGA (Truevision Graphics Adapter) format
+is used widely in paint, graphics, and imaging applications that
+require the storage of image data containing up to 32 bits per
+pixel. TGA is associated with the Truevision
+product line of Targa, Vista, NuVista, and Targa 2000 graphics
+adapters for the PC and Macintosh, all of which can capture
+NTSC
+
+and/or PAL
+
+video image signals and store them in a digital frame buffer. For this
+reason, TGA has also become popular in the world of
+still-video editing.
+
+
+<P>
+<B>Contents:</B><br>
+<A HREF="#TGA-DMYID.2">File Organization</A><br>
+<A HREF="#TGA-DMYID.3">File Details</A><br>
+<A HREF="#TGA-DMYID.4">For Further Information</A><br>
+
+<P>
+Early work on the the TGA file format was performed
+at the EPICenter division of
+AT&amp;T.
+
+EPICenter (Electronic Photography and Imaging
+Center), established in 1984 to manufacture graphics boards, was
+purchased by EPICenter employees from
+AT&amp;T in 1987 and renamed Truevision.
+
+<P>
+The first product produced by EPICenter was called
+the VDA (Video Display Adapter),
+
+which had a resolution of 256x200 and a 24-bit palette providing
+16 milllion colors. At the time, it competed with the
+CGA from IBM.
+EPICenter's second product was the
+ICB (Image Capture Board), which launched both
+EPICenter and AT&amp;T into the
+realm of video graphics (that is, video capture, manipulation, and
+output).
+
+<P>
+At this time, EPICenter purchased a paint package,
+written by Island Graphics, that later came to be known as
+TIPS (Truevision Image Paint System).
+TIPS gave VDA and
+ICB (and later Targa and TrueVista) users the
+ability to capture live video images, to create and overlay graphics,
+and to perform a variety of image-processing functions on bitmap data.
+
+<P>
+Although there was only one original TGA file
+format, applications using it created many different filename
+extensions--one for every graphics display board that
+EPICenter, and later Truevision,
+produced. Therefore, .VDA, .ICB, .TGA, and .VST
+
+image files created by Truevision applications all are actually in
+TGA format. Today, the only filename extensions
+supported are TGA and TPIC on
+the Macintosh and .TGA on the PC and other platforms.
+
+<P>
+In 1989, the TGA format was revised, and Truevision
+has chosen to designate the old and new formats as original
+TGA format and new TGA format,
+respectively. The original TGA format is very
+simple in design and quite easy to implement in code. This makes it an
+appealing format for developers to work with. As the available
+hardware technology has become more complex, however, additional file
+format features, such as the storage of gamma and color correction
+information and pixel aspect ratio data, have become necessary. The
+new TGA format was created as a wrapper around the
+original TGA format to add functionality without
+sacrificing backwards compatibility with older applications.
+
+<P>
+Today the TGA format is used on many different
+platforms world-wide for a variety of image storage, processing, and
+analysis needs.  The Truevision solutions source book lists more than
+200 software applications that support the TGA
+format.
+
+<P>
+The TGA format became popular primarily because
+it was the first 24-bit, truecolor
+
+bitmap format generally available to the PC community, even predating
+24-bit support in TIFF. Truevision also gave
+developers access to the file format specification and provided
+support for developers when necessary, including working code and
+sample images.
+
+<P>
+TGA is device-dependent in that the structure of
+the format is designed to fit the requirements of certain display
+hardware manufactured by Truevision. In practice, this is not a severe
+limitation, with one minor caveat: TGA does not
+support the storage of image data as planes of color information.
+
+<P>
+TGA comes in several flavors, the most common of
+which are usually referred to as the Targa 16, Targa 24, and Targa 32
+formats.  These designations identify the type of Truevision hardware
+that created the file, and the numbers indicate the depth (number of
+bits per pixel) of the image data the files contain. Less commonly
+found variants include VDA, ICB,
+and Targa M8.
+
+<P>
+All of the Truevision adapters were originally designed to interface
+with the ISA bus found in the
+IBM PC platform. For this
+reason, all data in TGA format files, including the
+image data, is stored in little-endian format. This includes
+TGA files created by the NuVista card residing in
+the otherwise big-endian Macintosh, and the PCI-bus
+versions of the Targa 2000 series of boards, for which both
+PC and Macintosh versions currently exist.
+
+<P>
+As with many popular and useful formats, TGA
+variants have come into being, designed by third parties to
+incorporate proprietary extensions. Versions of the popular freeware
+program Fractint at one time created unreadable TGA
+files. A campaign by one of the authors of this book to get the Stone
+Soup Group, the creators of Fractint, to change the filename suffix
+(from TGA to something else) seems to have been
+successful.
+
+<h2><A NAME="TGA-DMYID.2">File Organization</A></h2>
+
+<P>
+The original TGA format (v1.0) is structured
+as follows:
+<p><ul>
+
+<li>Header containing information on the image data and palette
+
+<P>
+
+<li>Optional image identification field
+
+<P>
+
+<li>Optional color map
+
+<P>
+
+<li>Bitmap data
+
+<P>
+</ul><p>
+<P>
+The new TGA format (v2.0) contains all of
+the structures included in the original TGA format
+and also appends several data structures onto the end of the original
+TGA format. The following structures may follow the
+bitmap data:
+<p><ul>
+
+<li>Optional developer directory, which may contain a variable number of tags
+pointing to pieces of information stored in the TGA file
+
+<P>
+
+<li>Optional developer area
+
+<P>
+
+<li>Optional extension area, which contains information typically found in the
+header of a bitmap file
+
+<P>
+
+<li>Optional color-correction table
+
+<P>
+
+<li>Optional postage-stamp image
+
+<P>
+
+<li>Optional scan-line table
+
+<P>
+
+<li>Footer, which points to the developer and extension areas and identifies the
+TGA file as a new TGA format file
+
+<P>
+</ul><p>
+<P>
+As you can see, both the new and original TGA
+format files are identical in structure from the header to the image
+data area. For this reason, applications that read only original
+TGA format image files should have no problem
+reading new TGA format images. All information
+occurring after the image data may be ignored.
+
+<P>
+The TGA format specification available from
+Truevision is detailed and well-written. It is, in fact, one of the
+best written format specifications that was reviewed for this book,
+and we heartily congratulate Truevision on their effort. The
+TGA format is complex, but the clarity of the
+description in Truevision's specification makes it easy to read and
+understand. Truevision also distributes on floppy disk the Truevision
+TGA Utilities, which is a collection of utilities
+and C source code used to manipulate both
+TGA-format files and Targa videographics display
+adapters.
+
+<h2><A NAME="TGA-DMYID.3">File Details</A></h2>
+
+<P>
+This section describes the various components of a
+TGA file in greater detail.
+
+<h3><A NAME="TGA-DMYID.3.1">Header</A></h3>
+
+<P>
+The TGA header is eighteen bytes in length and is
+identical in both versions of the TGA file
+format. The structure of the TGA header is as
+follows:
+<pre>
+typedef struct _TgaHeader
+{
+  BYTE IDLength;        /* 00h  Size of Image ID field */
+  BYTE ColorMapType;    /* 01h  Color map type */
+  BYTE ImageType;       /* 02h  Image type code */
+  WORD CMapStart;       /* 03h  Color map origin */
+  WORD CMapLength;      /* 05h  Color map length */
+  BYTE CMapDepth;       /* 07h  Depth of color map entries */
+  WORD XOffset;         /* 08h  X origin of image */
+  WORD YOffset;         /* 0Ah  Y origin of image */
+  WORD Width;           /* 0Ch  Width of image */
+  WORD Height;          /* 0Eh  Height of image */
+  BYTE PixelDepth;      /* 10h  Image pixel size */
+  BYTE ImageDescriptor; /* 11h  Image descriptor byte */
+} TGAHEAD;
+</pre>
+<P>
+IDLength is the number of significant bytes in the image
+identification field starting at byte 12h (following the header) and
+may be in the range of 0 to 255. The IDLength set to 0 indicates that
+there is no image identification field in the TGA
+file.
+
+<P>
+ColorMapType indicates whether the TGA file
+includes a palette. A value of 1 indicates the presence of a palette,
+while a value of 0 indicates that no palette is included. If the value
+of this field is not 0 or 1, then it is probably a value specific to
+the program or developer that created the TGA
+file. Truevision reserves the ColorMapType values 0 to 127 for its own
+use and allots values 128 to 255 for use by developers.
+
+<P>
+ImageType indicates the type of image stored in the
+TGA file. There are currently seven
+TGA image types. Colormapped images (pseudocolor)
+use a palette. Truecolor images do not use a palette and store their
+pixel data directly in the image data, although truecolor
+TGA image files may contain a palette that is used
+to store the color information from a paint program.  Truevision
+reserves the ImageType values 0 to 127 for its own use and allots
+values 128 to 255 for use by developers.
+
+<P>
+Valid ImageType values are listed below:
+
+<p>
+<TABLE>
+<TR>
+<TH ALIGN="LEFT"><P>
+ImageType</TH><TH ALIGN="LEFT"><P>
+Image Data Type</TH><TH ALIGN="LEFT"><P>
+Colormap</TH><TH ALIGN="LEFT"><P>
+Encoding</TH></TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+0</TD>
+<TD ALIGN="LEFT"><P>
+No image data included in file</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+1</TD>
+<TD ALIGN="LEFT"><P>
+Colormapped image data</TD>
+<TD ALIGN="LEFT"><P>
+Yes</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+2</TD>
+<TD ALIGN="LEFT"><P>
+Truecolor image data</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+3</TD>
+<TD ALIGN="LEFT"><P>
+Monochrome image data</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+9</TD>
+<TD ALIGN="LEFT"><P>
+Colormapped image data</TD>
+<TD ALIGN="LEFT"><P>
+Yes</TD>
+<TD ALIGN="LEFT"><P>
+Yes</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+10</TD>
+<TD ALIGN="LEFT"><P>
+Truecolor image data</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+<TD ALIGN="LEFT"><P>
+Yes</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+11</TD>
+<TD ALIGN="LEFT"><P>
+Monochrome image data</TD>
+<TD ALIGN="LEFT"><P>
+No</TD>
+<TD ALIGN="LEFT"><P>
+Yes</TD>
+</TR>
+</TABLE>
+<P>
+<P>
+The next three fields are known collectively as the Color Map
+Specification; the information contained in these fields is used to
+manipulate the image palette. If the ColorMapType field value is zero,
+then all three of these fields have a value of zero.
+
+<P>
+CMapStart defines the offset of the first entry in the
+palette. Although all palette entries must be contiguous, the entries
+may start anywhere in the palette; for example, 16-color values may be
+stored in a 64-element palette starting at entry 31 rather than at
+entry 0.
+
+<P>
+CMapLength defines the number of elements in the colormap. If an
+image contains only 57 colors, then it is possible to construct a
+57-element palette using this field.
+
+<P>
+CMapDepth contains the number of bits in each palette entry. The value
+is typically 15, 16, 24, or 32 and need not be the same value as the
+image data pixel depth. <A HREF="../tga/index.htm#X058-9-TGA-TB-2">Table TGA-1</A> shows valid
+entries for different types of TGA palettes.
+
+<P>
+<TABLE>
+<CAPTION><A NAME="X058-9-TGA-TB-2">Table TGA-1: TGA Palette Entry Sizes</A></CAPTION>
+<TR>
+<TH ALIGN="LEFT"><P>
+Truevision Bits Per</TH><TH ALIGN="LEFT"><P>
+Attribute</TH><TH ALIGN="LEFT"><P>
+Bits</TH><TH ALIGN="LEFT"><P>
+Color Formats</TH></TR>
+<TR>
+<TH ALIGN="LEFT"><P>
+Display Adapter</TH><TH ALIGN="LEFT"><P>
+Colormap Entry</TH><TH ALIGN="LEFT"><P>
+Per Pixel</TH><TH ALIGN="LEFT"><P>
+Supported</TH></TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+Targa M8</TD>
+<TD ALIGN="LEFT"><P>
+24</TD>
+<TD ALIGN="LEFT"><P>
+0</TD>
+<TD ALIGN="LEFT"><P>
+Pseudo</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+Targa 16</TD>
+<TD ALIGN="LEFT"><P>
+15</TD>
+<TD ALIGN="LEFT"><P>
+1</TD>
+<TD ALIGN="LEFT"><P>
+True</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+Targa 24</TD>
+<TD ALIGN="LEFT"><P>
+24</TD>
+<TD ALIGN="LEFT"><P>
+0</TD>
+<TD ALIGN="LEFT"><P>
+True</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+Targa 32</TD>
+<TD ALIGN="LEFT"><P>
+32</TD>
+<TD ALIGN="LEFT"><P>
+8</TD>
+<TD ALIGN="LEFT"><P>
+True</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+ICB</TD>
+<TD ALIGN="LEFT"><P>
+0</TD>
+<TD ALIGN="LEFT"><P>
+0</TD>
+<TD ALIGN="LEFT"><P>
+True</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+VDA</TD>
+<TD ALIGN="LEFT"><P>
+16</TD>
+<TD ALIGN="LEFT"><P>
+0</TD>
+<TD ALIGN="LEFT"><P>
+Pseudo</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+VDA/D</TD>
+<TD ALIGN="LEFT"><P>
+16</TD>
+<TD ALIGN="LEFT"><P>
+0</TD>
+<TD ALIGN="LEFT"><P>
+Pseudo</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT"><P>
+Vista</TD>
+<TD ALIGN="LEFT"><P>
+24 or 32</TD>
+<TD ALIGN="LEFT"><P>
+0 or 8</TD>
+<TD ALIGN="LEFT"><P>
+True, Pseudo, Direct</TD>
+</TR>
+</TABLE>
+<P>
+<P>
+The next six fields in the header (the last 10 bytes) are referred to
+collectively as the image specification. The data in these fields is
+used to describe the image data found in the TGA
+file.
+
+<P>
+XOffset and YOffset describe the position of the image on the display
+screen.  Normally, the coordinate 0,0 defaults to the lower-left
+corner of the screen, but any of the four corners may be designated
+the origin point by the ImageDescriptor field (the last field in the
+header).
+
+<P>
+Width and Height are the size of the image in pixels. The maximum size
+of a TGA image is 512 pixels wide by 482 pixels
+high.
+
+<P>
+PixelDepth is the number of bits per pixel, including attribute bits,
+if any.  Typical PixelDepth values are 8, 16, 24, and 32, although
+other depth values may be specified, as shown in Table
+TGA-1.
+
+<P>
+ImageDescriptor contains two pieces of information. Bits 0 through 3
+contain the number of attribute bits per pixel. Attribute bits are
+found only in pixels for the 16- and 32-bit flavors of the
+TGA format and are called alpha channel, overlay,
+or interrupt bits. Bits 4 and 5 contain the image origin location
+(coordinate 0,0) of the image. This position may be any of the four
+corners of the display screen. When both of these bits are set to
+zero, the image origin is the lower-left corner of the screen. Bits 6
+and 7 of the ImageDescriptor field are unused and should be set to 0.
+
+<h3><A NAME="TGA-DMYID.3.2">Image ID</A></h3>
+
+<P>
+The Image ID (image description) field is an optional field that may
+appear immediately after the TGA header. The Image
+ID field stores information that identifies the image in some way
+(filename, author name, serial number, and so on). This field is not
+required to be NULL-terminated, although it should be if it is used to
+store string data. The size of this field is indicated by the value of
+the IDLength field in the header. This value may be in the range
+0-255. A value of 0 indicates that no Image ID field is present
+in the TGA file.
+
+<h3><A NAME="TGA-DMYID.3.3">Colormap</A></h3>
+
+<P>
+The TGA format defines three methods of arranging
+image data: psuedocolor, direct-color, and truecolor.
+
+<P>
+Pseudocolor images store an index value into a palette in each pixel
+value of data. It is the palette that contains the actual pixel
+values that are displayed. Pseudocolor image palettes store each pixel
+value as a single element in the palette. The color channels of each
+pixel value are not accessible individually.
+
+<P>
+Direct-color images are similar to pseudocolor images, except that
+each color channel (red, green, and blue) is stored in separate
+elements and may be individually altered. Each pixel value of
+direct-color image data contains three index values, one for each
+color channel in the colormap.
+
+<P>
+Truecolor images store the pixel color information directly in the
+image data and do not use a palette.
+
+<P>
+The presence of a palette and the format of the image data found in a
+TGA file is determined by the type of Truevision
+hardware that was used to create the image data (see Table
+TGA-1). TGA images created with
+a Targa 24 are only truecolor images and therefore never use a
+palette. TGA images created with a
+VDA/D card are only in the pseudocolor format and
+will therefore always use a palette. The Vista series of cards
+(ATVista and NuVista) may create and store TGA data
+in any of the three color formats. A palette is present in a
+TGA file if the ColorMapType field is set to 1. A
+value of 0 indicates that no palette is present in the
+TGA file.
+
+<P>
+It is important to realize that a palette may be present in a
+TGA image file even if it is not used by the image
+data. All TGA image files created by the
+TIPS paint program contain a palette that stores
+the 256 colors found in the TIPS color
+palette. This palette is not actually used to display the image data
+but is instead used by TIPS. A
+TGA reader should therefore never assume that
+truecolor TGA files never contain a palette.
+
+<P>
+The TGA format supports variable-size
+palettes. Most other formats require a palette to have a fixed number
+of entries based on the pixel depth of the image data. Thus, an 8-bit
+image contains a 256-element colormap even if only four colors are
+needed to reproduce the image. The TGA format,
+however, does not determine the number of colormap elements based on
+the pixel depth, so an image with 57 colors may only have a 57-element
+palette. The number of elements in the palette is contained in the
+CMapLength field in the header.
+
+<P>
+The size of each palette element in bits is found in the CMapDepth
+field of the header. The depth of a pixel and the depth of a palette
+element are not always the same. A 24-bit image may contain a
+256-element palette, with each element having a depth of 24 bits, but
+it may contain pixel data with only an 8-bit depth. This is because 8
+bits is all that is required to index a 256-element palette. It is
+also possible for a TGA image to contain a
+4096-element palette where each element is eight bits in depth. Each
+pixel value of the image data therefore needs to have a minimum depth
+of 12 bits for indexing into the palette, although 16-bit pixel values
+are easier to read and write. The depth of a palette element always
+includes alpha channel, overlay, or interrupt bit information, if any.
+
+<h3><A NAME="TGA-DMYID.3.4">Image Data Encoding</A></h3>
+
+<P>
+Image data stored in a TGA file is normally raw
+(unencoded). For this reason, TGA files tend to be
+quite large, especially when the bitmap data is 24 or 32 bits deep. To
+address this problem, the TGA specification
+incorporates a simple, but effective, RLE
+compression scheme. For more detailed information on <A href="/mirror/egff/ch09_03.htm#RUEN-CHP-09">run-length encoding</A>, see <A href="/mirror/egff/ch09_01.htm">Chapter 9, <i>Data Compression</i></A>.
+
+<P>
+The RLE encoding method used by the
+TGA format encodes runs of identical pixels rather
+than runs of identical bits or bytes. This achieves a higher
+compression ratio over a bit-wise or byte-wise RLE
+scheme, because TGA pixel data often occurs as
+multiple-byte values rather than single-byte values.  Therefore,
+contiguous runs of identical bytes in TGA image
+data often occur only in very short lengths.
+
+<P>
+Data encoded using the TGA RLE
+scheme may contain two types of encoded data packets. The first type
+is a run-length packet that is used to encode multiple runs of the
+same pixel value into a single data packet. A run-length packet begins
+with a single byte used as the pixel count. The value for the lower
+seven bits of this byte is in the range 0 to 127, and the count is
+always one plus this value (1 to 128). There can never be an encoded
+run length of zero pixels. The high bit of the pixel count value is
+always set to 1 to indicate that this is a run-length encoded
+packet. Following the pixel count is the pixel data value. This value
+is the number of bits equal to the Pixel Depth value in the Image
+Specification section of the header. Because the size of
+TGA pixels can range from one to four bytes in
+size, this value varies from between two to five bytes in length,
+depending upon the type of TGA image data encoded.
+
+<P>
+The second type of packet is the raw or non-run-length encoded
+packet. When a run of pixel values is too short in length to justify
+using the run-length packet format, the run is encoded using the raw
+packet format. Raw packets start with a byte that is used as the pixel
+count. Just as with the encoded packet, the count value is in the
+range of 0 to 127, with the actual pixel count being one plus this
+value (1 to 128). A run length of zero pixels can never be
+encoded. Raw packets, however, have the high bit of the count byte
+always set to zero. This differentiates raw packets from encoded
+packets, in which the high byte is always one. Following the count
+byte is the number of pixels equal to the count. The number of bytes
+that follows the raw count is equal to the count value multiplied by
+the number of bytes per pixel.
+
+<P>
+The following TGA RLE pseudocode
+algorithm is used to encode a pixel run using an encoded packet:
+<P>
+<pre><i>
+Set counter to zero
+Read a pixel of scan-line data
+Read a second pixel of scan-line data
+If the first pixel is the same as the second pixel
+	increment the counter
+Else
+	write the counter value (with high bit ON)
+	write the pixel value
+</i></pre>
+<P>
+<P>
+The following TGA RLE pseudocode
+algorithm is used to encode a pixel run using a raw packet:
+<P>
+<pre><i>
+Set counter to zero
+Read a certain number of pixels of scan-line data
+Increment the counter for each pixel read
+Write the counter value (with high bit OFF)
+Write all pixel values read
+</i></pre>
+<P>
+<P>
+<A HREF="../tga/index.htm#X058-9-TGA-FG-1">Figure TGA-1</A> shows the RLE
+packet types for various pixel sizes.
+
+<h4><A NAME="X058-9-TGA-FG-1">Figure TGA-1: Run-length encoding packet types</A></h4>
+
+
+<p>
+<img src="gtga01.png" alt="[Graphic: Figure TGA-1]">
+
+<h3><A NAME="TGA-DMYID.3.5">Image Data</A></h3>
+
+<P>
+Image data is usually found following the header, but may occur after
+a palette or Image ID field if these are present in the
+TGA file. For this reason, never read image data
+from a TGA file without first checking for the
+presence of palette and Image ID fields. If you do, you will quickly
+notice that the displayed image is skewed, because the image was read
+starting at the wrong offset. (See the section called "Colormap"
+above.)
+
+<P>
+The size of a TGA image is limited to 65,535 pixels
+high by 65,535 pixels wide.  This is because a 16-bit field is used to
+store the size of the image in the header. Otherwise, the size of a
+TGA image would be unlimited. A typical size for
+Targa 16, 24, and 32 images is 512x482 pixels; the NuVista is
+640x480 pixels; and the ATVista is 756x486 pixels.
+
+<P>
+<A HREF="../tga/index.htm#X058-9-TGA-FG-2">Figure TGA-2</A> shows different pixel data formats.
+
+<h4><A NAME="X058-9-TGA-FG-2">Figure TGA-2: Pixel data formats</A></h4>
+
+
+<p>
+<img src="gtga02.png" alt="[Graphic: Figure TGA-2]">
+
+<P>
+Most of the Truevision display adapters store pixel data in 8-, 16-,
+24-, or 32-bit increments. Reading or writing pixel information for
+these formats is as simple as reading and writing bytes of data. Targa
+16-bit pixel data, however, is slightly more complicated, as described
+below.
+
+<P>
+When a value of 15 appears in the PixelDepth field of the Image
+Specification section of the header, there are five bits each of red,
+green, and blue pixel data and one bit of overlay data in each pixel
+(see the section below called "Pixel Attribute Bits"). This is the
+format the Targa 16 uses to store data. Because these 16 bits are
+stored in two bytes of data, a little shifting and masking is required
+to read and write these pixel data values.
+
+<P>
+In the following example, a scan line of unencoded pixel data is
+stored in the byte array pixeldata[]. The red, green, and blue values
+are five bits in size, and the overlay attribute is a single bit in
+size. Data from the first pixel (array elements 0 and 1) are read and
+stored in the variables defined:
+<pre>
+/*
+** Reading and writing 16-bit pixel data stored
+** in an 8-bit BYTE array.  Note that the green
+** value is split between two bytes.
+*/
+BYTE red, green, blue, overlay;
+BYTE pixeldata[SCAN_LINE_LENGTH];
+/* Read */
+red   =  (pixeldata[0] &amp; 0xf8) &gt;&gt; 3;
+green = ((pixeldata[0] &amp; 0x07) &lt;&lt; 2) | ((pixeldata[1] &amp; 0xfb) &gt;&gt; 6);
+blue  =  (pixeldata[1] &amp; 0x3e) &gt;&gt; 1;
+overlay =   pixeldata[1] &amp; 0x01;
+/* Write */
+pixeldata[0] =  (red  &lt;&lt; 3)          | (pixeldata[0] &amp; 0x07);
+pixeldata[0] = ((green &amp; 0x1c) &gt;&gt; 2) | (pixeldata[0] &amp; 0xf8);
+pixeldata[1] = ((green &amp; 0x03) &lt;&lt; 6) | (pixeldata[1] &amp; 0xf8);
+pixeldata[1] =  (blue &lt;&lt; 1)          | (pixeldata[1] &amp; 0xc1);
+pixeldata[1] =   overlay             | (pixeldata[1] &amp; 0xfe);
+/*
+** Reading and writing 16-bit pixel data stored
+** in a 16-bit WORD array
+*/
+BYTE red, green, blue, overlay;
+WORD pixeldata[SCAN_LINE_LENGTH];
+/* Read */
+red      = (pixeldata[0] &amp; 0xfc00) &gt;&gt; 11;
+green    = (pixeldata[0] &amp; 0x07e0) &gt;&gt; 6;
+blue     = (pixeldata[0] &amp; 0x003f) &gt;&gt; 1;
+overlay  =  pixeldata[0] &amp; 0x0001;
+/* Write */
+pixeldata[0] = (red   &lt;&lt; 11) | (pixeldata[0] &amp; 0x03ff);
+pixeldata[0] = (green &lt;&lt; 6)  | (pixeldata[0] &amp; 0xfc1f);
+pixeldata[0] = (blue  &lt;&lt; 1)  | (pixeldata[0] &amp; 0xffc1);
+pixeldata[0] =  overlay      | (pixeldata[0] &amp; 0xfffe);
+</pre>
+<h3><A NAME="TGA-DMYID.3.6">Pixel Attribute Bits</A></h3>
+
+<P>
+The names of the Targa display adapters include a designation that
+indicates the number of bits per pixel that they are capable of
+storing. This seems logical for the Targa 16 and the Targa 24, but not
+for the Targa 32 and Targa 64. It's difficult to believe 32 and 64
+bits per pixel until you realize that color data is not the only
+information you can store in a pixel.
+
+<P>
+The number of bits a pixel may contain that are not directly
+associated with the color value of the pixel are stored in bits 0
+through 3 of the ImageDescriptor field of the header (attribute bits
+per pixel). In the case of the Targa 16, only 15 of the 16 pixel bits
+are used for color information. The sixteenth bit, also called the
+overlay bit, is used to indicate whether the pixel is transparent
+(invisible) or opaque (visible) when displayed on a video monitor. The
+ICB board also uses 15 bits per pixel for color
+information and a single bit for overlay control. The
+VDA/D board is similar in that it uses five bits
+per primary color and uses the sixteenth bit for interrupt
+control. The Targa 32 and the TrueVista boards (ATVista and NuVista)
+each use 32 bits per pixel. Color information is stored in 24 bits,
+and the additional eight attribute bits in each pixel are used as an
+alpha channel value.
+
+<P>
+Alpha channel is a nondescript name that indicates the degree of
+transparency of a displayed pixel. Alpha channel and overlay values
+are used when one image is overlaid onto another image or onto a live
+video picture. A single overlay bit (as in the Targa 16) can only
+indicate that the pixel is visible or invisible. Eight bits of
+precision can vary the visibility of a pixel from completely
+transparent (0) to completely opaque (255).
+
+<P>
+The alpha channel value also describes the degree to which a pixel
+from an image is mixed with a live video source. An alpha value of 0
+displays the pixel entirely from the graphics image stored in the
+frame buffer memory. An alpha value of 255 displays the pixel entirely
+from the live video source. An alpha value of 84 displays the pixel as
+33 percent graphics image (85 of 256) and 67 percent live video (171
+of 256). A pixel with an alpha value of 84 appears as a translucent
+graphics image overlaid on a field of live video.
+
+<P>
+The ability to control graphical and live video images using 256 alpha
+channel levels allows the superimposing of graphical text over video,
+fading into and out of an image, and cross-fading between graphical
+images and live video. All of these effects can be rendered using the
+Truevision Targa+ and NuVista+ graphical display boards.
+
+<P>
+When storing pixel data or pixel size, the attribute bits are always
+included in any reads, writes, or calculations. Attribute bits are
+also stored in colormaps and lookup tables, although in these cases
+their values are usually set to zero and ignored.
+
+<h3><A NAME="TGA-DMYID.3.7">The New TGA Format</A></h3>
+
+<P>
+Version 2.0 adds several features to the original TGA
+format, which increases the amount of information the
+TGA format can support. The original
+TGA format is fairly simple in design, which allows
+it to be quickly and easily implemented in software. However, it does
+not contain many features needed by developers--features that are
+found in several other image file formats. Therefore, extensions have
+been added to the TGA format to allow the storage
+of additional image information and to create a customizable area for
+the storage of developer-specific information.
+
+<P>
+The extensions added by the new TGA format are
+called the Developer Area, the Extension Area, and the
+TGA File Footer. These areas were appended to the
+original TGA format without making any changes to
+the TGA file header.  Applications that read only
+original TGA image files should have no problems
+reading new TGA format files unless the Developer
+or Extension Areas contain information necessary to read or display
+the image data properly. For newer applications that support the new
+TGA format, it is important to correctly interpret
+as much of the Extension and Developer Areas information as possible.
+
+<h4><A NAME="TGA-DMYID.3.7.1">Footer</A></h4>
+
+<P>
+The footer is 26 bytes in length and is always the last piece of
+information found in a v2.0 TGA format
+file. It contains a total of three fields that are represented in the
+following structure:
+<pre>
+typedef struct _TgaFooter
+{
+  DWORD ExtensionOffset;        /* Extension Area Offse */
+  DWORD DeveloperOffset;        /* Developer Directory Offset */
+  CHAR Signature[18];           /* TGA Signature */
+} TGAFOOT;
+</pre>
+<P>
+ExtensionOffset is a 4-byte offset value of the extension area of the
+TGA file. If this value is zero, then there is no
+extension area present in the TGA file.
+
+<P>
+DeveloperOffset is the number of bytes from the beginning of the file
+(byte 0) to the first byte of the developer directory. If this value
+is zero, then the TGA file does not contain a
+Developer Area.
+
+<P>
+Signature contains an identifying signature string. The
+TGA format does not contain a field in the header
+indicating the version of the format. Instead, v2.0 includes a
+footer containing a 16-byte character string that identifies the
+version of the file.
+
+<P>
+To determine the version of a TGA file, read the
+file footer and check bytes 8 through 23 of the footer for the
+presence of the character string TRUEVISION-XFILE. If this signature
+string is present, the TGA file is v2.0 and
+thus may contain a Developer and Extension Areas.
+
+<P>
+Following the signature is the ASCII value 2Eh
+(period) and the ASCII value 00h (NULL). All of
+these fields must contain the correct information for the file to be
+recognized as a v2.0 TGA format file.
+
+<P>
+A v1.0 TGA file may be converted to a
+v2.0 TGA file simply by appending a footer
+with the appropriate signature string, a period, and NULL
+characters. In this case, you could set the ExtensionOffset and
+DeveloperOffset to 0. Be cautious about doing this, however. This
+conversion adds nothing to the functionality of the file unless an
+Extension or Developer Area is added.  It will not, however, interfere
+with the ability of older, pre-v2.0 TGA
+format software to read the file.
+
+<h4><A NAME="TGA-DMYID.3.7.2">Developer Area</A></h4>
+
+<P>
+The Developer Area begins with a directory that resembles the
+structure of the Image File Directory found in the
+TIFF format. The first entry in the directory is
+the number of directory entries, or tags, that the directory
+contains. This field is two bytes in size. The offset value of this
+field is stored in the footer described in the previous section.
+
+<P>
+Following the number of directory entries is a series of 10-byte tags,
+one for each entry specified. The structure of a Developer Area tag is
+as follows:
+<pre>
+typedef struct _TgaTag
+{
+  WORD  TagNumber;      /* ID Number of the tag */
+  DWORD DataOffset;     /* Offset location of the tag data */
+  DWORD DataSize;       /* Size of the tag data in bytes */
+} TGATAG;
+</pre>
+<P>
+TagNumber is the identification number of the tag. Tag number values
+from 0 to 32767 are reserved for developer use, while tag number
+values 32768 to 65535 are reserved for use by Truevision only. Tags
+may be registered with the Truevision Developer Services to assure
+permanent and exclusive use by your application.
+
+<P>
+DataOffset contains the offset location of the data in the
+TGA file. Note that offsets are always calculated
+from the beginning of the file.
+
+<P>
+DataSize is the size of the data in bytes.
+
+<P>
+The tags in the developer directory are always stored as a contiguous
+block, and the tags do not have to be sorted by tag number. Tags do
+not indicate the type of data pointed to by the tag (BYTE-, WORD-, or
+DWORD-oriented data), so an application that is reading tag data is
+required to have prior knowledge of the type of data the tag points
+to.
+
+<h4><A NAME="TGA-DMYID.3.7.3">Extension Area</A></h4>
+
+<P>
+The Extension Area can be thought of as a second header that contains
+information not found in the original TGA format
+header. The offset of the Extension Area is stored in the
+TGA footer. The size of the Extension Area in v2.0
+is 495 bytes. The structure of the Extension Area is as follows:
+<pre>
+typedef struct _TgaExtension
+{
+  WORD  Size;                   /* Extension Size */
+  CHAR  AuthorName[41];         /* Author Name */
+  CHAR  AuthorComment[324];     /* Author Comment */
+  WORD  StampMonth;             /* Date/Time Stamp: Month */
+  WORD  StampDay;               /* Date/Time Stamp: Day */
+  WORD  StampYear;              /* Date/Time Stamp: Year */
+  WORD  StampHour;              /* Date/Time Stamp: Hour */
+  WORD  StampMinute;            /* Date/Time Stamp: Minute */
+  WORD  StampSecond;            /* Date/Time Stamp: Second */
+  CHAR  JobName[41];            /* Job Name/ID */
+  WORD  JobHour;                /* Job Time: Hours */
+  WORD  JobMinute;              /* Job Time: Minutes */
+  WORD  JobSecond;              /* Job Time: Seconds */
+  CHAR  SoftwareId[41];         /* Software ID */
+  WORD  VersionNumber;          /* Software Version Number */
+  BYTE  VersionLetter;          /* Software Version Letter */
+  DWORD KeyColor;               /* Key Color */
+  WORD  PixelNumerator;         /* Pixel Aspect Ratio */
+  WORD  PixelDenominator;       /* Pixel Aspect Ratio */
+  WORD  GammaNumerator;         /* Gamma Value */
+  WORD  GammaDenominator;       /* Gamma Value */
+  DWORD ColorOffset;            /* Color Correction Offset */
+  DWORD StampOffset;            /* Postage Stamp Offset */
+  DWORD ScanOffset;             /* Scan-Line Table Offset */
+  BYTE  AttributesType;         /* Attributes Types */
+} TGAEXTEN;
+</pre>
+<P>
+Size specifies the number of bytes in the extension area. This value
+is 495 for v2.0 of the TGA format.
+
+<P>
+AuthorName allows the name of the TGA file creator
+to be stored using up to 40 characters. Unused characters are padded
+with spaces and the field is NULL-terminated.
+
+<P>
+AuthorComment is also a string field containing 324 bytes (four
+80-character lines) in which to store information. This field is
+similar to the Image ID field that follows the header. This field is
+also padded with spaces and is NULL-terminated.
+
+<P>
+The six Stamp fields contain the time and date the image was created
+or last modified. These fields may have the following values:
+<P>
+<TABLE>
+<TR>
+  <TD>StampMonth</TD>
+  <TD>1 to 12</TD>
+</TR>
+<TR>
+  <TD>StampDay</TD>
+  <TD>1 to 31</TD>
+</TR>
+<TR>
+  <TD>StampYear</TD>
+  <TD>0000 to 9999</TD>
+</TR>
+<TR>
+  <TD>StampHour</TD>
+  <TD>0 to 23</TD>
+</TR>
+<TR>
+  <TD>StampMinute</TD>
+  <TD>0 to 59</TD>
+</TR>
+<TR>
+  <TD>StampSecond</TD>
+  <TD>0 to 59</TD>
+</TR>
+</TABLE>
+<P>
+<P>
+Unused fields are set to zero.
+
+<P>
+JobName is a 4-byte, NULL-terminated string identifying the production
+job with which the image is associated. JobHour, JobMinute, and
+JobSecond indicate the amount of time expended on the job.
+
+<P>
+The SoftwareId field is a 40-character, NULL-terminated string that
+identifies the software application that created the file. The
+VersionNumber and VersionLetter fields contain the version of the
+software application.
+
+<P>
+KeyColor contains the background color of the image. This is the pixel
+color used to paint the areas of the display screen not covered by the
+image or the color used to clear the screen if the image is
+erased. The default value for this field is 0, which corresponds to
+black.
+
+<P>
+PixelNumerator and PixelDenominator store the aspect ratio of the
+pixels used in the image. If no aspect ratio is specified, then these
+fields are set to 0.
+
+<P>
+GammaNumerator and GammaDenominator are the gamma correction values to
+be used when displaying the image. If both fields are 0, then a gamma
+value is not used.
+
+<P>
+ColorOffset contains an offset value of the color correction table. If
+the file does not contain a color correction table, then the value of this
+field is set to 0.
+
+<P>
+The StampOffset field contains an offset value of the postage-stamp image
+included in the TGA file. If no postage-stamp image
+is present, the value of this field is 0.
+
+<P>
+ScanOffset contains the offset value of the scan-line offset table.
+
+<P>
+AttributesType describes the type of alpha channel data contained
+within the pixel data. A value of 00h indicates that the image data
+contains no alpha channel value. A value of 01h, 02, 04h, or 08h
+indicates the presence of alpha channel data. (See the
+TGA specification for more information on this
+field.)
+
+<h4><A NAME="TGA-DMYID.3.7.4">Scan-line table, postage-stamp image, and color correction table</A></h4>
+
+<P>
+A new TGA format file may contain three additional
+data structures not found in the original TGA
+format. These structures are the scan-line table, the postage-stamp
+image, and the color correction table. There may only be one of each
+of these data structures per TGA file, and offsets
+to these structures appear in the Extension Area.
+
+<P>
+The scan-line table is a method of accessing scan lines at any
+location within raw or compressed image data. The table is an array of
+DWORD values. Each value is the offset location from the beginning of
+the file to the beginning of the corresponding scan line in the image
+data. There is one entry in the scan-line table per scan line in the
+image. Entries are written to the table in the order in which the scan
+lines appear within the image.
+
+<P>
+The postage-stamp image is a smaller rendering of the primary image
+stored within the TGA file. The first byte of the
+postage-stamp data specifies the width of the stamp in pixels, and the
+second byte specifies the height, also in pixels. Postage stamps
+should not be larger than 64x64 pixels, are typically stored in
+the same format as the primary image, and are never compressed.
+
+<P>
+The color correction table is an array 1000 bytes in length, which
+contains 256 entries used to store values used for color
+remapping. The entire table has the following format:
+<pre>
+typedef struct _TGAColorCorrectionTable
+{
+  SHORT Alpha;
+  SHORT Red;
+  SHORT Green;
+  SHORT Blue;
+} TGACCT[256];
+</pre>
+<P>
+The fields Alpha, Red, Green, and Blue store the color values for each
+entry.  The range of each value is 0 to 65535. Black is 0,0,0,0, and
+white is 65535,65535,65535,65535.
+
+<h2><A NAME="TGA-DMYID.4">For Further Information</A></h2>
+
+<P>
+For further information about the TGA format, see
+the specification and code example included on the
+CD-ROM.
+
+<P>
+The TGA format is maintained by Truevision,
+Inc. Prior to this writing, Truevision was acquired by
+RasterOps, Inc., but for the time being Truevision remains an
+independent subsidiary. Copies of the latest TGA
+specification, including a sample code disk, may be obtained directly
+from Truevision:
+<P>
+Truevision Incorporated<br>
+7340 Shadeland Station<br>
+Indianapolis, IN 46256-3925<br>
+Voice: 317-841-0332<br>
+FAX: 317-576-7700<br>
+BBS: 317-577-8783<br>
+FTP: <I>ftp://ftp.truevision.com/</I><br>
+WWW: <I>http://www.truevision.com/Truevision.html</I>
+
+<P>
+<P>
+Also on their Internet sites, you can get the TGA v2.0 file format
+specifications, as well as tools in C that read and write the format,
+and sample images.
+
+<p>
+
+<hr>
+<p>
+<P>
+This page is taken from the <a href="/resource/book/1565921615/index.htm">Encyclopedia
+of Graphics File Formats</a> and is licensed by <a href="http://www.oreilly.com/">O'Reilly</a>
+under the Creative Common/Attribution license.</p>
+<p><a href="internal.htm">More Resources</a></p>
+
+
+<p>
+
+		</div><!--/span-->
+	</div><!--/row-->
+	<footer>
+	<p class="text-center text-body-tertiary"><small><a class="text-reset" href="/about/tos.htm">Terms of Service</a> | <a class="text-reset" href="/about/privacy.htm">Privacy Policy</a> | <a class="text-reset" href="/about/feedback.htm">Contact Info</a></small></p>
+	</footer>
+</div><!--/container-->
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+[*.cs]
+# NUnit assertions validate these nullable values at runtime, but do not provide
+# compiler-recognized flow annotations for the subsequent test expressions.
+dotnet_diagnostic.CS8600.severity = none
+dotnet_diagnostic.CS8602.severity = none
+dotnet_diagnostic.CS8603.severity = none
+dotnet_diagnostic.CS8604.severity = none
+dotnet_diagnostic.CS8605.severity = none
+dotnet_diagnostic.CS8618.severity = none
+dotnet_diagnostic.CS8619.severity = none
+dotnet_diagnostic.CS8625.severity = none

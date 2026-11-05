@@ -1,0 +1,407 @@
+{
+  "cases": [
+    {
+      "name": "nested-form-math-mutation",
+      "category": "mutation-xss",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<p>SAFE</p><form><math><mtext></form><form><mglyph><style></math><img src=x onerror=alert(1)>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<form", "<math", "<style", "onerror", "alert(1)"]
+    },
+    {
+      "name": "table-svg-style-mutation",
+      "category": "mutation-xss",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<table><svg><style><img src=x onerror=alert(1)></style></svg><tr><td>SAFE</td></tr></table>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<svg", "<style", "onerror", "alert(1)"]
+    },
+    {
+      "name": "noscript-image-breakout",
+      "category": "mutation-xss",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<noscript><p title='</noscript><img src=x onerror=alert(1)>'>HIDDEN</p></noscript><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<noscript", "onerror", "alert(1)"]
+    },
+    {
+      "name": "template-mutation-boundary",
+      "category": "mutation-xss",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<template><p><img src=x onerror=alert(1)></template><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<template", "onerror", "alert(1)"]
+    },
+
+    {
+      "name": "svg-script-namespace",
+      "category": "namespace-confusion",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<svg><script>alert(1)</script><circle onload=alert(2)></circle></svg><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<svg", "<script", "onload", "alert(1)", "alert(2)"]
+    },
+    {
+      "name": "mathml-xlink-protocol",
+      "category": "namespace-confusion",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<math><mi xlink:href='javascript:alert(1)'>X</mi></math><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<math", "xlink:href", "javascript:", "alert(1)"]
+    },
+    {
+      "name": "foreign-object-html-reentry",
+      "category": "namespace-confusion",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<svg><foreignObject><p><img src=x onerror=alert(1)>BAD</p></foreignObject></svg><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<svg", "foreignobject", "onerror", "alert(1)"]
+    },
+    {
+      "name": "allowed-svg-unsafe-xlink",
+      "category": "namespace-confusion",
+      "profile": "foreign-svg",
+      "inputKind": "literal",
+      "input": "<svg><a xlink:href='javascript:alert(1)'><circle></circle></a></svg><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["<svg>", "<circle", "SAFE"],
+      "forbidden": ["xlink:href", "javascript:", "alert(1)"]
+    },
+
+    {
+      "name": "split-script-tag-name",
+      "category": "tag-poisoning",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<p>SAFE</p><scr<script>ipt>alert(1)</scr</script>ipt>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<script", "alert(1)"]
+    },
+    {
+      "name": "unterminated-javascript-attribute",
+      "category": "tag-poisoning",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<a href='javascript:alert(1)><img src=x onerror=alert(2)><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": [],
+      "forbidden": ["javascript:", "onerror", "alert(1)", "alert(2)"]
+    },
+    {
+      "name": "bogus-comment-tag-poison",
+      "category": "tag-poisoning",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<!foo <script>alert(1)</script>><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<script"]
+    },
+    {
+      "name": "null-in-event-name",
+      "category": "tag-poisoning",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<p on\u0000click=alert(1)>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["alert(1)", "on�click"]
+    },
+    {
+      "name": "less-than-in-attribute-name",
+      "category": "tag-poisoning",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<p on<click=alert(1)>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["<p>SAFE</p>"],
+      "forbidden": ["alert(1)", "on<click"]
+    },
+
+    {
+      "name": "script-end-tag-case",
+      "category": "raw-text-escape",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<script><!--</ScRiPt><img src=x onerror=alert(1)><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<script", "onerror", "alert(1)"]
+    },
+    {
+      "name": "style-end-tag-escape",
+      "category": "raw-text-escape",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<style>body{color:red}</STYLE><img src=x onerror=alert(1)><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<style", "onerror", "alert(1)", "color:red"]
+    },
+    {
+      "name": "iframe-srcdoc-looking-text",
+      "category": "raw-text-escape",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<iframe><img src=x onerror=alert(1)></iframe><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<iframe", "onerror", "alert(1)"]
+    },
+    {
+      "name": "textarea-breakout",
+      "category": "raw-text-escape",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<textarea>hidden</textarea><img src=x onerror=alert(1)><p>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["<textarea", "onerror", "alert(1)", "hidden"]
+    },
+
+    {
+      "name": "hex-entity-javascript",
+      "category": "entity-protocol-obfuscation",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<p><a href='jav&#x61;script:alert(1)'>SAFE</a></p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["<a>SAFE</a>"],
+      "forbidden": ["href", "javascript:", "alert(1)"]
+    },
+    {
+      "name": "decimal-entity-javascript",
+      "category": "entity-protocol-obfuscation",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<p><a href='java&#115;cript:alert(1)'>SAFE</a></p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["<a>SAFE</a>"],
+      "forbidden": ["href", "javascript:", "alert(1)"]
+    },
+    {
+      "name": "embedded-tab-protocol",
+      "category": "entity-protocol-obfuscation",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<p><a href='java&#x09;script:alert(1)'>SAFE</a></p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["<a>SAFE</a>"],
+      "forbidden": ["href", "javascript:", "alert(1)"]
+    },
+    {
+      "name": "encoded-colon-protocol",
+      "category": "entity-protocol-obfuscation",
+      "profile": "rich-text",
+      "inputKind": "literal",
+      "input": "<p><a href='javascript&colon;alert(1)'>SAFE</a></p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["<a>SAFE</a>"],
+      "forbidden": ["href", "javascript:", "alert(1)"]
+    },
+    {
+      "name": "protocol-relative-disabled",
+      "category": "entity-protocol-obfuscation",
+      "profile": "strict-links",
+      "inputKind": "literal",
+      "input": "<p><a href='//evil.example/x'>SAFE</a></p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["<a>SAFE</a>"],
+      "forbidden": ["href", "evil.example"]
+    },
+
+    {
+      "name": "dangerous-global-id",
+      "category": "dom-clobbering",
+      "profile": "clobbering",
+      "inputKind": "literal",
+      "input": "<div id=location>SAFE</div>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["id=\"user-content-location\"", "SAFE"],
+      "forbidden": ["id=\"location\""]
+    },
+    {
+      "name": "dangerous-anchor-name",
+      "category": "dom-clobbering",
+      "profile": "clobbering",
+      "inputKind": "literal",
+      "input": "<a name=window href='https://example.test/'>SAFE</a>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["name=\"user-content-window\"", "SAFE"],
+      "forbidden": ["name=\"window\""]
+    },
+    {
+      "name": "form-property-name",
+      "category": "dom-clobbering",
+      "profile": "clobbering",
+      "inputKind": "literal",
+      "input": "<form><input name=action><p>SAFE</p></form>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["name=\"user-content-action\"", "SAFE"],
+      "forbidden": ["name=\"action\""]
+    },
+    {
+      "name": "duplicate-dangerous-identifiers",
+      "category": "dom-clobbering",
+      "profile": "clobbering",
+      "inputKind": "literal",
+      "input": "<div id=forms>ONE</div><p id=forms>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["id=\"user-content-forms\"", "SAFE"],
+      "forbidden": ["id=\"forms\""]
+    },
+
+    {
+      "name": "mixed-srcset-candidates",
+      "category": "malformed-url-srcset-css",
+      "profile": "rich-srcset",
+      "inputKind": "literal",
+      "input": "<p>SAFE</p><img srcset='safe.png 1x, javascript:alert(1) 2x, broken.png 0w, https://example.test/two.png 3x'>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["safe.png 1x", "https://example.test/two.png 3x", "SAFE"],
+      "forbidden": ["javascript:", "alert(1)", "0w"]
+    },
+    {
+      "name": "credentialed-url",
+      "category": "malformed-url-srcset-css",
+      "profile": "strict-links",
+      "inputKind": "literal",
+      "input": "<p><a href='https://user:pass@example.test/'>SAFE</a></p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["<a>SAFE</a>"],
+      "forbidden": ["user:pass", "href"]
+    },
+    {
+      "name": "css-expression",
+      "category": "malformed-url-srcset-css",
+      "profile": "inline-style",
+      "inputKind": "literal",
+      "input": "<p style='color:red;width:expression(alert(1))'>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["style=\"color:red\"", "SAFE"],
+      "forbidden": ["expression", "alert(1)"]
+    },
+    {
+      "name": "css-escaped-javascript-url",
+      "category": "malformed-url-srcset-css",
+      "profile": "inline-style",
+      "inputKind": "literal",
+      "input": "<p style='background-image:url(j\\61vascript:alert(1));color:blue'>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["style=\"color:blue\"", "SAFE"],
+      "forbidden": ["javascript", "alert(1)", "background-image"]
+    },
+    {
+      "name": "css-legacy-binding",
+      "category": "malformed-url-srcset-css",
+      "profile": "inline-style",
+      "inputKind": "literal",
+      "input": "<p style='-moz-binding:url(https://evil.example/x);behavior:url(x);color:green'>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["style=\"color:green\"", "SAFE"],
+      "forbidden": ["binding", "behavior", "evil.example"]
+    },
+    {
+      "name": "malformed-css-recovery",
+      "category": "malformed-url-srcset-css",
+      "profile": "inline-style",
+      "inputKind": "literal",
+      "input": "<p style='color:red;broken(;width:10px;color:blue'>SAFE</p>",
+      "size": 0,
+      "expectSuccess": true,
+      "required": ["SAFE"],
+      "forbidden": ["broken("]
+    },
+
+    {
+      "name": "configured-depth-limit",
+      "category": "deep-large-input",
+      "profile": "limit-depth",
+      "inputKind": "deep",
+      "input": "",
+      "size": 40,
+      "expectSuccess": false,
+      "required": [],
+      "forbidden": []
+    },
+    {
+      "name": "configured-input-limit",
+      "category": "deep-large-input",
+      "profile": "limit-input",
+      "inputKind": "text",
+      "input": "",
+      "size": 2048,
+      "expectSuccess": false,
+      "required": [],
+      "forbidden": []
+    },
+    {
+      "name": "configured-token-limit",
+      "category": "deep-large-input",
+      "profile": "limit-token",
+      "inputKind": "comment",
+      "input": "",
+      "size": 2048,
+      "expectSuccess": false,
+      "required": [],
+      "forbidden": []
+    },
+    {
+      "name": "configured-output-limit",
+      "category": "deep-large-input",
+      "profile": "limit-output",
+      "inputKind": "text",
+      "input": "",
+      "size": 256,
+      "expectSuccess": false,
+      "required": [],
+      "forbidden": []
+    }
+  ]
+}

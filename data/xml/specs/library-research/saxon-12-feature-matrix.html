@@ -1,0 +1,2684 @@
+<!DOCTYPE HTML>
+<html>
+   
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+      <this-is section="products" page="feature-matrix" subpage="feature-matrix-12"></this-is>
+      
+      
+      <meta name="description" content="the full range of Saxon products and features implementing four W3C defined languages on four technology platforms such as Java, .NET, Native, JavaScript">
+      
+      <meta name="keywords" content="XSLT, XQuery, XSD, XPath, Java, .NET, Native, JavaScript">
+      
+      <meta name="coverage" content="Worldwide">
+      
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      
+      <meta name="robots" content="follow">
+      
+      <title>Saxonica: Saxon product feature matrix</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="../saxondocs.css?v=2.1" type="text/css"><script type="text/javascript">
+        function getWidth() {
+        if (self.innerHeight) {
+        return self.innerWidth;
+        }
+        
+        if (document.documentElement && document.documentElement.clientHeight) {
+        return document.documentElement.clientWidth;
+        }
+        
+        if (document.body) {
+        return document.body.clientWidth;
+        }
+        }
+       
+       function header_fixed_or_not(){
+        //window.alert(getWidth());       
+        if (getWidth() < $("#wrapper").width()){
+        $("#header-container").css("position", "static");
+        $("#header-container").css("height", "auto");
+        $("#content-container").css("padding", "0 0 0 0");
+        $("#content-container").css("box-shadow", "none");
+        $("#aside-cont").css("position", "relative");
+        $(".scrollable-aside-wrapper").css("position", "absolute");
+        $(".scrollable-aside-wrapper").css("min-height", "calc(100% - 80px)");
+        $("a.anchor").css("top", "-20px");
+        //window.alert("window sizing - static");
+        }
+        else{
+        $("#header-container").css("position", "fixed");
+        $("#header-container").css("height", "110px");
+        $("#content-container").css("padding", "110px 0 0 0");
+        $("#content-container").css("box-shadow", "0px 0px 15px #3D5B96");
+        $("#aside-cont").css("position", "absolute");
+        $(".scrollable-aside-wrapper").css("min-height", "calc(100% - 200px)");
+        $("a.anchor").css("top", "-120px");
+        //window.alert("window sizing - fixed");
+        }        
+        }
+        
+        function header_size(){
+        var headerHeight = document.getElementById("header-nav-container").clientHeight;
+        if (headerHeight > 110 && getWidth() > $("#wrapper").width()){
+        $("#content-container").css("padding-top", headerHeight);
+        $("a.anchor").css("top", -headerHeight);
+        //window.alert("header nav sizing");
+        }
+        }
+      </script></head>
+   
+   <body onload="header_fixed_or_not(), header_size()" onresize="header_fixed_or_not(), header_size()" class="main">
+      <div id="wrapper">
+         <div id="header-container">
+            <div id="header-nav-container">
+               <div id="header">
+                  <div class="header-saxonica-logo"><a href="../welcome/welcome.html"><img src="../img/logo_crop-mid-blue-background.gif" width="260" height="55" border="0" hspace="10px" alt="saxonica.com"></a></div>
+                  <div class="social-media"><a href="https://saxonica.plan.io/" title="Saxonica forum"><i class="fa fa-comments-o fa-2x"></i></a><a href="mailto:saxon-orders@saxonica.com" title="Email us"><i class="fa fa-envelope-square fa-2x"></i></a><a href="https://www.linkedin.com/company/saxonica-ltd" title="LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a><a href="https://blog.saxonica.com" title="Saxonica blogs"><i class="fa fa-bullhorn fa-2x"></i></a></div>
+               </div>
+               <ul class="nav">
+                  <li><a href="../products/products.html" id="thispage">Our products</a><ul>
+                        <li><a href="../products/feature-matrix-12.html">Compare products</a></li>
+                        <li><a href="../products/why-saxon.html">Why Saxon?</a></li>
+                        <li><a href="../products/platforms.html">Platforms</a></li>
+                        <li><a href="../products/latest.html">Latest releases</a></li>
+                        <li><a href="../saxon-c/index.html">SaxonC</a></li>
+                        <li><a href="../saxonjs/index.html">SaxonJS</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="../technology/technology.html">Technology</a><ul>
+                        <li><a href="../technology/introducing-xml.html">Intro to XML</a></li>
+                        <li><a href="../technology/xslt-and-xquery.html">XSLT &amp; XQuery</a></li>
+                        <li><a href="../technology/architecture.html">Architecture</a></li>
+                        <li><a href="../technology/questions.html">FAQ</a></li>
+                        <li><a href="../technology/publications.html">Publications</a></li>
+                        <li><a href="https://blog.saxonica.com">Blog</a></li>
+                        <li><a href="../technology/w3c.html">W3C</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="../download/download_page.html">Download</a><ul>
+                        <li><a href="../download/java.html">Java</a></li>
+                        <li><a href="../download/dotnet.html">.NET</a></li>
+                        <li><a href="../download/c.html">C/C++, PHP &amp; Python</a></li>
+                        <li><a href="../download/javascript.html">JavaScript</a></li>
+                        <li><a href="../download/download.html">Evaluation license</a></li>
+                        <li><a href="../download/information.html">Downloads info</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="../purchase/purchase.html">Buy</a><ul>
+                        <li><a href="../shop/shop.html">Shop</a></li>
+                        <li><a href="../license/licenses.html">Saxon licenses</a></li>
+                        <li><a href="../purchase/upgrades.html">Upgrades</a></li>
+                        <li><a href="../license/terms.html">License T&amp;Cs</a></li>
+                        <li><a href="../license/activation.html">Activation</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="../documentation/documentation.html">Documentation</a><ul>
+                        <li><a href="../documentation13/documentation.html">Saxon 13</a></li>
+                        <li><a href="../documentation12/documentation.html">Saxon 12</a></li>
+                        <li><a href="../documentation11/documentation.html">Saxon 11</a></li>
+                        <li><a href="../documentation10/documentation.html">Saxon 10</a></li>
+                        <li><a href="../documentation9.9/documentation.html">Saxon 9.9</a></li>
+                        <li><a href="../documentation9.8/documentation.html">Saxon 9.8</a></li>
+                        <li><a href="../documentation9.7/documentation.html">Saxon 9.7</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="../support/support.html">Support</a><ul>
+                        <li><a href="../support/opensource.html">Open-source</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="../about/about.html">About us</a><ul>
+                        <li><a href="../about/contact.html">Contact</a></li>
+                        <li><a href="../about/news.html">News</a></li>
+                        <li><a href="../about/testimonials.html">Testimonials</a></li>
+                        <li><a href="../about/gdpr.html">GDPR compliance</a></li>
+                     </ul>
+                  </li>
+                  <li class="float-right"><a href="../sitemap/sitemap.html" class="sitemap">Site map</a></li>
+               </ul>
+               <div id="breadcrumbs-submenu-container">
+                  <div id="breadcrumbs">
+                     <p><a href="../welcome/welcome.html">SAXONICA</a> &gt; <a href="../products/products.html">Our products</a> &gt; <a href="../products/feature-matrix-12.html">Compare products</a> &gt; <a href="../products/feature-matrix-12.html">Saxon 12</a></p>
+                  </div>
+                  <div id="submenu">
+                     <p class="align-right"><a href="../products/products.html">Our products</a> | <a href="../products/feature-matrix-12.html">Compare products</a> | <a href="../products/why-saxon.html">Why Saxon?</a> | <a href="../products/platforms.html">Platforms</a> | <a href="../products/latest.html">Latest releases</a> | <a href="../saxon-c/index.html">SaxonC</a> | <a href="../saxonjs/index.html">SaxonJS</a></p>
+                  </div>
+                  <div style="clear:both;"></div>
+               </div>
+            </div>
+         </div>
+         <div class="content-cont" id="content-container"><a id="top" class="anchor"></a><div id="section">
+               
+               <h1>Saxon 12 product comparison (feature matrix)</h1>
+               
+               <p>This chart describes the features present in each edition of Saxon 12 available for
+                  Java, .NET, and C/C++, PHP and Python, and the latest
+                  release of SaxonJS.</p>
+               
+               <p>Full <a class="bodylink" href="#PDs">Product descriptions</a> are also available to
+                  download below.</p>
+               
+               <p><i>For features in older versions of the products, see the relevant Feature Matrix:<br><a class="bodylink" href="feature-matrix-11.html">Saxon 11</a>, <a class="bodylink" href="feature-matrix-10.html">Saxon 10</a>, <a class="bodylink" href="feature-matrix-9-9.html">Saxon 9.9</a>, <a class="bodylink" href="feature-matrix-9-8.html">Saxon 9.8</a>, <a class="bodylink" href="feature-matrix-9-7.html">Saxon 9.7</a>, <a class="bodylink" href="feature-matrix-9-6.html">Saxon 9.6</a>.</i></p>
+               
+               <p>The table below lists product features and indicates which features are available
+                  for
+                  products on the different platforms. (See the "Product packages" box on the right
+                  for
+                  the definitions of these packages and platform availability.) If the feature is restricted
+                  to certain packages on
+                  a platform, then the table shows the <b>minimal</b> product package(s) required. The
+                  product packages are ordered as: PE ⊂ EEV ⊂ (EET | EEQ) ⊂ EE. For
+                  instance, this means all PE and EEV features are available with all EE packages.</p>
+               
+               <p>'●' means the feature is available for all editions on that platform.</p>
+               
+               <table class="feature-matrix feature-matrix-11" id="overview" style="margin-bottom:15px">
+                  
+                  <tbody>
+                     
+                     <tr class="feature-heading">
+                        
+                        <td style="text-align:left;">XSLT Features</td>
+                        
+                        <td>Java SaxonJ</td>
+                        
+                        <td>.NET SaxonCS</td>
+                        
+                        <td>Native SaxonC</td>
+                        
+                        <td>JavaScript SaxonJS</td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT 3.0 Basic Processor<span>
+                                 
+                                 <h2>XSLT 3.0 Basic Processor</h2>
+                                 
+                                 <p>Provides all mandatory features from the XSLT 3.0 specification (including try/catch,
+                                    iterate,
+                                    accumulators, maps, named modes, content value templates, and extended patterns, as
+                                    well
+                                    as features retained from XSLT 2.0).</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xslt30.html" class="bodylink ">XSLT 3.0 conformance</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/conformance/xslt30.html" class="bodylink">XSLT 3.0 and XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xslt-30/" target="_blank"><i>XSLT 3.0 Recommendation (08 June 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT 3.0 Schema Awareness<span>
+                                 
+                                 <h2>XSLT 3.0 Schema Awareness</h2>
+                                 
+                                 <p>Provides a schema-aware XSLT 3.0 processor: specifically, the ability to import an
+                                    XSD schema
+                                    when compiling a stylesheet, to use this for type-checking, and to process and create
+                                    schema-validated
+                                    instance documents.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xslt30.html" class="bodylink ">XSLT 3.0 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xslt-30/" target="_blank"><i>XSLT 3.0 Recommendation (08 June 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT 3.0 Serialization<span>
+                                 
+                                 <h2>XSLT 3.0 Serialization</h2>
+                                 
+                                 <p>Provides the serialization feature: specifically, the ability to convert the result
+                                    trees 
+                                    produced as output of an XSLT transformation to lexical XML, or other formats including
+                                    HTML,
+                                    JSON, and plain text, under the control of serialization parameters defined in the
+                                    stylesheet
+                                    or via an external API.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xslt30.html" class="bodylink ">XSLT 3.0 conformance</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/conformance/xslt30.html" class="bodylink">XSLT 3.0 and XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xslt-30/" target="_blank"><i>XSLT 3.0 Recommendation (08 June 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT 3.0 Compatibility<span>
+                                 
+                                 <h2>XSLT 3.0 Compatibility</h2>
+                                 
+                                 <p>Provides XSLT 1.0 compatibility mode as defined in the XSLT 3.0 specification. If
+                                    a stylesheet
+                                    specifies <code>version="1.0"</code>, this causes certain constructs to behave in a way that retains
+                                    the XSLT 1.0 behavior.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xslt30.html" class="bodylink ">XSLT 3.0 conformance</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/conformance/xslt30.html" class="bodylink">XSLT 3.0 and XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xslt-30/" target="_blank"><i>XSLT 3.0 Recommendation (08 June 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT 3.0 Streaming<span>
+                                 
+                                 <h2>XSLT 3.0 Streaming</h2>
+                                 
+                                 <p>Includes additional features of the XSLT 3.0 specification that enable
+                                    streaming (processing of documents that are too large to fit in memory).</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xslt30.html" class="bodylink ">XSLT 3.0 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xslt-30/" target="_blank"><i>XSLT 3.0 Recommendation (08 June 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT 3.0 Dynamic Evaluation<span>
+                                 
+                                 <h2>XSLT 3.0 Dynamic Evaluation</h2>
+                                 
+                                 <p>Provides use of the XSLT 3.0 instruction <code>xsl:evaluate</code>, which allows dynamic
+                                    evaluation of XPath expressions.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xslt30.html" class="bodylink ">XSLT 3.0 conformance</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/conformance/xslt30.html" class="bodylink">XSLT 3.0 and XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xslt-30/" target="_blank"><i>XSLT 3.0 Recommendation (08 June 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT 3.0 XPath 3.1 Feature<span>
+                                 
+                                 <h2>XSLT 3.0 XPath 3.1 Feature</h2>
+                                 
+                                 <p>Provides full use of XPath 3.1 features, including XPath 3.1 functions, and maps and
+                                    arrays.</p>
+                                 
+                                 <p><i>Note: Saxon supports XPath 3.1 unconditionally in XSLT 3.0 stylesheets, it does
+                                       not offer a processing mode in which XPath is restricted to version 3.0.</i></p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xslt30.html" class="bodylink ">XSLT 3.0 conformance</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/conformance/xslt30.html" class="bodylink">XSLT 3.0 and XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xslt-30/" target="_blank"><i>XSLT 3.0 Recommendation (08 June 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT 3.0 Higher-Order Functions<span>
+                                 
+                                 <h2>XSLT 3.0 Higher-Order Functions</h2>
+                                 
+                                 <p>Provides higher-order functions: specifically, the ability to use functions as values,
+                                    including dynamic function calls, inline functions, partial function application,
+                                    and the standard higher-order functions defined in the XPath 3.1 function library.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xslt30.html" class="bodylink ">XSLT 3.0 conformance</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/conformance/xslt30.html" class="bodylink">XSLT 3.0 and XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xslt-30/" target="_blank"><i>XSLT 3.0 Recommendation (08 June 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr class="feature-heading">
+                        
+                        <td style="text-align:left;">XPath Features</td>
+                        
+                        <td>Java SaxonJ</td>
+                        
+                        <td>.NET SaxonCS</td>
+                        
+                        <td>Native SaxonC</td>
+                        
+                        <td>JavaScript SaxonJS</td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XPath 3.1 Basic<span>
+                                 
+                                 <h2>XPath 3.1 Basic</h2>
+                                 
+                                 <p>Provides all XPath 3.1 features which do not require schema-awareness or higher-order
+                                    functions. This includes an implementation of maps and arrays, and support for JSON,
+                                    as well as language constructs retained from earlier XPath versions.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xpath31.html" class="bodylink ">XPath 3.1 conformance</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/conformance/xslt30.html" class="bodylink">XSLT 3.0 and XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xpath-31/" target="_blank"><i>XPath 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XPath 3.1 Schema Aware<span>
+                                 
+                                 <h2>XPath 3.1 Schema Aware</h2>
+                                 
+                                 <p>Provides schema-awareness: specifically, any use of source documents with type annotations,
+                                    and any use of XPath expressions that contain the names of schema components such
+                                    as element
+                                    declarations and types, other than the built-in types.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xpath31.html" class="bodylink ">XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xpath-31/" target="_blank"><i>XPath 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XPath 3.1 Higher-Order Functions<span>
+                                 
+                                 <h2>XPath 3.1 Higher-Order Functions</h2>
+                                 
+                                 <p>Provides higher-order functions: specifically, the ability to use functions as values,
+                                    including dynamic function calls, inline functions, partial function application,
+                                    and
+                                    a library of built-in higher-order functions.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xpath31.html" class="bodylink ">XPath 3.1 conformance</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/conformance/xslt30.html" class="bodylink">XSLT 3.0 and XPath 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xpath-31/" target="_blank"><i>XPath 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr class="feature-heading">
+                        
+                        <td style="text-align:left;">XQuery Features</td>
+                        
+                        <td>Java SaxonJ</td>
+                        
+                        <td>.NET SaxonCS</td>
+                        
+                        <td>Native SaxonC</td>
+                        
+                        <td>JavaScript SaxonJS</td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQuery 3.1 Minimal Conformance<span>
+                                 
+                                 <h2>XQuery 3.1 Minimal Conformance</h2>
+                                 
+                                 <p>Provides Minimal Conformance (including try/catch and "group-by", as well as language
+                                    features
+                                    retained from earlier XQuery versions) as defined in section 5 of the XQuery 3.1 specification.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xquery31.html" class="bodylink ">XQuery 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xquery-31/" target="_blank"><i>XQuery 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQuery 3.1 Schema Aware<span>
+                                 
+                                 <h2>XQuery 3.1 Schema Aware</h2>
+                                 
+                                 <p>Provides the Schema Aware feature. This enables a query to import an XSD schema and
+                                    use it for
+                                    type checking, and to validate instance documents.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xquery31.html" class="bodylink ">XQuery 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xquery-31/" target="_blank"><i>XQuery 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQuery 3.1 Typed Data<span>
+                                 
+                                 <h2>XQuery 3.1 Typed Data</h2>
+                                 
+                                 <p>Provides the Typed Data feature. This enables a query to accept input data that has
+                                    been validated
+                                    against a schema.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xquery31.html" class="bodylink ">XQuery 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xquery-31/" target="_blank"><i>XQuery 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQuery 3.1 Static Typing<span>
+                                 
+                                 <h2>XQuery 3.1 Static Typing</h2>
+                                 
+                                 <p>Saxon does not implement the Static Typing feature.</p>
+                                 
+                                 <p><i>The static typing feature treats an expression as an error unless it
+                                       is guaranteed type-safe at compile time. Without this feature, type checking
+                                       is performed dynamically at run time. Saxon does compile time analysis to
+                                       minimize the amount of dynamic checking that is needed.</i></p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xquery31.html" class="bodylink ">XQuery 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xquery-31/" target="_blank"><i>XQuery 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQuery 3.1 Modules<span>
+                                 
+                                 <h2>XQuery 3.1 Modules</h2>
+                                 
+                                 <p>Provides the Module feature, which allows a query to be made up of multiple modules.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xquery31.html" class="bodylink ">XQuery 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xquery-31/" target="_blank"><i>XQuery 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQuery 3.1 Serialization<span>
+                                 
+                                 <h2>XQuery 3.1 Serialization</h2>
+                                 
+                                 <p>Provides the Serialization feature. This allows the output of a query to be serialized
+                                    as lexical XML,
+                                    or in other formats including HTML, JSON, and plain text, under the control of serialization
+                                    parameters
+                                    contained either in the query itself, or supplied externally.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xquery31.html" class="bodylink ">XQuery 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xquery-31/" target="_blank"><i>XQuery 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQuery 3.1 Higher-Order Functions<span>
+                                 
+                                 <h2>XQuery 3.1 Higher-Order Functions</h2>
+                                 
+                                 <p>Provides the Higher-Order Function feature. This provides the ability to use functions
+                                    as values,
+                                    including dynamic function calls, inline functions, partial function application,
+                                    and a library of built-in higher-order functions.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xquery31.html" class="bodylink ">XQuery 3.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xquery-31/" target="_blank"><i>XQuery 3.1 Recommendation (21 March 2017)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQuery Update 1.0<span>
+                                 
+                                 <h2>XQuery Update 1.0</h2>
+                                 
+                                 <p>Saxon provides all the features defined in the XQuery Update 1.0 specification. The
+                                    implementation allows XQuery Update 1.0 syntax to be mixed with XQuery 3.1 syntax.
+                                    </p>
+                                 
+                                 <p><i>XQuery Update in SaxonCS is offered "as is": the feature is present, but has not been
+                                       extensively tested.</i></p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/update.html" class="bodylink ">XQuery Update 1.0 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xquery-update-10/" target="_blank"><i>XQuery Update 1.0 Recommendation (17 March 2011)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr class="feature-heading">
+                        
+                        <td style="text-align:left;">XML Schema Features</td>
+                        
+                        <td>Java SaxonJ</td>
+                        
+                        <td>.NET SaxonCS</td>
+                        
+                        <td>Native SaxonC</td>
+                        
+                        <td>JavaScript SaxonJS</td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XML Schema 1.0 Validation<span>
+                                 
+                                 <h2>XML Schema 1.0 Validation</h2>
+                                 
+                                 <p>Saxon includes a complete implementation of XML Schema 1.0. This provides the ability
+                                    to
+                                    process XSD 1.0 schema documents and use them to validate instance documents. Note
+                                    that
+                                    Saxon does not expose the full PSVI, as required by the conformance rules in the XSD
+                                    1.0
+                                    Recommendation. Also includes Saxon extension functions to provide access to a compiled
+                                    schema.</p>
+                                 
+                                 <p><i>From Saxon 10, the Saxon schema processor accepts XSD 1.1 syntax unconditionally.
+                                       XSD 1.0 schemas
+                                       are processed according to the rules of the XSD 1.1 specification. This offers a very
+                                       high level
+                                       of backwards compatibility, except in a few areas where the XSD 1.0 rules were unclear
+                                       and have
+                                       been clarified in the XSD 1.1 recommendation.</i></p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/schema.html" class="bodylink ">XML Schema 1.0 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xmlschema-1/" target="_blank"><i>XML Schema 1.0 Recommendation (28 October 2004)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XML Schema 1.1 Validation<span>
+                                 
+                                 <h2>XML Schema 1.1 Validation</h2>
+                                 
+                                 <p>Saxon includes a complete implementation of XML Schema 1.1. This provides the ability
+                                    to
+                                    process schema documents that use the new features of XSD 1.1, and use them to validate
+                                    instance documents. More specifically, in the language of section 2.4 of the specification,
+                                    it is a <i>General-Purpose Web-Aware Validator</i>. Also includes Saxon extension functions
+                                    to provide access to a compiled schema.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/schema11.html" class="bodylink ">XML Schema 1.1 conformance</a></p>
+                                 
+                                 <p><a href="https://www.w3.org/TR/xmlschema11-1/" target="_blank"><i>XML Schema 1.1 Recommendation (05 April 2012)</i></a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr class="feature-heading">
+                        
+                        <td style="text-align:left;">Performance Features</td>
+                        
+                        <td>Java SaxonJ</td>
+                        
+                        <td>.NET SaxonCS</td>
+                        
+                        <td>Native SaxonC</td>
+                        
+                        <td>JavaScript SaxonJS</td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Document projection<span>
+                                 
+                                 <h2>Document projection</h2>
+                                 
+                                 <p>This feature performs static analysis of a query and uses this to filter a document
+                                    during
+                                    loading, so that the only parts held in memory are those parts needed to answer the
+                                    query.
+                                    For simple queries on large documents this can give substantial memory savings.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/sourcedocs/projection.html" class="bodylink ">Document projection</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Export stylesheet packages<span>
+                                 
+                                 <h2>Export stylesheet packages</h2>
+                                 
+                                 <p>XSLT 3.0 packaging allows stylesheet modules to be independently compiled and distributed,
+                                    and provides much more "software engineering" control over public and private interfaces,
+                                    and the like. The ability to save packages in compiled form ("stylesheet export file",
+                                    SEF)
+                                    gives much faster loading of frequently used stylesheets, and also enables in-browser
+                                    execution using SaxonJS.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/using-xsl/compiling.html" class="bodylink ">Compiling a stylesheet</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/starting/export.html" class="bodylink">Exporting stylesheets for SaxonJS</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Import stylesheet packages<span>
+                                 
+                                 <h2>Import stylesheet packages</h2>
+                                 
+                                 <p>Allows the importing of stylesheet packages in compiled form. Possible with all editions
+                                    provided the package only uses features available in that edition. </p>
+                                 
+                                 <p>Further info: <a href="../documentation12/using-xsl/compiling.html" class="bodylink ">Compiling a stylesheet</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/starting/export.html" class="bodylink">Exporting stylesheets for SaxonJS</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Multi-threading (XPath)<span>
+                                 
+                                 <h2>Multi-threading (XPath)</h2>
+                                 
+                                 <p>Takes advantage of multi-core CPUs by providing automatic parallel execution of the
+                                    <code>collection()</code> function.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Multi-threading (XSLT)<span>
+                                 
+                                 <h2>Multi-threading (XSLT)</h2>
+                                 
+                                 <p>Takes advantage of multi-core CPUs by providing automatic parallel execution of the
+                                    <code>xsl:result-document</code> instruction; plus an extension attribute
+                                    <code>saxon:threads</code> to allow multi-threaded execution of <code>xsl:for-each</code>
+                                    instructions under the control of the stylesheet author.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Optimizer (Basic)<span>
+                                 
+                                 <h2>Optimizer (Basic)</h2>
+                                 
+                                 <p>The <i>Basic</i> optimizer provided with all Saxon editions provides a wide range of
+                                    static and dynamic optimizations including full pipelining of list operations, lazy
+                                    evaluation of variables, elimination of redundant sorting operations, etc.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Optimizer (Advanced)<span>
+                                 
+                                 <h2>Optimizer (Advanced)</h2>
+                                 
+                                 <p>The <i>Advanced</i> optimizer provides the wide range of static and dynamic optimizations
+                                    featured in the <i>Basic</i> optimizer - including full pipelining of list operations,
+                                    lazy evaluation of variables, elimination of redundant sorting operations, etc. -
+                                    and
+                                    additionally provides join optimization, inlining of variables and functions, just-in-time
+                                    compilation of template rules, and optimized searching of large sets of template rules,
+                                    where
+                                    feasible.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET EEQ</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Reading W3C schemas and DTDs<span>
+                                 
+                                 <h2>Reading W3C schemas and DTDs</h2>
+                                 
+                                 <p>The W3C web server routinely rejects requests for commonly-referenced files such as
+                                    the
+                                    DTD for XHTML, causing parsing failures. In response to this, Saxon now includes copies
+                                    of
+                                    these documents within the issued JAR/DLL file, and recognizes requests for these
+                                    documents,
+                                    satisfying the request using the local copy.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Streaming (XPath and XQuery)<span>
+                                 
+                                 <h2>Streaming (XPath and XQuery)</h2>
+                                 
+                                 <p>Provides <code>saxon:stream()</code>, an extension function to allow large documents to be
+                                    processed without holding the whole document in memory.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/streaming/index.html" class="bodylink has-subpages">Streaming XML documents</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Streaming (XSLT)<span>
+                                 
+                                 <h2>Streaming (XSLT)</h2>
+                                 
+                                 <p>Allows large documents to be processed without holding the whole document in memory.
+                                    Provides the streaming features of the XSLT 3.0 specification.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/streaming/index.html" class="bodylink has-subpages">Streaming XML documents</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EET</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr class="feature-heading">
+                        
+                        <td style="text-align:left;">Extensibility</td>
+                        
+                        <td>Java SaxonJ</td>
+                        
+                        <td>.NET SaxonCS</td>
+                        
+                        <td>Native SaxonC</td>
+                        
+                        <td>JavaScript SaxonJS</td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">EXSLT extension functions<span>
+                                 
+                                 <h2>EXSLT extension functions</h2>
+                                 
+                                 <p>A selection of EXSLT extension functions are provided (in the modules Common, Dates
+                                    and
+                                    Times, Math, Random, and Sets), as listed in the documentation. </p>
+                                 
+                                 <p>Only the <code>exslt:node-set</code> function is available in SaxonCS.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/extensions/functions/exslt.html" class="bodylink ">EXSLT extensions</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">EXPath extension functions<span>
+                                 
+                                 <h2>EXPath extension functions</h2>
+                                 
+                                 <p>A selection of EXPath extension functions are provided (in the modules Archive, Binary,
+                                    and
+                                    File), as listed in the documentation. </p>
+                                 
+                                 <p>Further info: <a href="../documentation12/extensions/functions/expath.html" class="bodylink ">EXPath extensions</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Extensibility using custom classes<span>
+                                 
+                                 <h2>Extensibility using custom classes</h2>
+                                 
+                                 <p>Ability to write extension functions (for use in XSLT, XQuery, or XPath) by implementing
+                                    a
+                                    Saxon-defined interface and registering the implementation with the Saxon Configuration.
+                                    </p>
+                                 
+                                 <p>Further info: <a href="../documentation12/extensibility/index.html" class="bodylink has-subpages">Extensibility</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Extensibility using reflexion (Java)<span>
+                                 
+                                 <h2>Extensibility using reflexion (Java)</h2>
+                                 
+                                 <p>Ability to access existing Java methods dynamically and invoke them as extension
+                                    functions by means of dynamic loading and reflexion. </p>
+                                 
+                                 <p>Further info: <a href="../documentation12/extensibility/index.html" class="bodylink has-subpages">Extensibility</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Extensibility using reflexion (JavaScript)<span>
+                                 
+                                 <h2>Extensibility using reflexion (JavaScript)</h2>
+                                 
+                                 <p>Ability to access existing JavaScript objects and functions dynamically. </p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/ixsl-extension/index.html" class="bodylink">Saxon interactive extensions</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Event handling extensions<span>
+                                 
+                                 <h2>Event handling extensions</h2>
+                                 
+                                 <p>Ability to write template rules which respond to user interaction events in the browser.
+                                    </p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/browser/events.html" class="bodylink">Handling user input events</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Saxon extension functions (Basic)<span>
+                                 
+                                 <h2>Saxon extension functions (Basic)</h2>
+                                 
+                                 <p>Extension functions, as listed in the documentation, in the Saxon namespace. The
+                                    <i>Basic</i> level excludes extension functions that depend on streaming or
+                                    schema-awareness.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/extensions/functions/saxon-extension-functions.html" class="bodylink ">Saxon extension functions</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/ixsl-extension/saxon-extensions.html" class="bodylink">Saxon extensions</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Saxon extension functions (Advanced)<span>
+                                 
+                                 <h2>Saxon extension functions (Advanced)</h2>
+                                 
+                                 <p>Extension functions, as listed in the documentation, in the Saxon namespace. The
+                                    <i>Advanced</i> level includes those that depend on streaming or schema-awareness:
+                                    <code>saxon:schema()</code>, <code>saxon:stream()</code>, and
+                                    <code>saxon:validate()</code>.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/extensions/functions/saxon-extension-functions.html" class="bodylink ">Saxon extension functions</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/ixsl-extension/saxon-extensions.html" class="bodylink">Saxon extensions</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">SQL extension<span>
+                                 
+                                 <h2>SQL extension</h2>
+                                 
+                                 <p>XSLT extension functions and instructions providing access to SQL databases.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/sql-extension/index.html" class="bodylink has-subpages">Saxon SQL extension</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XSLT element extensibility<span>
+                                 
+                                 <h2>XSLT element extensibility</h2>
+                                 
+                                 <p>Ability to implement XSLT extension instructions by implementing a Saxon-defined interface
+                                    and registering the implementation with the Saxon Configuration. </p>
+                                 
+                                 <p>Further info: <a href="../documentation12/extensibility/instructions.html" class="bodylink ">Writing XSLT extension instructions</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr class="feature-heading">
+                        
+                        <td style="text-align:left;">Localization</td>
+                        
+                        <td>Java SaxonJ</td>
+                        
+                        <td>.NET SaxonCS</td>
+                        
+                        <td>Native SaxonC</td>
+                        
+                        <td>JavaScript SaxonJS</td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Formatting numbers in English<span>
+                                 
+                                 <h2>Formatting numbers in English</h2>
+                                 
+                                 <p>Numbers can be formatted as words in English.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/localization/number-formatting.html" class="bodylink ">Formatting numbers</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Formatting dates in English<span>
+                                 
+                                 <h2>Formatting dates in English</h2>
+                                 
+                                 <p>Dates can be formatted as words in English.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/localization/date-formatting.html" class="bodylink ">Formatting dates</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Formatting numbers and dates for select languages<span>
+                                 
+                                 <h2>Formatting numbers and dates for select languages</h2>
+                                 
+                                 <p>A set of numberers provide support for formatting numbers and dates as words in some
+                                    other European languages:
+                                    Danish (da), German (de), French (fr), Belgium French (fr-BE), Italian (it), Dutch
+                                    (nl), Belgium
+                                    Flemish (nl-BE), and Swedish (sv). These numberers are included in Saxon-PE/EE, and
+                                    are available as
+                                    installable plug-ins for SaxonJ-HE.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/localization/localizing-numbers-and-dates/other-numberings.html" class="bodylink ">Numberings for selected       languages</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Formatting numbers using ICU<span>
+                                 
+                                 <h2>Formatting numbers using ICU</h2>
+                                 
+                                 <p>Full support for formatting numbers as words in different languages is provided using
+                                    the <a href="https://icu.unicode.org" class="bodylink">ICU4J library</a>.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/localization/ICU-numbers-and-dates/index.html" class="bodylink has-subpages">Numbers and dates from ICU</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Formatting dates using ICU<span>
+                                 
+                                 <h2>Formatting dates using ICU</h2>
+                                 
+                                 <p>Full support for formatting dates as words in different languages is provided using
+                                    the <a href="https://icu.unicode.org" class="bodylink">ICU library</a> for the relevant platform (ICU4J
+                                    for SaxonJ, and ICU4N for SaxonCS).</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/localization/ICU-numbers-and-dates/index.html" class="bodylink has-subpages">Numbers and dates from ICU</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Sorting and collations using JDK locales<span>
+                                 
+                                 <h2>Sorting and collations using JDK locales</h2>
+                                 
+                                 <p>Support for sorting and comparison of strings using the Unicode Collation Algorithm
+                                    uses the
+                                    collation facilities available directly from the JDK.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/localization/sorting-and-collations.html" class="bodylink ">Sorting and collations</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Sorting and collations using ICU<span>
+                                 
+                                 <h2>Sorting and collations using ICU</h2>
+                                 
+                                 <p>Support for sorting and comparison of strings using the Unicode Collation Algorithm
+                                    uses the
+                                    collation facilities available from the <a href="https://icu.unicode.org" class="bodylink">ICU
+                                       library</a> for the relevant platform (ICU4J for SaxonJ, and ICU4N for SaxonCS).</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/localization/unicode-collation-algorithm/index.html" class="bodylink has-subpages">Unicode Collation Algorithm</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Sorting and collations using JavaScript API<span>
+                                 
+                                 <h2>Sorting and collations using JavaScript API</h2>
+                                 
+                                 <p>Support for sorting and comparison of strings using the Unicode Collation Algorithm
+                                    uses the
+                                    collation facilities available from the <code>Intl.Collator</code> JavaScript API.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr class="feature-heading">
+                        
+                        <td style="text-align:left;">Interfaces, APIs</td>
+                        
+                        <td>Java SaxonJ</td>
+                        
+                        <td>.NET SaxonCS</td>
+                        
+                        <td>Native SaxonC</td>
+                        
+                        <td>JavaScript SaxonJS</td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">S9API API<span>
+                                 
+                                 <h2>S9API API</h2>
+                                 
+                                 <p>SaxonJ's native interface for processing XSLT, XQuery, XPath, and (with Saxon-EE)
+                                    XML Schema, on Java.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">.NET API<span>
+                                 
+                                 <h2>.NET API</h2>
+                                 
+                                 <p>SaxonCS's interface for processing XSLT, XQuery, XPath, and (with Saxon-EE) XML Schema,
+                                    on .NET.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/saxon-cs/dotnetapi.html" class="bodylink ">Saxon API for .NET</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">C++ API<span>
+                                 
+                                 <h2>C++ API</h2>
+                                 
+                                 <p>SaxonC's interface for processing XSLT, XQuery, XPath, and (with Saxon-EE) XML Schema,
+                                    on C++.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">JAXP API<span>
+                                 
+                                 <h2>JAXP API</h2>
+                                 
+                                 <p>Implementations of the standard JAXP interfaces for XSLT transformation, XPath evaluation,
+                                    and (with Saxon-EE) XML Schema validation.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/jaxp.html" class="bodylink ">JAXP API conformance</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">XQJ API<span>
+                                 
+                                 <h2>XQJ API</h2>
+                                 
+                                 <p>Implementations of the standard XQJ interfaces for XQuery processing. Note that the
+                                    XQJ
+                                    interfaces have been removed from the standard download of Saxon-HE because the Oracle
+                                    specification license is not open source, but they are available on request.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/conformance/xqj.html" class="bodylink ">XQJ API conformance</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">PHP extension<span>
+                                 
+                                 <h2>PHP extension</h2>
+                                 
+                                 <p>Interface module that allows SaxonC to be invoked from PHP applications.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Python extension<span>
+                                 
+                                 <h2>Python extension</h2>
+                                 
+                                 <p>Interface module that allows SaxonC to be invoked from Python applications.</p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Support for DOM<span>
+                                 
+                                 <h2>Support for DOM</h2>
+                                 
+                                 <p>Ability to use a DOM (Document Object Model) for the input and output of transformations
+                                    and queries. On the .NET platform this includes the System.Xml DOM classes.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/sourcedocs/thirdparty.html" class="bodylink ">Object models</a></p>
+                                 
+                                 <p>SaxonJS further info: <a href="https://www.saxonica.com/saxon-js/documentation/xdm/nodes.html" class="bodylink">Nodes</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>●</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Optimized support for DOM<span>
+                                 
+                                 <h2>Optimized support for DOM</h2>
+                                 
+                                 <p>Indexing of a supplied DOM tree to provide fast navigation (the Domino Model).</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/sourcedocs/domino.html" class="bodylink ">Domino tree model</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>EEV</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="topic">
+                           
+                           <div class="popup2">Support for JDOM2, AXIOM, DOM4J, and XOM<span>
+                                 
+                                 <h2>Support for JDOM2, AXIOM, DOM4J, and XOM</h2>
+                                 
+                                 <p>Ability to use a JDOM2, AXIOM, DOM4J, and XOM for the input or output of transformations
+                                    and queries. Note that the code for these interfaces is open source and can be compiled
+                                    to
+                                    work with Saxon-HE, but it does not come packaged with the Saxon-HE download.</p>
+                                 
+                                 <p>Further info: <a href="../documentation12/sourcedocs/thirdparty.html" class="bodylink ">Object models</a></p></span></div>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>PE</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        
+                        <td>
+                           
+                           <p>&nbsp;</p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table><a id="PDs" class="anchor"></a><h2>Product descriptions</h2>
+               
+               <p>The table below contains links to the full product descriptions for each edition of
+                  Saxon 12 available for Java, .NET, and C/C++, PHP and Python, and the latest
+                  release of SaxonJS.</p>
+               
+               <table class="download-table2 PDs">
+                  
+                  <tbody>
+                     
+                     <tr>
+                        
+                        <td class="col1"><b>Edition</b></td>
+                        
+                        <td><b>Java</b></td>
+                        
+                        <td><b>.NET</b></td>
+                        
+                        <td><b>Native</b></td>
+                        
+                        <td><b>JavaScript</b></td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="col1">HE</td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonJ-HE.pdf">
+                              
+                              <div class="DownloadButton">SaxonJ-HE 12</div></a></td>
+                        
+                        <td></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonC-HE.pdf">
+                              
+                              <div class="DownloadButton">SaxonC-HE 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonJS.pdf">
+                              
+                              <div class="DownloadButton">SaxonJS 2</div></a></td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="col1">PE</td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonJ-PE.pdf">
+                              
+                              <div class="DownloadButton">SaxonJ-PE 12</div></a></td>
+                        
+                        <td></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonC-PE.pdf">
+                              
+                              <div class="DownloadButton">SaxonC-PE 12</div></a></td>
+                        
+                        <td></td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="col1">EE</td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonJ-EE.pdf">
+                              
+                              <div class="DownloadButton">SaxonJ-EE 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonCS-EE.pdf">
+                              
+                              <div class="DownloadButton">SaxonCS-EE 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonC-EE.pdf">
+                              
+                              <div class="DownloadButton">SaxonC-EE 12</div></a></td>
+                        
+                        <td></td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="col1">EET</td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonJ-EET.pdf">
+                              
+                              <div class="DownloadButton">SaxonJ-EET 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonCS-EET.pdf">
+                              
+                              <div class="DownloadButton">SaxonCS-EET 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonC-EET.pdf">
+                              
+                              <div class="DownloadButton">SaxonC-EET 12</div></a></td>
+                        
+                        <td></td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="col1">EEQ</td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonJ-EEQ.pdf">
+                              
+                              <div class="DownloadButton">SaxonJ-EEQ 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonCS-EEQ.pdf">
+                              
+                              <div class="DownloadButton">SaxonCS-EEQ 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonC-EEQ.pdf">
+                              
+                              <div class="DownloadButton">SaxonC-EEQ 12</div></a></td>
+                        
+                        <td></td>
+                        </tr>
+                     
+                     <tr>
+                        
+                        <td class="col1">EEV</td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonJ-EEV.pdf">
+                              
+                              <div class="DownloadButton">SaxonJ-EEV 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonCS-EEV.pdf">
+                              
+                              <div class="DownloadButton">SaxonCS-EEV 12</div></a></td>
+                        
+                        <td><a class="bodylink" href="https://www.saxonica.com/products/PD12/SaxonC-EEV.pdf">
+                              
+                              <div class="DownloadButton">SaxonC-EEV 12</div></a></td>
+                        
+                        <td></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               
+               
+               </div>
+            <div id="aside-cont">
+               <div id="aside" class="aside">
+                  
+                  <h2>Packages by platform</h2>
+                  
+                  <p><b>Java:</b> SaxonJ 12 first released Jan 2023.</p>
+                  
+                  <p><b>.NET:</b> SaxonCS 12 for .NET 6 <b>available only as the Enterprise Edition</b>, first
+                     released Jan 2023.</p>
+                  
+                  <p><b>Native:</b> SaxonC 12 first released Jan 2023, built from SaxonJ 12.</p>
+                  
+                  <p><b>JavaScript:</b> SaxonJS 2 does not require a commercial license.</p>
+                  </div>
+               <div id="aside" class="aside">
+                  
+                  <h2>Product packages</h2>
+                  
+                  <p>Editions available for SaxonJ and SaxonC:</p>
+                  
+                  <ul>
+                     
+                     <li><b>HE: </b>Saxon Home Edition (open source)</li>
+                     
+                     <li><b>PE: </b>Saxon Professional Edition</li>
+                     </ul>
+                  
+                  <p>Enterprise Edition packages for SaxonJ, SaxonCS, and SaxonC:</p>
+                  
+                  <ul>
+                     
+                     <li><b>EE: </b>Saxon Enterprise Edition</li>
+                     
+                     <li><b>EET: </b>Enterprise Edition Transformation package -
+                        includes enterprise features for XSLT and Schema processing only.
+                        No XQuery enterprise features.
+                        <i>(In the online shop, select the "No XQuery" language option.)</i></li>
+                     
+                     <li><b>EEQ: </b>Enterprise Edition Query package -
+                        includes enterprise features for XQuery and Schema processing only.
+                        No XSLT enterprise features.
+                        <i>(In the online shop, select the "No XSLT" language option.)</i></li>
+                     
+                     <li><b>EEV: </b>Enterprise Edition Validation package -
+                        includes enterprise features for Schema processing only.
+                        No XSLT and XQuery enterprise features.
+                        <i>(In the online shop, select the "No XSLT" and "No XQuery" language options.)</i></li>
+                     </ul>
+                  </div>
+            </div>
+            <div id="footer">
+               <p>© 2026 Saxonica</p>
+            </div>
+         </div>
+      </div>
+   </body>
+   </html>

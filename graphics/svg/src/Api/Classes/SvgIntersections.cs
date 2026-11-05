@@ -1,0 +1,30 @@
+namespace svg;
+
+/// <summary>Provides bounded line, Bézier, and normalized-arc intersections.</summary>
+public class SvgIntersections : ISvgIntersections
+{
+
+    /// <summary>Creates a stateless service instance.</summary>
+    public SvgIntersections()
+    {
+    }
+
+    /// <summary>Finds ordered distinct intersections between two tagged segments.</summary>
+    /// <param name="first">The first segment.</param><param name="second">The second segment.</param><param name="options">The tolerance and security limits.</param>
+    /// <returns>The distinct intersections or a stable failure.</returns>
+    public SvgIntersectionResult Find(SvgIntersectionSegment first, SvgIntersectionSegment second, SvgIntersectionOptions options)
+    {
+        if (!new SvgIntersections().ValidWithSegment(first) || !new SvgIntersections().ValidWithSegment(second) || !new SvgIntersections().ValidWithOptions(options)) return new SvgIntersections().Failure(SvgIntersectionError.InvalidArgument, 0);
+        SvgFlattenResult firstFlat = new SvgIntersections().Flatten(first, options); if (!firstFlat.Success) return new SvgIntersections().Failure(new SvgIntersections().Map(firstFlat.Error), 0); SvgFlattenResult secondFlat = new SvgIntersections().Flatten(second, options); if (!secondFlat.Success) return new SvgIntersections().Failure(new SvgIntersections().Map(secondFlat.Error), 0);
+        SvgIntersectionState state = new SvgIntersectionState(first, second, firstFlat, secondFlat, options); SvgIntersectionError error = state.Run();
+        return error == SvgIntersectionError.None ? new SvgIntersectionResult(true, SvgIntersectionError.None, state.Results, state.Comparisons) : new SvgIntersections().Failure(error, state.Comparisons);
+    }
+
+    internal SvgIntersectionResult Failure(SvgIntersectionError error, int comparisons) { return new SvgIntersectionResult(false, error, null, comparisons); }
+    internal SvgPointOperationResult Evaluate(SvgIntersectionSegment segment, double amount) { if (segment.Kind == SvgIntersectionSegmentKind.Line) return (segment.Line ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Evaluate(amount); if (segment.Kind == SvgIntersectionSegmentKind.Quadratic) return (segment.Quadratic ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Evaluate(amount); if (segment.Kind == SvgIntersectionSegmentKind.Cubic) return (segment.Cubic ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Evaluate(amount); return (segment.Arc ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Evaluate(amount); }
+    internal SvgVectorOperationResult Derivative(SvgIntersectionSegment segment, double amount) { if (segment.Kind == SvgIntersectionSegmentKind.Line) return (segment.Line ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Derivative(amount); if (segment.Kind == SvgIntersectionSegmentKind.Quadratic) return (segment.Quadratic ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Derivative(amount); if (segment.Kind == SvgIntersectionSegmentKind.Cubic) return (segment.Cubic ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Derivative(amount); return (segment.Arc ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Derivative(amount); }
+SvgFlattenResult Flatten(SvgIntersectionSegment segment, SvgIntersectionOptions options) { SvgFlattenOptions flatten = new SvgFlattenOptions(); flatten.Tolerance = options.Tolerance; flatten.MaximumSubdivisionDepth = options.MaximumSubdivisionDepth; flatten.MaximumSegments = options.MaximumFlattenedSegments; if (segment.Kind == SvgIntersectionSegmentKind.Line) return (segment.Line ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Flatten(flatten); if (segment.Kind == SvgIntersectionSegmentKind.Quadratic) return (segment.Quadratic ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Flatten(flatten); if (segment.Kind == SvgIntersectionSegmentKind.Cubic) return (segment.Cubic ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Flatten(flatten); return (segment.Arc ?? throw new System.InvalidOperationException("A required SVG value is unavailable.")).Flatten(flatten); }
+bool ValidWithOptions(SvgIntersectionOptions options) { return options != null && SvgFiniteMath.IsFinite(options.Tolerance) && options.Tolerance > 0 && options.MaximumSubdivisionDepth >= 0 && options.MaximumFlattenedSegments > 0 && options.MaximumComparisons > 0 && options.MaximumIntersections > 0 && SvgFiniteMath.IsFinite(options.TangentTolerance) && options.TangentTolerance >= 0 && options.TangentTolerance <= 1; }
+bool ValidWithSegment(SvgIntersectionSegment? segment) { if (segment == null) return false; if (segment.Kind == SvgIntersectionSegmentKind.Line) return segment.Line != null && segment.Quadratic == null && segment.Cubic == null && segment.Arc == null; if (segment.Kind == SvgIntersectionSegmentKind.Quadratic) return segment.Line == null && segment.Quadratic != null && segment.Cubic == null && segment.Arc == null; if (segment.Kind == SvgIntersectionSegmentKind.Cubic) return segment.Line == null && segment.Quadratic == null && segment.Cubic != null && segment.Arc == null; if (segment.Kind == SvgIntersectionSegmentKind.Arc) return segment.Line == null && segment.Quadratic == null && segment.Cubic == null && segment.Arc != null; return false; }
+SvgIntersectionError Map(SvgFlattenError error) { if (error == SvgFlattenError.SegmentLimitExceeded) return SvgIntersectionError.SegmentLimitExceeded; if (error == SvgFlattenError.SubdivisionLimitExceeded) return SvgIntersectionError.SubdivisionLimitExceeded; if (error == SvgFlattenError.InvalidArgument) return SvgIntersectionError.InvalidArgument; return SvgIntersectionError.NonFiniteResult; }
+}

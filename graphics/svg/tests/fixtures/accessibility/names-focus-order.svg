@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" role="img" aria-labelledby="title description">
+  <title id="title">Accessible chart</title>
+  <desc id="description">Two labeled values and one decorative marker.</desc>
+  <a id="first-link" href="https://example.invalid/details" tabindex="0" aria-label="Open chart details">
+    <rect x="8" y="20" width="48" height="40" fill="royalblue"/>
+  </a>
+  <g id="second-control" role="button" tabindex="2" aria-describedby="second-help">
+    <circle cx="96" cy="40" r="20" fill="seagreen"/>
+    <text x="84" y="45">42</text>
+  </g>
+  <text id="second-help" x="8" y="76">Second value</text>
+  <path d="M136 20 l6 12 h-12 z" fill="orange" aria-hidden="true"/>
+</svg>

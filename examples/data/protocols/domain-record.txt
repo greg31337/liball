@@ -1,0 +1,5 @@
+Domain Name: EXAMPLE.COM
+Registrar: Example Registrar
+Creation Date: 2020-01-01T00:00:00Z
+Name Server: NS1.EXAMPLE.COM
+Name Server: NS2.EXAMPLE.COM

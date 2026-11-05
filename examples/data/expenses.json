@@ -1,0 +1,5 @@
+[
+  { "category": "Train fare", "amount": 42.50 },
+  { "category": "Team lunch", "amount": 18.75 },
+  { "category": "Stationery", "amount": 12.25 }
+]

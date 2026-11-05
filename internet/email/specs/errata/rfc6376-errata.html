@@ -1,0 +1,2132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="6376" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records">Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (9)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6376" rel="noopener" target="_blank">RFC 6376</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6376.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> dkim (art)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC8301, RFC8463, RFC8553, RFC8616</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3192/">3192</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>John Hawthorn</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-04-14</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2012-04-14</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section Appendix A says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   From: Joe SixPack &lt;joe@football.example.com&gt;
+   To: Suzie Q &lt;suzie@shopping.example.net&gt;
+   Subject: Is dinner ready?
+   Date: Fri, 11 Jul 2003 21:00:37 -0700 (PDT)
+   Message-ID: &lt;20030712040037.46341.5F8J@football.example.com&gt;
+
+   Hi.
+
+   We lost the game.  Are you hungry yet?
+
+   Joe.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   From: Joe SixPack &lt;joe@football.example.com&gt;
+   To: Suzie Q &lt;suzie@shopping.example.net&gt;
+   Subject: Is dinner ready?
+   Date: Fri, 11 Jul 2003 21:00:37 -0700 (PDT)
+   Message-ID: &lt;20030712040037.46341.5F8J@football.example.com&gt;
+
+   Hi.
+
+   We lost the game. Are you hungry yet?
+
+   Joe.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>This text appears three times, in A.1, A.2, and A.3.  Notice the double space after &quot;game.&quot;, which renders the body hashes in A.2 and A.3 invalid.
+
+The corrected text, which is the same as that in RFC 4871, removes the extra space.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4810/">4810</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Juan Altmayer Pizzorno</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2016-09-26</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Stephen Farrell</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2016-09-27</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>x-sig-q-tag-args = qp-hdr-value</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>x-sig-q-tag-args = dkim-quoted-printable  ; with &quot;:&quot; encoded</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>sig-q-tag-methods are &quot;:&quot;-separated in sig-q-tag, so &quot;:&quot; shouldn&#x27;t be permitted
+within x-sig-q-tag-args.  Note that qp-hdr-value (which I believe was originally
+defined for sig-z-tag, which includes &quot;|&quot;-separated values) is defined as
+
+   qp-hdr-value    =  dkim-quoted-printable    ; with &quot;|&quot; encoded</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5070/">5070</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Chris Newman</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2017-07-15</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   tag-spec  =  [FWS] tag-name [FWS] &quot;=&quot; [FWS] tag-value [FWS]
+   tag-name  =  ALPHA *ALNUMPUNC
+   tag-value =  [ tval *( 1*(WSP / FWS) tval ) ]
+                     ; Prohibits WSP and FWS at beginning and end</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   tag-spec  =  [FWS] tag-name [FWS] &quot;=&quot; [FWS] [tag-value [FWS]]
+   tag-name  =  ALPHA *ALNUMPUNC
+   tag-value =  tval *( 1*(WSP / FWS) tval )
+                     ; Prohibits WSP and FWS at beginning and end</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The ABNF in the document permits two FWS rules to appear in the row. This results in permitting a line with only whitespace in the header which falls into obsolete syntax in RFC 5322 (Appendix B rule 12). The corrected text disallows this by eliding the second FWS when the tag-value is empty/omitted.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5137/">5137</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Peter Smith</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2017-10-03</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Alexey Melnikov</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2017-10-18</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>      key-k-tag        = %x76 [FWS] &quot;=&quot; [FWS] key-k-tag-type
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>      key-k-tag        = %x6b [FWS] &quot;=&quot; [FWS] key-k-tag-type
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The key-k-tag should (presumably) start with the letter &quot;k&quot; to match the other key-LETTER-tag definitions and to match the &quot;k=&quot; heading.  However, the ABNF specifies %76 which is the letter &quot;v&quot;, not the letter &quot;k&quot;.  The correct value is %x6b.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5252/">5252</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alastair Houghton</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2018-02-02</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.7 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   More formally, pseudo-code for the signature algorithm is:
+
+   body-hash    =  hash-alg (canon-body, l-param)
+   data-hash    =  hash-alg (h-headers, D-SIG, body-hash)
+   signature    =  sig-alg (d-domain, selector, data-hash)
+
+   where:
+
+   body-hash:  is the output from hashing the body, using hash-alg.
+
+   hash-alg:   is the hashing algorithm specified in the &quot;a&quot; parameter.
+
+   canon-body: is a canonicalized representation of the body, produced
+               using the body algorithm specified in the &quot;c&quot; parameter,
+               as defined in Section 3.4 and excluding the
+               DKIM-Signature field.
+
+   l-param:    is the length-of-body value of the &quot;l&quot; parameter.
+
+   data-hash:  is the output from using the hash-alg algorithm, to hash
+               the header including the DKIM-Signature header, and the
+               body hash.
+
+   h-headers:  is the list of headers to be signed, as specified in the
+               &quot;h&quot; parameter.
+
+   D-SIG:      is the canonicalized DKIM-Signature field itself without
+               the signature value portion of the parameter, that is, an
+               empty parameter value.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   More formally, pseudo-code for the signature algorithm is:
+
+   body-hash    =  hash-alg (canon-body, l-param)
+   data-hash    =  hash-alg (h-headers, D-SIG)
+   signature    =  sig-alg (d-domain, selector, data-hash)
+
+   where:
+
+   body-hash:  is the output from hashing the body, using hash-alg.
+
+   hash-alg:   is the hashing algorithm specified in the &quot;a&quot; parameter.
+
+   canon-body: is a canonicalized representation of the body, produced
+               using the body algorithm specified in the &quot;c&quot; parameter,
+               as defined in Section 3.4 and excluding the
+               DKIM-Signature field.
+
+   l-param:    is the length-of-body value of the &quot;l&quot; parameter.
+
+   data-hash:  is the output from using the hash-alg algorithm, to hash
+               the header including the DKIM-Signature header, and the
+               body hash.
+
+   h-headers:  is the list of headers to be signed, as specified in the
+               &quot;h&quot; parameter.
+
+   D-SIG:      is the canonicalized DKIM-Signature field itself without
+               the signature value portion of the parameter, that is, an
+               empty parameter value, with no trailing CRLF.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>data-hash does not include body-hash (body-hash is already included by virtue of  the &quot;bh=&quot; tag in D-SIG). Also, D-SIG should not include the trailing CRLF, unlike the headers in h-headers.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5839/">5839</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Peter Occil</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2019-08-18</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Murray Kucherawy</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2021-12-02</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.4.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   o  Delete all WSP characters at the end of each unfolded header field
+      value.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   o  Delete the SP character, if present, at the end of each unfolded
+      header field value before its final CRLF</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>A prior step in this section suggests that header field values include the trailing CRLF.  If that is the case, then a header field value can&#x27;t end with WSP, which suggests that this step is incorrectly specified.  The correction I give here restores the apparent intent of this step.
+
+[MSK: The corrected text was modified after discussion on the WG mailing list.]</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6076/">6076</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>John Levine</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2020-04-01</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benjamin Kaduk</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2020-04-01</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section .6 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>      domain-name     = sub-domain 1*(&quot;.&quot; sub-domain)
+                        ; from [RFC5321] Domain,
+                        ; excluding address-literal
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>      domain-name     = sub-domain 1*(&quot;.&quot; sub-domain)
+                        ; from [RFC5321] Domain
+                        
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>In RFC5321 &quot;domain&quot; does not include address-literal. This mistake was copied from RFC4871
+(which referred to the [RFC2821] Domain, which does include address-literal). 
+This report is just to flag it so we don&#x27;t put it in the next revision.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4287/">4287</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Phil Griffin (via DCrocker)</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2015-03-04</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2015-03-04</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   k= Key type (plain-text; OPTIONAL, default is &quot;rsa&quot;).  Signers and
+      Verifiers MUST support the &quot;rsa&quot; key type.  The &quot;rsa&quot; key type
+      indicates that an ASN.1 DER-encoded [ITU-X660-1997] RSAPublicKey
+      (see [RFC3447], Sections 3.1 and A.1.1) is being used in the &quot;p=&quot;
+      tag.  (Note: the &quot;p=&quot; tag further encodes the value using the
+      base64 algorithm.)  Unrecognized key types MUST be ignored.
+
+and in Section 9.1:
+
+   [ITU-X660-1997]
+              &quot;Information Technology - ASN.1 encoding rules:
+              Specification of Basic Encoding Rules (BER), Canonical
+              Encoding Rules (CER) and Distinguished Encoding Rules
+              (DER)&quot;, 1997.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Both instances of &quot;[ITU-X660-1997]&quot; should be &quot;[ITU-X690-1997]&quot;</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>This is just a typo: &quot;660&quot; should be &quot;690&quot;.  The text of the reference is correct, but the document number is wrong.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4926/">4926</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Simon Ser</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2017-02-07</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Stephen Farrell</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2017-02-14</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section A.2, A.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>DKIM-Signature: v=1; a=rsa-sha256; s=brisbane; d=example.com;
+     c=simple/simple; q=dns/txt; i=joe@football.example.com;
+     h=Received : From : To : Subject : Date : Message-ID;
+     bh=2jUSOH9NhtVGCQWNr9BrIAPreKQjO6Sn7XIkfJVOzv8=;
+     b=AuUoFEfDxTDkHlLXSZEpZj79LICEps6eda7W3deTVFOk4yAUoqOB
+     4nujc7YopdG5dWLSdNg6xNAZpOPr+kHxt1IrE+NahM6L/LbvaHut
+     KVdkLLkpVaVVQPzeRDI009SO2Il5Lu7rDNH6mZckBdrIx0orEtZV
+     4bmp/YzhwvcubU4=;
+Received: from client1.football.example.com  [192.0.2.1]
+     by submitserver.example.com with SUBMISSION;
+     Fri, 11 Jul 2003 21:01:54 -0700 (PDT)
+From: Joe SixPack &lt;joe@football.example.com&gt;
+To: Suzie Q &lt;suzie@shopping.example.net&gt;
+Subject: Is dinner ready?
+Date: Fri, 11 Jul 2003 21:00:37 -0700 (PDT)
+Message-ID: &lt;20030712040037.46341.5F8J@football.example.com&gt;
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>DKIM-Signature: v=1; a=rsa-sha256; s=brisbane; d=example.com;
+      c=simple/simple; q=dns/txt; i=joe@football.example.com;
+      h=Received : From : To : Subject : Date : Message-ID;
+      bh=2jUSOH9NhtVGCQWNr9BrIAPreKQjO6Sn7XIkfJVOzv8=;
+      b=AuUoFEfDxTDkHlLXSZEpZj79LICEps6eda7W3deTVFOk4yAUoqOB
+      4nujc7YopdG5dWLSdNg6xNAZpOPr+kHxt1IrE+NahM6L/LbvaHut
+      KVdkLLkpVaVVQPzeRDI009SO2Il5Lu7rDNH6mZckBdrIx0orEtZV
+      4bmp/YzhwvcubU4=;
+Received: from client1.football.example.com  [192.0.2.1]
+      by submitserver.example.com with SUBMISSION;
+      Fri, 11 Jul 2003 21:01:54 -0700 (PDT)
+From: Joe SixPack &lt;joe@football.example.com&gt;
+To: Suzie Q &lt;suzie@shopping.example.net&gt;
+Subject: Is dinner ready?
+Date: Fri, 11 Jul 2003 21:00:37 -0700 (PDT)
+Message-ID: &lt;20030712040037.46341.5F8J@football.example.com&gt;</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The &quot;simple&quot; header canonicalization doesn&#x27;t change the header fields in any way.
+
+Folded header fields are missing one space of indentation (they have 5 spaces instead of 6), which makes the verification fail. Note that the plain text version of the RFC adds a prefix of three spaces before each line of text, which must be ignored.
+
+Verifier note: this was disposed of as per the IETF DKIM mailing list discussion.
+
+In section A.3, the indentation is changed again (5 spaces instead of 6 + the &quot;b=&quot; tag has 2 additional spaces of indentation).
+
+Test cases:
+- opendkim: https://github.com/cyrusimap/opendkim/blob/ab2934e131cbe670b49f11db9daf8cd1223e3839/libopendkim/tests/t-testdata.h#L74
+- go-dkim: https://github.com/emersion/go-dkim/blob/master/verify_test.go#L9</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Reported (4)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6376" rel="noopener" target="_blank">RFC 6376</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6376.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> dkim (art)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC8301, RFC8463, RFC8553, RFC8616</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6674/">6674</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Reported</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Christian Böhme</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2021-09-01</span>
+                                                    </dd>
+
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section Appendix C says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>This results in the file rsa.public containing the key information
+similar to this:
+
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDwIRP/UC3SBsEmGqZ9ZJW3/DkM
+oGeLnQg1fWn7/zYtIxN2SnFCjxOCKG9v3b4jYfcTNh5ijSsq631uBItLa7od+v/R
+tdC2UzJ1lWT947qR+Rcac2gbto/NMqJ0fzfVjH4OuKhitdY9tf6mcwGjaNBcWToI
+MmPSPDdQPNUYckcQ2QIDAQAB
+-----END PUBLIC KEY-----
+
+This public-key data (without the BEGIN and END tags) is placed in
+the DNS:
+
+$ORIGIN _domainkey.example.org.
+brisbane IN  TXT  (&quot;v=DKIM1; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQ&quot;
+                   &quot;KBgQDwIRP/UC3SBsEmGqZ9ZJW3/DkMoGeLnQg1fWn7/zYt&quot;
+                   &quot;IxN2SnFCjxOCKG9v3b4jYfcTNh5ijSsq631uBItLa7od+v&quot;
+                   &quot;/RtdC2UzJ1lWT947qR+Rcac2gbto/NMqJ0fzfVjH4OuKhi&quot;
+                   &quot;tdY9tf6mcwGjaNBcWToIMmPSPDdQPNUYckcQ2QIDAQAB&quot;)
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>This results in the file rsa.public containing the key information
+similar to this (long output lines truncated):
+
+openssl asn1parse -i -inform PEM -in rsa.public
+    0:d=0  hl=3 l= 159 cons: SEQUENCE          
+    3:d=1  hl=2 l=  13 cons:  SEQUENCE          
+    5:d=2  hl=2 l=   9 prim:   OBJECT            :rsaEncryption
+   16:d=2  hl=2 l=   0 prim:   NULL              
+   18:d=1  hl=3 l= 141 prim:  BIT STRING
+
+openssl asn1parse -i -inform PEM -in rsa.public -strparse 18
+    0:d=0  hl=3 l= 137 cons: SEQUENCE          
+    3:d=1  hl=3 l= 129 prim:  INTEGER           :F02113FF502DD206C126…
+  135:d=1  hl=2 l=   3 prim:  INTEGER           :010001
+
+The result of
+
+openssl asn1parse -i -inform PEM -in rsa.public -offset 22 -out /dev/stdout -noout | openssl base64
+
+is then placed in the DNS:
+
+$ORIGIN _domainkey.example.org.
+brisbane IN  TXT  (&quot;v=DKIM1; p=MIGJAoGBAPAhE/9QLdIGwSYapn1klbf8OQ&quot;
+                   &quot;ygZ4udCDV9afv/Ni0jE3ZKcUKPE4Iob2/dviNh9xM2HmK&quot;
+                   &quot;NKyrrfW4Ei0truh36/9G10LZTMnWVZP3jupH5FxpzaBu2&quot;
+                   &quot;j80yonR/N9WMfg64qGK11j21/qZzAaNo0FxZOggyY9I8N&quot;
+                   &quot;1A81RhyRxDZAgMBAAE=&quot;)
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Empirical evidence suggests that MSPs have taken the command lines in
+Appendix C literally, and, by doing so, have deviated from the specification
+laid out in Section 3.6.1. for the k= and p= tags.
+
+Specifically, the  openssl rsa  command, used with its  -pubout  option
+as demonstrated in Appendix C, produces a SubjectPublicKeyInfo-typed result
+instead of a RSAPublicKey-typed one.  It does so for both  DER  and  PEM
+arguments to the  -outform  option.
+
+What is more, had Section 3.6.1., p= tag, specified a base64-encoded
+SubjectPublicKeyInfo-typed value instead of a RSAPublicKey-typed one,
+Section 3.6.1., k= tag, could have been dispensed of entirely, since
+the SubjectPublicKeyInfo type contains an AlgorithmIdentifier-typed
+attribute for that purpose.
+
+That indeed an RSAPublicKey-typed result for the p= tag was intended
+by RFC 6376 can be confirmed by comparison with RFC 8463, Section 4.2.,
+which specifies that a &quot;raw&quot; Ed25519 public key be used, instead of
+a SubjectPublicKeyInfo-typed one such as defined in RFC 8410,
+Section 4. Subject Public Key Fields.
+
+The Corrected Text uses the same public key data from the Original Text.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7001/">7001</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Reported</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Ori Bernstein</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-06-21</span>
+                                                    </dd>
+
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   k= Key type (plain-text; OPTIONAL, default is &quot;rsa&quot;).  Signers and
+      Verifiers MUST support the &quot;rsa&quot; key type.  The &quot;rsa&quot; key type
+      indicates that an ASN.1 DER-encoded [ITU-X660-1997] RSAPublicKey
+      (see [RFC3447], Sections 3.1 and A.1.1) is being used in the &quot;p=&quot;
+      tag.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   k= Key type (plain-text; OPTIONAL, default is &quot;rsa&quot;).  Signers and
+      Verifiers MUST support the &quot;rsa&quot; key type.  The &quot;rsa&quot; key type
+      indicates that an ASN.1 DER-encoded [ITU-X660-1997] SubjectPublicKeyInfo
+      (see [RFC5280], Section 4.1) is being used in the &quot;p=&quot;
+      tag.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The format specified for RSA keys is not what is used
+either in the wild, or in the examples in this RFC.
+
+The current citation for the RSAPublicKey format is
+listed below for reference:
+
+   RSAPublicKey ::= SEQUENCE {
+       modulus           INTEGER,  -- n
+       publicExponent    INTEGER   -- e
+   }
+ 
+Taking the example public key in this RFC document:
+
+   -----BEGIN PUBLIC KEY-----
+   MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDwIRP/UC3SBsEmGqZ9ZJW3/DkM
+   oGeLnQg1fWn7/zYtIxN2SnFCjxOCKG9v3b4jYfcTNh5ijSsq631uBItLa7od+v/R
+   tdC2UzJ1lWT947qR+Rcac2gbto/NMqJ0fzfVjH4OuKhitdY9tf6mcwGjaNBcWToI
+   MmPSPDdQPNUYckcQ2QIDAQAB
+   -----END PUBLIC KEY-----
+
+We can decode it as asn.1, and see that it is not in the format
+specified:
+
+  $  openssl asn1parse -i -inform pem -in /home/ori/ykey.pem  
+    0:d=0  hl=3 l= 159 cons: SEQUENCE          
+    3:d=1  hl=2 l=  13 cons:  SEQUENCE          
+    5:d=2  hl=2 l=   9 prim:   OBJECT            :rsaEncryption
+   16:d=2  hl=2 l=   0 prim:   NULL              
+   18:d=1  hl=3 l= 141 prim:  BIT STRING        
+
+The openssl documentation unhelpfully says that it&#x27;s generated
+in the &quot;traditional SSLEay format&quot;. Poking around, that seems
+to correspond to SubjectPublicKeyInfo in RFC5280:
+
+  SubjectPublicKeyInfo  ::=  SEQUENCE  {
+        algorithm            AlgorithmIdentifier,
+        subjectPublicKey     BIT STRING  }
+
+When generating a key that conforms to the RSAPublicKey
+encoding, multiple sites (including gmail) reject the key,
+claiming a failure to parse the tag -- this is also the
+error that openssl has when attempting to parse an RSA
+public key in this format; for example:
+
+   -----BEGIN PUBLIC KEY-----
+   MIGJAoGBAOPkeIi7+kBDwxOlfJFeWygu5Txt43ddLdY8AfWxLIHtQObNhgsxuaWh
+   UUhlftnJWcafJg6V8HVyvd4i+3D0l/PLHu89bIkGnH0ts/weIvQJ+Rx/hVZtS/H1
+   vkHRmiPnO5gaDi/jvfAFWcG4BiJgkEcUovKbmWAxYzGBqe/8um23AgMBAAE=
+   -----END PUBLIC KEY-----
+
+ $ openssl asn1parse -i -inform pem -in /home/ori/key.pem   
+    0:d=0  hl=3 l= 137 cons: SEQUENCE          
+    3:d=1  hl=3 l= 129 prim:  INTEGER           :E3E47888BBFA404·.
+  135:d=1  hl=2 l=   3 prim:  INTEGER           :010001
+  $ openssl rsa -pubin -in /home/ori/key.pem  -text             
+   unable to load Public Key
+   140290635060544:error:0D0680A8:asn1 encoding routines:asn1_check_tlen:wrong tag:../crypto/asn1/tasn_dec.c:1149:
+   140290635060544:error:0D07803A:asn1 encoding routines:asn1_item_embed_d2i:nested asn1 error:../crypto/asn1/tasn_dec.c:309:Type=X509_ALGOR
+   140290635060544:error:0D08303A:asn1 encoding routines:asn1_template_noexp_d2i:nested asn1 error:../crypto/asn1/tasn_dec.c:646:Field=algor, Type=X509_PUBKEY
+   140290635060544:error:0906700D:PEM routines:PEM_ASN1_read_bio:ASN1 lib:../crypto/pem/pem_oth.c:33:
+
+While in theory it would be better to fix the examples,
+I think that ship has sailed, and it&#x27;s better instead
+to fix the citation in the specification.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid8998/">8998</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Reported</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Roman Donchenko</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2026-06-09</span>
+                                                    </dd>
+
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.7 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>data-hash:  is the output from using the hash-alg algorithm, to hash
+               the header including the DKIM-Signature header, and the
+               body hash.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>data-hash:  is the output from using the hash-alg algorithm to hash
+               the headers including the DKIM-Signature header.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The body hash is already included in the DKIM-Signature header and is not added to the hash algorithm input separately. Erratum 5252 already corrects the pseudocode description of data-hash; this corrects the corresponding prose description. I also added a couple of grammatical fixes.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid9038/">9038</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Reported</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Steffen</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2026-07-20</span>
+                                                    </dd>
+
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>t= Signature Timestamp (plain-text unsigned decimal integer;
+      RECOMMENDED, default is an unknown creation time).  The time that
+      this signature was created.  The format is the number of seconds
+      since 00:00:00 on January 1, 1970 in the UTC time zone.  The value
+      is expressed as an unsigned integer in decimal ASCII.  This value
+      is not constrained to fit into a 31- or 32-bit integer.
+      Implementations SHOULD be prepared to handle values up to at least
+      10^12 (until approximately AD 200,000; this fits into 40 bits).</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Ditto, but 10^12 a.k.a. 40 bits is not AD 200,000.
+(Unless this goes in line with Paul McCartney&#x27;s &quot;three thousand or fouurr thouuuusand&quot; in the Cavern Club appearance in 1999, the first after his wife died.)
+
+It rather is
+
+$ xa &#x27;  10**12  / 60 / 60 / 24 / 365&#x27;
+0b 00000000 00000000 00000000 00000000 00000000 00000000 01111011 11011101
+075735 | 0x7BDD | 31709
+
+(with 40 bits really being
+$ xa &#x27;  ((2**40) - 1)  / 60 / 60 / 24 / 365&#x27;
+0b 00000000 00000000 00000000 00000000 00000000 00000000 10001000 00110001
+0104061 | 0x8831 | 34865)
+
+So &quot;approximately AD 32000&quot;.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Maybe an iterated DKIMv1 needs this clarification.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Held for Document Update (4)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6376" rel="noopener" target="_blank">RFC 6376</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6376.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> dkim (art)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC8301, RFC8463, RFC8553, RFC8616</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6254/">6254</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Dave Crocker</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2020-08-08</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Murray Kucherawy</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2021-12-02</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <p class="text-muted">No original text provided.</p>
+                                                
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The &quot;INFORMATIVE OPERATIONS NOTE&quot; early in Section 5.4 appears to be in conflict with Section 5.4.1.  They appear to cover the same issue, namely what header fields to use for the signature, but they seem to give different advice.  (Though not formally an erratum, there is also the matter of thinking that what is shown the the recipient is relevant...) /d</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6769/">6769</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Ale Vesely</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2021-12-01</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Murray Kucherawy</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2021-12-02</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 8.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>An example of such an attack includes altering the MIME structure,
+exploiting lax HTML parsing in the MUA, and defeating duplicate
+message detection algorithms.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>In case of MIME structures, the value of l= should cover all of the
+body, including the terminating boundary and the epilogue, so that
+altering the structure is not feasible.  In any case, if l= is set and
+Content-Type is not signed, an attacker can replace it with a multipart
+type and thus relegate the original body to the role of a MIME preamble.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Duplicate message detection algorithms should consider Message-ID.  When they compare the body, they should be sophisticated enough to recognize specific key fields, for example to avoid accumulating duplicate values of financial transactions.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3017/">3017</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Vernon Tang</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2011-11-05</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   k= Key type (plain-text; OPTIONAL, default is &quot;rsa&quot;).  Signers and
+      Verifiers MUST support the &quot;rsa&quot; key type.  The &quot;rsa&quot; key type
+      indicates that an ASN.1 DER-encoded [ITU-X660-1997] RSAPublicKey
+      (see [RFC3447], Sections 3.1 and A.1.1) is being used in the &quot;p=&quot;
+      tag.  (Note: the &quot;p=&quot; tag further encodes the value using the
+      base64 algorithm.)  Unrecognized key types MUST be ignored.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   k= Key type (plain-text; OPTIONAL, default is &quot;rsa&quot;).  Signers and
+      Verifiers MUST support the &quot;rsa&quot; key type.  The &quot;rsa&quot; key type
+      indicates that an ASN.1 DER-encoded [ITU-X660-1997] RSAPublicKey
+      (see [RFC3447], Sections 3.1 and A.1.1), which MAY be contained in
+      a SubjectPublicKeyInfo (see [RFC5280], Section A.1), is being used
+      in the &quot;p=&quot; tag.  (Note: the &quot;p=&quot; tag further encodes the value
+      using the base64 algorithm.)  Unrecognized key types MUST be
+      ignored.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The procedure in Appendix C results in a public key in SubjectPublicKeyInfo format. Accordingly, most current implementations will accept such keys. Furthermore, it is trivial to distinguish whether a key is encapsulated in a SubjectPublicKeyInfo.
+</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4875/">4875</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Emiel Bruijntjes</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2016-12-01</span>
+                                                    </dd>
+
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>The header field text itself must encode the vertical bar
+(&quot;|&quot;, %x7C) character (i.e., vertical bars in the &quot;z=&quot; text are
+meta-characters, and any actual vertical bar characters in a
+copied header field must be encoded).  Note that all whitespace
+must be encoded, including whitespace between the colon and the
+header field value.  After encoding, FWS MAY be added at arbitrary
+locations in order to avoid excessively long lines; such
+whitespace is NOT part of the value of the header field and MUST
+be removed before decoding.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>The header field value itself must encode the vertical bar
+(&quot;|&quot;, %x7C) character (i.e., vertical bars in the &quot;z=&quot; text are
+meta-characters, and any actual vertical bar characters in a
+copied header field must be encoded).  Note that all whitespace
+must be encoded, including whitespace between the colon and the
+header field value.  After encoding, FWS MAY be added at arbitrary
+locations inside the header field value in order to avoid 
+excessively long lines; such whitespace is NOT part of the value 
+of the header field and MUST be removed before decoding. FWS MAY NOT
+be added to the header field name.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The original text is confusing on whether FWS may be added to just the header field values or to both the header field names and header field values. The ABNF suggests that it is just allowed inside the values, but we&#x27;ve seen in practice that this whitespace is also added to the field names.
+
+Further more, the use of the three terms &quot;header field name&quot;, &quot;header field value&quot; and &quot;header field text&quot; is confusing. It is better to stick with just &quot;header field name&quot; and &quot;header field value&quot;.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (6)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6376" rel="noopener" target="_blank">RFC 6376</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6376.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> dkim (art)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC8301, RFC8463, RFC8553, RFC8616</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3758/">3758</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Majid Tajamolian &amp; Nazilla Karkon</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-10-20</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-10-20</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.1. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>v= Version of the DKIM key record (plain-text; RECOMMENDED, default
+      is &quot;DKIM1&quot;).  If specified, this tag MUST be set to &quot;DKIM1&quot;
+      (without the quotes).  This tag MUST be the first tag in the
+      record.  Records beginning with a &quot;v=&quot; tag with any other value
+      MUST be discarded.  Note that Verifiers must do a string
+      comparison on this value; for example, &quot;DKIM1&quot; is not the same as
+      &quot;DKIM1.0&quot;.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>v= Version of the DKIM key record (plain-text; RECOMMENDED, default
+      is &quot;1&quot;).  If specified, this tag MUST be set to &quot;1&quot;
+      (without the quotes).  This tag MUST be the first tag in the
+      record.  Records beginning with a &quot;v=&quot; tag with any other value
+      MUST be discarded.  Note that Verifiers must do a string
+      comparison on this value; for example, &quot;1&quot; is not the same as
+      &quot;1.0&quot;.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The &quot;DKIM&quot; prefix in the version field is unnecessary.
+for example the followings are snipped from an actual email via gmail.com:
+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:from:date:message-id:subject:to:content-type;
+        bh=46j07/8gDec8jTto/znsrAKiXDj6YJ7Wa2DCoZuhwXc=;
+        b=h6SViP6DcHgPwydJD6aztqyKd0UmCN3SdwmqZd0uCHmqrprphjN8qQ8AnBDhbwDhAa
+         DfHIDS8RSegELKtzsp95u+DnIFg1uNhIukKVpGT+9MqxfCSAFk7WpMe2O/2gcLruilTe
+         MxkKJ29s64NGevYewKtI8s73xHmbzD1NFH9ugdow8i9E16kgQ+vAx56qvbFTBwdEEw8I
+         6Bteu3tXEsYYbU/9Akm2GXS+6PFiDSbv47u3EmhRQIOK3e8DvcobrpicjL7vUwBCpQuf
+         J/c+Acdq4GZQoMoG9imzku0K2o0w33CZ1xUR1bARJKCVaJfWeHiEMQ2OJ9A6ZtqpyK0z
+         1Ftg==
+ --VERIFIER NOTES-- 
+The reporters are confused.  The text in Section 3.6.1 is about the key records in the DNS, and the document is correct.  Section 3.5 is where the dkim-signature header field is described (and that is also correct).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5551/">5551</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Borislav Petrov</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2018-11-09</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 6.3. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>If an MTA does wish to reject such
+   messages during an SMTP session (for example, when communicating with
+   a peer who, by prior agreement, agrees to only send signed messages),
+   and a signature is missing or does not verify, the handling MTA
+   SHOULD use a 550/5.7.x reply code.
+
+   Where the Verifier is integrated within the MTA and it is not
+   possible to fetch the public key, perhaps because the key server is
+   not available, a temporary failure message MAY be generated using a
+   451/4.7.5 reply code, such as:
+
+   451 4.7.5 Unable to verify signature - key server unavailable
+
+   Temporary failures such as inability to access the key server or
+   other external service are the only conditions that SHOULD use a 4xx
+   SMTP reply code. </code></pre>
+                                                
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>This contradicts RFC5321 which says:
+
+...a relay SMTP has no need to inspect or
+   act upon the header section or body of the message data and MUST NOT
+   do so except to add its own &quot;Received:&quot; header field...
+ --VERIFIER NOTES-- 
+   
+There is nothing in the cited text above that suggests modifications to the message.  The text only talks about which SMTP reply codes to use.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5713/">5713</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Victor Shrubowich</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2019-04-30</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Benjamin Kaduk</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 2.8 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>FWS =   [*WSP CRLF] 1*WSP</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>FWS =   [*WSP] CRLF 1*WSP</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>In the ABNF RFC ([RFC5234]), section 3.8 states &quot;Square brackets enclose an optional element sequence&quot;.
+
+CRLF is required for folding.  However, the CRLF in the FWS rule is shown inside the square brackets, which would make it optional. It should not be inside the square brackets.
+
+(See Errata ID 5712 for FWS in [RFC5322], which is referenced at the end of section 2.8.)
+ --VERIFIER NOTES-- 
+As noted by Dave Crocker, Folding White Space is a construct that permits a newline but does not require it -- only whitespace of  some form is required to be present in order  to match, not a specific kind of  whitespace.  The present construction, as corresponds  to RFC 5322, is as intended.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7862/">7862</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Steffen Nurpmeso</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2024-03-21</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Murray Kucherawy</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-03-22</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.4.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>[..]</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>[insert after item 2]
+
+Due to de-facto implementation practice, the term WSP of the following two items, 
+as well as in the part that refers to after the separating colon (the field body) 
+in the third, has to be interpreted differently, and must include all US-ASCII 
+whitespace characters, namely %d9 (HT), %d10 (LF), %d11 (VT), %d12 (FF), %d12 
+(CR) as well as %d32 (SP) [?](the isspace(3) set of characters in the ISO C &quot;C&quot; 
+locale)[/?]</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>As written.
+The behaviour *could* originate in a partial misunderstanding of the Sendmail milter protocol, which is often used to implement DKIM; this protocol *may* send header continuation lines separated by lone LF bytes, instead of CRLF.
+(Thanks to Claus Assmann of esmtp.org for this in-between-the-lines reading.)
+ --VERIFIER NOTES-- 
+   Withdrawn by submitter.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3759/">3759</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Majid Tajamolian &amp; Nazila Karkon</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-10-20</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-10-20</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.1. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   h= Acceptable hash algorithms (plain-text; OPTIONAL, defaults to
+      allowing all algorithms).  A colon-separated list of hash
+      algorithms that might be used.  Unrecognized algorithms MUST be
+      ignored.  Refer to Section 3.3 for a discussion of the hash
+      algorithms implemented by Signers and Verifiers.  The set of
+      algorithms listed in this tag in each record is an operational
+      choice made by the Signer.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   a= Acceptable hash algorithms (plain-text; OPTIONAL, defaults to
+      allowing all algorithms).  A colon-separated list of hash
+      algorithms that might be used.  Unrecognized algorithms MUST be
+      ignored.  Refer to Section 3.3 for a discussion of the hash
+      algorithms implemented by Signers and Verifiers.  The set of
+      algorithms listed in this tag in each record is an operational
+      choice made by the Signer.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The correct tag is &quot;a=&quot; for algorithms not &quot;h=&quot;. The latter is used for the &quot;List of Included Headers in the Signature&quot;
+ --VERIFIER NOTES-- 
+The reporters are confused.  The text in Section 3.6.1 is about the key records in the DNS, and the document is correct.  Section 3.5 is where the dkim-signature header field is described (and that is also correct).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5260/">5260</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Ale</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2018-02-08</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <p class="text-muted">No original text provided.</p>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>DKIM-Signature = &quot;DKIM-Signature:&quot; tag-list</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>A formal definition is needed to make it explicit that this header field name is case insensitive, like all the other header field names.
+ --VERIFIER NOTES-- 
+   
+Header field names are case-insensitive, in general; there is neither need nor desire to repeat that in the DKIM spec.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

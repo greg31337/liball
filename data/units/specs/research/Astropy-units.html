@@ -1,0 +1,1812 @@
+
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Units and Quantities (astropy.units)" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.astropy.org/en/stable/units/index.html" />
+<meta property="og:site_name" content="Astropy" />
+<meta property="og:description" content="Introduction: astropy.units handles defining, converting between, and performing arithmetic with physical quantities, such as meters, seconds, Hz, etc. It also handles logarithmic units such as mag..." />
+<meta name="description" content="Introduction: astropy.units handles defining, converting between, and performing arithmetic with physical quantities, such as meters, seconds, Hz, etc. It also handles logarithmic units such as mag..." />
+
+    <title>Units and Quantities (astropy.units) &#8212; Astropy v8.0.1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/rtd_enhanced_search.css?v=82ef885e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sunpy_style.css?v=42164551" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/astropy.css?v=ca7689d1" />
+    <link rel="stylesheet" type="text/css" href="../_static/astropy.css?v=730a1e05" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=7b91c0bf"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script>
+            var endpoint = '';
+            if (location.hostname.endsWith('sunpy.org')) {
+                endpoint = 'https://sunpy.goatcounter.com/count'
+            }
+
+            window.goatcounter = {
+                endpoint: endpoint,
+                path: function(p) { return location.host + p }
+            }
+            </script>
+    <script async="async" src="https://gc.zgo.at/count.js"></script>
+    <script async="async" src="../_static/js/submenu-concertina-toggle.js?v=ddf1b194"></script>
+    <script async="async" src="../_static/js/rtd_enhanced_search.js?v=a7b96e57"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+const set_search_config = {
+  "no-results":{
+    "label": "There are no results for this search"
+  },
+  "load-more":{
+    "label": "Load more results",
+    "class": "btn sd-btn sd-bg-primary sd-bg-text-primary"
+  },
+  "projects":[
+    {
+      "name": "astropy",
+      "link": "https://docs.astropy.org"
+    },
+    {
+      "name": "asdf-astropy",
+      "link": "https://asdf-astropy.readthedocs.io"
+    },
+    {
+      "name": "astropy-healpix",
+      "link": "https://astropy-healpix.readthedocs.io"
+    },
+    {
+      "name": "astroquery",
+      "link": "https://astroquery.readthedocs.io"
+    },
+    {
+      "name": "ccdproc",
+      "link": "https://ccdproc.readthedocs.io"
+    },
+    {
+      "name": "photutils",
+      "link": "https://photutils.readthedocs.io"
+    },
+    {
+      "name": "regions",
+      "link": "https://astropy-regions.readthedocs.io"
+    },
+    {
+      "name": "reproject",
+      "link": "https://reproject.readthedocs.io"
+    },
+    {
+      "name": "specreduce",
+      "link": "https://specreduce.readthedocs.io"
+    },
+    {
+      "name": "specutils",
+      "link": "https://specutils.readthedocs.io"
+    }
+  ]
+};
+</script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-R0510VK4B6"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+                gtag('js', new Date());
+                gtag('config', 'G-R0510VK4B6');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'units/index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://docs.astropy.org/en/stable/units/index.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quantity" href="quantity.html" />
+    <link rel="prev" title="EMConstant" href="../api/astropy.constants.EMConstant.html" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="8.0" />
+    <meta name="docbuild:last-update" content="05 Jul 2026"/>
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="astropy" /><meta name="readthedocs-version-slug" content="stable" /><meta name="readthedocs-resolver-filename" content="/units/index.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item"><a class="navbar-brand" href="https://astropy.org/">
+  
+  Astropy
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown ms-2">
+      
+        <a href="#" class="dropdown-toggle nav-link" id="dropdownMenu_header_about_0"
+           data-bs-toggle="dropdown" role="button" aria-expanded="false">
+          About
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu_header_about_0">
+      
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy.org/about.html">
+        About Astropy
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy.org/code_of_conduct.html">
+        Code of Conduct
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy.org/acknowledging.html">
+        Acknowledging & Citing
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy.org/history.html">
+        History
+      </a>
+    </li>
+
+  
+  
+
+        
+      </ul>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown ms-2">
+      
+        <a href="#" class="dropdown-toggle nav-link" id="dropdownMenu_header_documentation_0"
+           data-bs-toggle="dropdown" role="button" aria-expanded="false">
+          Documentation
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu_header_documentation_0">
+      
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://docs.astropy.org">
+        astropy
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://asdf-astropy.readthedocs.io">
+        asdf-astropy
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy-healpix.readthedocs.io">
+        astropy-healpix
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astroquery.readthedocs.io">
+        astroquery
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://ccdproc.readthedocs.io">
+        ccdproc
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://photutils.readthedocs.io">
+        photutils
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy-regions.readthedocs.io">
+        regions
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://reproject.readthedocs.io">
+        reproject
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://specreduce.readthedocs.io">
+        specreduce
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://specutils.readthedocs.io">
+        specutils
+      </a>
+    </li>
+
+  
+  
+
+        
+      </ul>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item ms-2">
+      <a class="nav-link" href="https://astropy.org/help.html">
+        Get Help
+      </a>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item ms-2">
+      <a class="nav-link" href="https://astropy.org/contribute.html">
+        Contribute
+      </a>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item ms-2">
+      <a class="nav-link" href="https://astropy.org/affiliated/index.html">
+        Affiliated Packages
+      </a>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item ms-2">
+      <a class="nav-link" href="https://astropy.org/team.html">
+        Team
+      </a>
+    </li>
+
+  
+  
+
+      
+    
+
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/astropy/astropy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown ms-2">
+      
+        <a href="#" class="nav-link d-flex justify-content-between align-items-center"
+           data-bs-toggle="collapse" data-bs-target="#collapse_sidebar_about_0"
+           role="button" aria-expanded="false" aria-controls="collapse_sidebar_about_0">
+          About
+          <span class="caret" aria-hidden="true">▾</span>
+        </a>
+        <ul class="collapse" id="collapse_sidebar_about_0">
+      
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy.org/about.html">
+        About Astropy
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy.org/code_of_conduct.html">
+        Code of Conduct
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy.org/acknowledging.html">
+        Acknowledging & Citing
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy.org/history.html">
+        History
+      </a>
+    </li>
+
+  
+  
+
+        
+      </ul>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown ms-2">
+      
+        <a href="#" class="nav-link d-flex justify-content-between align-items-center"
+           data-bs-toggle="collapse" data-bs-target="#collapse_sidebar_documentation_0"
+           role="button" aria-expanded="false" aria-controls="collapse_sidebar_documentation_0">
+          Documentation
+          <span class="caret" aria-hidden="true">▾</span>
+        </a>
+        <ul class="collapse" id="collapse_sidebar_documentation_0">
+      
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://docs.astropy.org">
+        astropy
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://asdf-astropy.readthedocs.io">
+        asdf-astropy
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy-healpix.readthedocs.io">
+        astropy-healpix
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astroquery.readthedocs.io">
+        astroquery
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://ccdproc.readthedocs.io">
+        ccdproc
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://photutils.readthedocs.io">
+        photutils
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://astropy-regions.readthedocs.io">
+        regions
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://reproject.readthedocs.io">
+        reproject
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://specreduce.readthedocs.io">
+        specreduce
+      </a>
+    </li>
+
+  
+  
+
+        
+          
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item dropdown-submenu ">
+      <a class="dropdown-item" href="https://specutils.readthedocs.io">
+        specutils
+      </a>
+    </li>
+
+  
+  
+
+        
+      </ul>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item ms-2">
+      <a class="nav-link" href="https://astropy.org/help.html">
+        Get Help
+      </a>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item ms-2">
+      <a class="nav-link" href="https://astropy.org/contribute.html">
+        Contribute
+      </a>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item ms-2">
+      <a class="nav-link" href="https://astropy.org/affiliated/index.html">
+        Affiliated Packages
+      </a>
+    </li>
+
+  
+  
+
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <li class="nav-item ms-2">
+      <a class="nav-link" href="https://astropy.org/team.html">
+        Team
+      </a>
+    </li>
+
+  
+  
+
+      
+    
+
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/astropy/astropy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+    
+    <img src="../_static/astropy_logo_notext.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/astropy_logo_notext.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  <p class="title logo__title">Astropy v8.0.1</p>
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index_getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index_user_docs.html">User Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../constants/index.html">Constants (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.constants</span></code>)</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Units and Quantities (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code>)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="quantity.html">Quantity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="type_hints.html">Unit-Aware Type Annotations</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="standard_units.html">Standard Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="combining_and_defining.html">Combining and Defining Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decomposing_and_composing.html">Decomposing and Composing Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logarithmic_units.html">Magnitudes and Other Logarithmic Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structured_units.html">Structured Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="format.html">String Representations of Units and Quantities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="equivalencies.html">Equivalencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physical_types.html">Physical Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constants_versions.html">Using Prior Versions of Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conversion.html">Low-Level Unit Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref_api.html">Reference/API</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../nddata/index.html">N-Dimensional Datasets (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.nddata</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table/index.html">Data Tables (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.table</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">Time and Dates (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.time</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timeseries/index.html">Time Series (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.timeseries</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coordinates/index.html">Astronomical Coordinate Systems (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.coordinates</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wcs/index.html">World Coordinate System (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.wcs</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modeling/index.html">Models and Fitting (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.modeling</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uncertainty/index.html">Uncertainties and Distributions (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.uncertainty</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/overview.html">Overview of Astropy File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/unified.html">High-level Unified File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/fits/index.html">FITS File Handling (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.fits</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/ascii/index.html">Text Tables (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.ascii</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/votable/index.html">VOTable Handling (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.votable</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/misc.html">ECSV, HDF5, Parquet, PyArrow CSV, YAML (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.misc</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmology/index.html">Cosmological Calculations (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.cosmology</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convolution/index.html">Convolution and Filtering (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.convolution</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/iers.html">IERS data access (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.utils.iers</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/index.html">Data Visualization (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.visualization</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats/index.html">Astrostatistics Tools (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.stats</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/masked/index.html">Masked Values and Quantities (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.utils.masked</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../samp/index.html">SAMP (Simple Application Messaging Protocol) (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.samp</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../config/index.html">Configuration System (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.config</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/registry.html">I/O Registry (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.registry</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/typing.html">I/O Typing (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.typing</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Logging system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../warnings.html">Python warnings system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/index.html">Astropy Core Package Utilities (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.utils</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../environment_variables.html">Environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../glossary.html">Astropy Glossary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_dev.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_project_details.html">Project Details</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index_user_docs.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Units and Quantities (<code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code>)</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="units-and-quantities-astropy-units">
+<span id="astropy-units"></span><h1>Units and Quantities (<a class="reference internal" href="ref_api.html#module-astropy.units" title="astropy.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code></a>)<a class="headerlink" href="#units-and-quantities-astropy-units" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="ref_api.html#module-astropy.units" title="astropy.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code></a> handles defining, converting between, and performing
+arithmetic with physical quantities, such as meters, seconds, Hz,
+etc. It also handles logarithmic units such as magnitude and decibel.</p>
+<p><a class="reference internal" href="ref_api.html#module-astropy.units" title="astropy.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code></a> does not know spherical geometry or sexagesimal
+(hours, min, sec): if you want to deal with celestial coordinates,
+see the <a class="reference internal" href="../coordinates/ref_api.html#module-astropy.coordinates" title="astropy.coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.coordinates</span></code></a> package.</p>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<p>Most users of the <a class="reference internal" href="ref_api.html#module-astropy.units" title="astropy.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code></a> package will work with <a class="reference internal" href="quantity.html#quantity"><span class="std std-ref">Quantity objects</span></a>: the combination of a value and a unit. The most convenient way to
+create a <a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity" title="astropy.units.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a> is to multiply or divide a value by one of the built-in
+units. It works with scalars, sequences, and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<p>To create a <a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity" title="astropy.units.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a> object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">42.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span>
+<span class="go">&lt;Quantity  42. m&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span>
+<span class="go">&lt;Quantity [1., 2., 3.] m&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span>
+<span class="go">&lt;Quantity [1., 2., 3.] m&gt;</span>
+</pre></div>
+</div>
+<p>You can get the unit and value from a <a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity" title="astropy.units.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a> using the unit and
+value members:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="mf">42.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">value</span>
+<span class="go">np.float64(42.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">unit</span>
+<span class="go">Unit(&quot;m&quot;)</span>
+</pre></div>
+</div>
+<p>From this basic building block, it is possible to start combining
+quantities with different units:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">15.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">/</span> <span class="p">(</span><span class="mf">32.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+<span class="go">&lt;Quantity 0.471875 m / s&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">3.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kilometer</span> <span class="o">/</span> <span class="p">(</span><span class="mf">130.51</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+<span class="go">&lt;Quantity 0.022986744310780783 km s / m&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mf">3.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kilometer</span> <span class="o">/</span> <span class="p">(</span><span class="mf">130.51</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">second</span><span class="p">))</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+<span class="go">&lt;Quantity 22.986744310780782 s&gt;</span>
+</pre></div>
+</div>
+<p>Unit conversion is done using the
+<a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity.to" title="astropy.units.quantity.Quantity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to()</span></code></a> method, which returns a new
+<a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity" title="astropy.units.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a> in the given unit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">parsec</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="p">)</span>
+<span class="go">&lt;Quantity 30856775814671.914 km&gt;</span>
+</pre></div>
+</div>
+<p>It is also possible to work directly with units at a lower level, for
+example, to create custom units:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">imperial</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">s</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># ...and then use some imperial units</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mph</span> <span class="o">=</span> <span class="n">imperial</span><span class="o">.</span><span class="n">mile</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">hour</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># And do some conversions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="mf">42.0</span> <span class="o">*</span> <span class="n">cms</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">mph</span><span class="p">)</span>
+<span class="go">&lt;Quantity 0.939513242662849 mi / h&gt;</span>
+</pre></div>
+</div>
+<p>Units that “cancel out” become a special unit called the
+“dimensionless unit”:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">m</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">m</span>
+<span class="go">Unit(dimensionless)</span>
+</pre></div>
+</div>
+<p>To create a basic <a class="reference internal" href="standard_units.html#doc-dimensionless-unit"><span class="std std-ref">dimensionless quantity</span></a>,
+multiply a value by the unscaled dimensionless unit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">dimensionless_unscaled</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">unit</span>
+<span class="go">Unit(dimensionless)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="ref_api.html#module-astropy.units" title="astropy.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code></a> is able to match compound units against the units it already
+knows about:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">compose</span><span class="p">()</span>
+<span class="go">[Unit(&quot;Bq&quot;), Unit(&quot;Hz&quot;), Unit(&quot;2.7027e-11 Ci&quot;)]</span>
+</pre></div>
+</div>
+<p>And it can convert between unit systems, such as <a class="reference external" href="https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf">SI</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Centimetre-gram-second_system_of_units">CGS</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Pa</span><span class="p">)</span><span class="o">.</span><span class="n">cgs</span>
+<span class="go">&lt;Quantity 10. Ba&gt;</span>
+</pre></div>
+</div>
+<p>The units <code class="docutils literal notranslate"><span class="pre">mag</span></code>, <code class="docutils literal notranslate"><span class="pre">dex</span></code>, and <code class="docutils literal notranslate"><span class="pre">dB</span></code> are special, being <a class="reference internal" href="logarithmic_units.html#logarithmic-units"><span class="std std-ref">logarithmic
+units</span></a>, for which a value is the logarithm of a physical
+quantity in a given unit. These can be used with a physical unit in
+parentheses to create a corresponding logarithmic quantity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mag</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">ct</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+<span class="go">&lt;Magnitude -2.5 mag(ct / s)&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">c</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">Dex</span><span class="p">((</span><span class="n">c</span><span class="o">.</span><span class="n">G</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">M_sun</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">R_sun</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cgs</span><span class="p">)</span>
+<span class="go">&lt;Dex 4.438067627303133 dex(cm / s2)&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="ref_api.html#module-astropy.units" title="astropy.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code></a> also handles <a class="reference internal" href="equivalencies.html#unit-equivalencies"><span class="std std-ref">equivalencies</span></a>, such as
+that between wavelength and frequency. To use that feature, equivalence objects
+are passed to the <a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity.to" title="astropy.units.quantity.Quantity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to()</span></code></a> conversion
+method. For instance, a conversion from wavelength to frequency does not
+normally work:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Hz</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">UnitConversionError</span>: <span class="n">&#39;nm&#39; (length) and &#39;Hz&#39; (frequency) are not convertible</span>
+</pre></div>
+</div>
+<p>But by passing an equivalency list, in this case
+<a class="reference internal" href="../api/astropy.units.spectral.html#astropy.units.spectral" title="astropy.units.spectral"><code class="xref py py-func docutils literal notranslate"><span class="pre">spectral()</span></code></a>, it does:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Hz</span><span class="p">,</span> <span class="n">equivalencies</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">spectral</span><span class="p">())</span>
+<span class="go">&lt;Quantity  2.99792458e+14 Hz&gt;</span>
+</pre></div>
+</div>
+<p>Quantities and units can be <a class="reference internal" href="format.html#astropy-units-format"><span class="std std-ref">printed nicely to strings</span></a> using the <a class="reference external" href="https://docs.python.org/3/library/string.html#format-string-syntax">Format String Syntax</a>. Format
+specifiers (like <code class="docutils literal notranslate"><span class="pre">0.03f</span></code>) in strings will be used to format the quantity
+value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="mf">15.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">/</span> <span class="p">(</span><span class="mf">32.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span>
+<span class="go">&lt;Quantity 0.471875 m / s&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">q</span><span class="si">:</span><span class="s2">0.03f</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="go">&#39;0.472 m / s&#39;</span>
+</pre></div>
+</div>
+<p>The value and unit can also be formatted separately. Format specifiers
+for units can be used to choose the unit formatter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="mf">15.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">/</span> <span class="p">(</span><span class="mf">32.0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span>
+<span class="go">&lt;Quantity 0.471875 m / s&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">q</span><span class="o">.</span><span class="n">value</span><span class="si">:</span><span class="s2">0.03f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">q</span><span class="o">.</span><span class="n">unit</span><span class="si">:</span><span class="s2">FITS</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="go">&#39;0.472 m s-1&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-astropy-units">
+<h2>Using <a class="reference internal" href="ref_api.html#module-astropy.units" title="astropy.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code></a><a class="headerlink" href="#using-astropy-units" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantity.html">Quantity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#creating-quantity-instances">Creating Quantity Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#converting-to-different-units">Converting to Different Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#comparing-quantities">Comparing Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#plotting-quantities">Plotting Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#arithmetic">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#numpy-functions">NumPy Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#dimensionless-quantities">Dimensionless Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#converting-to-plain-python-scalars">Converting to Plain Python Scalars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#functions-that-accept-quantities">Functions that Accept Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#representing-vectors-with-units">Representing Vectors with Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#creating-and-converting-quantities-without-copies">Creating and Converting Quantities without Copies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#the-numpy-dtype-of-a-quantity">The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.dtype</span></code> of a Quantity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#qtable">QTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#subclassing-quantity">Subclassing Quantity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type_hints.html">Unit-Aware Type Annotations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type_hints.html#quantity-type-annotation">Quantity Type Annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_hints.html#multiple-annotations">Multiple Annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type_hints.html#module-astropy.units.typing">Type Annotations Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standard_units.html">Standard Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="standard_units.html#prefixes">Prefixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="standard_units.html#the-dimensionless-unit">The Dimensionless Unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="standard_units.html#enabling-other-units">Enabling Other Units</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="combining_and_defining.html">Combining and Defining Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="combining_and_defining.html#basic-example">Basic example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="combining_and_defining.html#fractional-powers">Fractional powers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="combining_and_defining.html#defining-units">Defining units</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decomposing_and_composing.html">Decomposing and Composing Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decomposing_and_composing.html#reducing-a-unit-to-its-irreducible-parts">Reducing a Unit to Its Irreducible Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decomposing_and_composing.html#automatically-composing-a-unit-into-more-complex-units">Automatically Composing a Unit into More Complex Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decomposing_and_composing.html#converting-between-systems">Converting Between Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logarithmic_units.html">Magnitudes and Other Logarithmic Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logarithmic_units.html#creating-logarithmic-quantities">Creating Logarithmic Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logarithmic_units.html#converting-to-different-units">Converting to Different Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logarithmic_units.html#arithmetic-and-photometric-applications">Arithmetic and Photometric Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logarithmic_units.html#numpy-functions">NumPy Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logarithmic_units.html#dimensionless-logarithmic-quantities">Dimensionless Logarithmic Quantities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structured_units.html">Structured Units</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structured_units.html#creating-structured-quantities">Creating Structured Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structured_units.html#converting-to-different-units">Converting to Different Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structured_units.html#use-with-erfa">Use with ERFA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="format.html">String Representations of Units and Quantities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="format.html#converting-to-strings">Converting to Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#converting-from-strings">Converting from Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#built-in-formats">Built-In Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#dealing-with-unrecognized-units">Dealing with Unrecognized Units</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="equivalencies.html">Equivalencies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="equivalencies.html#built-in-equivalencies">Built-In Equivalencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equivalencies.html#writing-new-equivalencies">Writing New Equivalencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equivalencies.html#displaying-available-equivalencies">Displaying Available Equivalencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equivalencies.html#using-equivalencies-in-larger-pieces-of-code">Using Equivalencies in Larger Pieces of Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="physical_types.html">Physical Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="physical_types.html#accessing-physical-types">Accessing Physical Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physical_types.html#using-physical-types">Using Physical Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physical_types.html#dimensional-analysis">Dimensional Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="constants_versions.html">Using Prior Versions of Constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="constants_versions.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conversion.html">Low-Level Unit Conversion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conversion.html#direct-conversion">Direct Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversion.html#incompatible-conversions">Incompatible Conversions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
+<p>This code was originally based on the <a class="reference external" href="https://github.com/pynbody/pynbody">pynbody</a> units module written by Andrew
+Pontzen, who has granted the Astropy Project permission to use the code
+under a BSD license.</p>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fits.gsfc.nasa.gov/fits_standard.html">FITS Standard</a> for
+units in FITS.</p></li>
+<li><p>The <a class="reference external" href="https://www.ivoa.net/documents/VOUnits/20140523/index.html">Units in the VO 1.0 Standard</a> for
+representing units in the VO.</p></li>
+<li><p>OGIP Units: A standard for storing units in <a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/general/ogip_93_001/">OGIP FITS files</a>.</p></li>
+<li><p><a class="reference external" href="https://vizier.unistra.fr/vizier/doc/catstd-3.2.htx">Standards for astronomical catalogues: units</a>.</p></li>
+<li><p><a class="reference external" href="https://iauarchive.eso.org/static/publications/stylemanual1989.pdf">IAU Style Manual</a>.</p></li>
+<li><p><a class="reference external" href="https://www.stsci.edu/~strolger/docs/UNITS.txt">A table of astronomical unit equivalencies</a>.</p></li>
+</ul>
+</section>
+<section id="performance-tips">
+<span id="astropy-units-performance"></span><h2>Performance Tips<a class="headerlink" href="#performance-tips" title="Link to this heading">#</a></h2>
+<p>If you are attaching units to arrays to make <a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity" title="astropy.units.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a> objects, multiplying
+arrays by units will result in the array being copied in memory, which will slow
+things down. Furthermore, if you are multiplying an array by a composite unit,
+the array will be copied for each individual multiplication. Thus, in the
+following case, the array is copied four successive times:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [1]: import numpy as np
+
+In [2]: from astropy import units as u
+
+In [3]: rng = np.random.default_rng()
+
+In [4]: array = rng.random(10000000)
+
+In [5]: %timeit array * u.m / u.s / u.kg / u.sr
+92.5 ms ± 2.52 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+<p>There are several ways to speed this up. First, when you are using composite
+units, ensure that the entire unit gets evaluated first, then attached to the
+array. You can do this by using parentheses as for any other operation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [6]: %timeit array * (u.m / u.s / u.kg / u.sr)
+21.5 ms ± 886 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+<p>In this case, this has sped things up by a factor of 4. If you use a composite
+unit several times in your code then you can define a variable for it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [7]: UNIT_MSKGSR = u.m / u.s / u.kg / u.sr
+
+In [8]: %timeit array * UNIT_MSKGSR
+22.2 ms ± 551 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+<p>In this case and the case with brackets, the array is still copied once when
+creating the <a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity" title="astropy.units.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a>. If you want to avoid any copies altogether, you can
+make use of the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> operator to attach the unit to the array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [9]: %timeit array &lt;&lt; u.m / u.s / u.kg / u.sr
+47.1 µs ± 5.77 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</pre></div>
+</div>
+<p>Note that these are now <strong>microseconds</strong>, so this is 2000x faster than the
+original case with no brackets. Note that brackets are not needed when using
+<code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> since <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> have a higher precedence, so the unit will be
+evaluated first. When using <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, be aware that because the data is not being
+copied, changing the original array will also change the <a class="reference internal" href="../api/astropy.units.Quantity.html#astropy.units.Quantity" title="astropy.units.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a> object.</p>
+<p>Note that for composite units, you will definitely see an
+impact if you can pre-compute the composite unit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [10]: %timeit array &lt;&lt; UNIT_MSKGSR
+6.51 µs ± 112 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+<p>Which is over 10000x faster than the original example. See
+<a class="reference internal" href="quantity.html#astropy-units-quantity-no-copy"><span class="std std-ref">Creating and Converting Quantities without Copies</span></a> for more details about the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>
+operator.</p>
+</section>
+<section id="reference-api">
+<h2>Reference/API<a class="headerlink" href="#reference-api" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ref_api.html">Reference/API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units">astropy.units Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.si">astropy.units.si Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.cgs">astropy.units.cgs Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.astrophys">astropy.units.astrophys Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.misc">astropy.units.misc Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.function.units">astropy.units.function.units Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.photometric">astropy.units.photometric Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.imperial">astropy.units.imperial Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.cds">astropy.units.cds Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.physical">astropy.units.physical Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.format">astropy.units.format Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_api.html#module-astropy.units.required_by_vounit">astropy.units.required_by_vounit Module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../api/astropy.constants.EMConstant.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">EMConstant</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="quantity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quantity</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-astropy-units">Using <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.units</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tips">Performance Tips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-api">Reference/API</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/astropy/astropy/edit/main/docs/units/index.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011–2026, The Astropy Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><div class="footer-links">
+    
+            <a href="https://astropy.org/code_of_conduct.html">Code of Conduct</a>
+            
+    
+</div></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+    Updated on 05 Jul 2026
+    , built with <a href="http://sphinx-doc.org/">Sphinx
+        8.2.3</a>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

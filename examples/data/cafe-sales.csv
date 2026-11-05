@@ -1,0 +1,7 @@
+OrderId,Date,Product,Quantity,UnitPrice
+CAFE-1001,2026-01-05,"Coffee, medium",2,3.50
+CAFE-1002,2026-01-05,Tea,3,2.25
+CAFE-1003,2026-01-05,Cookie,4,1.50
+CAFE-1004,2026-01-05,Cappuccino,3,3.75
+CAFE-1005,2026-01-05,Croissant,2,2.80
+CAFE-1006,2026-01-05,Iced coffee,1,4.00

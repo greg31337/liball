@@ -1,0 +1,51 @@
+{
+  "count": 1,
+  "patentFileWrapperDataBag": [
+    {
+      "applicationNumberText": "14/412,875",
+      "applicationMetaData": {
+        "applicationStatusCode": 0,
+        "nationalStageIndicator": false,
+        "firstInventorToFileIndicator": "N",
+        "filingDate": "2025-12-31",
+        "effectiveFilingDate": "2026-01-01",
+        "applicationStatusDate": "2019-01-01",
+        "grantDate": "2020-01-01",
+        "earliestPublicationDate": "2024-01-01",
+        "pctPublicationDate": "2023-01-01",
+        "internationalRegistrationPublicationDate": "2022-01-01",
+        "publicationNumberBag": ["US 2024/0012345 A1", "US 2024/0012345 A9"],
+        "publicationSequenceNumberBag": [0],
+        "publicationCategoryBag": ["Original", "Correction", "Extra"],
+        "publicationDateBag": ["2024-01-04"],
+        "entityStatusData": {
+          "smallEntityStatusIndicator": false,
+          "microEntityStatusIndicator": false
+        },
+        "applicantBag": [
+          {
+            "applicantSequenceNumber": 0,
+            "inventorIndicator": false
+          }
+        ],
+        "inventorBag": [
+          {
+            "inventorSequenceNumber": 0,
+            "deceasedIndicator": false
+          }
+        ],
+        "cpcClassificationBag": [
+          {
+            "cpcClassificationSymbolText": "G06F 8/00",
+            "sequenceNumber": 0,
+            "inventiveIndicator": false,
+            "primaryIndicator": false
+          }
+        ]
+      },
+      "pgpubDocumentMetaData": {
+        "fileSize": 0
+      }
+    }
+  ]
+}

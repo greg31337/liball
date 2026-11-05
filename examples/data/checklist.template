@@ -1,0 +1,5 @@
+{{ project | upper }}
+================================
+{% for task in tasks %}[{% if task.done %}x{% else %} {% endif %}] {{ task.title }}
+{% endfor %}
+{% include "footer" %}

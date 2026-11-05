@@ -1,0 +1,976 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="4585" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records" selected>Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (2)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc4585" rel="noopener" target="_blank">RFC 4585</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc4585.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> avt (rai)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC5506, RFC8108</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2853/">2853</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Ali Begen</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2011-07-05</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Robert Sparks</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-08-05</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>OLD:
+      rtcp-fb-param      = SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string]
+                         / ; empty
+NEW:
+      rtcp-fb-param      = [ SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string] ]
+
+
+OLD:
+      rtcp-fb-ack-param  = SP &quot;rpsi&quot;
+                         / SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string]
+                         / ; empty
+NEW:
+      rtcp-fb-ack-param  = [ SP &quot;rpsi&quot;
+                         / SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string] ]
+
+
+OLD:
+      rtcp-fb-nack-param = SP &quot;pli&quot;
+                         / SP &quot;sli&quot;
+                         / SP &quot;rpsi&quot;
+                         / SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string]
+                         / ; empty
+NEW:
+      rtcp-fb-nack-param = [ SP &quot;pli&quot;
+                         / SP &quot;sli&quot;
+                         / SP &quot;rpsi&quot;
+                         / SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string] ]
+</code></pre>
+                                                
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>During the AUTH48 of RFC 6285, we discovered a bug with the ABNF syntax in RFC 4585. The original ABNF in Section 4.2 (as noted above) is incorrect (&quot;/ ;empty&quot; is not a valid ABNF - RFC 5234 does not allow empty alternates).
+
+The NEW text intends to fix it. There are 3 places where the same change should be applied (changes are identical).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3313/">3313</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Mo Zanaty</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-08-11</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Robert Sparks</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2012-11-26</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>      rtcp-fb-ack-param  = SP &quot;rpsi&quot;
+                         / SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string]
+                         / ; empty
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>      rtcp-fb-ack-param  = SP &quot;rpsi&quot;
+                         / SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string]
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>RFC 4585 defines and allows generic NACK (with no further parameters) but not generic ACK (which always requires further parameters). Section 4.2 says:
+...
+      Parameters MUST be provided to further distinguish different types
+      of positive acknowledgement feedback.
+...
+      The feedback type &quot;nack&quot;, without parameters, indicates use of the
+      Generic NACK feedback format as defined in Section 6.2.1.
+...
+The ABNF incorrectly allows nothing after &quot;ack&quot;, implying that generic ACK is valid. Even the approved errata, which replaces the invalid empty alternate with optional [], still allows nothing after &quot;ack&quot;. Note that recent interest in RTP congestion control (e.g. RMCAT BOF) may lead to defining a standard ACK.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (2)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc4585" rel="noopener" target="_blank">RFC 4585</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc4585.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> avt (rai)</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC5506, RFC8108</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid51/">51</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alfred Hoenes</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2006-08-17</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Joerg Ott</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2006-08-17</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Errors (11)-(19) of 19
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>(11)  [formatting issue]
+
+In Section 6, the text around the page break from page 31 to page 32
+is not formatted properly.
+The RFC says:
+
+      [...]
+      audio and DTMF) or when codec changes occur, the payload type
+      information may need to be conveyed explicitly as part of the FB
+      message.  This applies to all
+ &lt;&lt; page break &gt;&gt;
+      payload-specific as well as application layer FB messages.  It is
+      up to the specification of an FB message to define how payload
+      type information is transmitted.
+
+It should say:
+
+      [...]
+      audio and DTMF) or when codec changes occur, the payload type
+      information may need to be conveyed explicitly as part of the FB
+      message.  This applies to all payload-specific as well as
+ &lt;&lt; page break &gt;&gt;
+      application layer FB messages.  It is up to the specification of
+      an FB message to define how payload type information is
+      transmitted.
+
+
+(12)  [inconsistent text]
+
+Still in Section 6, the second paragraph on page 32 (immediately
+following the text quotation in item (11) above) says:
+
+                         vvv
+|  This document defines two transport layer and three (video) payload-
+   specific FB messages as well as a single container for application
+   layer FB messages.  Additional transport layer and payload-specific
+   FB messages MAY be defined in other documents and MUST be registered
+   through IANA (see Section 9, &quot;IANA Considerations&quot;).
+
+It should say:
+                         vvv
+|  This document defines one transport layer and three (video) payload-
+   specific FB messages as well as a single container for application
+   layer FB messages.  Additional transport layer and payload-specific
+   FB messages MAY be defined in other documents and MUST be registered
+   through IANA (see Section 9, &quot;IANA Considerations&quot;).
+
+Rationale:
+Cf. the third paragraph of Section 6, on page 31, and
+the subsequent pages, in particular page 34, where the
+second paragraph of Section 6.2 says:
+
+|  A single general purpose transport layer FB message is defined in
+   this document: Generic NACK.  It is identified by means of the FMT
+   parameter as follows:
+
+   [...]
+
+(And so it does, per Section 6.2.1.)
+
+
+(13)  [incomplete specification?]
+
+Within Section 6.1, the last paragraph on page 33 says:
+
+   Each RTCP feedback packet MUST contain at least one FB message in the
+   FCI field.  Sections 6.2 and 6.3 define for each FCI type, whether or
+   not multiple FB messages MAY be compressed into a single FCI field.
+|  If this is the case, they MUST be of the same type, i.e., same FMT.
+|  If multiple types of feedback messages, i.e., several FMTs, need to
+   be conveyed, then several RTCP FB messages MUST be generated and
+   SHOULD be concatenated in the same compound RTCP packet.
+
+I strongly suspect -- and this is supported by the examples in the
+RFC -- that feedback packets to be combined MUST also have the same
+payload type (PT), not only agree in their FMT values.
+Otherwise, there would be no way to carry the different PT values
+in the FB message according to the format specified in Figure 3.
+
+Therefore, the RFC should say:
+
+   Each RTCP feedback packet MUST contain at least one FB message in the
+   FCI field.  Sections 6.2 and 6.3 define for each FCI type, whether or
+   not multiple FB messages MAY be compressed into a single FCI field.
+|  If this is the case, they MUST be of the same type, i.e., same PT and
+|  the same FMT.  If multiple types of feedback messages, i.e., several
+|  PTs and/or several FMTs, need to be conveyed, then several RTCP FB
+   messages MUST be generated and SHOULD be concatenated in the same
+   compound RTCP packet.
+
+(Authors, please supply alternative wording, if you desire.)
+
+Note:
+Perhaps, this issue arised because of the slightly differing
+semantics implied for the various usages of the term &quot;FB message&quot;
+in Section 6.1 -- (a) the whole RTCP FB message, and (b) a semantic
+entity carried in the FCI field of that RTCP message.
+Future updates to the RFC might try further clarifications of the
+text to avoid this subtle sematic overloading.
+
+
+(14)  [missing article]
+
+The last paragraph of Section 6.3, at the bottom of page 35, says:
+
+   The following subsections define the FCI formats for the payload-
+|  specific FB messages, Section 6.4 defines FCI format for the
+   application layer FB message.
+
+It should say:
+
+   The following subsections define the FCI formats for the payload-
+|  specific FB messages, Section 6.4 defines the FCI format for the
+   application layer FB message.
+
+
+(15)  [extraneous words]
+
+The second paragraph of Section 6.3.1.1, on page 36, says:
+
+   Other RTP payload specifications such as RFC 2032 [6] already define
+|  a feedback mechanism for some for certain codecs.  An application
+   supporting both schemes MUST use the feedback mechanism defined in
+   this specification when sending feedback.  For backward compatibility
+   reasons, such an application SHOULD also be capable to receive and
+   react to the feedback scheme defined in the respective RTP payload
+   format, if this is required by that payload format.
+
+It should say:
+
+   Other RTP payload specifications such as RFC 2032 [6] already define
+|  a feedback mechanism for certain codecs.  An application supporting
+   both schemes MUST use the feedback mechanism defined in this
+   specification when sending feedback.  For backward compatibility
+   reasons, such an application SHOULD also be capable to receive and
+   react to the feedback scheme defined in the respective RTP payload
+   format, if this is required by that payload format.
+
+
+(16)  [misleading wording]
+
+The first paragraph of Section 6.3.2.2, on page 37, says:
+
+                                                     vvvvv
+|  The Slice Loss Indication uses one additional FCI field, the content
+   of which is depicted in Figure 6.  The length of the FB message MUST
+   be set to 2+n, with n being the number of SLIs contained in the FCI
+   field.
+
+To avoid the semantic overloading of the word &quot;field&quot;, it should
+perhaps better say:
+                                                     vvvv
+|  The Slice Loss Indication uses one additional FCI word, the content
+   of which is depicted in Figure 6.  The length of the FB message MUST
+   be set to 2+n, with n being the number of SLIs contained in the FCI
+   field.
+
+
+(17)  [typo]
+
+The first paragraph of Section 6.3.3.1, on page 39, says:
+
+                             v
+                                   [...].  As this reference picture is
+|  temporally further away then usual, the resulting predictively coded
+   picture will use more bits.
+
+It should say:
+                             v
+                                   [...].  As this reference picture is
+|  temporally further away than usual, the resulting predictively coded
+   picture will use more bits.
+
+
+(18)  [inappropriate wording]
+
+The first paragraph of Section 8, on page 42, says:
+
+   RTP packets transporting information with the proposed payload format
+   are subject to the security considerations discussed in the RTP
+   specification [1] and in the RTP/AVP profile specification [2].  This
+   profile does not specify any additional security services.
+
+The wording of the first sentence is inappropriate for this RFC.
+(It perhaps has been copied unchanged from an RFC with an RTP Payload
+specification.)
+
+RFC 4585 should say instead:
+
+|  RTP packets transporting information as defined in various payload
+|  formats supporting this profile are subject to the security
+   considerations discussed in the RTP specification [1] and in the
+   RTP/AVP profile specification [2].  This profile does not specify any
+   additional security services.
+
+
+(19)  [redundant Ref.]
+
+The Normative Reference [7] (in Section 11.1, on page 48) and
+the Informative Reference [20] (in Section 11.2, on page 49)
+both point to RFC 3448.
+([7] and [20] are referred to once each in the RFC text.)
+
+This is unusual and unexpected.  Only one pointer to RFC 3448
+should have been specified.  Authors, please check.
+</code></pre>
+                                                
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>from pending
+
+--VERIFIER COMMENT--
+Thanks for the review.  I have only quickly skimmed your comments
+and there does not seem to be anything serious.
+
+We will be happy to archive these and migt consider them if
+we do a revision of the RFC.  But an errata document would
+only make sense if there is something seriously hindering
+interoperability.  I have not seen anything falling into this
+category (well, and there are implementations out there from
+the spec).
+</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid768/">768</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Alfred Hoenes</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2006-08-17</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Joerg Ott</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2006-08-17</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Errors (1)-(10) of 19
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>(1)
+
+Section 1.1 of RFC 4585, on mid-page 4, says:
+
+   Feedback (FB) message:
+      An RTCP message as defined in this document is used to convey
+      information about events observed at a receiver -- in addition to
+      long-term receiver status information that is carried in RTCP
+      receiver reports (RRs) -- back to the sender of the media stream.
+|     For the sake of clarity, feedback message is referred to as FB
+|     message throughout this document.
+
+I do not see how and why using the abbreviation might have improved
+*clarity* of the text; apparently, it has been used for *brevity* .
+Therefore, the two tagged lines should better say:
+
+|     For the sake of brevity, feedback message is referred to as FB
+|     message throughout this document.
+
+Similarly, at the bottom of page 4, where the RFC says:
+
+   Feedback (FB) threshold:
+      The FB threshold indicates the transition between Immediate
+      Feedback and Early RTCP mode.  [...]
+      [...]
+      to application designers and is not used in any calculations.  For
+|     the sake of clarity, the term feedback threshold is referred to as
+      FB threshold throughout this document.
+
+The last 3 lines should better say:
+
+      to application designers and is not used in any calculations.  For
+|     the sake of brevity, the term feedback threshold is referred to as
+      FB threshold throughout this document.
+
+
+(2)
+
+The first bulleted item in Section 3.1, on page 7, says:
+                                                    vvvvvvvvvvvvv
+|  o  Status reports are contained in sender report (SR)/received report
+      (RR) packets and are transmitted at regular intervals as part of
+      compound RTCP packets (which also include source description
+      (SDES) and possibly other messages); these status reports provide
+      an overall indication for the recent reception quality of a media
+      stream.
+
+For *clarity*, it perhaps should better say -- not binding together the
+words intended to being separated by the slash marking the alternative:
+                                                        vvv
+|  o  Status reports are contained in sender report (SR) / received
+      report (RR) packets and are transmitted at regular intervals as
+      part of compound RTCP packets (which also include source
+      description (SDES) and possibly other messages); these status
+      reports provide an overall indication for the recent reception
+      quality of a media stream.
+
+
+(3)  [missing article]
+
+In Section 3.4, on mid-page 11, RFC 4585 says:
+
+   j) Let T_fd be the actual (randomized) delay for the transmission of
+      FB message in response to an event at time t0.
+
+It should say:
+
+   j) Let T_fd be the actual (randomized) delay for the transmission of
+|     a FB message in response to an event at time t0.
+      ^^
+
+(4)  [inappropriate wording]
+
+The algorithm in Section 3.5.2, at the bottom of page 16, contains
+the sub-step:
+
+      4b) If allow_early == TRUE, then R MUST schedule an Early RTCP
+          packet for te = t0 + RND * T_dither_max with RND being a
+|         pseudo random function evenly distributed between 0 and 1.
+                        ^^^^^^^^
+
+This wording is inappropriate.  RND is not a *function* (that&#x27;s code!),
+but a *number*, the function *value*.  Therefore, the RFC should say:
+
+      4b) If allow_early == TRUE, then R MUST schedule an Early RTCP
+          packet for te = t0 + RND * T_dither_max with RND being a
+|         pseudo random number evenly distributed between 0 and 1.
+                        ^^^^^^
+
+
+(5)  [inappropriate wording]
+
+The algorithm in Section 3.5.3, at the top of page 19, says:
+
+   2. Otherwise, a temporary value T_rr_current_interval is calculated
+      as follows:
+
+         T_rr_current_interval = RND*T_rr_interval
+
+|     with RND being a pseudo random function evenly distributed between
+      0.5 and 1.5.  This dithered value is used to determine one of the
+      following alternatives:
+
+Similar to item (4) above, the RFC should say instead:
+
+   2. Otherwise, a temporary value T_rr_current_interval is calculated
+      as follows:
+
+         T_rr_current_interval = RND*T_rr_interval
+
+|     with RND being a pseudo random number evenly distributed between
+      0.5 and 1.5.  This dithered value is used to determine one of the
+      following alternatives:
+
+
+(6)  [typo / dup. wording]
+
+Section 3.6.2 of RFC 4585, on mid-page 21, says:
+
+   Example: If a 256-kbit/s video with 30 fps is transmitted through a
+   network with an MTU size of some 1,500 bytes, then, in most cases,
+|  each frame would fit in into one packet leading to a packet rate of
+   30 packets per second.  [...]
+
+It should say:
+
+   Example: If a 256-kbit/s video with 30 fps is transmitted through a
+   network with an MTU size of some 1,500 bytes, then, in most cases,
+|  each frame would fit into one packet leading to a packet rate of
+   30 packets per second.  [...]
+
+
+(7)  [wrong ref. tag]
+
+On mid-page 23, Section 4.1 of RFC 4585 says:
+
+                             vvv
+|  The AV profile defined in [4] is referred to as &quot;AVP&quot; in the context
+   of, e.g., the Session Description Protocol (SDP) [3].  The profile
+   specified in this document is referred to as &quot;AVPF&quot;.
+
+There apparently is a confusion of the ref. tags used.
+The RFC should say:
+                             vvv
+|  The AV profile defined in [2] is referred to as &quot;AVP&quot; in the context
+   of, e.g., the Session Description Protocol (SDP) [3].  The profile
+   specified in this document is referred to as &quot;AVPF&quot;.
+
+
+(8)  [missing article]
+
+In Section 4.2, near the top of page 25, the ABNF production:
+
+      rtcp-fb-pt         = &quot;*&quot;   ; wildcard: applies to all formats
+|                        / fmt   ; as defined in SDP spec
+
+should better say, improving the ABNF comment text:
+
+      rtcp-fb-pt         = &quot;*&quot;   ; wildcard: applies to all formats
+|                        / fmt   ; as defined in the SDP spec
+                                                ^^^^^
+
+
+(9)  [inconsistent specification]
+
+In Section 4.2, the ABNF on page 25 contains the following productions:
+
+      rtcp-fb-val        = &quot;ack&quot; rtcp-fb-ack-param
+                         / [...]
+and
+      rtcp-fb-ack-param  = SP &quot;rpsi&quot;
+                         / SP &quot;app&quot; [SP byte-string]
+                         / SP token [SP byte-string]
+|                        / ; empty
+
+This means that the feedback type &quot;ack&quot; *MAY* have parameters.
+
+Contrary to that, below the ABNF, the RFC explains:
+
+   Feedback type &quot;ack&quot;:
+
+      This feedback type indicates that positive acknowledgements for
+      feedback are supported.
+
+      The feedback type &quot;ack&quot; MUST only be used if the media session is
+      allowed to operate in ACK mode as defined in Section 3.6.1.
+
+|     Parameters MUST be provided to further distinguish different types
+|     of positive acknowledgement feedback.
+
+      [...]
+
+The *MUST* in the tagged lines contradicts the ABNF.
+
+Authors, please resolve the issue:
+
+Either have the ABNF changed by omission of the tagged line above,
+
+|                        / ; empty
+
+or change the tagged explanation lines to say:
+
+|     Parameters MAY be provided to further distinguish different types
+|     of positive acknowledgement feedback.
+
+
+(10)  [incomplete specification, and an extraneous word]
+
+At the bottom of page 26, Section 4.2 of RFC 4585 says:
+
+   Other feedback types &lt;rtcp-fb-id&gt;:
+
+      Other documents MAY define additional types of feedback; to keep
+      the grammar extensible for those cases, the rtcp-fb-id is
+|     introduced as a placeholder.  A new feedback scheme name MUST to
+      be unique (and thus MUST be registered with IANA).  Along with a
+|     new name, its semantics, packet formats (if necessary), and rules
+      for its operation MUST be specified.
+
+It should say:
+
+   Other feedback types &lt;rtcp-fb-id&gt;:
+
+      Other documents MAY define additional types of feedback; to keep
+      the grammar extensible for those cases, the rtcp-fb-id is
+|     introduced as a placeholder.  A new feedback scheme name MUST be
+      unique (and thus MUST be registered with IANA).  Along with a new
+|     new name, its semantics, possible parameters, packet formats (if
+      necessary), and rules for its operation MUST be specified.
+
+Rationale:
+
+a) &quot;MUST to be unique&quot; should be &quot;MUST be unique&quot;.
+
+b) Syntax and semantics of parameters (if any) obviously MUST be
+   specified as well.  The RFC text in the IANA Considerations
+   (Section 9) already reflects this requirement.
+   For completeness and clarity, it should be stated here as well.
+   I have proposed minimal additional wording -- you might choose
+   alternative words.</code></pre>
+                                                
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>from pending
+
+--VERIFIER COMMENT--
+Thanks for the review.  I have only quickly skimmed your comments
+and there does not seem to be anything serious.
+
+We will be happy to archive these and migt consider them if
+we do a revision of the RFC.  But an errata document would
+only make sense if there is something seriously hindering
+interoperability.  I have not seen anything falling into this
+category (well, and there are implementations out there from
+the spec).
+</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

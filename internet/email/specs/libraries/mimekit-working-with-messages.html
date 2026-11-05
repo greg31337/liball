@@ -1,0 +1,441 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="en-us" /><meta name="Microsoft.Help.Locale" content="en-us" /><meta name="Microsoft.Help.TopicLocale" content="en-us" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>Working with messages</title><meta name="Microsoft.Help.Id" content="Working-With-Messages" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Microsoft.Help.Category" content="CSharp" /><meta name="Description" content="MimeKit provides a number of ways to get the data you want from a message." /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-3.7.1.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div id="PageHeader" class="pageHeader">MailKit Documentation<form id="SearchForm" method="get" action="#" onsubmit="TransferToSearchPage(); return false;"><input id="SearchTextBox" type="text" maxlength="200" /><button id="SearchButton" type="submit"></button></form></div><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/Introduction.htm" title="MailKit Documentation" tocid="roottoc">MailKit Documentation</a></div><div class="toclevel1" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/Getting-Started.htm" title="Getting Started" tocid="Getting-Started">Getting Started</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/Creating-Messages.htm" title="Creating messages" tocid="Creating-Messages">Creating messages</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/Parsing-Messages.htm" title="Parsing messages" tocid="Parsing-Messages">Parsing messages</a></div><div class="toclevel2 current" data-toclevel="2"><a data-tochassubtree="false" href="../html/Working-With-Messages.htm" title="Working with messages" tocid="Working-With-Messages">Working with messages</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/Working-With-OpenPGP.htm" title="Working with OpenPGP" tocid="Working-With-OpenPGP">Working with OpenPGP</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/Working-With-SMime.htm" title="Working with S/MIME" tocid="Working-With-SMime">Working with S/MIME</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img alt="MimeKit" src="../icons/Help.png" /></td><td class="titleColumn"><h1>Working with messages</h1></td></tr></table><div><p>MimeKit provides a number of ways to get the data you want from a message.</p><p>This topic contains the following sections:</p><ul><li><a href="#MessageStructure">The Message Structure</a></li><li><a href="#TraversingMessages">Traversing a Message</a></li><li><a href="#TextBodyAndHtmlBody">Using the TextBody and HtmlBody Properties</a></li><li><a href="#EnumeratingBodyParts">Enumerating Body Parts</a></li><li><a href="#DecodingContent">Getting the Decoded Content of a MimePart</a></li><li><a href="#seeAlsoSection">See Also</a></li></ul></div><div class="collapsibleAreaRegion" id="MessageStructure"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDCAB')" onkeypress="SectionExpandCollapse_CheckKey('IDCAB', event)" tabindex="0"><img id="IDCABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />The Message Structure</span></div><div id="IDCABSection" class="collapsibleSection"><p>
+          A common misunderstanding about email is that there is a well-defined
+          message body and then a list of attachments. This is not really the case.
+          The reality is that MIME is a tree structure of content, much like a file
+          system.
+        </p><p>
+          Luckily, MIME does define a set of general rules for how mail clients
+          should interpret this tree structure of MIME parts. The
+          <span class="literal">Content-Disposition</span> header is meant to provide hints to
+          the receiving client as to which parts are meant to be displayed as part of
+          the message body and which are meant to be interpreted as attachments.
+        </p><p>
+          The <span class="literal">Content-Disposition</span> header will generally have
+          one of two values: <span class="literal">inline</span> or
+          <span class="literal">attachment</span>.
+        </p><p>
+          The meaning of these values should be fairly obvious. If the value is
+          <span class="literal">attachment</span>, then the content of said MIME part is meant
+          to be presented as a file attachment separate from the core message. However,
+          if the value is <span class="literal">inline</span>, then the content of that MIME part
+          is meant to be displayed inline within the mail client's rendering of the
+          core message body. If the <span class="literal">Content-Disposition</span> header does
+          not exist, then it should be treated as if the value were
+          <span class="literal">inline</span>.
+        </p><p>
+          Technically, every part that lacks a <span class="literal">Content-Disposition</span>
+          header or that is marked as <span class="literal">inline</span>, then, is part of the
+          core message body.
+        </p><p>There's a bit more to it than that, though.</p><p>
+          Modern MIME messages will often contain a
+          <span class="literal">multipart/alternative</span> MIME container which will generally
+          contain a <span class="literal">text/plain</span> and <span class="literal">text/html</span> version
+          of the text that the sender wrote. The <span class="literal">text/html</span> version is
+          typically formatted much closer to what the sender saw in his or her WYSIWYG
+          editor than the <span class="literal">text/plain</span> version.
+        </p><p>
+          The reason for sending the message text in both formats is that not
+          all mail clients are capable of displaying HTML.
+        </p><p>
+          The receiving client should only display one of the alternative views
+          contained within the <span class="literal">multipart/alternative</span> container.
+          Since alternative views are listed in order of least faithful to most
+          faithful with what the sender saw in his or her WYSIWYG editor, the
+          receiving client should walk over the list of alternative views starting
+          at the end and working backwards until it finds a part that it is capable
+          of displaying.
+        </p><p>
+          Example:<pre>
+multipart/alternative
+  text/plain
+  text/html</pre></p><p>
+          As seen in the example above, the <span class="literal">text/html</span> part is
+          listed last because it is the most faithful to what the sender saw in his or
+          her WYSIWYG editor when writing the message.
+        </p><p>
+          To make matters even more complicated, sometimes modern mail clients
+          will use a <span class="literal">multipart/related</span> MIME container instead of a
+          simple <span class="literal">text/html</span> part in order to embed images and other
+          multimedia content within the HTML.
+        </p><p>Example:<pre>
+multipart/alternative
+  text/plain
+  multipart/related
+    text/html
+    image/jpeg
+    video/mp4
+    image/png</pre></p><p>
+          In the example above, one of the alternative views is a
+          <span class="literal">multipart/related</span> container which contains an HTML
+          version of the message body that references the sibling video and images.
+        </p><p>
+          Now that you have a rough idea of how a message is structured and how
+          to interpret various MIME entities, the next step is learning how to traverse
+          the MIME tree using MimeKit.
+        </p></div><div class="collapsibleAreaRegion" id="TraversingMessages"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDDAB')" onkeypress="SectionExpandCollapse_CheckKey('IDDAB', event)" tabindex="0"><img id="IDDABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Traversing a Message</span></div><div id="IDDABSection" class="collapsibleSection"><p>
+          The <a href="P_MimeKit_MimeMessage_Body.htm">Body</a>
+          is the top-level MIME entity of the message. Generally, it will either be a
+          <a href="T_MimeKit_TextPart.htm">TextPart</a> or a
+          <a href="T_MimeKit_Multipart.htm">Multipart</a>.
+        </p><p>
+          There are 3 ways of iterating over the tree structure of a message using MimeKit.
+          The first way is to recursively traverse the MIME structure like this:
+        </p><div id="IDCBDAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDCBDAB_tab1" class="codeSnippetContainerTabSingle">C#</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDCBDAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDCBDAB');return false;" title="Copy">Copy</a></div></div><div id="IDCBDAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">static</span> <span class="highlight-keyword">void</span> HandleMimeEntity (MimeEntity entity)
+{
+    <span class="highlight-keyword">var</span> multipart = entity <span class="highlight-keyword">as</span> Multipart;
+
+    <span class="highlight-keyword">if</span> (multipart != <span class="highlight-keyword">null</span>) {
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-number">0</span>; i &lt; multipart.Count; i++)
+            HandleMimeEntity (multipart[i]);
+        <span class="highlight-keyword">return</span>;
+    }
+
+    <span class="highlight-keyword">var</span> rfc822 = entity <span class="highlight-keyword">as</span> MessagePart;
+
+    <span class="highlight-keyword">if</span> (rfc822 != <span class="highlight-keyword">null</span>) {
+        <span class="highlight-keyword">var</span> message = rfc822.Message;
+
+        HandleMimeEntity (message.Body);
+        <span class="highlight-keyword">return</span>;
+    }
+
+    <span class="highlight-keyword">var</span> part = (MimePart) entity;
+
+    <span class="highlight-comment">// do something with the MimePart, such as save content to disk</span>
+}</pre></div></div></div><p>
+          A second way, which is a bit cleaner and doesn't require recursive methods, is
+          to use a <a href="T_MimeKit_MimeIterator.htm">MimeIterator</a>:
+        </p><div id="IDEBDAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDEBDAB_tab1" class="codeSnippetContainerTabSingle">C#</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDEBDAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDEBDAB');return false;" title="Copy">Copy</a></div></div><div id="IDEBDAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">var</span> attachments = <span class="highlight-keyword">new</span> List&lt;MimePart&gt; ();
+<span class="highlight-keyword">var</span> multiparts = <span class="highlight-keyword">new</span> List&lt;Multipart&gt; ();
+
+<span class="highlight-keyword">using</span> (<span class="highlight-keyword">var</span> iter = <span class="highlight-keyword">new</span> MimeIterator (message)) {
+    <span class="highlight-comment">// collect our list of attachments and their parent multiparts</span>
+    <span class="highlight-keyword">while</span> (iter.MoveNext ()) {
+        <span class="highlight-keyword">var</span> multipart = iter.Parent <span class="highlight-keyword">as</span> Multipart;
+        <span class="highlight-keyword">var</span> part = iter.Current <span class="highlight-keyword">as</span> MimePart;
+
+        <span class="highlight-keyword">if</span> (multipart != <span class="highlight-keyword">null</span> &amp;&amp; part != <span class="highlight-keyword">null</span> &amp;&amp; part.IsAttachment) {
+            <span class="highlight-comment">// keep track of each attachment's parent multipart</span>
+            multiparts.Add (multipart);
+            attachments.Add (part);
+        }
+    }
+}
+
+<span class="highlight-comment">// now remove each attachment from its parent multipart...</span>
+<span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-number">0</span>; i &lt; attachments.Count; i++)
+    multiparts[i].Remove (attachments[i]);</pre></div></div></div><p>
+          And finally, for those that prefer to use the
+          <a href="http://en.wikipedia.org/wiki/Visitor_pattern" target="_blank" rel="noopener noreferrer">visitor pattern</a>, MimeKit includes the
+          <a href="T_MimeKit_MimeVisitor.htm">MimeVisitor</a> class for
+          visiting each node in the MIME tree structure. For example, the following
+          MimeVisitor subclass could be used to generate HTML to be rendered by a
+          browser control (such as <a href="https://learn.microsoft.com/dotnet/api/system.windows.forms.webbrowser" target="_blank" rel="noopener noreferrer">WebBrowser</a>):
+        </p><div id="IDGBDAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDGBDAB_tab1" class="codeSnippetContainerTabSingle">C#</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDGBDAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDGBDAB');return false;" title="Copy">Copy</a></div></div><div id="IDGBDAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// Visits a MimeMessage and generates HTML suitable to be rendered by a browser control.</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">class</span> HtmlPreviewVisitor : MimeVisitor
+{
+    List&lt;MultipartRelated&gt; stack = <span class="highlight-keyword">new</span> List&lt;MultipartRelated&gt; ();
+    List&lt;MimeEntity&gt; attachments = <span class="highlight-keyword">new</span> List&lt;MimeEntity&gt; ();
+    <span class="highlight-keyword">string</span> body;
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Creates a new HtmlPreviewVisitor.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-keyword">public</span> HtmlPreviewVisitor ()
+    {
+    }
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// The list of attachments that were in the MimeMessage.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-keyword">public</span> IList&lt;MimeEntity&gt; Attachments {
+        <span class="highlight-keyword">get</span> { <span class="highlight-keyword">return</span> attachments; }
+    }
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// The HTML string that can be set on the BrowserControl.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">string</span> HtmlBody {
+        <span class="highlight-keyword">get</span> { <span class="highlight-keyword">return</span> body ?? <span class="highlight-keyword">string</span>.Empty; }
+    }
+
+    <span class="highlight-keyword">protected</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> VisitMultipartAlternative (MultipartAlternative alternative)
+    {
+        <span class="highlight-comment">// walk the multipart/alternative children backwards from greatest level of faithfulness to the least faithful</span>
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = alternative.Count - <span class="highlight-number">1</span>; i &gt;= <span class="highlight-number">0</span> &amp;&amp; body == <span class="highlight-keyword">null</span>; i--)
+            alternative[i].Accept (<span class="highlight-keyword">this</span>);
+    }
+
+    <span class="highlight-keyword">protected</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> VisitMultipartRelated (MultipartRelated related)
+    {
+        <span class="highlight-keyword">var</span> root = related.Root;
+
+        <span class="highlight-comment">// push this multipart/related onto our stack</span>
+        stack.Add (related);
+
+        <span class="highlight-comment">// visit the root document</span>
+        root.Accept (<span class="highlight-keyword">this</span>);
+
+        <span class="highlight-comment">// pop this multipart/related off our stack</span>
+        stack.RemoveAt (stack.Count - <span class="highlight-number">1</span>);
+    }
+
+    <span class="highlight-comment">// look up the image based on the img src url within our multipart/related stack</span>
+    <span class="highlight-keyword">bool</span> TryGetImage (<span class="highlight-keyword">string</span> url, <span class="highlight-keyword">out</span> MimePart image)
+    {
+        UriKind kind;
+        <span class="highlight-keyword">int</span> index;
+        Uri uri;
+
+        <span class="highlight-keyword">if</span> (Uri.IsWellFormedUriString (url, UriKind.Absolute))
+            kind = UriKind.Absolute;
+        <span class="highlight-keyword">else</span> <span class="highlight-keyword">if</span> (Uri.IsWellFormedUriString (url, UriKind.Relative))
+            kind = UriKind.Relative;
+        <span class="highlight-keyword">else</span>
+            kind = UriKind.RelativeOrAbsolute;
+
+        <span class="highlight-keyword">try</span> {
+            uri = <span class="highlight-keyword">new</span> Uri (url, kind);
+        } <span class="highlight-keyword">catch</span> {
+            image = <span class="highlight-keyword">null</span>;
+            <span class="highlight-keyword">return</span> <span class="highlight-keyword">false</span>;
+        }
+
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = stack.Count - <span class="highlight-number">1</span>; i &gt;= <span class="highlight-number">0</span>; i--) {
+            <span class="highlight-keyword">if</span> ((index = stack[i].IndexOf (uri)) == <span class="highlight-number">-1</span>)
+                <span class="highlight-keyword">continue</span>;
+
+            image = stack[i][index] <span class="highlight-keyword">as</span> MimePart;
+            <span class="highlight-keyword">return</span> image != <span class="highlight-keyword">null</span>;
+        }
+
+        image = <span class="highlight-keyword">null</span>;
+
+        <span class="highlight-keyword">return</span> <span class="highlight-keyword">false</span>;
+    }
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Get a data: URI for the image attachment.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;remarks&gt;</span>
+    <span class="highlight-comment">/// Encodes the image attachment into a string suitable for setting as a src= attribute value in</span>
+    <span class="highlight-comment">/// an img tag.</span>
+    <span class="highlight-comment">/// &lt;/remarks&gt;</span>
+    <span class="highlight-comment">/// &lt;returns&gt;The data: URI.&lt;/returns&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="image"&gt;The image attachment.&lt;/param&gt;</span>
+    <span class="highlight-keyword">string</span> GetDataUri (MimePart image)
+    {
+        <span class="highlight-keyword">using</span> (<span class="highlight-keyword">var</span> memory = <span class="highlight-keyword">new</span> MemoryStream ()) {
+            image.Content.DecodeTo (memory);
+            <span class="highlight-keyword">var</span> buffer = memory.GetBuffer ();
+            <span class="highlight-keyword">var</span> length = (<span class="highlight-keyword">int</span>) memory.Length;
+            <span class="highlight-keyword">var</span> base64 = Convert.ToBase64String (buffer, <span class="highlight-number">0</span>, length);
+
+            <span class="highlight-keyword">return</span> <span class="highlight-keyword">string</span>.Format (<span class="highlight-literal">"data:{0};base64,{1}"</span>, image.ContentType.MimeType, base64);
+        }
+    }
+
+    <span class="highlight-comment">// Replaces &lt;img src=...&gt; urls that refer to images embedded within the message with</span>
+    <span class="highlight-comment">// "file://" urls that the browser control will actually be able to load.</span>
+    <span class="highlight-keyword">void</span> HtmlTagCallback (HtmlTagContext ctx, HtmlWriter htmlWriter)
+    {
+        <span class="highlight-keyword">if</span> (ctx.TagId == HtmlTagId.Meta &amp;&amp; !ctx.IsEndTag) {
+            <span class="highlight-keyword">bool</span> isContentType = <span class="highlight-keyword">false</span>;
+
+            ctx.WriteTag (htmlWriter, <span class="highlight-keyword">false</span>);
+
+            <span class="highlight-comment">// replace charsets with "utf-8" since our output will be in utf-8 (and not whatever the original charset was)</span>
+            <span class="highlight-keyword">foreach</span> (<span class="highlight-keyword">var</span> attribute <span class="highlight-keyword">in</span> ctx.Attributes) {
+                <span class="highlight-keyword">if</span> (attribute.Id == HtmlAttributeId.Charset) {
+                    htmlWriter.WriteAttributeName (attribute.Name);
+                    htmlWriter.WriteAttributeValue (<span class="highlight-literal">"utf-8"</span>);
+                } <span class="highlight-keyword">else</span> <span class="highlight-keyword">if</span> (isContentType &amp;&amp; attribute.Id == HtmlAttributeId.Content) {
+                    htmlWriter.WriteAttributeName (attribute.Name);
+                    htmlWriter.WriteAttributeValue (<span class="highlight-literal">"text/html; charset=utf-8"</span>);
+                } <span class="highlight-keyword">else</span> {
+                    <span class="highlight-keyword">if</span> (attribute.Id == HtmlAttributeId.HttpEquiv &amp;&amp; attribute.Value != <span class="highlight-keyword">null</span>
+                        &amp;&amp; attribute.Value.Equals (<span class="highlight-literal">"Content-Type"</span>, StringComparison.OrdinalIgnoreCase))
+                        isContentType = <span class="highlight-keyword">true</span>;
+
+                    htmlWriter.WriteAttribute (attribute);
+                }
+            }
+        } <span class="highlight-keyword">else</span> <span class="highlight-keyword">if</span> (ctx.TagId == HtmlTagId.Image &amp;&amp; !ctx.IsEndTag &amp;&amp; stack.Count &gt; <span class="highlight-number">0</span>) {
+            ctx.WriteTag (htmlWriter, <span class="highlight-keyword">false</span>);
+
+            <span class="highlight-comment">// replace the src attribute with a "data:" URL</span>
+            <span class="highlight-keyword">foreach</span> (<span class="highlight-keyword">var</span> attribute <span class="highlight-keyword">in</span> ctx.Attributes) {
+                <span class="highlight-keyword">if</span> (attribute.Id == HtmlAttributeId.Src) {
+                    <span class="highlight-keyword">if</span> (!TryGetImage (attribute.Value, <span class="highlight-keyword">out</span> <span class="highlight-keyword">var</span> image)) {
+                        htmlWriter.WriteAttribute (attribute);
+                        <span class="highlight-keyword">continue</span>;
+                    }
+
+                    <span class="highlight-keyword">var</span> dataUri = GetDataUri (image);
+
+                    htmlWriter.WriteAttributeName (attribute.Name);
+                    htmlWriter.WriteAttributeValue (dataUri);
+                } <span class="highlight-keyword">else</span> {
+                    htmlWriter.WriteAttribute (attribute);
+                }
+            }
+        } <span class="highlight-keyword">else</span> {
+            <span class="highlight-comment">// pass the tag through to the output</span>
+            ctx.WriteTag (htmlWriter, <span class="highlight-keyword">true</span>);
+        }
+    }
+
+    <span class="highlight-keyword">protected</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> VisitTextPart (TextPart entity)
+    {
+        TextConverter converter;
+
+        <span class="highlight-keyword">if</span> (body != <span class="highlight-keyword">null</span>) {
+            <span class="highlight-comment">// since we've already found the body, treat this as an attachment</span>
+            attachments.Add (entity);
+            <span class="highlight-keyword">return</span>;
+        }
+
+        <span class="highlight-keyword">if</span> (entity.IsHtml) {
+            converter = <span class="highlight-keyword">new</span> HtmlToHtml {
+                HtmlTagCallback = HtmlTagCallback
+            };
+        } <span class="highlight-keyword">else</span> <span class="highlight-keyword">if</span> (entity.IsFlowed) {
+            <span class="highlight-keyword">var</span> flowed = <span class="highlight-keyword">new</span> FlowedToHtml ();
+            <span class="highlight-keyword">string</span> delsp;
+
+            <span class="highlight-keyword">if</span> (entity.ContentType.Parameters.TryGetValue (<span class="highlight-literal">"delsp"</span>, <span class="highlight-keyword">out</span> delsp))
+                flowed.DeleteSpace = delsp.Equals (<span class="highlight-literal">"yes"</span>, StringComparison.OrdinalIgnoreCase);
+
+            converter = flowed;
+        } <span class="highlight-keyword">else</span> {
+            converter = <span class="highlight-keyword">new</span> TextToHtml ();
+        }
+
+        body = converter.Convert (entity.Text);
+    }
+
+    <span class="highlight-keyword">protected</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> VisitTnefPart (TnefPart entity)
+    {
+        <span class="highlight-comment">// extract any attachments in the MS-TNEF part</span>
+        attachments.AddRange (entity.ExtractAttachments ());
+    }
+
+    <span class="highlight-keyword">protected</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> VisitMessagePart (MessagePart entity)
+    {
+        <span class="highlight-comment">// treat message/rfc822 parts as attachments</span>
+        attachments.Add (entity);
+    }
+
+    <span class="highlight-keyword">protected</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> VisitMimePart (MimePart entity)
+    {
+        <span class="highlight-comment">// realistically, if we've gotten this far, then we can treat this as an attachment</span>
+        <span class="highlight-comment">// even if the IsAttachment property is false.</span>
+        attachments.Add (entity);
+    }
+}</pre></div></div></div><p>And the way you'd use this visitor might look something like this:</p><div id="IDIBDAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDIBDAB_tab1" class="codeSnippetContainerTabSingle">C#</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDIBDAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDIBDAB');return false;" title="Copy">Copy</a></div></div><div id="IDIBDAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">void</span> Render (MimeMessage message)
+{
+    <span class="highlight-keyword">var</span> tmpDir = Path.Combine (Path.GetTempPath (), message.MessageId);
+    <span class="highlight-keyword">var</span> visitor = <span class="highlight-keyword">new</span> HtmlPreviewVisitor (tmpDir);
+
+    Directory.CreateDirectory (tmpDir);
+
+    message.Accept (visitor);
+
+    DisplayHtml (visitor.HtmlBody);
+    DisplayAttachments (visitor.Attachments);
+}</pre></div></div></div></div><div class="collapsibleAreaRegion" id="TextBodyAndHtmlBody"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDEAB')" onkeypress="SectionExpandCollapse_CheckKey('IDEAB', event)" tabindex="0"><img id="IDEABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Using the TextBody and HtmlBody Properties</span></div><div id="IDEABSection" class="collapsibleSection"><p>
+          To simplify the common task of getting the text of a message, MimeKit includes
+          two properties that can help you get the <span class="literal">text/plain</span> or
+          <span class="literal">text/html</span> version of the message body. These are
+          <a href="P_MimeKit_MimeMessage_TextBody.htm">TextBody</a> and
+          <a href="P_MimeKit_MimeMessage_HtmlBody.htm">HtmlBody</a>,
+          respectively.
+        </p><p>
+          Keep in mind, however, that at least with the
+          <a href="P_MimeKit_MimeMessage_HtmlBody.htm">HtmlBody</a>
+          property, it may be that the HTML part is a child of a
+          <span class="literal">multipart/related</span>, allowing it to refer to images and other
+          types of media that are also contained within that
+          <span class="literal">multipart/related</span> entity. This property is really only a
+          convenience property and is not a really good substitute for traversing the
+          MIME structure yourself so that you may properly interpret related content.
+        </p></div><div class="collapsibleAreaRegion" id="EnumeratingBodyParts"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDFAB')" onkeypress="SectionExpandCollapse_CheckKey('IDFAB', event)" tabindex="0"><img id="IDFABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Enumerating Body Parts</span></div><div id="IDFABSection" class="collapsibleSection"><p>
+          Sometimes traversing the body of a message is overkill when all you really
+          need to do is something quick &amp; dirty. For this reason, MimeKit provides
+          the <a href="P_MimeKit_MimeMessage_BodyParts.htm">BodyParts</a>
+          and <a href="P_MimeKit_MimeMessage_Attachments.htm">Attachments</a>
+          properties which flatten out the hierarchy and allow you to iterate over all
+          of the body parts (or attachments) in depth-first order.
+        </p><div id="IDBBFAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDBBFAB_tab1" class="codeSnippetContainerTabSingle">C#</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDBBFAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDBBFAB');return false;" title="Copy">Copy</a></div></div><div id="IDBBFAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">foreach</span> (<span class="highlight-keyword">var</span> attachment <span class="highlight-keyword">in</span> message.Attachments) {
+    <span class="highlight-keyword">if</span> (attachment <span class="highlight-keyword">is</span> MessagePart) {
+        <span class="highlight-keyword">var</span> fileName = attachment.ContentDisposition?.FileName ?? attachment.ContentType.Name;
+        <span class="highlight-keyword">var</span> rfc822 = (MessagePart) attachment;
+
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">string</span>.IsNullOrEmpty (fileName))
+            fileName = <span class="highlight-literal">"attached-message.eml"</span>;
+
+        <span class="highlight-comment">// make sure that the filename value does not contain a full path or invalid path characters</span>
+        fileName = Path.GetFileName (fileName);
+
+        <span class="highlight-keyword">using</span> (<span class="highlight-keyword">var</span> stream = File.Create (fileName))
+            rfc822.Message.WriteTo (stream);
+    } <span class="highlight-keyword">else</span> {
+        <span class="highlight-keyword">var</span> part = (MimePart) attachment;
+        <span class="highlight-keyword">var</span> fileName = part.FileName;
+
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">string</span>.IsNullOrEmpty (fileName))
+            fileName = <span class="highlight-literal">"untitled.dat"</span>;
+
+        <span class="highlight-comment">// make sure that the filename value does not contain a full path or invalid path characters</span>
+        fileName = Path.GetFileName (fileName);
+
+        <span class="highlight-keyword">using</span> (<span class="highlight-keyword">var</span> stream = File.Create (fileName))
+            part.Content.DecodeTo (stream);
+    }
+}</pre></div></div></div></div><div class="collapsibleAreaRegion" id="DecodingContent"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDGAB')" onkeypress="SectionExpandCollapse_CheckKey('IDGAB', event)" tabindex="0"><img id="IDGABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Getting the Decoded Content of a MimePart</span></div><div id="IDGABSection" class="collapsibleSection"><p>
+          At some point, you're going to want to extract the decoded content of a
+          <a href="T_MimeKit_MimePart.htm">MimePart</a> (such as an image)
+          and save it to disk or feed it to a UI control to display it.
+        </p><p>
+          Once you've found the <a href="T_MimeKit_MimePart.htm">MimePart</a>
+          object that you'd like to extract the content of, here's how you can save the
+          decoded content to a file:
+        </p><div id="IDCBGAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDCBGAB_tab1" class="codeSnippetContainerTabSingle">C#</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDCBGAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDCBGAB');return false;" title="Copy">Copy</a></div></div><div id="IDCBGAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-comment">// This will get the name of the file as specified by the sending mail client.</span>
+<span class="highlight-comment">// Note: this value *may* be null, so you'll want to handle that case in your code.</span>
+<span class="highlight-keyword">var</span> fileName = part.FileName;
+
+<span class="highlight-keyword">using</span> (<span class="highlight-keyword">var</span> stream = File.Create (fileName)) {
+    part.Content.DecodeTo (stream);
+}</pre></div></div></div><p>
+          You can also get access to the original raw content by "opening" the
+          <a href="P_MimeKit_MimePart_Content.htm">Content</a>.
+          This might be useful if you want to pass the content off to a UI control that
+          can do its own loading from a stream.
+        </p><div id="IDEBGAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDEBGAB_tab1" class="codeSnippetContainerTabSingle">C#</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDEBGAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDEBGAB');return false;" title="Copy">Copy</a></div></div><div id="IDEBGAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">using</span> (<span class="highlight-keyword">var</span> stream = part.Content.Open ()) {
+    <span class="highlight-comment">// At this point, you can now read from the stream as if it were the original,</span>
+    <span class="highlight-comment">// raw content. Assuming you have an image UI control that could load from a</span>
+    <span class="highlight-comment">// stream, you could do something like this:</span>
+    imageControl.Load (stream);
+}</pre></div></div></div><p>
+          There are a number of useful filters that can be applied to a
+          <a href="T_MimeKit_IO_FilteredStream.htm">FilteredStream</a>, so if you
+          find this type of interface appealing, I would suggest taking a look at the available
+          filters in the <a href="N_MimeKit_IO_Filters.htm">MimeKit.IO.Filters</a>
+          namespace or even write your own! The possibilities are limited only by your
+          imagination.
+        </p></div><div class="collapsibleAreaRegion"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('seeAlso')" onkeypress="SectionExpandCollapse_CheckKey('seeAlso', event)" tabindex="0"><img id="seeAlsoToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />See Also</span></div><div id="seeAlsoSection" class="collapsibleSection"><h4>Other Resources</h4><div><a href="Parsing-Messages.htm">Parsing messages</a></div></div></div></div><div id="PageFooter" class="pageFooter"><!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-63841238-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-63841238-1');
+</script><p><a href="https://github.com/jstedfast" target="_blank" rel="noopener noreferrer">Copyright © 2013-2026 Jeffrey Stedfast</a></p><div class="feedbackLink">Send comments on this topic to
+        <a id="HT_MailLink" href="mailto:jestedfa%40microsoft.com?Subject=MailKit%20Documentation">Jeffrey Stedfast</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Your feedback is used to improve the documentation and the product. Your e-mail address will not be used for any other purpose and is disposed of after the issue you report is resolved. While working to resolve the issue that you report, you may be contacted via e-mail to get further details or clarification on the feedback you sent. After the issue you report has been addressed, you may receive an e-mail to let you know that your feedback has been addressed.");
+        </script></div></body></html>

@@ -1,0 +1,6 @@
+<Project>
+  <ItemGroup Condition="'$(MSBuildProjectName)' == 'languagecodes'">
+    <Compile Include="Api/**/*.csx" />
+    <Compile Include="Internal/**/*.csx" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2680 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="5322" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records">Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (8)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc5322" rel="noopener" target="_blank">RFC 5322</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc5322.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> IETF - NON WORKING GROUP</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC6854</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1905/">1905</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Wolf Lammen</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2009-10-09</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-06-11</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   obs-unstruct    =   *((*LF *CR *(obs-utext *LF *CR)) / FWS)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   obs-unstruct    =   *( (*CR 1*(obs-utext / FWS)) / 1*LF ) *CR</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>It looks to me, as if the rule for obs-unstruct matches any US_ASCII character sequence, and is, hence, either overly complicated, or simply wrong.  For example: CR LF &#x27;A&#x27; is matched by the original rule (loop matches CR first, then LF &#x27;A&#x27;).  If I understand the accompaying text right, the intention was to allow for reversed sequences LF CR, as well as bare CR and LF sequences, but strictly forbid any occurrence of CR LF (in that order).  This would be expressed by my rule, that basically states that any sequence of CR either is at the end, or is followed by a non-LF, or an FWS
+
+[Alexey: removed unchanged ABNF rules, corrected an obvious error in the description of the change.]</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1908/">1908</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Wolf Lammen</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2009-10-11</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Alexey Melnikov</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2010-03-24</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   In the obsolete syntax, any amount of folding white space MAY be
+   inserted where the obs-FWS rule is allowed.  This creates the
+   possibility of having two consecutive &quot;folds&quot; in a line, and
+   therefore the possibility that a line which makes up a folded header
+   field could be composed entirely of white space.
+
+   obs-FWS         =   1*WSP *(CRLF 1*WSP)
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   In the obsolete syntax, any amount of folding white space MAY be
+   inserted where the obs-FWS rule is allowed.  This creates the
+   possibility of having two consecutive &quot;folds&quot; in a line, and
+   therefore the possibility that a line which makes up a folded header
+   field could be composed entirely of white space.
+
+   obs-FWS         =   1*([CRLF] WSP)
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>If I understand the relevant portions of RFC 822 right (notably section 3.1.1
+[&quot;The general rule is that wherever there may be linear-white-space...
+a CRLF followed by ... LWSP-char(s) may instead be inserted&quot;], along with
+section 3.1.4, section 3.3), it is permitted to extend a phrase
+  atom SPACE atom
+by inserting linear-white-space (CRLF SPACE CRLF SPACE) instead, yielding:
+  atom CRLF SPACE CRLF SPACE atom
+However, this is not recognized by the rules of RFC 5322, because the new
+syntax forbids consecutive foldings, whereas obs-FWS requires a leading
+white-space character at the beginning.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3979/">3979</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Peter Occil</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-04-30</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.7; 4.5.7 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>received        =   &quot;Received:&quot; *received-token &quot;;&quot; date-time CRLF
+
+obs-received    =   &quot;Received&quot; *WSP &quot;:&quot; *received-token CRLF</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>received        =   &quot;Received:&quot; [1*received-token / CFWS]
+                      &quot;;&quot; date-time CRLF
+
+obs-received    =   &quot;Received&quot; *WSP &quot;:&quot; [1*received-token / CFWS] CRLF</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>&quot;The &#x27;Received:&#x27; field contains a (possibly empty) list of tokens followed by a semicolon and a date-time specification.&quot; As it was originally written, though, whitespace and comments are disallowed right after the colon if the list of tokens is empty: for example, the header field &quot;Received: ; Wed, 30 Apr 2014 00:00:00 -0000\r\n&quot; (with a space after the first colon) would be invalid according to the current spec; only &quot;Received:; Wed, 30 Apr 2014 00:00:00 -0000\r\n&quot; (without a space) would be.
+
+Verifier note: The erratum is clearly correct. There are other possible ABNF solutions, but the one above is sufficient to fix the problem.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6639/">6639</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Brennan Vincent</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2021-07-12</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-05-15</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   zone            =   (FWS ( &quot;+&quot; / &quot;-&quot; ) 4DIGIT) / obs-zone</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   zone            =   (FWS ( &quot;+&quot; / &quot;-&quot; ) 4DIGIT) / [FWS] obs-zone</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The current syntax does not allow space before an obs-zone. Thus, it rejects header items like:
+
+Date: Mon, 12 Jul 2021 18:32:01 GMT
+
+which are still being produced today by, for example, mail(1) on FreeBSD.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1766/">1766</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Nick Levinson</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2009-04-16</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Alexey Melnikov</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2010-03-24</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.4.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>If the
+string can be represented as a dot-atom (that is, it contains no
+characters other than atext characters or &quot;.&quot; surrounded by atext
+characters), then the dot-atom form SHOULD be used and the quoted-
+string form SHOULD NOT be used.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>If the
+string can be represented as a dot-atom (that is, it contains no 
+characters other than atext characters or one or more of &quot;.&quot; 
+surrounded by atext characters), then the dot-atom form SHOULD 
+be used and the quoted-string form SHOULD NOT be used.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Based on sec. 3.2.3 (&quot;dot-atom = [CFWS] dot-atom-text [CFWS]&quot; (brackets so in original) &amp; &quot;dot-atom-text = 1*atext *(&#x27;.&#x27; 1*atext)&quot;) and on appx. A.1.2 (the example &quot;john.q.public@example.com&quot;).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2515/">2515</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Michael Rushton</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-09-10</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-05-16</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section Appendix A.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>From: Pete(A nice \) chap) &lt;pete(his account)@silly.test(his host)&gt;</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>From: Pete(A nice \) chap) &lt;pete@silly.test(his host)&gt;</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Section 3.4.1: &quot;Comments and folding white space SHOULD NOT be used around the &quot;@&quot; in the addr-spec.&quot;</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2579/">2579</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Dominic Sayers</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-10-18</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-05-16</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section Appendix A.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   To:A Group(Some people)
+        :Chris Jones &lt;c@(Chris&#x27;s host.)public.example&gt;,
+            joe@example.org,
+     John &lt;jdoe@one.test&gt; (my dear friend); (the end of the group)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   To:A Group(Some people)
+        :Chris Jones &lt;c@public.example(Chris&#x27;s host.)&gt;,
+            joe@example.org,
+     John &lt;jdoe@one.test&gt; (my dear friend); (the end of the group)</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Section 3.4.1: &quot;Comments and folding white space SHOULD NOT be used around the &quot;@&quot; in the addr-spec.&quot;</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6920/">6920</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>John Klensin</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-04-05</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Orie Steele</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-04-01</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 2.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>and interpreted as US-ASCII [ANSI.X3-4.1986] characters.  For brevity, this document sometimes refers to this range of characters as simply &quot;US-ASCII characters&quot;.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>and interpreted as ASCII [ANSI.X3-4.1986] characters.  For brevity, this document sometimes refers to this range of characters as simply &quot;ASCII characters&quot;.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The choice of &quot;US-ASCII&quot; as a charset name reflected circumstances at the time, but it was not then and has never been the name of a coded character set, much less the one specified in the various versions of what is now ANSI INCITS 4-1986[R2017].  The common name of the latter, both specified in the Standard and in common practice, is &quot;ASCII&quot; without any further qualification.   &quot;For brevity&quot;, &quot;ASCII&quot; is not only more accurate, but shorter.   While the correction is being made, it would be wise to change the citation anchor to &quot;[ASCII]&quot; or, if necessary for some reason, &quot;[ASCII1986]&quot;.  The odd punctuation used in &quot;[ANSI.X3-4.1986]&quot; to refer to ANSI X3.4-1986 is just unnecessarily confusing.
+
+(this erratum is being reported more or less at the request of the editor of RFC 5322 and its successor)</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Held for Document Update (10)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc5322" rel="noopener" target="_blank">RFC 5322</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc5322.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> IETF - NON WORKING GROUP</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC6854</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid1906/">1906</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Wolf Lammen</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2009-10-10</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2010-04-02</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   obs-body        =   *((*LF *CR *((%d0 / text) *LF *CR)) / CRLF)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   obs-body        =   *(%d0-127)</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The regular expression for obs-body is overly complex and can be simplified as suggested. Alternatively, one could use
+*(d0 /text / LF / CR)
+should the difference to &#x27;text&#x27; be emphazised.
+
+[Alexey: I&#x27;ve edited this to only show 1 issue per erratum.]</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2950/">2950</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Antonio Regidor García</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2011-08-30</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-11-13</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   fields          =   *(trace
+                         *optional-field /
+                         *(resent-date /
+                          resent-from /
+                          resent-sender /
+                          resent-to /
+                          resent-cc /
+                          resent-bcc /
+                          resent-msg-id))
+                       *(orig-date /
+                       from /
+                       sender /
+                       reply-to /
+                       to /
+                       cc /
+                       bcc /
+                       message-id /
+                       in-reply-to /
+                       references /
+                       subject /
+                       comments /
+                       keywords /
+                       optional-field)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   fields          =   *(trace
+                         *optional-field /
+                         1*(resent-date /
+                           resent-from /
+                           resent-sender /
+                           resent-to /
+                           resent-cc /
+                           resent-bcc /
+                           resent-msg-id))
+                       *(orig-date /
+                       from /
+                       sender /
+                       reply-to /
+                       to /
+                       cc /
+                       bcc /
+                       message-id /
+                       in-reply-to /
+                       references /
+                       subject /
+                       comments /
+                       keywords /
+                       optional-field)</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The original version causes an infinite loop (matching an infinite list of empty strings).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3135/">3135</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Ashley Willis</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-02-25</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-11-13</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.2.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   quoted-string   =   [CFWS]
+                       DQUOTE *([FWS] qcontent) [FWS] DQUOTE
+                       [CFWS]
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   quoted-string   =   [CFWS]
+                       DQUOTE ((1*([FWS] qcontent) [FWS]) / FWS) DQUOTE
+                       [CFWS]</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The text following this definition states that a &quot;quoted-string is identical to atom, semantically.&quot; &quot;Semantically, neither the optional CFWS outside of the quote characters nor the quote characters themselves are part of the quoted-string; the quoted-string is what is contained between the two quote characters.&quot;
+
+The published definition allows, for example, an angle-addr of &lt;&quot;&quot;@ietf.org&gt; which is equivalent to &lt;@ietf.org&gt;, hence invalid. The corrected definition ensures that at a minimum there is one FWS or qcontent between each DQUOTE.
+
+Currently allowed yet invalid: &lt;&quot;&quot;@ietf.org&gt;, &lt;foo.&quot;&quot;@ietf.org&gt;, &lt;&quot;&quot;.bar@ietf.org&gt;, and &lt;foo.&quot;&quot;.bar@ietf.org&gt;.
+
+As a quoted-string must be bound by the ends of the local-part or by a dot, there is no change in regard to the currently invalid addresses such as &lt;foo&quot;&quot;@ietf.org&gt;, &lt;&quot;&quot;bar@ietf.org&gt;, and &lt;foo&quot;&quot;bar@ietf.org&gt;.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4692/">4692</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Oleg Andriyanov</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2016-05-13</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.2.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   qtext           =   %d33 /             ; Printable US-ASCII
+                       %d35-91 /          ;  characters not including
+                       %d93-126 /         ;  &quot;\&quot; or the quote character
+                       obs-qtext</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   qtext           =   %d32 /             ; Printable US-ASCII
+                       %d33 /             ;  characters not including
+                       %d35-91 /          ;  &quot;\&quot; or the quote character
+                       %d93-126 /
+                       obs-qtext</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>According to the Open Group&#x27;s definition of the &quot;print&quot; class of characters in a locale [1], the SPACE character (%d32) is printable as well. So either it should be included in the &quot;qtext&quot; definition or the comment should state explicitly that it is excluded from &quot;qtext&quot; along with backslash and double quote.
+
+[1]: pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html
+
+----- Verifier notes -----
+There are many places in the document that refer to &quot;printable US-ASCII characters&quot;, and it&#x27;s clear from the context of them that SPACE was not included there.  This issue does need to be looked at when we revise this document to advance it to Internet Standard.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5867/">5867</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Pete Resnick</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2019-10-01</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-11-13</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.5.7 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   obs-received    =   &quot;Received&quot; *WSP &quot;:&quot; *received-token CRLF
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   obs-received    =   &quot;Received&quot; *WSP &quot;:&quot;
+                       [1*received-token / CFWS] [ &quot;;&quot; date-time CRLF ]
+                    </code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Erratum 3979 already describes that CFWS should be allowed in an otherwise empty list of received-tokens. This adds an optional date-time after that.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5905/">5905</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Edward Welbourne</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2019-11-13</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-11-13</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   The time-of-day specifies the number of hours, minutes, and
+   optionally seconds since midnight of the date indicated.
+
+   The date and time-of-day SHOULD express local time.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   The time-of-day specifies the number of hours, minutes, and
+   optionally seconds since midnight of the date indicated or, when
+   a time-zone transition has intervened in the interval, since the
+   nominal midnight of the zone now in effect.
+
+   The date and time-of-day SHOULD express local time.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The problem with the original text is its reading on the day of a time-zone transition.
+
+For example, if the hour from 02:00 to 03:00 was repeated (a fall-back, as at the end of DST), then what local time refers to as 04:00 is 5 hours after midnight &quot;of the date indicated&quot; and what local time refers to as 23:59 is almost 25 hours after midnight.  Likewise, if an hour early in the day has been skipped (a spring-forward, as at the start of DST), the time since midnight is one hour short of the local time, as normally understood; for example, 23:00 is only 22 hours after midnight.
+
+There are zones in which transitions happen at midnight, for which 01:00 is midnight on a relevant day: at the other end of the year, there may then be a day that repeats 00:00, so may be argued to have two midnights (with a rather literal &quot;midnight hour&quot; in between).
+
+I cannot think of a good replacement text, sad to say, but I have tried my (painfully verbose) best.  I assume everyone has always just used the conventional meaning of local time (as per the SHOULD in the paragraph I haven&#x27;t changed), without worrying about the inaccurate &quot;since midnight&quot; phrasing.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5918/">5918</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Marcus Bointon</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2019-11-26</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-05-15</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 2.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Header fields are lines beginning with a field name, followed by a
+   colon (&quot;:&quot;), followed by a field body, and terminated by CRLF.  A
+   field name MUST be composed of printable US-ASCII characters (i.e.,
+   characters that have values between 33 and 126, inclusive), except
+   colon.</code></pre>
+                                                
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>I&#x27;m reporting an omission rather than a correction. The description of field names in S2.2 does not describe any length limit, but it implicitly prohibits folding by not permitting WSP chars in the name. 3.6.8 defines an ABNF for field-name, but does not specify a length limit either. 
+
+As far as I can see this means that field names should be limited to 77 characters – the field name and a trailing : – after which the field body can start after FWS on the next line.
+
+I suspect this will be open to some debate, so I&#x27;m not sure what to suggest as a correction beyond that. Nor do I know whether common clients &amp; servers impose their own arbitrary limits on field names.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6921/">6921</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>John Klensin</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2022-04-05</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-05-16</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 2.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>composed of characters with values in the range of 1 through 127 and interpreted as US-ASCII [ANSI.X3-4.1986] characters.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>composed of ASCII characters [RFC20] with values in the range from 0/1 to 7/15.
+
+   --OR--
+
+composed of octets with decimal values in the range from 1 through 127 and interpreted as US-ASCII [ANSI.X3-4.1986] characters.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>See previous erratum about &quot;US-ASCII&quot; versus &quot;ASCII&quot; or &quot;RFC20&quot; and apply as needed to the suggested text.  
+
+While there are several ways to fix the problem being reported here, the &quot;range of 1 through 127&quot; has no meaning without some qualification as to what the numbers mean.  One could infer from the original form that the range is interpreted according to something in the standard, but that standard, unlike, e.g., Unicode, never uses a linear sequence of numbers to refer to code points, only the Column/Row notation shown above (plus, of course, the actual seven-bit binary coding).</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2726/">2726</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Tony Finch</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2011-02-21</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   The zone specifies the offset from Coordinated Universal Time (UTC,
+   formerly referred to as &quot;Greenwich Mean Time&quot;) that the date and
+   time-of-day represent.  The &quot;+&quot; or &quot;-&quot; indicates whether the time-of-
+   day is ahead of (i.e., east of) or behind (i.e., west of) Universal
+   Time.  The first two digits indicate the number of hours difference
+   from Universal Time, and the last two digits indicate the number of
+   additional minutes difference from Universal Time.  (Hence, +hhmm
+   means +(hh * 60 + mm) minutes, and -hhmm means -(hh * 60 + mm)
+   minutes).  The form &quot;+0000&quot; SHOULD be used to indicate a time zone at
+   Universal Time.  Though &quot;-0000&quot; also indicates Universal Time, it is
+   used to indicate that the time was generated on a system that may be
+   in a local time zone other than Universal Time and that the date-time
+   contains no information about the local time zone.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   The zone specifies the offset from Coordinated Universal Time (UTC) 
+   that the date and time-of-day represent.
+   The &quot;+&quot; or &quot;-&quot; indicates whether the time-of-
+   day is ahead of (i.e., east of) or behind (i.e., west of) UTC.
+   The first two digits indicate the number of hours difference
+   from UTC, and the last two digits indicate the number of
+   additional minutes difference from UTC.  (Hence, +hhmm
+   means +(hh * 60 + mm) minutes, and -hhmm means -(hh * 60 + mm)
+   minutes).  The form &quot;+0000&quot; SHOULD be used to indicate a time zone at
+   UTC.  Though &quot;-0000&quot; also indicates UTC, it is
+   used to indicate that the time was generated on a system that may be
+   in a local time zone other than UTC and that the date-time
+   contains no information about the local time zone.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>It is not correct to say that UTC was formerly referred to as GMT. I think this was an editorial mistake: RFC 822 did not use the term UTC and said &quot;Universal  Time (formerly called Greenwich Mean Time)&quot; which is reasonably correct for UT without a suffix.
+
+For the purposes of RFC 5322 and for consistency with RFC 3339 and ISO 8601 I think it is best to refer to UTC throughout - though see the next erratum for notes on the obsolete syntax.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3048/">3048</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Pan GaoYong</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2011-12-08</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-12-29</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.6.  Rese says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   When resent fields are used, the &quot;Resent-From:&quot; and &quot;Resent-Date:&quot;
+   fields MUST be sent.  The &quot;Resent-Message-ID:&quot; field SHOULD be sent.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   When resent fields are used, the &quot;Resent-From:&quot; and &quot;Resent-Date:&quot;
+   fields MUST be set.  The &quot;Resent-Message-ID:&quot; field SHOULD be set.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>[Verifier note: The original report only noted the second use of the word &quot;sent&quot;. I have updated to include both. I have marked as &quot;Hold&quot; because (a) I believe the meaning is clear in the current and (b) it is not obvious that &quot;set&quot; is the correct word here; perhaps &quot;used&quot; is better. Left for an editing pass when this moves to Standard.]</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (13)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc5322" rel="noopener" target="_blank">RFC 5322</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc5322.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body bg-warning text-light">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> IETF - NON WORKING GROUP</p>
+                                        
+                                        
+                                            <p class="mb-0"><strong>Updated by:</strong> RFC6854</p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2104/">2104</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Wolf Lammen</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-04-02</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-06-11</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>obs-unstruct    =   *((*LF *CR *(obs-utext *LF *CR)) / FWS)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>obs-unstruct    =   *(*LF *CR (obs-utext / FWS)) *LF *CR
+                    ;The CR of a following CRLF MUST NOT be consumed.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>[I was notified, that errata report 1766 and 1908 has been verified, but apparently, report 1905 was left undecided.  I am a bit concerned, because this report points to a true defect of RFC 5322, so, maybe, a clearer reasoning helps.  This report is meant to replace my former posting 1905.]
+
+The &lt;obs-unstruct&gt; rule covers field bodies of unstructured fields (as declared in section 2.2.1), that conform to obsoleted RFC 2822 or RFC 822.  It is only to be used for downward compatibility when reading messages.  It corresponds to &lt;text&gt; in RFC 822 and &lt;obs-utext&gt; in RFC 2822.  In a conforming message, an unstructured field body is always followed by a field delimiting non-folding CRLF.
+
+&lt;obs-unstruct&gt; is equivalent to *(d0-d127), so the CRLF delimiting the field is made part of the field body, as is the rest of the header section.
+
+So my proposal refines the rule: Use any, possibly empty, sequence of ASCII characters, as long as it does not contain a CRLF outside of a folding white space.
+
+There is a nuisance left: when applied possessively, the CR of the adjacent field delimiter CRLF is consumed as well.  This cannot be overcome, no matter how you rewrite the rule, because the ABNF in RFC 5324 is not rich enough to express something like &quot;consume all but one CR&quot;.  A higher level construct like &quot;obs-unstruct CRLF&quot; must enforce a back-tracking step on the part of &lt;obs-unstruct&gt; in order to match.  That is why I added the comment.
+ --VERIFIER NOTES-- 
+Duplicate of erratum 1905, which I believe is correct as stated.   </code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2816/">2816</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Nemo</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2011-05-27</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-05-27</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.6.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   from            =   &quot;From:&quot; mailbox-list CRLF
+
+   sender          =   &quot;Sender:&quot; mailbox CRLF
+
+   reply-to        =   &quot;Reply-To:&quot; address-list CRLF</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   from            =   &quot;From:&quot; mailbox-list CRLF
+
+   sender          =   &quot;Sender:&quot; mailbox CRLF
+
+   reply-to        =   &quot;Reply-To:&quot; mailbox-list CRLF</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The text in section 3.6.2 (and everywhere else Reply-To is mentioned) makes it clear that Reply-To is envisioned as referring to one or more mailboxes.  But the following chain of productions:
+
+address-list -&gt; address -&gt; group -&gt; DQUOTE DQUOTE &quot;:&quot; &quot;;&quot;
+
+...means that the following Reply-To header would be permitted by the spec:
+
+  Reply-To: &quot;&quot; : ;
+
+This header has no mailbox in it at all.  So either the reply-to production rule is wrong (and should be a mailbox-list instead of an address-list), or the spec needs to explain what the semantics are for a Reply-To line with no mailboxes in it.
+
+Note also the description of &quot;group&quot; in section 3.4:
+
+  The group construct allows the sender to indicate a named group of recipients.
+
+Again, this does not envision using a group in a header like Reply-To.  But that is what the current reply-to construct permits.
+
+Summary:  The RFC either needs to forbid Reply-To with zero mailboxes, or it needs to explain what the semantics of such a Reply-To are.
+ --VERIFIER NOTES-- 
+Reply-To has allowed address lists (as against mailbox lists) as far back as RFC 733. This would be a change to long held consensus. Not appropriate for an erratum.   </code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3088/">3088</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Michael Redwine</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-01-11</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2012-02-20</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>date-time       =   [ day-of-week &quot;,&quot; ] date time [CFWS]</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>date-time       =   [ day-of-week &quot;,&quot; ] date time [comment]</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>If using the [CFWS] at the end of the original text, by the rules of CFWS, the next line could contain only FWS after the CRLF, which would violate the requirement found in 3.2.2, which reads: &quot;...where CFWS occurs in this specification, it MUST NOT be inserted in such a way that any line of a folded header field is made up entirely of WSP characters and nothing else.&quot;
+ --VERIFIER NOTES-- 
+CFWS allows there to be multiple comments, including comments that go on to the second line, which is perfectly OK.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3675/">3675</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>David Hoerl</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-06-29</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-07-08</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>3.2.3.  Atom Says:
+
+   dot-atom        =   [CFWS] dot-atom-text [CFWS]
+
+3.2.4.  Quoted Strings (but superseded by Errata 3135) Says:
+
+   quoted-string   =   [CFWS]
+                       DQUOTE ((1*([FWS] qcontent) [FWS]) / FWS) DQUOTE
+                       [CFWS]
+
+3.4.1.  Addr-Spec Specification Says:
+
+   addr-spec       =   local-part &quot;@&quot; domain
+
+   local-part      =   dot-atom / quoted-string / obs-local-part
+
+   domain          =   dot-atom / domain-literal / obs-domain
+
+   domain-literal  =   [CFWS] &quot;[&quot; *([FWS] dtext) [FWS] &quot;]&quot; [CFWS]
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>3.2.3.  Atom
+
+   dot-atom        =   [CFWS] dot-atom-text [CFWS]
+
+   dot-atom-lh     =   [CFWS] dot-atom-text [FWS]
+
+   dot-atom-rh     =   [FWS] dot-atom-text [CFWS]
+
+3.2.4.  Quoted Strings (but superseded by Errata 3135)
+
+   quoted-string   =   [CFWS]
+                       DQUOTE ((1*([FWS] qcontent) [FWS]) / FWS) DQUOTE
+                       [CFWS]
+
+   quoted-string-lh =  [CFWS]
+                       DQUOTE ((1*([FWS] qcontent) [FWS]) / FWS) DQUOTE
+                       [FWS]
+
+3.4.1.  Addr-Spec Specification
+
+   addr-spec       =   local-part &quot;@&quot; domain
+
+   local-part      =   dot-atom-lh / quoted-string-lh / obs-local-part
+
+   domain          =   dot-atom-rh / domain-literal / obs-domain
+
+   domain-literal  =   [FWS] &quot;[&quot; *([FWS] dtext) [FWS] &quot;]&quot; [CFWS]
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Section 3.4.1 states &quot;Comments and folding white space SHOULD NOT be used around the &quot;@&quot; in the addr-spec.&quot;, yet the ABNF specifically allows it without recourse to obsoleted terms. Given that the above statement is in fact correct, then the current ABNF should be modified as shown to reflect the above statement.
+ --VERIFIER NOTES-- 
+The DRUMS Working Group made a conscious decision at the time of writing 2822 that they preferred clarity and ease of understanding of the ABNF at the expense of shift-reduce conflicts and other things that had to be limited in the text descriptions of the syntax, and that assumption carried over into 5322. This is one of those cases. While more precise, the correction is not what was intended, and there are many other cases where the text limits the more free syntax.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5035/">5035</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Gene Hightower</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2017-06-09</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Alexey Melnikov</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2017-10-18</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   time            =   time-of-day zone
+
+   zone            =   (FWS ( &quot;+&quot; / &quot;-&quot; ) 4DIGIT) / obs-zone
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>time            =       time-of-day FWS zone
+
+zone            =       (( &quot;+&quot; / &quot;-&quot; ) 4DIGIT) / obs-zone
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The rfc5322 version of the syntax clearly forces the obs-zone to follow the time-of-day with no space.  The syntax from rfc2822 seems to be what is actually in use in the real world.  Why was this change made?  Should it just be changed back?
+ --VERIFIER NOTES-- 
+As per reply from Pete Resnick:
+
+I believe this erratum report should be rejected. While it is true that
+obs-zone does not begin with FWS, time-of-day ends with second, which
+can be an obs-second, and obs-second ends with an optional CFWS.
+Therefore, obs-zone is not forced to follow time-of-day with no space;
+it just makes the space optional. And this allows for the original 822
+syntax, which did not require space between the time-of-day and the
+zone. (Somewhat goofy to allow that, but it is parseable.)
+</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5712/">5712</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Victor Shrubowich</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2019-04-29</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2019-04-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.2.2 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   FWS             =   ([*WSP CRLF] 1*WSP) /  obs-FWS
+                                          ; Folding white space</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   FWS             =   ([*WSP] CRLF 1*WSP) /  obs-FWS
+                                          ; Folding white space</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Both section 2.2.3 and part of section 3.2.2 (&quot;Wherever folding appears in a message (that is, a header field body containing a CRLF followed by any WSP)&quot;) describe folding as adding CRLF followed by WSP, so CRLF is required for folding.  However, the CRLF in the FWS rule is shown inside the square brackets, which would make it optional.  It should not be inside the square brackets.
+
+Square brackets:  section 1.2.2 states &quot;This specification uses the Augmented Backus-Naur Form (ABNF) [RFC5234] notation for the formal definitions of the syntax of messages.&quot;  In RFC 5234, section 3.8 states &quot;Square brackets enclose an optional element sequence&quot;.
+ --VERIFIER NOTES-- 
+ 
+The FWS construct shows where folding is permitted (where CRLF *can* appear).  The mechanism for actual folding is described in the text, and won&#x27;t happen at each instance of FWS.  Having the CRLF be optional is intentional and necessary.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7382/">7382</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Paolo Schiro</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2023-03-11</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2024-05-15</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.2.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>ccontent        =   ctext / quoted-pair / comment
+
+comment         =   &quot;(&quot; *([FWS] ccontent) [FWS] &quot;)&quot;</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>ccontent        =   ctext / quoted-pair
+
+comment         =   &quot;(&quot; *([FWS] ccontent) [FWS] &quot;)&quot;</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Trying to getting all possible originator formats a reader can get stuck into a circular dependency between &quot;comment&quot; and &quot;ccontent&quot; definitions.
+Since &quot;ccontent&quot; is referenced in the &quot;comment&quot; definition only circular dependency should be cut there I suppose.
+ --VERIFIER NOTES-- 
+The ABNF for comment is correct in 5322. It is intended to be recursive, allowing for nested comments.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid8453/">8453</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Steffen Nurpmeso</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2025-06-06</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Andy Newton</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-11-07</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.2.2, 3.2.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>This is a bit related to erratas 3135 and 4692.
+
+The standard says in 3.2.2
+
+   Runs of FWS, comment, or CFWS that occur between lexical tokens in a
+   structured header field are semantically interpreted as a single
+   space character.
+
+This seems to have evaluated from RFC 822 which said
+
+     3.4.2.  WHITE SPACE
+
+        Note:  In structured field bodies, multiple linear space ASCII
+               characters  (namely  HTABs  and  SPACEs) are treated as
+               single spaces[.]
+
+RFC 822 is pretty clear that a (RFC 5322) quoted-string defined as
+
+   ((1*([FWS] qcontent) [FWS])
+
+and stating that is shall be treated &quot;as an atom&quot;, in a context of
+
+   Bat  &quot; \t from \t &quot;  hell &lt; b  &quot; \t l \t &quot;  a  @exam.ple&gt;
+
+effectively reduces to
+
+   Bat &quot; from &quot; hell &lt;&quot;b l a&quot;&gt;@exam.ple&gt;
+
+(Or is that already
+   Bat &quot; from &quot; hell &lt;b &quot; l &quot; a@examp.ple&gt;
+or even (that not me thinks)
+   Bat &quot;from&quot; hell &lt;b&quot;  l  &quot;a@exampl.ple&gt;
+i struggle.)
+
+However, with RFC 5322 words, and with the meaning of &quot;atom&quot;, it seems to me, the effective reduction would be
+
+   Bat &quot;  from  &quot; hell &lt;b &quot; \t l \t &quot; a@exam.ple&gt;
+or
+   Bat &quot;  from  &quot; hell &lt;b &quot;   l   &quot; a@exam.ple&gt;
+
+if HTAB reduces to SP (i think that yes, anyway).
+
+It is not clear, and in practice everybody does its thing the one or the other way, that much is plain!
+(This also applies to anything &quot;consecutive&quot; btw, does this stack up in a single-pass parser, or does it require a multi-pass parser?)</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>I have no idea.
+I would reintroduce the RFC 822 wording somehow, so that the result is
+
+   Bat &quot; from &quot; hell &lt;&quot;b l a&quot;@exam.ple&gt;</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>My own parser formerly reduced to
+
+   &quot;Bat from hell&quot; &lt;&quot;bla&quot;@exam.ple&gt;
+
+and i changed it to
+
+   &quot;Bat__from__hell&quot; &lt;&quot;b l a&quot;@exam.ple&gt;
+ 
+(__ means twice space, thanks to this web editor, if i saw this correctly :)
+because we requote the entire thing no matter what, resulting in two adjacent space characters.
+I am a bit sad, but looking around it is not bad.  (To make it a rhyme.)
+ --VERIFIER NOTES-- 
+This report was reviewed by both Pete Resnick and Dave Crocker, concluding that 5322 and  5322bis (at the moment in the RFC editor&#x27;s queue) addresses the matter of this report: whitespace in the local-part is in the so-called &quot;obsolete&quot; syntax in 5322 because it&#x27;s not clear what a parser is meant to do in the scenario presented in this report.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid8464/">8464</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Mason K</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2025-06-17</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Andy Newton</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-11-01</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>obs-angle-addr  =   [CFWS] &quot;&lt;&quot; obs-route addr-spec &quot;&gt;&quot; [CFWS]</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>obs-angle-addr  =   [CFWS] &quot;&lt;&quot; [obs-route] addr-spec &quot;&gt;&quot; [CFWS]</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>If I understand correctly, according to RFC 822 (the RFC 5322 &#x27;obsolete syntax&#x27;), an email address enclosed in angle brackets may or may not have a prepended route. If correct, the obs-route particle of the ABNF declaration should be labeled optional in brackets [].
+
+RFC 5322 states that 
+&quot;mailbox addresses were allowed to have a route portion before the addr-spec when enclosed in &quot;&lt;&quot; and &quot;&gt;&quot;&quot;, which suggests that they were also allowed to not have a route portion.
+
+RFC 822 Section 6.1 defines the route is optional in an angle bracketed address:
+route-addr  =  &quot;&lt;&quot; [route] addr-spec &quot;&gt;&quot;
+
+and RFC 2822 Section 4.4, where the section in question seems to be copied from, does indeed label the route portion as optional in the ABNF:
+obs-angle-addr  =       [CFWS] &quot;&lt;&quot; [obs-route] addr-spec &quot;&gt;&quot; [CFWS]
+ --VERIFIER NOTES-- 
+From Pete Resnick:
+This is a bit obscure, but the current text is correct. The only place
+that obs-angle-addr is used in the syntax is section 3.4:
+
+    angle-addr      =   [CFWS] &quot;&lt;&quot; addr-spec &quot;&gt;&quot; [CFWS] /
+                        obs-angle-addr
+
+If you do the substitution, you get:
+
+    angle-addr      =   [CFWS] &quot;&lt;&quot; addr-spec &quot;&gt;&quot; [CFWS] /
+                        [CFWS] &quot;&lt;&quot; obs-route addr-spec &quot;&gt;&quot; [CFWS]
+
+What that says is that angle-addr is either without a route, or with an
+obs-route. Making the obs-route in there as optional would be redundant.
+We could have made angle-addr this way:
+
+    angle-addr      =   [CFWS] &quot;&lt;&quot; [obs-route] addr-spec &quot;&gt;&quot; [CFWS]
+
+but that breaks the pattern of having an obs- replacement as a final
+alternative, and I think it would probably be more confusing.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2619/">2619</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Dominic Sayers</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-11-10</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-05-16</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.4.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>      It is therefore
+      incumbent upon implementations to conform to the syntax of
+      addresses for the context in which they are used.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>      Implementations MUST conform to the syntax of
+      addresses for the context in which they are used.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The phrase &quot;incumbent upon&quot; is not defined in RFC 2119. If another RFC defines a standard with the force of &quot;MUST&quot;, then it is not an option for an implementation to ignore that standard. Therefore, implementations MUST conform to their syntax.
+
+This rewording clarifies the recognition that should be given to the RFCs that inform the particular context of the implementation.
+ --VERIFIER NOTES-- 
+Conforming (or failing to conform) to the syntax of another specification does not affect the interoperability of *this* specification. Therefore, RFC 2119 language is not appropriate. However, even if it could be argued that it was, an erratum is not the appropriate place to make such a change.   </code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid2620/">2620</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Dominic Sayers</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2010-11-10</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2011-05-16</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.4.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   Comments and folding white space
+   SHOULD NOT be used around the &quot;@&quot; in the addr-spec.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   Comments and folding white space
+   SHOULD NOT be used around the &quot;@&quot; in the addr-spec. Comments and
+   folding white space at the beginning and end of an addr-spec are
+   semantically invisible.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Section 3.2.2 says
+
+   &quot;Runs of FWS, comment, or CFWS that occur between lexical tokens in a
+   structured header field are semantically interpreted as a single
+   space character.&quot;
+
+but a leading or trailing space on an addr-spec would prevent it being interpreted as a valid RFC 5321 Mailbox (see http://tools.ietf.org/html/rfc5321#section-4.1.2).
+
+This is important because this section of RFC 5322 also says
+
+      &quot;It is therefore
+      incumbent upon implementations to conform to the syntax of
+      addresses for the context in which they are used.&quot;
+
+Either the leading and trailing CFWS should be semantically &quot;invisible&quot; or additional logic is required for implementations to transform an RFC 5322 addr-spec into an RFC 5321 Mailbox.
+
+Note: It may be true that leading and trailing CFWS is not &quot;between lexical tokens&quot;. If so then it should be made clear what semantic interpretation to put on it in this case.
+ --VERIFIER NOTES-- 
+1. &quot;addr-spec&quot; does not appear in 5321. 5321 and 5322 have two different definitions for &quot;Mailbox&quot; and &quot;mailbox&quot; respectively, and that is a topic for an update of these documents, not for an erratum.
+
+2. This report does not want the CFWS to be *semantically* invisible; it wants it to be *syntactically* invisible when moving an addr-spec from a 5322 context to a 5321 context. This document does not discuss this use.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3134/">3134</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Ashley Willis</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-02-25</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2012-04-28</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section Appendix A.5 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   From: Pete(A nice \) chap) &lt;pete(his account)@silly.test(his host)&gt;
+   To:A Group(Some people)
+        :Chris Jones &lt;c@(Chris&#x27;s host.)public.example&gt;,
+            joe@example.org,
+     John &lt;jdoe@one.test&gt; (my dear friend); (the end of the group)
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   From: Pete(A nice \) chap) &lt;pete(his account)@silly.test(his host)&gt;
+   To:A Group(Some people)
+        :Chris Jones &lt;c@(Chris&#x27;s host.)public.example&gt;,
+            joe@example.org,
+     John &lt;jdoe@one.test&gt; (my dear friend); (the end of the group)
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Errata 2515 and 2579 change the above text, but there is no change needed to the original RFC. The quote from Section 3.4.1 says &quot;SHOULD NOT&quot;, not &quot;MUST NOT&quot; (&quot;Comments and folding white space SHOULD NOT be used around the &quot;@&quot; in the addr-spec.&quot;). The example in A.5 &quot;is aesthetically displeasing, but perfectly legal.&quot; It&#x27;s meant to highlight extreme cases.
+ --VERIFIER NOTES-- 
+Though unstated in the text, the intention of the WG was that the examples in A.1-5 were intended to be messages that conformed to all of the MUSTs and SHOULDs of section 3. Indeed, RFC 2119 defines SHOULD NOT  to mean effectively MUST NOT unless you have fully understood and weighed the reasons for choosing a different course. The description below the example says that it is &quot;aesthetically displeasing, but perfectly legal&quot;. I don&#x27;t think violating a SHOULD NOT makes it &quot;perfectly&quot; legal.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3400/">3400</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Christoph Anton Mitterer</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-11-06</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2012-12-10</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.5. says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   message         =   (fields / obs-fields)
+                       [CRLF body]
+
+   body            =   (*(*998text CRLF) *998text) / obs-body
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   message         =   (fields / obs-fields)
+                       [CRLF body]
+
+   body            =   (*(*998text CRLF) *998text) / obs-body
+
+It is RECOMMENDED that message bodies are terminated by CRLF, though 
+this is in principle not necessary (this does not apply to messages 
+consisting only of a header section, as header fields are always CRLF
+terminated).
+
+Note however, that when transporting messages via SMTP the last lines 
+of message bodies MUST be terminated by CRLF as specified int 
+RFC 5321, section 4.1.1.4.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Hi folks.
+
+AFAIU, the definition of body allows message bodies (not header sections) that end without CRLF.
+
+RFC5321 section 4.1.1.4. however states: &quot;The mail data are terminated by a line containing only a period, that is, the character sequence &quot;&lt;CRLF&gt;.&lt;CRLF&gt;&quot;, where the first &lt;CRLF&gt; is actually the terminator of the previous line&quot;.
+
+So SMTP forbids, what this RFC allows.
+I guess the SMTP RFC can&#x27;t be changed here and it makes no particular sense to restrict RFC5322 on the other hand.
+
+My suggestion was to add this clarification.
+
+Perhaps a similar one should be added to RFC5321, telling that Internet Messages themselves wouldn&#x27;t need the last CRLF.
+ --VERIFIER NOTES-- 
+It is clearly a change from WG consensus to add any normative 2119 text regarding a terminating CRLF. (See archive of the DRUMS WG, 17-18 March 1998 in a thread with a subject of &quot;Small Clarification to msg-fmt-04&quot;.) The CRLF is not required for the message syntax. There are things other than this that 5321 cannot transport, so  is also unlikely to be in scope for 5321 as an erratum either. Perhaps a discussion of this might be useful for RFC 3030, but again, it is unlikely to be an erratum.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

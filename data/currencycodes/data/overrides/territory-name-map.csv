@@ -1,0 +1,87 @@
+source_list,six_entity_name,canonical_name,territory_kind,cldr_match_code,replacement_codes,un_m49_codes,review_basis
+list-one,ARAB MONETARY FUND,Arab Monetary Fund,MonetaryInstitution,,,,six-list-one-no-iso3166;not-an-un-m49-area
+list-one,BAHAMAS (THE),Bahamas,Country,BS,,044,cldr-code;un-m49-name-and-code
+list-one,BRITISH INDIAN OCEAN TERRITORY (THE),British Indian Ocean Territory,DependentTerritory,IO,,086,cldr-code;un-m49-name-and-code
+list-one,CAYMAN ISLANDS (THE),Cayman Islands,DependentTerritory,KY,,136,cldr-code;un-m49-name-and-code
+list-one,CENTRAL AFRICAN REPUBLIC (THE),Central African Republic,Country,CF,,140,cldr-code;un-m49-name-and-code
+list-one,COCOS (KEELING) ISLANDS (THE),Cocos (Keeling) Islands,DependentTerritory,CC,,166,cldr-code;un-m49-name-and-code
+list-one,COMOROS (THE),Comoros,Country,KM,,174,cldr-code;un-m49-name-and-code
+list-one,CONGO (THE DEMOCRATIC REPUBLIC OF THE),Democratic Republic of the Congo,Country,CD,,180,cldr-code;un-m49-name-and-code
+list-one,CONGO (THE),Congo,Country,CG,,178,cldr-code;un-m49-name-and-code
+list-one,COOK ISLANDS (THE),Cook Islands,Country,CK,,184,cldr-code;un-m49-name-and-code
+list-one,CÔTE D'IVOIRE,Côte d’Ivoire,Country,CI,,384,cldr-code;un-m49-name-and-code
+list-one,DOMINICAN REPUBLIC (THE),Dominican Republic,Country,DO,,214,cldr-code;un-m49-name-and-code
+list-one,EUROPEAN UNION,European Union,SupranationalOrganization,EU,,,cldr-special-code;not-an-un-m49-area
+list-one,FALKLAND ISLANDS (THE) [MALVINAS],Falkland Islands (Malvinas),DependentTerritory,FK,,238,cldr-code;un-m49-name-and-code
+list-one,FAROE ISLANDS (THE),Faroe Islands,DependentTerritory,FO,,234,cldr-code;un-m49-name-and-code
+list-one,FRENCH SOUTHERN TERRITORIES (THE),French Southern Territories,DependentTerritory,TF,,260,cldr-code;un-m49-name-and-code
+list-one,GAMBIA (THE),Gambia,Country,GM,,270,cldr-code;un-m49-name-and-code
+list-one,HOLY SEE (THE),Holy See,Country,VA,,336,cldr-code;un-m49-name-and-code
+list-one,HONG KONG,"China, Hong Kong Special Administrative Region",DependentTerritory,HK,,344,cldr-code;un-m49-name-and-code
+list-one,INTERNATIONAL MONETARY FUND (IMF) ,International Monetary Fund (IMF),MonetaryInstitution,,,,six-list-one-no-iso3166;not-an-un-m49-area
+list-one,KOREA (THE DEMOCRATIC PEOPLE’S REPUBLIC OF),Democratic People's Republic of Korea,Country,KP,,408,cldr-code;un-m49-name-and-code
+list-one,KOREA (THE REPUBLIC OF),Republic of Korea,Country,KR,,410,cldr-code;un-m49-name-and-code
+list-one,LAO PEOPLE’S DEMOCRATIC REPUBLIC (THE),Lao People's Democratic Republic,Country,LA,,418,cldr-code;un-m49-name-and-code
+list-one,MACAO,"China, Macao Special Administrative Region",DependentTerritory,MO,,446,cldr-code;un-m49-name-and-code
+list-one,MARSHALL ISLANDS (THE),Marshall Islands,Country,MH,,584,cldr-code;un-m49-name-and-code
+list-one,MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP,African Development Bank Group Member Countries,MonetaryInstitution,,,,six-list-one-no-iso3166;not-an-un-m49-area
+list-one,MOLDOVA (THE REPUBLIC OF),Republic of Moldova,Country,MD,,498,cldr-code;un-m49-name-and-code
+list-one,NAURU,Naoero,Country,NR,,520,cldr-code;un-m49-name-and-code
+list-one,NETHERLANDS (THE),Netherlands (Kingdom of the),Country,NL,,528,cldr-code;un-m49-name-and-code
+list-one,NIGER (THE),Niger,Country,NE,,562,cldr-code;un-m49-name-and-code
+list-one,NORTHERN MARIANA ISLANDS (THE),Northern Mariana Islands,DependentTerritory,MP,,580,cldr-code;un-m49-name-and-code
+list-one,"PALESTINE, STATE OF",State of Palestine,Country,PS,,275,cldr-code;un-m49-name-and-code
+list-one,PHILIPPINES (THE),Philippines,Country,PH,,608,cldr-code;un-m49-name-and-code
+list-one,RUSSIAN FEDERATION (THE),Russian Federation,Country,RU,,643,cldr-code;un-m49-name-and-code
+list-one,"SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA",Saint Helena,DependentTerritory,SH,,654,cldr-code;un-m49-name-and-code
+list-one,"SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS ""SUCRE""","Sistema Unitario de Compensacion Regional de Pagos ""SUCRE""",SupranationalOrganization,,,,six-list-one-no-iso3166;not-an-un-m49-area
+list-one,SUDAN (THE),Sudan,Country,SD,,729,cldr-code;un-m49-name-and-code
+list-one,SVALBARD AND JAN MAYEN,Svalbard and Jan Mayen Islands,DependentTerritory,SJ,,744,cldr-code;un-m49-name-and-code
+list-one,TAIWAN (PROVINCE OF CHINA),Taiwan,Country,TW,,,cldr-code;un-m49-no-entry
+list-one,"TANZANIA, UNITED REPUBLIC OF",United Republic of Tanzania,Country,TZ,,834,cldr-code;un-m49-name-and-code
+list-one,TURKS AND CAICOS ISLANDS (THE),Turks and Caicos Islands,DependentTerritory,TC,,796,cldr-code;un-m49-name-and-code
+list-one,TÜRKİYE,Türkiye,Country,TR,,792,cldr-code;un-m49-name-and-code
+list-one,UNITED ARAB EMIRATES (THE),United Arab Emirates,Country,AE,,784,cldr-code;un-m49-name-and-code
+list-one,UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND (THE),United Kingdom of Great Britain and Northern Ireland,Country,GB,,826,cldr-code;un-m49-name-and-code
+list-one,UNITED STATES MINOR OUTLYING ISLANDS (THE),United States Minor Outlying Islands,DependentTerritory,UM,,581,cldr-code;un-m49-name-and-code
+list-one,UNITED STATES OF AMERICA (THE),United States of America,Country,US,,840,cldr-code;un-m49-name-and-code
+list-one,VIRGIN ISLANDS (BRITISH),British Virgin Islands,DependentTerritory,VG,,092,cldr-code;un-m49-name-and-code
+list-one,VIRGIN ISLANDS (U.S.),United States Virgin Islands,DependentTerritory,VI,,850,cldr-code;un-m49-name-and-code
+list-one,WALLIS AND FUTUNA,Wallis and Futuna Islands,DependentTerritory,WF,,876,cldr-code;un-m49-name-and-code
+list-one,ZZ01_Bond Markets Unit European_EURCO,Bond Markets Unit European Composite Unit (EURCO),OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ02_Bond Markets Unit European_EMU-6,Bond Markets Unit European Monetary Unit (E.M.U.-6),OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ03_Bond Markets Unit European_EUA-9,Bond Markets Unit European Unit of Account 9 (E.U.A.-9),OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ04_Bond Markets Unit European_EUA-17,Bond Markets Unit European Unit of Account 17 (E.U.A.-17),OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ06_Testing_Code,ISO 4217 Testing Code,OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ07_No_Currency,ISO 4217 No Currency,OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ08_Gold,Gold,OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ09_Palladium,Palladium,OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ10_Platinum,Platinum,OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-one,ZZ11_Silver,Silver,OtherSpecialEntity,,,,six-list-one-special-entity;not-an-un-m49-area
+list-three,BOLIVIA,Bolivia (Plurinational State of),Country,BO,,068,cldr-code;un-m49-name-and-code
+list-three,BURMA ,Burma,Country,BU,MM,104,cldr-deprecated-alias;un-m49-successor-code
+list-three,CZECHOSLOVAKIA,Czechoslovakia,Country,200,CZ SK,203 703,cldr-deprecated-numeric-alias;un-m49-successor-codes
+list-three,EUROPEAN MONETARY CO-OPERATION FUND (EMCF),European Monetary Co-operation Fund (EMCF),MonetaryInstitution,,,,six-list-three-no-iso3166;not-an-un-m49-area
+list-three,FRENCH  GUIANA,French Guiana,DependentTerritory,GF,,254,cldr-code;un-m49-name-and-code
+list-three,GERMAN DEMOCRATIC REPUBLIC,German Democratic Republic,Country,DD,DE,276,cldr-deprecated-alias;un-m49-successor-code
+list-three,HOLY SEE (VATICAN CITY STATE),Holy See,Country,VA,,336,cldr-code;un-m49-name-and-code
+list-three,LAO,Lao People's Democratic Republic,Country,LA,,418,cldr-code;un-m49-name-and-code
+list-three,"MOLDOVA, REPUBLIC OF",Republic of Moldova,Country,MD,,498,cldr-code;un-m49-name-and-code
+list-three,NETHERLANDS,Netherlands (Kingdom of the),Country,NL,,528,cldr-code;un-m49-name-and-code
+list-three,NETHERLANDS ANTILLES,Netherlands Antilles,DependentTerritory,AN,CW SX BQ,531 534 535,cldr-deprecated-alias;un-m49-successor-codes
+list-three,SAINT MARTIN,Saint Martin (French Part),DependentTerritory,MF,,663,cldr-code;un-m49-name-and-code
+list-three,SAINT-BARTHÉLEMY,Saint Barthélemy,DependentTerritory,BL,,652,cldr-code;un-m49-name-and-code
+list-three,SERBIA AND MONTENEGRO,Serbia and Montenegro,Country,CS,RS ME,688 499,cldr-deprecated-alias;un-m49-successor-codes
+list-three,SOUTHERN RHODESIA ,Southern Rhodesia,Country,RH,ZW,716,cldr-deprecated-alias;un-m49-successor-code
+list-three,SWAZILAND,Eswatini,Country,SZ,,748,cldr-code;un-m49-name-and-code
+list-three,TURKEY,Türkiye,Country,TR,,792,cldr-code;un-m49-name-and-code
+list-three,UNION OF SOVIET SOCIALIST REPUBLICS,Union of Soviet Socialist Republics,Country,SU,RU AM AZ BY EE GE KZ KG LV LT MD TJ TM UA UZ,643 051 031 112 233 268 398 417 428 440 498 762 795 804 860,cldr-deprecated-alias;un-m49-successor-codes
+list-three,UNITED STATES,United States of America,Country,US,,840,cldr-code;un-m49-name-and-code
+list-three,VENEZUELA,Venezuela (Bolivarian Republic of),Country,VE,,862,cldr-code;un-m49-name-and-code
+list-three,VIETNAM,Viet Nam,Country,VN,,704,cldr-code;un-m49-name-and-code
+list-three,"YEMEN, DEMOCRATIC","Yemen, Democratic",Country,YD,YE,887,cldr-deprecated-alias;un-m49-successor-code
+list-three,YUGOSLAVIA,Yugoslavia,Country,YU,RS ME,688 499,cldr-deprecated-alias;un-m49-successor-codes
+list-three,ZAIRE,Zaire,Country,ZR,CD,180,cldr-deprecated-alias;un-m49-successor-code
+list-three,ZZ01_Gold-Franc,Gold-Franc,OtherSpecialEntity,,,,six-list-three-special-entity;not-an-un-m49-area
+list-three,ZZ02_RINET Funds Code,RINET Funds Code,OtherSpecialEntity,,,,six-list-three-special-entity;not-an-un-m49-area
+list-three,ZZ05_UIC-Franc,UIC-Franc,OtherSpecialEntity,,,,six-list-three-special-entity;not-an-un-m49-area

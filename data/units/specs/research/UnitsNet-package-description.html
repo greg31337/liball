@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://www.nuget.org/packages/UnitsNet">
+
+    
+            <meta property="fb:app_id" content="235682883225736" />
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@nuget">
+        <meta property="og:title" content="UnitsNet 5.75.1" />
+        <meta property="og:type" content="nugetgallery:package" />
+        <meta property="og:url" content="https://nuget.org/packages/UnitsNet/" />
+        <meta property="og:description" content="Get all the common units of measurement and the conversions between them. It is light-weight and thoroughly tested." />
+        <meta property="og:determiner" content="a" />
+        <meta property="og:image" content="https://api.nuget.org/v3-flatcontainer/unitsnet/5.75.1/icon" />
+            <link rel="alternate" type="application/atom+xml" title="Subscribe to UnitsNet updates" href="/packages/UnitsNet/atom.xml" />
+
+    
+        <meta name="description" content="Get all the common units of measurement and the conversions between them. It is light-weight and thoroughly tested.">
+
+
+    <title>
+        NuGet Gallery
+        | UnitsNet 5.75.1
+    </title>
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link title="NuGet.org" type="application/opensearchdescription+xml" href="/opensearch.xml" rel="search">
+
+    <link href="/Content/gallery/css/site.min.css?v=1na5Q3HPVSkugniYsNxjmE134E1C4dpzFOT5rmDYA-E1" rel="stylesheet"/>
+
+    <link href="/Content/gallery/css/bootstrap.min.css" rel="stylesheet"/>
+
+
+    <script nonce="8K91WZ1+15v7l5BhDBixFY31olrN/Tans1b84PauWYA=">
+        // Check the browser preferred color scheme
+        const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const defaultTheme = prefersDarkMode ? "dark" : "light";
+        const preferredTheme = localStorage.getItem("theme")
+
+        // Check if the localStorage item is set, if not set it to the system theme
+        if (!preferredTheme || !(preferredTheme === "dark" || preferredTheme === "light")) {
+            localStorage.setItem("theme", "system");
+        }
+
+        if (preferredTheme === "light" || preferredTheme === "dark") {
+            document.documentElement.setAttribute('data-theme', preferredTheme);
+        }
+        else {
+            document.documentElement.setAttribute('data-theme', defaultTheme);
+        }
+    </script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+    
+    
+    
+                <script type="text/javascript">
+                var appInsights = window.appInsights || function (config) {
+                    function s(config) {
+                        t[config] = function () {
+                            var i = arguments;
+                            t.queue.push(function () { t[config].apply(t, i) })
+                        }
+                    }
+
+                    var t = { config: config }, r = document, f = window, e = "script", o = r.createElement(e), i, u;
+                    for (o.src = config.url || "//js.monitor.azure.com/scripts/a/ai.0.js", r.getElementsByTagName(e)[0].parentNode.appendChild(o), t.cookie = r.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) s("track" + i.pop());
+                    return config.disableExceptionTracking || (i = "onerror", s("_" + i), u = f[i], f[i] = function (config, r, f, e, o) {
+                        var s = u && u(config, r, f, e, o);
+                        return s !== !0 && t["_" + i](config, r, f, e, o), s
+                    }), t
+                }({
+                    instrumentationKey: 'df3a36b9-dfba-401c-82ab-35690083be3e',
+                    samplingPercentage: 100
+                });
+
+                window.appInsights = appInsights;
+                appInsights.trackPageView();
+            </script>
+
+</head>
+<body >
+    
+
+<div id="cookie-banner"></div>
+
+
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <a href="#" id="skipToContent" class="showOnFocus" title="Skip To Content">Skip To Content</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="home-link">
+                        <div class="navbar-logo nuget-logo-image" alt="NuGet home" role="img" aria-label="NuGet Home"     onerror="this.src='https://nuget.org/Content/gallery/img/logo-header-94x29.png'; this.onerror = null;"
+></div>
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                            <li class="active">
+        <a name="Packages" aria-current="page" href="/packages" title="" class="link-to-add-local-search-filters">
+            <span>Packages</span>
+        </a>
+    </li>
+
+                            <li class="">
+        <a name="Upload"  href="/packages/manage/upload" title="" class="">
+            <span>Upload</span>
+        </a>
+    </li>
+
+    <li class="">
+        <a name="Statistics"  href="/stats" title="" class="">
+            <span>Statistics</span>
+        </a>
+    </li>
+                                                    <li class="">
+        <a name="Documentation"  href="https://docs.microsoft.com/nuget/" title="" class="">
+            <span>Documentation</span>
+        </a>
+    </li>
+
+                            <li class="">
+        <a name="Downloads"  href="/downloads" title="" class="">
+            <span>Downloads</span>
+        </a>
+    </li>
+
+                            <li class="">
+        <a name="Blog"  href="https://blog.nuget.org/" title="" class="">
+            <span>Blog</span>
+        </a>
+    </li>
+
+                    </ul>
+                        <ul class="nav navbar-nav navbar-right">
+    <li class="">
+        <a name="Sign in"  href="/users/account/LogOn?returnUrl=%2Fpackages%2FUnitsNet" title="Sign in to an existing NuGet.org account" class="">
+            <span>Sign in</span>
+        </a>
+    </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div id="search-bar-header" class="container search-container">
+            <div class="row">
+                <form aria-label="Package search bar" class="col-sm-12" id="form-to-add-local-search-filters" action="/packages" method="get">
+                    <div class="input-group">
+    <input name="q" type="text" class="form-control input-brand" id="search" aria-label="Enter packages to search"
+           placeholder="Search for packages..." autocomplete="off"
+           value=""
+            />
+    <span class="input-group-btn">
+        <button class="btn btn-brand btn-search" type="submit"
+                title="Search for packages" aria-label="Search">
+            <span class="ms-Icon ms-Icon--Search" aria-hidden="true"></span>
+        </button>
+    </span>
+</div>
+                    <div id="autocomplete-results-container" class="text-left" tabindex="0"></div>
+
+<script type="text/html" id="autocomplete-results-row">
+    <!-- ko if: $data -->
+    <!-- ko if: $data.PackageRegistration -->
+    <div class="col-sm-4 autocomplete-row-id autocomplete-row-data">
+        <span data-bind="attr: { id: 'autocomplete-result-id-' + $data.PackageRegistration.Id, title: $data.PackageRegistration.Id }, text: $data.PackageRegistration.Id"></span>
+    </div>
+    <div class="col-sm-4 autocomplete-row-downloadcount text-right autocomplete-row-data">
+        <span data-bind="text: $data.DownloadCount + ' downloads'"></span>
+    </div>
+    <div class="col-sm-4 autocomplete-row-owners text-left autocomplete-row-data">
+        <span data-bind="text: $data.OwnersString + ' '"></span>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: $data.PackageRegistration -->
+    <div class="col-sm-12 autocomplete-row-id autocomplete-row-data">
+        <span data-bind="attr: { id: 'autocomplete-result-id-' + $data, title: $data  }, text: $data"></span>
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
+</script>
+
+<script type="text/html" id="autocomplete-results-template">
+    <!-- ko if: $data.data.length > 0 -->
+    <div data-bind="foreach: $data.data" id="autocomplete-results-list">
+        <a data-bind="attr: { id: 'autocomplete-result-row-' + $data, href: '/packages/' + $data, title: $data }" tabindex="-1">
+            <div data-bind="attr:{ id: 'autocomplete-container-' + $data }" class="autocomplete-results-row">
+            </div>
+        </a>
+    </div>
+    <!-- /ko -->
+</script>
+
+                </form>
+            </div>
+        </div>
+</nav>
+
+
+
+
+
+
+    <div id="skippedToContent">
+    ﻿
+
+
+
+
+
+
+
+
+
+
+<section role="main" class="container main-container page-package-details">
+    <div class="row">
+        <div class="col-sm-9 package-details-main">
+            <div class="package-header">
+                    <div class="package-title">
+                        <h1>
+                            <span class="pull-left">
+                                <img class="package-icon img-responsive" aria-hidden="true" alt=""
+                                     src="https://api.nuget.org/v3-flatcontainer/unitsnet/5.75.1/icon"     onerror="this.src='https://nuget.org/Content/gallery/img/default-package-icon-256x256.png'; this.onerror = null;"
+ />
+                            </span>
+                            <span class="title">
+                                UnitsNet
+                            </span>
+                            <span class="version-title">
+                                5.75.1
+                            </span>
+                        </h1>
+
+                            <span class="prefix-reserve-title">
+                                <i class="ms-Icon ms-Icon--SkypeCircleCheck reserved-indicator" data-content="The ID prefix of this package has been reserved for one of the owners of this package by NuGet.org." tabindex="0"
+                                   alt="The ID prefix of this package has been reserved for one of the owners of this package by NuGet.org."></i>
+                                <a href="https://docs.microsoft.com/nuget/nuget-org/id-prefix-reservation" class="prefix-reserve-label">
+                                    Prefix Reserved
+                                </a>
+                            </span>
+                    </div>
+
+
+
+
+
+
+<div class="framework framework-badges">
+    <a href=/packages/UnitsNet#supportedframeworks-body-tab
+       >
+        <span class=framework-badge-asset>
+            .NET 8.0
+        </span>
+        <span class="tooltip-block">
+            <span class="tooltip-wrapper popover right" role="tooltip">
+                <span class="arrow"></span>
+                <span class="popover-content">
+                    This package targets .NET 8.0. The package is compatible with this framework or higher.
+                </span>
+            </span>
+        </span>
+    </a>
+            <a href=/packages/UnitsNet#supportedframeworks-body-tab
+       >
+        <span class=framework-badge-asset>
+            .NET Standard 2.0
+        </span>
+        <span class="tooltip-block">
+            <span class="tooltip-wrapper popover right" role="tooltip">
+                <span class="arrow"></span>
+                <span class="popover-content">
+                    This package targets .NET Standard 2.0. The package is compatible with this framework or higher.
+                </span>
+            </span>
+        </span>
+    </a>
+    </div>
+
+
+
+
+    <div class="icon-text alert alert-brand-info" >
+        <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+        
+                                There is a newer prerelease version of this package available.
+                                <br /> See the version list below for details.
+                            
+
+    </div>
+
+
+
+
+
+                    <div class="install-tabs">
+                        <ul class="nav nav-tabs" role="tablist">
+
+    <li role="presentation" class="active">
+        <a href="#dotnet-cli"
+           id="dotnet-cli-tab" class="package-manager-tab"
+           aria-selected="true" tabindex="0"
+           aria-controls="dotnet-cli" role="tab" data-toggle="tab"
+           title="Switch to tab panel which contains package installation command for .NET CLI">
+            .NET CLI
+        </a>
+    </li>
+    <li role="presentation" class="">
+        <a href="#package-manager"
+           id="package-manager-tab" class="package-manager-tab"
+           aria-selected="false" tabindex="-1"
+           aria-controls="package-manager" role="tab" data-toggle="tab"
+           title="Switch to tab panel which contains package installation command for Package Manager Console">
+            PMC
+        </a>
+    </li>
+    <li role="presentation" class="">
+        <a href="#package-reference"
+           id="package-reference-tab" class="package-manager-tab"
+           aria-selected="false" tabindex="-1"
+           aria-controls="package-reference" role="tab" data-toggle="tab"
+           title="Switch to tab panel which contains package installation command for PackageReference">
+            PackageReference
+        </a>
+    </li>
+    <li role="presentation" class="">
+        <a href="#package-version"
+           id="package-version-tab" class="package-manager-tab"
+           aria-selected="false" tabindex="-1"
+           aria-controls="package-version" role="tab" data-toggle="tab"
+           title="Switch to tab panel which contains package installation command for Central Package Management">
+            CPM
+        </a>
+    </li>
+    <li role="presentation" class="">
+        <a href="#paket-cli"
+           id="paket-cli-tab" class="package-manager-tab"
+           aria-selected="false" tabindex="-1"
+           aria-controls="paket-cli" role="tab" data-toggle="tab"
+           title="Switch to tab panel which contains package installation command for Paket CLI">
+            Paket CLI
+        </a>
+    </li>
+    <li role="presentation" class="">
+        <a href="#script-interactive"
+           id="script-interactive-tab" class="package-manager-tab"
+           aria-selected="false" tabindex="-1"
+           aria-controls="script-interactive" role="tab" data-toggle="tab"
+           title="Switch to tab panel which contains package installation command for Script &amp; Interactive">
+            Script &amp; Interactive
+        </a>
+    </li>
+    <li role="presentation" class="">
+        <a href="#dotnet-run-file"
+           id="dotnet-run-file-tab" class="package-manager-tab"
+           aria-selected="false" tabindex="-1"
+           aria-controls="dotnet-run-file" role="tab" data-toggle="tab"
+           title="Switch to tab panel which contains package installation command for File-Based Apps">
+            File-Based Apps
+        </a>
+    </li>
+    <li role="presentation" class="">
+        <a href="#cake"
+           id="cake-tab" class="package-manager-tab"
+           aria-selected="false" tabindex="-1"
+           aria-controls="cake" role="tab" data-toggle="tab"
+           title="Switch to tab panel which contains package installation command for Cake">
+            Cake
+        </a>
+    </li>
+                        </ul>
+                        <div class="tab-content">
+
+    <div role="tabpanel" class="tab-pane active" id="dotnet-cli">
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="dotnet-cli-0001-text"><span class="install-command-row">dotnet add package UnitsNet --version 5.75.1</span>
+                    <div class="copy-button">
+<button id="dotnet-cli-0001-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the .NET CLI command" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            </div>
+    <div role="tabpanel" class="tab-pane " id="package-manager">
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="package-manager-0001-text"><span class="install-command-row">NuGet\Install-Package UnitsNet -Version 5.75.1</span>
+                    <div class="copy-button">
+<button id="package-manager-0001-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the PMC command" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="icon-text alert alert-brand-info" >
+        <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+        
+This command is intended to be used within the Package Manager Console in Visual Studio, as it uses the NuGet module's version of <a href='https://docs.microsoft.com/nuget/reference/ps-reference/ps-ref-install-package'>Install-Package</a>.
+                    
+    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane " id="package-reference">
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="package-reference-0001-text"><span class="install-command-row">&lt;PackageReference Include=&quot;UnitsNet&quot; Version=&quot;5.75.1&quot; /&gt;</span>
+                    <div class="copy-button">
+<button id="package-reference-0001-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the PackageReference XML node" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="icon-text alert alert-brand-info" >
+        <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+        
+For projects that support <a href="https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files">PackageReference</a>, copy this XML node into the project file to reference the package.
+                    
+    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane " id="package-version">
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="package-version-0001-text"><span class="install-command-row">&lt;PackageVersion Include=&quot;UnitsNet&quot; Version=&quot;5.75.1&quot; /&gt;</span>
+                    <div class="copy-button">
+<span class="package-manager-command-header">
+                            Directory.Packages.props
+                        </span>
+<button id="package-version-0001-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the PackageVersion XML node" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="package-version-0002-text"><span class="install-command-row">&lt;PackageReference Include=&quot;UnitsNet&quot; /&gt;</span>
+                    <div class="copy-button">
+<span class="package-manager-command-header">
+                            Project file
+                        </span>
+<button id="package-version-0002-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the PackageVersion XML node" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="icon-text alert alert-brand-info" >
+        <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+        
+For projects that support <a href="https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management">Central Package Management (CPM)</a>, copy this XML node into the solution Directory.Packages.props file to version the package.
+                    
+    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane " id="paket-cli">
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="paket-cli-0001-text"><span class="install-command-row">paket add UnitsNet --version 5.75.1</span>
+                    <div class="copy-button">
+<button id="paket-cli-0001-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the Paket CLI command" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="icon-text alert alert-brand-warning"   role="alert" aria-live="assertive"  >
+        <i class="ms-Icon ms-Icon--Warning" aria-hidden="true"></i>
+        
+<b display="none" aria-label="warning" role="alert"></b> The NuGet Team does not provide support for this client. Please contact its <a href="https://fsprojects.github.io/Paket/contact.html" aria-label="Contact the maintainers of the Paket CLI client">maintainers</a> for support.
+                    
+    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane " id="script-interactive">
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="script-interactive-0001-text"><span class="install-command-row">#r &quot;nuget: UnitsNet, 5.75.1&quot;</span>
+                    <div class="copy-button">
+<button id="script-interactive-0001-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the Script &amp; Interactive command" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="icon-text alert alert-brand-info" >
+        <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+        
+#r directive can be used in F# Interactive and Polyglot Notebooks. Copy this into the interactive tool or source code of the script to reference the package.
+                    
+    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane " id="dotnet-run-file">
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="dotnet-run-file-0001-text"><span class="install-command-row">#:package UnitsNet@5.75.1</span>
+                    <div class="copy-button">
+<button id="dotnet-run-file-0001-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the File-Based Apps command" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="icon-text alert alert-brand-info" >
+        <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+        
+#:package directive can be used in C# file-based apps starting in .NET 10 preview 4. Copy this into a .cs file before any lines of code to reference the package.
+                    
+    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane " id="cake">
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="cake-0001-text"><span class="install-command-row">#addin nuget:?package=UnitsNet&amp;version=5.75.1</span>
+                    <div class="copy-button">
+<span class="package-manager-command-header">
+                            Install as a Cake Addin
+                        </span>
+<button id="cake-0001-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the Cake command" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="install-script-row">
+                
+                <pre class="install-script" id="cake-0002-text"><span class="install-command-row">#tool nuget:?package=UnitsNet&amp;version=5.75.1</span>
+                    <div class="copy-button">
+<span class="package-manager-command-header">
+                            Install as a Cake Tool
+                        </span>
+<button id="cake-0002-button" class="btn btn-brand-icon" type="button"
+                                data-toggle="popover" data-placement="bottom" data-content="Copied."
+                                aria-label="Copy the Cake command" role="button">
+                            <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </pre>
+            </div>
+            <div class="icon-text alert alert-brand-warning"   role="alert" aria-live="assertive"  >
+        <i class="ms-Icon ms-Icon--Warning" aria-hidden="true"></i>
+        
+<b display="none" aria-label="warning" role="alert"></b> The NuGet Team does not provide support for this client. Please contact its <a href="https://cakebuild.net/support/nuget" aria-label="Contact the maintainers of the Cake client">maintainers</a> for support.
+                    
+    </div>
+    </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="body-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+
+                        <li role="presentation" class="active" id="show-readme-container">
+                            <a href="#readme-body-tab"
+                               role="tab"
+                               data-toggle="tab"
+                               data-target="#readme-tab"
+                               id="readme-body-tab"
+                               class="body-tab"
+                               aria-controls="readme-tab"
+                               aria-selected="true"
+                               tabindex="0">
+                                    <i class="ms-Icon ms-Icon--Dictionary" aria-hidden="true"></i>
+                                README
+                            </a>
+                        </li>
+                        <li role="presentation" id="show-supportedframeworks-container">
+                            <a href="#supportedframeworks-body-tab"
+                                role="tab"
+                                data-toggle="tab"
+                                data-target="#supportedframeworks-tab"
+                                id="supportedframeworks-body-tab"
+                                class="body-tab"
+                                aria-controls="supportedframeworks-tab"
+                                aria-selected="false"
+                                tabindex="-1">
+                                <i class="ms-Icon ms-Icon--Package" aria-hidden="true"></i>
+                                Frameworks
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#dependencies-body-tab"
+                               role="tab"
+                               data-toggle="tab"
+                               data-target="#dependencies-tab"
+                               id="dependencies-body-tab"
+                               class="body-tab"
+                               aria-controls="dependencies-tab"
+                               aria-selected="false"
+                               tabindex="-1">
+                                <i class="ms-Icon ms-Icon--Packages" aria-hidden="true"></i>
+                                Dependencies
+                            </a>
+                        </li>
+
+                        <li role="presentation">
+                            <a href="#usedby-body-tab"
+                               role="tab"
+                               data-toggle="tab"
+                               data-target="#usedby-tab"
+                               id="usedby-body-tab"
+                               class="body-tab"
+                               aria-controls="usedby-tab"
+                               aria-selected="false"
+                               tabindex="-1">
+                                <i class="ms-Icon ms-Icon--BranchFork2" aria-hidden="true"></i>
+                                Used By
+                            </a>
+                        </li>
+
+
+                    <li role="presentation">
+                        <a href="#versions-body-tab"
+                           role="tab"
+                           data-toggle="tab"
+                           data-target="#versions-tab"
+                           id="versions-body-tab"
+                           class="body-tab"
+                           aria-controls="versions-tab"
+                           aria-selected="false"
+                           tabindex="-1">
+                            <i class="ms-Icon ms-Icon--Stopwatch" aria-hidden="true"></i>
+                            Versions
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="tab-content body-tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="readme-tab"  aria-label="Readme tab content">
+                            <div class="readme-common">
+                                <div id="readme-container">
+
+
+                                    <p><a href="https://dev.azure.com/unitsnet/Units.NET/_build/latest?definitionId=1&amp;branchName=master" rel="noopener noreferrer nofollow"><img src="https://dev.azure.com/unitsnet/Units.NET/_apis/build/status/UnitsNet?branchName=master" class="img-fluid" alt="Build Status"></a>
+<a href="https://codecov.io/gh/angularsen/UnitsNet" rel="noopener noreferrer nofollow"><img src="https://codecov.io/gh/angularsen/UnitsNet/branch/master/graph/badge.svg" class="img-fluid" alt="codecov"></a>
+<a href="https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md" rel="noopener noreferrer nofollow"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg" class="img-fluid" alt="StandWithUkraine"></a></p>
+<h3 id="unitsnet">Units.NET</h3>
+<p>Add strongly typed quantities to your code and get merrily on with your life.</p>
+<p>No more magic constants found on Stack Overflow, no more second-guessing the unit of parameters and variables.</p>
+<p><a href="https://github.com/angularsen/UnitsNet/wiki/Upgrading-from-4.x-to-5.x" rel="noopener noreferrer nofollow">Upgrading from 4.x to 5.x</a>&lt;br&gt;
+<a href="https://github.com/angularsen/UnitsNet/wiki/Upgrading-from-5.x-to-6.x" rel="noopener noreferrer nofollow">Upgrading from 5.x to 6.x</a> (still in prerelease and may yet change)</p>
+<h4 id="overview">Overview</h4>
+<ul>
+<li><a href="#overview" rel="noopener noreferrer nofollow">Overview</a></li>
+<li><a href="#installing-via-nuget" rel="noopener noreferrer nofollow">Installing via NuGet</a></li>
+<li><a href="#static-typing" rel="noopener noreferrer nofollow">Static Typing</a></li>
+<li><a href="#operator-overloads" rel="noopener noreferrer nofollow">Operator Overloads</a></li>
+<li><a href="#culture-and-localization" rel="noopener noreferrer nofollow">Culture and Localization</a></li>
+<li><a href="#dynamically-parse-quantities-and-convert-to-units" rel="noopener noreferrer nofollow">Dynamically Parse Quantities and Convert to Units</a></li>
+<li><a href="#custom-units" rel="noopener noreferrer nofollow">Custom units</a></li>
+<li><a href="#example-unit-converter-app" rel="noopener noreferrer nofollow">Example: Unit converter app</a></li>
+<li><a href="#example-wpf-app-using-ivalueconverter-to-parse-input" rel="noopener noreferrer nofollow">Example: WPF app using IValueConverter to parse input</a></li>
+<li><a href="#precision-and-accuracy" rel="noopener noreferrer nofollow">Precision and Accuracy</a></li>
+<li><a href="#serialize-to-json-xml-and-more" rel="noopener noreferrer nofollow">Serialize to JSON, XML and more</a></li>
+<li><a href="#want-to-contribute" rel="noopener noreferrer nofollow">Want To Contribute?</a></li>
+<li><a href="#continuous-integration" rel="noopener noreferrer nofollow">Continuous Integration</a></li>
+<li><a href="#who-are-using-this" rel="noopener noreferrer nofollow">Who are Using This?</a></li>
+<li><a href="#top-usages-by-gitHub-repos" rel="noopener noreferrer nofollow">Top Usages by GitHub Repos</a></li>
+<li><a href="#unitsnet-on-other-platforms" rel="noopener noreferrer nofollow">Units.NET on other platforms</a></li>
+</ul>
+<h4 id="installing-via-nuget">Installing via NuGet</h4>
+<p>Add it via CLI</p>
+<pre><code>dotnet add package UnitsNet
+</code></pre>
+<p>or go to <a href="https://www.nuget.org/packages/UnitsNet" rel="noopener noreferrer nofollow">NuGet Gallery | UnitsNet</a> for detailed instructions.</p>
+<h5 id="build-targets">Build Targets</h5>
+<ul>
+<li>.NET Standard 2.0</li>
+<li><a href="https://www.nanoframework.net/" rel="noopener noreferrer nofollow">.NET nanoFramework</a></li>
+</ul>
+<h4 id="static-typing">Static Typing</h4>
+<pre><code class="language-C#">// Construct
+Length meter = Length.FromMeters(1);
+Length twoMeters = new Length(2, LengthUnit.Meter);
+
+// Convert
+double cm = meter.Centimeters;         // 100
+double yards = meter.Yards;            // 1.09361
+double feet = meter.Feet;              // 3.28084
+double inches = meter.Inches;          // 39.3701
+
+// Pass quantity types instead of values to avoid conversion mistakes and communicate intent
+string PrintPersonWeight(Mass weight)
+{
+    // Compile error! Newtons belong to Force, not Mass. A common source of confusion.
+    double weightNewtons = weight.Newtons;
+
+    // Convert to the unit of choice - when you need it
+    return $"You weigh {weight.Kilograms:F1} kg.";
+}
+</code></pre>
+<h4 id="operator-overloads">Operator Overloads</h4>
+<pre><code class="language-C#">// Arithmetic
+Length l1 = 2 * Length.FromMeters(1);
+Length l2 = Length.FromMeters(1) / 2;
+Length l3 = l1 + l2;
+
+// Construct between units
+Length distance = Speed.FromKilometersPerHour(80) * TimeSpan.FromMinutes(30);
+Acceleration a1 = Speed.FromKilometersPerHour(80) / TimeSpan.FromSeconds(2);
+Acceleration a2 = Force.FromNewtons(100) / Mass.FromKilograms(20);
+RotationalSpeed r = Angle.FromDegrees(90) / TimeSpan.FromSeconds(2);
+</code></pre>
+<h4 id="culture-and-localization">Culture and Localization</h4>
+<p>The culture for abbreviations defaults to Thread.CurrentCulture and falls back to US English if not defined. Thread.CurrentCulture affects number formatting unless a custom culture is specified. The relevant methods are:</p>
+<ul>
+<li>ToString()</li>
+<li>GetAbbreviation()</li>
+<li>Parse/TryParse()</li>
+<li>ParseUnit/TryParseUnit()</li>
+</ul>
+<pre><code class="language-C#">var usEnglish = new CultureInfo("en-US");
+var russian = new CultureInfo("ru-RU");
+var oneKg = Mass.FromKilograms(1);
+
+// ToString() uses CurrentCulture for abbreviation language number formatting. This is consistent with the behavior of the .NET Framework,
+// where DateTime.ToString() uses CurrentCulture for the whole string, likely because mixing an english date format with a russian month name might be confusing.
+CultureInfo.CurrentCulture = russian;
+string kgRu = oneKg.ToString(); // "1 кг"
+
+// ToString() with specific culture and custom string format pattern
+string mgUs = oneKg.ToUnit(MassUnit.Milligram).ToString(usEnglish, "unit: {1}, value: {0:F2}"); // "unit: mg, value: 1.00"
+string mgRu = oneKg.ToUnit(MassUnit.Milligram).ToString(russian, "unit: {1}, value: {0:F2}"); // "unit: мг, value: 1,00"
+
+// Parse measurement from string
+Mass kg = Mass.Parse("1.0 kg", usEnglish);
+
+// Parse unit from string, a unit can have multiple abbreviations
+RotationalSpeedUnit rpm1 = RotationalSpeed.ParseUnit("rpm"); // RotationalSpeedUnit.RevolutionPerMinute
+RotationalSpeedUnit rpm2 = RotationalSpeed.ParseUnit("r/min");  // RotationalSpeedUnit.RevolutionPerMinute
+
+// Get default abbreviation for a unit, the first if more than one is defined in Length.json for Kilogram unit
+string kgAbbreviation = Mass.GetAbbreviation(MassUnit.Kilogram); // "kg"
+</code></pre>
+<h5 id="gotcha-ambiguousunitparseexception">Gotcha: AmbiguousUnitParseException</h5>
+<p>Some units of a quantity have the same abbreviation, which means <code>.Parse()</code> is not able to know what unit you wanted.
+Unfortunately there is no built-in way to avoid this, either you need to ensure you don't pass in input that cannot be parsed or you need to write your own parser that has more knowledge of preferred units or maybe only a subset of the units.</p>
+<p>Example:
+<code>Length.Parse("1 pt")</code> throws <code>AmbiguousUnitParseException</code> with message <code>Cannot parse "pt" since it could be either of these: DtpPoint, PrinterPoint</code>.</p>
+<h4 id="dynamically-parse-quantities-and-convert-to-units">Dynamically Parse Quantities and Convert to Units</h4>
+<p>Sometimes you need to work with quantities and units at runtime, such as parsing user input.</p>
+<p>There are a handful of classes to help with this:</p>
+<ul>
+<li><a href="" rel="noopener noreferrer nofollow">Quantity</a> for parsing and constructing quantities as well as looking up units, names and quantity information dynamically</li>
+<li><a href="" rel="noopener noreferrer nofollow">UnitConverter</a> for converting values to a different unit, with only strings or enum values</li>
+<li><a href="" rel="noopener noreferrer nofollow">UnitParser</a> for parsing unit abbreviation strings, such as <code>"cm"</code> to <code>LengthUnit.Centimeter</code></li>
+</ul>
+<h5 id="quantity---enumerate-quantities-and-units-at-runtime">Quantity - Enumerate quantities and units at runtime</h5>
+<p>Use <code>Quantity</code> class for looking up <code>QuantityInfo</code> and <code>UnitInfo</code> at runtime.</p>
+<pre><code class="language-c#">string[] names = Quantity.Names;     // ["Length", "Mass", ...]
+QuantityInfo[] qis = Quantity.Infos; // All quantities and their units, types, values.
+
+// Look up quantity by name.
+QuantityInfo lengthInfo = Quantity.ByName["Length"];
+UnitInfo[] lengthUnits = lengthInfo.UnitInfos;
+
+// Look up unit by enum value (note: for extensibility, will instead look up by name in the future)
+UnitInfo cmInfo = Quantity.GetUnitInfo(LengthUnit.Centimeter);
+</code></pre>
+<h5 id="quantityinfo---information-about-a-quantity">QuantityInfo - Information about a quantity</h5>
+<p><code>QuantityInfo</code> makes it easy to get names, units, types and values for a quantity.
+This is useful for populating lists of quantities and units for the user to choose.</p>
+<pre><code class="language-c#">// Different ways to look up the quantity info.
+QuantityInfo lengthInfo = Quantity.ByName["Length"];
+lengthInfo = Length.Info;
+lengthInfo = Length.FromMeters(1).QuantityInfo;
+
+// The quantity information.
+lengthInfo.Name;            // "Length"
+lengthInfo.UnitInfos;       // UnitInfo[] for its units Centimeter, Meter, etc.
+lengthInfo.BaseUnitInfo;    // UnitInfo for LengthUnit.Meter
+lengthInfo.BaseDimensions;  // {"Length": 1, "Mass": 0, ...}
+lengthInfo.UnitType;        // typeof(LengthUnit)
+lengthInfo.ValueType;       // typeof(Length)
+lengthInfo.Zero;            // Length.Zero
+</code></pre>
+<h5 id="unitinfo---information-about-a-unit">UnitInfo - Information about a unit</h5>
+<p><code>UnitInfo</code> describes a unit, such as its enum value, names and its representation in SI base units.</p>
+<pre><code class="language-c#">// Different ways to look up the unit info.
+var cm = Quantity.GetUnitInfo(LengthUnit.Centimeter);
+
+if (Quantity.TryGetUnitInfo(LengthUnit.Centimeter, out UnitInfo tryGetCm)) {
+    cm = tryGetCm;
+}
+
+// The unit information.
+cm.Value;       // Enum value: LengthUnit.Centimeter
+cm.Name;        // "Centimeter"
+cm.PluralName;  // "Centimeters"
+cm.BaseUnits;   // {"Length": Centimeter, "Mass": null, "Time": null, ...}
+</code></pre>
+<h5 id="construct-quantity">Construct quantity</h5>
+<p>All you need is the value and the unit enum value.</p>
+<pre><code class="language-c#">IQuantity quantity = Quantity.From(3, LengthUnit.Centimeter); // Length
+
+if (Quantity.TryFrom(3, LengthUnit.Centimeter, out IQuantity quantity2))
+{
+}
+</code></pre>
+<p>You can also construct from strings, such as mapping between DTO types in an API:</p>
+<pre><code class="language-c#">IQuantity quantity = Quantity.From(value: 3, quantityName: "Length", unitName: "Centimeter");
+
+if (Quantity.TryFrom(value: 3, quantityName: "Length", unitName: "Centimeter", out IQuantity? quantity2))
+{
+}
+</code></pre>
+<p>Or create by just the unit abbreviation, as long as there is exactly one unit with this abbreviation.</p>
+<pre><code class="language-c#">// Length with unit LengthUnit.Centimeter
+IQuantity quantity = Quantity.FromUnitAbbreviation(3, "cm");
+
+if (Quantity.TryFromUnitAbbreviation(3, "cm", out IQuantity? quantity2))
+{
+}
+</code></pre>
+<h5 id="parse-quantity">Parse quantity</h5>
+<p>Parse any string to a quantity instance of the given the quantity type.</p>
+<pre><code class="language-c#">IQuantity quantity = Quantity.Parse(typeof(Length), "3 cm"); // Length
+
+if (Quantity.TryParse(typeof(Length), "3cm", out IQuantity quantity2)
+{
+}
+</code></pre>
+<h5 id="parse-unit">Parse unit</h5>
+<p><a href="" rel="noopener noreferrer nofollow">UnitParser</a> parses unit abbreviation strings to unit enum values.</p>
+<pre><code class="language-c#">Enum unit = UnitsNetSetup.Default.UnitParser.Parse("cm", typeof(LengthUnit)); // LengthUnit.Centimeter
+
+if (UnitsNetSetup.Default.UnitParser.TryParse("cm", typeof(LengthUnit), out Enum unit2))
+{
+    // Use unit2 as LengthUnit.Centimeter
+}
+</code></pre>
+<h5 id="convert-quantity-to-unit---iquantity-and-enum">Convert quantity to unit - IQuantity and Enum</h5>
+<p>Convert any <code>IQuantity</code> instance to a different unit by providing a target unit enum value.</p>
+<pre><code class="language-c#">// Assume these are passed in at runtime, we don't know their values or type
+Enum userSelectedUnit = LengthUnit.Millimeter;
+IQuantity quantity = Length.FromCentimeters(3);
+
+// Later we convert to a unit
+quantity.ToUnit(userSelectedUnit).Value;      // 30
+quantity.ToUnit(userSelectedUnit).Unit;       // LengthUnit.Millimeter
+quantity.ToUnit(userSelectedUnit).ToString(); // "30 mm"
+quantity.ToUnit(PressureUnit.Pascal);         // Throws exception, not compatible
+quantity.As(userSelectedUnit);                // 30
+</code></pre>
+<h5 id="convert-quantity-to-unit---fromto-enums">Convert quantity to unit - From/To Enums</h5>
+<p>Useful when populating lists with unit enum values for the user to choose.</p>
+<pre><code class="language-c#">UnitConverter.Convert(1, LengthUnit.Centimeter, LengthUnit.Millimeter); // 10 mm
+</code></pre>
+<h5 id="convert-quantity-to-unit---names-or-abbreviation-strings">Convert quantity to unit - Names or abbreviation strings</h5>
+<p>Sometimes you only have strings to work with, that works too!</p>
+<pre><code class="language-c#">UnitConverter.ConvertByName(1, "Length", "Centimeter", "Millimeter"); // 10 mm
+UnitConverter.ConvertByAbbreviation(1, "Length", "cm", "mm"); // 10 mm
+</code></pre>
+<h4 id="custom-units">Custom units</h4>
+<p>Units.NET allows you to add your own units and quantities at runtime, to represent as <code>IQuantity</code> and reusing Units.NET for parsing and converting between units.</p>
+<p>Read more at <a href="https://github.com/angularsen/UnitsNet/wiki/Extending-with-Custom-Units" rel="noopener noreferrer nofollow">Extending-with-Custom-Units</a>.</p>
+<h5 id="map-between-unit-enum-values-and-unit-abbreviations">Map between unit enum values and unit abbreviations</h5>
+<pre><code class="language-c#">// Map unit enum values to unit abbreviations
+var unitAbbreviations = UnitsNetSetup.Default.UnitAbbreviations;
+unitAbbreviations.MapUnitToDefaultAbbreviation(HowMuchUnit.Some, "sm");
+unitAbbreviations.GetDefaultAbbreviation(HowMuchUnit.Some); // "sm"
+
+UnitsNetSetup.Default.UnitParser.Parse&lt;HowMuchUnit&gt;("sm");  // HowMuchUnit.Some
+</code></pre>
+<h5 id="convert-between-units-of-custom-quantity">Convert between units of custom quantity</h5>
+<pre><code class="language-c#">var unitConverter = UnitsNetSetup.Default.UnitConverter;
+unitConverter.SetConversionFunction&lt;HowMuch&gt;(HowMuchUnit.Lots, HowMuchUnit.Some, x =&gt; new HowMuch(x.Value * 2, HowMuchUnit.Some));
+unitConverter.SetConversionFunction&lt;HowMuch&gt;(HowMuchUnit.Tons, HowMuchUnit.Lots, x =&gt; new HowMuch(x.Value * 10, HowMuchUnit.Lots));
+unitConverter.SetConversionFunction&lt;HowMuch&gt;(HowMuchUnit.Tons, HowMuchUnit.Some, x =&gt; new HowMuch(x.Value * 20, HowMuchUnit.Some));
+
+var from = new HowMuch(10, HowMuchUnit.Tons);
+IQuantity Convert(HowMuchUnit toUnit) =&gt; unitConverter.GetConversionFunction&lt;HowMuch&gt;(from.Unit, toUnit)(from);
+
+Console.WriteLine($"Convert 10 tons to:");
+Console.WriteLine(Convert(HowMuchUnit.Some)); // 200 sm
+Console.WriteLine(Convert(HowMuchUnit.Lots)); // 100 lts
+Console.WriteLine(Convert(HowMuchUnit.Tons)); // 10 tns
+</code></pre>
+<h5 id="parse-custom-quantity">Parse custom quantity</h5>
+<p><a href="" rel="noopener noreferrer nofollow">QuantityParser</a> parses quantity strings to <code>IQuantity</code> by mapping custom units to unit abbreviations in <code>UnitAbbreviationsCache</code>.</p>
+<pre><code class="language-c#">// Map custom units to abbreviations
+var unitAbbreviationsCache = UnitsNetSetup.Default.UnitAbbreviations;
+unitAbbreviationsCache.MapUnitToAbbreviation(HowMuchUnit.Some, "sm");
+unitAbbreviationsCache.MapUnitToAbbreviation(HowMuchUnit.ATon, "tn");
+
+var quantityParser = UnitsNetSetup.Default.QuantityParser;
+
+// "1 sm" =&gt; new HowMuch(1, HowMuchUnit.Some)
+HowMuch q = quantityParser.Parse&lt;HowMuch, HowMuchUnit&gt;(
+    str: "1 sm",
+    formatProvider: null,
+    fromDelegate: (value, unit) =&gt; new HowMuch((double) value, unit));
+</code></pre>
+<pre><code class="language-c#">// Alternatively, create your own instances to not change the global singleton instances.
+var unitAbbreviationsCache = UnitAbbreviationsCache.CreateDefault(); // or .CreateEmpty()
+unitAbbreviationsCache.MapUnitToAbbreviation(HowMuchUnit.Some, "sm");
+unitAbbreviationsCache.MapUnitToAbbreviation(HowMuchUnit.ATon, "tn");
+
+var quantityParser = new QuantityParser(unitAbbreviationsCache);
+</code></pre>
+<h4 id="example-unit-converter-app">Example: Unit converter app</h4>
+<p><a href="https://github.com/angularsen/UnitsNet/tree/master/Samples/UnitConverter.Wpf" rel="noopener noreferrer nofollow">Source code</a> for <code>Samples/UnitConverter.Wpf</code>&lt;br/&gt;
+<a href="https://github.com/angularsen/UnitsNet/releases/tag/UnitConverterWpf%2F2018-11-09" rel="noopener noreferrer nofollow">Download</a> (release 2018-11-09 for Windows)</p>
+<p><img src="https://user-images.githubusercontent.com/787816/34920961-9b697004-f97b-11e7-9e9a-51ff7142969b.png" class="img-fluid" alt="image"></p>
+<p>This example shows how you can create a dynamic unit converter, where the user selects the quantity to convert, such as <code>Temperature</code>, then selects to convert from <code>DegreeCelsius</code> to <code>DegreeFahrenheit</code> and types in a numeric value for how many degrees Celsius to convert.
+The quantity list box contains quantity names, such as <code>"Length"</code>. The two unit list boxes contain <code>Enum</code> values, such as <code>LengthUnit.Meter</code>.</p>
+<h5 id="populate-quantity-selector">Populate quantity selector</h5>
+<p>Use <code>Quantity</code> to enumerate all quantity names, such as <code>"Length"</code> and <code>"Mass"</code>.</p>
+<pre><code class="language-c#">this.Quantities = Quantity.Names; // string[]
+
+// or
+this.Quantities = Quantity.Infos.Select(i =&gt; i.Name).ToList();
+</code></pre>
+<h5 id="update-unit-lists-when-selecting-new-quantity">Update unit lists when selecting new quantity</h5>
+<p>So user can only choose from/to units compatible with the quantity type.</p>
+<pre><code class="language-c#">QuantityInfo quantityInfo = Quantity.ByName[quantityName];
+
+_units.Clear();
+foreach (Enum unitValue in quantityInfo.UnitInfos.Select(ui =&gt; ui.Value))
+{
+    _units.Add(new UnitListItem(unitValue));
+}
+</code></pre>
+<h5 id="update-calculation-on-unit-selection-changed">Update calculation on unit selection changed</h5>
+<p>Using <code>UnitConverter</code> to convert by unit enum values as given by the list selection <code>"Length"</code> and unit names like <code>"Centimeter"</code> and <code>"Meter"</code>.</p>
+<pre><code class="language-c#">double convertedValue = UnitConverter.Convert(
+    FromValue,                      // numeric value
+    SelectedFromUnit.UnitEnumValue, // Enum, such as LengthUnit.Meter
+    SelectedToUnit.UnitEnumValue);  // Enum, such as LengthUnit.Centimeter
+</code></pre>
+<h4 id="example-wpf-app-using-ivalueconverter-to-parse-input">Example: WPF app using IValueConverter to parse input</h4>
+<p>Src: <a href="https://github.com/angularsen/UnitsNet/tree/master/Samples/MvvmSample.Wpf" rel="noopener noreferrer nofollow">Samples/MvvmSample.Wpf</a></p>
+<p><img src="https://user-images.githubusercontent.com/787816/34913417-094332e2-f8fd-11e7-9d8a-92db105fbbc9.png" class="img-fluid" alt="wpfmvvmsample_219w"></p>
+<p>The purpose of this app is to show how to create an <code>IValueConverter</code> in order to bind XAML to quantities.</p>
+<h4 id="precision-and-accuracy">Precision and Accuracy</h4>
+<p>A base unit is chosen for each unit class, represented by a double value (64-bit), and all conversions go via this unit. This means that there will always be a small error in both representing other units than the base unit as well as converting between units.</p>
+<p>Units.NET was intended for convenience and ease of use, not highly accurate conversions, but I am open to suggestions for improvements.</p>
+<p>The tests accept an error up to 1E-5 for most units added so far. Exceptions include units like Teaspoon, where the base unit cubic meter is a lot bigger. In many usecases this is sufficient, but for others this may be a showstopper and something you need to be aware of.</p>
+<p>For more details, see <a href="https://github.com/angularsen/UnitsNet/wiki/Precision" rel="noopener noreferrer nofollow">Precision</a>.</p>
+<h4 id="serialize-to-json-xml-and-more">Serialize to JSON, XML and more</h4>
+<p>Read the wiki on <a href="https://github.com/angularsen/UnitsNet/wiki/Serializing-to-JSON,-XML-and-more" rel="noopener noreferrer nofollow">Serializing to JSON, XML and more</a>.</p>
+<h4 id="want-to-contribute">Want To Contribute?</h4>
+<ul>
+<li><a href="https://github.com/angularsen/UnitsNet/wiki/Adding-a-New-Unit" rel="noopener noreferrer nofollow">Adding a New Unit</a> is fairly easy to do and we are happy to help.</li>
+<li>Want a new feature or to report a bug? <a href="https://github.com/angularsen/UnitsNet/issues/new/choose" rel="noopener noreferrer nofollow">Create an issue</a> or start a <a href="https://github.com/angularsen/UnitsNet/discussions" rel="noopener noreferrer nofollow">discussion</a>.</li>
+</ul>
+<h4 id="continuous-integration">Continuous Integration</h4>
+<p><a href="https://dev.azure.com/unitsnet/Units.NET/" rel="noopener noreferrer nofollow">Azure DevOps</a> performs the following:</p>
+<ul>
+<li>Build and test all branches</li>
+<li>Build and test pull requests, notifies on success or error</li>
+<li>Deploy nugets on master branch, if nuspec versions changed</li>
+</ul>
+<h4 id="who-are-using-unitsnet">Who are Using UnitsNet?</h4>
+<p>It would be awesome to know who are using this library. If you would like your project listed here, <a href="https://github.com/angularsen/UnitsNet/issues" rel="noopener noreferrer nofollow">create an issue</a> or edit the <a href="https://github.com/angularsen/UnitsNet/edit/master/README.md" rel="noopener noreferrer nofollow">README.md</a> and send a pull request. Max logo size is <code>300x35 pixels</code> and should be in <code>.png</code>, <code>.gif</code> or <code>.jpg</code> formats.</p>
+<p><img src="" class="img-fluid" alt="Motion Catalyst logo" title="Motion Catalyst logo"></p>
+<h5 id="swing-catalyst-and-motion-catalyst-norway">Swing Catalyst and Motion Catalyst, Norway</h5>
+<blockquote class="blockquote">
+<p>Sports performance applications for Windows and iOS, that combine high-speed video with sensor data to bring facts into your training and visualize the invisible forces at work</p>
+<p>Units.NET started here in 2007 when reading strain gauge measurements from force plates and has been very useful in integrating a number of different sensor types into our software and presenting the data in the user's preferred culture and units.</p>
+</blockquote>
+<p><a href="https://www.swingcatalyst.com/" rel="noopener noreferrer nofollow">https://www.swingcatalyst.com</a> (for golf)&lt;br&gt;
+<a href="https://www.motioncatalyst.com/" rel="noopener noreferrer nofollow">https://www.motioncatalyst.com</a> (everything else)</p>
+<p><em>- Andreas Gullberg Larsen, CTO (andreas@motioncatalyst.com)</em></p>
+<p><img src="" class="img-fluid" alt="PK Sound logo"></p>
+<h5 id="pk-sound-canada">PK Sound, Canada</h5>
+<blockquote class="blockquote">
+<p>Award-winning performers and composers put everything they’ve got into their music. PK Sound makes sure their fans will hear it all – brilliantly, precisely, consistently.</p>
+<p>PK Sound uses UnitsNet in Kontrol - the remote control counterpart to Trinity, the world's only robotic line array solution.</p>
+</blockquote>
+<p><a href="http://www.pksound.ca/pk-sound/announcing-the-official-release-of-kontrol/" rel="noopener noreferrer nofollow">http://www.pksound.ca/pk-sound/announcing-the-official-release-of-kontrol/</a> (for an idea of what the Kontrol project is)&lt;br&gt;
+<a href="http://www.pksound.ca/trinity/" rel="noopener noreferrer nofollow">http://www.pksound.ca/trinity/</a> (the speakers that Kontrol currently controls)&lt;br&gt;
+<a href="http://www.pksound.ca/" rel="noopener noreferrer nofollow">http://www.pksound.ca/</a> (everything else)</p>
+<p><em>- Jules LaPrairie, Kontrol software team member</em></p>
+<h5 id="microsoftiotdevices">Microsoft.IoT.Devices</h5>
+<blockquote class="blockquote">
+<p>Microsoft.IoT.Devices extends Windows IoT Core and makes it easier to support devices like sensors and displays. It provides event-driven access for many digital and analog devices and even provides specialized wrappers for devices like joystick, rotary encoder and graphics display.</p>
+</blockquote>
+<p><a href="https://aka.ms/iotdevices" rel="noopener noreferrer nofollow">http://aka.ms/iotdevices</a> (home page including docs)&lt;br&gt;
+<a href="https://www.nuget.org/packages/Microsoft.IoT.Devices" rel="noopener noreferrer nofollow">http://www.nuget.org/packages/Microsoft.IoT.Devices</a> (NuGet package)</p>
+<h5 id="crawlspace">Crawlspace</h5>
+<blockquote class="blockquote">
+<p>Software for creating printable hex maps for use in pen and paper RPGs. Both
+a user-friendly app and a high-level library for generating labelled hexmaps.</p>
+</blockquote>
+<p><a href="https://bitbucket.org/MartinEden/Crawlspace" rel="noopener noreferrer nofollow">https://bitbucket.org/MartinEden/Crawlspace</a></p>
+<p><em>- Martin Eden, project maintainer</em></p>
+<p><img src="" class="img-fluid" alt="ANSYS, Inc. Logo" title="ANSYS, Inc. Logo"></p>
+<h5 id="ansys-inc-ansys-discovery-live">ANSYS, Inc. (ANSYS Discovery Live)</h5>
+<blockquote class="blockquote">
+<p>ANSYS Discovery Live provides instantaneous 3D simulation, tightly coupled with direct geometry modeling, to enable interactive design exploration and rapid product innovation. It is an interactive experience in which you can manipulate geometry, material types or physics inputs, then instantaneously see changes in performance.</p>
+</blockquote>
+<p><a href="https://www.ansys.com/" rel="noopener noreferrer nofollow">https://www.ansys.com</a>
+<a href="https://www.ansys.com/products/3d-design/ansys-discovery-live" rel="noopener noreferrer nofollow">https://www.ansys.com/products/3d-design/ansys-discovery-live</a></p>
+<p><em>- Tristan Milnthorp, Principal Software Architect (tristan.milnthorp@ansys.com)</em></p>
+<h5 id="primoris-sigma-stargen">Primoris Sigma Stargen</h5>
+<p>Stargen is a decades old software to create realistic planets and satellites from a given Star. It's based on work from various scientists and been used for years. Primoris Sigma Stargen is a C# port of the utility that makes it a Framework to extend it with new algorithms for planetary formation and physics equations.</p>
+<p><a href="https://github.com/ebfortin/primoris.universe.stargen" rel="noopener noreferrer nofollow">https://github.com/ebfortin/primoris.universe.stargen</a></p>
+<p>&lt;img src="https://cdn.harringtonhoists.com/assets/harringtonhoists/logo-60629cc144429045d4c85740ab225e219add75b2c5c1e2c444ffa9500347a414.png" height="35"&gt;</p>
+<h5 id="harrington-hoists-inc-a-subsidiary-of-kito-americas-inc">Harrington Hoists, Inc. (A Subsidiary of KITO Americas, Inc.)</h5>
+<blockquote class="blockquote">
+<p>Harrington Hoists, Inc. is located in Manheim, PA, Elizabethtown, PA, South Holland, IL and Corona, CA. Harrington is a leading manufacturer of manual, electric and air chain hoists as well as wire rope hoists and crane products serving the North American material handling industry.</p>
+</blockquote>
+<p>Harrington uses UnitsNet in their internal software to perform many different calculations related to crane dimensioning, girder strength, electrical safety verification, etc.</p>
+<p><a href="https://www.harringtonhoists.com/" rel="noopener noreferrer nofollow">https://www.harringtonhoists.com</a>&lt;br&gt;
+<a href="https://kito.com/" rel="noopener noreferrer nofollow">https://kito.com</a></p>
+<p><em>- Luke Westfall, Design Automation Engineer</em></p>
+<h5 id="structural-analysis-format---sdk-project">Structural Analysis Format - SDK project</h5>
+<p>&lt;img src="https://gblobscdn.gitbook.com/spaces%2F-M__87HTlQktMqcjAf65%2Favatar-1620901174483.png?alt=media" height="35" /&gt;</p>
+<blockquote class="blockquote">
+<p>The Structural Analysis Format (SAF) has been created to allow structural engineering applications to exchange data using a straight forward and simple to understand format.
+While inspired by IFC, SAF has its benefits that it's <strong>easily modifyable</strong> by the end-user <em>(it's an xlsx file)</em>, <strong>well documented</strong> and <strong>easy to understand</strong>.
+UnitsNet is used by the SDK provided by SCIA to facilitate import / export between metric &amp; imperial systems</p>
+</blockquote>
+<p><a href="https://www.saf.guide/" rel="noopener noreferrer nofollow">https://www.saf.guide</a>
+<a href="https://github.com/StructuralAnalysisFormat/StructuralAnalysisFormat-SDK" rel="noopener noreferrer nofollow">https://github.com/StructuralAnalysisFormat/StructuralAnalysisFormat-SDK</a></p>
+<p><em>- Dirk Schuermans, Software Engineer for <a href="https://www.scia.net/" rel="noopener noreferrer nofollow">SCIA nv</a></em></p>
+<h4 id="top-usages-by-github-repos">Top Usages by GitHub Repos</h4>
+<p>Produced with <a href="https://github.com/github-tooling/ghtopdep" rel="noopener noreferrer nofollow">ghtopdep</a>.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Repo</th>
+<th>Stars</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/microsoft/PowerToys" rel="noopener noreferrer nofollow">https://github.com/microsoft/PowerToys</a></td>
+<td>105K</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dotnet/iot" rel="noopener noreferrer nofollow">https://github.com/dotnet/iot</a></td>
+<td>2.1K</td>
+</tr>
+<tr>
+<td><a href="https://github.com/genielabs/HomeGenie" rel="noopener noreferrer nofollow">https://github.com/genielabs/HomeGenie</a></td>
+<td>388</td>
+</tr>
+<tr>
+<td><a href="https://github.com/raspberry-sharp/raspberry-sharp-io" rel="noopener noreferrer nofollow">https://github.com/raspberry-sharp/raspberry-sharp-io</a></td>
+<td>340</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nanoframework/nanoFramework.IoT.Device" rel="noopener noreferrer nofollow">https://github.com/nanoframework/nanoFramework.IoT.Device</a></td>
+<td>202</td>
+</tr>
+<tr>
+<td><a href="https://github.com/porrey/Virtual-ZPL-Printer" rel="noopener noreferrer nofollow">https://github.com/porrey/Virtual-ZPL-Printer</a></td>
+<td>166</td>
+</tr>
+<tr>
+<td><a href="https://github.com/chino-os/chino-os" rel="noopener noreferrer nofollow">https://github.com/chino-os/chino-os</a></td>
+<td>147</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BriefFiniteElementNet/BriefFiniteElement.Net" rel="noopener noreferrer nofollow">https://github.com/BriefFiniteElementNet/BriefFiniteElement.Net</a></td>
+<td>143</td>
+</tr>
+<tr>
+<td><a href="https://github.com/WhiteBlackGoose/UnitsOfMeasure" rel="noopener noreferrer nofollow">https://github.com/WhiteBlackGoose/UnitsOfMeasure</a></td>
+<td>57</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pi-top/pi-top-4-.NET-SDK" rel="noopener noreferrer nofollow">https://github.com/pi-top/pi-top-4-.NET-SDK</a></td>
+<td>48</td>
+</tr>
+</tbody>
+</table>
+<h4 id="unitsnet-on-other-platforms">Units.NET on other platforms</h4>
+<p>Get the same strongly typed units on other platforms, based on the same <a href="" rel="noopener noreferrer nofollow">unit definitions</a>.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Language</th>
+<th>Name</th>
+<th>Package</th>
+<th>Repository</th>
+<th>Maintainers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JavaScript /&lt;br&gt;TypeScript</td>
+<td>unitsnet-js</td>
+<td><a href="https://www.npmjs.com/package/unitsnet-js" rel="noopener noreferrer nofollow">npm</a></td>
+<td><a href="https://github.com/haimkastner/unitsnet-js" rel="noopener noreferrer nofollow">github</a></td>
+<td>@haimkastner</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>unitsnet-py</td>
+<td><a href="https://pypi.org/project/unitsnet-py" rel="noopener noreferrer nofollow">pypi</a></td>
+<td><a href="https://github.com/haimkastner/unitsnet-py" rel="noopener noreferrer nofollow">github</a></td>
+<td>@haimkastner</td>
+</tr>
+<tr>
+<td>Golang</td>
+<td>unitsnet-go</td>
+<td><a href="https://pkg.go.dev/github.com/haimkastner/unitsnet-go" rel="noopener noreferrer nofollow">pkg.go.dev</a></td>
+<td><a href="https://github.com/haimkastner/unitsnet-go" rel="noopener noreferrer nofollow">github</a></td>
+<td>@haimkastner</td>
+</tr>
+</tbody>
+</table>
+                                </div>
+                            </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="supportedframeworks-tab" aria-label="Supported frameworks tab content">
+<table class="framework framework-table" aria-label="Supported frameworks">
+    <thead>
+        <tr>
+            <th scope="col" class="framework-table-title"><b>Product</b></th>
+            <th scope="col" class="framework-table-title">
+                <b aria-hidden="true" >Versions</b>
+                <span class="sr-only">Compatible and additional computed target framework versions.</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+                <tr>
+                    <td class="framework-table-product">
+                        .NET
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net5.0</span>
+                                <span class="sr-only">net5.0 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net5.0-windows</span>
+                                <span class="sr-only">net5.0-windows was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net6.0</span>
+                                <span class="sr-only">net6.0 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net6.0-android</span>
+                                <span class="sr-only">net6.0-android was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net6.0-ios</span>
+                                <span class="sr-only">net6.0-ios was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net6.0-maccatalyst</span>
+                                <span class="sr-only">net6.0-maccatalyst was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net6.0-macos</span>
+                                <span class="sr-only">net6.0-macos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net6.0-tvos</span>
+                                <span class="sr-only">net6.0-tvos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net6.0-windows</span>
+                                <span class="sr-only">net6.0-windows was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net7.0</span>
+                                <span class="sr-only">net7.0 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net7.0-android</span>
+                                <span class="sr-only">net7.0-android was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net7.0-ios</span>
+                                <span class="sr-only">net7.0-ios was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net7.0-maccatalyst</span>
+                                <span class="sr-only">net7.0-maccatalyst was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net7.0-macos</span>
+                                <span class="sr-only">net7.0-macos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net7.0-tvos</span>
+                                <span class="sr-only">net7.0-tvos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net7.0-windows</span>
+                                <span class="sr-only">net7.0-windows was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-asset framework-table-margin">net8.0</span>
+                                <span class="sr-only">net8.0 is compatible.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net8.0-android</span>
+                                <span class="sr-only">net8.0-android was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net8.0-browser</span>
+                                <span class="sr-only">net8.0-browser was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net8.0-ios</span>
+                                <span class="sr-only">net8.0-ios was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net8.0-maccatalyst</span>
+                                <span class="sr-only">net8.0-maccatalyst was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net8.0-macos</span>
+                                <span class="sr-only">net8.0-macos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net8.0-tvos</span>
+                                <span class="sr-only">net8.0-tvos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net8.0-windows</span>
+                                <span class="sr-only">net8.0-windows was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-asset framework-table-margin">net9.0</span>
+                                <span class="sr-only">net9.0 is compatible.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net9.0-android</span>
+                                <span class="sr-only">net9.0-android was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net9.0-browser</span>
+                                <span class="sr-only">net9.0-browser was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net9.0-ios</span>
+                                <span class="sr-only">net9.0-ios was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net9.0-maccatalyst</span>
+                                <span class="sr-only">net9.0-maccatalyst was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net9.0-macos</span>
+                                <span class="sr-only">net9.0-macos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net9.0-tvos</span>
+                                <span class="sr-only">net9.0-tvos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net9.0-windows</span>
+                                <span class="sr-only">net9.0-windows was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net10.0</span>
+                                <span class="sr-only">net10.0 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net10.0-android</span>
+                                <span class="sr-only">net10.0-android was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net10.0-browser</span>
+                                <span class="sr-only">net10.0-browser was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net10.0-ios</span>
+                                <span class="sr-only">net10.0-ios was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net10.0-maccatalyst</span>
+                                <span class="sr-only">net10.0-maccatalyst was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net10.0-macos</span>
+                                <span class="sr-only">net10.0-macos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net10.0-tvos</span>
+                                <span class="sr-only">net10.0-tvos was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net10.0-windows</span>
+                                <span class="sr-only">net10.0-windows was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        .NET Core
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">netcoreapp2.0</span>
+                                <span class="sr-only">netcoreapp2.0 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">netcoreapp2.1</span>
+                                <span class="sr-only">netcoreapp2.1 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">netcoreapp2.2</span>
+                                <span class="sr-only">netcoreapp2.2 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">netcoreapp3.0</span>
+                                <span class="sr-only">netcoreapp3.0 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">netcoreapp3.1</span>
+                                <span class="sr-only">netcoreapp3.1 was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        .NET Standard
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-asset framework-table-margin">netstandard2.0</span>
+                                <span class="sr-only">netstandard2.0 is compatible.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">netstandard2.1</span>
+                                <span class="sr-only">netstandard2.1 was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        .NET Framework
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net461</span>
+                                <span class="sr-only">net461 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net462</span>
+                                <span class="sr-only">net462 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net463</span>
+                                <span class="sr-only">net463 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net47</span>
+                                <span class="sr-only">net47 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net471</span>
+                                <span class="sr-only">net471 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net472</span>
+                                <span class="sr-only">net472 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net48</span>
+                                <span class="sr-only">net48 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">net481</span>
+                                <span class="sr-only">net481 was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        MonoAndroid
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">monoandroid</span>
+                                <span class="sr-only">monoandroid was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        MonoMac
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">monomac</span>
+                                <span class="sr-only">monomac was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        MonoTouch
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">monotouch</span>
+                                <span class="sr-only">monotouch was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        Tizen
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">tizen40</span>
+                                <span class="sr-only">tizen40 was computed.&nbsp;</span>
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">tizen60</span>
+                                <span class="sr-only">tizen60 was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        Xamarin.iOS
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">xamarinios</span>
+                                <span class="sr-only">xamarinios was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        Xamarin.Mac
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">xamarinmac</span>
+                                <span class="sr-only">xamarinmac was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        Xamarin.TVOS
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">xamarintvos</span>
+                                <span class="sr-only">xamarintvos was computed.&nbsp;</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="framework-table-product">
+                        Xamarin.WatchOS
+                    </td>
+
+                    <td class="framework-table-frameworks">
+                                <span aria-hidden="true" class="framework-badge-computed framework-table-margin">xamarinwatchos</span>
+                                <span class="sr-only">xamarinwatchos was computed.&nbsp;</span>
+                    </td>
+                </tr>
+    </tbody>
+</table>
+<div>
+    <div>
+        <i class="frameworktableinfo-computed-icon framework-badge-computed"></i>
+        <span class="frameworktableinfo-text">Compatible target framework(s)</span>
+    </div>
+    <div>
+        <i class="frameworktableinfo-asset-icon"></i>
+        <span class="frameworktableinfo-text">Included target framework(s) (in package)</span>
+    </div>
+    <span class="frameworktableinfo-text"><i>Learn more about <a href='https://learn.microsoft.com/dotnet/standard/frameworks' aria-label="Learn more about Target Frameworks">Target Frameworks</a> and <a href='https://learn.microsoft.com/dotnet/standard/net-standard' aria-label="Learn more about .NET Standard">.NET Standard</a>.</i></span>
+</div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="dependencies-tab" aria-label="Dependencies tab content">
+                                    <ul class="list-unstyled dependency-groups" id="dependency-groups">
+                                            <li>
+                                                    <h4><span>.NETStandard 2.0</span></h4>
+                                                <ul class="list-unstyled dependency-group">
+                                                        <li>
+                                                                No dependencies.
+                                                        </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                    <h4><span>net8.0</span></h4>
+                                                <ul class="list-unstyled dependency-group">
+                                                        <li>
+                                                                No dependencies.
+                                                        </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                    <h4><span>net9.0</span></h4>
+                                                <ul class="list-unstyled dependency-group">
+                                                        <li>
+                                                                No dependencies.
+                                                        </li>
+                                                </ul>
+                                            </li>
+                                    </ul>
+                    </div>
+                <div role="tabpanel" class="tab-pane " id="usedby-tab" aria-label="Used by tab content">
+                        <div class="used-by" id="used-by">
+                                    <h3>
+                                        <strong>NuGet packages </strong> (115)
+                                    </h3>
+                                    <p>
+                                        Showing the top 5 NuGet packages that depend on UnitsNet:
+                                    </p>
+                                    <table class="table borderless" aria-label="Packages that depend on UnitsNet">
+                                        <thead>
+                                            <tr>
+                                                <th class="used-by-adjust-table-head" scope="col" role="columnheader">Package</th>
+                                                <th class="used-by-adjust-table-head" scope="col" role="columnheader">Downloads</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="no-border">
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a class="text-left ngp-link" href="/packages/UnitsNet.Serialization.JsonNet/">
+                                                            UnitsNet.Serialization.JsonNet
+                                                        </a>
+                                                            <i class="ms-Icon ms-Icon--SkypeCircleCheck reserved-indicator" title="The ID prefix of this package has been reserved for one of the owners of this package by NuGet.org."
+                                                               alt="The ID prefix of this package has been reserved for one of the owners of this package by NuGet.org."></i>
+                                                        <p class="used-by-desc">A helper library for serializing and deserializing types in Units.NET using Json.NET.</p>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--Download used-by-download-icon" aria-hidden="true"></i> <label class="used-by-count">2.0M</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a class="text-left ngp-link" href="/packages/UnitsNet.NumberExtensions/">
+                                                            UnitsNet.NumberExtensions
+                                                        </a>
+                                                            <i class="ms-Icon ms-Icon--SkypeCircleCheck reserved-indicator" title="The ID prefix of this package has been reserved for one of the owners of this package by NuGet.org."
+                                                               alt="The ID prefix of this package has been reserved for one of the owners of this package by NuGet.org."></i>
+                                                        <p class="used-by-desc">Adds extension methods to number types to more easily create quantities, such as 5.Meters() instead of Length.FromMeters(5).</p>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--Download used-by-download-icon" aria-hidden="true"></i> <label class="used-by-count">758.0K</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a class="text-left ngp-link" href="/packages/Iot.Device.Bindings/">
+                                                            Iot.Device.Bindings
+                                                        </a>
+                                                            <i class="ms-Icon ms-Icon--SkypeCircleCheck reserved-indicator" title="The ID prefix of this package has been reserved for one of the owners of this package by NuGet.org."
+                                                               alt="The ID prefix of this package has been reserved for one of the owners of this package by NuGet.org."></i>
+                                                        <p class="used-by-desc">This package provides a set of Device Bindings (&quot;Device drivers&quot;) that use System.Device.Gpio package to communicate with sensors and microcontrollers.</p>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--Download used-by-download-icon" aria-hidden="true"></i> <label class="used-by-count">640.0K</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a class="text-left ngp-link" href="/packages/Honeybee.UI/">
+                                                            Honeybee.UI
+                                                        </a>
+                                                        <p class="used-by-desc">UI library build with Eto Forms for editing Honeybee Schema (DotNet) on both Windows and Mac system.</p>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--Download used-by-download-icon" aria-hidden="true"></i> <label class="used-by-count">337.4K</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a class="text-left ngp-link" href="/packages/MetalHeaven.ExternalDataContracts/">
+                                                            MetalHeaven.ExternalDataContracts
+                                                        </a>
+                                                        <p class="used-by-desc">Metal Heaven Versioned Externals DataContracts</p>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--Download used-by-download-icon" aria-hidden="true"></i> <label class="used-by-count">281.5K</label>
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h3>
+                                        <strong>GitHub repositories </strong> (7)
+                                    </h3>
+                                    <p>
+                                        Showing the top 7 popular GitHub repositories that depend on UnitsNet:
+                                    </p>
+                                    <table class="table borderless" aria-label="GitHub repositories that depend on UnitsNet">
+                                        <thead>
+                                            <tr>
+                                                <th class="used-by-adjust-table-head" scope="col" role="columnheader">Repository</th>
+                                                <th class="used-by-adjust-table-head" scope="col" role="columnheader">Stars</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="no-border">
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a data-index-number="0" class="text-left gh-link" href="https://github.com/TheJoeFin/Text-Grab" target="_blank">
+                                                            TheJoeFin/Text-Grab
+                                                        </a>
+                                                        <div class="row used-by-desc">
+                                                            <span>Use OCR in Windows quickly and easily with Text Grab. With optional background process and notifications.</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--FavoriteStarFill gh-star" aria-hidden="true"></i> <label class="used-by-count">5.0K</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a data-index-number="1" class="text-left gh-link" href="https://github.com/dotnet/iot" target="_blank">
+                                                            dotnet/iot
+                                                        </a>
+                                                        <div class="row used-by-desc">
+                                                            <span>This repo includes .NET Core implementations for various IoT boards, chips, displays and PCBs.</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--FavoriteStarFill gh-star" aria-hidden="true"></i> <label class="used-by-count">2.4K</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a data-index-number="2" class="text-left gh-link" href="https://github.com/axzxs2001/Asp.NetCoreExperiment" target="_blank">
+                                                            axzxs2001/Asp.NetCoreExperiment
+                                                        </a>
+                                                        <div class="row used-by-desc">
+                                                            <span>原来所有项目都移动到**OleVersion**目录下进行保留。新的案例装以.net 5.0为主，一部分对以前案例进行升级，一部分将以前的工作经验总结出来，以供大家参考！</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--FavoriteStarFill gh-star" aria-hidden="true"></i> <label class="used-by-count">358</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a data-index-number="3" class="text-left gh-link" href="https://github.com/raspberry-sharp/raspberry-sharp-io" target="_blank">
+                                                            raspberry-sharp/raspberry-sharp-io
+                                                        </a>
+                                                        <div class="row used-by-desc">
+                                                            <span>A .NET/Mono IO Library for Raspberry Pi</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--FavoriteStarFill gh-star" aria-hidden="true"></i> <label class="used-by-count">344</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a data-index-number="4" class="text-left gh-link" href="https://github.com/porrey/Virtual-ZPL-Printer" target="_blank">
+                                                            porrey/Virtual-ZPL-Printer
+                                                        </a>
+                                                        <div class="row used-by-desc">
+                                                            <span>An ethernet based virtual Zebra Label Printer that can be used to test applications that produce bar code labels.</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--FavoriteStarFill gh-star" aria-hidden="true"></i> <label class="used-by-count">342</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a data-index-number="5" class="text-left gh-link" href="https://github.com/nanoframework/nanoFramework.IoT.Device" target="_blank">
+                                                            nanoframework/nanoFramework.IoT.Device
+                                                        </a>
+                                                        <div class="row used-by-desc">
+                                                            <span>&#128230; This repo includes .NET nanoFramework implementations for various sensors, chips, displays, hats and drivers</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--FavoriteStarFill gh-star" aria-hidden="true"></i> <label class="used-by-count">310</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="used-by-desc-column">
+                                                        <a data-index-number="6" class="text-left gh-link" href="https://github.com/BriefFiniteElementNet/BriefFiniteElement.Net" target="_blank">
+                                                            BriefFiniteElementNet/BriefFiniteElement.Net
+                                                        </a>
+                                                        <div class="row used-by-desc">
+                                                            <span>BriefFiniteElementDotNET (BFE.NET) is a library for linear-static Finite Element Method (FEM) analysis of solids and structures in .NET</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="ms-Icon ms-Icon--FavoriteStarFill gh-star" aria-hidden="true"></i> <label class="used-by-count">179</label>
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                        </div>
+                </div>
+                <div role="tabpanel" class="tab-pane " id="versions-tab" aria-label="Versions tab content">
+                    <div class="version-history" id="version-history">
+                        <div class="version-filter-container">
+                            <div class="form-group">
+                                <label class="brand-checkbox">
+                                    <input type="checkbox" id="include-prerelease">
+                                    <span>Include prerelease</span>
+                                </label>
+                            </div>
+                                <div class="form-group">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox" id="include-vulnerable">
+                                        <span>Include vulnerable</span>
+                                    </label>
+                                </div>
+                                                            <div class="form-group">
+                                    <label class="brand-checkbox">
+                                        <input type="checkbox" id="include-deprecated">
+                                        <span>Include deprecated</span>
+                                    </label>
+                                </div>
+                        </div>
+
+                        <table aria-label="Version History of UnitsNet" class="table borderless" aria-live="polite">
+                            <thead>
+    <tr>
+        <th scope="col" role="columnheader">Version</th>
+        <th scope="col" role="columnheader">Downloads</th>
+        <th scope="col" role="columnheader">
+            Last Updated
+        </th>
+
+                            <th scope="col" role="columnheader" aria-hidden="true" abbr="Package Warnings"></th>
+    </tr>
+</thead>
+<tbody class="no-border">
+            <tr class="version-row"
+                data-prerelease="true"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/6.0.0-pre021" title="6.0.0-pre021">
+                        6.0.0-pre021
+                    </a>
+                </td>
+                <td>
+                    2,604
+                </td>
+                <td>
+                    <span data-datetime="2026-07-30T22:34:28.4600000">7/30/2026</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="true"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/6.0.0-pre020" title="6.0.0-pre020">
+                        6.0.0-pre020
+                    </a>
+                </td>
+                <td>
+                    14,353
+                </td>
+                <td>
+                    <span data-datetime="2026-07-17T23:26:10.6970000">7/17/2026</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="true"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/6.0.0-pre019" title="6.0.0-pre019">
+                        6.0.0-pre019
+                    </a>
+                </td>
+                <td>
+                    78,485
+                </td>
+                <td>
+                    <span data-datetime="2025-12-07T12:04:25.8770000">12/7/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="true"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/6.0.0-pre018" title="6.0.0-pre018">
+                        6.0.0-pre018
+                    </a>
+                </td>
+                <td>
+                    290
+                </td>
+                <td>
+                    <span data-datetime="2025-12-06T17:20:20.8900000">12/6/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="true"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/6.0.0-pre017" title="6.0.0-pre017">
+                        6.0.0-pre017
+                    </a>
+                </td>
+                <td>
+                    146,676
+                </td>
+                <td>
+                    <span data-datetime="2025-07-29T09:46:51.9630000">7/29/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="true"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/6.0.0-pre016" title="6.0.0-pre016">
+                        6.0.0-pre016
+                    </a>
+                </td>
+                <td>
+                    368
+                </td>
+                <td>
+                    <span data-datetime="2025-07-27T00:58:30.0970000">7/27/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="true"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/6.0.0-pre015" title="6.0.0-pre015">
+                        6.0.0-pre015
+                    </a>
+                </td>
+                <td>
+                    493
+                </td>
+                <td>
+                    <span data-datetime="2025-07-26T01:59:50.2170000">7/26/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="true"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/6.0.0-pre014" title="6.0.0-pre014">
+                        6.0.0-pre014
+                    </a>
+                </td>
+                <td>
+                    73,977
+                </td>
+                <td>
+                    <span data-datetime="2025-03-09T17:51:02.2770000">3/9/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="bg-brand-info version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.75.1" title="5.75.1">
+                        5.75.1
+                    </a>
+                </td>
+                <td>
+                    78,453
+                </td>
+                <td>
+                    <span data-datetime="2026-07-17T23:48:19.5230000">7/17/2026</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.75.0" title="5.75.0">
+                        5.75.0
+                    </a>
+                </td>
+                <td>
+                    1,606,798
+                </td>
+                <td>
+                    <span data-datetime="2025-07-26T02:30:43.5300000">7/26/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.74.0" title="5.74.0">
+                        5.74.0
+                    </a>
+                </td>
+                <td>
+                    754,160
+                </td>
+                <td>
+                    <span data-datetime="2025-04-02T15:25:57.1130000">4/2/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.73.0" title="5.73.0">
+                        5.73.0
+                    </a>
+                </td>
+                <td>
+                    212,970
+                </td>
+                <td>
+                    <span data-datetime="2025-03-10T21:47:27.3570000">3/10/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.72.0" title="5.72.0">
+                        5.72.0
+                    </a>
+                </td>
+                <td>
+                    7,050
+                </td>
+                <td>
+                    <span data-datetime="2025-03-10T13:10:58.7470000">3/10/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.71.0" title="5.71.0">
+                        5.71.0
+                    </a>
+                </td>
+                <td>
+                    7,478
+                </td>
+                <td>
+                    <span data-datetime="2025-03-09T17:50:17.1470000">3/9/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.70.0" title="5.70.0">
+                        5.70.0
+                    </a>
+                </td>
+                <td>
+                    290,882
+                </td>
+                <td>
+                    <span data-datetime="2025-02-26T11:42:16.0300000">2/26/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.69.0" title="5.69.0">
+                        5.69.0
+                    </a>
+                </td>
+                <td>
+                    206,444
+                </td>
+                <td>
+                    <span data-datetime="2025-02-04T08:03:01.0600000">2/4/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.68.0" title="5.68.0">
+                        5.68.0
+                    </a>
+                </td>
+                <td>
+                    5,158
+                </td>
+                <td>
+                    <span data-datetime="2025-02-04T08:01:27.6600000">2/4/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.67.0" title="5.67.0">
+                        5.67.0
+                    </a>
+                </td>
+                <td>
+                    47,022
+                </td>
+                <td>
+                    <span data-datetime="2025-01-29T18:09:43.4770000">1/29/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+            <tr class="version-row"
+                data-prerelease="false"
+                data-vulnerable="false"
+                data-deprecated="false">
+                <td>
+                    <a href="/packages/UnitsNet/5.66.0" title="5.66.0">
+                        5.66.0
+                    </a>
+                </td>
+                <td>
+                    117,291
+                </td>
+                <td>
+                    <span data-datetime="2025-01-19T22:56:55.3200000">1/19/2025</span>
+                </td>
+
+
+                    <td class="package-icon-cell" aria-hidden="true"></td>
+            </tr>
+</tbody>
+
+                        </table>
+
+                            <div>
+                                <button class="btn btn-link" id="load-more-versions" data-url="/packages/UnitsNet/5.75.1/versiontable">Load more</button>
+                                <div class="hide" id="loading-more-error">Loading failed</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside aria-label="Package details info" class="col-sm-3 package-details-info">
+                <div class="sidebar-section">
+                    <div class="row sidebar-headers">
+                        <div class="col-md-6">
+                            Downloads
+                        </div>
+                        <div class="col-md-6 title-links">
+                                <a href="/stats/packages/UnitsNet?groupby=Version" title="Package Statistics">Full stats →</a>
+                        </div>
+                    </div>
+                    <div class="download-info">
+                        <div class="download-info-row">
+                            <span class="download-info-header">Total</span>
+                            <span class="download-info-content">24.1M</span>
+                        </div>
+                        <div class="download-info-row">
+                            <span class="download-info-header">Current version</span>
+                            <span class="download-info-content">78.5K</span>
+                        </div>
+                        <div class="download-info-row">
+                            <span class="download-info-header">Per day average</span>
+                            <span class="download-info-content">41.4K</span>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-headers">About</div>
+                <ul class="list-unstyled ms-Icon-ul sidebar-links">
+                    <li>
+                        <i class="ms-Icon ms-Icon--History" aria-hidden="true"></i>
+                        Last updated <span data-datetime="2026-07-17T23:48:19.5230000">7/17/2026</span>
+                    </li>
+                        <li>
+                            <i class="ms-Icon ms-Icon--Globe" aria-hidden="true"></i>
+                            <a href="https://github.com/angularsen/UnitsNet" data-track="outbound-project-url" title="Visit the project site to learn more about this package" rel="nofollow">
+                                Project website
+                            </a>
+                        </li>
+
+                        <li>
+                                    <div class="git-image-icon icon" aria-hidden="true" role="img" alt="Git logo"></div>
+
+                            <a href="https://github.com/angularsen/UnitsNet" data-track="outbound-repository-url" title="View the source code for this package" rel="nofollow">
+                                Source repository
+                            </a>
+                        </li>
+
+                            <li>
+                                <i class="ms-Icon ms-Icon--Certificate" aria-hidden="true"></i>
+<a href="https://licenses.nuget.org/MIT-0" aria-label="License MIT-0">MIT-0 license</a>                            </li>
+
+                        <li>
+                            <i class="ms-Icon ms-Icon--CloudDownload" aria-hidden="true"></i>
+                            <a href="https://www.nuget.org/api/v2/package/UnitsNet/5.75.1" data-track="outbound-manual-download" title="Download the raw nupkg file." rel="nofollow">Download package</a>
+                            &nbsp;(3.27 MB)
+                        </li>
+                            <li>
+                                <i class="ms-Icon ms-Icon--CloudDownload" aria-hidden="true"></i>
+                                <a href="https://www.nuget.org/api/v2/symbolpackage/UnitsNet/5.75.1" data-track="outbound-manual-download" title="Download the raw snupkg file." rel="nofollow">Download symbols</a>
+                                &nbsp;(653.25 KB)
+                            </li>
+
+                        <li>
+                            <i class="ms-Icon ms-Icon--FabricFolderSearch" aria-hidden="true" aria-label="nuget.info is a 3rd party website, not controlled by Microsoft. This link is made available to you per the NuGet Terms of Use." title="nuget.info is a 3rd party website, not controlled by Microsoft. This link is made available to you per the NuGet Terms of Use."></i>
+                            <a href="https://nuget.info/packages/UnitsNet/5.75.1" data-track="outbound-nugetpackageexplorer-url"
+                                aria-label="open in NuGet Package Explorer"
+                                title="Explore additional package info on NuGet Package Explorer" target="_blank" rel="nofollow noreferrer">
+                                Open in NuGet Package Explorer
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <img class="icon nuget-trends-icon"
+                                 aria-label="nugettrends.com is a 3rd party website, not controlled by Microsoft. This link is made available to you per the NuGet Terms of Use." title="nugettrends.com is a 3rd party website, not controlled by Microsoft. This link is made available to you per the NuGet Terms of Use."
+                                 src="https://nuget.org/Content/gallery/img/nuget-trends.svg"
+                                     onerror="this.src='https://nuget.org/Content/gallery/img/nuget-trends-32x32.png'; this.onerror = null;"
+ />
+                            <a href="https://nugettrends.com/packages?ids=UnitsNet" data-track="outbound-nuget-trends-url"
+                               aria-label="open in nugetrends.com"
+                               title="Explore download trends on nugettrends.com" target="_blank" rel="nofollow noreferrer">
+                                Open in NuGet Trends
+                            </a>
+                        </li>
+
+
+                        <li class="report-link">
+                            <i class="ms-Icon ms-Icon--Flag" aria-hidden="true"></i>
+                            <a href="/packages/UnitsNet/5.75.1/ReportAbuse" title="Report the package as abusive">
+                                Report package
+                            </a>
+                        </li>
+                </ul>
+            </div>
+
+
+
+            <div class="sidebar-section">
+                <div class="row sidebar-headers">
+                    <div class="col-md-6">
+                        Owners
+                    </div>
+                    <div class="col-md-6 title-links">
+                        <a href="/packages/UnitsNet/5.75.1/ContactOwners" title="Ask the package owners a question">Contact owners →</a>
+                    </div>
+                </div>
+
+                    <ul class="list-unstyled owner-list">
+                            <li>
+                                    <a class="profile-icon" href="/profiles/angularsen" title="angularsen">
+                                        <img src="/profiles/angularsen/avatar?imageSize=64"
+                                class="owner-image"
+                                height="32"
+                                width="32"
+                                title="angularsen"
+                                alt="angularsen gravatar" />
+                                    </a>
+                                <a class="username" href="/profiles/angularsen" title="angularsen">
+                                    angularsen
+                                </a>
+                            </li>
+                            <li>
+                                    <a class="profile-icon" href="/profiles/UnitsNet" title="UnitsNet">
+                                        <img src="/profiles/UnitsNet/avatar?imageSize=64"
+                                class="owner-image"
+                                height="32"
+                                width="32"
+                                title="UnitsNet"
+                                alt="UnitsNet gravatar" />
+                                    </a>
+                                <a class="username" href="/profiles/UnitsNet" title="UnitsNet">
+                                    UnitsNet
+                                </a>
+                            </li>
+                    </ul>
+
+
+            </div>
+                    <p>
+                            <a href="/packages?q=Tags%3A%22unit%22" title="Search for unit" class="tag">unit</a>
+                            <a href="/packages?q=Tags%3A%22units%22" title="Search for units" class="tag">units</a>
+                            <a href="/packages?q=Tags%3A%22quantity%22" title="Search for quantity" class="tag">quantity</a>
+                            <a href="/packages?q=Tags%3A%22quantities%22" title="Search for quantities" class="tag">quantities</a>
+                            <a href="/packages?q=Tags%3A%22measurement%22" title="Search for measurement" class="tag">measurement</a>
+                            <a href="/packages?q=Tags%3A%22si%22" title="Search for si" class="tag">si</a>
+                            <a href="/packages?q=Tags%3A%22metric%22" title="Search for metric" class="tag">metric</a>
+                            <a href="/packages?q=Tags%3A%22imperial%22" title="Search for imperial" class="tag">imperial</a>
+                            <a href="/packages?q=Tags%3A%22abbreviation%22" title="Search for abbreviation" class="tag">abbreviation</a>
+                            <a href="/packages?q=Tags%3A%22abbreviations%22" title="Search for abbreviations" class="tag">abbreviations</a>
+                            <a href="/packages?q=Tags%3A%22convert%22" title="Search for convert" class="tag">convert</a>
+                            <a href="/packages?q=Tags%3A%22conversion%22" title="Search for conversion" class="tag">conversion</a>
+                            <a href="/packages?q=Tags%3A%22parse%22" title="Search for parse" class="tag">parse</a>
+                            <a href="/packages?q=Tags%3A%22immutable%22" title="Search for immutable" class="tag">immutable</a>
+                    </p>
+                    <p>Copyright 2013 Andreas Gullberg Larsen (andreas.larsen84@gmail.com).</p>
+
+                <p class="share-buttons">
+                        <a href="/packages/UnitsNet/atom.xml" data-track="atom-feed">
+                            <img width="24" height="24" alt="Use the Atom feed to subscribe to new versions of UnitsNet"
+                                    src="https://nuget.org/Content/gallery/img/rss.svg"
+                                        onerror="this.src='https://nuget.org/Content/gallery/img/rss-24x24.png'; this.onerror = null;"
+ />
+                        </a>
+                </p>
+        </aside>
+    </div>
+</section>
+
+
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <span class="footer-heading"><a href="/policies/Contact">Contact</a></span>
+                <p>
+                    Got questions about NuGet or the NuGet Gallery?
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <span class="footer-heading"><a href="https://status.nuget.org/">Status</a></span>
+                <p>
+                    Find out the service status of NuGet.org and its related services.
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <span class="footer-heading">
+                    <a aria-label="Frequently Asked Questions" href="https://aka.ms/nuget-faq">
+                        <abbr title="Frequently Asked Questions">FAQ</abbr>
+                    </a>
+                </span>
+                <p>
+                    Read the Frequently Asked Questions about NuGet and see if your question made the list.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 row-gap">
+                <div class="nuget-logo-footer" alt="NuGet home" role="img" aria-label="NuGet Home"     onerror="this.src='https://nuget.org/Content/gallery/img/logo-footer-184x57.png'; this.onerror = null;"
+></div>
+            </div>
+            <div class="col-md-9 row-gap">
+                <div class="row">
+                        <div class="col-md-12 footer-release-info">
+                            <p>
+                                        &#169; Microsoft 2026 -
+
+                                <a href="/policies/About">About</a> -
+                                <a href="/policies/Terms">Terms of Use</a> -
+                                <a href="https://aka.ms/yourcaliforniaprivacychoices">
+                                    <img src="/Content/gallery/img/privacy-choices.svg" height="16" width="43" style="vertical-align:middle" alt="Your Privacy Choices Opt-Out Icon" /><span style="font-size: 16px; font-weight:400">Your Privacy Choices</span></a> -
+                                <a href="https://go.microsoft.com/fwlink/?LinkId=521839" id="footer-privacy-policy-link">Privacy Statement</a>
+
+                                    - <a href="https://www.microsoft.com/trademarks">Trademarks</a>
+                                <br />
+                            </p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--
+    This is the NuGet Gallery version 5.0.0-main-14995753.
+        Deployed from 55d8cc0bc9 Link: https://www.github.com/NuGet/NuGetGallery/commit/55d8cc0bc9
+        Built on HEAD Link: https://www.github.com/NuGet/NuGetGallery/tree/HEAD
+        Built on 2026-08-17T20:27:38.9854913+00:00
+    Deployment label: PROD-USNC.ASE-5.0.0-main-14995753
+    You are on D16DV40000PH.
+-->
+
+</footer>
+
+        <script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js" nonce="8K91WZ1+15v7l5BhDBixFY31olrN/Tans1b84PauWYA="></script>
+
+    <script src="/Scripts/gallery/site.min.js?v=9352ShibzZ-oY8G2paDIJFoRoTrWghNF7YlXi2tc4d01" nonce='8K91WZ1+15v7l5BhDBixFY31olrN/Tans1b84PauWYA='></script>
+
+    
+
+
+    <style type="text/css" nonce="8K91WZ1+15v7l5BhDBixFY31olrN/Tans1b84PauWYA=">
+        #dotnet-cli .install-command-row::before {    content: "> "}#package-manager .install-command-row::before {    content: "PM> "}#script-interactive .install-command-row::before {    content: "> "}
+    </style>
+
+    <script type="text/javascript" nonce="8K91WZ1+15v7l5BhDBixFY31olrN/Tans1b84PauWYA=">
+        window.nuget = window.nuget || {};
+        window.nuget.packageId = "UnitsNet";
+        window.nuget.packageVersion = "5.75.1";
+        window.nuget.packageManagers = ["dotnet-cli-0001","package-manager-0001","package-reference-0001","package-version-0001","package-version-0002","paket-cli-0001","script-interactive-0001","dotnet-run-file-0001","cake-0001","cake-0002"];
+        window.nuget.sponsorshipUrlCount = 0;
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/fsharp.min.js" integrity="sha512-DXYctkkhmMYJ4vYp4Dm6jprD4ZareZ7ud/d9mGCKif/Dt3FnN95SjogHvwKvxXHoMAAkZX6EO6ePwpDIR1Y8jw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/dos.min.js" integrity="sha512-mz4SrGyk+dtPY9MNYOMkD81gp8ajViZ4S0VDuM/Zqg40cg9xgIBYSiL5fN79Htbz4f2+uR9lrDO6mgcjM+NAXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/powershell.min.js" integrity="sha512-pnt8OPBTOklRd4/iSW7msOiCVO4uvffF17Egr3c7AaN0h3qFnSu7L6UmdZJUCednMhhruTLRq7X9WbyAWNBegw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script nonce="8K91WZ1+15v7l5BhDBixFY31olrN/Tans1b84PauWYA=">
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+        </script>
+
+    <script src="/Scripts/gallery/page-display-package.min.js?v=kx7nle07rCr8OpYGs7DwyfOpB5ksysuLkM_xkwX61iw1" nonce='8K91WZ1+15v7l5BhDBixFY31olrN/Tans1b84PauWYA='></script>
+
+
+        <form aria-hidden="true" id="AntiForgeryForm">
+        <input name="__RequestVerificationToken" type="hidden" value="xlmosgLt5QxZTpcLsHvgI1KcH6FUA__Fd8uMoIaS-xy1befH-r5dkMf2IjFOXFIDuRFDPbuOBV8YiX2_qqzDLYriXugJHdA87xNgA_m9oiI1" />
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../data/qrcode/src/qrcode.csproj" />
+    <ProjectReference Include="../../graphics/png/src/png.csproj" />
+  </ItemGroup>
+</Project>

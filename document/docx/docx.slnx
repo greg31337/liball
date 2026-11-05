@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/docx.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/docx.Tests.csproj" />
+  </Folder>
+</Solution>

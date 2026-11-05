@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QUDT OWL Schema</title>
+  <!-- MathJax (LaTeX rendering) -->
+  <script>
+    // Load MathJax only when needed, and typeset ONLY elements marked .mathjax_process.
+    // NOTE: This must run after the DOM is built; otherwise querySelectorAll() in <head> finds 0 targets.
+    (function () {
+      function initMathJax() {
+        const targets = Array.from(document.querySelectorAll('.mathjax_process'));
+        if (!targets.length) return;
+
+        window.MathJax = {
+          tex: {
+            inlineMath: [['\\(','\\)'], ['$', '$']],
+            displayMath: [['$$','$$'], ['\\[','\\]']]
+          },
+          options: { processHtmlClass: 'mathjax_process', ignoreHtmlClass: 'mathjax_ignore' },
+          startup: {
+            typeset: false,
+            ready: () => {
+              MathJax.startup.defaultReady();
+              const t = Array.from(document.querySelectorAll('.mathjax_process'));
+              if (t.length) MathJax.typesetPromise(t);
+            }
+          }
+        };
+
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+        s.defer = true;
+        document.head.appendChild(s);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMathJax, { once: true });
+      } else {
+        initMathJax();
+      }
+    })();
+  </script>
+
+<style>
+    :root {
+      --ink: #1f1f1f;
+      --brass: #a6753a;
+      --brass-dark: #7a4e1f;
+      --paper: #f6efe4;
+      --paper-dark: #e8dcc8;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: Calibri, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+      color: var(--ink);
+      background-image:
+        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+        url("https://cdn.pixabay.com/photo/2018/02/21/09/35/steampunk-3169877_1280.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 22px 26px 34px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid #d6c2a6;
+      box-shadow: 0 8px 30px rgba(34,27,18,0.15);
+    }
+    a { color: var(--brass-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .topbar { display:flex; align-items:center; gap:16px; margin-bottom: 16px; }
+    .logo { height: 46px; filter: sepia(0.15); }
+    h1 { font-size: 26px; letter-spacing: 0.02em; margin: 0; }
+    h2 { font-size: 18px; margin-top: 28px; border-bottom: 1px solid #c9b08a; padding-bottom: 6px; }
+    .meta { color:#4a3a2a; font-size: 12px; margin-top: 12px; }
+    .box {
+      border: 1px solid #d6c2a6;
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,245,235,0.9));
+    }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { padding: 6px 8px; vertical-align: top; }
+    th { text-align: left; font-weight: 600; color:#3a2b1c; width: 30%; }
+    ul { margin: 8px 0 0 18px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.95em; }
+    .small { font-size: 12px; color:#5a4937; }
+    .prewrap { white-space: pre-wrap; }
+    .count { color:#5a4937; font-size: 12px; margin-left: 8px; }
+    .brass-tag { display:inline-block; padding: 2px 8px; border: 1px solid var(--brass); border-radius: 999px; background: #f3e2c6; font-size: 11px; letter-spacing: 0.04em; }
+    details.meta-details > summary { cursor: pointer; font-weight: 600; margin-top: 20px; }
+    details.meta-details[open] > summary { margin-bottom: 10px; }
+    .meta-hint { font-weight: 400; color:#6b5138; font-size: 0.9em; margin-left: 6px; }
+    .meta-hint { font-weight: 400; color:#6b5138; font-size: 0.9em; margin-left: 6px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a href="https://qudt.org/"><img class="logo" alt="QUDT logo" src="https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"/></a>
+      <div>
+        <h1>QUDT OWL Schema</h1>
+        <div class="small"><span class="brass-tag">Graph</span> <a href="http://qudt.org/3.1.11/schema/qudt">http://qudt.org/3.1.11/schema/qudt</a></div>
+      </div>
+    </div>
+
+    
+      <div class="box">
+        <div><span class="brass-tag">Turtle</span> <a href="http://qudt.org/3.1.11/schema/qudt">http://qudt.org/3.1.11/schema/qudt</a></div>
+      </div>
+    
+
+  
+    <details class="meta-details">
+      <summary>Metadata <span class="meta-hint">(click to expand)</span></summary>
+      <div class="box">
+        <table>
+          <tbody>
+          
+            <tr>
+              <th><a href='http://purl.org/dc/terms/title'><code>dcterms:title</code></a></th>
+              <td><span class='prewrap'>“QUDT Schema - Version 3.1.11”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://purl.org/dc/terms/subject'><code>dcterms:subject</code></a></th>
+              <td><span class='prewrap'>“QUDT”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://purl.org/dc/terms/created'><code>dcterms:created</code></a></th>
+              <td><span class='prewrap'>“2011-04-20”<span class='small'>^^<a href='http://www.w3.org/2001/XMLSchema#date'><code>xsd:date</code></a></span></span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://purl.org/dc/terms/modified'><code>dcterms:modified</code></a></th>
+              <td><span class='prewrap'>“2026-02-19T13:23:21+00:00”<span class='small'>^^<a href='http://www.w3.org/2001/XMLSchema#dateTime'><code>xsd:dateTime</code></a></span></span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#graphTitle'><code>vaem:graphTitle</code></a></th>
+              <td><span class='prewrap'>“Quantities, Units, Dimensions and Types (QUDT) Schema - Version 3.1.11”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#namespace'><code>vaem:namespace</code></a></th>
+              <td><a href='http://qudt.org/schema/qudt/' class='prewrap'>http://qudt.org/schema/qudt/</a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#namespacePrefix'><code>vaem:namespacePrefix</code></a></th>
+              <td><span class='prewrap'>“qudt”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.w3.org/2002/07/owl#versionIRI'><code>owl:versionIRI</code></a></th>
+              <td><a href='http://qudt.org/3.1.11/schema/qudt'>http://qudt.org/3.1.11/schema/qudt</a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.w3.org/2000/01/rdf-schema#isDefinedBy'><code>rdfs:isDefinedBy</code></a></th>
+              <td><a href='http://qudt.org/3.1.11/schema/qudt'>http://qudt.org/3.1.11/schema/qudt</a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#latestPublishedVersion'><code>vaem:latestPublishedVersion</code></a></th>
+              <td><a href='https://qudt.org/doc/2026/02/DOC_SCHEMA-QUDT.html' class='prewrap'>https://qudt.org/doc/2026/02/DOC_SCHEMA-QUDT.html</a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#previousPublishedVersion'><code>vaem:previousPublishedVersion</code></a></th>
+              <td><a href='https://qudt.org/doc/2026/01/DOC_SCHEMA-QUDT.html' class='prewrap'>https://qudt.org/doc/2026/01/DOC_SCHEMA-QUDT.html</a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://purl.org/dc/terms/contributor'><code>dcterms:contributor</code></a></th>
+              <td><ul><li><span class='prewrap'>“Daniel Mekonnen”</span></li><li><span class='prewrap'>“David Price”</span></li><li><span class='prewrap'>“Jack Hodges”</span></li><li><span class='prewrap'>“James E. Masters”</span></li><li><span class='prewrap'>“Simon J D Cox”</span></li><li><span class='prewrap'>“Steve Ray”</span></li></ul></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://purl.org/dc/terms/creator'><code>dcterms:creator</code></a></th>
+              <td><span class='prewrap'>“Ralph Hodgson”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://purl.org/dc/terms/description'><code>dcterms:description</code></a></th>
+              <td><div class='prewrap'><p class="lm-para">The QUDT, or "Quantity, Unit, Dimension and Type" schema defines the base classes properties, and restrictions used for modeling physical quantities, units of measure, and their dimensions in various measurement systems. The goal of the QUDT ontology is to provide a unified model of, measurable quantities, units for measuring different kinds of quantities, the numerical values of quantities in different units of measure and the data structures and data types used to store and manipulate these objects in software.</p>
+
+<p class="lm-para">Except for unit prefixes, all units are specified in separate vocabularies. Descriptions are provided in both HTML and LaTeX formats. A quantity is a measure of an observable phenomenon, that, when associated with something, becomes a property of that thing; a particular object, event, or physical system. </p>
+
+<p class="lm-para">A quantity has meaning in the context of a measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying quantity kind is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc.  Or, as stated at Wikipedia, in the language of measurement, quantities are quantifiable aspects of the world, such as time, distance, velocity, mass, momentum, energy, and weight, and units are used to describe their measure. Many of these quantities are related to each other by various physical laws, and as a result the units of some of the quantities can be expressed as products (or ratios) of powers of other units (e.g., momentum is mass times velocity and velocity is measured in distance divided by time).</p></div></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://purl.org/dc/terms/rights'><code>dcterms:rights</code></a></th>
+              <td><ul><li><span class='prewrap'>“
+  This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
+
+THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDED 'AS IS.' ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  ”</span></li><li><span class='prewrap'>“The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org”</span></li></ul></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://qudt.org/schema/qudt/informativeReference'><code>qudt:informativeReference</code></a></th>
+              <td><ul><li><a href='http://unitsofmeasure.org/trac' class='prewrap'>http://unitsofmeasure.org/trac</a></li><li><a href='http://www.bipm.org/en/publications/si-brochure' class='prewrap'>http://www.bipm.org/en/publications/si-brochure</a></li><li><a href='http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf' class='prewrap'>http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</a></li><li><a href='https://books.google.com/books?id=pIlCAAAAIAAJ&amp;dq=dimensional+analysis&amp;hl=en' class='prewrap'>https://books.google.com/books?id=pIlCAAAAIAAJ&amp;dq=dimensional+analysis&amp;hl=en</a></li><li><a href='https://www.nist.gov/physical-measurement-laboratory/special-publication-811' class='prewrap'>https://www.nist.gov/physical-measurement-laboratory/special-publication-811</a></li></ul></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.w3.org/1999/02/22-rdf-syntax-ns#type'><code>rdf:type</code></a></th>
+              <td><a href='http://www.linkedmodel.org/schema/vaem#GraphMetaData'><code>vaem:GraphMetaData</code></a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.w3.org/2000/01/rdf-schema#label'><code>rdfs:label</code></a></th>
+              <td><span class='prewrap'>“QUDT Schema - Version 3.1.11”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#graphName'><code>vaem:graphName</code></a></th>
+              <td><span class='prewrap'>“qudt”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#hasGraphRole'><code>vaem:hasGraphRole</code></a></th>
+              <td><a href='http://www.linkedmodel.org/schema/vaem#SchemaGraph'><code>vaem:SchemaGraph</code></a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#hasOwner'><code>vaem:hasOwner</code></a></th>
+              <td><a href='http://www.linkedmodel.org/schema/vaem#QUDT'><code>vaem:QUDT</code></a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#hasSteward'><code>vaem:hasSteward</code></a></th>
+              <td><a href='http://www.linkedmodel.org/schema/vaem#QUDT'><code>vaem:QUDT</code></a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#intent'><code>vaem:intent</code></a></th>
+              <td><span class='prewrap'>“Specifies the schema for quantities, units and dimensions. Types are defined in other schemas.”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#isMetadataFor'><code>vaem:isMetadataFor</code></a></th>
+              <td><a href='http://qudt.org/3.1.11/schema/qudt'>http://qudt.org/3.1.11/schema/qudt</a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#logo'><code>vaem:logo</code></a></th>
+              <td><a href='https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png' class='prewrap'>https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png</a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#owner'><code>vaem:owner</code></a></th>
+              <td><span class='prewrap'>“qudt.org”</span></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#turtleFileURL'><code>vaem:turtleFileURL</code></a></th>
+              <td><a href='http://qudt.org/3.1.11/schema/qudt' class='prewrap'>http://qudt.org/3.1.11/schema/qudt</a></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#usesNonImportedResource'><code>vaem:usesNonImportedResource</code></a></th>
+              <td><ul><li><a href='http://purl.org/dc/terms/abstract'><code>dcterms:abstract</code></a></li><li><a href='http://purl.org/dc/terms/contributor'><code>dcterms:contributor</code></a></li><li><a href='http://purl.org/dc/terms/created'><code>dcterms:created</code></a></li><li><a href='http://purl.org/dc/terms/description'><code>dcterms:description</code></a></li><li><a href='http://purl.org/dc/terms/modified'><code>dcterms:modified</code></a></li><li><a href='http://purl.org/dc/terms/rights'><code>dcterms:rights</code></a></li><li><a href='http://purl.org/dc/terms/source'><code>dcterms:source</code></a></li><li><a href='http://purl.org/dc/terms/subject'><code>dcterms:subject</code></a></li><li><a href='http://purl.org/dc/terms/title'><code>dcterms:title</code></a></li><li><a href='http://voag.linkedmodel.org/schema/voag#QUDT-Attribution'><code>voag:QUDT-Attribution</code></a></li></ul></td>
+            </tr>
+          
+            <tr>
+              <th><a href='http://www.linkedmodel.org/schema/vaem#withAttributionTo'><code>vaem:withAttributionTo</code></a></th>
+              <td><a href='http://voag.linkedmodel.org/schema/voag#QUDT-Attribution'><code>voag:QUDT-Attribution</code></a></td>
+            </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </details>
+  
+
+  
+    <h2>Abstract</h2>
+    <div class="box"><div class='prewrap'><p class="lm-para">The QUDT, or "Quantity, Unit, Dimension and Type" schema defines the base classes properties, and restrictions used for modeling physical quantities, units of measure, and their dimensions in various measurement systems. The goal of the QUDT ontology is to provide a unified model of, measurable quantities, units for measuring different kinds of quantities, the numerical values of quantities in different units of measure and the data structures and data types used to store and manipulate these objects in software.</p>
+
+<p class="lm-para">Except for unit prefixes, all units are specified in separate vocabularies. Descriptions are provided in both HTML and LaTeX formats. A quantity is a measure of an observable phenomenon, that, when associated with something, becomes a property of that thing; a particular object, event, or physical system. </p>
+
+<p class="lm-para">A quantity has meaning in the context of a measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying quantity kind is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc.  Or, as stated at Wikipedia, in the language of measurement, quantities are quantifiable aspects of the world, such as time, distance, velocity, mass, momentum, energy, and weight, and units are used to describe their measure. Many of these quantities are related to each other by various physical laws, and as a result the units of some of the quantities can be expressed as products (or ratios) of powers of other units (e.g., momentum is mass times velocity and velocity is measured in distance divided by time).</p></div></div>
+  
+
+  <h2>Imported graphs<span class="count">3</span></h2>
+  <div class="box">
+    
+      <ul><li><a href='http://www.linkedmodel.org/schema/dtype'>http://www.linkedmodel.org/schema/dtype</a></li><li><a href='http://www.linkedmodel.org/schema/vaem'>http://www.linkedmodel.org/schema/vaem</a></li><li><a href='http://www.w3.org/2004/02/skos/core'>http://www.w3.org/2004/02/skos/core</a></li></ul>
+    
+  </div>
+
+  <h2>Non-imported resources<span class="count">10</span></h2>
+  <div class="box">
+    
+      <ul><li><a href='http://purl.org/dc/terms/abstract'><code>dcterms:abstract</code></a></li><li><a href='http://purl.org/dc/terms/contributor'><code>dcterms:contributor</code></a></li><li><a href='http://purl.org/dc/terms/created'><code>dcterms:created</code></a></li><li><a href='http://purl.org/dc/terms/description'><code>dcterms:description</code></a></li><li><a href='http://purl.org/dc/terms/modified'><code>dcterms:modified</code></a></li><li><a href='http://purl.org/dc/terms/rights'><code>dcterms:rights</code></a></li><li><a href='http://purl.org/dc/terms/source'><code>dcterms:source</code></a></li><li><a href='http://purl.org/dc/terms/subject'><code>dcterms:subject</code></a></li><li><a href='http://purl.org/dc/terms/title'><code>dcterms:title</code></a></li><li><a href='http://voag.linkedmodel.org/schema/voag#QUDT-Attribution'><code>voag:QUDT-Attribution</code></a></li></ul>
+    
+  </div>
+
+  <h2>Classes defined<span class="count">74</span></h2>
+  <div class="box">
+    
+      <ul><li><a href='http://qudt.org/schema/qudt/AbstractQuantityKind'><code>qudt:AbstractQuantityKind</code></a></li><li><a href='http://qudt.org/schema/qudt/AngleUnit'><code>qudt:AngleUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/AspectClass'><code>qudt:AspectClass</code></a></li><li><a href='http://qudt.org/schema/qudt/BaseDimensionMagnitude'><code>qudt:BaseDimensionMagnitude</code></a></li><li><a href='http://qudt.org/schema/qudt/BinaryPrefix'><code>qudt:BinaryPrefix</code></a></li><li><a href='http://qudt.org/schema/qudt/BitEncodingType'><code>qudt:BitEncodingType</code></a></li><li><a href='http://qudt.org/schema/qudt/BooleanEncodingType'><code>qudt:BooleanEncodingType</code></a></li><li><a href='http://qudt.org/schema/qudt/ByteEncodingType'><code>qudt:ByteEncodingType</code></a></li><li><a href='http://qudt.org/schema/qudt/CardinalityType'><code>qudt:CardinalityType</code></a></li><li><a href='http://qudt.org/schema/qudt/CharEncodingType'><code>qudt:CharEncodingType</code></a></li><li><a href='http://qudt.org/schema/qudt/Citation'><code>qudt:Citation</code></a></li><li><a href='http://qudt.org/schema/qudt/Comment'><code>qudt:Comment</code></a></li><li><a href='http://qudt.org/schema/qudt/Concept'><code>qudt:Concept</code></a></li><li><a href='http://qudt.org/schema/qudt/ConstantValue'><code>qudt:ConstantValue</code></a></li><li><a href='http://qudt.org/schema/qudt/ContextualUnit'><code>qudt:ContextualUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/CountingUnit'><code>qudt:CountingUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/CurrencyUnit'><code>qudt:CurrencyUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/DataEncoding'><code>qudt:DataEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/DataItem'><code>qudt:DataItem</code></a></li><li><a href='http://qudt.org/schema/qudt/Datatype'><code>qudt:Datatype</code></a></li><li><a href='http://qudt.org/schema/qudt/DateTimeStringEncodingType'><code>qudt:DateTimeStringEncodingType</code></a></li><li><a href='http://qudt.org/schema/qudt/DecimalPrefix'><code>qudt:DecimalPrefix</code></a></li><li><a href='http://qudt.org/schema/qudt/DerivedUnit'><code>qudt:DerivedUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/DimensionlessUnit'><code>qudt:DimensionlessUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/Discipline'><code>qudt:Discipline</code></a></li><li><a href='http://qudt.org/schema/qudt/Encoding'><code>qudt:Encoding</code></a></li><li><a href='http://qudt.org/schema/qudt/EndianType'><code>qudt:EndianType</code></a></li><li><a href='http://qudt.org/schema/qudt/EnumeratedValue'><code>qudt:EnumeratedValue</code></a></li><li><a href='http://qudt.org/schema/qudt/Enumeration'><code>qudt:Enumeration</code></a></li><li><a href='http://qudt.org/schema/qudt/EnumerationScale'><code>qudt:EnumerationScale</code></a></li><li><a href='http://qudt.org/schema/qudt/FactorUnit'><code>qudt:FactorUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/Figure'><code>qudt:Figure</code></a></li><li><a href='http://qudt.org/schema/qudt/FloatingPointEncodingType'><code>qudt:FloatingPointEncodingType</code></a></li><li><a href='http://qudt.org/schema/qudt/IntegerEncodingType'><code>qudt:IntegerEncodingType</code></a></li><li><a href='http://qudt.org/schema/qudt/IntervalScale'><code>qudt:IntervalScale</code></a></li><li><a href='http://qudt.org/schema/qudt/LogarithmicUnit'><code>qudt:LogarithmicUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/MathsFunctionType'><code>qudt:MathsFunctionType</code></a></li><li><a href='http://qudt.org/schema/qudt/NIST_SP811_Comment'><code>qudt:NIST_SP811_Comment</code></a></li><li><a href='http://qudt.org/schema/qudt/NominalScale'><code>qudt:NominalScale</code></a></li><li><a href='http://qudt.org/schema/qudt/NumericUnion'><code>qudt:NumericUnion</code></a></li><li><a href='http://qudt.org/schema/qudt/OrderedType'><code>qudt:OrderedType</code></a></li><li><a href='http://qudt.org/schema/qudt/OrdinalScale'><code>qudt:OrdinalScale</code></a></li><li><a href='http://qudt.org/schema/qudt/Organization'><code>qudt:Organization</code></a></li><li><a href='http://qudt.org/schema/qudt/PhysicalConstant'><code>qudt:PhysicalConstant</code></a></li><li><a href='http://qudt.org/schema/qudt/PlaneAngleUnit'><code>qudt:PlaneAngleUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/Prefix'><code>qudt:Prefix</code></a></li><li><a href='http://qudt.org/schema/qudt/Quantifiable'><code>qudt:Quantifiable</code></a></li><li><a href='http://qudt.org/schema/qudt/Quantity'><code>qudt:Quantity</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKind'><code>qudt:QuantityKind</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector'><code>qudt:QuantityKindDimensionVector</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector_CGS'><code>qudt:QuantityKindDimensionVector_CGS</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector_CGS-EMU'><code>qudt:QuantityKindDimensionVector_CGS-EMU</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector_CGS-ESU'><code>qudt:QuantityKindDimensionVector_CGS-ESU</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector_CGS-GAUSS'><code>qudt:QuantityKindDimensionVector_CGS-GAUSS</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector_CGS-LH'><code>qudt:QuantityKindDimensionVector_CGS-LH</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector_ISO'><code>qudt:QuantityKindDimensionVector_ISO</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector_Imperial'><code>qudt:QuantityKindDimensionVector_Imperial</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityKindDimensionVector_SI'><code>qudt:QuantityKindDimensionVector_SI</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityType'><code>qudt:QuantityType</code></a></li><li><a href='http://qudt.org/schema/qudt/QuantityValue'><code>qudt:QuantityValue</code></a></li><li><a href='http://qudt.org/schema/qudt/RatioScale'><code>qudt:RatioScale</code></a></li><li><a href='http://qudt.org/schema/qudt/Rule'><code>qudt:Rule</code></a></li><li><a href='http://qudt.org/schema/qudt/RuleType'><code>qudt:RuleType</code></a></li><li><a href='http://qudt.org/schema/qudt/ScalarDatatype'><code>qudt:ScalarDatatype</code></a></li><li><a href='http://qudt.org/schema/qudt/Scale'><code>qudt:Scale</code></a></li><li><a href='http://qudt.org/schema/qudt/ScaleType'><code>qudt:ScaleType</code></a></li><li><a href='http://qudt.org/schema/qudt/SolidAngleUnit'><code>qudt:SolidAngleUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/Statement'><code>qudt:Statement</code></a></li><li><a href='http://qudt.org/schema/qudt/Symbol'><code>qudt:Symbol</code></a></li><li><a href='http://qudt.org/schema/qudt/SystemOfQuantityKinds'><code>qudt:SystemOfQuantityKinds</code></a></li><li><a href='http://qudt.org/schema/qudt/SystemOfUnits'><code>qudt:SystemOfUnits</code></a></li><li><a href='http://qudt.org/schema/qudt/TransformType'><code>qudt:TransformType</code></a></li><li><a href='http://qudt.org/schema/qudt/Unit'><code>qudt:Unit</code></a></li><li><a href='http://qudt.org/schema/qudt/UserQuantityKind'><code>qudt:UserQuantityKind</code></a></li></ul>
+    
+  </div>
+
+  <h2>Properties defined<span class="count">178</span></h2>
+  <div class="box">
+    
+      <ul><li><a href='http://www.linkedmodel.org/schema/dtype#literal'><code>dtype:literal</code></a></li><li><a href='http://qudt.org/schema/qudt/abbreviation'><code>qudt:abbreviation</code></a></li><li><a href='http://qudt.org/schema/qudt/acronym'><code>qudt:acronym</code></a></li><li><a href='http://qudt.org/schema/qudt/allowedPattern'><code>qudt:allowedPattern</code></a></li><li><a href='http://qudt.org/schema/qudt/altSymbol'><code>qudt:altSymbol</code></a></li><li><a href='http://qudt.org/schema/qudt/ansiSQLName'><code>qudt:ansiSQLName</code></a></li><li><a href='http://qudt.org/schema/qudt/applicableCGSUnit'><code>qudt:applicableCGSUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/applicableISOUnit'><code>qudt:applicableISOUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/applicableImperialUnit'><code>qudt:applicableImperialUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/applicablePhysicalConstant'><code>qudt:applicablePhysicalConstant</code></a></li><li><a href='http://qudt.org/schema/qudt/applicablePlanckUnit'><code>qudt:applicablePlanckUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/applicableSIUnit'><code>qudt:applicableSIUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/applicableSystem'><code>qudt:applicableSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/applicableUSCustomaryUnit'><code>qudt:applicableUSCustomaryUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/applicableUnit'><code>qudt:applicableUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/baseDimensionEnumeration'><code>qudt:baseDimensionEnumeration</code></a></li><li><a href='http://qudt.org/schema/qudt/baseUnitOfSystem'><code>qudt:baseUnitOfSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/basis'><code>qudt:basis</code></a></li><li><a href='http://qudt.org/schema/qudt/belongsToSystemOfQuantities'><code>qudt:belongsToSystemOfQuantities</code></a></li><li><a href='http://qudt.org/schema/qudt/bitOrder'><code>qudt:bitOrder</code></a></li><li><a href='http://qudt.org/schema/qudt/bits'><code>qudt:bits</code></a></li><li><a href='http://qudt.org/schema/qudt/bounded'><code>qudt:bounded</code></a></li><li><a href='http://qudt.org/schema/qudt/byteOrder'><code>qudt:byteOrder</code></a></li><li><a href='http://qudt.org/schema/qudt/bytes'><code>qudt:bytes</code></a></li><li><a href='http://qudt.org/schema/qudt/cName'><code>qudt:cName</code></a></li><li><a href='http://qudt.org/schema/qudt/cardinality'><code>qudt:cardinality</code></a></li><li><a href='http://qudt.org/schema/qudt/categorizedAs'><code>qudt:categorizedAs</code></a></li><li><a href='http://qudt.org/schema/qudt/coherentUnitSystem'><code>qudt:coherentUnitSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/conversionMultiplier'><code>qudt:conversionMultiplier</code></a></li><li><a href='http://qudt.org/schema/qudt/conversionMultiplierSN'><code>qudt:conversionMultiplierSN</code></a></li><li><a href='http://qudt.org/schema/qudt/conversionOffset'><code>qudt:conversionOffset</code></a></li><li><a href='http://qudt.org/schema/qudt/conversionOffsetSN'><code>qudt:conversionOffsetSN</code></a></li><li><a href='http://qudt.org/schema/qudt/currencyCode'><code>qudt:currencyCode</code></a></li><li><a href='http://qudt.org/schema/qudt/currencyExponent'><code>qudt:currencyExponent</code></a></li><li><a href='http://qudt.org/schema/qudt/currencyNumber'><code>qudt:currencyNumber</code></a></li><li><a href='http://qudt.org/schema/qudt/dataEncoding'><code>qudt:dataEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/dataStructure'><code>qudt:dataStructure</code></a></li><li><a href='http://qudt.org/schema/qudt/datatype'><code>qudt:datatype</code></a></li><li><a href='http://qudt.org/schema/qudt/dbpediaMatch'><code>qudt:dbpediaMatch</code></a></li><li><a href='http://qudt.org/schema/qudt/default'><code>qudt:default</code></a></li><li><a href='http://qudt.org/schema/qudt/definedUnitOfSystem'><code>qudt:definedUnitOfSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/denominatorDimensionVector'><code>qudt:denominatorDimensionVector</code></a></li><li><a href='http://qudt.org/schema/qudt/deprecated'><code>qudt:deprecated</code></a></li><li><a href='http://qudt.org/schema/qudt/derivedCoherentUnitOfSystem'><code>qudt:derivedCoherentUnitOfSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/derivedNonCoherentUnitOfSystem'><code>qudt:derivedNonCoherentUnitOfSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/derivedUnitOfSystem'><code>qudt:derivedUnitOfSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionExponent'><code>qudt:dimensionExponent</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionExponentForAmountOfSubstance'><code>qudt:dimensionExponentForAmountOfSubstance</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionExponentForElectricCurrent'><code>qudt:dimensionExponentForElectricCurrent</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionExponentForLength'><code>qudt:dimensionExponentForLength</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionExponentForLuminousIntensity'><code>qudt:dimensionExponentForLuminousIntensity</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionExponentForMass'><code>qudt:dimensionExponentForMass</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionExponentForThermodynamicTemperature'><code>qudt:dimensionExponentForThermodynamicTemperature</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionExponentForTime'><code>qudt:dimensionExponentForTime</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionInverse'><code>qudt:dimensionInverse</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionVectorForSI'><code>qudt:dimensionVectorForSI</code></a></li><li><a href='http://qudt.org/schema/qudt/dimensionlessExponent'><code>qudt:dimensionlessExponent</code></a></li><li><a href='http://qudt.org/schema/qudt/element'><code>qudt:element</code></a></li><li><a href='http://qudt.org/schema/qudt/elementKind'><code>qudt:elementKind</code></a></li><li><a href='http://qudt.org/schema/qudt/encoding'><code>qudt:encoding</code></a></li><li><a href='http://qudt.org/schema/qudt/exactConstant'><code>qudt:exactConstant</code></a></li><li><a href='http://qudt.org/schema/qudt/exactMatch'><code>qudt:exactMatch</code></a></li><li><a href='http://qudt.org/schema/qudt/example'><code>qudt:example</code></a></li><li><a href='http://qudt.org/schema/qudt/exponent'><code>qudt:exponent</code></a></li><li><a href='http://qudt.org/schema/qudt/expression'><code>qudt:expression</code></a></li><li><a href='http://qudt.org/schema/qudt/factorUnitScalar'><code>qudt:factorUnitScalar</code></a></li><li><a href='http://qudt.org/schema/qudt/fieldCode'><code>qudt:fieldCode</code></a></li><li><a href='http://qudt.org/schema/qudt/figure'><code>qudt:figure</code></a></li><li><a href='http://qudt.org/schema/qudt/figureCaption'><code>qudt:figureCaption</code></a></li><li><a href='http://qudt.org/schema/qudt/figureLabel'><code>qudt:figureLabel</code></a></li><li><a href='http://qudt.org/schema/qudt/guidance'><code>qudt:guidance</code></a></li><li><a href='http://qudt.org/schema/qudt/hasAllowedUnit'><code>qudt:hasAllowedUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasBaseQuantityKind'><code>qudt:hasBaseQuantityKind</code></a></li><li><a href='http://qudt.org/schema/qudt/hasBaseUnit'><code>qudt:hasBaseUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasCitation'><code>qudt:hasCitation</code></a></li><li><a href='http://qudt.org/schema/qudt/hasCoherentUnit'><code>qudt:hasCoherentUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasDefinedUnit'><code>qudt:hasDefinedUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasDenominatorPart'><code>qudt:hasDenominatorPart</code></a></li><li><a href='http://qudt.org/schema/qudt/hasDerivedCoherentUnit'><code>qudt:hasDerivedCoherentUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasDerivedNonCoherentUnit'><code>qudt:hasDerivedNonCoherentUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasDerivedUnit'><code>qudt:hasDerivedUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasDimension'><code>qudt:hasDimension</code></a></li><li><a href='http://qudt.org/schema/qudt/hasDimensionExpression'><code>qudt:hasDimensionExpression</code></a></li><li><a href='http://qudt.org/schema/qudt/hasDimensionVector'><code>qudt:hasDimensionVector</code></a></li><li><a href='http://qudt.org/schema/qudt/hasFactorUnit'><code>qudt:hasFactorUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasNumeratorPart'><code>qudt:hasNumeratorPart</code></a></li><li><a href='http://qudt.org/schema/qudt/hasPrefixUnit'><code>qudt:hasPrefixUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasQuantity'><code>qudt:hasQuantity</code></a></li><li><a href='http://qudt.org/schema/qudt/hasQuantityKind'><code>qudt:hasQuantityKind</code></a></li><li><a href='http://qudt.org/schema/qudt/hasReciprocalUnit'><code>qudt:hasReciprocalUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasReferenceQuantityKind'><code>qudt:hasReferenceQuantityKind</code></a></li><li><a href='http://qudt.org/schema/qudt/hasRule'><code>qudt:hasRule</code></a></li><li><a href='http://qudt.org/schema/qudt/hasUnit'><code>qudt:hasUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/hasUnitSystem'><code>qudt:hasUnitSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/hasVocabulary'><code>qudt:hasVocabulary</code></a></li><li><a href='http://qudt.org/schema/qudt/height'><code>qudt:height</code></a></li><li><a href='http://qudt.org/schema/qudt/id'><code>qudt:id</code></a></li><li><a href='http://qudt.org/schema/qudt/iec61360Code'><code>qudt:iec61360Code</code></a></li><li><a href='http://qudt.org/schema/qudt/image'><code>qudt:image</code></a></li><li><a href='http://qudt.org/schema/qudt/imageLocation'><code>qudt:imageLocation</code></a></li><li><a href='http://qudt.org/schema/qudt/informativeReference'><code>qudt:informativeReference</code></a></li><li><a href='http://qudt.org/schema/qudt/isDeltaQuantity'><code>qudt:isDeltaQuantity</code></a></li><li><a href='http://qudt.org/schema/qudt/isDimensionInSystem'><code>qudt:isDimensionInSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/isMetricUnit'><code>qudt:isMetricUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/isUnitOfSystem'><code>qudt:isUnitOfSystem</code></a></li><li><a href='http://qudt.org/schema/qudt/isoNormativeReference'><code>qudt:isoNormativeReference</code></a></li><li><a href='http://qudt.org/schema/qudt/javaName'><code>qudt:javaName</code></a></li><li><a href='http://qudt.org/schema/qudt/jsName'><code>qudt:jsName</code></a></li><li><a href='http://qudt.org/schema/qudt/landscape'><code>qudt:landscape</code></a></li><li><a href='http://qudt.org/schema/qudt/latexDefinition'><code>qudt:latexDefinition</code></a></li><li><a href='http://qudt.org/schema/qudt/latexSymbol'><code>qudt:latexSymbol</code></a></li><li><a href='http://qudt.org/schema/qudt/length'><code>qudt:length</code></a></li><li><a href='http://qudt.org/schema/qudt/lowerBound'><code>qudt:lowerBound</code></a></li><li><a href='http://qudt.org/schema/qudt/mathDefinition'><code>qudt:mathDefinition</code></a></li><li><a href='http://qudt.org/schema/qudt/mathMLdefinition'><code>qudt:mathMLdefinition</code></a></li><li><a href='http://qudt.org/schema/qudt/matlabName'><code>qudt:matlabName</code></a></li><li><a href='http://qudt.org/schema/qudt/maxExclusive'><code>qudt:maxExclusive</code></a></li><li><a href='http://qudt.org/schema/qudt/maxInclusive'><code>qudt:maxInclusive</code></a></li><li><a href='http://qudt.org/schema/qudt/microsoftSQLServerName'><code>qudt:microsoftSQLServerName</code></a></li><li><a href='http://qudt.org/schema/qudt/minExclusive'><code>qudt:minExclusive</code></a></li><li><a href='http://qudt.org/schema/qudt/minInclusive'><code>qudt:minInclusive</code></a></li><li><a href='http://qudt.org/schema/qudt/mySQLName'><code>qudt:mySQLName</code></a></li><li><a href='http://qudt.org/schema/qudt/negativeDeltaLimit'><code>qudt:negativeDeltaLimit</code></a></li><li><a href='http://qudt.org/schema/qudt/normativeReference'><code>qudt:normativeReference</code></a></li><li><a href='http://qudt.org/schema/qudt/numeratorDimensionVector'><code>qudt:numeratorDimensionVector</code></a></li><li><a href='http://qudt.org/schema/qudt/numericValue'><code>qudt:numericValue</code></a></li><li><a href='http://qudt.org/schema/qudt/odbcName'><code>qudt:odbcName</code></a></li><li><a href='http://qudt.org/schema/qudt/oleDBName'><code>qudt:oleDBName</code></a></li><li><a href='http://qudt.org/schema/qudt/omUnit'><code>qudt:omUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/onlineReference'><code>qudt:onlineReference</code></a></li><li><a href='http://qudt.org/schema/qudt/oracleSQLName'><code>qudt:oracleSQLName</code></a></li><li><a href='http://qudt.org/schema/qudt/order'><code>qudt:order</code></a></li><li><a href='http://qudt.org/schema/qudt/orderedType'><code>qudt:orderedType</code></a></li><li><a href='http://qudt.org/schema/qudt/outOfScope'><code>qudt:outOfScope</code></a></li><li><a href='http://qudt.org/schema/qudt/permissibleMaths'><code>qudt:permissibleMaths</code></a></li><li><a href='http://qudt.org/schema/qudt/permissibleTransformation'><code>qudt:permissibleTransformation</code></a></li><li><a href='http://qudt.org/schema/qudt/plainTextDescription'><code>qudt:plainTextDescription</code></a></li><li><a href='http://qudt.org/schema/qudt/positiveDeltaLimit'><code>qudt:positiveDeltaLimit</code></a></li><li><a href='http://qudt.org/schema/qudt/prefix'><code>qudt:prefix</code></a></li><li><a href='http://qudt.org/schema/qudt/prefixMultiplier'><code>qudt:prefixMultiplier</code></a></li><li><a href='http://qudt.org/schema/qudt/prefixMultiplierSN'><code>qudt:prefixMultiplierSN</code></a></li><li><a href='http://qudt.org/schema/qudt/protocolBuffersName'><code>qudt:protocolBuffersName</code></a></li><li><a href='http://qudt.org/schema/qudt/pythonName'><code>qudt:pythonName</code></a></li><li><a href='http://qudt.org/schema/qudt/qkdvDenominator'><code>qudt:qkdvDenominator</code></a></li><li><a href='http://qudt.org/schema/qudt/qkdvNumerator'><code>qudt:qkdvNumerator</code></a></li><li><a href='http://qudt.org/schema/qudt/quantity'><code>qudt:quantity</code></a></li><li><a href='http://qudt.org/schema/qudt/quantityValue'><code>qudt:quantityValue</code></a></li><li><a href='http://qudt.org/schema/qudt/rationale'><code>qudt:rationale</code></a></li><li><a href='http://qudt.org/schema/qudt/rdfsDatatype'><code>qudt:rdfsDatatype</code></a></li><li><a href='http://qudt.org/schema/qudt/reference'><code>qudt:reference</code></a></li><li><a href='http://qudt.org/schema/qudt/referenceUnit'><code>qudt:referenceUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/relativeStandardUncertainty'><code>qudt:relativeStandardUncertainty</code></a></li><li><a href='http://qudt.org/schema/qudt/relevantQuantityKind'><code>qudt:relevantQuantityKind</code></a></li><li><a href='http://qudt.org/schema/qudt/relevantUnit'><code>qudt:relevantUnit</code></a></li><li><a href='http://qudt.org/schema/qudt/ruleType'><code>qudt:ruleType</code></a></li><li><a href='http://qudt.org/schema/qudt/scaleType'><code>qudt:scaleType</code></a></li><li><a href='http://qudt.org/schema/qudt/scalingOf'><code>qudt:scalingOf</code></a></li><li><a href='http://qudt.org/schema/qudt/siExactMatch'><code>qudt:siExactMatch</code></a></li><li><a href='http://qudt.org/schema/qudt/siUnitsExpression'><code>qudt:siUnitsExpression</code></a></li><li><a href='http://qudt.org/schema/qudt/standardUncertainty'><code>qudt:standardUncertainty</code></a></li><li><a href='http://qudt.org/schema/qudt/standardUncertaintySN'><code>qudt:standardUncertaintySN</code></a></li><li><a href='http://qudt.org/schema/qudt/symbol'><code>qudt:symbol</code></a></li><li><a href='http://qudt.org/schema/qudt/systemDefinition'><code>qudt:systemDefinition</code></a></li><li><a href='http://qudt.org/schema/qudt/systemDerivedQuantityKind'><code>qudt:systemDerivedQuantityKind</code></a></li><li><a href='http://qudt.org/schema/qudt/systemDimension'><code>qudt:systemDimension</code></a></li><li><a href='http://qudt.org/schema/qudt/ucumCode'><code>qudt:ucumCode</code></a></li><li><a href='http://qudt.org/schema/qudt/udunitsCode'><code>qudt:udunitsCode</code></a></li><li><a href='http://qudt.org/schema/qudt/uneceCommonCode'><code>qudt:uneceCommonCode</code></a></li><li><a href='http://qudt.org/schema/qudt/unitFor'><code>qudt:unitFor</code></a></li><li><a href='http://qudt.org/schema/qudt/upperBound'><code>qudt:upperBound</code></a></li><li><a href='http://qudt.org/schema/qudt/url'><code>qudt:url</code></a></li><li><a href='http://qudt.org/schema/qudt/value'><code>qudt:value</code></a></li><li><a href='http://qudt.org/schema/qudt/valueQuantity'><code>qudt:valueQuantity</code></a></li><li><a href='http://qudt.org/schema/qudt/valueSN'><code>qudt:valueSN</code></a></li><li><a href='http://qudt.org/schema/qudt/vbName'><code>qudt:vbName</code></a></li><li><a href='http://qudt.org/schema/qudt/vectorMagnitude'><code>qudt:vectorMagnitude</code></a></li><li><a href='http://qudt.org/schema/qudt/width'><code>qudt:width</code></a></li><li><a href='http://qudt.org/schema/qudt/wikidataMatch'><code>qudt:wikidataMatch</code></a></li></ul>
+    
+  </div>
+
+  <h2>Instances defined<span class="count">29</span></h2>
+  <div class="box">
+    
+      <ul><li><a href='http://qudt.org/3.1.11/schema/qudt'>http://qudt.org/3.1.11/schema/qudt</a></li><li><a href='http://qudt.org/schema/qudt/Aspect'><code>qudt:Aspect</code></a></li><li><a href='http://qudt.org/schema/qudt/BigEndian'><code>qudt:BigEndian</code></a></li><li><a href='http://qudt.org/schema/qudt/BitEncoding'><code>qudt:BitEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/BooleanEncoding'><code>qudt:BooleanEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/CT_COUNTABLY-INFINITE'><code>qudt:CT_COUNTABLY-INFINITE</code></a></li><li><a href='http://qudt.org/schema/qudt/CT_FINITE'><code>qudt:CT_FINITE</code></a></li><li><a href='http://qudt.org/schema/qudt/CT_UNCOUNTABLE'><code>qudt:CT_UNCOUNTABLE</code></a></li><li><a href='http://qudt.org/schema/qudt/CharEncoding'><code>qudt:CharEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/DoublePrecisionEncoding'><code>qudt:DoublePrecisionEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/IEEE754_1985RealEncoding'><code>qudt:IEEE754_1985RealEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/ISO8601-UTCDateTime-BasicFormat'><code>qudt:ISO8601-UTCDateTime-BasicFormat</code></a></li><li><a href='http://qudt.org/schema/qudt/LittleEndian'><code>qudt:LittleEndian</code></a></li><li><a href='http://qudt.org/schema/qudt/LongUnsignedIntegerEncoding'><code>qudt:LongUnsignedIntegerEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/OctetEncoding'><code>qudt:OctetEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/PartiallyOrdered'><code>qudt:PartiallyOrdered</code></a></li><li><a href='http://qudt.org/schema/qudt/ShortSignedIntegerEncoding'><code>qudt:ShortSignedIntegerEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/ShortUnsignedIntegerEncoding'><code>qudt:ShortUnsignedIntegerEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/Signed'><code>qudt:Signed</code></a></li><li><a href='http://qudt.org/schema/qudt/SignedIntegerEncoding'><code>qudt:SignedIntegerEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/SinglePrecisionRealEncoding'><code>qudt:SinglePrecisionRealEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/TotallyOrdered'><code>qudt:TotallyOrdered</code></a></li><li><a href='http://qudt.org/schema/qudt/UNSIGNED'><code>qudt:UNSIGNED</code></a></li><li><a href='http://qudt.org/schema/qudt/Unordered'><code>qudt:Unordered</code></a></li><li><a href='http://qudt.org/schema/qudt/UnsignedIntegerEncoding'><code>qudt:UnsignedIntegerEncoding</code></a></li><li><a href='http://qudt.org/schema/qudt/Verifiable'><code>qudt:Verifiable</code></a></li><li><a href='http://www.linkedmodel.org/schema/vaem#GMD_QUDT-SCHEMA'><code>vaem:GMD_QUDT-SCHEMA</code></a></li><li><a href='http://www.linkedmodel.org/schema/vaem#QUDT'><code>vaem:QUDT</code></a></li><li><a href='http://voag.linkedmodel.org/schema/voag#QUDT-SchemaCatalogEntry'><code>voag:QUDT-SchemaCatalogEntry</code></a></li></ul>
+    
+  </div>
+
+  <h2>Restricted datatypes<span class="count">6</span></h2>
+  <div class="box">
+    
+      <ul><li><a href='http://qudt.org/schema/qudt/LatexString'><code>qudt:LatexString</code></a></li><li><a href='http://qudt.org/schema/qudt/UCUMcs'><code>qudt:UCUMcs</code></a></li><li><a href='http://qudt.org/schema/qudt/UCUMcs-term'><code>qudt:UCUMcs-term</code></a></li><li><a href='http://qudt.org/schema/qudt/floatPercentage'><code>qudt:floatPercentage</code></a></li><li><a href='http://qudt.org/schema/qudt/integerPercentage'><code>qudt:integerPercentage</code></a></li><li><a href='http://qudt.org/schema/qudt/valueUnion'><code>qudt:valueUnion</code></a></li></ul>
+    
+  </div>
+
+    <div class="meta">Generated 2026-02-23 22:43:57Z</div>
+  </div>
+</body>
+</html>

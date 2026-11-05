@@ -1,0 +1,7 @@
+{
+  "formatVersion": 1,
+  "harfbuzz": "14.3.0",
+  "fonttools": "4.60.2",
+  "freetypePy": "2.5.1",
+  "freetype": "2.13.2"
+}

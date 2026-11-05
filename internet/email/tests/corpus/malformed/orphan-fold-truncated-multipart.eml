@@ -1,0 +1,12 @@
+ orphan continuation before any field
+From: malformed-sender@example.com
+Subject: first subject
+Subject: duplicate subject
+Bad Header: invalid field name
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="never-finished"
+
+--never-finished
+Content-Type: text/plain
+
+The closing boundary and final line ending are intentionally absent.

@@ -1,0 +1,1101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+  <META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <TITLE>Synchronized Multimedia Integration Language (SMIL 2.0)</TITLE>
+<link rel="next" href="introduction.html">
+<link rel="contents" href="cover.html#minitoc">
+  <LINK rel="stylesheet" href="style/spec.css" type="text/css">
+  <LINK rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/W3C-REC.css" type="text/css">
+</HEAD>
+<BODY lang="en">
+<div class="noprint" align="center">
+<a href="introduction.html">next</a> &nbsp;
+<a href="cover.html#minitoc">contents</a> &nbsp;
+<hr>
+</div>
+
+<DIV class="head">
+  <A href="https://www.w3.org/"><IMG alt="W3C" height="48" width="72" border="0" align="left" src="https://www.w3.org/Icons/w3c_home"></A>
+  <H1 align="center">
+    Synchronized Multimedia Integration Language (SMIL 2.0)
+  </H1>
+  <H2>
+    W3C Recommendation 07 August 2001
+  </H2>
+  <DL>
+    <DT>
+      This version:
+    <DD>
+      <A href="https://www.w3.org/TR/2001/REC-smil20-20010807/">http://www.w3.org/TR/2001/REC-smil20-20010807/</A><BR>
+      (Other formats: <A href="https://www.w3.org/TR/2001/REC-smil20-20010807/smil20.html">single HTML
+      file</A>, <A href="https://www.w3.org/TR/2001/REC-smil20-20010807/smil20.zip">zip archive</A>)
+    <DT>
+      Latest version:
+    <DD>
+      <A href="https://www.w3.org/TR/smil20">http://www.w3.org/TR/smil20</A>
+    <DT>
+      Previous version:
+    <DD>
+      <A href="https://www.w3.org/TR/2001/PR-smil20-20010605/">http://www.w3.org/TR/2001/PR-smil20-20010605/</A>
+    <DT>
+      Editors:
+    <DD>
+      Jeff Ayars (RealNetworks), Dick Bulterman (Oratrix), Aaron Cohen (Intel),
+      Ken Day (Macromedia), Erik Hodge (RealNetworks), Philipp Hoschka (W3C), Eric
+      Hyche (RealNetworks), Muriel Jourdan (INRIA), Michelle Kim (IBM), Kenichi
+      Kubota (Panasonic), Rob Lanphier (RealNetworks), Nabil Laya&iuml;da (INRIA),
+      Thierry Michel (W3C), Debbie Newman (Microsoft), Jacco van Ossenbruggen (CWI),
+      Lloyd Rutledge (CWI), Bridie Saccocio (RealNetworks), Patrick Schmitz
+      (Microsoft), Warner ten Kate (Philips).
+  </DL>
+  <P class="copyright">
+  <A href="https://www.w3.org/Consortium/Legal/ipr-notice-20000612#Copyright">Copyright</A>
+  &copy;2001
+  <A href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></A><SUP>&reg;</SUP>
+  (<A href="http://www.lcs.mit.edu/"><abbr title="Massachusetts Institute of
+  Technology">MIT</abbr></A>,
+  <A href="http://www.inria.fr/"><abbr lang="fr" title="Institut National de
+  Recherche en Informatique et Automatique">INRIA</abbr></A>,
+  <A href="http://www.keio.ac.jp/">Keio</A>), All Rights Reserved. W3C
+  <A href="https://www.w3.org/Consortium/Legal/ipr-notice-20000612#Legal_Disclaimer">liability</A>,
+  <A href="https://www.w3.org/Consortium/Legal/ipr-notice-20000612#W3C_Trademarks">trademark</A>,
+  <A href="https://www.w3.org/Consortium/Legal/copyright-documents-19990405">document
+  use</A> and
+  <A href="https://www.w3.org/Consortium/Legal/copyright-software-19980720">software
+  licensing</A> rules apply.
+  <P>
+    <HR title="Separator from Header">
+</DIV>
+<H2>
+  <A name="abstract">Abstract</A>
+</H2>
+<P>
+This document specifies the second version of the Synchronized Multimedia
+Integration Language (SMIL, pronounced "smile"). SMIL 2.0 has the following
+two design goals:
+<UL>
+  <LI>
+    Define an XML-based language that allows authors to write interactive multimedia
+    presentations. Using SMIL 2.0, an author can describe the temporal behavior
+    of a multimedia presentation, associate hyperlinks with media objects and
+    describe the layout of the presentation on a screen.
+  <LI>
+    Allow reusing of SMIL syntax and semantics in other XML-based languages,
+    in particular those who need to represent timing and synchronization. For
+    example, SMIL 2.0 components are used for integrating timing into XHTML
+    <SPAN class="normref"><a href="refs.html#ref-XHTML10" rel="biblioentry" class="noxref"><span class="normref">[XHTML10]</span></a></SPAN> and into SVG
+    <SPAN class="normref"><a href="refs.html#ref-SVG" rel="biblioentry" class="noxref"><span class="normref">[SVG]</span></a></SPAN>.
+</UL>
+<H2>
+  <A name="status">Status of this document</A>
+</H2>
+<P>
+<EM>This section describes the status of this document at the time of its
+publication. Other documents may supersede this document. The latest status
+of this document series is maintained at the W3C.</EM>
+<P>
+This is the W3C
+<A HREF="/Consortium/Process-20010719/process.html#RecsW3C">Recommendation</A>
+of the Synchronized Multimedia Integration Language (SMIL) 2.0.
+<P>
+This document has been reviewed by W3C Members and other interested parties
+and has been endorsed by the Director as a W3C Recommendation. It is a stable
+document and may be used as reference material or cited as a normative reference
+from another document. W3C's role in making the Recommendation is to draw
+attention to the specification and to promote its widespread deployment.
+This enhances the functionality and interoperability of the Web.
+<P>
+This document has been produced by the
+<A HREF="https://www.w3.org/AudioVideo/Group/">SYMM Working Group</A>
+<I>[members only]</I> as part of the
+<A href="https://www.w3.org/AudioVideo/">W3C Synchronized Multimedia
+Activity</A>. The goals of the SYMM Working Group are discussed in the
+<A href="https://www.w3.org/AudioVideo/Group/symm-wg-charter">SYMM Working
+Group charter</A> <I>[members only]</I>.
+<P>
+The SYMM Working Group considers that all features in the SMIL 2.0 Recommendation
+have been implemented at least twice in an interoperable way. The
+<A href="https://www.w3.org/AudioVideo/Group/symm-wg-charter#Criteria">SYMM
+Working Group Charter</A> defines this as the implementations having been
+developed independently by different organizations and each test in the public
+<A HREF="https://www.w3.org/2001/SMIL20/testsuite/">SMIL 2.0 test suite</A>
+has at least two passing implementations. The
+<A href="/2001/05/23/SMIL-implementation-result.html">Implementation
+results</A> are publicly released and are intended solely to be used as proof
+of SMIL 2.0 implementability. It is only a snap shot of the actual implementation
+behaviors at one moment of time, as these implementations may not be immediately
+available to the public. The interoperability data is not intended to be
+used for assessing or grading the performance of any individual implementation.
+<P>
+There are patent disclosures and license commitments associated with the
+SMIL 2.0 Recommendation, these<STRONG> </STRONG>may be found on the
+<A href="/2001/05/23/SMIL-IPR-statements.html">SYMM Patent Statement page</A>
+in conformance with
+<A href="https://www.w3.org/Consortium/Process-20010719/#ipr">W3C policy</A>.
+<P>
+This version of this document incorporates some editorial changes from earlier
+versions.
+<P>
+Please report errors in this document to
+<A HREF="mailto:www-smil@w3.org">www-smil@w3.org</A> -
+(<A HREF="http://lists.w3.org/Archives/Public/www-smil/">public
+archives</A>).<BR>
+The list of
+<A HREF="https://www.w3.org/2001/07/REC-SMIL20-20010731-errata">known errors</A>
+in this specification is available at
+<A HREF="https://www.w3.org/2001/07/REC-SMIL20-20010731-errata">http://www.w3.org/2001/07/REC-SMIL20-20010731-errata</A>.
+<P>
+The authors of this document are the SYMM Working Group members. Different
+parts of the document have different editors. <BR>
+The W3C staff contact for work on SMIL is
+<A href="mailto:tmichel@W3.org">Thierry MICHEL</A>.
+<P>
+The English version of this specification is the only normative version.
+Information about translations of this document is available at
+<A HREF="https://www.w3.org/AudioVideo/SMIL/translations">http://www.w3.org/AudioVideo/SMIL/translations</A>.
+<P>
+A list of <A href="https://www.w3.org/TR">current W3C Recommendations and
+other technical documents</A> can be found at
+<A href="https://www.w3.org/TR">http://www.w3.org/TR</A>.
+<DIV class="toc">
+  <H2>
+    <A name="minitoc">Quick Table of Contents</A>
+  </H2>
+  <ul class="toc">
+  <li class="tocline1"><a href="introduction.html" class="tocxref">1. About SMIL 2.0</a>
+  <li class="tocline1"><a href="smil-modules.html" class="tocxref">2. The SMIL&nbsp;2.0 Modules</a>
+  <li class="tocline1"><a href="animation.html" class="tocxref">3. The SMIL 2.0 Animation Modules</a>
+  <li class="tocline1"><a href="smil-content.html" class="tocxref">4. The SMIL 2.0 Content Control Modules</a>
+  <li class="tocline1"><a href="layout.html" class="tocxref">5. The SMIL 2.0 Layout Modules</a>
+  <li class="tocline1"><a href="extended-linking.html" class="tocxref">6. The SMIL 2.0 Linking Modules</a>
+  <li class="tocline1"><a href="extended-media-object.html" class="tocxref">7. The SMIL 2.0 Media Object Modules</a>
+  <li class="tocline1"><a href="metadata.html" class="tocxref">8. The SMIL 2.0 Metainformation Module</a>
+  <li class="tocline1"><a href="structure.html" class="tocxref">9. The SMIL 2.0 Structure Module</a>
+  <li class="tocline1"><a href="smil-timing.html" class="tocxref">10. The SMIL 2.0 Timing and Synchronization Module</a>
+  <li class="tocline1"><a href="smil-timemanip.html" class="tocxref">11. The SMIL 2.0 Time Manipulations Module</a>
+  <li class="tocline1"><a href="smil-transitions.html" class="tocxref">12. The SMIL 2.0 Transition Effects Module</a>
+  <li class="tocline1"><a href="smil20-profile.html" class="tocxref">13. SMIL 2.0 Language   Profile</a>
+  <li class="tocline1"><a href="smil-basic.html" class="tocxref">14. SMIL 2.0 Basic Profile and Scalability Framework</a>
+  <li class="tocline1"><a href="smil-DTD.html" class="tocxref">Appendix A. SMIL 2.0 DTDs</a>
+  <li class="tocline1"><a href="smil-SCHEMA.html" class="tocxref">Appendix B. SMIL 2.0 Schemas</a>
+  <li class="tocline1"><a href="elements.html" class="tocxref">Appendix C. Index of Elements</a>
+  <li class="tocline1"><a href="attributes.html" class="tocxref">Appendix D. Index of Attributes</a>
+  <li class="tocline1"><a href="refs.html" class="tocxref">Appendix E. References</a>
+</ul>
+</DIV>
+<!--NewPage-->
+<!-- this is for html2ps -->
+<DIV class="toc">
+  <H2>
+    <A name="toc">Full Table of Contents</A>
+  </H2>
+  <ul class="toc">
+  <li class="tocline1"><a href="introduction.html" class="tocxref">1. About SMIL 2.0</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="introduction.html#introNS-Introduction" class="tocxref">1.1 Introduction</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="introduction.html#q2" class="tocxref">1.1.1 Relation to SMIL 1.0</a>
+      <li class="tocline3"><a href="introduction.html#q3" class="tocxref">1.1.2 Content of this Recommendation</a>
+    </ul>
+    <li class="tocline2"><a href="introduction.html#introNS--acknowledgements" class="tocxref">1.2 Acknowledgements</a>
+  </ul>
+  <li class="tocline1"><a href="smil-modules.html" class="tocxref">2. The SMIL&nbsp;2.0 Modules</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil-modules.html#smilModulesNSIntroduction" class="tocxref">2.1 Introduction</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSModularizationProfiling" class="tocxref">2.1.1 Modularization and Profiling</a>
+    </ul>
+    <li class="tocline2"><a href="smil-modules.html#smilModulesNSSMILModules" class="tocxref">2.2 SMIL&nbsp;2.0 Modules</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSSMILDOM" class="tocxref">2.2.1 SMIL DOM</a>
+    </ul>
+    <li class="tocline2"><a href="smil-modules.html#smilModulesNSSMIL20ModuleProfileIdentifiers" class="tocxref">2.3 Identifiers for   SMIL&nbsp;2.0 Modules and Language Profiles</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSSMIL20MimeType" class="tocxref">2.3.1 The SMIL Mime Type</a>
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSSMIL20ModuleXMLNamespace" class="tocxref">2.3.2 XML Namespace Identifier   for the SMIL&nbsp;2.0 Modules</a>
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSSMIL20ModuleIdentifiers" class="tocxref">2.3.3 Identifiers for SMIL&nbsp;2.0   Modules and Features</a>
+    </ul>
+    <li class="tocline2"><a href="smil-modules.html#smilModulesNSSMILConformance" class="tocxref">2.4 SMIL Conformance</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSSMILHostLanguageConformance" class="tocxref">2.4.1 SMIL Host Language   Conformance</a>
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSSMILIntegrationSetConformance" class="tocxref">2.4.2 SMIL Integration Set   Conformance</a>
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSSMILHostIdentifierReqs" class="tocxref">2.4.3 Requirements on Identifiers   for SMIL Host Language Conformant Language Profiles</a>
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSSMILHostErrorHandling" class="tocxref">2.4.4 Error Handling in SMIL Host   Language Conformant Documents</a>
+      <li class="tocline3"><a href="smil-modules.html#smilModulesNSHandlingSyntaxErrorsinAttributes" class="tocxref">2.4.5  Handling of Syntax   errors in Attribute Values</a>
+    </ul>
+    <li class="tocline2"><a href="smil-modules.html#smilModulesNSDTDCreation" class="tocxref">2.5 Creating a DTD for a Language Profile</a>
+  </ul>
+  <li class="tocline1"><a href="animation.html" class="tocxref">3. The SMIL 2.0 Animation Modules</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="animation.html#animationNS-Introduction" class="tocxref">3.1 Introduction</a>
+    <li class="tocline2"><a href="animation.html#animationNS-AnimationModel" class="tocxref">3.2 Animation Model</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="animation.html#animationNS-SimpleAnimationFunction" class="tocxref">3.2.1 The simple animation function   f(t)</a>
+      <li class="tocline3"><a href="animation.html#animationNS-AnimationSymbols" class="tocxref">3.2.2 Summary of symbols used in the semantic   descriptions</a>
+      <li class="tocline3"><a href="animation.html#animationNS-AnimationSandwichModel" class="tocxref">3.2.3 The animation sandwich model</a>
+      <li class="tocline3"><a href="animation.html#AnimationNS-ContinuousMedia" class="tocxref">3.2.4 Animation elements as "continuous   media"</a>
+      <li class="tocline3"><a href="animation.html#animationNS-AnimationEffectFcn" class="tocxref">3.2.5 The animation effect function   F(t,u)</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#animationNS-RepeatingAnim" class="tocxref"> Repeating animations</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="animation.html#animationNS-RepeatingAnimEx" class="tocxref"> Examples</a>
+          <li class="tocline5"><a href="animation.html#animationNS-Accumulate" class="tocxref"> Controlling behavior of repeating animation   - Cumulative animation</a>
+        </ul>
+        <li class="tocline4"><a href="animation.html#animationNS-Fill" class="tocxref"> Freezing animations</a>
+      </ul>
+      <li class="tocline3"><a href="animation.html#animationNS-AdditiveAnim" class="tocxref">3.2.6 Additive animation</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#animationNS-AddAndCum" class="tocxref"> Additive and Cumulative animation</a>
+      </ul>
+      <li class="tocline3"><a href="animation.html#animationNS-Restart" class="tocxref">3.2.7 Restarting animations</a>
+      <li class="tocline3"><a href="animation.html#animationNS-AnimationFunctionValueDetails" class="tocxref">3.2.8 Animation function value   details</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#animationNS-InterpolationAndIndefSimpleDur" class="tocxref"> Interpolation and indefinite   simple durations</a>
+      </ul>
+    </ul>
+    <li class="tocline2"><a href="animation.html#animationNS-OverviewBasic" class="tocxref">3.3 Overview of the SMIL 2.0 BasicAnimation   Module</a>
+    <li class="tocline2"><a href="animation.html#animationNS-CommonAttrs" class="tocxref">3.4 SMIL 2.0 BasicAnimation Module Common   Attributes</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="animation.html#animationNS-SpecifyingAnimationTarget" class="tocxref">3.4.1 Specifying the animation   target</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#animationNS-SpecifyingTargetAttribute" class="tocxref"> The target attribute</a>
+        <li class="tocline4"><a href="animation.html#animationNS-SpecifyingTargetElement" class="tocxref"> The target element</a>
+      </ul>
+      <li class="tocline3"><a href="animation.html#animationNS-SpecifyingAnimationFunction" class="tocxref">3.4.2 Specifying the simple animation   function f(t)</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#animationNS-InterpolationIllus" class="tocxref"> Interpolation modes illustrated</a>
+        <li class="tocline4"><a href="animation.html#animationNS-InterpolationExamples" class="tocxref"> Examples of calcMode</a>
+      </ul>
+      <li class="tocline3"><a href="animation.html#animationNS-SpecifyingAnimationEffect" class="tocxref">3.4.3 Specifying the animation   effect function F(t,u)</a>
+      <li class="tocline3"><a href="animation.html#AnimationNS-FromToBy" class="tocxref">3.4.4 Simple animation functions specified by from,   to and by</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#animationNS-ToAnimation" class="tocxref"> <EM>To animation</EM></a>
+      </ul>
+    </ul>
+    <li class="tocline2"><a href="animation.html#animationNS-BasicAnimationElements" class="tocxref">3.5 SMIL 2.0 BasicAnimation   Elements</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="animation.html#animationNS-animateElement" class="tocxref">3.5.1 The animate element</a>
+      <li class="tocline3"><a href="animation.html#animationNS-setElement" class="tocxref">3.5.2 The set element</a>
+      <li class="tocline3"><a href="animation.html#animationNS-animateMotionElement" class="tocxref">3.5.3 The animateMotion element</a>
+      <li class="tocline3"><a href="animation.html#animationNS-animateColorElement" class="tocxref">3.5.4 The animateColor element</a>
+    </ul>
+    <li class="tocline2"><a href="animation.html#animationNS-BasicAnimDetails" class="tocxref">3.6 SMIL 2.0 BasicAnimation Module   Details</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="animation.html#animationNS-IntegratingSMILAnimBasic" class="tocxref">3.6.1 BasicAnimation integration   requirements</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#animationNS-Integrating-ConstraintsOnTargets" class="tocxref"> Required definitions   and constraints on animation targets</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="animation.html#animationNS-SpecTarget" class="tocxref"> Specifying the target element</a>
+          <li class="tocline5"><a href="animation.html#animationNS-TargetIssues" class="tocxref"> Target attribute issues</a>
+        </ul>
+        <li class="tocline4"><a href="animation.html#animationNS-Integrating" class="tocxref"> Integrating animateMotion functionality</a>
+      </ul>
+      <li class="tocline3"><a href="animation.html#AnimationNS-BasicDTD" class="tocxref">3.6.2 Document type definition (DTD) for the   BasicAnimation module</a>
+    </ul>
+    <li class="tocline2"><a href="animation.html#animationNS-OverviewSpline" class="tocxref">3.7 Overview of the SMIL 2.0 SplineAnimation   Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="animation.html#animationNS-SplineAttrs" class="tocxref">3.7.1 SMIL 2.0 SplineAnimation Module   Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#animationNS-AnimFuncCalcModeSpline" class="tocxref"> Spline animation function   calculation mode</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="animation.html#animationNS-InterpolationExamplesAdvanced" class="tocxref"> Examples of advanced   uses of calcMode</a>
+          <li class="tocline5"><a href="animation.html#animationNS-InterpolationKeysplines" class="tocxref"> Interpolation with keySplines</a>
+        </ul>
+      </ul>
+      <li class="tocline3"><a href="animation.html#animationNS-SplineAnimationElements" class="tocxref">3.7.2 SMIL 2.0 SplineAnimation Module   Elements</a>
+      <li class="tocline3"><a href="animation.html#animationNS-animateElementAdv" class="tocxref">3.7.3 The spline animate element</a>
+      <li class="tocline3"><a href="animation.html#animationNS-animateMotionElementAdv" class="tocxref">3.7.4 The spline animateMotion   element</a>
+      <li class="tocline3"><a href="animation.html#animationNS-animateColorElementAdv" class="tocxref">3.7.5 The spline animateColor   element</a>
+    </ul>
+    <li class="tocline2"><a href="animation.html#animationNS-SplineAnimDetails" class="tocxref">3.8 SMIL 2.0 SplineAnimation Module   Details</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="animation.html#animationNS-IntegratingSplineAnim" class="tocxref">3.8.1 SplineAnimation integration   requirements</a>
+      <li class="tocline3"><a href="animation.html#AnimationNS-SplineDTD" class="tocxref">3.8.2 Document type definition (DTD) for the   SplineAnimation module</a>
+    </ul>
+    <li class="tocline2"><a href="animation.html#animationNS-CommonIntegReqs" class="tocxref">3.9 Common Animation Integration   Requirements</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="animation.html#animationNS-IntegratingSMILAnimCommon" class="tocxref">3.9.1 Integration requirements</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="animation.html#AnimationNS-Extend" class="tocxref"> Extending Animation</a>
+        <li class="tocline4"><a href="animation.html#animationNS-Integrating-ConstraintsOnAttributes" class="tocxref"> Constraints on   manipulating animation elements</a>
+        <li class="tocline4"><a href="animation.html#animationNS-AnimationSyntaxErrors" class="tocxref"> Handling syntax errors</a>
+        <li class="tocline4"><a href="animation.html#animationNS-Integration-ErrorHandling" class="tocxref"> Error handling semantics</a>
+      </ul>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="smil-content.html" class="tocxref">4. The SMIL 2.0 Content Control Modules</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil-content.html#ContentControlNS-Introduction" class="tocxref">4.1 Introduction</a>
+    <li class="tocline2"><a href="smil-content.html#ContentControlNS-BasicContent" class="tocxref">4.2 The SMIL 2.0 BasicContentControl   Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-content.html#ContentControlNS-SyntaxSemantics-BasicContent" class="tocxref">4.2.1 SMIL 2.0   BasicContentControl Module Overview</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-content.html#ContentControlNS-PredefinedSystemTest" class="tocxref"> Predefined   <SPAN class="adef">System   Test</SPAN> Attributes</a>
+        <li class="tocline4"><a href="smil-content.html#q5" class="tocxref"> The <SPAN class="einst-switch einst">switch</SPAN>   element</a>
+        <li class="tocline4"><a href="smil-content.html#ContentControlNS-InlineTestAttributes" class="tocxref"> System Test Attribute   In-Line Use</a>
+        <li class="tocline4"><a href="smil-content.html#q7" class="tocxref"> Examples of Switch and Test Attribute Use</a>
+      </ul>
+      <li class="tocline3"><a href="smil-content.html#ContentControlNS-BasicElementsAttr" class="tocxref">4.2.2 Elements and Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-content.html#edef-switch" class="tocxref"> The <SPAN class="edef">switch</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-content.html#q10" class="tocxref"> Element attributes</a>
+          <li class="tocline5"><a href="smil-content.html#q11" class="tocxref"> Element content</a>
+        </ul>
+        <li class="tocline4"><a href="smil-content.html#ContentControlNS-PredefinedTestAttributes" class="tocxref"> Predefined Test   Attributes</a>
+      </ul>
+      <li class="tocline3"><a href="smil-content.html#q13" class="tocxref">4.2.3 Integration Requirements for the BasicContentControl Module</a>
+      <li class="tocline3"><a href="smil-content.html#q14" class="tocxref">4.2.4 Document Type Definition (DTD) for the BasicContentControl Module</a>
+    </ul>
+    <li class="tocline2"><a href="smil-content.html#ContentControlNS-UserGroups" class="tocxref">4.3 The SMIL 2.0 CustomTestAttributes   Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-content.html#ContentControlNS-Overview-UserGroups" class="tocxref">4.3.1 SMIL 2.0 CustomTestAttributes   Module Overview</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-content.html#q17" class="tocxref"> Example Use</a>
+        <li class="tocline4"><a href="smil-content.html#ContentControlNS-customTest-rules" class="tocxref"> Rules for Setting Values</a>
+      </ul>
+      <li class="tocline3"><a href="smil-content.html#ContentControlNS-ElementsAttr-UserGroups" class="tocxref">4.3.2 Elements and Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-content.html#edef-customAttributes" class="tocxref"> The   <SPAN class="edef">customAttributes</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-content.html#q21" class="tocxref"> Element attributes</a>
+          <li class="tocline5"><a href="smil-content.html#q22" class="tocxref"> Element content</a>
+        </ul>
+        <li class="tocline4"><a href="smil-content.html#edef-customTest" class="tocxref"> The <SPAN class="edef">customTest</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-content.html#q24" class="tocxref"> Element attributes</a>
+          <li class="tocline5"><a href="smil-content.html#q25" class="tocxref"> Element content</a>
+        </ul>
+        <li class="tocline4"><a href="smil-content.html#ContentControlNS-CustomTestAttr" class="tocxref"> The   <SPAN class="ainst-customTest ainst">customTest</SPAN> attribute</a>
+      </ul>
+      <li class="tocline3"><a href="smil-content.html#q27" class="tocxref">4.3.3 Integration Requirements for the CustomTestAttribute Module</a>
+      <li class="tocline3"><a href="smil-content.html#q28" class="tocxref">4.3.4 Document Type Definition (DTD) for the CustomTestAttribute Module</a>
+    </ul>
+    <li class="tocline2"><a href="smil-content.html#ContentControlNS-PrefetchControl" class="tocxref">4.4 The SMIL 2.0 PrefetchControl   Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-content.html#ContentControlNS-Overview-PrefetchControl" class="tocxref">4.4.1 SMIL 2.0 PrefetchControl   Module Overview</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-content.html#q16" class="tocxref"> Examples</a>
+      </ul>
+      <li class="tocline3"><a href="smil-content.html#ContentControlNS-ElementAttr-Prefetch" class="tocxref">4.4.2 Elements and Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-content.html#edef-prefetch" class="tocxref"> The <SPAN class="edef">prefetch</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-content.html#q34" class="tocxref"> Element attributes</a>
+          <li class="tocline5"><a href="smil-content.html#q35" class="tocxref"> Attribute value syntax</a>
+        </ul>
+      </ul>
+      <li class="tocline3"><a href="smil-content.html#q36" class="tocxref">4.4.3 Integration Requirements for the PrefetchControl Module</a>
+      <li class="tocline3"><a href="smil-content.html#q37" class="tocxref">4.4.4 Document Type Definition (DTD) for the PrefetchControl Module</a>
+    </ul>
+    <li class="tocline2"><a href="smil-content.html#ContentControlNS-SkipContent" class="tocxref">4.5 The SMIL 2.0 SkipContentControl   Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-content.html#ContentControlNS-SyntaxSemantics-SkipContent" class="tocxref">4.5.1 SMIL 2.0   SkipContentControl Module Overview</a>
+      <li class="tocline3"><a href="smil-content.html#ContentControlNS-ElementAttr-SkipContent" class="tocxref">4.5.2 Elements and Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-content.html#ContentControlNS-SkipContentElement" class="tocxref"> Element definition</a>
+        <li class="tocline4"><a href="smil-content.html#ContentControlNS-SkipContentAttribute" class="tocxref"> The   <SPAN class="ainst-skip-content ainst">skip-content</SPAN> attribute</a>
+      </ul>
+      <li class="tocline3"><a href="smil-content.html#q43" class="tocxref">4.5.3 Integration Requirements for the SkipContentControl Module</a>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="layout.html" class="tocxref">5. The SMIL 2.0 Layout Modules</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-Introduction" class="tocxref">5.1 Introduction</a>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-BasicLayout" class="tocxref">5.2 &nbsp;Overview of the SMIL 2.0   BasicLayout Module</a>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-SyntaxSemantics-BasicLayout" class="tocxref">5.3 SMIL 2.0 BasicLayout   Module Syntax and Semantics</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-ElementsAndAttributes-BasicLayout" class="tocxref">5.3.1 Elements and   Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="layout.html#edef-layout" class="tocxref"> The&nbsp;<SPAN class="edef">layout</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="layout.html#LayoutModuleNS-Element-content" class="tocxref"> Element content</a>
+        </ul>
+        <li class="tocline4"><a href="layout.html#edef-region" class="tocxref"> The&nbsp;<SPAN class="edef">region</SPAN> element</a>
+        <li class="tocline4"><a href="layout.html#edef-root-layout" class="tocxref"> The <SPAN class="edef">root-layout</SPAN>   element</a>
+        <li class="tocline4"><a href="layout.html#LayoutModuleNS-Region-Att" class="tocxref"> The&nbsp;<SPAN       class="adef">region</SPAN> attribute</a>
+      </ul>
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-LayoutDetails-BasicLayout" class="tocxref">5.3.2 SMIL BasicLayout Module   Details</a>
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-DTD-BasicLayout" class="tocxref">5.3.3 Document Type Definition (DTD)   for the BasicLayout Module</a>
+    </ul>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-AudioLayout" class="tocxref">5.4 Overview of the SMIL 2.0 AudioLayout   Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-Prerequites-and-Requirements-AudioLayout" class="tocxref">5.4.1 Integration   Requirements for the AudioLayout Module</a>
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-Audio-Volume-Control" class="tocxref">5.4.2 Audio Volume Control</a>
+    </ul>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-SyntaxSemantics-AudioLayout" class="tocxref">5.5 SMIL 2.0 AudioLayout   Module Syntax and Semantics</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-ElementsAndAttributes-AudioLayout" class="tocxref">5.5.1 Elements and   Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="layout.html#LayoutModuleNS-region-Level-0" class="tocxref"> The&nbsp;<SPAN class="einst-region einst">region</SPAN>   element</a>
+      </ul>
+    </ul>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-MultiWindowLayout" class="tocxref">5.6 Overview of the SMIL 2.0   MultiWindowLayout Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-Prerequites-and-Requirements-MultiWindowLayout" class="tocxref">5.6.1 Integration   Requirements for the MultiWindowLayout Module</a>
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-Multiple-Top-Level-Window-Support" class="tocxref">5.6.2 Multiple Top-Level   Window Support</a>
+    </ul>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-SyntaxSemantics-MultiWindowLayout" class="tocxref">5.7 SMIL 2.0   MultiWindowLayout Module Syntax and Semantics</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-ElementsAndAttributes-Level-1" class="tocxref">5.7.1 Elements and   Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="layout.html#edef-topLayout" class="tocxref"> The&nbsp;<SPAN class="edef">topLayout</SPAN>   element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="layout.html#q24" class="tocxref"> Element content</a>
+        </ul>
+        <li class="tocline4"><a href="layout.html#LayoutModuleNS-Layout-Element-inst" class="tocxref"> The    <SPAN class="einst-layout einst">layout</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="layout.html#q26" class="tocxref"> Element content</a>
+        </ul>
+      </ul>
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-MultiWindowLayoutModule-Events" class="tocxref">5.7.2  MultiWindowLayout   Module Events</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="layout.html#LayoutModuleNS-MultiWindowLayoutModule-Events-Integration" class="tocxref">    Integration Requirements for the MultiWindowLayout Module Events</a>
+      </ul>
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-DTD-MultiWindowLayoutModule" class="tocxref">5.7.3 Document Type Definition   (DTD) for the MultiWindowLayout Module</a>
+    </ul>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-HierarchicalLayout" class="tocxref">5.8 Overview of the SMIL 2.0   HierarchicalLayout Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-Prerequites-and-Requirements-HierarchicalLayout" class="tocxref">5.8.1 Integration   Requirements for the HierarchicalLayout Module</a>
+    </ul>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-Additional-Features-in-HierarchicalLayout" class="tocxref">5.9 New   Features in the SMIL 2.0 HierarchicalLayout Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-Hierarchical-Region-Layout" class="tocxref">5.9.1  Hierarchical Region   Layout</a>
+      <li class="tocline3"><a href="layout.html#q34" class="tocxref">5.9.2 Sub-Region Layout</a>
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-Media-Object-fit" class="tocxref">5.9.3 Media Object    <SPAN class="ainst-fit ainst">fit</SPAN>, <SPAN class="ainst-fit ainst">   </SPAN> <SPAN class="ainst-z-index ainst">z-index</SPAN>, and   <SPAN class="ainst-backgroundColor ainst">backgroundColor </SPAN></a>
+      <li class="tocline3"><a href="layout.html#q36" class="tocxref">5.9.4 Registration Points</a>
+    </ul>
+    <li class="tocline2"><a href="layout.html#LayoutModuleNS-SMIL-HierarchicalLayout-Syntax-and-Semantics" class="tocxref">5.10 SMIL   2.0 HierarchicalLayout Syntax and Semantics</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-HierarchicalLayout-ElementsAndAttributes" class="tocxref">5.10.1 Elements   and attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="layout.html#q39" class="tocxref"> The&nbsp;<SPAN class="einst">layout</SPAN> element</a>
+        <li class="tocline4"><a href="layout.html#LayoutModuleNS-Region-Element-inst" class="tocxref"> The    <SPAN class="einst-region einst">region</SPAN> element</a>
+        <li class="tocline4"><a href="layout.html#edef-regPoint" class="tocxref"> The&nbsp;<SPAN class="edef">regPoint</SPAN> element</a>
+      </ul>
+      <li class="tocline3"><a href="layout.html#LayoutModuleNS-HierarchicalLayoutPositionAttr" class="tocxref">5.10.2 SMIL   HierarchicalLayout Positioning and Presentation Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="layout.html#Layout2ModuleNS-SubregionBackgroundColor" class="tocxref"> Media specific background   color</a>
+        <li class="tocline4"><a href="layout.html#Layout2ModuleNS-SubRegPos" class="tocxref"> Sub-region Positioning Attributes</a>
+        <li class="tocline4"><a href="layout.html#Layout2ModuleNS-RegPointAttr" class="tocxref"> Registration point attributes</a>
+        <li class="tocline4"><a href="layout.html#Layout2ModuleNS-RegionFitOverride" class="tocxref"> Region fit override</a>
+        <li class="tocline4"><a href="layout.html#Layout2ModuleNS-RegionZIndexOverride" class="tocxref"> Region z-index override</a>
+      </ul>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="extended-linking.html" class="tocxref">6. The SMIL 2.0 Linking Modules</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="extended-linking.html#SMILLinking-Introduction" class="tocxref">6.1 Introduction</a>
+    <li class="tocline2"><a href="extended-linking.html#SMILLinking-Relationship-to-XML-Linking" class="tocxref">6.2 Relationship with Other   XML Linking-related Formats</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-Relationship-to-XPointer" class="tocxref">6.2.1 Relationship with XPointer</a>
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-Relationship-to-XLink" class="tocxref">6.2.2 Relationship with XLink</a>
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-Relationship-to-XML-Base" class="tocxref">6.2.3 Relationship with XML Base</a>
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-Relationship-to-XHTML" class="tocxref">6.2.4 Relationship with XHTML</a>
+    </ul>
+    <li class="tocline2"><a href="extended-linking.html#SMILLinking-Into" class="tocxref">6.3 Linking into SMIL 2.0 Documents</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-Embed" class="tocxref">6.3.1 Handling of Links in Embedded Documents</a>
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-Error" class="tocxref">6.3.2 Error Handling</a>
+    </ul>
+    <li class="tocline2"><a href="extended-linking.html#SMILLinking-LinkingAttributes" class="tocxref">6.4 SMIL 2.0 LinkingAttributes Module</a>
+    <li class="tocline2"><a href="extended-linking.html#SMILLinking-BasicLinking" class="tocxref">6.5 SMIL 2.0 BasicLinking Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-A" class="tocxref">6.5.1 The   <SPAN class="edef">a</SPAN> Element</a>
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-Area" class="tocxref">6.5.2 The   <SPAN class="edef">area</SPAN> Element</a>
+    </ul>
+    <li class="tocline2"><a href="extended-linking.html#SMILLinking-ObjectLinking" class="tocxref">6.6 SMIL 2.0 ObjectLinking Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-linking.html#SMILLinking-Fragment" class="tocxref">6.6.1 The <SPAN class="adef">fragment</SPAN>   Attribute</a>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="extended-media-object.html" class="tocxref">7. The SMIL 2.0 Media Object Modules</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="extended-media-object.html#media-Introduction" class="tocxref">7.1 Introduction</a>
+    <li class="tocline2"><a href="extended-media-object.html#media-Definitions" class="tocxref">7.2 Definitions</a>
+    <li class="tocline2"><a href="extended-media-object.html#media-BasicMedia" class="tocxref">7.3 SMIL BasicMedia Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-media-object.html#edef-ref" class="tocxref">7.3.1 Media Object Elements -   <SPAN class="edef">ref</SPAN>,   <SPAN class="edef">animation</SPAN>,   <SPAN class="edef">audio</SPAN>,   <SPAN class="edef">img</SPAN>,   <SPAN class="edef">text</SPAN>,   <SPAN class="edef">textstream</SPAN> and   <SPAN class="edef">video</SPAN></a>
+      <li class="tocline3"><a href="extended-media-object.html#media-BasicMedia-integration" class="tocxref">7.3.2 Integration Requirements</a>
+    </ul>
+    <li class="tocline2"><a href="extended-media-object.html#media-MediaParam" class="tocxref">7.4 SMIL MediaParam Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-media-object.html#edef-param" class="tocxref">7.4.1 Media object initialization: the <SPAN class="edef">   param</SPAN> element</a>
+      <li class="tocline3"><a href="extended-media-object.html#q8" class="tocxref">7.4.2 Element Attributes for All Media Objects</a>
+      <li class="tocline3"><a href="extended-media-object.html#media-MediaParam-integration" class="tocxref">7.4.3 Integration Requirements</a>
+    </ul>
+    <li class="tocline2"><a href="extended-media-object.html#media-MediaClipping" class="tocxref">7.5 SMIL MediaClipping Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-media-object.html#media-MediaClipping-attributes" class="tocxref">7.5.1 MediaClipping Attributes</a>
+    </ul>
+    <li class="tocline2"><a href="extended-media-object.html#media-MediaClipMarkers" class="tocxref">7.6 SMIL MediaClipMarkers Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-media-object.html#media-MediaClipMarkers-attributes" class="tocxref">7.6.1 MediaClipMarkers Attribute   Extensions</a>
+    </ul>
+    <li class="tocline2"><a href="extended-media-object.html#media-BrushMedia" class="tocxref">7.7 SMIL BrushMedia Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-media-object.html#edef-brush" class="tocxref">7.7.1 The <SPAN class="edef">brush</SPAN> element</a>
+      <li class="tocline3"><a href="extended-media-object.html#q16" class="tocxref">7.7.2 Integration Requirements</a>
+    </ul>
+    <li class="tocline2"><a href="extended-media-object.html#media-MediaAccessibility" class="tocxref">7.8 SMIL MediaAccessibility Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-media-object.html#media-MediaAccessibility-attributes" class="tocxref">7.8.1 MediaAccessibility Attributes</a>
+    </ul>
+    <li class="tocline2"><a href="extended-media-object.html#media-MediaDescription" class="tocxref">7.9 SMIL MediaDescription Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-media-object.html#media-MediaDescription-attributes" class="tocxref">7.9.1 MediaDescription Attributes</a>
+    </ul>
+    <li class="tocline2"><a href="extended-media-object.html#media-appendices" class="tocxref">7.10 Appendices</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="extended-media-object.html#media-changes" class="tocxref">7.10.1 Appendix A: Changes to SMIL 1.0 Media Object   Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="extended-media-object.html#q23" class="tocxref"> clipBegin, clipEnd, clip-begin, clip-end</a>
+        <li class="tocline4"><a href="extended-media-object.html#q24" class="tocxref"> Handling of new clipBegin/clipEnd syntax in SMIL 1.0 software</a>
+        <li class="tocline4"><a href="extended-media-object.html#q25" class="tocxref"> New Accessibility Attributes</a>
+        <li class="tocline4"><a href="extended-media-object.html#q26" class="tocxref"> New Advanced Media Attributes</a>
+      </ul>
+      <li class="tocline3"><a href="extended-media-object.html#media-changes-elements" class="tocxref">7.10.2 Appendix B: Changes to SMIL 1.0 Media Object   Elements</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="extended-media-object.html#media-changes-newchildren" class="tocxref"> New child elements for media objects</a>
+        <li class="tocline4"><a href="extended-media-object.html#media-Param-Element-def" class="tocxref"> The    <SPAN class="einst-param einst">param</SPAN> element</a>
+        <li class="tocline4"><a href="extended-media-object.html#media-Brush-Element-def" class="tocxref"> The    <SPAN class="einst-brush einst">brush</SPAN> element</a>
+      </ul>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="metadata.html" class="tocxref">8. The SMIL 2.0 Metainformation Module</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="metadata.html#smilMetadataNS-introduction" class="tocxref">8.1 Introduction</a>
+    <li class="tocline2"><a href="metadata.html#q2" class="tocxref">8.2 Overview of the SMIL 2.0 Metainformation module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="metadata.html#smilMetadataNS-meta-element" class="tocxref">8.2.1 Compatibility with SMIL 1.0</a>
+      <li class="tocline3"><a href="metadata.html#smilMetadataNS-extensions" class="tocxref">8.2.2 Extensions to SMIL 1.0</a>
+      <li class="tocline3"><a href="metadata.html#q5" class="tocxref">8.2.3 Multiple description schemes</a>
+    </ul>
+    <li class="tocline2"><a href="metadata.html#q6" class="tocxref">8.3 SMIL 2.0 Metainformation Module Syntax and Semantics</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="metadata.html#edef-meta" class="tocxref">8.3.1 The <SPAN class="edef">meta</SPAN> element</a>
+      <li class="tocline3"><a href="metadata.html#edef-metadata" class="tocxref">8.3.2 The <SPAN class="edef">metadata</SPAN> element</a>
+    </ul>
+    <li class="tocline2"><a href="metadata.html#smilMetadataNS-example" class="tocxref">8.4 An Example</a>
+  </ul>
+  <li class="tocline1"><a href="structure.html" class="tocxref">9. The SMIL 2.0 Structure Module</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="structure.html#smilStructureNS-Introduction" class="tocxref">9.1 Introduction</a>
+    <li class="tocline2"><a href="structure.html#smilStructureNS-SyntaxSemantics" class="tocxref">9.2 The SMIL 2.0 Structure Module Syntax   and Semantics</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="structure.html#smilStructureNS--ElementsAndAttributes" class="tocxref">9.2.1 Elements and attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="structure.html#edef-smil" class="tocxref"> The <SPAN class="edef">smil</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="structure.html#q5" class="tocxref"> Element attributes</a>
+          <li class="tocline5"><a href="structure.html#q6" class="tocxref"> Element content</a>
+        </ul>
+        <li class="tocline4"><a href="structure.html#edef-head" class="tocxref"> The <SPAN class="edef">head</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="structure.html#q8" class="tocxref"> Element attributes</a>
+          <li class="tocline5"><a href="structure.html#q9" class="tocxref"> Element content</a>
+        </ul>
+        <li class="tocline4"><a href="structure.html#edef-body" class="tocxref"> The <SPAN class="edef">body</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="structure.html#q11" class="tocxref"> Element attributes</a>
+          <li class="tocline5"><a href="structure.html#q12" class="tocxref"> Element content</a>
+        </ul>
+      </ul>
+    </ul>
+    <li class="tocline2"><a href="structure.html#smilStructureNS-Integration" class="tocxref">9.3 Integrating the SMIL Structure Module</a>
+  </ul>
+  <li class="tocline1"><a href="smil-timing.html" class="tocxref">10. The SMIL 2.0 Timing and Synchronization Module</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil-timing.html#Timing-Introduction" class="tocxref">10.1 Introduction</a>
+    <li class="tocline2"><a href="smil-timing.html#Timing-Overview" class="tocxref">10.2  Overview of SMIL timing</a>
+    <li class="tocline2"><a href="smil-timing.html#Timing-LanguageDefinition" class="tocxref">10.3 Language definition</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-timing.html#Timing-Attributes" class="tocxref">10.3.1 Attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timing.html#Timing-BasicTiming" class="tocxref"> The <SPAN class="attr">begin</SPAN> and   <SPAN class="attr">dur</SPAN> attributes: basic timing support</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-BeginValueSemantics" class="tocxref"> Begin value semantics</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-NegativeBegins" class="tocxref"> Handling negative offsets for begin</a>
+          <li class="tocline5"><a href="smil-timing.html#q8" class="tocxref"> Negative begin delays</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-DurValueSemantics" class="tocxref"> Dur value semantics</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-ResolvingTimesExamples" class="tocxref"> Examples</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-EndAttribute" class="tocxref"> The <SPAN class="attr">end</SPAN> attribute:   controlling active duration</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-NegativeEnds" class="tocxref"> Handling negative offsets for end</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-MinMax" class="tocxref"> The <SPAN class="attr">min and max</SPAN> attributes:   more control over the active duration</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-minAndNegativeBegins" class="tocxref"> The   <SPAN class="ainst-min ainst">min</SPAN> attribute and negative begin times</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-TimingAttributeGrammars" class="tocxref">  Timing attribute value grammars</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-BeginValueListSyntax" class="tocxref"> <SPAN class="normative">Begin   values</SPAN></a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-EndValueListSyntax" class="tocxref"> <SPAN class="normative">End   values</SPAN></a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-ParsingTimeSpecifiers" class="tocxref"> Parsing timing specifiers</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-ClockValueSyntax" class="tocxref"> Clock values</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-OffsetValueSyntax" class="tocxref"> Offset values</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-SMIL1BeginEndValueListSyntax" class="tocxref">  SMIL 1.0 begin and end   values&nbsp;</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-IDRefValueSyntax" class="tocxref"> ID-Reference values</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-SyncbaseValueSyntax" class="tocxref"> Syncbase values</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-EventValueSyntax" class="tocxref"> Event values</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-RepeatValueSyntax" class="tocxref"> Repeat values</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-AccessKeyValueSyntax" class="tocxref"> Accesskey values</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-MediaMarkerValueSyntax" class="tocxref"> Media marker values</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-WallclockSyncValueSyntax" class="tocxref"> Wallclock-sync values</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-endsyncAttribute" class="tocxref"> The   <SPAN class="ainst-endsync ainst">endsync</SPAN> attribute</a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-repeatSyntax" class="tocxref"> The   <SPAN class="ainst-repeatCount ainst">repeatCount</SPAN>,   <SPAN class="ainst-repeatDur ainst">repeatDur</SPAN>, and   <SPAN class="ainst-repeat ainst">repeat</SPAN> attributes: repeating elements</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-repeatExamples" class="tocxref"> Examples</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-MinAndRestart" class="tocxref"> The   <SPAN class="ainst-min ainst">min</SPAN> attribute and restart:</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-repeatAttribute" class="tocxref"> SMIL 1.0 repeat (deprecated)</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-fillAttribute" class="tocxref"> The <SPAN class="attr">fill</SPAN> attribute:   extending an element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-Time-containers-fillDefault" class="tocxref"> The   <SPAN class="ainst-fillDefault ainst">fillDefault</SPAN> attribute</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-Event-sensitivity-fill" class="tocxref"> The Event sensitivity and   <SPAN class="ainst-fill ainst">fill</SPAN></a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-restartAttribute" class="tocxref"> The   <SPAN class="ainst-restart ainst">restart</SPAN> attribute</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-UsingRestartForToggle" class="tocxref"> Using restart for toggle activation</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-ResetDefaultAttribute" class="tocxref"> <SPAN class="informative">Controlling   the default behavior of restart</SPAN></a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-ResettingElementState" class="tocxref"> Resetting element state</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-ControllingRuntimeSync" class="tocxref"> The   <SPAN class="ainst-syncBehavior ainst">syncBehavior</SPAN>,   <SPAN class="ainst-syncTolerance ainst">syncTolerance</SPAN>, and   <SPAN class="ainst-syncMaster ainst">syncMaster</SPAN> attributes: controlling   runtime synchronization</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-SyncBvrDefaults" class="tocxref"> <SPAN class="informative">Controlling   the default behavior</SPAN></a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-SyncAccumOffset" class="tocxref"> The accumulated synchronization offset</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-IntegrationAttributes" class="tocxref"> Attributes for timing integration:   timeContainer and timeAction</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-timeContainerAttribute" class="tocxref">  The timeContainer attribute</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-timeActionAttribute" class="tocxref"> The timeAction attribute</a>
+        <li class="tocline4"><a href="smil-timing.html#q48" class="tocxref"> Examples:</a>
+      </ul>
+      <li class="tocline3"><a href="smil-timing.html#Timing-TimeContainerSyntax" class="tocxref">10.3.2 Elements</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timing.html#Timing-ParSyntax" class="tocxref"> The <SPAN class="einst-par einst">par</SPAN>   element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-ImplicitDurPar" class="tocxref"> Implicit duration of   <SPAN class="einst-par einst">par</SPAN></a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-SeqSyntax" class="tocxref"> The <SPAN class="einst-seq einst">seq</SPAN>   element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-ImplicitDurSeq" class="tocxref"> Implicit duration of   <SPAN class="einst-seq einst">seq</SPAN> containers</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-ExclSyntax" class="tocxref"> The   <SPAN class="einst-excl einst">excl</SPAN> element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-ImplicitDurExcl" class="tocxref"> Implicit duration of   <SPAN class="einst-excl einst">excl</SPAN> containers</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-priorityClassElement" class="tocxref"> <SPAN class="normative"></SPAN>The   <SPAN class="einst-priorityClass einst">priorityClass</SPAN> element</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-priorityClassExamples" class="tocxref"> Examples using   <SPAN class="einst-excl einst">excl</SPAN> and   <SPAN class="einst-priorityClass einst">priorityClass</SPAN></a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-PauseQueueSemantics" class="tocxref"> Pause queue semantics</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-ImplicitDurOfMediaElementTimeContainers" class="tocxref">  Implicit duration   of media element time containers</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#q67" class="tocxref"> Examples:</a>
+          <li class="tocline5"><a href="smil-timing.html#q68" class="tocxref"> Media time containers of other types</a>
+        </ul>
+      </ul>
+      <li class="tocline3"><a href="smil-timing.html#Timing-SemanticsOfTimingModel" class="tocxref">10.3.3 Semantics of the Timing Model</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timing.html#Timing-ResolvingTimes" class="tocxref"> Resolving times</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-DefiniteTimes" class="tocxref"> Definite times</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-DefiningSimpleDur" class="tocxref"> Defining the simple duration</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-RepeatCountAndUnresolvedSimpleDur" class="tocxref"> <SPAN class="ainst-repeatCount ainst">repeatCount</SPAN>   and unresolved simple duration</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-ComputingActiveDur" class="tocxref"> Computing the active duration</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#q75" class="tocxref"> Active duration arithmetic rules</a>
+          <li class="tocline5"><a href="smil-timing.html#q80" class="tocxref"> Active duration algorithm</a>
+          <li class="tocline5"><a href="smil-timing.html#q81" class="tocxref"> Intermediate Active Duration Computation</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-PausedElementsAndActiveDur" class="tocxref"> Paused elements and the active   duration</a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-EvaluationOfBeginEndTimeLists" class="tocxref"> Evaluation of begin and   end time lists</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-BeginEnd-InstanceTimesLists" class="tocxref"> The instance times lists</a>
+          <li class="tocline5"><a href="smil-timing.html#q86" class="tocxref"> Principles for building and pruning intervals</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-BeginEnd-LifeCycle" class="tocxref"> Element life-cycle</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-BeginEnd-Restart" class="tocxref"> Interaction with restart semantics</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-BeginEnd-Cycles" class="tocxref"> Cyclic dependencies in the timegraph</a>
+          <li class="tocline5"><a href="smil-timing.html#q95" class="tocxref"> Detecting Cycles</a>
+          <li class="tocline5"><a href="smil-timing.html#q96" class="tocxref"> Examples</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-TimingAndRealWorldClockTime" class="tocxref">  Timing and real-world clock   times</a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-IntervalTiming" class="tocxref"> Interval timing</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-BackgroundRationale" class="tocxref"> Background rationale</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-ImplicationsForTimeModel" class="tocxref"> Implications for the time model</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-EventSensitivity" class="tocxref">  Event sensitivity</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#q102" class="tocxref"> User event sensitivity and timing</a>
+          <li class="tocline5"><a href="smil-timing.html#q103" class="tocxref"> Link Activation compared to Event activation</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-ConvertingLocalGlobalTimes" class="tocxref"> Converting between local   and global times</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#q105" class="tocxref"> Element active time calculation</a>
+          <li class="tocline5"><a href="smil-timing.html#q106" class="tocxref"> Element simple time calculation</a>
+          <li class="tocline5"><a href="smil-timing.html#q107" class="tocxref"> Converting wall-clock values</a>
+          <li class="tocline5"><a href="smil-timing.html#q108" class="tocxref"> Converting from event time to element time</a>
+          <li class="tocline5"><a href="smil-timing.html#q109" class="tocxref"> Converting from element time to element time</a>
+          <li class="tocline5"><a href="smil-timing.html#q110" class="tocxref"> Time conversions and sampling the time graph</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-HyperlinksAndTiming" class="tocxref"> Hyperlinks and timing</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-HyperlinkImplicationsOnSeqExcl" class="tocxref"> Implications of   beginElement() and hyperlinking for <SPAN class="einst-seq einst">seq</SPAN>   and <SPAN class="einst-excl einst">excl</SPAN> time containers</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-PropagatingTimes" class="tocxref"> Propagating changes to times</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-PropagatingTimes-Deferred" class="tocxref"> Deferred elements and propagating   changes to begin</a>
+          <li class="tocline5"><a href="smil-timing.html#q115" class="tocxref"> Restart and propagating changes to times</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-TimeContainerDuration" class="tocxref"> Time container duration</a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-TimeContainersConstraintsOnChildDurs" class="tocxref"> Time container   constraints on child durations</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-minAndTimeContainersConstraints" class="tocxref">  The   <SPAN class="ainst-min ainst">min</SPAN> attribute and time container constraints   on child durations</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-TimeContainersConstraints" class="tocxref"> Time container constraints   on sync-arcs and events</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timing.html#Timing-SpecificsForSyncarcs" class="tocxref"> Specifics for sync-arcs</a>
+          <li class="tocline5"><a href="smil-timing.html#Timing-SpecificsForEvents" class="tocxref"> Specifics for event-based timing</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timing.html#Timing-BehaviorOf0DurElements" class="tocxref"> Behavior of 0 duration elements</a>
+      </ul>
+      <li class="tocline3"><a href="smil-timing.html#Timing-ClarificationsSurprisingResults" class="tocxref">10.3.4 Clarifications and   surprising results</a>
+    </ul>
+    <li class="tocline2"><a href="smil-timing.html#Timing-IntegratingSMILTiming" class="tocxref">10.4 Integrating SMIL Timing and   Synchronization into a host language</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-timing.html#Timing-RequiredHostLangDefs" class="tocxref">10.4.1 Required host language definitions</a>
+      <li class="tocline3"><a href="smil-timing.html#Timing-RequiredDefsAndConstraints" class="tocxref">10.4.2 Required definitions and   constraints on element timing</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timing.html#Timing-SupportedEvents" class="tocxref"> Supported events for event-base timing</a>
+      </ul>
+      <li class="tocline3"><a href="smil-timing.html#Timing-ErrorHandlingSemantics" class="tocxref">10.4.3 Error handling semantics</a>
+    </ul>
+    <li class="tocline2"><a href="smil-timing.html#Timing-DOMSupport" class="tocxref">10.5  Document object model support</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-timing.html#Timing-DOMAttributes" class="tocxref">10.5.1 Element and attribute manipulation, mutation   and constraints</a>
+      <li class="tocline3"><a href="smil-timing.html#Timing-DOMEvents" class="tocxref">10.5.2 Events and event model</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timing.html#q132" class="tocxref"> Example 1</a>
+        <li class="tocline4"><a href="smil-timing.html#q133" class="tocxref"> Example 2</a>
+        <li class="tocline4"><a href="smil-timing.html#q134" class="tocxref"> Example 3</a>
+      </ul>
+      <li class="tocline3"><a href="smil-timing.html#Timing-DOMMethods" class="tocxref">10.5.3 Reserved DOM methods</a>
+    </ul>
+    <li class="tocline2"><a href="smil-timing.html#Timing-Glossary" class="tocxref">10.6 Glossary</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-timing.html#Timing-GeneralConcepts" class="tocxref">10.6.1 <SPAN class="informative">General   concepts</SPAN></a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timing.html#Timing-SynchronizationRelationship" class="tocxref"> <SPAN class="informative">Synchronization   relationship</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-TimeGraph" class="tocxref"> <SPAN class="informative">Time graph</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-DescriptiveTermsforTimes" class="tocxref"> <SPAN class="informative">Descriptive   terms for times</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-LocalTime" class="tocxref"> Local time and global time</a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-LinearMedia" class="tocxref"> Linear and Non-linear media</a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-ScheduledTiming" class="tocxref"> Scheduled timing</a>
+        <li class="tocline4"><a href="smil-timing.html#q144" class="tocxref"> <SPAN class="normative"> document   begin</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#q145" class="tocxref"> <SPAN class="normative">document end</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#q146" class="tocxref"> <SPAN class="normative">document duration</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-EventsInteractiveTiming" class="tocxref"> <SPAN class="informative">Events   and interactive timing</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-Syncbases" class="tocxref"> <SPAN class="informative">Syncbases</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-SyncArcs" class="tocxref"> <SPAN class="informative">Sync arcs</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-Clocks" class="tocxref"> <SPAN class="informative">Clocks</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#q151" class="tocxref"> <SPAN class="informative">UTC: Coordinated Universal Time</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-HyperlinkingTiming" class="tocxref"> <SPAN class="informative">Hyperlinking   and timing</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-Activation" class="tocxref"> <SPAN class="informative">Activation</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-DiscreteContinuousMedia" class="tocxref"> <SPAN class="informative">Discrete   and continuous Media</SPAN></a>
+      </ul>
+      <li class="tocline3"><a href="smil-timing.html#Timing-TimingConcepts" class="tocxref">10.6.2 <SPAN class="informative">Timing   concepts</SPAN></a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timing.html#Timing-TimeContainers" class="tocxref"> <SPAN class="informative">Time   containers</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-ContentMediaElements" class="tocxref"> <SPAN class="informative">Content/Media   elements</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-BasicMarkup" class="tocxref"> <SPAN class="informative">Basic markup</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-SimpleActiveDurs" class="tocxref"> <SPAN class="informative">Simple and   active durations</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-HardSoftSync" class="tocxref"> <SPAN class="informative">Hard and soft   sync</SPAN></a>
+        <li class="tocline4"><a href="smil-timing.html#Timing-PruningAndCuttingOff" class="tocxref"> <SPAN class="informative">Pruning   and cutting off an interval</SPAN></a>
+      </ul>
+    </ul>
+    <li class="tocline2"><a href="smil-timing.html#Timing-Appendix-Modules" class="tocxref">10.7 Appendix A: SMIL Timing and Synchronization   modules</a>
+    <li class="tocline2"><a href="smil-timing.html#Timing-AppendixAnnotatedExamples" class="tocxref">10.8  Appendix B: Annotated examples</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-timing.html#Timing-Ex:SimpleTimingWithinPar" class="tocxref">10.8.1 Example 1: Simple timing within   a Parallel time container</a>
+      <li class="tocline3"><a href="smil-timing.html#Timing-Ex:SimpleTimingWithinSeq" class="tocxref">10.8.2 Example 2: Simple timing within   a Sequence time container</a>
+      <li class="tocline3"><a href="smil-timing.html#Timing-Ex:ExclWithChildTimingVariants" class="tocxref">10.8.3 Example 3:   <SPAN class="einst-excl einst">excl</SPAN> time container with child timing   variants</a>
+      <li class="tocline3"><a href="smil-timing.html#Timing-Ex:0DurDiscreteMedia" class="tocxref">10.8.4 Example 4: default duration of   discrete media</a>
+      <li class="tocline3"><a href="smil-timing.html#Timing-Ex:EndSpeciesActiveDur" class="tocxref">10.8.5 Example 5: end specifies end   of active dur, <EM>not</EM> end of simple dur</a>
+      <li class="tocline3"><a href="smil-timing.html#Timing-Ex:SMILDOMTiming" class="tocxref">10.8.6 Example 6: DOM-initiated timing</a>
+    </ul>
+    <li class="tocline2"><a href="smil-timing.html#Timing-Appendix-DiffsFromSMIL1.0" class="tocxref">10.9 Appendix C: Differences from   SMIL 1.0</a>
+    <li class="tocline2"><a href="smil-timing.html#Timing-Appendix-Unifying" class="tocxref">10.10 Appendix D: Unifying event based and   scheduled timing</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-timing.html#q172" class="tocxref">10.10.1 Background</a>
+      <li class="tocline3"><a href="smil-timing.html#q173" class="tocxref">10.10.2 Modeling interactive, event-based content in SMIL</a>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="smil-timemanip.html" class="tocxref">11. The SMIL 2.0 Time Manipulations Module</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil-timemanip.html#TimeManip-Introduction" class="tocxref">11.1 Introduction</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-timemanip.html#TimeManip-Background" class="tocxref">11.1.1  Background</a>
+      <li class="tocline3"><a href="smil-timemanip.html#TimeManip-Overview" class="tocxref">11.1.2  Overview of support</a>
+      <li class="tocline3"><a href="smil-timemanip.html#TimeManip-AttributeSyntax" class="tocxref">11.1.3  Attribute syntax</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timemanip.html#TimeManip-accelerateSyntax" class="tocxref"> The accelerate and decelerate attributes</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timemanip.html#q6" class="tocxref"> Examples</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timemanip.html#TimeManip-autoReverseSyntax" class="tocxref"> The autoReverse attribute</a>
+        <li class="tocline4"><a href="smil-timemanip.html#TimeManip-speedSyntax" class="tocxref"> The speed attribute</a>
+        <li class="tocline4"><a href="smil-timemanip.html#q9" class="tocxref"> Examples</a>
+      </ul>
+      <li class="tocline3"><a href="smil-timemanip.html#TimeManip-Details" class="tocxref">11.1.4 Details of timing model arithmetic&nbsp;</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timemanip.html#q11" class="tocxref"> Timing and real-world clock times</a>
+        <li class="tocline4"><a href="smil-timemanip.html#q12" class="tocxref"> Common definitions</a>
+        <li class="tocline4"><a href="smil-timemanip.html#TimeManip-ComputingRunRate" class="tocxref">  Computing the element run-rate</a>
+        <li class="tocline4"><a href="smil-timemanip.html#TimeManip-ConvertingTimes" class="tocxref">  Converting document time to element   time</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timemanip.html#q15" class="tocxref"> Filtered active time calculation</a>
+          <li class="tocline5"><a href="smil-timemanip.html#q16" class="tocxref"> Filtered simple time calculation</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timemanip.html#TimeManip-ConvertingTimesRev" class="tocxref"> Converting element time to document   time</a>
+        <li class="tocline4"><a href="smil-timemanip.html#TimeManip-ComputingNetSpeed" class="tocxref"> Computing the net cascaded speed   for an element</a>
+      </ul>
+      <li class="tocline3"><a href="smil-timemanip.html#TimeManip-MediaFallbacks" class="tocxref">11.1.5  Media fallback semantics</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-timemanip.html#q20" class="tocxref"> Ideal model</a>
+        <li class="tocline4"><a href="smil-timemanip.html#Timing-FallbacksForMedia" class="tocxref"> Fallbacks for time filters on a media   element</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timemanip.html#q22" class="tocxref"> Authoring considerations for the fallback semantics</a>
+        </ul>
+        <li class="tocline4"><a href="smil-timemanip.html#TimeManip-ImplicationsForTimeContainers" class="tocxref">  Implications of time   manipulations on time containers</a>
+        <ul class="toc">
+          <li class="tocline5"><a href="smil-timemanip.html#q24" class="tocxref"> Handling negative speeds on time containers</a>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="smil-transitions.html" class="tocxref">12. The SMIL 2.0 Transition Effects Module</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil-transitions.html#TransitionEffects-Introduction" class="tocxref">12.1 Introduction</a>
+    <li class="tocline2"><a href="smil-transitions.html#TransitionEffects-Modeling" class="tocxref">12.2 Transition Model</a>
+    <li class="tocline2"><a href="smil-transitions.html#TransitionEffects-Taxonomy" class="tocxref">12.3 Transition Taxonomy</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-transitions.html#q4" class="tocxref">12.3.1 Default Transition Subtypes</a>
+      <li class="tocline3"><a href="smil-transitions.html#q5" class="tocxref">12.3.2 Required Transitions</a>
+    </ul>
+    <li class="tocline2"><a href="smil-transitions.html#TransitionEffects-Basic" class="tocxref">12.4 BasicTransitions Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-transitions.html#TransitionEffects-TransitionElement" class="tocxref">12.4.1 The   <SPAN class="edef">transition</SPAN> element</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-transitions.html#TransitionEffects-TransitionElementExamples" class="tocxref"> Examples of the   <SPAN class="einst-transition einst">transition</SPAN> element</a>
+      </ul>
+      <li class="tocline3"><a href="smil-transitions.html#q9" class="tocxref">12.4.2 The param element</a>
+      <li class="tocline3"><a href="smil-transitions.html#TransitionEffects-TransitionAttribute" class="tocxref">12.4.3 The   <SPAN class="adef">transIn</SPAN> and   <SPAN class="adef">transOut</SPAN> attributes</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-transitions.html#q11" class="tocxref"> Rules For Applying Transitions to Media Elements</a>
+        <li class="tocline4"><a href="smil-transitions.html#TransitionEffects-FillEqualsTransition" class="tocxref"> Use of fill="transition"</a>
+        <li class="tocline4"><a href="smil-transitions.html#q13" class="tocxref"> Slideshow example with transitions</a>
+        <li class="tocline4"><a href="smil-transitions.html#q14" class="tocxref"> Exclusive children and fill="transition"</a>
+      </ul>
+      <li class="tocline3"><a href="smil-transitions.html#q15" class="tocxref">12.4.4 Handling Parameter Errors</a>
+      <li class="tocline3"><a href="smil-transitions.html#TransitionEffects-Parsing" class="tocxref">12.4.5 Transition Parsing Rules</a>
+      <li class="tocline3"><a href="smil-transitions.html#TransitionEffects-Extending" class="tocxref">12.4.6 Extending The Set Of Transitions</a>
+    </ul>
+    <li class="tocline2"><a href="smil-transitions.html#TransitionEffects-Inline" class="tocxref">12.5 InlineTransitions Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-transitions.html#edef-transitionFilter" class="tocxref">12.5.1 The <SPAN class="edef">transitionFilter   </SPAN> element</a>
+      <li class="tocline3"><a href="smil-transitions.html#q20" class="tocxref">12.5.2 The param element</a>
+    </ul>
+    <li class="tocline2"><a href="smil-transitions.html#TransitionEffects-Modifiers" class="tocxref">12.6 TransitionModifiers Module</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-transitions.html#q22" class="tocxref">12.6.1 Horizontal and Vertical Pattern Repeat</a>
+    </ul>
+    <li class="tocline2"><a href="smil-transitions.html#TransitionEffects-Integration" class="tocxref">12.7 Integration</a>
+    <li class="tocline2"><a href="smil-transitions.html#TransitionEffects-Appendix" class="tocxref">12.8 Appendix: Taxonomy Tables</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-transitions.html#Table 1: Taxonomy Table" class="tocxref">12.8.1 Table 1: The Taxonomy Table</a>
+      <li class="tocline3"><a href="smil-transitions.html#Table 2: SMPTE Edge Wipes" class="tocxref">12.8.2 Table 2: SMPTE Edge Wipes</a>
+      <li class="tocline3"><a href="smil-transitions.html#Table 3: SMPTE Iris Wipes" class="tocxref">12.8.3 Table 3: SMPTE Iris Wipes</a>
+      <li class="tocline3"><a href="smil-transitions.html#Table 4: SMPTE Clock Wipes" class="tocxref">12.8.4 Table 4: SMPTE Clock Wipes</a>
+      <li class="tocline3"><a href="smil-transitions.html#Table 5: SMPTE Matrix Wipes" class="tocxref">12.8.5 Table 5: SMPTE Matrix Wipes</a>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="smil20-profile.html" class="tocxref">13. SMIL 2.0 Language   Profile</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil20-profile.html#SMILProfileNSAbstract" class="tocxref">13.1 Abstract</a>
+    <li class="tocline2"><a href="smil20-profile.html#SMILProfileNS-first" class="tocxref">13.2 SMIL 2.0 Profile</a>
+    <li class="tocline2"><a href="smil20-profile.html#q3" class="tocxref">13.3 Normative Definition of the SMIL 2.0 Language Profile</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-DocumentConformance" class="tocxref">13.3.1 Document   Conformance</a>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-LanguageConformance" class="tocxref">13.3.2 SMIL 2.0 Language Conformance</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil20-profile.html#SMILProfileNS-ConformingDocuments" class="tocxref"> Conforming SMIL 2.0 Documents</a>
+        <li class="tocline4"><a href="smil20-profile.html#SMILProfileNS-AgentConformance" class="tocxref"> Conforming SMIL 2.0 Language User   Agents</a>
+      </ul>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-SmilProfile" class="tocxref">13.3.3 The SMIL   2.0 Language Profile</a>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-animation-module" class="tocxref">13.3.4 Animation   Module</a>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-content-module" class="tocxref">13.3.5 Content   Control Modules</a>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-layout-module" class="tocxref">13.3.6 Layout   Modules</a>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-extented-linking-module" class="tocxref">13.3.7 Linking   Modules</a>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-media-module" class="tocxref">13.3.8 Media   Object Modules</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil20-profile.html#BaselineFormatsNS" class="tocxref"> Widely Supported MIME   Types</a>
+        <li class="tocline4"><a href="smil20-profile.html#MediaObjectIntegrationRequirementsNS" class="tocxref"> Media   Object Integration Requirements</a>
+      </ul>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-meta-module" class="tocxref">13.3.9 Metainformation   Module</a>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-struct-module" class="tocxref">13.3.10 Structure   Module</a>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-timing-module" class="tocxref">13.3.11 Timing   and Synchronization Modules</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil20-profile.html#SMILProfileNS-supported-events" class="tocxref"> Supported   Event Symbols</a>
+        <li class="tocline4"><a href="smil20-profile.html#q20" class="tocxref"> Event semantics</a>
+        <li class="tocline4"><a href="smil20-profile.html#q21" class="tocxref"> Order of raising of simultaneous events:</a>
+        <li class="tocline4"><a href="smil20-profile.html#q22" class="tocxref"> Extending the set of supported events</a>
+        <li class="tocline4"><a href="smil20-profile.html#q23" class="tocxref"> <STRONG>Integration definitions</STRONG></a>
+      </ul>
+      <li class="tocline3"><a href="smil20-profile.html#SMILProfileNS-transition-module" class="tocxref">13.3.12 Transition   Effects Modules</a>
+    </ul>
+    <li class="tocline2"><a href="smil20-profile.html#SMILProfileNS-Extending" class="tocxref">13.4 Extending   the SMIL 2.0 Language</a>
+    <li class="tocline2"><a href="smil20-profile.html#SMILProfileNS-DTD" class="tocxref">13.5 Appendix A: SMIL 20 Document   Type Definition</a>
+    <li class="tocline2"><a href="smil20-profile.html#SMILProfileNS-Appendix" class="tocxref">13.6 Appendix B:   SMIL 20 XML Schema</a>
+  </ul>
+  <li class="tocline1"><a href="smil-basic.html" class="tocxref">14. SMIL 2.0 Basic Profile and Scalability Framework</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil-basic.html#smilBasicNS-Abstract" class="tocxref">14.1 Abstract</a>
+    <li class="tocline2"><a href="smil-basic.html#smilBasicNS-Intro" class="tocxref">14.2 Introduction</a>
+    <li class="tocline2"><a href="smil-basic.html#smilBasicNS-Basic" class="tocxref">14.3 SMIL 2.0 Basic Profile</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-basic.html#smilBasicNS-BasicDef" class="tocxref">14.3.1 Definition</a>
+      <ul class="toc">
+        <li class="tocline4"><a href="smil-basic.html#BaseGuideNS-BasicDefXML" class="tocxref"> XML Namespace Declarations and   Internationalization</a>
+      </ul>
+      <li class="tocline3"><a href="smil-basic.html#BaseGuideNS-BasicDoc" class="tocxref">14.3.2 Conformance of SMIL 2.0 Basic Documents </a>
+      <li class="tocline3"><a href="smil-basic.html#BaseGuideNS-BasicUserAgent" class="tocxref">14.3.3 Conformance of SMIL 2.0 Basic User Agents   </a>
+    </ul>
+    <li class="tocline2"><a href="smil-basic.html#smilBasicNS-Guide" class="tocxref">14.4 Scalable Profiles</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-basic.html#smilBasicNS-GuideDef" class="tocxref">14.4.1 Definition</a>
+      <li class="tocline3"><a href="smil-basic.html#smilBasicNS-GuideDoc" class="tocxref">14.4.2 SMIL 2.0 Document Scalability Guidelines</a>
+      <li class="tocline3"><a href="smil-basic.html#smilBasicNS-conformance" class="tocxref">14.4.3 Conformance of Scalable SMIL 2.0 Documents</a>
+      <li class="tocline3"><a href="smil-basic.html#smilBasicNS-GuidePlayer" class="tocxref">14.4.4 Conformance of Scalable User Agents</a>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="smil-DTD.html" class="tocxref">Appendix A. SMIL 2.0 DTDs</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil-DTD.html#q1" class="tocxref">A.1 SMIL 2.0 Module DTDs:</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-anim" class="tocxref">A.1.1 The SMIL Animation Module</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-control" class="tocxref">A.1.2 The SMIL Content Control Module</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-layout" class="tocxref">A.1.3 The SMIL Layout Module</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-link" class="tocxref">A.1.4 The SMIL Linking Module</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-media" class="tocxref">A.1.5 The SMIL Media Object Module</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-metainformation" class="tocxref">A.1.6 The SMIL Metainformation Module</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-struct" class="tocxref">A.1.7 The SMIL Structure Module</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-timing" class="tocxref">A.1.8 The SMIL Timing Module</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL-transition" class="tocxref">A.1.9 The SMIL Transition Module</a>
+    </ul>
+    <li class="tocline2"><a href="smil-DTD.html#q11" class="tocxref">A.2 SMIL 2.0 Language Profile:</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-DTD.html#smil-model-1" class="tocxref">A.2.1 SMIL 2.0 Language Profile document model</a>
+      <li class="tocline3"><a href="smil-DTD.html#SMIL20.dtd" class="tocxref">A.2.2 SMIL 2.0 Language Profile DTD driver</a>
+    </ul>
+    <li class="tocline2"><a href="smil-DTD.html#q14" class="tocxref">A.3 General modularization framework:</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-DTD.html#smil-datatypes-1" class="tocxref">A.3.1 SMIL 2.0 common datatypes</a>
+      <li class="tocline3"><a href="smil-DTD.html#smil-attribs-1" class="tocxref">A.3.2 SMIL 2.0 common attributes</a>
+      <li class="tocline3"><a href="smil-DTD.html#smil-qname-1" class="tocxref">A.3.3 SMIL 2.0 qualified names module</a>
+      <li class="tocline3"><a href="smil-DTD.html#smil-framework-1" class="tocxref">A.3.4 SMIL 2.0 framework module</a>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="smil-SCHEMA.html" class="tocxref">Appendix B. SMIL 2.0 Schemas</a>
+  <ul class="toc">
+    <li class="tocline2"><a href="smil-SCHEMA.html#q1" class="tocxref">B.1 XML Schema for the SMIL 2.0 functionalities:</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-SCHEMA.html#smil20" class="tocxref">B.1.1 SMIL 2.0 Modules</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#animate" class="tocxref">B.1.2 The SMIL Animation Module</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#control" class="tocxref">B.1.3 The SMIL Content Control Module</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#layout" class="tocxref">B.1.4 The SMIL Layout Module</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#linking" class="tocxref">B.1.5 The SMIL Linking Module</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#media" class="tocxref">B.1.6 The SMIL Media Object Module</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#meta" class="tocxref">B.1.7 The SMIL Meta Module</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#structure" class="tocxref">B.1.8 The SMIL Structure Module</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#timemanip" class="tocxref">B.1.9 The SMIL Time manipulation</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#timing" class="tocxref">B.1.10 The SMIL Timing Module</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#transitions" class="tocxref">B.1.11 The SMIL Transition Module</a>
+    </ul>
+    <li class="tocline2"><a href="smil-SCHEMA.html#q13" class="tocxref">B.2 XML Schema for the SMIL 2.0 Language:</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-SCHEMA.html#language" class="tocxref">B.2.1 SMIL 2.0 Language Profile</a>
+    </ul>
+    <li class="tocline2"><a href="smil-SCHEMA.html#q15" class="tocxref">B.3 XML Schema for the SMIL 2.0 modules:</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="smil-SCHEMA.html#AccessKeyTiming" class="tocxref">B.3.1 SMIL 2.0 AccessKeyTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#AudioLayout" class="tocxref">B.3.2 SMIL 2.0 AudioLayout</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BasicAnimation" class="tocxref">B.3.3 SMIL 2.0 BasicAnimation</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BasicContentControl" class="tocxref">B.3.4 SMIL 2.0 BasicContentControl</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BasicInlineTiming" class="tocxref">B.3.5 SMIL 2.0 BasicInlineTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BasicLayout" class="tocxref">B.3.6 SMIL 2.0 BasicLayout</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BasicLinking" class="tocxref">B.3.7 SMIL 2.0 BasicLinking</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BasicMedia" class="tocxref">B.3.8 SMIL 2.0 BasicMedia</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BasicTimeContainers" class="tocxref">B.3.9 SMIL 2.0 BasicTimeContainers</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BasicTransitions" class="tocxref">B.3.10 SMIL 2.0 BasicTransitions</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#BrushMedia" class="tocxref">B.3.11 SMIL 2.0 BrushMedia</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#CustomTestAttributes" class="tocxref">B.3.12 SMIL 2.0 CustomTestAttributes</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#EventTiming" class="tocxref">B.3.13 SMIL 2.0 EventTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#ExclTimeContainers" class="tocxref">B.3.14 SMIL 2.0 ExclTimeContainers</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#FillDefault" class="tocxref">B.3.15 SMIL 2.0 FillDefault</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#HierarchicalLayout" class="tocxref">B.3.16 SMIL 2.0 HierarchicalLayout</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#HostLanguage" class="tocxref">B.3.17 SMIL 2.0 HostLanguage</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#InlineTransitions" class="tocxref">B.3.18 SMIL 2.0 InlineTransitions</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#IntegrationSet" class="tocxref">B.3.19 SMIL 2.0 IntegrationSet</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#LinkingAttributes" class="tocxref">B.3.20 SMIL 2.0 LinkingAttributes</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MediaAccessibility" class="tocxref">B.3.21 SMIL 2.0 MediaAccessibility</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MediaClipMarkers" class="tocxref">B.3.22 SMIL 2.0 MediaClipMarkers</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MediaClipping" class="tocxref">B.3.23 SMIL 2.0 MediaClipping</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MediaDescription" class="tocxref">B.3.24 SMIL 2.0 MediaDescription</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MediaMarkerTiming" class="tocxref">B.3.25 SMIL 2.0 MediaMarkerTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MediaParam" class="tocxref">B.3.26 SMIL 2.0 MediaParam</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#Metainformation" class="tocxref">B.3.27 SMIL 2.0 Metainformation</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MinMaxTiming" class="tocxref">B.3.28 SMIL 2.0 MinMaxTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MultiArcTiming" class="tocxref">B.3.29 SMIL 2.0 MultiArcTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#MultiWindowLayout" class="tocxref">B.3.30 SMIL 2.0 MultiWindowLayout</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#ObjectLinking" class="tocxref">B.3.31 SMIL 2.0 ObjectLinking</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#PrefetchControl" class="tocxref">B.3.32 SMIL 2.0 PrefetchControl</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#RepeatTiming" class="tocxref">B.3.33 SMIL 2.0 RepeatTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#RepeatValueTiming" class="tocxref">B.3.34 SMIL 2.0 RepeatValueTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#RestartDefault" class="tocxref">B.3.35 SMIL 2.0 RestartDefault</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#RestartTiming" class="tocxref">B.3.36 SMIL 2.0 RestartTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#SkipContentControl" class="tocxref">B.3.37 SMIL 2.0 SkipContentControl</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#SplineAnimation" class="tocxref">B.3.38 SMIL 2.0 SplineAnimation</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#Structure" class="tocxref">B.3.39 SMIL 2.0 Structure</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#SyncBehavior" class="tocxref">B.3.40 SMIL 2.0 SyncBehavior</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#SyncBehaviorDefault" class="tocxref">B.3.41 SMIL 2.0 SyncBehaviorDefault</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#SyncMaster" class="tocxref">B.3.42 SMIL 2.0 SyncMaster</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#SyncbaseTiming" class="tocxref">B.3.43 SMIL 2.0 SyncbaseTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#TimeContainerAttributes" class="tocxref">B.3.44 SMIL 2.0 TimeContainerAttributes</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#TimeManipulations" class="tocxref">B.3.45 SMIL 2.0 TimeManipulations</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#TransitionModifiers" class="tocxref">B.3.46 SMIL 2.0 TransitionModifiers</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#WallclockTiming" class="tocxref">B.3.47 SMIL 2.0 WallclockTiming</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#utility" class="tocxref">B.3.48 SMIL 2.0 utility</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#rdf" class="tocxref">B.3.49 SMIL 2.0 rdf</a>
+      <li class="tocline3"><a href="smil-SCHEMA.html#xml-mod" class="tocxref">B.3.50 SMIL 2.0 xml-mod</a>
+    </ul>
+  </ul>
+  <li class="tocline1"><a href="elements.html" class="tocxref">Appendix C. Index of Elements</a>
+  <li class="tocline1"><a href="attributes.html" class="tocxref">Appendix D. Index of Attributes</a>
+  <li class="tocline1"><a href="refs.html" class="tocxref">Appendix E. References</a>
+</ul>
+</DIV>
+
+<div class="noprint" align="center">
+<hr>
+<a href="introduction.html">next</a> &nbsp;
+<a href="cover.html#minitoc">contents</a> &nbsp;
+</div>
+<SCRIPT src="https://www.w3.org/scripts/TR/fixup.js"></SCRIPT></BODY></HTML>

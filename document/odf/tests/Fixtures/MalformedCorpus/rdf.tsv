@@ -1,0 +1,4 @@
+# name	xhtml:about	xhtml:property	xhtml:datatype
+unbound-curies	[missing:item]	missing:name	missing:type
+unterminated-safe-curie	[broken	missing:name	missing:type
+invalid-terms	bad subject	:predicate	:type

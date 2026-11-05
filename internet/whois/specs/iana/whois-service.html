@@ -1,0 +1,236 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>Using our WHOIS Server</title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+    <link rel="stylesheet" href="/static/css/iana_website.0feeb53883fa.css"/>
+    <link rel="shortcut icon" type="image/ico" href="/static/img/bookmark_icon.e14a2530b3e9.ico"/>
+    <script type="text/javascript" src="/static/js/jquery.a8e7cabd4d49.js"></script>
+    <script type="text/javascript" src="/static/js/dtable.46ee921d4414.js" defer></script>
+    <script type="text/javascript" src="/static/js/relative-time.79f0e30be3b8.js" defer></script>
+
+	
+</head>
+
+<body>
+
+
+
+<header>
+    <div id="header">
+        <div id="logo">
+            <a href="/"><img src="/static/img/iana-logo-header.426b3ac01d35.svg" alt="Homepage"/></a>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="/domains">Domains</a></li>
+                <li><a href="/protocols">Protocols</a></li>
+                <li><a href="/numbers">Numbers</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    
+</header>
+
+
+<div id="body">
+
+
+<article class="hemmed sidenav">
+
+    <main>
+    
+<ol class="breadcrumb">
+	<li><a href="/help">Instructions and Guides</a></li>
+</ol>
+<h1 id="using-our-whois-server">Using our WHOIS Server</h1>
+<div class="help-article-flow">
+<div class="help-article">
+
+<p>We provide a WHOIS server at whois.iana.org for looking up information for a number of registries maintained as part of the IANA functions:</p>
+<ul>
+<li>Root Zone Registry — the WHOIS database of delegations from the DNS root zone (also know as top-level domains).</li>
+<li>.INT Registry — the database of .INT domain registrations, used by intergovernmental treaty organisations.</li>
+<li>.ARPA Registry — the database of .ARPA domain registrations</li>
+<li>IPv4 and IPv6 allocations — the registry of allocations made from the global IPv4 and IPv6 address spaces, plus specially designated allocations described in technical standards.</li>
+<li>Autonomous System (AS) number allocations — the registry of allocations made from the global AS number space.</li>
+</ul>
+<h2 id="queries-supported">Queries supported</h2>
+<p>Here are some illustrative examples of queries supported by the WHOIS Server:</p>
+<table class="iana-table">
+    <tr>
+        <th>Query type</th>
+        <th>Examples</th>
+    </tr>
+    <tr>
+        <td>Domain names</td>
+        <td>icann.org, .org, who.int</td>
+    </tr>
+    <tr>
+        <td>IP addresses</td>
+        <td>192.168.1.1, 10.0.4.5</td>
+    </tr>
+    <tr>
+        <td>IP address ranges</td>
+        <td>192.168.0.0-192.168.0.255, 192.0.0.0/24, 192/24</td>
+    </tr>
+    <tr>
+        <td>AS numbers</td>
+        <td>542, AS542</td>
+    </tr>
+</table>
+
+<h2 id="response-format">Response format</h2>
+<p>Data is returned in a colon delimited "key: value" format. Comment lines begin with a "%" symbol. Text is encoded using UTF-8.</p>
+<h2 id="referrals">Referrals</h2>
+<p>If our WHOIS server determines there is a more specific answer to the query you have received, it will return the most specific answer it has available. If we know of a WHOIS server that should be more authoritative for the specific record, we also return a "refer:" line. You may wish to send a WHOIS query to that server to find more information about the resource.</p>
+<p>This behaviour occurs, for example, if you query for a domain like "icann.org". The root zone database only has authoritative data for ".org", but we will provide a referral to the .org WHOIS server which has more information about the second-level registration. Such behaviour will also happen for IP address allocations that are more specific than the records in IANA's databases.</p>
+
+<div class="last-updated">Published <time class="relative-time" datetime="2013-11-11">2013-11-11</time>, last revised <time class="relative-time" datetime="2016-08-30">2016-08-30</time>.</div>
+
+</div>
+
+<nav class="article-toc" aria-label="Contents">
+<a class="article-toc-top" href="#" title="Back to top"><img src="/static/icons/list.svg" alt="Back to top"></a>
+<div class="toc">
+<ul>
+<li><a href="#queries-supported">Queries supported</a></li>
+<li><a href="#response-format">Response format</a></li>
+<li><a href="#referrals">Referrals</a></li>
+</ul>
+</div>
+
+</nav>
+
+</div>
+
+    </main>
+
+    <nav id="sidenav">
+    
+    </nav>
+
+</article>
+
+
+</div>
+
+<footer>
+    <div id="footer">
+        <table class="navigation">
+            <tr>
+                <td class="section"><a href="/domains">Domain&nbsp;Names</a></td>
+                <td class="subsection">
+                    <ul>
+                        <li><a href="/domains/root">Root Zone Registry</a></li>
+                        <li><a href="/domains/int">.INT Registry</a></li>
+                        <li><a href="/domains/arpa">.ARPA Registry</a></li>
+                        <li><a href="/domains/idn-tables">IDN Repository</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="section"><a href="/numbers">Number&nbsp;Resources</a></td>
+                <td class="subsection">
+                    <ul>
+                        <li><a href="/numbers/registries">Number Registries</a></li>
+                        <li><a href="/numbers/allocations/">RIR Allocation Data</a></li>
+                        <li><a href="/help/abuse">Abuse Information</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="section"><a href="/protocols">Protocols</a></td>
+                <td class="subsection">
+                    <ul>
+                        <li><a href="/protocols">Protocol Registries</a></li>
+                        <li><a href="/time-zones">Time Zone Database</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="section"><a href="/about">About&nbsp;Us</a></td>
+                <td class="subsection">
+                    <ul>
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/performance">Performance</a></li>
+                        <li><a href="/about/organization">The Organization</a></li>
+                        <li><a href="/archive">Archive</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <div id="custodian">
+            <p>The IANA functions coordinate the Internet’s globally unique identifiers, and
+                are provided by <a href="https://pti.icann.org">Public Technical Identifiers</a>, an affiliate of
+                <a href="https://www.icann.org/">ICANN</a>.</p>
+        </div>
+        <div id="legalnotice">
+            <ul>
+                <li><a href="https://www.icann.org/privacy/policy">Privacy Policy</a></li>
+                <li><a href="https://www.icann.org/privacy/tos">Terms of Service</a></li>
+                
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+
+<script>
+// Highlight the table-of-contents entry for the section currently at the
+// top of the viewport, following the page as it scrolls. Purely additive:
+// without JS the rail still works as a list of jump links.
+(function () {
+	var toc = document.querySelector('.article-toc');
+	if (!toc) return;
+
+	var sections = Array.prototype.map.call(
+		toc.querySelectorAll('a[href^="#"]'),
+		function (a) {
+			var id = decodeURIComponent(a.getAttribute('href')).slice(1);
+			return { link: a, target: document.getElementById(id) };
+		}
+	).filter(function (s) { return s.target; });
+	if (!sections.length) return;
+
+	var current = null;
+	function update() {
+		var line = 120; // trigger line, px below the top of the viewport
+		var active = sections[0];
+		for (var i = 0; i < sections.length; i++) {
+			if (sections[i].target.getBoundingClientRect().top - line <= 0) {
+				active = sections[i];
+			}
+		}
+		if (active && active.link !== current) {
+			if (current) current.classList.remove('is-current');
+			active.link.classList.add('is-current');
+			current = active.link;
+		}
+	}
+
+	var ticking = false;
+	function onScroll() {
+		if (ticking) return;
+		ticking = true;
+		window.requestAnimationFrame(function () { update(); ticking = false; });
+	}
+	window.addEventListener('scroll', onScroll, { passive: true });
+	window.addEventListener('resize', onScroll);
+	update();
+})();
+</script>
+
+
+</body>
+
+</html>

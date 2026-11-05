@@ -1,0 +1,550 @@
+---
+- name: division_by_zero_lax
+  template: "{{ 10 | divided_by: 0 }}"
+  errors:
+    render_error:
+      - divided by 0
+  complexity: 200
+  error_mode: lax
+  hint: |
+    Division by zero should raise a render error in lax mode.
+    The error message should contain "divided by 0" (case-insensitive).
+    We check for the error being raised, not the exact message format.
+- name: division_by_zero_with_float_lax
+  template: "{{ 10.0 | divided_by: 0.0 }}"
+  expected: Infinity
+  complexity: 210
+  error_mode: lax
+  hint: |
+    Float division by zero in Liquid returns "Infinity" following standard
+    floating-point arithmetic behavior. This differs from integer division by zero
+    which returns an error message. The implementation respects IEEE 754 floating-point
+    standards where dividing by 0.0 produces infinity rather than an error.
+- name: modulo_by_zero_lax
+  template: "{{ 10 | modulo: 0 }}"
+  errors:
+    render_error:
+      - divided by 0
+  complexity: 215
+  error_mode: lax
+  hint: |
+    Modulo by zero should raise a render error in lax mode.
+    The error message should contain "divided by 0" (case-insensitive).
+    We check for the error being raised, not the exact message format.
+- name: undefined_variable_lax
+  template: "{{ missing_var }}"
+  environment: {}
+  expected: ''
+  complexity: 205
+  error_mode: lax
+  hint: |
+    In lax mode, undefined variables render as empty strings (nil output).
+    The variable lookup system should return nil for variables not found
+    in the context. This is fundamental to Liquid's forgiving error handling.
+    Do not throw errors or warnings for missing variables in lax mode.
+- name: undefined_variable_strict_in_liquid_ruby
+  template: "{{ missing_var }}"
+  environment: {}
+  expected: ''
+  complexity: 230
+  error_mode: [strict2, strict]
+  hint: |
+    In liquid-ruby, strict mode only affects parsing, not runtime variable
+    lookup. Undefined variables still render as empty strings. Other
+    implementations may raise errors for undefined variables in strict mode.
+- name: property_access_on_nil_lax
+  template: "{{ missing.property }}"
+  environment: {}
+  expected: ''
+  complexity: 220
+  error_mode: lax
+  hint: |
+    Accessing properties on nil/undefined values should fail gracefully in lax mode.
+    When 'missing' resolves to nil, .property access should also return nil
+    (empty string output). This is nil-safe navigation - each property access
+    checks if the base is nil before attempting to access. Prevents null
+    pointer exceptions in templates.
+- name: property_access_on_nil_strict_in_liquid_ruby
+  template: "{{ missing.property }}"
+  environment: {}
+  expected: ''
+  complexity: 245
+  error_mode: [strict2, strict]
+  hint: |
+    In liquid-ruby, strict mode only affects parsing. Property access on
+    undefined variables still returns nil (empty output). Other implementations
+    may raise errors for property access on undefined variables in strict mode.
+- name: property_access_on_non_object_lax
+  template: "{{ number.property }}"
+  environment:
+    number: 42
+  expected: ''
+  complexity: 235
+  error_mode: lax
+  hint: |
+    Attempting to access properties on primitive types (numbers, strings)
+    should return nil in lax mode. The number 42 doesn't have a 'property'
+    attribute, so gracefully return nil. Some implementations may have
+    special handling for string methods (like .size), but unknown properties
+    should always return nil on primitives.
+- name: array_access_on_non_array_lax
+  template: "{{ string[0] }}"
+  environment:
+    string: hello
+  expected: ''
+  complexity: 240
+  error_mode: lax
+  hint: |
+    Bracket notation on non-indexable types should return nil in lax mode.
+    While strings might support indexing in some implementations, attempting
+    to index a string as an array should fail gracefully. Only proper arrays
+    and hashes should support bracket notation. Return nil for incompatible
+    type access.
+- name: unknown_filter_lax
+  template: "{{ 'hello' | nonexistent_filter }}"
+  expected: hello
+  complexity: 250
+  error_mode: lax
+  hint: |
+    In lax mode, unknown filters should be silently ignored, passing through
+    the input value unchanged. This allows templates to degrade gracefully
+    when filters are removed or unavailable. The filter chain continues with
+    the original value as if the unknown filter wasn't there. This is critical
+    for backward compatibility.
+- name: unknown_filter_strict_in_liquid_ruby
+  template: "{{ 'hello' | nonexistent_filter }}"
+  expected: hello
+  complexity: 270
+  error_mode: [strict2, strict]
+  hint: |
+    In liquid-ruby, unknown filters are ignored even in strict mode.
+    The filter passes through its input unchanged, like lax mode.
+    Other implementations may raise errors for unknown filters in strict mode.
+- name: filter_with_invalid_argument_lax
+  template: "{{ 'hello' | slice: 'not a number' }}"
+  errors:
+    render_error:
+      - invalid integer
+  complexity: 255
+  error_mode: lax
+  hint: |
+    Filters that expect numeric arguments should raise a render error when
+    given invalid input. The slice filter expects an integer index but gets
+    a string. The error message should contain "invalid integer" (case-insensitive).
+    We check for the error being raised, not the exact message format.
+- name: chained_filter_error_propagation_lax
+  template: "{{ 'test' | nonexistent | upcase }}"
+  expected: TEST
+  complexity: 100
+  error_mode: lax
+  hint: |
+    When an unknown filter appears in a chain in lax mode, it passes through
+    its input unchanged, and the chain continues. Here 'nonexistent' passes
+    'test' through unchanged, then upcase converts it to 'TEST'. Error
+    propagation in filter chains should not break subsequent filters in
+    lax mode. Each filter processes what it receives.
+- name: unknown_tag_lax
+  template: "{% nonexistent_tag %}content{% endnonexistent_tag %}"
+  complexity: 280
+  error_mode: lax
+  errors:
+    parse_error:
+    - Unknown tag
+  hint: |
+    QUIRK: current liquid-ruby treats an unknown tag as a parse error even in
+    lax mode. Lax parsing recovers from some malformed tag syntax, but it does
+    not make unregistered tags valid. Strict/strict2 companion specs below
+    cover the same contract in those modes.
+- name: unknown_tag_strict_parse_error
+  template: "{% nonexistent_tag %}content{% endnonexistent_tag %}"
+  complexity: 300
+  error_mode: [strict2, strict]
+  errors:
+    parse_error:
+    - Unknown tag
+  hint: |
+    In liquid-ruby strict mode, unknown tags cause a parse error rather than
+    a render error. The template fails to parse with "Unknown tag 'nonexistent_tag'".
+    This is stricter than lax mode which outputs the body as text.
+- name: unknown_tag_strict2_parse_error
+  template: "{% nonexistent_tag %}content{% endnonexistent_tag %}"
+  complexity: 300
+  error_mode: [strict2, strict]
+  errors:
+    parse_error:
+    - Unknown tag
+  hint: |
+    strict2 mode also rejects unknown tags at parse time. This companion spec
+    captures the strict parsing behavior separately from lax-mode recovery.
+- name: malformed_syntax_unclosed_tag_lax
+  template: "{% if true %}hello"
+  complexity: 320
+  error_mode: lax
+  errors:
+    parse_error:
+    - "'if' tag was never closed"
+  hint: |
+    Syntax errors should always raise errors even in lax mode, because the
+    template cannot be parsed correctly. An unclosed 'if' tag makes the
+    template structure ambiguous. The parser should detect when block tags
+    (if, for, case, etc.) are not properly closed before end-of-template.
+- name: malformed_syntax_invalid_filter_separator
+  template: "{{ 'hello' || upcase }}"
+  complexity: 100
+  error_mode: lax
+  expected: HELLO
+  hint: |
+    QUIRK: Double pipes (||) in lax mode are treated as a single pipe followed
+    by a blank token, then another filter. The lexer interprets '||' as '|'
+    followed by '|upcase'. This quirky behavior is specific to lax mode.
+- name: very_long_string_filter
+  features: [ruby_drops]
+  template: "{{ long_string | size }}"
+  environment:
+    long_string:
+      instantiate:LongString:
+        length: 100000
+  expected: '100000'
+  complexity: 101
+  error_mode: lax
+  hint: |
+    Filters should handle very long strings without crashing. The size filter
+    should work on strings of any length. While there may be practical limits
+    (memory, timeout), the filter logic itself should not have hardcoded
+    length restrictions. This tests that filters properly handle edge cases
+    in input size. The data field here uses Ruby syntax to generate a long
+    string; adapt based on your spec processing system.
+- name: deeply_nested_property_access_lax
+  template: "{{ a.b.c.d.e.f.g.h.i.j }}"
+  environment:
+    a:
+      b:
+        c:
+          d:
+            e:
+              f:
+                g:
+                  h:
+                    i: {}
+  expected: ''
+  complexity: 310
+  error_mode: lax
+  hint: |
+    Deep property access chains should work up to the point where a property
+    doesn't exist. Here the chain reaches 'i' (an empty object), then accessing
+    .j returns nil. The system should handle arbitrary nesting depth without
+    stack overflow or recursion limits. Each property access should be
+    nil-safe, returning nil as soon as any intermediate value is nil or
+    doesn't have the requested property.
+- name: filter_on_nil_value_lax
+  template: "{{ missing | upcase }}"
+  environment: {}
+  expected: ''
+  complexity: 225
+  error_mode: lax
+  hint: |
+    Filters applied to nil/undefined variables should handle nil input gracefully.
+    The upcase filter receives nil as input (since 'missing' is undefined).
+    Filters should check for nil input and either return nil or handle it
+    appropriately. Most filters return nil when given nil input. This prevents
+    errors when applying filters in filter chains where earlier values might
+    be nil.
+- name: negative_array_index_out_of_bounds_lax
+  template: "{{ items[-10] }}"
+  environment:
+    items:
+    - a
+    - b
+    - c
+  expected: ''
+  complexity: 100
+  error_mode: lax
+  hint: |
+    Negative array indices that go beyond the array bounds should return nil.
+    The array has 3 elements, so [-10] would be index -7 when adjusted,
+    which is out of bounds. Array access should validate indices (both positive
+    and negative) and return nil for out-of-bounds access in lax mode. Never
+    throw exceptions for array index errors in lax mode.
+- name: undefined_variable_in_filter_argument_lax
+  template: "{{ 'hello' | slice: missing_index }}"
+  environment: {}
+  errors:
+    render_error:
+      - invalid integer
+  complexity: 275
+  error_mode: lax
+  hint: |
+    When a filter argument references an undefined variable (nil), the slice
+    filter should raise a render error since it expects an integer.
+    The error message should contain "invalid integer" (case-insensitive).
+    We check for the error being raised, not the exact message format.
+- name: error_in_nested_block_lax
+  template: "{% for item in items %}{{ item.missing }}{% endfor %}"
+  environment:
+    items:
+    - name: a
+    - name: b
+  expected: ''
+  complexity: 100
+  error_mode: lax
+  hint: |
+    Errors inside loops or other block structures should be handled per-iteration
+    in lax mode. Each iteration tries to access .missing on an item, which
+    doesn't exist. Each access returns nil (empty string). The loop continues
+    normally. Errors inside blocks should not break the block execution in
+    lax mode. Each iteration is independent in terms of error handling.
+- name: strict_mode_with_nil_safe_access
+  template: "{{ user.profile.name | default: 'Anonymous' }}"
+  environment:
+    user:
+      profile:
+  expected: Anonymous
+  complexity: 295
+  error_mode: [strict2, strict]
+  hint: |
+    Even in strict mode, nil-safe property access should work when the value
+    is explicitly nil (not undefined). Here 'profile' exists but is nil, so
+    .name returns nil, which is passed to the default filter. Strict mode
+    errors on undefined variables, but explicit nil values should be handled
+    gracefully. The default filter provides a fallback for nil values.
+- name: empty_filter_chain_lax
+  template: "{{ 'hello' | }}"
+  complexity: 100
+  error_mode: lax
+  expected: hello
+  hint: |
+    QUIRK: A trailing pipe with no filter name is silently ignored in lax mode.
+    The parser treats the empty filter chain as a no-op, passing through the
+    original value unchanged.
+- name: recursive_variable_reference
+  template: "{{ a }}"
+  environment:
+    a: "{{ b }}"
+    b: "{{ a }}"
+  expected: "{{ b }}"
+  complexity: 100
+  error_mode: lax
+  hint: |
+    Variable values should not be recursively parsed as Liquid templates.
+    When 'a' contains "{{ b }}", it should be output literally, not parsed
+    as a nested template. Liquid does not support recursive template expansion
+    in variable values. The string "{{ b }}" is just text data. This prevents
+    infinite recursion and keeps the parser simple. Only the original template
+    is parsed, not variable contents.
+
+# High-complexity specs for precise error location checking
+# These verify implementations report accurate line numbers and partial names
+
+- name: error_on_line_5_precise
+  template: |
+    line 1
+    line 2
+    line 3
+    line 4
+    {{ 10 | divided_by: 0 }}
+  errors:
+    render_error:
+      - line 5
+      - divided by 0
+  complexity: 500
+  error_mode: lax
+  hint: |
+    HIGH COMPLEXITY: This spec checks that the error message includes the
+    precise line number "line 5". Implementations must track line numbers
+    accurately through multi-line templates. Only implement this if your
+    error messages include line number information.
+
+- name: error_on_line_10_precise
+  template: |
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    {{ x | modulo: 0 }}
+  environment:
+    x: 100
+  errors:
+    render_error:
+      - line 10
+      - divided by 0
+  complexity: 510
+  error_mode: lax
+  hint: |
+    HIGH COMPLEXITY: Verifies line 10 appears in the error. Tests that
+    line counting works correctly for deeper templates. The modulo error
+    occurs on line 10 of the template.
+
+- name: error_in_partial_shows_partial_name_precise
+  template: "{% render 'math_helper' %}"
+  filesystem:
+    math_helper.liquid: "{{ n | divided_by: 0 }}"
+  environment:
+    n: 42
+  errors:
+    render_error:
+      - math_helper
+      - divided by 0
+  complexity: 520
+  error_mode: lax
+  hint: |
+    HIGH COMPLEXITY: Verifies the partial name "math_helper" appears in
+    the exception message. Implementations should identify which partial
+    caused the error to help with debugging. The exception should include
+    both the partial name and the error description.
+
+- name: error_in_partial_line_3_precise
+  template: "{% render 'multiline' %}"
+  filesystem:
+    multiline.liquid: |
+      first line
+      second line
+      {{ bad | divided_by: 0 }}
+  environment:
+    bad: 99
+  errors:
+    render_error:
+      - multiline
+      - line 3
+      - divided by 0
+  complexity: 550
+  error_mode: lax
+  hint: |
+    HIGH COMPLEXITY: Verifies both partial name AND line number within
+    the partial appear in the error. The error occurs on line 3 of the
+    "multiline" partial. This tests comprehensive error location tracking.
+
+- name: error_in_nested_partial_precise
+  template: "{% render 'outer_wrapper' %}"
+  filesystem:
+    outer_wrapper.liquid: |
+      wrapper start
+      {% render 'inner_math' %}
+      wrapper end
+    inner_math.liquid: "{{ x | divided_by: 0 }}"
+  environment:
+    x: 7
+  errors:
+    render_error:
+      - inner_math
+      - divided by 0
+  complexity: 580
+  error_mode: lax
+  hint: |
+    HIGH COMPLEXITY: When an error occurs in a nested partial, the
+    innermost partial name should appear in the exception. Here
+    "outer_wrapper" renders "inner_math" which has the error. The
+    exception should identify "inner_math" as the error source.
+
+- name: parse_error_shows_line_number_precise
+  template: |
+    valid line
+    valid line
+    {% if true
+  errors:
+    parse_error:
+      - line 3
+  complexity: 530
+  error_mode: lax
+  hint: |
+    HIGH COMPLEXITY: Parse errors should also include precise line numbers.
+    The malformed {% if tag is on line 3. The parse error message should
+    indicate where the syntax problem was detected.
+
+
+# ============================================================================
+# Structured error location specs — use line/position keys to check the
+# exception's attributes directly, not just the message string.
+# Requires the error_location feature (line/position as valid error keys).
+# ============================================================================
+- name: parse_error_line_3_structured
+  template: |
+    line 1
+    line 2
+    {% if true
+  errors:
+    parse_error:
+      - "not properly terminated"
+    line: 3
+  complexity: 530
+  error_mode: lax
+  hint: |
+    Uses the structured 'line: 3' key to check the SyntaxError's line
+    attribute directly, rather than relying on 'line 3' appearing in
+    the error message string.
+
+- name: parse_error_line_5_strict_structured
+  template: |
+    a
+    b
+    c
+    d
+    {{ foo | }}
+  error_mode: [strict2, strict]
+  errors:
+    parse_error:
+      - "Expected id"
+    line: 5
+  complexity: 530
+  hint: |
+    Strict mode parse error on line 5. The structured 'line: 5' key
+    checks the exception's line attribute. The 'Expected id'
+    substring matches "Expected id but found end_of_string".
+
+- name: parse_error_line_3_unterminated_string
+  template: |
+    line 1
+    line 2
+    {{ 'oops }}
+  error_mode: [strict2, strict]
+  errors:
+    parse_error:
+      - "Unexpected character"
+    line: 3
+  complexity: 540
+  hint: |
+    Checks line via structured key for an unterminated string literal.
+    The 'Unexpected character' substring matches the actual error
+    message. position is not checked — Liquid::SyntaxError does not
+    expose a column/position attribute.
+
+- name: render_error_line_5_structured
+  template: |
+    line 1
+    line 2
+    line 3
+    line 4
+    {{ 10 | divided_by: 0 }}
+  errors:
+    render_error:
+      - "divided by 0"
+    line: 5
+  complexity: 530
+  error_mode: lax
+  hint: |
+    Uses the structured 'line: 5' key to check the RuntimeError's line
+    attribute directly. The 'divided by 0' substring verifies the error
+    type. This complements error_on_line_5_precise which checks the
+    message string.
+
+- name: partial_error_line_2_structured
+  template: "{% render 'bad_syntax' %}"
+  filesystem:
+    bad_syntax.liquid: |
+      first line
+      {% if true
+  errors:
+    render_error:
+      - "not properly terminated"
+    line: 2
+  complexity: 540
+  error_mode: lax
+  hint: |
+    A parse error on line 2 of a rendered partial. The structured
+    'line: 2' key checks the exception's line attribute (relative to
+    the partial source). The substring verifies the
+    partial name is in the error.

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "invariant",
+  "fallbacks": [],
+  "reviewStatus": "standards-reviewed",
+  "provenance": [
+    {
+      "id": "project-authored-calendar",
+      "source": "Original project-authored invariant Gregorian calendar labels",
+      "sourceVersion": "2026-08-14",
+      "license": "project-license",
+      "reviewer": "repository-data-review-2026-08-14"
+    }
+  ],
+  "fields": [
+    {
+      "name": "date.month.wide",
+      "provenance": "project-authored-calendar",
+      "value": [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ]
+    },
+    {
+      "name": "date.month.abbreviated",
+      "provenance": "project-authored-calendar",
+      "value": [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      ]
+    },
+    {
+      "name": "date.weekday.wide",
+      "provenance": "project-authored-calendar",
+      "value": [
+        "Sunday", "Monday", "Tuesday", "Wednesday",
+        "Thursday", "Friday", "Saturday"
+      ]
+    },
+    {
+      "name": "date.weekday.abbreviated",
+      "provenance": "project-authored-calendar",
+      "value": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    },
+    {
+      "name": "date.order",
+      "provenance": "project-authored-calendar",
+      "value": "ymd"
+    }
+  ]
+}

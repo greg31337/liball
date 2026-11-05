@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../internet/email/src/email.csproj" />
+  </ItemGroup>
+</Project>

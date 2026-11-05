@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+
+<meta name="description" content="Code that can be generated with either square modules or rectangular ones. Can be printed as a turned-over code, black-and-white inversion code or dot pattern code (direct part marking)." />
+<meta name="keywords" content="QRcode,DENSO WAVE,rMQR Code" />
+
+<title>rMQR Code | QRcode.com | DENSO WAVE</title>
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/vnd.microsoft.icon">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PWS5SV37');</script>
+<!-- End Google Tag Manager -->
+<script src="/js/jquery-latest.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#toTop a").click(function(){
+		$('html,body').animate({ scrollTop: $($(this).attr("href")).offset().top }, 'slow','swing');
+		return false;
+	})
+});
+</script>
+</head>
+<body>
+<div id="header"><link rel="stylesheet" href="/en/css/header.css" type="text/css" />
+
+<script type="text/javascript">
+$(function(){
+	$("#headerListStyle li").hover(function() {
+			$(this).children('ul').show();
+		}, function() {
+			$(this).children('ul').hide();
+	});
+});
+</script>
+<div id="headerContents">
+	<div id="headerLogo" class="hideText">
+		<a href="/en/">QRcode.com</a>
+	</div>
+	<ul id="headerListStyle">
+		<li class="headerList"><a href="/en/about/">What is a QR Code</a></li>
+		<li class="headerList"><a href="/en/codes/">Types of QR Code</a></li>
+		<li class="headerList"><a href="/en/howto/">How to introduce it</a></li>
+		<li class="headerList"><a href="/en/history/">History of QR Code</a></li>
+		<li class="headerList"><a href="/en/faq.html">FAQ</a></li>
+		<li class="headerList"><a href="/en/request.html">Contact</a></li>
+		<li class="headerlanguage">Language
+		<ul>
+			<li><a href="/">日本語</a></li>
+			<li><a href="/en/">English</a></li>
+			<li><a href="/zh/">中文</a></li>
+			<li><a href="/ko/">한글</a></li>
+		</ul>	
+		</li>
+	</ul>
+</div></div>
+	<div id="container">
+		<link rel="stylesheet" type="text/css" href="../css/rmqr.css">
+		<div id="containerContents">
+			<div class="h1Box">
+				<div id="h1Cyan" class="h1Color"></div>
+				<div id="iQrH1Title">
+          <h1>rMQR</h1>
+        </div>
+				<div id="backTop"><a href="./index.html">Back to Top of Types of QR Code</a></div>
+      </div>
+      <div id="iQrContents"> <img src="../img/rmqr/rmqr2.png">
+        <p id="iQrContentsLeft">rMQR Code is a matrix-type, two-dimensional code that is easy to read and can store large amounts of information, while being a rectangular shape that makes it easy to print in narrow spaces. It addresses the need to print in narrow spaces where conventional QR Code could not be printed, and to store more information than possible with Micro QR Code.<br><br> </p>
+        <div id="toTop">
+<p style="font-size:90%;"> Links within this page： 
+<a href="#r01">rMQR Code Features</a> 　| 　 
+<a href="#r02">rMQR Code Specifications</a> 　| 　 
+<a href="#r03">rMQR Code Data Capacity</a> 　| 　 
+<a href="#r04">Comparison with QR Code & Micro QR Code</a> 　| 　 
+<a href="#r05">rMQR Code Standardization</a> 　| 　 
+<a href="#r06">Anticipated Applications</a> </p>
+        </div>
+      </div>
+      <div class="h2Box">
+        <div class="h2Cyan"></div>
+        <h2 id="r01">rMQR Code Features</h2>
+      </div>
+      <div id="iQrFeatureContents">
+        <div class="h5CyanBox">
+          <h5>Feature 1: Rectangular for long, narrow margins</h5>
+        </div>
+        <div id="iQrFeature2Contents">
+          <p> rMQR Code saves space by reducing the number of eye-shaped “finder patterns” from “three” to “one and a half”.<br>
+The adoption of a space-saving rectangular shape means it can be used for narrow or thin workpieces.
+</p> <img src="../img/rmqr/rect.jpg"> </div>
+        <div class="h5CyanBox">
+          <h5>Feature 2: Large capacity</h5>
+        </div>
+        <div id="iQrFeature2Contents">
+          <p>Capable of storing up to 361 numeric characters, rMQR Code offers both large capacity and compact size.</p> <img src="../img/rmqr/76.jpg"> </div>
+        <div class="h5CyanBox">
+          <h5>Feature 3: Rapid scanning</h5>
+        </div>
+        <div id="iQrFeature3Contents">
+          <p>The same 3 “patterns” as QR Code have been further developed. The same rapid scanning as that for conventional QR Code has been realized by reading modules to detect distortion.
+</p> <img src="../img/rmqr/diff.jpg"> </div>
+      </div>
+      <div class="h2Box">
+        <div class="h2Cyan"></div>
+        <h2 id="r02">rMQR Code Specifications</h2>
+      </div>
+      <div id="iQrFeature1Contents">
+        <p>rMQR Code is a code with a wide variety of module configurations.<br>
+It can store a minimum of 12 digits in 7 vertically-arranged modules by 43 horizontally-arranged modules, and a maximum of approximately 361 characters in 17 by 139 modules.</p> <img src="../img/rmqr/graph.jpg" style="width:100%;"> </div>
+      <div id="squareMap">
+      </div>
+      <div class="h2Box">
+        <div class="h2Cyan"></div>
+        <h2 id="r03">Comparison with QR Code & Micro QR Code</h2>
+      </div>
+<p style="float:left; width: 503px;">Correlation between code height and amount of information</p>
+<p>Code size example (0.25 mm/module)</p>
+      <img src="../img/rmqr/gra2.jpg">
+<p style="margin: 45px 0 20px;">バージョンと情報</p>
+       <img src="../img/rmqr/gra3.jpg" style="width:100%;">
+     
+      
+      <div class="h2Box">
+        <div class="h2Cyan"></div>
+        <div id="standardH2Title">
+          <h2 id="r04">rMQR Code Standardization</h2>
+        </div>
+      </div>
+      <p>05.2022 : Obtained ISO approval.</p>
+      <div class="h2Box">
+        <div class="h2Cyan"></div>
+        <div id="standardH2Title">
+          <h2 id="r05">Anticipated rMQR Code Applications</h2>
+        </div>
+      </div> <img src="../img/rmqr/case.jpg">
+
+<div class="h2Box">
+<div class="h2Blue"></div>
+<h2 style="padding-top: 4px; text-indent: 0;">Types of QR Code</h2>
+</div>
+<div id="qrcodeKindMap">
+	<div id="qrcodeName">
+		<div class="qrcodeNameCell" id="qrcodeNameCell1">
+			<div><img src="/img/codeIndex/listOrangeImage.png"></div>
+			<p>QR Code Model 1and Model 2</p>
+			<a href="./model12.html">QR Code Model 1and Model 2</a>
+		</div>
+		<div class="qrcodeNameCell" id="qrcodeNameCell2">
+			<div><img src="/img/codeIndex/listCyanImage.png"></div>
+			<p>Micro QR Code</p>
+			<a href="./microqr.html">Micro QR Code</a>
+		</div>
+		<div class="qrcodeNameCell" id="qrcodeNameCell3">
+			<div><img src="/img/codeIndex/listMazendaImage.png"></div>
+			<p>rMQR Code</p>
+			<a href="./rmqr.html">rMQR Code</a>
+		</div>
+				<div class="qrcodeNameCell" id="qrcodeNameCell4">
+			<div><img src="/img/codeIndex/listYellowImage.png"></div>
+			<p>SQRC</p>
+			<a href="https://www.denso-wave.com/en/system/qr/product/sqrc.html" target="_blank">SQRC</a>
+		</div>
+		<div class="qrcodeNameCell" id="qrcodeNameCell5">
+			<div><img src="/img/codeIndex/listGrayImage.png"></div>
+			<p>Frame QR</p>
+			<a href="https://www.denso-wave.com/en/system/qr/product/frame.html" target="_blank">Frame QR</a>
+		</div>
+	</div>
+</div>
+			
+			
+			<div class="gotoTopButton" id="toTop">
+				<a href="#header"><img src="../img/cEtc/gotoTopButton.png"></a>
+			</div>
+		</div>
+	</div>
+<div id="footer"><link rel="stylesheet" type="text/css" href="/en/css/footer.css" />
+<div id="footerContents">
+<div id="footerLeft">
+<ul>
+<li><a href="/en/about/">What is a QR Code</a></li>
+<li><a href="/en/codes/">Types of QR Code</a></li>
+<li><a href="/en/howto/">How to introduce it</a></li>
+</ul>
+<ul>
+<li><a href="/en/history/">History of QR Code</a></li>
+<li><a href="/en/faq.html">FAQ</a></li>
+<li><a href="/en/request.html">Contact</a></li>
+</ul>
+<ul>
+<li><a href="/en/patent.html">About the patent</a></li>
+</ul>
+</div>
+<div id="footerRight">
+<ul id="footerRightList">
+<li><a href="/en/howto/scan.html">QR Code reading scanners</a></li>
+<li><a href="/en/howto/generate.html">QR Code generation softwares</a></li>
+<li><a href="/en/howto/app.html">QR Code reading apps</a></li>
+</ul>
+</div>
+<div id="footerBanner">
+
+<a href="https://www.denso-wave.com/en/system/qr/" target="_blank"><img src="/en/img/footer/qsol.jpg" alt="DENSO WAVE QR Code Solutions" /></a>
+
+</div><!-- /footerBanner -->
+<div id="copyright">
+<p>Copyright(c) DENSO WAVE INCORPORATED. All Rights Reserved.</p>
+</div>
+</div></div>
+</body>
+</html>

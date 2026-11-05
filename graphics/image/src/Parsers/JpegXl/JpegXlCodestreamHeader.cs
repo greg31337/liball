@@ -1,0 +1,95 @@
+namespace image;
+
+internal class JpegXlCodestreamHeader
+{
+    internal bool MarkerValid;
+    internal bool SizeValid;
+    internal bool SmallSize;
+    internal uint Width;
+    internal uint Height;
+    internal int AspectRatioCode;
+    internal int HeaderBitLength;
+    internal int HeaderByteLength;
+    internal bool MetadataValid;
+    internal bool MetadataAllDefault;
+    internal uint Orientation;
+    internal bool HaveIntrinsicSize;
+    internal uint IntrinsicWidth;
+    internal uint IntrinsicHeight;
+    internal bool HavePreview;
+    internal uint PreviewWidth;
+    internal uint PreviewHeight;
+    internal bool HaveAnimation;
+    internal uint TicksPerSecondNumerator;
+    internal uint TicksPerSecondDenominator;
+    internal uint LoopCount;
+    internal bool HaveTimecodes;
+    internal bool FloatingPointSamples;
+    internal uint BitsPerSample;
+    internal uint ExponentBitsPerSample;
+    internal bool Modular16BitBufferSufficient;
+    internal uint ExtraChannelCount;
+    internal bool HasAlpha;
+    internal uint AlphaBitsPerSample;
+    internal bool AlphaPremultiplied;
+    internal bool XybEncoded;
+    internal bool WantIcc;
+    internal uint ColorSpace;
+    internal uint WhitePoint;
+    internal uint Primaries;
+    internal bool HaveGamma;
+    internal uint Gamma;
+    internal uint TransferFunction;
+    internal uint RenderingIntent;
+    internal int MetadataBitLength;
+    internal int MetadataByteLength;
+    internal bool Fragmented;
+    internal long SourceOffset;
+
+    internal JpegXlCodestreamHeader()
+    {
+        MarkerValid = false;
+        SizeValid = false;
+        SmallSize = false;
+        Width = 0;
+        Height = 0;
+        AspectRatioCode = 0;
+        HeaderBitLength = 0;
+        HeaderByteLength = 0;
+        MetadataValid = false;
+        MetadataAllDefault = false;
+        Orientation = 1;
+        HaveIntrinsicSize = false;
+        IntrinsicWidth = 0;
+        IntrinsicHeight = 0;
+        HavePreview = false;
+        PreviewWidth = 0;
+        PreviewHeight = 0;
+        HaveAnimation = false;
+        TicksPerSecondNumerator = 0;
+        TicksPerSecondDenominator = 0;
+        LoopCount = 0;
+        HaveTimecodes = false;
+        FloatingPointSamples = false;
+        BitsPerSample = 8;
+        ExponentBitsPerSample = 0;
+        Modular16BitBufferSufficient = true;
+        ExtraChannelCount = 0;
+        HasAlpha = false;
+        AlphaBitsPerSample = 0;
+        AlphaPremultiplied = false;
+        XybEncoded = true;
+        WantIcc = false;
+        ColorSpace = 0;
+        WhitePoint = 1;
+        Primaries = 1;
+        HaveGamma = false;
+        Gamma = 10000000;
+        TransferFunction = 13;
+        RenderingIntent = 1;
+        MetadataBitLength = 0;
+        MetadataByteLength = 0;
+        Fragmented = false;
+        SourceOffset = -1;
+    }
+}

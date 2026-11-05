@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+  (function () {
+    var MODES = ['light', 'dark', 'storm']
+
+    function cookieDomain() {
+      var host = location.hostname
+      if (host === 'dotenvx.com' || host.slice(-12) === '.dotenvx.com') return '.dotenvx.com'
+      return ''
+    }
+
+    function readCookie(name) {
+      var parts = document.cookie.split(';')
+      for (var i = 0; i < parts.length; i++) {
+        var part = parts[i].replace(/^\s+/, '')
+        if (part.indexOf(name + '=') === 0) {
+          return decodeURIComponent(part.slice(name.length + 1))
+        }
+      }
+      return null
+    }
+
+    function persistThemeMode(mode) {
+      try { localStorage.setItem('themeMode', mode) } catch (e) {}
+      var cookie = 'themeMode=' + encodeURIComponent(mode) + '; Path=/; Max-Age=31536000; SameSite=Lax'
+      var domain = cookieDomain()
+      if (domain) cookie += '; Domain=' + domain
+      if (location.protocol === 'https:') cookie += '; Secure'
+      document.cookie = cookie
+    }
+
+    function readThemeMode() {
+      var fromCookie = readCookie('themeMode')
+      var fromStore = null
+      try { fromStore = localStorage.getItem('themeMode') } catch (e) {}
+      return fromCookie || fromStore
+    }
+
+    function resolveThemeMode() {
+      var stored = readThemeMode()
+      var mode = MODES.indexOf(stored) !== -1 ? stored : 'storm'
+      persistThemeMode(mode)
+      return mode
+    }
+
+    function applyThemeMode(mode) {
+      var root = document.documentElement
+      root.classList.toggle('dark', mode === 'dark' || mode === 'storm')
+      root.classList.toggle('storm', mode === 'storm')
+      var meta = document.querySelector('meta[name="theme-color"]')
+      if (meta) {
+        meta.setAttribute(
+          'content',
+          mode === 'storm' ? '#14171c' : mode === 'dark' ? '#0a0a0a' : '#e4e7e6'
+        )
+      }
+      try {
+        window.dispatchEvent(new CustomEvent('radar:theme-change', { detail: { mode: mode } }))
+      } catch (e) {}
+    }
+
+    window.__radarThemeMode = window.__radarThemeMode || {}
+    window.__radarThemeMode.modes = MODES
+    window.__radarThemeMode.resolve = resolveThemeMode
+    window.__radarThemeMode.persist = persistThemeMode
+    window.__radarThemeMode.apply = applyThemeMode
+    window.__radarThemeMode.next = function (mode) {
+      var i = MODES.indexOf(mode)
+      return MODES[(i + 1) % MODES.length]
+    }
+    window.__radarThemeMode.prev = function (mode) {
+      var i = MODES.indexOf(mode)
+      return MODES[(i - 1 + MODES.length) % MODES.length]
+    }
+
+    try {
+      applyThemeMode(resolveThemeMode())
+    } catch (e) {
+      document.documentElement.classList.add('dark', 'storm')
+    }
+  })()
+</script>
+<meta name="theme-color" content="#14171c">
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="dotenv, .env, dotenvx, dotenv-vault, environments, encrypt, vault, developer secrets, secret manager, share, secretops">
+
+
+
+<title>.env · Dotenvx</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>.env | Dotenvx</title>
+<meta name="generator" content="Jekyll v4.3.2">
+<meta property="og:title" content=".env">
+<meta name="author" content="dotenv">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="The .env file separates your secrets from code.">
+<meta property="og:description" content="The .env file separates your secrets from code.">
+<link rel="canonical" href="https://dotenvx.com/docs/env-file/">
+<meta property="og:url" content="https://dotenvx.com/docs/env-file/">
+<meta property="og:site_name" content="Dotenvx">
+<meta property="og:image" content="https://dotenvx.com/og-image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://dotenvx.com/og-image.png">
+<meta property="twitter:title" content=".env">
+<meta name="twitter:site" content="@dotenvx">
+<meta name="twitter:creator" content="@dotenvx">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"dotenv"},"description":"The .env file separates your secrets from code.","headline":".env","image":"https://dotenvx.com/og-image.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg"},"name":"dotenv"},"url":"https://dotenvx.com/docs/env-file/"}</script>
+<!-- End Jekyll SEO tag -->
+
+<meta property="og:title" content=".env · Dotenvx">
+<meta name="twitter:title" content=".env · Dotenvx">
+<link href="/favicon.ico" rel="shortcut icon" sizes="36x36 24x24 16x16" type="image/x-icon">
+<link href="/favicon.png" rel="icon" sizes="196x196" type="image/png">
+<meta content="/mstile-icon-128x128.png" name="msapplication-TileImage">
+<meta content="transparent" name="msapplication-TileColor">
+<link href="/manifest.webmanifest" rel="manifest">
+<meta content="/browserconfig.xml" name="msapplication-config">
+
+<script src="https://unpkg.com/alpinejs" defer></script>
+
+<link rel="stylesheet" media="all" href="/assets/css/main.css?v=1787632445-r24">
+
+    
+<script defer src="https://1.dotenvx.com/script.js" data-website-id="5c4c9a9b-ba1c-4bae-a734-3a1fe609c5a5"></script>
+
+
+  </head>
+  <body class="radar-layout">
+    <div class="storm-lightning" aria-hidden="true" data-storm-lightning>
+  <canvas class="storm-lightning-canvas" data-storm-lightning-canvas></canvas>
+  <div class="storm-lightning-flash" data-storm-lightning-flash></div>
+</div>
+<script src="/assets/js/storm-lightning.js"></script>
+
+    
+
+
+
+
+
+<header class="radar-chrome" aria-label="Site">
+  <div class="radar-topbar">
+    <div class="radar-topbar-left">
+      <a href="/" class="radar-brand" aria-label="dotenvx home">
+        <img src="/assets/img/logo-env.svg" alt="" aria-hidden="true" loading="lazy">
+      </a>
+    </div>
+
+    <nav class="radar-topbar-center" id="radar-desktop-nav" aria-label="Primary">
+      <a href="/" class="radar-nav-link">Dotenvx</a>
+      <a href="/armor" class="radar-nav-link">Armor <span aria-hidden="true">⛨</span></a>
+
+      <div class="radar-nav-item" data-radar-nav-item data-nav-menu="company">
+        <button type="button" class="radar-nav-link radar-nav-trigger" aria-haspopup="true" aria-expanded="false" data-radar-nav-trigger>
+          <span>Company</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="radar-nav-caret" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="radar-nav-item" data-radar-nav-item data-nav-menu="docs">
+        <button type="button" class="radar-nav-link radar-nav-trigger is-active" aria-haspopup="true" aria-expanded="false" data-radar-nav-trigger>
+          <span>Docs</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="radar-nav-caret" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <a href="/pricing" class="radar-nav-link">Pricing</a>
+    </nav>
+
+    <div class="radar-topbar-right">
+      <a href="/login" class="radar-nav-link radar-nav-login" data-umami-event="Login link">Log In</a>
+
+      <div class="radar-topbar-icons">
+        
+        
+
+
+
+<span class="design-tooltip design-tooltip--bottom-end"><a href="/search" class="radar-nav-search" aria-label="Search - type /">
+
+<kbd class="design-kbd">/</kbd>
+</a><span class="design-tooltip-tip" role="tooltip">Search - type /</span></span>
+
+
+        
+        
+
+
+
+<span class="design-tooltip design-tooltip--bottom-end"><button type="button" class="radar-nav-theme" data-radar-theme-toggle aria-label="Modes - type M">
+
+<kbd class="design-kbd">M</kbd>
+</button><span class="design-tooltip-tip" role="tooltip">Modes - type M</span></span>
+
+
+        
+        
+
+
+
+<span class="design-tooltip design-tooltip--bottom-end"><a href="https://github.com/dotenvx/dotenvx" target="_blank" rel="noopener noreferrer" class="radar-nav-icon" aria-label="Star on GitHub - 5.7k" data-umami-event="GitHub repository link"><svg viewbox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a><span class="design-tooltip-tip" role="tooltip">Star on GitHub - 5.7k</span></span>
+
+      </div>
+      <button type="button" class="radar-mobile-toggle" id="radar-mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+        <svg class="radar-mobile-icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+        <svg class="radar-mobile-icon-close hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="radar-desktop-flyout" class="radar-nav-flyout" aria-hidden="true">
+    <div class="radar-nav-flyout-frame">
+      <div class="radar-nav-panel" data-radar-nav-panel="company" hidden>
+        <div class="radar-nav-panel-links">
+          <a href="/opensource" class="radar-nav-panel-link">Open Source</a>
+          <a href="/changelog" class="radar-nav-panel-link">Changelog</a>
+          <a href="/contact" class="radar-nav-panel-link">Contact</a>
+          <a href="https://trust.dotenvx.com" target="_blank" rel="noopener noreferrer" class="radar-nav-panel-link">Trust</a>
+        </div>
+        <a href="/contact" class="radar-nav-office">
+          <img src="/dotenvx-la-office-crt.png" alt="dotenvx Los Angeles office" class="radar-nav-office-image" loading="lazy">
+          <span class="radar-nav-office-copy">
+            <span class="radar-nav-office-label">Office</span>
+            <span class="radar-nav-office-line">2450 Colorado Ave #100</span>
+            <span class="radar-nav-office-line radar-nav-office-line--dim">Santa Monica, CA 90404</span>
+          </span>
+        </a>
+      </div>
+      <div class="radar-nav-panel radar-nav-panel--docs" data-radar-nav-panel="docs" hidden>
+        <div class="radar-nav-panel-links">
+          <a href="/docs/introduction" class="radar-nav-panel-link">Getting started</a>
+          <a href="/docs/cli" class="radar-nav-panel-link">CLI</a>
+          <a href="/docs/sdk" class="radar-nav-panel-link">SDKs</a>
+          <a href="/docs/quickstarts" class="radar-nav-panel-link">Quickstarts</a>
+        </div>
+        <div class="radar-nav-docs-icons" aria-label="Quickstarts">
+          <a href="/docs/cli-quickstart" class="radar-nav-docs-icon" aria-label="CLI"><span class="radar-nav-docs-icon-cli" aria-hidden="true">❯_</span></a>
+          <a href="/docs/claude" class="radar-nav-docs-icon" aria-label="Claude"><svg class="radar-nav-docs-icon-svg" aria-hidden="true" viewbox="0 0 24 24" fill="currentColor"> <path d="M21 10.5h3v3h-3v3h-1.5v3H18v-3h-1.5v3H15v-3H9v3H7.5v-3H6v3H4.5v-3H3v-3H0v-3h3v-6h18Zm-15 0h1.5v-3H6Zm10.5 0H18v-3h-1.5z"></path> </svg>
+</a>
+          <a href="/docs/codex" class="radar-nav-docs-icon" aria-label="Codex"><svg class="radar-nav-docs-icon-svg" aria-hidden="true" viewbox="0 0 24 24" fill="currentColor"> <path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path> </svg>
+</a>
+          <a href="/docs/cursor" class="radar-nav-docs-icon" aria-label="Cursor"><svg class="radar-nav-docs-icon-svg" aria-hidden="true" viewbox="0 0 24 24" fill="currentColor"> <path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"></path> </svg>
+</a>
+          <a href="/docs/github-actions" class="radar-nav-docs-icon" aria-label="GitHub Actions"><svg class="radar-nav-docs-icon-svg" aria-hidden="true" viewbox="0 0 16 16" fill="currentColor"> <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path> </svg>
+</a>
+          <a href="/docs/nodejs" class="radar-nav-docs-icon" aria-label="Node.js"><svg class="radar-nav-docs-icon-svg" aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"> <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"></path> </svg>
+</a>
+          <a href="/docs/1password" class="radar-nav-docs-icon" aria-label="1Password"><svg class="radar-nav-docs-icon-svg" aria-hidden="true" viewbox="0 0 24 24" fill="currentColor"> <path d="M12 0c6.627 0 12 5.373 12 12 0 6.628-5.373 12-12 12S0 18.628 0 12C0 5.373 5.373 0 12 0m-.893 4.86c-.485 0-.727.001-.913.095a.87.87 0 0 0-.378.379c-.094.185-.095.428-.095.912v2.747c0 .12 0 .182.016.238q.02.075.065.138a1 1 0 0 0 .175.162l.695.564c.113.092.17.139.19.194a.22.22 0 0 1 0 .15c-.02.056-.077.102-.19.194l-.695.564a1 1 0 0 0-.175.162.4.4 0 0 0-.065.138 1 1 0 0 0-.016.238v6.019c0 .485 0 .728.095.913a.87.87 0 0 0 .378.378c.186.094.428.094.913.094h1.786c.485 0 .727 0 .913-.094a.87.87 0 0 0 .378-.378c.095-.185.095-.428.095-.913v-2.747c0-.12 0-.182-.016-.238a.4.4 0 0 0-.065-.138 1 1 0 0 0-.175-.162l-.695-.564c-.113-.092-.17-.138-.191-.193a.22.22 0 0 1 0-.152c.02-.055.078-.1.19-.193l.696-.564a1 1 0 0 0 .175-.162.4.4 0 0 0 .065-.138 1 1 0 0 0 .016-.238V6.246c0-.484 0-.727-.095-.912a.87.87 0 0 0-.378-.379c-.186-.094-.428-.094-.913-.094Z"></path> </svg>
+</a>
+          <a href="/docs/bitwarden" class="radar-nav-docs-icon" aria-label="Bitwarden"><svg class="radar-nav-docs-icon-svg" aria-hidden="true" viewbox="0 0 24 24" fill="currentColor"> <path d="M21.722.296A.964.964 0 0 0 21.018 0H2.982a.959.959 0 0 0-.703.296.96.96 0 0 0-.297.702v12c0 .895.174 1.783.523 2.665.349.88.783 1.66 1.3 2.345.517.68 1.132 1.346 1.848 1.993a21.807 21.807 0 0 0 1.98 1.609c.605.427 1.235.83 1.893 1.212.657.381 1.125.638 1.4.772.276.134.5.241.664.311a.916.916 0 0 0 .814 0c.168-.073.389-.177.667-.311.275-.134.743-.394 1.401-.772a25.305 25.305 0 0 0 1.894-1.212A21.891 21.891 0 0 0 18.348 20c.716-.647 1.33-1.31 1.847-1.993s.949-1.463 1.3-2.345c.35-.879.524-1.767.524-2.665V1.001a.95.95 0 0 0-.297-.705zm-2.325 12.815c0 4.344-7.397 8.087-7.397 8.087V2.57h7.397v10.54z"></path> </svg>
+</a>
+          <a href="/docs/docker" class="radar-nav-docs-icon" aria-label="Docker"><svg class="radar-nav-docs-icon-svg" aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"> <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"></path> </svg>
+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="radar-mobile-overlay" class="radar-mobile-overlay" hidden>
+  <div class="radar-mobile-sheet">
+    <div class="radar-mobile-actions">
+      
+
+
+
+
+
+  <a href="/login" class="design-btn design-btn--block">Log In</a>
+
+
+    </div>
+
+    <nav data-radar-mobile-root class="radar-mobile-list" aria-label="Primary mobile">
+      <a href="/search" class="radar-mobile-link">Search <span aria-hidden="true">/</span></a>
+      <a href="/" class="radar-mobile-link">Dotenvx <span aria-hidden="true">◈</span></a>
+      <a href="/armor" class="radar-mobile-link">Armor <span aria-hidden="true">⛨</span></a>
+      <button type="button" class="radar-mobile-link radar-mobile-subtrigger" data-radar-mobile-open="company">
+        <span>Company</span>
+        <span aria-hidden="true">→</span>
+      </button>
+      <button type="button" class="radar-mobile-link radar-mobile-subtrigger" data-radar-mobile-open="docs">
+        <span>Docs</span>
+        <span aria-hidden="true">→</span>
+      </button>
+      <a href="/pricing" class="radar-mobile-link">Pricing <span aria-hidden="true">$</span></a>
+    </nav>
+
+    <div data-radar-mobile-submenu="company" class="radar-mobile-list" hidden>
+      <button type="button" class="radar-mobile-link radar-mobile-subtrigger" data-radar-mobile-back>
+        <span><span aria-hidden="true">←</span> Company</span>
+      </button>
+      <a href="/opensource" class="radar-mobile-link">Open Source</a>
+      <a href="/changelog" class="radar-mobile-link">Changelog</a>
+      <a href="/contact" class="radar-mobile-link">Contact</a>
+      <a href="https://trust.dotenvx.com" target="_blank" rel="noopener noreferrer" class="radar-mobile-link">Trust</a>
+    </div>
+
+    <div data-radar-mobile-submenu="docs" class="radar-mobile-list" hidden>
+      <button type="button" class="radar-mobile-link radar-mobile-subtrigger" data-radar-mobile-back>
+        <span><span aria-hidden="true">←</span> Docs</span>
+      </button>
+      <a href="/docs/introduction" class="radar-mobile-link">Getting started</a>
+      <a href="/docs/cli" class="radar-mobile-link">CLI</a>
+      <a href="/docs/sdk" class="radar-mobile-link">SDKs</a>
+      <a href="/docs/quickstarts" class="radar-mobile-link">Quickstarts</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var desktopNav = document.getElementById('radar-desktop-nav')
+  var flyout = document.getElementById('radar-desktop-flyout')
+  var items = desktopNav ? desktopNav.querySelectorAll('[data-radar-nav-item]') : []
+  var mobileToggle = document.getElementById('radar-mobile-toggle')
+  var mobileOverlay = document.getElementById('radar-mobile-overlay')
+  var mobileRoot = mobileOverlay && mobileOverlay.querySelector('[data-radar-mobile-root]')
+  var mobileSubmenus = mobileOverlay ? mobileOverlay.querySelectorAll('[data-radar-mobile-submenu]') : []
+  var panels = flyout ? flyout.querySelectorAll('[data-radar-nav-panel]') : []
+  var activeMenu = null
+  var closeTimer = null
+
+  if (mobileOverlay && mobileOverlay.parentElement !== document.body) {
+    document.body.appendChild(mobileOverlay)
+  }
+
+  function clearClose() {
+    if (closeTimer) {
+      window.clearTimeout(closeTimer)
+      closeTimer = null
+    }
+  }
+
+  function showPanel(name) {
+    panels.forEach(function (panel) {
+      var isActive = panel.getAttribute('data-radar-nav-panel') === name
+      panel.hidden = !isActive
+      panel.classList.toggle('is-active', isActive)
+    })
+  }
+
+  function isPlainNavLink(node) {
+    if (!node || !desktopNav) return false
+    var link = node.closest ? node.closest('a.radar-nav-link') : null
+    return !!(link && link.parentElement === desktopNav)
+  }
+
+  function isMenuNavTarget(node) {
+    if (!node || !desktopNav) return false
+    if (!desktopNav.contains(node)) return false
+    if (isPlainNavLink(node)) return false
+    return true
+  }
+
+  function openMenu(name) {
+    if (!flyout) return
+    clearClose()
+    var switching = activeMenu && activeMenu !== name
+    activeMenu = name
+    items.forEach(function (item) {
+      var isActive = item.getAttribute('data-nav-menu') === name
+      item.toggleAttribute('data-nav-active', isActive)
+      var trigger = item.querySelector('[data-radar-nav-trigger]')
+      if (trigger) trigger.setAttribute('aria-expanded', isActive ? 'true' : 'false')
+    })
+    showPanel(name)
+    // Keep the card open when swapping Company ↔ Docs — only content changes.
+    if (!flyout.classList.contains('is-open')) {
+      flyout.classList.add('is-open')
+      flyout.setAttribute('aria-hidden', 'false')
+    } else if (switching) {
+      flyout.setAttribute('aria-hidden', 'false')
+    }
+  }
+
+  function closeMenu() {
+    activeMenu = null
+    flyout && flyout.classList.remove('is-open')
+    flyout && flyout.setAttribute('aria-hidden', 'true')
+    items.forEach(function (item) {
+      item.removeAttribute('data-nav-active')
+      var trigger = item.querySelector('[data-radar-nav-trigger]')
+      if (trigger) trigger.setAttribute('aria-expanded', 'false')
+    })
+    panels.forEach(function (panel) {
+      panel.hidden = true
+      panel.classList.remove('is-active')
+    })
+  }
+
+  function scheduleClose(delay) {
+    clearClose()
+    // Short bridge so pointer can cross trigger → flyout gap; dismisses feel instant otherwise.
+    closeTimer = window.setTimeout(closeMenu, typeof delay === 'number' ? delay : 60)
+  }
+
+  items.forEach(function (item) {
+    var name = item.getAttribute('data-nav-menu')
+    if (!name) return
+    item.addEventListener('pointerenter', function () { openMenu(name) })
+    item.addEventListener('mouseenter', function () { openMenu(name) })
+    item.addEventListener('focusin', function () { openMenu(name) })
+    item.addEventListener('mouseleave', function (event) {
+      var related = event.relatedTarget
+      // Stay open while moving Company ↔ Docs (or down into the card).
+      if (related && (isMenuNavTarget(related) || (flyout && flyout.contains(related)))) return
+      scheduleClose()
+    })
+  })
+
+  desktopNav && desktopNav.addEventListener('mouseleave', function (event) {
+    var related = event.relatedTarget
+    if (related && flyout && flyout.contains(related)) return
+    scheduleClose()
+  })
+  desktopNav && desktopNav.addEventListener('focusout', function (event) {
+    if (!desktopNav.contains(event.relatedTarget) && !(flyout && flyout.contains(event.relatedTarget))) {
+      scheduleClose()
+    }
+  })
+
+  flyout && flyout.addEventListener('mouseenter', clearClose)
+  flyout && flyout.addEventListener('mouseleave', scheduleClose)
+  flyout && flyout.addEventListener('focusin', clearClose)
+  flyout && flyout.addEventListener('focusout', function (event) {
+    if (!(flyout.contains(event.relatedTarget)) && !(desktopNav && desktopNav.contains(event.relatedTarget))) {
+      scheduleClose()
+    }
+  })
+
+  document.addEventListener('pointermove', function (event) {
+    if (!activeMenu) return
+    var target = event.target
+    if (flyout && flyout.contains(target)) {
+      clearClose()
+      return
+    }
+    if (isMenuNavTarget(target)) {
+      clearClose()
+      return
+    }
+    if (isPlainNavLink(target)) {
+      scheduleClose(0)
+      return
+    }
+    scheduleClose()
+  })
+
+  // Plain top-level links are still inside #radar-desktop-nav, so explicitly dismiss.
+  desktopNav && desktopNav.querySelectorAll(':scope > a.radar-nav-link').forEach(function (link) {
+    link.addEventListener('pointerenter', function () { scheduleClose(0) })
+    link.addEventListener('mouseenter', function () { scheduleClose(0) })
+  })
+
+  function setMobileSubmenu(name) {
+    if (!mobileRoot) return
+    mobileRoot.hidden = !!name
+    mobileSubmenus.forEach(function (submenu) {
+      submenu.hidden = submenu.getAttribute('data-radar-mobile-submenu') !== name
+    })
+  }
+
+  function setMobileOpen(isOpen) {
+    if (!mobileOverlay || !mobileToggle) return
+    mobileOverlay.hidden = !isOpen
+    mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+    mobileToggle.querySelector('.radar-mobile-icon-open')?.classList.toggle('hidden', isOpen)
+    mobileToggle.querySelector('.radar-mobile-icon-close')?.classList.toggle('hidden', !isOpen)
+    document.body.classList.toggle('overflow-hidden', isOpen)
+    if (!isOpen) setMobileSubmenu(null)
+  }
+
+  mobileToggle && mobileToggle.addEventListener('click', function () {
+    setMobileOpen(mobileOverlay.hidden)
+  })
+
+  mobileOverlay && mobileOverlay.addEventListener('click', function (event) {
+    if (event.target === mobileOverlay) setMobileOpen(false)
+  })
+
+  mobileOverlay && mobileOverlay.querySelectorAll('a.radar-mobile-link, .radar-mobile-actions a').forEach(function (link) {
+    link.addEventListener('click', function () { setMobileOpen(false) })
+  })
+
+  mobileOverlay && mobileOverlay.querySelectorAll('[data-radar-mobile-open]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      setMobileSubmenu(button.getAttribute('data-radar-mobile-open'))
+    })
+  })
+
+  mobileOverlay && mobileOverlay.querySelectorAll('[data-radar-mobile-back]').forEach(function (button) {
+    button.addEventListener('click', function () { setMobileSubmenu(null) })
+  })
+
+  window.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      setMobileOpen(false)
+      if (activeMenu) closeMenu()
+    }
+  })
+})()
+</script>
+
+    <main class="radar-main">
+      
+<section class="design-hero company-design-hero docs-design-hero">
+  
+    <div class="armor-shell">
+      
+    <div class="design-hero-grid">
+      <div class="design-hero-copy">
+        
+
+
+
+
+
+
+
+
+<div class="design-page-header design-hero-header">
+  
+    <p class="design-page-header-eyebrow">
+      
+        <a href="/docs/introduction">Docs</a>
+      
+    </p>
+  
+  <h1 class="design-page-title design-page-title--flush">.env</h1>
+  
+    <p class="design-page-header-desc">The .env file separates your secrets from code.</p>
+  
+  
+</div>
+
+
+      </div>
+      
+        <div class="design-hero-visual">
+          
+            
+  <div class="docs-env-hero-example">
+    
+
+
+
+
+
+
+<div class="design-codeblock-wrap" data-design-codeblock="" data-copy="STRIPE_API_KEY=scr_12345
+TWILIO_API_KEY=abcd1234">
+<button type="button" class="design-codeblock-copy" data-design-codeblock-copy="" aria-label="Copy code"><span data-design-codeblock-label="">Copy</span></button>
+<pre class="design-codeblock"><code># .env
+STRIPE_API_KEY=scr_12345
+TWILIO_API_KEY=abcd1234</code></pre>
+</div>
+
+
+  </div>
+
+          
+        </div>
+      
+    </div>
+
+    </div>
+  
+</section>
+
+<div class="armor-shell">
+  <section class="docs-quickstart-body docs-env-file-body">
+    
+    
+<div class="design-step">
+  
+    <nav class="design-list" aria-label="On this page">
+      <p class="design-list-title">On this page</p>
+      <ul class="design-list-items">
+        <li><a class="design-link" href="#format">Format</a></li>
+        <li><a class="design-link" href="#use-with-dotenvx">Use it with dotenvx</a></li>
+        <li><a class="design-link" href="#encryption">Encryption</a></li>
+        <li><a class="design-link" href="#keys">Keys</a></li>
+        <li><a class="design-link" href="#values">Values</a></li>
+        <li><a class="design-link" href="#syntax">Syntax</a></li>
+        <li><a class="design-link" href="#comments">Comments</a></li>
+        <li><a class="design-link" href="#interpolation">Interpolation</a></li>
+        <li><a class="design-link" href="#command-substitution">Command Substitution</a></li>
+        <li><a class="design-link" href="#related">Related</a></li>
+        <li><a class="design-link" href="#history">History</a></li>
+      </ul>
+    </nav>
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="format">Format</h2>
+    <p class="design-paragraph"><code class="design-code">.env</code> files use a simple format – keys and values separated by an equal sign. Here's a complete example covering the common cases:</p>
+
+    
+    
+
+
+
+
+
+
+<div class="design-codeblock-wrap" data-design-codeblock="" data-copy="# .env — keep secrets out of code
+# Lines starting with # are comments
+
+# Keys: letters, digits, underscore (must not start with a digit)
+DATABASE_URL=postgres://localhost/my_database
+API_KEY=&quot;quoted value&quot;           # inline comment after the value
+LITERAL='no ${interpolation}'    # single quotes stay literal
+
+# Interpolation (unquoted and double-quoted values)
+HOST=localhost
+URL=https://${HOST}/api
+
+# Invalid keys — do not use:
+# NO-WORK=
+# 2MUCH=
+# ÜBER=">
+<button type="button" class="design-codeblock-copy" data-design-codeblock-copy="" aria-label="Copy code"><span data-design-codeblock-label="">Copy</span></button>
+<pre class="design-codeblock"><code># .env — keep secrets out of code
+# Lines starting with # are comments
+
+# Keys: letters, digits, underscore (must not start with a digit)
+DATABASE_URL=postgres://localhost/my_database
+API_KEY="quoted value"           # inline comment after the value
+LITERAL='no ${interpolation}'    # single quotes stay literal
+
+# Interpolation (unquoted and double-quoted values)
+HOST=localhost
+URL=https://${HOST}/api
+
+# Invalid keys — do not use:
+# NO-WORK=
+# 2MUCH=
+# ÜBER=</code></pre>
+</div>
+
+
+
+    <p class="design-paragraph">Load values in your app with <code class="design-code">process.env</code> (or your language’s equivalent).</p>
+
+    
+
+
+
+
+
+
+
+
+<div class="design-choice design-choice--code has-lines" style="--design-choice-count: 2; --design-choice-code-lines: 2;" data-design-choice="">
+  <div class="design-choice-current">
+    <div class="design-choice-code-panel is-active" data-design-choice-panel="" data-choice-id="node" aria-hidden="false">
+
+
+
+
+
+
+
+<div class="design-codeblock-wrap" data-design-codeblock="" data-copy="console.log('Hello ' + process.env.HELLO)">
+<button type="button" class="design-codeblock-copy" data-design-codeblock-copy="" aria-label="Copy code"><span data-design-codeblock-label="">Copy</span></button>
+<pre class="design-codeblock"><code>console.log('Hello ' + process.env.HELLO)</code></pre>
+</div>
+
+
+</div>
+
+        
+      
+    
+      
+      
+      
+        
+          
+
+
+
+
+<div class="design-choice-code-panel" data-design-choice-panel="" data-choice-id="python" hidden="" aria-hidden="true">
+
+
+
+
+
+
+
+<div class="design-codeblock-wrap" data-design-codeblock="" data-copy='import os
+print("Hello " + os.getenv("HELLO", ""))'>
+<button type="button" class="design-codeblock-copy" data-design-codeblock-copy="" aria-label="Copy code"><span data-design-codeblock-label="">Copy</span></button>
+<pre class="design-codeblock"><code>import os
+print("Hello " + os.getenv("HELLO", ""))</code></pre>
+</div>
+
+
+</div>
+  </div>
+  <div class="design-choice-options" role="group" aria-label="Language">
+    <button type="button" class="design-choice-option" aria-pressed="true" data-design-choice-option="" data-choice-id="node" data-choice-value="node">
+  Node
+</button>
+
+      
+    
+      
+      
+      
+        
+
+
+
+
+<button type="button" class="design-choice-option" aria-pressed="false" data-design-choice-option="" data-choice-id="python" data-choice-value="python">
+  Python
+</button>
+  </div>
+</div>
+
+
+    <p class="design-paragraph">It's a convenient and widely adopted format for separating your secrets and config from your code.</p>
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="use-with-dotenvx">Use it with dotenvx</h2>
+    <p class="design-paragraph">Dotenvx loads the values from your <code class="design-code">.env</code> file and makes them available to your application. Preface your application's command with <code class="design-code">dotenvx run --</code>.</p>
+
+    
+    
+
+
+
+
+
+
+<div class="design-codeblock-wrap" data-design-codeblock="" data-copy="dotenvx run -- your-app-boot-command">
+<button type="button" class="design-codeblock-copy" data-design-codeblock-copy="" aria-label="Copy code"><span data-design-codeblock-label="">Copy</span></button>
+<pre class="design-codeblock"><code>$ dotenvx run -- your-app-boot-command</code></pre>
+</div>
+
+
+
+    <p class="design-paragraph"><a class="design-link" href="/docs/quickstarts">Get started with dotenvx →</a></p>
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="encryption">Encryption</h2>
+    <p class="design-paragraph"><code class="design-code">.env</code> files can be extended to support encryption. Preface each value with <code class="design-code">encrypted:</code> followed by a <a class="design-link" href="https://en.bitcoin.it/wiki/Secp256k1">secp256k1</a> encrypted string.</p>
+
+    
+    
+
+
+
+
+
+
+<pre class="design-codeblock"><code>#/-------------------[DOTENV_PUBLIC_KEY]--------------------/
+#/            public-key encryption for .env files          /
+#/       [how it works](https://dotenvx.com/encryption)     /
+#/----------------------------------------------------------/
+DOTENV_PUBLIC_KEY="03f98bf6e00bce6fdb933bc47738d671dffb75a916fa8c89854bdfa3483902632f"
+
+# .env
+HELLO="encrypted:BCV9qZmblsUm77IxgrEqY9t67qDVWQZg6jpogQhBWa9SaOCtvheEQ5/eUfPCigQ7KB6vN//6vFE+2+orG7LmUorWhe1JapWct6Dz58IY6mXi+ONs51F7TSed6R/T9e+lDBWYH04p"</code></pre>
+
+
+
+    <p class="design-paragraph">Include the <code class="design-code">DOTENV_PUBLIC_KEY</code> inside the <code class="design-code">.env</code> file and commit it. It's encrypted, safe, and recommended.</p>
+
+    
+    
+
+
+
+
+
+
+<div class="design-codeblock-wrap" data-design-codeblock="" data-copy="dotenvx encrypt">
+<button type="button" class="design-codeblock-copy" data-design-codeblock-copy="" aria-label="Copy code"><span data-design-codeblock-label="">Copy</span></button>
+<pre class="design-codeblock"><code>$ dotenvx encrypt</code></pre>
+</div>
+
+
+
+    
+
+
+
+
+
+  <a href="/docs/quickstart/encryption" class="design-btn">Encryption quickstart</a>
+
+
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="keys">Keys</h2>
+    <p class="design-paragraph">For the sake of portability (and sanity), environment variable names (keys) must consist solely of letters, digits, and the underscore (<code class="design-code">_</code>) and must not begin with a digit. In regex-speak, the names must match the following pattern:</p>
+
+    
+    
+
+
+
+
+
+
+<pre class="design-codeblock"><code>[a-zA-Z_]+[a-zA-Z0-9_]*</code></pre>
+
+
+
+    <p class="design-paragraph">Example keys:</p>
+
+    
+    
+
+
+
+
+
+
+<pre class="design-codeblock"><code>DATABASE_URL  # ok
+foobar        # ok (but not recommended. use upcase)
+NO-WORK       # &lt;-- invalid !!!
+ÜBER          # &lt;-- invalid !!!
+2MUCH         # &lt;-- invalid !!!</code></pre>
+
+
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="values">Values</h2>
+    <p class="design-paragraph">Values are to the right of the equals sign. They may be quoted. Using single quotes will prevent variables from being interpolated.</p>
+
+    
+    
+
+
+
+
+
+
+<pre class="design-codeblock"><code>SIMPLE=xyz123
+INTERPOLATED="Multiple\nLines"
+NON_INTERPOLATED='raw text without variable interpolation'
+MULTILINE = `long text here,
+e.g. a private SSH key`</code></pre>
+
+
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="syntax">Syntax</h2>
+    <p class="design-paragraph">Cheat sheet — what you write, and what you get:</p>
+
+    
+    
+
+<div class="design-table-wrap design-table-wrap--fill docs-env-syntax-table">
+  <table class="design-table">
+    
+    
+      <thead>
+        <tr>
+          <th scope="col">Input</th>
+          <th scope="col">Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><code class="design-code"># comment</code></th>
+          <td>Ignored (comment line)</td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">(blank line)</code></th>
+          <td>Ignored</td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR=VAL</code></th>
+          <td>
+<code class="design-code">VAL</code> (interpolation on)</td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR="VAL"</code></th>
+          <td>
+<code class="design-code">VAL</code> (interpolation on)</td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR='VAL'</code></th>
+          <td>
+<code class="design-code">VAL</code> (literal, no interpolation)</td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR=VAL # comment</code></th>
+          <td><code class="design-code">VAL</code></td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR=VAL# not a comment</code></th>
+          <td><code class="design-code">VAL# not a comment</code></td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR="VAL # not a comment"</code></th>
+          <td><code class="design-code">VAL # not a comment</code></td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR="VAL" # comment</code></th>
+          <td><code class="design-code">VAL</code></td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR='$OTHER'</code></th>
+          <td><code class="design-code">$OTHER</code></td>
+        </tr>
+        <tr>
+          <th scope="row"><code class="design-code">VAR='${OTHER}'</code></th>
+          <td><code class="design-code">${OTHER}</code></td>
+        </tr>
+        <tr>
+          <th scope="row">
+<code class="design-code">\"</code> inside quotes</th>
+          <td>Escaped quote</td>
+        </tr>
+        <tr>
+          <th scope="row">
+<code class="design-code">\n</code> <code class="design-code">\r</code> <code class="design-code">\t</code> <code class="design-code">\\</code>
+</th>
+          <td>Supported in double-quoted values</td>
+        </tr>
+      </tbody>
+    
+  </table>
+</div>
+
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="comments">Comments</h2>
+    <p class="design-paragraph">The hash-tag <code class="design-code">#</code> symbol denotes a comment when on its own line or when it follows a quoted value. It is not treated as a comment when it appears within quotes.</p>
+
+    
+    
+
+
+
+
+
+
+<pre class="design-codeblock"><code># This is a comment
+SECRET_KEY=YOURSECRETKEYGOESHERE # also a comment
+SECRET_HASH="something-with-a-hash-#-this-is-not-a-comment"</code></pre>
+
+
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="interpolation">Interpolation</h2>
+    <p class="design-paragraph">Interpolation (also known as variable expansion) is supported in environment files. Interpolation is applied for unquoted and double-quoted values. Both braced (<code class="design-code">${VAR}</code>) and unbraced (<code class="design-code">$VAR</code>) expressions are supported.</p>
+    <ul class="design-bullets">
+      <li>Direct interpolation: <code class="design-code">${VAR}</code> → value of <code class="design-code">VAR</code>
+</li>
+      <li>Default value: <code class="design-code">${VAR:-default}</code> → value of <code class="design-code">VAR</code> if set and non-empty, otherwise <code class="design-code">default</code>
+</li>
+      <li>Alternative value: <code class="design-code">${VAR:+alternate}</code> → value of <code class="design-code">alternate</code> if <code class="design-code">VAR</code> is set and non-empty, otherwise empty</li>
+    </ul>
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="command-substitution">Command Substitution</h2>
+    <p class="design-paragraph">Add the output of a command to one of your variables in your .env file. Command substitution is applied for unquoted and double-quoted values.</p>
+
+    
+    
+
+
+
+
+
+
+<div class="design-codeblock-wrap" data-design-codeblock="" data-copy='DATABASE_URL="postgres://$(whoami)@localhost/my_database"'>
+<button type="button" class="design-codeblock-copy" data-design-codeblock-copy="" aria-label="Copy code"><span data-design-codeblock-label="">Copy</span></button>
+<pre class="design-codeblock"><code>DATABASE_URL="postgres://$(whoami)@localhost/my_database"</code></pre>
+</div>
+
+
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    
+    <div id="related">
+      
+
+
+<div class="design-list">
+  
+    <p class="design-list-title">Related</p>
+  
+  <ul class="design-list-items">
+    
+      <li>
+        <a class="design-link" href="/docs/env-keys-file/">.env.keys</a>
+      </li>
+      <li>
+        <a class="design-link" href="/docs/quickstart/encryption/">Encryption quickstart</a>
+      </li>
+      <li>
+        <a class="design-link" href="/docs/cli/run/">dotenvx run</a>
+      </li>
+      <li>
+        <a class="design-link" href="/docs/cli/encrypt/">dotenvx encrypt</a>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+    
+</div>
+
+
+    
+    
+<div class="design-step">
+  
+    <h2 class="design-page-title design-page-title--flush" id="history">History</h2>
+    <p class="design-paragraph">The <code class="design-code">.env</code> file format was <a class="design-link" href="https://12factor.net/config">introduced by Heroku in 2012</a> and popularized by the <a class="design-link" href="https://www.npmjs.com/package/dotenv">dotenv node</a> and <a class="design-link" href="https://github.com/bkeepers/dotenv">dotenv ruby</a> libraries in 2013. Encryption support landed in <a class="design-link" href="https://github.com/dotenvx/dotenvx/issues/189">May 2024</a>.</p>
+    <p class="design-paragraph">A litmus test for whether an app has all config correctly factored out of the code is whether the codebase could be made open source at any moment, without compromising any credentials. — <a class="design-link" href="https://12factor.net/config">The Twelve-Factor App</a></p>
+    
+</div>
+
+  </section>
+</div>
+
+    </main>
+    <footer class="footer">
+  <div class="armor-shell footer-inner">
+    <p class="design-list-title">DOTENVX LLC</p>
+    <p class="footer-cloud">
+      <span class="footer-item"><a class="design-link" href="/">Dotenvx</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/armor">Armor ⛨</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/features">Features</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/company">Company</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/opensource">Open Source</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/changelog">Changelog</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/blog">Blog</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="https://trust.dotenvx.com" target="_blank" rel="noopener noreferrer">Trust Center</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="https://status.dotenvx.com" target="_blank" rel="noopener noreferrer">Status</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/contact">Contact</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/dotenvx.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="https://github.com/dotenvx/dotenvx" target="_blank" rel="noopener noreferrer">GitHub</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="https://www.npmjs.com/package/@dotenvx/dotenvx" target="_blank" rel="noopener noreferrer">NPM</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/docs">Docs</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/search">Search</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/pricing">Pricing</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/legal">Legal</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/privacy">Privacy</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/terms">Terms</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="https://twitter.com/dotenvx" target="_blank" rel="noopener noreferrer">Twitter</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/sitemap">Sitemap</a><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><button type="button" class="design-link" data-radar-theme-toggle>Theme</button><span class="footer-sep" aria-hidden="true"> ·</span></span>
+      <span class="footer-item"><a class="design-link" href="/login">Log In</a></span>
+    </p>
+  </div>
+</footer>
+
+    <button type="button" class="design-theme-control" data-radar-theme-toggle aria-label="Modes - type M">
+  <svg class="design-theme-control-fan" viewbox="0 0 100 100" aria-hidden="true" focusable="false">
+    <path d="M0 100 L0 0 A100 100 0 0 1 100 100 Z"></path>
+  </svg>
+  <span class="design-theme-control-disc">
+    
+
+<kbd class="design-kbd design-theme-control-key">M</kbd>
+
+  </span>
+  <span class="design-tooltip-tip" role="tooltip">Modes - type M</span>
+</button>
+
+    <div class="site-search-overlay" data-site-search-overlay data-site-search-index="/search.json?v=1787632445-r24" hidden aria-hidden="true">
+  <div class="site-search-dialog design-card" role="dialog" aria-modal="true" aria-labelledby="site-search-title">
+    <form class="site-search" data-site-search action="/search/" method="get" role="search">
+      <div class="site-search-bar">
+        <label class="site-search-label" for="site-search-modal-input" id="site-search-title">Search</label>
+        <input type="text" class="design-input site-search-input" name="q" id="site-search-modal-input" data-site-search-input placeholder="Search docs, pricing, encrypt…" inputmode="search" enterkeyhint="search" autocomplete="off" data-1p-ignore="true" data-lpignore="true" data-bwignore="true" data-form-type="other">
+        
+
+<kbd class="design-kbd site-search-kbd">/</kbd>
+
+      </div>
+      <div class="site-search-results" data-site-search-results aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script src="/assets/js/site-search.js?v=1787632445-r24"></script>
+
+    <script src="/assets/js/radar-theme.js"></script>
+    <script src="/assets/js/design-choice.js"></script>
+  </body>
+</html>

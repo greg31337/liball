@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document
+    xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.99"
+    xmlns:future="urn:example:iso20022:future:version">
+  <FIToFICstmrCdtTrf>
+    <GrpHdr>
+      <MsgId>FUTURE-VERSION-99</MsgId>
+    </GrpHdr>
+    <future:Version99Data future:mode="preserve">
+      <future:Value>unavailable generated model content</future:Value>
+    </future:Version99Data>
+  </FIToFICstmrCdtTrf>
+</Document>

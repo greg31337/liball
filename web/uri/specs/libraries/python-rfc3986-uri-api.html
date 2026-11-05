@@ -1,0 +1,617 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>URI Submodule &mdash; rfc3986 2.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Validators Submodule" href="validators.html" />
+    <link rel="prev" title="URI Builder Module" href="builder.html" /> 
+
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2022-01-09T16:14:58Z", "builder": "sphinx", "canonical_url": null, "commit": "7a640924", "docroot": "/docs/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "api-ref/uri", "programming_language": "py", "project": "rfc3986", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "stable"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="rfc3986" /><meta name="readthedocs-version-slug" content="stable" /><meta name="readthedocs-resolver-filename" content="/api-ref/uri.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> rfc3986
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                stable
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../narrative.html">User Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html">API Submodule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builder.html">URI Builder Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">URI Submodule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deprecated-methods">Deprecated Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="validators.html">Validators Submodule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iri.html">IRI Submodule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="miscellaneous.html">Miscellaneous Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes/index.html">Release Notes and History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rfc3986</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>URI Submodule</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/python-hyper/rfc3986/blob/7a64092490c1b3c4f354b9b14d060fa758d66848/docs/source/api-ref/uri.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="uri-submodule">
+<h1>URI Submodule<a class="headerlink" href="#uri-submodule" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rfc3986.uri.URIReference">
+<em class="property">class </em><code class="descclassname">rfc3986.uri.</code><code class="descname">URIReference</code><a class="headerlink" href="#rfc3986.uri.URIReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Immutable object representing a parsed URI Reference.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This class is not intended to be directly instantiated by the user.</p>
+</div>
+<p>This object exposes attributes for the following components of a
+URI:</p>
+<ul class="simple">
+<li>scheme</li>
+<li>authority</li>
+<li>path</li>
+<li>query</li>
+<li>fragment</li>
+</ul>
+<dl class="attribute">
+<dt id="rfc3986.uri.URIReference.scheme">
+<code class="descname">scheme</code><a class="headerlink" href="#rfc3986.uri.URIReference.scheme" title="Permalink to this definition">¶</a></dt>
+<dd><p>The scheme that was parsed for the URI Reference. For example,
+<code class="docutils literal notranslate"><span class="pre">http</span></code>, <code class="docutils literal notranslate"><span class="pre">https</span></code>, <code class="docutils literal notranslate"><span class="pre">smtp</span></code>, <code class="docutils literal notranslate"><span class="pre">imap</span></code>, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rfc3986.uri.URIReference.authority">
+<code class="descname">authority</code><a class="headerlink" href="#rfc3986.uri.URIReference.authority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component of the URI that contains the user information, host,
+and port sub-components. For example,
+<code class="docutils literal notranslate"><span class="pre">google.com</span></code>, <code class="docutils literal notranslate"><span class="pre">127.0.0.1:5000</span></code>, <code class="docutils literal notranslate"><span class="pre">username&#64;[::1]</span></code>,
+<code class="docutils literal notranslate"><span class="pre">username:password&#64;example.com:443</span></code>, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rfc3986.uri.URIReference.path">
+<code class="descname">path</code><a class="headerlink" href="#rfc3986.uri.URIReference.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path that was parsed for the given URI Reference. For example,
+<code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">/index.php</span></code>, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rfc3986.uri.URIReference.query">
+<code class="descname">query</code><a class="headerlink" href="#rfc3986.uri.URIReference.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>The query component for a given URI Reference. For example, <code class="docutils literal notranslate"><span class="pre">a=b</span></code>,
+<code class="docutils literal notranslate"><span class="pre">a=b%20c</span></code>, <code class="docutils literal notranslate"><span class="pre">a=b+c</span></code>, <code class="docutils literal notranslate"><span class="pre">a=b,c=d,e=%20f</span></code>, etc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rfc3986.uri.URIReference.fragment">
+<code class="descname">fragment</code><a class="headerlink" href="#rfc3986.uri.URIReference.fragment" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fragment component of a URI. For example, <code class="docutils literal notranslate"><span class="pre">section-3.1</span></code>.</p>
+</dd></dl>
+
+<p>This class also provides extra attributes for easier access to information
+like the subcomponents of the authority component.</p>
+<dl class="attribute">
+<dt id="rfc3986.uri.URIReference.userinfo">
+<code class="descname">userinfo</code><a class="headerlink" href="#rfc3986.uri.URIReference.userinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user information parsed from the authority.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rfc3986.uri.URIReference.host">
+<code class="descname">host</code><a class="headerlink" href="#rfc3986.uri.URIReference.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>The hostname, IPv4, or IPv6 address parsed from the authority.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rfc3986.uri.URIReference.port">
+<code class="descname">port</code><a class="headerlink" href="#rfc3986.uri.URIReference.port" title="Permalink to this definition">¶</a></dt>
+<dd><p>The port parsed from the authority.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="rfc3986.uri.URIReference.from_string">
+<em class="property">classmethod </em><code class="descclassname">URIReference.</code><code class="descname">from_string</code><span class="sig-paren">(</span><em>uri_string</em>, <em>encoding='utf-8'</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.from_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a URI reference from the given unicode URI string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>uri_string</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Unicode URI to be parsed into a reference.</li>
+<li><strong>encoding</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The encoding of the string provided</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#rfc3986.uri.URIReference" title="rfc3986.uri.URIReference"><code class="xref py py-class docutils literal notranslate"><span class="pre">URIReference</span></code></a> or subclass thereof</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.unsplit">
+<code class="descclassname">URIReference.</code><code class="descname">unsplit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.unsplit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a URI string from the components.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The URI Reference reconstituted as a string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.resolve_with">
+<code class="descclassname">URIReference.</code><code class="descname">resolve_with</code><span class="sig-paren">(</span><em>base_uri</em>, <em>strict=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.resolve_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use an absolute URI Reference to resolve this relative reference.</p>
+<p>Assuming this is a relative reference that you would like to resolve,
+use the provided base URI to resolve it.</p>
+<p>See <a class="reference external" href="http://tools.ietf.org/html/rfc3986#section-5">http://tools.ietf.org/html/rfc3986#section-5</a> for more information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>base_uri</strong> – Either a string or URIReference. It must be an
+absolute URI or it will raise an exception.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new URIReference which is the result of resolving this
+reference using <code class="docutils literal notranslate"><span class="pre">base_uri</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#rfc3986.uri.URIReference" title="rfc3986.uri.URIReference"><code class="xref py py-class docutils literal notranslate"><span class="pre">URIReference</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>rfc3986.exceptions.ResolutionError</strong> – If the <code class="docutils literal notranslate"><span class="pre">base_uri</span></code> does not at least have a scheme.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.copy_with">
+<code class="descclassname">URIReference.</code><code class="descname">copy_with</code><span class="sig-paren">(</span><em>scheme=&lt;object object&gt;</em>, <em>authority=&lt;object object&gt;</em>, <em>path=&lt;object object&gt;</em>, <em>query=&lt;object object&gt;</em>, <em>fragment=&lt;object object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.copy_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a copy of this reference with the new components.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scheme</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) The scheme to use for the new reference.</li>
+<li><strong>authority</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) The authority to use for the new reference.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) The path to use for the new reference.</li>
+<li><strong>query</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) The query to use for the new reference.</li>
+<li><strong>fragment</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – (optional) The fragment to use for the new reference.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">New URIReference with provided components.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#rfc3986.uri.URIReference" title="rfc3986.uri.URIReference">URIReference</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.normalize">
+<code class="descclassname">URIReference.</code><code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize this reference as described in Section 6.2.2.</p>
+<p>This is not an in-place normalization. Instead this creates a new
+URIReference.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A new reference object with normalized components.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#rfc3986.uri.URIReference" title="rfc3986.uri.URIReference">URIReference</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.is_absolute">
+<code class="descclassname">URIReference.</code><code class="descname">is_absolute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.is_absolute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this URI Reference is an absolute URI.</p>
+<p>See <a class="reference external" href="http://tools.ietf.org/html/rfc3986#section-4.3">http://tools.ietf.org/html/rfc3986#section-4.3</a> for explanation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if it is an absolute URI, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.authority_info">
+<code class="descclassname">URIReference.</code><code class="descname">authority_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.authority_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary with the <code class="docutils literal notranslate"><span class="pre">userinfo</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, and <code class="docutils literal notranslate"><span class="pre">port</span></code>.</p>
+<p>If the authority is not valid, it will raise a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidAuthority</span></code> Exception.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">{'userinfo':</span> <span class="pre">'username:password',</span> <span class="pre">'host':</span> <span class="pre">'www.example.com',</span>
+<span class="pre">'port':</span> <span class="pre">'80'}</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>rfc3986.exceptions.InvalidAuthority</strong> – If the authority is not <code class="docutils literal notranslate"><span class="pre">None</span></code> and can not be parsed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="deprecated-methods">
+<h2>Deprecated Methods<a class="headerlink" href="#deprecated-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.is_valid">
+<code class="descclassname">URIReference.</code><code class="descname">is_valid</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the URI is valid.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.1.0: </span>Use the <a class="reference internal" href="validators.html#rfc3986.validators.Validator" title="rfc3986.validators.Validator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a> object instead.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>require_scheme</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if you wish to require the
+presence of the scheme component.</li>
+<li><strong>require_authority</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if you wish to require
+the presence of the authority component.</li>
+<li><strong>require_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if you wish to require the
+presence of the path component.</li>
+<li><strong>require_query</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if you wish to require the
+presence of the query component.</li>
+<li><strong>require_fragment</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if you wish to require
+the presence of the fragment component.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the URI is valid. <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.authority_is_valid">
+<code class="descclassname">URIReference.</code><code class="descname">authority_is_valid</code><span class="sig-paren">(</span><em>require=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.authority_is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the authority component is valid.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.1.0: </span>Use the <a class="reference internal" href="validators.html#rfc3986.validators.Validator" title="rfc3986.validators.Validator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a> object instead.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>require</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to require the presence of this component.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the authority is valid. <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.scheme_is_valid">
+<code class="descclassname">URIReference.</code><code class="descname">scheme_is_valid</code><span class="sig-paren">(</span><em>require=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.scheme_is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the scheme component is valid.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.1.0: </span>Use the <a class="reference internal" href="validators.html#rfc3986.validators.Validator" title="rfc3986.validators.Validator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a> object instead.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>require</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to require the presence of this
+component.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the scheme is valid. <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.path_is_valid">
+<code class="descclassname">URIReference.</code><code class="descname">path_is_valid</code><span class="sig-paren">(</span><em>require=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.path_is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the path component is valid.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.1.0: </span>Use the <a class="reference internal" href="validators.html#rfc3986.validators.Validator" title="rfc3986.validators.Validator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a> object instead.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>require</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to require the presence of this
+component.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the path is valid. <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.query_is_valid">
+<code class="descclassname">URIReference.</code><code class="descname">query_is_valid</code><span class="sig-paren">(</span><em>require=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.query_is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the query component is valid.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.1.0: </span>Use the <a class="reference internal" href="validators.html#rfc3986.validators.Validator" title="rfc3986.validators.Validator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a> object instead.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>require</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to require the presence of this
+component.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the query is valid. <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rfc3986.uri.URIReference.fragment_is_valid">
+<code class="descclassname">URIReference.</code><code class="descname">fragment_is_valid</code><span class="sig-paren">(</span><em>require=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rfc3986.uri.URIReference.fragment_is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the fragment component is valid.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.1.0: </span>Use the Validator object instead.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>require</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to require the presence of this
+component.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the fragment is valid. <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="validators.html" class="btn btn-neutral float-right" title="Validators Submodule" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="builder.html" class="btn btn-neutral float-left" title="URI Builder Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Ian Stapleton Cordasco
+      
+        <span class="commit">
+          Revision <code>7a640924</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

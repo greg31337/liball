@@ -1,0 +1,2699 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1e8e3e"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/developers/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/developers/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/developers/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/developers/images/touchicon-180-new.png"><link rel="canonical" href="https://developers.google.com/speed/webp/docs/riff_container"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google for Developers" href="https://developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://developers.google.com/speed/webp/docs/riff_container" /><link rel="alternate" hreflang="x-default" href="https://developers.google.com/speed/webp/docs/riff_container" /><link rel="alternate" hreflang="ar"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://developers.google.com/speed/webp/docs/riff_container?hl=vi" /><title>WebP Container Specification &nbsp;|&nbsp; Google for Developers</title>
+
+<meta property="og:title" content="WebP Container Specification &nbsp;|&nbsp; Google for Developers"><meta property="og:url" content="https://developers.google.com/speed/webp/docs/riff_container"><meta property="og:image" content="https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/developers/images/opengraph/google-green.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675"><meta property="og:locale" content="en"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    
+    "headline": "WebP Container Specification"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "WebP",
+      "item": "https://developers.google.com/speed/webp"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "WebP Container Specification",
+      "item": "https://developers.google.com/speed/webp/docs/riff_container"
+    }]
+  }
+  </script>
+  
+
+  
+
+  
+
+
+    </head>
+  <body class="color-scheme--light"
+        template="page"
+        theme="google-green"
+        type="article"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+          
+            concierge='closed'
+          
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  
+    
+  
+  <a href="https://developers.google.com/speed/webp">
+    
+  <div class="devsite-product-logo-container"
+       
+       
+       
+    size="medium"
+  >
+  
+    <picture>
+      
+      <img class="devsite-product-logo"
+           alt="WebP"
+           src="https://developers.google.com/static/speed/webp/images/webp-devsite-icon.png"
+           srcset="https://developers.google.com/static/speed/webp/images/webp-devsite-icon_36.png 36w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_48.png 48w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_72.png 72w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_96.png 96w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_480.png 480w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_720.png 720w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_856.png 856w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_960.png 960w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_1440.png 1440w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_1920.png 1920w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_2880.png 2880w"
+           sizes="64px"
+           loading="lazy"
+           >
+    </picture>
+  
+  </div>
+  
+  </a>
+  
+
+  
+
+
+
+  
+  
+  <span class="devsite-product-name">
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+        
+  <a href="https://developers.google.com/speed/webp"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Upper Header"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail="WebP"
+      
+    >
+    
+          WebP
+        
+  </a>
+  
+      
+    
+  </li>
+  
+</ul>
+  </span>
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    project-name="WebP"
+    tenant-name="Google for Developers"
+    project-scope="/speed/webp"
+    url-scoped="https://developers.google.com/s/results/speed/webp"
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    ">
+    <div class="devsite-header-background">
+      
+        
+      
+      
+        <div class="devsite-doc-set-nav-row">
+          
+          
+            
+            
+  <devsite-tabs class="lower-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="Lower tabs">
+      
+        
+          <tab  >
+            
+    <a href="https://developers.google.com/speed/webp"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developers.google.com/speed/webp"
+    
+       track-type="nav"
+       track-metadata-position="nav - home"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Home"
+         
+           track-name="home"
+         
+       >
+    Home
+  
+    </a>
+    
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://developers.google.com/speed/webp/docs/using"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developers.google.com/speed/webp/docs/using"
+    
+       track-type="nav"
+       track-metadata-position="nav - guides"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Guides"
+         
+           track-name="guides"
+         
+       >
+    Guides
+  
+    </a>
+    
+  
+          </tab>
+        
+      
+        
+          <tab  class="devsite-active">
+            
+    <a href="https://developers.google.com/speed/webp/faq"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developers.google.com/speed/webp/faq"
+    
+       track-type="nav"
+       track-metadata-position="nav - reference"
+       track-metadata-module="primary nav"
+       aria-label="Reference, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Reference"
+         
+           track-name="reference"
+         
+       >
+    Reference
+  
+    </a>
+    
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://developers.google.com/speed/webp/gallery"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developers.google.com/speed/webp/gallery"
+    
+       track-type="nav"
+       track-metadata-position="nav - samples"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Samples"
+         
+           track-name="samples"
+         
+       >
+    Samples
+  
+    </a>
+    
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://developers.google.com/speed/webp/community"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developers.google.com/speed/webp/community"
+    
+       track-type="nav"
+       track-metadata-position="nav - support"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Support"
+         
+           track-name="support"
+         
+       >
+    Support
+  
+    </a>
+    
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+          
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars >
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     >
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  
+    
+  
+  <a href="https://developers.google.com/speed/webp">
+    
+  <div class="devsite-product-logo-container"
+       
+       
+       
+    size="medium"
+  >
+  
+    <picture>
+      
+      <img class="devsite-product-logo"
+           alt="WebP"
+           src="https://developers.google.com/static/speed/webp/images/webp-devsite-icon.png"
+           srcset="https://developers.google.com/static/speed/webp/images/webp-devsite-icon_36.png 36w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_48.png 48w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_72.png 72w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_96.png 96w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_480.png 480w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_720.png 720w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_856.png 856w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_960.png 960w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_1440.png 1440w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_1920.png 1920w, https://developers.google.com/static/speed/webp/images/webp-devsite-icon_2880.png 2880w"
+           sizes="64px"
+           loading="lazy"
+           >
+    </picture>
+  
+  </div>
+  
+  </a>
+  
+
+  
+
+
+  
+      <span class="devsite-product-name">
+        
+        
+        <ul class="devsite-breadcrumb-list"
+  >
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+      
+        
+  <a href="https://developers.google.com/speed/webp"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Upper Header"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail="WebP"
+      
+    >
+    
+          WebP
+        
+  </a>
+  
+      
+    
+  </li>
+  
+</ul>
+      </span>
+    
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            
+<li class="devsite-nav-item">
+
+  
+  <a href="/speed/webp"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Home"
+      
+        track-name="home"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Home"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Home
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+          
+            
+<li class="devsite-nav-item">
+
+  
+  <a href="/speed/webp/docs/using"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Guides"
+      
+        track-name="guides"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Guides"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Guides
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+</li>
+
+          
+            
+<li class="devsite-nav-item">
+
+  
+  <a href="/speed/webp/faq"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Reference"
+      
+        track-name="reference"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Reference"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Reference
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+</li>
+
+          
+            
+<li class="devsite-nav-item">
+
+  
+  <a href="/speed/webp/gallery"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Samples"
+      
+        track-name="samples"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Samples"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Samples
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+</li>
+
+          
+            
+<li class="devsite-nav-item">
+
+  
+  <a href="/speed/webp/community"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Support"
+      
+        track-name="support"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Support"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Support
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+</li>
+
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item"><a href="/speed/webp/faq"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>FAQ</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/speed/webp/docs/compression"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Compression Techniques</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/speed/webp/docs/riff_container"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Container Specification</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/speed/webp/docs/webp_lossless_bitstream_specification"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Lossless Bitstream Specification</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-expandable"><div class="devsite-expandable-nav">
+      <a class="devsite-nav-toggle" aria-hidden="true"></a><div class="devsite-nav-title devsite-nav-title-no-path" tabindex="0" role="button">
+        <span class="devsite-nav-text" tooltip>Studies</span>
+      </div><ul class="devsite-nav-section"><li class="devsite-nav-item"><a href="/speed/webp/docs/webp_lossless_alpha_study"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>WebP Lossless and Alpha Study</span></a></li><li class="devsite-nav-item"><a href="/speed/webp/docs/webp_study"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>WebP Lossy Study</span></a></li></ul></div></li>
+          </ul>
+        
+        
+        
+          
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="2"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="Breadcrumb">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+        
+  <a href="https://developers.google.com/"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+          Home
+        
+  </a>
+  
+      
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+        
+  <a href="https://developers.google.com/products"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+          Products
+        
+  </a>
+  
+      
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+        
+  <a href="https://developers.google.com/speed"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail="Make the Web Faster"
+      
+    >
+    
+          Make the Web Faster
+        
+  </a>
+  
+      
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+        
+  <a href="https://developers.google.com/speed/webp"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="4"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="4"
+      
+        track-metadata-eventdetail="WebP"
+      
+    >
+    
+          WebP
+        
+  </a>
+  
+      
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+        
+  <a href="https://developers.google.com/speed/webp/faq"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="5"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="5"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+          Reference
+        
+  </a>
+  
+      
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      WebP Container Specification<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="Dismiss"
+
+      
+      close-button-text="Got it">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      Stay organized with collections
+    </span>
+    <span slot="popout-contents">
+      
+      Save and categorize content based on your preferences.
+    </span>
+  </devsite-feature-tooltip>
+    <devsite-llm-tools></devsite-llm-tools></devsite-actions>
+  
+      
+    </h1>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+      <devsite-key-takeaways-panel role="region" aria-labelledby="key-takeaways-panel-title">
+  <div class="devsite-key-takeaways-panel-header" aria-labelledby="key-takeaways-panel-title" aria-expanded="false" role="button" tabindex="0">
+    
+    <img src="/_static/images/icons/spark.svg" alt="Spark icon" />
+    <div class="devsite-key-takeaways-panel-title">
+      
+      <h2 class="no-link hide-from-toc" id="key-takeaways-panel-title" data-tooltip="Generated with AI">Page Summary</h2>
+    </div>
+    <span
+      class="material-icons devsite-key-takeaways-panel-toggle-button" aria-hidden="true"></span>
+  </div>
+  <div class="devsite-key-takeaways-panel-content">
+    <devsite-feedback
+      product-id="5123748"
+      bucket="8963846920012181156"
+      disable-product-feedback>
+      <button
+        class="button-flat button-primary devsite-key-takeaways-report-button"
+        
+        data-title="Report Key Takeaways!"
+        
+        aria-label="Report Key Takeaways!">
+        <span
+          class="material-icons"
+          
+          aria-label="Report Key Takeaways!"
+          >outlined_flag</span
+        >
+      </button>
+    </devsite-feedback>
+    <ul class="devsite-key-takeaways-panel-list">
+      
+        <li>
+          <p>WebP is an image format supporting lossy and lossless compression, plus features like transparency and animation.</p>
+
+        </li>
+      
+        <li>
+          <p>WebP uses a chunk-based structure (RIFF) to store data, including image data (VP8, VP8L), animation data (ANIM, ANMF), and metadata.</p>
+
+        </li>
+      
+        <li>
+          <p>The extended WebP format provides features like alpha, ICC profiles, and animation by utilizing the &#39;VP8X&#39; chunk and additional sub-chunks.</p>
+
+        </li>
+      
+        <li>
+          <p>Animation in WebP is achieved using &#39;ANIM&#39; for global parameters and &#39;ANMF&#39; for defining individual frames with their data and display properties.</p>
+
+        </li>
+      
+        <li>
+          <p>WebP files are limited to approximately 4 GiB in size and should not contain trailing data.</p>
+
+        </li>
+      
+    </ul>
+  </div>
+</devsite-key-takeaways-panel>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="introduction" data-text="Introduction" tabindex="-1">Introduction</h2>
+
+<p>WebP is an image format that uses either (i) the VP8 key frame encoding to
+compress image data in a lossy way or (ii) the WebP lossless encoding. These
+encoding schemes should make it more efficient than older formats, such as JPEG,
+GIF, and PNG. It is optimized for fast image transfer over the network (for
+example, for websites). The WebP format has feature parity (color profile,
+metadata, animation, etc.) with other formats as well. This document describes
+the structure of a WebP file.</p>
+
+<p>The WebP container (that is, the RIFF container for WebP) allows feature support
+over and above the basic use case of WebP (that is, a file containing a single
+image encoded as a VP8 key frame). The WebP container provides additional
+support for the following:</p>
+
+<ul>
+<li><p>Lossless Compression: An image can be losslessly compressed, using the
+WebP Lossless Format.</p></li>
+<li><p>Metadata: An image may have metadata stored in Exchangeable Image File
+Format (Exif) or Extensible Metadata Platform (XMP) format.</p></li>
+<li><p>Transparency: An image may have transparency, that is, an alpha channel.</p></li>
+<li><p>Color Profile: An image may have an embedded ICC profile as described
+by the <a href="https://www.color.org/icc_specs2.xalter">International Color Consortium</a>.</p></li>
+<li><p>Animation: An image may have multiple frames with pauses between them,
+making it an animation.</p></li>
+</ul>
+
+<h2 id="naming" data-text="Naming" tabindex="-1">Naming</h2>
+
+<p>It is RECOMMENDED to use the following types when referring to the WebP
+container:</p>
+
+<table>
+<tr><td>Container Format Name</td><td>WebP</td></tr>
+<tr><td>Filename Extension</td><td>.webp</td></tr>
+<tr><td>MIME-type</td><td>image/webp</td></tr>
+<tr><td>Uniform Type Identifier</td><td>org.webmproject.webp</td></tr>
+</table>
+
+<h2 id="terminology_basics" data-text="Terminology &amp; Basics" tabindex="-1">Terminology &amp; Basics</h2>
+
+<p>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;,
+&quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;NOT RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this
+document are to be interpreted as described in BCP 14 <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a> <a href="https://datatracker.ietf.org/doc/html/rfc8174">RFC 8174</a>
+when, and only when, they appear in all capitals, as shown here.</p>
+
+<p>A WebP file contains either a still image (that is, an encoded matrix of pixels)
+or an <a href="#animation">animation</a>. Optionally, it can also contain transparency
+information, a color profile and metadata. We refer to the matrix of pixels as
+the <em>canvas</em> of the image.</p>
+
+<p>Bit numbering in chunk diagrams starts at <code translate="no" dir="ltr">0</code> for the most significant bit
+(&#39;MSB 0&#39;), as described in <a href="https://datatracker.ietf.org/doc/html/rfc1166">RFC 1166</a>.</p>
+
+<p>Below are additional terms used throughout this document:</p>
+
+<dl>
+<dt><em>Reader/Writer</em></dt>
+<dd>Code that reads WebP files is referred to as a <em>reader</em>, while code that
+writes them is referred to as a <em>writer</em>.</dd>
+<dt><em>uint16</em></dt>
+<dd>A 16-bit, little-endian, unsigned integer.</dd>
+<dt><em>uint24</em></dt>
+<dd>A 24-bit, little-endian, unsigned integer.</dd>
+<dt><em>uint32</em></dt>
+<dd>A 32-bit, little-endian, unsigned integer.</dd>
+<dt><em>FourCC</em></dt>
+<dd>A four-character code (FourCC) is a <em>uint32</em> created by concatenating four
+ASCII characters in little-endian order. This means &#39;aaaa&#39; (0x61616161) and
+&#39;AAAA&#39; (0x41414141) are treated as different <em>FourCCs</em>.</dd>
+<dt><em>1-based</em></dt>
+<dd>An unsigned integer field storing values offset by <code translate="no" dir="ltr">-1</code>, for example, such a
+field would store value <em>25</em> as <em>24</em>.</dd>
+<dt><em>ChunkHeader(&#39;ABCD&#39;)</em></dt>
+<dd>Used to describe the <em>FourCC</em> and <em>Chunk Size</em> header of individual chunks,
+where &#39;ABCD&#39; is the FourCC for the chunk. This element&#39;s size is 8 bytes.</dd>
+</dl>
+
+<h2 id="riff_file_format" data-text="RIFF File Format" tabindex="-1">RIFF File Format</h2>
+
+<p>The WebP file format is based on the RIFF (Resource Interchange File Format)
+document format.</p>
+
+<p>The basic element of a RIFF file is a <em>chunk</em>. It consists of:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                         Chunk FourCC                          |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                          Chunk Size                           |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                         Chunk Payload                         :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>Chunk FourCC: 32 bits</dt>
+<dd>ASCII four-character code used for chunk identification.</dd>
+<dt>Chunk Size: 32 bits (<em>uint32</em>)</dt>
+<dd>The size of the chunk in bytes, not including this field, the chunk
+identifier, or padding.</dd>
+<dt>Chunk Payload: <em>Chunk Size</em> bytes</dt>
+<dd>The data payload. If <em>Chunk Size</em> is odd, a single padding byte -- which MUST
+be <code translate="no" dir="ltr">0</code> to conform with RIFF -- is added.</dd>
+</dl>
+
+<p><strong>Note</strong>: RIFF has a convention that all-uppercase chunk FourCCs are standard
+chunks that apply to any RIFF file format, while FourCCs specific to a file
+format are all lowercase. WebP does not follow this convention.</p>
+
+<h2 id="webp_file_header" data-text="WebP File Header" tabindex="-1">WebP File Header</h2>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|      'R'      |      'I'      |      'F'      |      'F'      |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                           File Size                           |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|      'W'      |      'E'      |      'B'      |      'P'      |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>&#39;RIFF&#39;: 32 bits</dt>
+<dd>The ASCII characters &#39;R&#39;, &#39;I&#39;, &#39;F&#39;, &#39;F&#39;.</dd>
+<dt>File Size: 32 bits (<em>uint32</em>)</dt>
+<dd>The size of the file in bytes, starting at offset 8. The maximum value of
+this field is 2^32 minus 10 bytes and thus the size of the whole file is at
+most 4 GiB minus 2 bytes.</dd>
+<dt>&#39;WEBP&#39;: 32 bits</dt>
+<dd>The ASCII characters &#39;W&#39;, &#39;E&#39;, &#39;B&#39;, &#39;P&#39;.</dd>
+</dl>
+
+<p>A WebP file MUST begin with a RIFF header with the FourCC &#39;WEBP&#39;. The file size
+in the header is the total size of the chunks that follow plus <code translate="no" dir="ltr">4</code> bytes for
+the &#39;WEBP&#39; FourCC. The file SHOULD NOT contain any data after the data
+specified by <em>File Size</em>. Readers MAY parse such files, ignoring the trailing
+data. As the size of any chunk is even, the size given by the RIFF header is
+also even. The contents of individual chunks are described in the following
+sections.</p>
+
+<h2 id="simple_file_format_lossy" data-text="Simple File Format (Lossy)" tabindex="-1">Simple File Format (Lossy)</h2>
+
+<p>This layout SHOULD be used if the image requires <em>lossy</em> encoding and does not
+require transparency or other advanced features provided by the extended format.
+Files with this layout are smaller and supported by older software.</p>
+
+<p>Simple WebP (lossy) file format:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-c">|                    WebP file header (12 bytes)                |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                        'VP8 ' Chunk                           :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<p>&#39;VP8 &#39; Chunk:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('VP8 ')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                           VP8 data                            :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>VP8 data: <em>Chunk Size</em> bytes</dt>
+<dd>VP8 bitstream data.</dd>
+</dl>
+
+<p>Note that the fourth character in the &#39;VP8 &#39; FourCC is an ASCII space (0x20).</p>
+
+<p>The VP8 bitstream format specification is described in <a href="https://datatracker.ietf.org/doc/html/rfc6386">VP8 Data Format and
+Decoding Guide</a>. Note that the VP8 frame header contains the VP8 frame
+width and height. That is assumed to be the width and height of the canvas.</p>
+
+<p>The VP8 specification describes how to decode the image into Y&#39;CbCr format. To
+convert to RGB, <a href="https://www.itu.int/rec/R-REC-BT.601">Recommendation BT.601</a> SHOULD be used. Applications MAY
+use another conversion method, but visual results may differ among decoders.</p>
+
+<h2 id="simple_file_format_lossless" data-text="Simple File Format (Lossless)" tabindex="-1">Simple File Format (Lossless)</h2>
+
+<p><strong>Note</strong>: Older readers may not support files using the lossless format.</p>
+
+<p>This layout SHOULD be used if the image requires <em>lossless</em> encoding (with an
+optional transparency channel) and does not require advanced features provided
+by the extended format.</p>
+
+<p>Simple WebP (lossless) file format:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-c">|                    WebP file header (12 bytes)                |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                         'VP8L' Chunk                          :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<p>&#39;VP8L&#39; Chunk:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('VP8L')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                           VP8L data                           :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>VP8L data: <em>Chunk Size</em> bytes</dt>
+<dd>VP8L bitstream data.</dd>
+</dl>
+
+<p>The current specification of the VP8L bitstream can be found at
+<a href="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">WebP Lossless Bitstream Format</a>. Note that the VP8L header
+contains the VP8L image width and height. That is assumed to be the width
+and height of the canvas.</p>
+
+<h2 id="extended_file_format" data-text="Extended File Format" tabindex="-1">Extended File Format</h2>
+
+<p><strong>Note</strong>: Older readers may not support files using the extended format.</p>
+
+<p>An extended format file consists of:</p>
+
+<ul>
+<li><p>A &#39;VP8X&#39; Chunk with information about features used in the file.</p></li>
+<li><p>An optional &#39;ICCP&#39; Chunk with a color profile.</p></li>
+<li><p>An optional &#39;ANIM&#39; Chunk with animation control data.</p></li>
+<li><p>Image data.</p></li>
+<li><p>An optional &#39;EXIF&#39; Chunk with Exif metadata.</p></li>
+<li><p>An optional &#39;XMP &#39; Chunk with XMP metadata.</p></li>
+<li><p>An optional list of <a href="#unknown_chunks">unknown chunks</a>.</p></li>
+</ul>
+
+<p>For a <em>still image</em>, the <em>image data</em> consists of a single frame, which is made
+up of:</p>
+
+<ul>
+<li><p>An optional <a href="#alpha">alpha subchunk</a>.</p></li>
+<li><p>A <a href="#bitstream_vp8vp8l">bitstream subchunk</a>.</p></li>
+</ul>
+
+<p>For an <em>animated image</em>, the <em>image data</em> consists of multiple frames. More
+details about frames can be found in the <a href="#animation">Animation</a> section.</p>
+
+<p>All chunks necessary for reconstruction and color correction, that is, &#39;VP8X&#39;,
+&#39;ICCP&#39;, &#39;ANIM&#39;, &#39;ANMF&#39;, &#39;ALPH&#39;, &#39;VP8 &#39;, and &#39;VP8L&#39;, MUST appear in the order
+described earlier. Readers SHOULD fail when chunks necessary for reconstruction
+and color correction are out of order.</p>
+
+<p><a href="#metadata">Metadata</a> and <a href="#unknown_chunks">unknown chunks</a> MAY appear out of
+order.</p>
+
+<p><strong>Rationale:</strong> The chunks necessary for reconstruction should appear first in
+the file to allow a reader to begin decoding an image before receiving all of
+the data. An application may benefit from varying the order of metadata and
+custom chunks to suit the implementation.</p>
+
+<p id="extended_header">Extended WebP file header:
+</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-c">|                   WebP file header (12 bytes)                 |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('VP8X')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|Rsv|I|L|E|X|A|R|                   Reserved                    |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|          Canvas Width Minus One               |             </span><span class="devsite-syntax-nt">...</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-nt">...</span><span class="devsite-syntax-c">  Canvas Height Minus One    |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>Reserved (Rsv): 2 bits</dt>
+<dd>MUST be <code translate="no" dir="ltr">0</code>. Readers MUST ignore this field.</dd>
+<dt>ICC profile (I): 1 bit</dt>
+<dd>Set if the file contains an &#39;ICCP&#39; Chunk.</dd>
+<dt>Alpha (L): 1 bit</dt>
+<dd>Set if any of the frames of the image contain transparency information
+(&quot;alpha&quot;).</dd>
+<dt>Exif metadata (E): 1 bit</dt>
+<dd>Set if the file contains Exif metadata.</dd>
+<dt>XMP metadata (X): 1 bit</dt>
+<dd>Set if the file contains XMP metadata.</dd>
+<dt>Animation (A): 1 bit</dt>
+<dd>Set if this is an animated image. Data in &#39;ANIM&#39; and &#39;ANMF&#39; Chunks should be
+used to control the animation.</dd>
+<dt>Reserved (R): 1 bit</dt>
+<dd>MUST be <code translate="no" dir="ltr">0</code>. Readers MUST ignore this field.</dd>
+<dt>Reserved: 24 bits</dt>
+<dd>MUST be <code translate="no" dir="ltr">0</code>. Readers MUST ignore this field.</dd>
+<dt>Canvas Width Minus One: 24 bits</dt>
+<dd><em>1-based</em> width of the canvas in pixels.
+The actual canvas width is <code translate="no" dir="ltr">1 + Canvas Width Minus One</code>.</dd>
+<dt>Canvas Height Minus One: 24 bits</dt>
+<dd><em>1-based</em> height of the canvas in pixels.
+The actual canvas height is <code translate="no" dir="ltr">1 + Canvas Height Minus One</code>.</dd>
+</dl>
+
+<p>The product of <em>Canvas Width</em> and <em>Canvas Height</em> MUST be at most <code translate="no" dir="ltr">2^32 - 1</code>.</p>
+
+<p>Future specifications may add more fields. Unknown fields MUST be ignored.</p>
+
+<h3 id="animation" data-text="Animation" tabindex="-1">Animation</h3>
+
+<p>An animation is controlled by &#39;ANIM&#39; and &#39;ANMF&#39; Chunks.</p>
+
+<p id="anim_chunk">&#39;ANIM&#39; Chunk:
+</p>
+
+<p>For an animated image, this chunk contains the <em>global parameters</em> of the
+animation.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('ANIM')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                       Background Color                        |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|          Loop Count           |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>Background Color: 32 bits (<em>uint32</em>)</dt>
+<dd>The default background color of the canvas in [Blue, Green, Red, Alpha]
+byte order. This color MAY be used to fill the unused space on the canvas
+around the frames, as well as the transparent pixels of the first frame.
+The background color is also used when the Disposal method is <code translate="no" dir="ltr">1</code>.</dd>
+</dl>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+<li><p>The background color MAY contain a non-opaque alpha value, even if the
+<em>Alpha</em> flag in the <a href="#extended_header">&#39;VP8X&#39; Chunk</a> is unset.</p></li>
+<li><p>Viewer applications SHOULD treat the background color value as a hint and
+are not required to use it.</p></li>
+<li><p>The canvas is cleared at the start of each loop. The background color MAY be
+used to achieve this.</p></li>
+</ul>
+
+<dl>
+<dt>Loop Count: 16 bits (<em>uint16</em>)</dt>
+<dd>The number of times to loop the animation. If it is <code translate="no" dir="ltr">0</code>, this means
+infinitely.</dd>
+</dl>
+
+<p>This chunk MUST appear if the <em>Animation</em> flag in the &#39;VP8X&#39; Chunk is set.
+If the <em>Animation</em> flag is not set and this chunk is present, it MUST be
+ignored.</p>
+
+<p>&#39;ANMF&#39; Chunk:</p>
+
+<p>For animated images, this chunk contains information about a <em>single</em> frame.
+If the <em>Animation flag</em> is not set, then this chunk SHOULD NOT be present.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('ANMF')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                        Frame X                |             </span><span class="devsite-syntax-nt">...</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-nt">...</span><span class="devsite-syntax-c">          Frame Y            |   Frame Width Minus One     </span><span class="devsite-syntax-nt">...</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-nt">...</span><span class="devsite-syntax-c">             |           Frame Height Minus One              |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                 Frame Duration                |  Reserved |B|D|</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                         Frame Data                            :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>Frame X: 24 bits (<em>uint24</em>)</dt>
+<dd>The X coordinate of the upper left corner of the frame is <code translate="no" dir="ltr">Frame X * 2</code>.</dd>
+<dt>Frame Y: 24 bits (<em>uint24</em>)</dt>
+<dd>The Y coordinate of the upper left corner of the frame is <code translate="no" dir="ltr">Frame Y * 2</code>.</dd>
+<dt>Frame Width Minus One: 24 bits (<em>uint24</em>)</dt>
+<dd>The <em>1-based</em> width of the frame.
+The frame width is <code translate="no" dir="ltr">1 + Frame Width Minus One</code>.</dd>
+<dt>Frame Height Minus One: 24 bits (<em>uint24</em>)</dt>
+<dd>The <em>1-based</em> height of the frame.
+The frame height is <code translate="no" dir="ltr">1 + Frame Height Minus One</code>.</dd>
+<dt>Frame Duration: 24 bits (<em>uint24</em>)</dt>
+<dd>The time to wait before displaying the next frame, in 1-millisecond units.
+Note that the interpretation of the Frame Duration of 0 (and often &lt;= 10) is
+defined by the implementation. Many tools and browsers assign a minimum
+duration similar to GIF.</dd>
+<dt>Reserved: 6 bits</dt>
+<dd>MUST be <code translate="no" dir="ltr">0</code>. Readers MUST ignore this field.</dd>
+<dt>Blending method (B): 1 bit</dt>
+<dd><p>Indicates how transparent pixels of <em>the current frame</em> are to be blended
+with corresponding pixels of the previous canvas:</p>
+
+<ul>
+<li><p><code translate="no" dir="ltr">0</code>: Use alpha-blending. After disposing of the previous frame, render the
+current frame on the canvas using alpha-blending (see below). If the
+current frame does not have an alpha channel, assume the alpha value is
+255, effectively replacing the rectangle.</p></li>
+<li><p><code translate="no" dir="ltr">1</code>: Do not blend. After disposing of the previous frame, render the
+current frame on the canvas by overwriting the rectangle covered by the
+current frame.</p></li>
+</ul></dd>
+<dt>Disposal method (D): 1 bit</dt>
+<dd><p>Indicates how <em>the current frame</em> is to be treated after it has been
+displayed (before rendering the next frame) on the canvas:</p>
+
+<ul>
+<li><p><code translate="no" dir="ltr">0</code>: Do not dispose. Leave the canvas as is.</p></li>
+<li><p><code translate="no" dir="ltr">1</code>: Dispose to the background color. Fill the <em>rectangle</em> on the canvas
+covered by the <em>current frame</em> with the background color specified in the
+<a href="#anim_chunk">&#39;ANIM&#39; Chunk</a>.</p></li>
+</ul></dd>
+</dl>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+<li><p>The frame disposal only applies to the <em>frame rectangle</em>, that is, the
+rectangle defined by <em>Frame X</em>, <em>Frame Y</em>, <em>frame width</em>, and <em>frame
+height</em>. It may or may not cover the whole canvas.</p></li>
+<li><p>Alpha-blending:</p>
+
+<p>Given that each of the R, G, B, and A channels is 8 bits, and the RGB
+channels are <em>not premultiplied</em> by alpha, the formula for blending
+&#39;dst&#39; onto &#39;src&#39; is:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">blend.A = src.A + dst.A <span class="devsite-syntax-gs">* (1 - src.A / 255)</span>
+<span class="devsite-syntax-gs">if blend.A = 0 then</span>
+<span class="devsite-syntax-gs">  blend.RGB = 0</span>
+<span class="devsite-syntax-gs">else</span>
+<span class="devsite-syntax-gs">  blend.RGB =</span>
+<span class="devsite-syntax-gs">      (src.RGB *</span> src.A +
+       dst.RGB <span class="devsite-syntax-gs">* dst.A *</span> (1 - src.A / 255)) / blend.A
+</code></pre></devsite-code></li>
+<li><p>Alpha-blending SHOULD be done in linear color space, by taking into account
+the <a href="#color_profile">color profile</a> of the image. If the color profile is
+not present, standard RGB (sRGB) is to be assumed. (Note that sRGB also
+needs to be linearized due to a gamma of ~2.2.)</p></li>
+</ul>
+
+<dl>
+<dt>Frame Data: <em>Chunk Size</em> bytes - <code translate="no" dir="ltr">16</code></dt>
+<dd><p>Consists of:</p>
+
+<ul>
+<li><p>An optional <a href="#alpha">alpha subchunk</a> for the frame.</p></li>
+<li><p>A <a href="#bitstream_vp8vp8l">bitstream subchunk</a> for the frame.</p></li>
+<li><p>An optional list of <a href="#unknown_chunks">unknown chunks</a>.</p></li>
+</ul></dd>
+</dl>
+
+<p><strong>Note</strong>: The &#39;ANMF&#39; payload, <em>Frame Data</em>, consists of individual
+<em>padded</em> chunks, as described by the <a href="#riff_file_format">RIFF file format</a>.</p>
+
+<h3 id="alpha" data-text="Alpha" tabindex="-1">Alpha</h3>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('ALPH')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|Rsv| P | F | C |     Alpha Bitstream</span><span class="devsite-syntax-nt">...</span><span class="devsite-syntax-c">                        |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>Reserved (Rsv): 2 bits</dt>
+<dd>MUST be <code translate="no" dir="ltr">0</code>. Readers MUST ignore this field.</dd>
+<dt>Preprocessing (P): 2 bits</dt>
+<dd><p>These <em>informative</em> bits are used to signal the preprocessing that has
+been performed during compression. The decoder can use this information to
+for example, dither the values or smooth the gradients prior to display.</p>
+
+<ul>
+<li><code translate="no" dir="ltr">0</code>: No preprocessing.</li>
+<li><code translate="no" dir="ltr">1</code>: Level reduction.</li>
+</ul></dd>
+</dl>
+
+<p>Decoders are not required to use this information in any specified way.</p>
+
+<dl>
+<dt>Filtering method (F): 2 bits</dt>
+<dd><p>The filtering methods used are described as follows:</p>
+
+<ul>
+<li><code translate="no" dir="ltr">0</code>: None.</li>
+<li><code translate="no" dir="ltr">1</code>: Horizontal filter.</li>
+<li><code translate="no" dir="ltr">2</code>: Vertical filter.</li>
+<li><code translate="no" dir="ltr">3</code>: Gradient filter.</li>
+</ul></dd>
+</dl>
+
+<p>For each pixel, filtering is performed using the following calculations.
+Assume the alpha values surrounding the current <code translate="no" dir="ltr">X</code> position are labeled as:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr"> C | B |
+---+---+
+ A | X |
+</code></pre></devsite-code>
+<p>We seek to compute the alpha value at position <code translate="no" dir="ltr">X</code>. First, a prediction is
+made depending on the filtering method:</p>
+
+<ul>
+<li>Method <code translate="no" dir="ltr">0</code>: predictor = 0</li>
+<li>Method <code translate="no" dir="ltr">1</code>: predictor = A</li>
+<li>Method <code translate="no" dir="ltr">2</code>: predictor = B</li>
+<li>Method <code translate="no" dir="ltr">3</code>: predictor = clip(A + B - C)</li>
+</ul>
+
+<p>where <code translate="no" dir="ltr">clip(v)</code> is equal to:</p>
+
+<ul>
+<li>0    if v &lt; 0,</li>
+<li>255  if v &gt; 255, or</li>
+<li>v    otherwise</li>
+</ul>
+
+<p>The final value is derived by adding the decompressed value <code translate="no" dir="ltr">X</code> to the
+predictor and using modulo-256 arithmetic to wrap the [256..511] range
+into the [0..255] one:</p>
+
+<p><code translate="no" dir="ltr">alpha = (predictor + X) % 256</code></p>
+
+<p>There are special cases for the left-most and top-most pixel positions. For
+example, the top-left value at location (0, 0) uses 0 as the predictor value.
+Otherwise:</p>
+
+<ul>
+<li>For horizontal or gradient filtering methods, the left-most pixels at
+location (0, y) are predicted using the location (0, y-1) just above.</li>
+<li>For vertical or gradient filtering methods, the top-most pixels at
+location (x, 0) are predicted using the location (x-1, 0) on the left.</li>
+</ul>
+
+<dl>
+<dt>Compression method (C): 2 bits</dt>
+<dd><p>The compression method used:</p>
+
+<ul>
+<li><code translate="no" dir="ltr">0</code>: No compression.</li>
+<li><code translate="no" dir="ltr">1</code>: Compressed using the WebP lossless format.</li>
+</ul></dd>
+<dt>Alpha bitstream: <em>Chunk Size</em> bytes - <code translate="no" dir="ltr">1</code></dt>
+<dd><p>Encoded alpha bitstream.</p></dd>
+</dl>
+
+<p>This optional chunk contains encoded alpha data for this frame. A frame
+containing a &#39;VP8L&#39; Chunk SHOULD NOT contain this chunk.</p>
+
+<p><strong>Rationale</strong>: The transparency information is already part of the &#39;VP8L&#39;
+Chunk.</p>
+
+<p>The alpha channel data is stored as uncompressed raw data (when the
+compression method is &#39;0&#39;) or compressed using the lossless format
+(when the compression method is &#39;1&#39;).</p>
+
+<ul>
+<li><p>Raw data: This consists of a byte sequence of length = width * height,
+containing all the 8-bit transparency values in scan order.</p></li>
+<li><p>Lossless format compression: The byte sequence is a compressed
+image-stream (as described in <a href="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">&quot;WebP Lossless Bitstream Format&quot;</a>) of implicit dimensions width x height. That is, this
+image-stream does NOT contain any headers describing the image dimensions.</p>
+
+<p><strong>Rationale</strong>: The dimensions are already known from other sources,
+so storing them again would be redundant and prone to error.</p>
+
+<p>Once the image-stream is decoded into Alpha, Red, Green, Blue (ARGB) color
+values, following the process described in the lossless format
+specification, the transparency information must be extracted from the
+<em>green</em> channel of the ARGB quadruplet.</p>
+
+<p><strong>Rationale</strong>: The green channel is allowed extra transformation
+steps in the specification -- unlike the other channels -- that can
+improve compression.</p></li>
+</ul>
+
+<h3 id="bitstream_vp8vp8l" data-text="Bitstream (VP8/VP8L)" tabindex="-1">Bitstream (VP8/VP8L)</h3>
+
+<p>This chunk contains compressed bitstream data for a single frame.</p>
+
+<p>A bitstream chunk may be either (i) a &#39;VP8 &#39; Chunk, using &#39;VP8 &#39; (note the
+significant fourth-character space) as its FourCC, <em>or</em> (ii) a &#39;VP8L&#39; Chunk,
+using &#39;VP8L&#39; as its FourCC.</p>
+
+<p>The formats of &#39;VP8 &#39; and &#39;VP8L&#39; Chunks are as described in sections
+<a href="#simple_file_format_lossy">Simple File Format (Lossy)</a>
+and <a href="#simple_file_format_lossless">Simple File Format (Lossless)</a> respectively.</p>
+
+<h3 id="color_profile" data-text="Color Profile" tabindex="-1">Color Profile</h3>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('ICCP')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                       Color Profile                           :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>Color Profile: <em>Chunk Size</em> bytes</dt>
+<dd>ICC profile.</dd>
+</dl>
+
+<p>This chunk MUST appear before the image data.</p>
+
+<p>There SHOULD be at most one such chunk. If there are more such chunks, readers
+MAY ignore all except the first one.
+See the <a href="https://www.color.org/icc_specs2.xalter">ICC Specification</a> for details.</p>
+
+<p>If this chunk is not present, sRGB SHOULD be assumed.</p>
+
+<h3 id="metadata" data-text="Metadata" tabindex="-1">Metadata</h3>
+
+<p>Metadata can be stored in &#39;EXIF&#39; or &#39;XMP &#39; Chunks.</p>
+
+<p>There SHOULD be at most one chunk of each type (&#39;EXIF&#39; and &#39;XMP &#39;). If there
+are more such chunks, readers MAY ignore all except the first one.</p>
+
+<p>The chunks are defined as follows:</p>
+
+<p>&#39;EXIF&#39; Chunk:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('EXIF')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                        Exif Metadata                          :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>Exif Metadata: <em>Chunk Size</em> bytes</dt>
+<dd>Image metadata in Exif format.</dd>
+</dl>
+
+<p>&#39;XMP &#39; Chunk:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Brainfuck" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-c"> 0                   1                   2                   3</span>
+<span class="devsite-syntax-c"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">|                      ChunkHeader('XMP ')                      |</span>
+<span class="devsite-syntax-c">|                                                               |</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+<span class="devsite-syntax-c">:                        XMP Metadata                           :</span>
+<span class="devsite-syntax-nb">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span>
+</code></pre></devsite-code>
+<dl>
+<dt>XMP Metadata: <em>Chunk Size</em> bytes</dt>
+<dd>Image metadata in XMP format.</dd>
+</dl>
+
+<p>Note that the fourth character in the &#39;XMP &#39; FourCC is an ASCII space (0x20).</p>
+
+<p>Additional guidance about handling metadata can be found in the
+Metadata Working Group&#39;s <a href="https://web.archive.org/web/20180919181934/http://www.metadataworkinggroup.org/pdf/mwg_guidance.pdf">&quot;Guidelines for Handling Metadata&quot;</a>.</p>
+
+<h3 id="unknown_chunks" data-text="Unknown Chunks" tabindex="-1">Unknown Chunks</h3>
+
+<p>A RIFF chunk (described in the <a href="#riff_file_format">RIFF File Format</a> section)
+whose FourCC is different from any of the chunks described in this document, is
+considered an <em>unknown chunk</em>.</p>
+
+<p><strong>Rationale</strong>: Allowing unknown chunks gives a provision for future extension
+of the format and also allows storage of any application-specific data.</p>
+
+<p>A file MAY contain unknown chunks:</p>
+
+<ul>
+<li>at the end of the file, as described in <a href="#extended_header">Extended WebP file
+header</a> section, or</li>
+<li>at the end of &#39;ANMF&#39; Chunks, as described in the
+<a href="#animation">Animation</a> section.</li>
+</ul>
+
+<p>Readers SHOULD ignore these chunks. Writers SHOULD preserve them in their
+original order (unless they specifically intend to modify these chunks).</p>
+
+<h2 id="canvas_assembly_from_frames" data-text="Canvas Assembly from Frames" tabindex="-1">Canvas Assembly from Frames</h2>
+
+<p>Here we provide an overview of how a reader MUST assemble a canvas in the case
+of an animated image.</p>
+
+<p>The process begins with creating a canvas using the dimensions given in the
+&#39;VP8X&#39; Chunk, <code translate="no" dir="ltr">Canvas Width Minus One + 1</code> pixels wide by <code translate="no" dir="ltr">Canvas Height Minus
+One + 1</code> pixels high. The <code translate="no" dir="ltr">Loop Count</code> field from the &#39;ANIM&#39; Chunk controls how
+many times the animation process is repeated. This is <code translate="no" dir="ltr">Loop Count - 1</code> for
+nonzero <code translate="no" dir="ltr">Loop Count</code> values or infinite if the <code translate="no" dir="ltr">Loop Count</code> is zero.</p>
+
+<p>At the beginning of each loop iteration, the canvas is filled using the
+background color from the &#39;ANIM&#39; Chunk or an application-defined color.</p>
+
+<p>&#39;ANMF&#39; Chunks contain individual frames given in display order. Before rendering
+each frame, the previous frame&#39;s <code translate="no" dir="ltr">Disposal method</code> is applied.</p>
+
+<p>The rendering of the decoded frame begins at the Cartesian coordinates (<code translate="no" dir="ltr">2 *
+Frame X</code>, <code translate="no" dir="ltr">2 * Frame Y</code>), using the top-left corner of the canvas as the origin.
+<code translate="no" dir="ltr">Frame Width Minus One + 1</code> pixels wide by <code translate="no" dir="ltr">Frame Height Minus One + 1</code> pixels
+high are rendered onto the canvas using the <code translate="no" dir="ltr">Blending method</code>.</p>
+
+<p>The canvas is displayed for <code translate="no" dir="ltr">Frame Duration</code> milliseconds. This continues until
+all frames given by &#39;ANMF&#39; Chunks have been displayed. A new loop iteration is
+then begun, or the canvas is left in its final state if all iterations have been
+completed.</p>
+
+<p>The following pseudocode illustrates the rendering process. The notation
+<em>VP8X.field</em> means the field in the &#39;VP8X&#39; Chunk with the same description.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">VP8X.flags.hasAnimation MUST be TRUE
+canvas ← new image of size VP8X.canvasWidth x VP8X.canvasHeight with
+         background color ANIM.background_color or
+         application-defined color.
+loop_count ← ANIM.loopCount
+dispose_method ← Dispose to background color
+if loop_count == 0:
+  loop_count = ∞
+frame_params ← nil
+next chunk in image_data is ANMF MUST be TRUE
+for loop = 0..loop_count - 1
+  clear canvas to ANIM.background_color or application-defined color
+  until eof or non-ANMF chunk
+    frame_params.frameX = Frame X
+    frame_params.frameY = Frame Y
+    frame_params.frameWidth = Frame Width Minus One + 1
+    frame_params.frameHeight = Frame Height Minus One + 1
+    frame_params.frameDuration = Frame Duration
+    frame_right = frame_params.frameX + frame_params.frameWidth
+    frame_bottom = frame_params.frameY + frame_params.frameHeight
+    VP8X.canvasWidth &gt;= frame_right MUST be TRUE
+    VP8X.canvasHeight &gt;= frame_bottom MUST be TRUE
+    for subchunk in 'Frame Data':
+      if subchunk.tag == "ALPH":
+        alpha subchunks not found in 'Frame Data' earlier MUST be
+          TRUE
+        frame_params.alpha = alpha_data
+      else if subchunk.tag == "VP8 " OR subchunk.tag == "VP8L":
+        bitstream subchunks not found in 'Frame Data' earlier MUST
+          be TRUE
+        frame_params.bitstream = bitstream_data
+    apply dispose_method.
+    render frame with frame_params.alpha and frame_params.bitstream
+      on canvas with top-left corner at (frame_params.frameX,
+      frame_params.frameY), using Blending method
+      frame_params.blendingMethod.
+    canvas contains the decoded image.
+    Show the contents of the canvas for
+    frame_params.frameDuration * 1 ms.
+    dispose_method = frame_params.disposeMethod
+</code></pre></devsite-code>
+<h2 id="example_file_layouts" data-text="Example File Layouts" tabindex="-1">Example File Layouts</h2>
+
+<p>A lossy-encoded image with alpha may look as follows:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">RIFF/WEBP
++- VP8X (descriptions of features used)
++- ALPH (alpha bitstream)
++- VP8 (bitstream)
+</code></pre></devsite-code>
+<p>A lossless-encoded image may look as follows:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">RIFF/WEBP
++- VP8X (descriptions of features used)
++- VP8L (lossless bitstream)
++- XYZW (unknown chunk)
+</code></pre></devsite-code>
+<p>A lossless image with an ICC profile and XMP metadata may
+look as follows:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">RIFF/WEBP
++- VP8X (descriptions of features used)
++- ICCP (color profile)
++- VP8L (lossless bitstream)
++- XMP  (metadata)
+</code></pre></devsite-code>
+<p>An animated image with Exif metadata may look as follows:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">RIFF/WEBP
++- VP8X (descriptions of features used)
++- ANIM (global animation parameters)
++- ANMF (frame1 parameters + data)
++- ANMF (frame2 parameters + data)
++- ANMF (frame3 parameters + data)
++- ANMF (frame4 parameters + data)
++- EXIF (metadata)
+</code></pre></devsite-code>
+
+  
+
+  
+</div>
+
+  
+    
+      <devsite-recommendations display="in-page" hidden yield>
+      </devsite-recommendations>
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+    
+    
+      <devsite-recommendations id="recommendations-link" yield></devsite-recommendations>
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  <p>Last updated 2025-08-07 UTC.</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-08-07 UTC."],[],["WebP utilizes a RIFF-based structure with chunks for data. Key actions include reading/writing files (.webp extension), identifying components via FourCC codes, and handling various data types (uint16, uint24, uint32).  The format supports lossy (VP8) and lossless (VP8L) compression and extended features with the `VP8X` chunk. Animated images are controlled by `ANIM` (global) and `ANMF` (per-frame) chunks, defining canvas dimensions, looping, blending, disposal, and duration. Alpha channel data can be lossy or lossless in a separated chunk named 'ALPH'. Metadata ('EXIF', 'XMP') and color profiles ('ICCP') can be embedded.\n"]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Learn</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://www.webmproject.org/code/#webp-repositories"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Code Repositories
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://www.webmproject.org/code/contribute/submitting-patches/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+              
+              
+            
+          
+            Submitting Patches
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://groups.google.com/a/webmproject.org/group/webp-discuss"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Mailing List
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://issues.webmproject.org"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+              
+              
+            
+          
+            Issue Tracker
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Downloads</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/speed/webp/download"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+              
+              
+            
+          
+            Source and Binaries
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/developers/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//ai.google.dev/"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google AI Link"
+         
+         >
+          Google AI
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+          <devsite-concierge
+  
+  
+    data-info-panel
+  
+  
+    data-ai-panel
+  
+  
+  
+  
+    data-api-explorer-panel
+  >
+</devsite-concierge>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[{&#34;dimensions&#34;: {&#34;dimension6&#34;: &#34;en&#34;, &#34;dimension4&#34;: &#34;WebP&#34;, &#34;dimension1&#34;: &#34;Signed out&#34;, &#34;dimension11&#34;: false, &#34;dimension5&#34;: &#34;en&#34;, &#34;dimension3&#34;: false}, &#34;gaid&#34;: &#34;UA-24532603-1&#34;, &#34;metrics&#34;: {&#34;ratings_count&#34;: &#34;metric2&#34;, &#34;ratings_value&#34;: &#34;metric1&#34;}, &#34;purpose&#34;: 1}]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-272J68FCRF&#34;, &#34;purpose&#34;: 1}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-272J68FCRF&#34;, &#34;purpose&#34;: 1}], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-T98GCPGN&#34;, &#34;purpose&#34;: 1}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;WebP&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;developers&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="NM1zlvJqnISUO+m7/92ZiUnUX8SIlH">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/developers/js/app_loader.js', '[1,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4","https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/developers","https://developers-dot-devsite-v2-prod.appspot.com",null,null,["/_pwa/developers/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v1acc34b77907f14029db47214a9900819f8c09315bec13906695eded017dc4b4/developers/images/favicon-new.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["TpcFeatures__enable_unmirrored_page_left_nav","DevPro__enable_firebase_workspaces_card","Profiles__enable_purchase_prompts","Profiles__enable_developer_profile_pages_as_content","Cloud__enable_cloud_dlp_service","Cloud__enable_cloud_shell_fte_user_flow","DevPro__enable_google_payments","DevPro__enable_credits_banner","Analytics__enable_devpro_interaction_logging","Concierge__enable_key_takeaways_new_ui","Search__enable_suggestions_from_borg","Profiles__enable_profile_collections","Concierge__enable_remove_info_panel_tags","Profiles__enable_awarding_url","DevPro__enable_cloud_innovators_plus","BookNav__enable_tenant_cache_key","CloudShell__cloud_code_overflow_menu","DevPro__enable_enterprise","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_developer_subscriptions","MiscFeatureFlags__developers_footer_image","Cloud__enable_cloudx_experiment_ids","Cloud__cache_serialized_dynamic_content","DevPro__enable_free_benefits","Search__enable_ai_search_summaries_for_all","Profiles__enable_developer_profile_benefits_ui_redesign","AIStudioInteractionsToggle__interactions_are_default","Profiles__enable_stripe_subscription_management","Profiles__enable_join_program_group_endpoint","Search__enable_page_map","Profiles__enable_completecodelab_endpoint","MiscFeatureFlags__enable_variable_operator","Concierge__enable_concierge_restricted","Search__enable_ai_search_summaries_restricted","Search__enable_ai_eligibility_checks","Concierge__enable_pushui","MiscFeatureFlags__enable_view_transitions","Profiles__enable_release_notes_notifications","Profiles__enable_page_saving","Profiles__enable_developer_profiles_callout","DevPro__enable_devpro_offers","Concierge__enable_concierge","MiscFeatureFlags__enable_project_variables","Profiles__enable_complete_playlist_endpoint","Cloud__enable_cloud_shell","DevPro__enable_g1_integration","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_auto_apply_credits","Profiles__enable_completequiz_endpoint","DevPro__enable_embed_profile_creation","Search__enable_dynamic_content_confidential_banner","Profiles__enable_targeted_hero","Concierge__enable_devsite_llm_tools","DevPro__enable_code_assist","DevPro__remove_eu_tax_intake_form","MiscFeatureFlags__enable_firebase_utm","Analytics__enable_clearcut_logging","Concierge__enable_key_takeaways","MiscFeatureFlags__enable_variable_operator_index_yaml","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Profiles__enable_callout_notifications","DevPro__enable_devsite_captcha","MiscFeatureFlags__enable_framebox_badge_methods","Concierge__enable_actions_menu","DevPro__enable_vertex_credit_card","Profiles__require_profile_eligibility_for_signin","DevPro__enable_g1_ineligible_redirect","Cloud__enable_free_trial_server_call","EngEduTelemetry__enable_engedu_telemetry","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__enable_google_payments_buyflow","Profiles__enable_recognition_badges","Cloud__enable_legacy_calculator_redirect","Profiles__enable_public_developer_profiles","Significatio__enable_by_tenant","Profiles__enable_user_type","MiscFeatureFlags__enable_explain_this_code","Experiments__reqs_query_experiments","Profiles__enable_playlist_community_acl","Profiles__enable_dashboard_curated_recommendations","SignIn__enable_l1_signup_flow","TpcFeatures__proxy_prod_host","DevPro__enable_google_one_card","CloudShell__cloud_shell_button","Search__enable_ai_search_summaries","Cloud__fast_free_trial","MiscFeatureFlags__enable_appearance_cookies","MiscFeatureFlags__remove_cross_domain_tracking_params","DevPro__enable_nvidia_credits_card"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[1,"developers","Google for Developers","developers.google.com",null,"developers-dot-devsite-v2-prod.appspot.com",null,null,[1,1,[1],null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations/information"],null,null,null,[1,1,1],[1,1,null,1,1,null,null,["/meridian"]],[1,null,null,null,null,null,null,["/admob","/ad-manager/mobile-ads-sdk","/ml-kit"]],null,[null,["/meridian","/youtube/devices/"]],1,null,[1]],null,[null,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,null,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[null,null,null,[3,7,10,2,39,17,4,32,24,11,12,13,34,15,25],null,null,[1,[["docType","Choose a content type",[["Tutorial",null,null,null,null,null,null,null,null,"Tutorial"],["Guide",null,null,null,null,null,null,null,null,"Guide"],["Sample",null,null,null,null,null,null,null,null,"Sample"]]],["product","Choose a product",[["Android",null,null,null,null,null,null,null,null,"Android"],["ARCore",null,null,null,null,null,null,null,null,"ARCore"],["ChromeOS",null,null,null,null,null,null,null,null,"ChromeOS"],["Firebase",null,null,null,null,null,null,null,null,"Firebase"],["Flutter",null,null,null,null,null,null,null,null,"Flutter"],["Assistant",null,null,null,null,null,null,null,null,"Google Assistant"],["GoogleCloud",null,null,null,null,null,null,null,null,"Google Cloud"],["GoogleMapsPlatform",null,null,null,null,null,null,null,null,"Google Maps Platform"],["GooglePay",null,null,null,null,null,null,null,null,"Google Pay & Google Wallet"],["GooglePlay",null,null,null,null,null,null,null,null,"Google Play"],["Tensorflow",null,null,null,null,null,null,null,null,"TensorFlow"]]],["category","Choose a topic",[["AiAndMachineLearning",null,null,null,null,null,null,null,null,"AI and Machine Learning"],["Data",null,null,null,null,null,null,null,null,"Data"],["Enterprise",null,null,null,null,null,null,null,null,"Enterprise"],["Gaming",null,null,null,null,null,null,null,null,"Gaming"],["Mobile",null,null,null,null,null,null,null,null,"Mobile"],["Web",null,null,null,null,null,null,null,null,"Web"]]]]]],[1,1],null,1],[[["UA-24532603-1"],["UA-22084204-5"],null,null,["UA-24532603-5"],["GTM-T98GCPGN"],null,[["G-272J68FCRF"],null,null,[["G-272J68FCRF",2]]],[["UA-24532603-1",2]],null,[["UA-24532603-5",2]],[["GTM-T98GCPGN",2]],1],[[1,1],[14,11],[4,3],[13,10],[6,5],[15,12],[12,9],[11,8],[3,2],[16,13],[5,4]],[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"developers.devsite.google",null,null,null,null,null,[]],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",["https://codeassist.google.com","https://code-assist-free-tier.corp.google.com"],null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

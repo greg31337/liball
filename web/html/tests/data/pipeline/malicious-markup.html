@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head><title>Untrusted contribution</title></head>
+<body onload="steal()">
+  <script>window.stolen = document.cookie</script>
+  <style>@import url(https://attacker.test/style.css);</style>
+  <p id="__proto__" onclick="steal()">Visible contribution</p>
+  <a href="java&#x73;cript:steal()" target="_blank">unsafe link</a>
+  <img src="data:text/html;base64,PHNjcmlwdD4=" onerror="steal()" alt="unsafe image">
+  <svg><a xlink:href="javascript:steal()"><text>vector trap</text></a></svg>
+  <math><annotation-xml encoding="text/html"><script>steal()</script></annotation-xml></math>
+  <iframe srcdoc="<script>steal()</script>"></iframe>
+  <form name="location"><input name="cookie"></form>
+  <template><img src="javascript:steal()"></template>
+</body>
+</html>

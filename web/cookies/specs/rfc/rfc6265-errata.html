@@ -1,0 +1,1418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC Errata</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/search/">RFC Errata</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://www.rfc-editor.org/series/rfc-errata/" rel="noopener" target="_blank">About</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/oidc/authenticate/">Login</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+<div>
+<h1>Errata</h1>
+
+
+<form id="errata-search-form" method="get">
+    <div class="mb-3"><label class="form-label" for="id_rfc_number">RFC Number</label><input type="number" name="rfc_number" value="6265" class="form-control is-valid" placeholder="RFC Number" id="id_rfc_number"></div><div class="mb-3"><label class="form-label" for="id_errata_id">Errata ID</label><input type="number" name="errata_id" class="form-control is-valid" placeholder="Errata ID" id="id_errata_id"></div><div class="mb-3"><label class="form-label" for="id_status">Status</label><select name="status" class="form-select is-valid" id="id_status">
+  <option value="any">All/Any</option>
+
+  <option value="verified_reported">Verified+Reported</option>
+
+  <option value="verified">Verified</option>
+
+  <option value="reported">Reported</option>
+
+  <option value="held_for_doc_update">Held for Document Update</option>
+
+  <option value="rejected">Rejected</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_area">Area Acronym</label><select name="area" class="form-select is-valid" id="id_area">
+  <option value="any">All/Any</option>
+
+  <option value="app">app</option>
+
+  <option value="art">art</option>
+
+  <option value="gen">gen</option>
+
+  <option value="int">int</option>
+
+  <option value="ops">ops</option>
+
+  <option value="rai">rai</option>
+
+  <option value="rtg">rtg</option>
+
+  <option value="sec">sec</option>
+
+  <option value="tsv">tsv</option>
+
+  <option value="wit">wit</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_errata_type">Type</label><select name="errata_type" class="form-select is-valid" id="id_errata_type">
+  <option value="any">All/Any</option>
+
+  <option value="editorial">Editorial</option>
+
+  <option value="technical">Technical</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_wg_acronym">WG Acronym</label><input type="text" name="wg_acronym" maxlength="40" class="form-control is-valid" placeholder="WG Acronym" id="id_wg_acronym"></div><div class="mb-3"><label class="form-label" for="id_submitter_name">Submitter Name</label><input type="text" name="submitter_name" maxlength="80" class="form-control is-valid" placeholder="Submitter Name" id="id_submitter_name"></div><div class="mb-3"><label class="form-label" for="id_stream">Stream</label><select name="stream" class="form-select is-valid" id="id_stream">
+  <option value="any">All/Any</option>
+
+  <option value="IAB">IAB</option>
+
+  <option value="INDEPENDENT">INDEPENDENT</option>
+
+  <option value="IRTF">IRTF</option>
+
+  <option value="Legacy">Legacy</option>
+
+  <option value="Editorial">Editorial</option>
+
+</select></div><div class="mb-3"><label class="form-label" for="id_date">Date Submitted</label><input type="text" name="date" placeholder="YYYY-MM-DD, YYYY-MM, or YYYY" class="form-control is-valid" id="id_date"></div><div class="mb-3"><label class="form-label" for="id_presentation">Presentation</label><select name="presentation" class="form-select is-valid" id="id_presentation">
+  <option value="table">Table</option>
+
+  <option value="records" selected>Full Records</option>
+
+</select></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class="container mt-4">
+    
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Verified (5)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6265" rel="noopener" target="_blank">RFC 6265</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6265.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> httpstate (app)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3444/">3444</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Eran Hammer</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-01-06</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Pete Resnick</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-02-18</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>path-value        = &lt;any CHAR except CTLs or &quot;;&quot;&gt;
+extension-av      = &lt;any CHAR except CTLs or &quot;;&quot;&gt;
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>path-value        = * &lt;any CHAR except CTLs or &quot;;&quot;&gt;
+extension-av      = * &lt;any CHAR except CTLs or &quot;;&quot;&gt;
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>A better correction could also be:
+
+   path-value        = *av-octet
+   extension-av      = *av-octet
+   av-octet          = %x20-3A / %x3C-7E
+                     ; any CHAR except CTLs or &quot;;&quot;
+</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4148/">4148</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Zhong Yu</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-10-28</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-10-30</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   day-of-month    = 1*2DIGIT ( non-digit *OCTET )
+...
+   year            = 2*4DIGIT ( non-digit *OCTET )
+   time            = hms-time ( non-digit *OCTET )
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   day-of-month    = 1*2DIGIT [ non-digit *OCTET ]
+...
+   year            = 2*4DIGIT [ non-digit *OCTET ]
+   time            = hms-time [ non-digit *OCTET ]
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The trailing extra chars for these fields should be *optional*, not *required*.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6093/">6093</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Attila Gulyas</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2020-04-12</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-02-12</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   Origin servers SHOULD NOT fold multiple Set-Cookie header fields into
+   a single header field.  The usual mechanism for folding HTTP headers
+   fields (i.e., as defined in [RFC2616]) might change the semantics of
+   the Set-Cookie header field because the %x2C (&quot;,&quot;) character is used
+   by Set-Cookie in a way that conflicts with such folding.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   Origin servers SHOULD NOT combine multiple Set-Cookie header fields into 
+   a single header field.  The usual mechanism for combining HTTP headers 
+   fields (i.e., as defined in [RFC2616]) might change the semantics of 
+   the Set-Cookie header field because the %x2C (&quot;,&quot;) character is used 
+   by Set-Cookie in a way that conflicts with such actions.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>RFC 6265 currently uses the verb &quot;folding&quot; when it refers to combining multiple header fields into one, which is ambiguous in the context of the HTTP/1 specs (both by RFC2616 and RFC 7230) where &quot;folding&quot; consistently refers to line folding, and the verb &quot;combine&quot; is used to describe merging same headers. Having a light HTTP knowledge, I naively started looking up &quot;folding&quot; in the HTTP specs, and was immediately confused by the results, others will probably be as well (especially is English is not their native tongue).
+
+Examples to prove this consistency:
++ RFC 2616, Section 4.2, Message Headers, but searching for the for the word &quot;combine&quot; will bring up special cases.
++ RFC 7230, Section 3.2.2, Field Order
++ RFC 2616, Section 2.2, Basic Rules
++ RFC 7230, Section 3.2.4, Field Parsing
+
+Thank you!</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid7604/">7604</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Ted Zhu</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2023-08-15</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-02-12</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 3.  Overview says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>User agents MAY ignore Set-Cookie headers contained in
+responses with 100-level status codes but MUST process Set-Cookie
+headers contained in other responses (including responses with 400-
+and 500-level status codes).</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Cookie-enabled user agents MAY ignore Set-Cookie headers contained in
+responses with 100-level status codes but MUST process Set-Cookie
+headers contained in other responses (including responses with 400-
+and 500-level status codes).</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The concern is that the sentence in its original form may be read to mean that all conforming user agents MUST process Set-Cookie headers contained in non 100-level responses, when, differing behavior is allowed as described in sections 5.2 and 7.2:
+
+Section 5.2, paragraph 1: &quot;When a user agent receives a Set-Cookie header field in an HTTP response, the user agent MAY ignore the Set-Cookie header field in its entirety.&quot;
+
+Section 7.2, paragraph 2: &quot;When cookies are disabled, ... the user agent MUST NOT process Set-Cookie headers in inbound HTTP responses.&quot;
+
+The suggested correction is one possible way to alleviate this erratum concern. However, the erratum author does not know if this is the most optimal disambiguation method.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid5518/">5518</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Verified</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Editorial</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Peter Wu</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2018-10-09</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Verified by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>RFC Editor</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Verified:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-01-29</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code> cookie-octet      = %x21 / %x23-2B / %x2D-3A / %x3C-5B / %x5D-7E
+                       ; US-ASCII characters excluding CTLs,
+                       ; whitespace DQUOTE, comma, semicolon,
+                       ; and backslash</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code> cookie-octet      = %x21 / %x23-2B / %x2D-3A / %x3C-5B / %x5D-7E
+                       ; US-ASCII characters excluding CTLs,
+                       ; whitespace, DQUOTE, comma, semicolon,
+                       ; and backslash</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Missing comma separator between &quot;whitespace&quot; and &quot;DQUOTE&quot;.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Reported (1)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6265" rel="noopener" target="_blank">RFC 6265</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6265.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> httpstate (app)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid8877/">8877</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Reported</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Lasse Nielsen</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2026-04-13</span>
+                                                    </dd>
+
+                                                    
+
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>       3.  If the found-month flag is not set and the date-token matches
+           the month production, set the found-month flag and set the
+           month-value to the month denoted by the date-token.  Skip the
+           remaining sub-steps and continue to the next date-token.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>       3.  If the found-month flag is not set and the date-token case-
+           insensitively matches the month production, set the found-month
+           flag and set the month-value to the month denoted by the date-token.
+           Skip the remaining sub-steps and continue to the next date-token.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The grammar for the `month` production only contains lower case month names, like `&quot;jan&quot;`. Nothing (that I have been able to find) says that the input text is converted to lower case, nor that mathcing or grammar terminals are case insensitive.
+
+The examples in section 3.1 includes this date: &quot;Expires=Sun, 06 Nov 1994 08:49:37 GMT&quot;, which suggests that being case insensitive was intended.
+
+(I&#x27;m not sure the &quot;case-insensitively matches&quot; defined in section 2.3 can be applied to a grammar production, and not just a pair of strings. If it cannot be used in this way, then a different approach is needed.)</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Held for Document Update (2)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6265" rel="noopener" target="_blank">RFC 6265</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6265.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> httpstate (app)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3663/">3663</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Dave Thaler</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-06-17</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-08-07</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.1.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>A request-path path-matches a given cookie-path if at least one of
+the following conditions holds:
+
+o  The cookie-path and the request-path are identical.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>A request-path path-matches a given cookie-path if at least one of
+the following conditions holds:
+
+o  The cookie-path and the request-path are identical.  Note that this
+   differs from the rules in RFC 3986 for equivalence of the path
+   component, and hence two equivalent paths can have different
+   cookies.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The &quot;identical&quot; rule differs from the URI equivalence rule(s) in RFC 3986
+sections 6.2 and 2.1 (e.g., &quot;If two URIs differ only in the case of hexadecimal
+digits used in percent-encoded octets, they are equivalent.&quot;)  The fact that
+equivalent URIs have different cookies arguably violates the principle of
+least astonishment.  To avoid significant confusion and prevent such surprise,
+this fact should be noted so that it is at least not unexpected.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid8242/">8242</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Held for Document Update</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Vladimír Gorej</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2025-01-06</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Held for Document Update by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Orie Steele</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Held for Document Update:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-01-14</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>cookie-value      = *cookie-octet / ( DQUOTE *cookie-octet DQUOTE )</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>cookie-value      = ( DQUOTE *cookie-octet DQUOTE ) / *cookie-octet</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>Many parsers process ABNF alternatives left-to-right and do not backtrack if an alternative partially matches but ultimately fails. This is why placing *cookie-octet first can cause issues.
+
+The quoted pattern ( DQUOTE *cookie-octet DQUOTE ) is more specific than the unquoted pattern *cookie-octet. Placing it first ensures that the parser prioritizes correctly. Quoted values are matched as a whole first. If the value isn’t quoted, the parser safely falls back to checking for unquoted *cookie-octet.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Rejected (6)</h2>
+            </div>
+            <div class="card-body">
+                
+                <div class="row g-3">
+                    
+                        <div class="col-md-12">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-header bg-light text-dark">
+                                    <h3 class="mt-4"><a href="https://www.rfc-editor.org/info/rfc6265" rel="noopener" target="_blank">RFC 6265</a> <a href="https://www.rfc-editor.org/rfc/inline-errata/rfc6265.html" rel="noopener" target="_blank" class="small">inline-errata</a></h3>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong>Source of RFC:</strong> httpstate (app)</p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3430/">3430</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Zhong Yu</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2012-12-13</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2012-12-17</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code> max-age-av        = &quot;Max-Age=&quot; non-zero-digit *DIGIT
+                       ; In practice, both expires-av and max-age-av
+                       ; are limited to dates representable by the
+                       ; user agent.
+ non-zero-digit    = %x31-39
+                       ; digits 1 through 9
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code> max-age-av        = &quot;Max-Age=&quot; 1*DIGIT
+                       ; In practice, both expires-av and max-age-av
+                       ; are limited to dates representable by the
+                       ; user agent.
+</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The current text forbids a server to send Max-Age=0.
+ --VERIFIER NOTES-- 
+That is correct.  As noted in the introduction, what servers should do and what clients should do are not the same.  The ABNF in Section 4 limits the server intentionally, to maximize compatibility with deployed clients.  See this text in the Introduction:
+
+   To maximize interoperability with user agents, servers SHOULD limit
+   themselves to the well-behaved profile defined in Section 4 when
+   generating cookies.
+
+   User agents MUST implement the more liberal processing rules defined
+   in Section 5, in order to maximize interoperability with existing
+   servers that do not conform to the well-behaved profile defined in
+   Section 4.
+   </code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3765/">3765</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Johannes Knaupp</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2013-10-25</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2013-10-26</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Servers SHOULD NOT include more than one Set-Cookie header field in
+the same response with the same cookie-name.  (See Section 5.2 for
+how user agents handle this case.)
+
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Servers MUST NOT include more than one Set-Cookie header field in
+the same response.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The HTTP specification (RFC 2616) says in its section 4.2: &quot;Multiple message-header fields with the same field-name MAY be present in a message if and only if the entire field-value for that header field is defined as a comma-separated list [i.e., #(values)]. [...]&quot;
+
+Since the mentioned condition is not fulfilled in the case of Set-Cookie headers, only one Set-Cookie header is permissible in an HTTP message.
+
+This also applies to the third example in section 3.1, even though it is not clearly specified there whether or not the two Set-Cookies originate from the same server response.
+
+On the internet many HTTP messages contain multiple Set-Cookie headers, and this seems to make sense in order to avoid additional roundtrips. This, however, (1) does not match the HTTP specification, see above, and therefore (2) cannot be used with implementations stating that they were HTTP compatible and consequently only allow a single Set-Cookie header per response. Clearly, this is not a defect of those implementations, but of the specifications which are at least mistakable (if not contradictory).
+ --VERIFIER NOTES-- 
+Part of the point of RFC 6265 is to document how cookies are actually
+used on the Internet.  As is noted in the introduction, existing use
+doesn&#x27;t always conform to what it should.  In particular, we know that
+RFC 6265 doesn&#x27;t always match up with RFC 2616, because the actual usage
+isn&#x27;t always strictly correct.
+
+The variation from RFC 2616 that this report notes is intentional,
+documenting the existing usage, and this errata report is rejected.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid3931/">3931</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Semyon Kholodnov</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-03-24</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-03-24</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>   The user agent MUST use an algorithm equivalent to the following
+   algorithm to parse a cookie-date.  Note that the various boolean
+   flags defined as a part of the algorithm (i.e., found-time, found-
+   day-of-month, found-month, found-year) are initially &quot;not set&quot;.
+
+   1.  Using the grammar below, divide the cookie-date into date-tokens.
+
+   cookie-date     = *delimiter date-token-list *delimiter
+   date-token-list = date-token *( 1*delimiter date-token )
+   date-token      = 1*non-delimiter
+
+   delimiter       = %x09 / %x20-2F / %x3B-40 / %x5B-60 / %x7B-7E
+   non-delimiter   = %x00-08 / %x0A-1F / DIGIT / &quot;:&quot; / ALPHA / %x7F-FF
+   non-digit       = %x00-2F / %x3A-FF
+
+   day-of-month    = 1*2DIGIT ( non-digit *OCTET )
+   month           = ( &quot;jan&quot; / &quot;feb&quot; / &quot;mar&quot; / &quot;apr&quot; /
+                       &quot;may&quot; / &quot;jun&quot; / &quot;jul&quot; / &quot;aug&quot; /
+                       &quot;sep&quot; / &quot;oct&quot; / &quot;nov&quot; / &quot;dec&quot; ) *OCTET
+   year            = 2*4DIGIT ( non-digit *OCTET )
+   time            = hms-time ( non-digit *OCTET )
+   hms-time        = time-field &quot;:&quot; time-field &quot;:&quot; time-field
+   time-field      = 1*2DIGIT
+
+   2.  Process each date-token sequentially in the order the date-tokens
+       appear in the cookie-date:
+
+       1.  If the found-time flag is not set and the token matches the
+           time production, set the found-time flag and set the hour-
+           value, minute-value, and second-value to the numbers denoted
+           by the digits in the date-token, respectively.  Skip the
+           remaining sub-steps and continue to the next date-token.
+
+       2.  If the found-day-of-month flag is not set and the date-token
+           matches the day-of-month production, set the found-day-of-
+           month flag and set the day-of-month-value to the number
+           denoted by the date-token.  Skip the remaining sub-steps and
+           continue to the next date-token.
+
+       3.  If the found-month flag is not set and the date-token matches
+           the month production, set the found-month flag and set the
+           month-value to the month denoted by the date-token.  Skip the
+           remaining sub-steps and continue to the next date-token.
+
+       4.  If the found-year flag is not set and the date-token matches
+           the year production, set the found-year flag and set the
+           year-value to the number denoted by the date-token.  Skip the
+           remaining sub-steps and continue to the next date-token.</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>   The user agent MUST use an algorithm equivalent to the following
+   algorithm to parse a cookie-date.  Note that the various boolean
+   flags defined as a part of the algorithm (i.e., found-day-of-week,
+   found-time, found-day-of-month, found-month, found-year) are 
+   initially &quot;not set&quot;.
+
+   1.  Using the grammar below, divide the cookie-date into date-tokens.
+
+   cookie-date     = *delimiter date-token-list *delimiter
+   date-token-list = date-token *( 1*delimiter date-token )
+   date-token      = 1*non-delimiter
+
+   delimiter       = %x09 / %x20-2F / %x3B-40 / %x5B-60 / %x7B-7E
+   non-delimiter   = %x00-08 / %x0A-1F / DIGIT / &quot;:&quot; / ALPHA / %x7F-FF
+   non-digit       = %x00-2F / %x3A-FF
+
+   day-of-week     = weekday / wkday
+   wkday           = &quot;mon&quot; / &quot;tue&quot; / &quot;wed&quot; / &quot;thu&quot; / &quot;fri&quot; / &quot;sat&quot; /
+                     &quot;sun&quot;
+   weekday         = &quot;monday&quot; / &quot;tuesday&quot; / &quot;wednesday&quot; / &quot;thursday&quot; /
+                     &quot;friday&quot; / &quot;saturday&quot; / &quot;sunday&quot;
+   day-of-month    = 1*2DIGIT ( non-digit *OCTET )
+   month           = ( &quot;jan&quot; / &quot;feb&quot; / &quot;mar&quot; / &quot;apr&quot; /
+                       &quot;may&quot; / &quot;jun&quot; / &quot;jul&quot; / &quot;aug&quot; /
+                       &quot;sep&quot; / &quot;oct&quot; / &quot;nov&quot; / &quot;dec&quot; ) *OCTET
+   year            = 2*4DIGIT ( non-digit *OCTET )
+   time            = hms-time ( non-digit *OCTET )
+   hms-time        = time-field &quot;:&quot; time-field &quot;:&quot; time-field
+   time-field      = 1*2DIGIT
+
+   2.  Process each date-token sequentially in the order the date-tokens
+       appear in the cookie-date:
+
+       1.  If the found-day-of-week flag is not set and the token 
+           matches the day-of-week production, set found-day-of-week 
+           flag. Skip the remaining steps and continue to the next 
+           date-token.
+
+       2.  If the found-time flag is not set and the token matches the
+           time production, set the found-time flag and set the hour-
+           value, minute-value, and second-value to the numbers denoted
+           by the digits in the date-token, respectively.  Skip the
+           remaining sub-steps and continue to the next date-token.
+
+       3.  If the found-day-of-month flag is not set and the date-token
+           matches the day-of-month production, set the found-day-of-
+           month flag and set the day-of-month-value to the number
+           denoted by the date-token.  Skip the remaining sub-steps and
+           continue to the next date-token.
+
+       4.  If the found-month flag is not set and the date-token matches
+           the month production, set the found-month flag and set the
+           month-value to the month denoted by the date-token.  Skip the
+           remaining sub-steps and continue to the next date-token.
+
+       5.  If the found-year flag is not set and the date-token matches
+           the year production, set the found-year flag and set the
+           year-value to the number denoted by the date-token.  Skip the
+           remaining sub-steps and continue to the next date-token.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>4.1.1 defines &quot;sane-cookie-date&quot; as &quot;rfc1123-date, defined in [RFC2616], Section 3.3.1&quot;. However, both RFC1123 and RFC2616 mandate that date starts with day of the week, and indeed, most servers send cookies where Expires starts with day of the week.
+
+In this particular case (Expire field) the day-of-week part of the date is insignificant, and client MAY ignore it.
+ --VERIFIER NOTES-- 
+The reporter misunderstood the algorithm at first, thinking that it would fail when it couldn&#x27;t parse the weekday token.  In fact, the algorithm actually has the flexibility to ignore tokens it doesn&#x27;t care about, and to handle tokens in any order.  So there&#x27;s no error here.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4043/">4043</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Pierre Lepropre</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-07-06</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-07-12</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.1.4 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>The user agent MUST use an algorithm equivalent to the following
+algorithm to compute the default-path of a cookie:</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>The user agent MUST use an algorithm equivalent to the following
+algorithm to compute the default value for a cookie-path 
+(and thereby matching the server-side semantics as defined in 4.1.2.4):</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The term &quot;default-path&quot; is not formally defined before and is quite misleading for the reader 
+  A. going through the section 5.1.4 as it&#x27;s only used there once and not again
+     until section 5.2.4 (once again) and 5.3 (once again).
+  B. not being a native English speaker
+
+Furthermore, the true meaning of the &quot;default-path&quot; only appears sometime after at section 5.2.4 where it&#x27;s finally bound altogether. Therefore, my personal recommendation would be to also replace the other occurrences of the &quot;default-path&quot; terms by &quot;default cookie-path&quot;
+ --VERIFIER NOTES-- 
+This report is actually an enhancement request.  The discussion of this report on the http-state mailing list should be reviewed if the document is ever revised.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid4044/">4044</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Pierre Lepropre</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2014-07-06</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Barry Leiba</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2014-07-12</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 5.3 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>Otherwise:
+
+   Set the cookie&#x27;s persistent-flag to false.
+
+   Set the cookie&#x27;s expiry-time to the latest representable
+   date.
+</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>Otherwise:
+
+   Set the cookie&#x27;s persistent-flag to false.
+
+   Set the cookie&#x27;s expiry-time to the latest representable
+   date. This is a best-effort approach to ensure that the cookie 
+   will effectively expire when &quot;the current session is over&quot; 
+   (as defined by the user agent) and not anytime before.</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>The second action item isn&#x27;t necessarily obvious for an implementer/reader. If I got the intention right, then I believe it might improve the &quot;user-friendly&quot; rating of this document. Otherwise, it might still be beneficial to explicit a bit the reasoning behind that action.
+ --VERIFIER NOTES-- 
+This report is actually an enhancement request.  The discussion of this report on the http-state mailing list should be reviewed if the document is ever revised.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="card mb-4">
+                                            <div class="card-header bg-light text-dark">
+                                                <h4 class="mt-4">Errata-ID: <a href="/eid6719/">6719</a></h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <dl class="row">
+                                                    <dt class="col-sm-4">Status:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span class="badge bg-info">Rejected</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Type:</dt>
+                                                    <dd class="col-sm-8">
+                                                        
+                                                            <span class="badge bg-secondary">Technical</span>
+                                                        
+                                                    </dd>
+
+                                                    
+
+                                                    <dt class="col-sm-4">Reported By:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>Philip Gladstone</span>
+                                                    </dd>
+
+                                                    <dt class="col-sm-4">Date Reported:</dt>
+                                                    <dd class="col-sm-8">
+                                                        <span>2021-10-22</span>
+                                                    </dd>
+
+                                                    
+                                                        <dt class="col-sm-4">Rejected by:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>Francesca Palombini</span>
+                                                        </dd>
+                                                    
+
+                                                    
+                                                        <dt class="col-sm-4">Date Rejected:</dt>
+                                                        <dd class="col-sm-8">
+                                                            <span>2025-02-12</span>
+                                                        </dd>
+                                                    
+
+                                                </dl>
+                                                <p> 
+                                                    
+                                                        Section 4.1.1 says:
+                                                    
+                                                </p>
+                                                
+                                                    <pre class="bg-light p-3 rounded"><code>max-age-av        = &quot;Max-Age=&quot; non-zero-digit *DIGIT</code></pre>
+                                                
+                                                
+                                                    <p>It should say:</p>
+                                                    <pre class="bg-light p-3 rounded"><code>max-age-av           = &quot;Max-Age=&quot; non-negative-integer
+non-negative-integer = zero-digit / (non-zero-digit *DIGIT)
+zero-digit           = %x30</code></pre>
+                                                
+                                                
+                                                    <p>Notes:</p>
+                                                    <pre class="bg-light p-3 rounded errata-notes"><code>In section 5.2.2, there is the following text on the value of the max-age:
+
+&gt; Let delta-seconds be the attribute-value converted to an integer.
+&gt;
+&gt;   If delta-seconds is less than or equal to zero (0), let expiry-time
+&gt;   be the earliest representable date and time.
+
+If max-age is an integer greater than 0, then the entire sentence is meaningless. It is a common practice to use max-age=0 to expire a cookie immediately. I think that the ABNF is incorrect. However, I don&#x27;t see any reason to permit negative values.
+ --VERIFIER NOTES-- 
+User agents and Servers have different requirements and a UA is expected to be able to handle a wider range of inputs than the well-behaved profile for Servers that is defined in Section 4. This erratum is analogous to https://www.rfc-editor.org/errata/eid3430 which was likewise rejected.</code></pre>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+<a href="/new/entry-instructions/" class="btn btn-primary">Report New Erratum</a>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-4">rfc-editor.org is maintained by the <a href="https://www.ietf.org/" rel="noopener" target="_blank">Internet Engineering Task Force</a></div>
+                    <img src="https://static.ietf.org/logos/ietf-inverted.svg" alt="IETF"
+                        style="width: 105px; height: 60px" />
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Useful links</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.ietf.org" rel="noopener" target="_blank" class="text-white">IETF.org</a></li>
+                                <li><a href="https://www.irtf.org" rel="noopener" target="_blank" class="text-white">IRTF.org</a></li>
+                                <li><a href="https://www.iab.org" rel="noopener" target="_blank" class="text-white">IAB.org</a></li>
+                                <li><a href="https://datatracker.ietf.org" rel="noopener" target="_blank" class="text-white">Datatracker</a></li>
+                                <li><a href="https://authors.ietf.org" rel="noopener" target="_blank" class="text-white">Author Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled mt-3">
+                                <li><a href="https://www.rfc-editor.org/about/contact/" rel="noopener" target="_blank" class="text-white">RFC Editor</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-dist" rel="noopener" target="_blank" class="text-white">rfc-dist Info Page</a></li>
+                                <li><a href="http://mailman.rfc-editor.org/mailman/listinfo/rfc-interest" rel="noopener" target="_blank" class="text-white">rfc-interest Info Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

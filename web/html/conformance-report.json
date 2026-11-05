@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "reportDate": "2026-08-11",
+  "libraryVersion": "0.1.0-alpha.1",
+  "targetFramework": "net10.0",
+  "fixtureManifest": "tests/data/fixture-manifest.json",
+  "verificationCommand": "dotnet run --project tools/ConformanceReport -- --verify",
+  "testCommand": "dotnet test html.slnx --no-restore",
+  "status": "partial",
+  "totals": {
+    "cases": 12925,
+    "passed": 12698,
+    "failed": 219,
+    "skipped": 8
+  },
+  "suites": [
+    {
+      "id": "html5lib-tokenizer",
+      "fixture": "tests/data/html5lib/tokenizer",
+      "fixtureRevision": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+      "scope": "Every run produced by the pinned html5lib tokenizer fixtures, including each declared initial state.",
+      "testEntryPoints": [
+        "UniversalHtml.Tests.Html5libTokenizerConformanceTests.PinnedTokenOutputsReportEveryCaseByInitialTokenizerState"
+      ],
+      "status": "partial",
+      "cases": 7036,
+      "passed": 6967,
+      "failed": 65,
+      "skipped": 4,
+      "groups": [
+        { "id": "CDATA section state", "cases": 56, "passed": 3, "failed": 53, "skipped": 0 },
+        { "id": "Data state", "cases": 6694, "passed": 6682, "failed": 8, "skipped": 4 },
+        { "id": "PLAINTEXT state", "cases": 52, "passed": 52, "failed": 0, "skipped": 0 },
+        { "id": "RAWTEXT state", "cases": 71, "passed": 69, "failed": 2, "skipped": 0 },
+        { "id": "RCDATA state", "cases": 74, "passed": 72, "failed": 2, "skipped": 0 },
+        { "id": "Script data state", "cases": 89, "passed": 89, "failed": 0, "skipped": 0 }
+      ],
+      "skipDetails": [
+        {
+          "reasonCode": "unsupported-xml-infoset-coercion",
+          "reason": "The fixtures require optional XML-infoset coercion rather than HTML tokenization.",
+          "count": 4,
+          "caseIds": [
+            "xmlViolation.test#Non-XML character[Data state]",
+            "xmlViolation.test#Non-XML space[Data state]",
+            "xmlViolation.test#Double hyphen in comment[Data state]",
+            "xmlViolation.test#FF between attributes[Data state]"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "html5lib-tree-construction",
+      "fixture": "tests/data/html5lib/tree-construction",
+      "fixtureRevision": "9329e64694e7835d0dcff9811e22856ef6ad16f9",
+      "scope": "Every scripting-on/off run produced by the pinned html5lib tree-construction snapshot.",
+      "testEntryPoints": [
+        "UniversalHtml.Tests.Html5libTreeConstructionConformanceTests.PinnedTreesReportEveryCaseByInsertionModeAndNamespace"
+      ],
+      "status": "partial",
+      "cases": 3553,
+      "passed": 3395,
+      "failed": 154,
+      "skipped": 4,
+      "groups": [],
+      "skipDetails": [
+        {
+          "reasonCode": "requires-script-execution",
+          "reason": "UniversalHtml keeps script elements inert and does not execute document.write or DOM-mutating JavaScript.",
+          "count": 4,
+          "caseIds": [
+            "scripted/adoption01.dat#0[scripting=true]",
+            "scripted/ark.dat#0[scripting=true]",
+            "scripted/webkit01.dat#0[scripting=true]",
+            "scripted/webkit01.dat#1[scripting=true]"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whatwg-html-entities",
+      "fixture": "tests/data/entities/named-character-references.tsv",
+      "fixtureRevision": "snapshot-2026-08-10",
+      "scope": "Every named character reference in the pinned WHATWG entities.json snapshot, in text and attribute decoding contexts.",
+      "testEntryPoints": [
+        "UniversalHtml.Tests.HtmlEntityConformanceTests.EveryPinnedNamedReferenceDecodesToItsFixtureScalars"
+      ],
+      "status": "pass",
+      "cases": 2231,
+      "passed": 2231,
+      "failed": 0,
+      "skipped": 0,
+      "groups": [
+        { "id": "semicolon-terminated", "cases": 2125, "passed": 2125, "failed": 0, "skipped": 0 },
+        { "id": "legacy-no-semicolon", "cases": 106, "passed": 106, "failed": 0, "skipped": 0 }
+      ],
+      "skipDetails": []
+    },
+    {
+      "id": "wpt-selectors",
+      "fixture": "tests/data/selectors/wpt-selector-subset.tsv",
+      "fixtureRevision": "9bc6e2404bff5349e48d7962b0a495582bc5ade8",
+      "scope": "The pinned deterministic tree-observable WPT selector subset; layout, user interaction, shadow DOM, pseudo-elements, browser state, and namespace-resolver cases are outside the selected subset.",
+      "testEntryPoints": [
+        "UniversalHtml.Tests.HtmlSelectorWptConformanceTests.PinnedWptSelectorsReturnExpectedNodes",
+        "UniversalHtml.Tests.HtmlSelectorWptConformanceTests.PinnedWptMalformedSelectorsFailAsWholeLists"
+      ],
+      "status": "pass",
+      "cases": 58,
+      "passed": 58,
+      "failed": 0,
+      "skipped": 0,
+      "groups": [
+        { "id": "valid", "cases": 27, "passed": 27, "failed": 0, "skipped": 0 },
+        { "id": "invalid", "cases": 31, "passed": 31, "failed": 0, "skipped": 0 }
+      ],
+      "skipDetails": []
+    },
+    {
+      "id": "commonmark-0.31.2-generation",
+      "fixture": "tests/data/commonmark/generation.json",
+      "fixtureRevision": "0.31.2",
+      "scope": "The pinned CommonMark examples selected because their HTML directly constrains HTML-to-Markdown generation; this is not the complete CommonMark parsing suite.",
+      "testEntryPoints": [
+        "UniversalHtml.Tests.HtmlMarkdownGoldenTests.PinnedCommonMarkAndGfmHtmlGeneratesCanonicalMarkdown"
+      ],
+      "status": "pass",
+      "cases": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "groups": [
+        { "id": "Block quotes", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 },
+        { "id": "Code spans", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 },
+        { "id": "Emphasis and strong emphasis", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 },
+        { "id": "Fenced code blocks", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 },
+        { "id": "Links", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 },
+        { "id": "Lists", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 }
+      ],
+      "skipDetails": []
+    },
+    {
+      "id": "gfm-0.29.0-generation",
+      "fixture": "tests/data/gfm/generation.json",
+      "fixtureRevision": "0.29.0.gfm.13",
+      "scope": "The pinned GFM extension examples selected because their HTML directly constrains HTML-to-Markdown generation; this is not the complete GFM parsing suite.",
+      "testEntryPoints": [
+        "UniversalHtml.Tests.HtmlMarkdownGoldenTests.PinnedCommonMarkAndGfmHtmlGeneratesCanonicalMarkdown"
+      ],
+      "status": "pass",
+      "cases": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "groups": [
+        { "id": "Autolinks (extension)", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 },
+        { "id": "Strikethrough (extension)", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 },
+        { "id": "Tables (extension)", "cases": 2, "passed": 2, "failed": 0, "skipped": 0 },
+        { "id": "Task list items (extension)", "cases": 1, "passed": 1, "failed": 0, "skipped": 0 }
+      ],
+      "skipDetails": []
+    },
+    {
+      "id": "sanitizer-adversarial",
+      "fixture": "tests/data/sanitization/adversarial.json",
+      "fixtureRevision": "sha256:e1842889ce3c180277af0a00bee0aad9a9b92c137ab0968763e3f775c0f38544",
+      "scope": "Every case in the repository-authored adversarial sanitizer corpus, including expected fail-closed limit cases.",
+      "testEntryPoints": [
+        "UniversalHtml.Tests.HtmlSanitizerAdversarialCorpusTests.AdversarialPayloadsFailClosedOrProduceSafeOutput"
+      ],
+      "status": "pass",
+      "cases": 36,
+      "passed": 36,
+      "failed": 0,
+      "skipped": 0,
+      "groups": [
+        { "id": "deep-large-input", "cases": 4, "passed": 4, "failed": 0, "skipped": 0 },
+        { "id": "dom-clobbering", "cases": 4, "passed": 4, "failed": 0, "skipped": 0 },
+        { "id": "entity-protocol-obfuscation", "cases": 5, "passed": 5, "failed": 0, "skipped": 0 },
+        { "id": "malformed-url-srcset-css", "cases": 6, "passed": 6, "failed": 0, "skipped": 0 },
+        { "id": "mutation-xss", "cases": 4, "passed": 4, "failed": 0, "skipped": 0 },
+        { "id": "namespace-confusion", "cases": 4, "passed": 4, "failed": 0, "skipped": 0 },
+        { "id": "raw-text-escape", "cases": 4, "passed": 4, "failed": 0, "skipped": 0 },
+        { "id": "tag-poisoning", "cases": 5, "passed": 5, "failed": 0, "skipped": 0 }
+      ],
+      "skipDetails": []
+    }
+  ]
+}

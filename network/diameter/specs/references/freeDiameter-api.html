@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+  
+
+
+  
+
+
+  
+<!-- Mirrored from www.freediameter.net/trac/wiki/Dev/API by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 09:15:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+       <title>
+      Dev/API – freeDiameter
+    </title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="search" href="../../search.html" /><link rel="help" href="../TracGuide.html" /><link rel="alternate" href="API56e6.html?format=txt" type="text/x-trac-wiki" title="Plain Text" /><link rel="up" href="../Dev.html" title="View parent page" /><link rel="start" href="../../wiki.html" /><link rel="stylesheet" href="../../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../../chrome/theme/crystalx.css" type="text/css" /><link rel="stylesheet" href="../../chrome/site/theme.css" type="text/css" /><link rel="icon" href="../../../favicon" /><style id="trac-noscript" type="text/css">.trac-noscript { display: none !important }</style><link type="application/opensearchdescription+xml" rel="search" href="../../search/opensearch" title="Search freeDiameter" /><script type="text/javascript" charset="utf-8" src="../../chrome/common/js/jquery.js"></script><script type="text/javascript" charset="utf-8" src="../../chrome/common/js/babel.js"></script><script type="text/javascript" charset="utf-8" src="../../chrome/common/js/trac.js"></script><script type="text/javascript" charset="utf-8" src="../../chrome/common/js/search.js"></script><script type="text/javascript" charset="utf-8" src="../../chrome/common/js/folding.js"></script><script type="text/javascript">
+      jQuery("#trac-noscript").remove();
+      jQuery(document).ready(function($) {
+        $(".trac-autofocus").focus();
+        $(".trac-target-new").attr("target", "_blank");
+        if ($.ui) { /* is jquery-ui added? */
+          $(".trac-datepicker:not([readonly])").prop("autocomplete", "off").datepicker();
+          $(".trac-datetimepicker:not([readonly])").prop("autocomplete", "off").datetimepicker();
+          $("#main").addClass("trac-nodatetimehint");
+        }
+        $(".trac-disable").disableSubmit(".trac-disable-determinant");
+        setTimeout(function() { $(".trac-scroll").scrollToTop() }, 1);
+        $(".trac-disable-on-submit").disableOnSubmit();
+      });
+    </script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script><meta name="description" content="freeDiameter, the reference Diameter open-source implementation." /><meta name="keywords" content="Diameter implementation C rfc3588 rfc3588bis rfc4005 rfc4072 rfc4740 framework open-source" />
+       <meta name="description" content="freeDiameter, the reference Diameter open-source implementation." />
+       <meta name="keywords" content="Diameter implementation C rfc3588 rfc3588bis rfc4005 rfc4072 rfc4740 framework open-source" />
+     </head>
+  <body>
+    <div id="siteheader">
+    </div>
+    <div id="siteheader">
+    </div>
+    <div id="center-content" class="box">
+      <div id="header">
+          <div id="logo">
+            <a href="#"><img src="../../chrome/site/freeDiameter_header.png" alt="The source for the freeDiameter implementation" /></a>
+          </div>
+          <hr class="noscreen" />
+          <div class="noscreen noprint">
+              <p><em>Quick links: <a href="#main">content</a>, <a href="#mainnav">navigation</a>, <a href="#theme-search">search</a>.</em></p>
+              <hr />
+          </div>
+          <div id="theme-search" class="noprint">
+              <form action="http://www.freediameter.net/trac/search" method="get">
+                  <fieldset><legend>Search</legend>
+                      <label><span class="noscreen">Find:</span>
+                      <span id="search-input-out"><input type="text" name="q" id="search-input" size="30" /></span></label>
+                      <input type="hidden" name="wiki" value="on" />
+                      <input type="hidden" name="changeset" value="on" />
+                      <input type="hidden" name="ticket" value="on" />
+                      <input type="image" src="../../chrome/theme/img/search_submit.gif" id="search-submit" value="OK" />
+                  </fieldset>
+              </form>
+          </div>
+      </div>
+       <div id="theme-mainnav" class="noprint">
+              <h3 class="noscreen">Navigation</h3>
+              <ul class="box">
+                  <li class="first">
+                        <a href="../../blog.html">News<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li class="active">
+                        <a href="../../wiki.html">Documentation<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li>
+                        <a class="ext-link" href="../../../book.html"><span class="icon">​</span>Book<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li>
+                        <a class="ext-link" href="https://github.com/freeDiameter/freeDiameter"><span class="icon">​</span>github<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li class="last">
+                        <a href="../../search.html">Search<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li>
+              </ul>
+          <hr class="noscreen" />
+       </div>
+       <!-- Page (2 columns) -->
+       <div id="page" class="box">
+         <div id="page-in" class="box">
+           <div id="strip" class="box noprint">
+             <div id="ctxtnav" class="nav">
+                 <ul>
+                   <li class="first "><a href="../Dev.html">Up</a></li><li><a href="../WikiStart.html">Start Page</a></li><li><a href="../TitleIndex.html">Index</a></li><li class="last"><a href="APId9df.html?action=history">History</a></li>
+                 </ul>
+             </div>
+            <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../../about.html">About Trac</a></li><li><a href="http://www.freediameter.net/trac/login">Login</a></li><li class="last"><a href="../../prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+          </div>
+          <div id="main">
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><p>
+</p><div class="wiki-toc">
+    <ol>
+      <li>
+        <a href="#Debugsupport">Debug support</a>
+      </li>
+      <li>
+        <a href="#Binarystrings">Binary strings</a>
+      </li>
+      <li>
+        <a href="#Lists">Lists</a>
+        <ol>
+          <li>
+            <a href="#Samplecode">Sample code</a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#DiameterDictionarysupport">Diameter Dictionary support</a>
+      </li>
+      <li>
+        <a href="#Sessionssupport">Sessions support</a>
+      </li>
+      <li>
+        <a href="#Messagesmanagement">Messages management</a>
+      </li>
+      <li>
+        <a href="#libfdcoreInitializationandConfiguration">libfdcore Initialization and Configuration</a>
+      </li>
+      <li>
+        <a href="#Queuesandevents">Queues and events</a>
+      </li>
+      <li>
+        <a href="#Peers">Peers</a>
+      </li>
+      <li>
+        <a href="#RoutingandDispatching">Routing and Dispatching</a>
+      </li>
+      <li>
+        <a href="#Extensionsinterface">Extensions interface</a>
+      </li>
+    </ol>
+</div><p>
+</p>
+<h1 id="ThefreeDiameterAPI">The freeDiameter API</h1>
+<p>
+The complete API is documented in header files in [source:freeDiameter/include/freeDiameter include/freeDiameter folder]. The following is a short summary of each module's purpose.
+</p>
+<h2 id="Debugsupport">Debug support</h2>
+<p>
+<em>Namespace:</em> fd_log_* ; <em>Source file(s):</em> [source:freeDiameter/libfdproto/log.c]
+</p>
+<p>
+Almost all functions from the freeDiameter framework use the function <code>fd_log_debug</code> to output information. This function is very similar to <code>printf</code>, but future versions of the daemon will allow the output to be directly stored into a file.
+</p>
+<p>
+We also use some preprocessor macros extensively through the code, defined in <code>libfdproto.h</code>. The <code>TRACE_DEBUG(level, format, ...</code> macro is used to issue a debug message only if the current debug level (see <a class="wiki" href="../Usage.html">Usage</a> for information on setting this level) allows it. In addition, this macro cat output a lot of meta-information if DEBUG support is compiled in. Meta-information include the current thread name, the location in source files where the debug message was issued, the timestamp, etc. 
+</p>
+<p>
+Another family of macro that is used extensively is the <code>CHECK_*</code> macro. For example:
+</p>
+<dl class="wiki"><dt>CHECK_FCT_DO</dt><dd>
+This function takes two parameters. 
+The first parameter is a function call, the second is a "fallback path".
+When this macro is called:
+<ul><li>Optionally if the debug level is very high, it issues a debug message 
+with the function call 
+</li><li>Then the function call is executed.
+</li><li>If the return value is 0, the call is successful, "fallback path" is not executed.
+</li><li>Otherwise, the error code is dumped in debug, then "fallback path" is executed.
+</li></ul></dd></dl>
+<p>
+There are several families of CHECK_* macro:
+</p>
+<ul><li>CHECK_FCT*: Use for calls to freeDiameter functions. This considers a non-0 return code as a standard error message.
+</li><li>CHECK_POSIX*: Use for calls to the pthread_* functions. This also considers a non-0 return code as a standard error message.
+</li><li>CHECK_SYS*: Use for other system calls. This considers &lt;0 return codes as an error and retrieves the error code from <code>errno</code> variable.
+</li><li>CHECK_MALLOC*: Use for memory allocations (<code>malloc</code>, <code>strdup</code>, ...). This considers a NULL return value as an error, and reads the error code in <code>errno</code>.
+</li><li>CHECK_PARAMS*: Use for validating input parameters of functions. A value that evaluates to false is considered an error condition, similar to the <code>assert</code> function.
+</li></ul><p>
+In each family, the macro exists in two flavours:
+</p>
+<ul><li>&lt;macro&gt;(call): In case of failure, displays an error message and return the error code.
+</li><li>&lt;macro&gt;_DO(call, fallback): In case of failure, displays an error message then execute the <em>fallback</em> code.
+</li></ul><h2 id="Binarystrings">Binary strings</h2>
+<p>
+<em>Namespace:</em> fd_os_* ; <em>Source file(s):</em> [source:freeDiameter/libfdproto/ostr.c]
+</p>
+<p>
+<em>Note: this is new in freeDiameter 1.1.x.</em>
+</p>
+<p>
+In order to differentiate the contents of buffers, we use the following types instead of simple <code>char *</code>:
+</p>
+<dl class="wiki"><dt>uint8_t *</dt><dd>
+For bulk data, for example received from the network. We do not make any assumption on the contents. This data may not be suitable for any string operation such as <code>strlen</code> or <code>printf</code>.
+</dd></dl>
+<dl class="wiki"><dt>os0_t</dt><dd>
+This is a pointer to a binary buffer that <em>should not</em> contain NUL bytes ('\0') except as its terminating byte. This type always come with a <code>size_t</code> information, that does not include the final NUL. It therefore <em>should</em> be safe to use <strong>some</strong> string operations, but it is generally a good idea to avoid it. There is no guarantee in particular that the contents is valid UTF-8 characters, so <code>printf</code> should be avoided (except for debug purpose).
+</dd></dl>
+<p>
+There are a few functions that allows the manipulation of <code>os0_t</code> data: <code>fd_os_is_valid_os0</code> (checks if a buffer contains a NUL byte), <code>os0dup</code> (safe and fast equivalent to strdup), <code>fd_os_cmp</code> (fast comparison function that does <strong>not</strong> mimic <code>strcmp</code>) and <code>fd_os_almostcasecmp</code> (a kind of case-insensitive counterpart).
+</p>
+<dl class="wiki"><dt>!DiamId_t</dt><dd>
+Buffers with this type should contain valid Diameter Identity buffer. It means that it contains only letters, digits, hyphens and dots. In particular, if a Diameter Identity is internationalized, this contains the <code>stringprep</code> transformation result ("xn--..."). Note however that if the framework is compiled with option <a class="wiki" href="../Installation.html#cmakeflags">DIAMID_IDNA_IGNORE</a>, the buffer might contain unexpected characters. Treat with care.
+</dd></dl>
+<p>
+There are also some functions to handle this type, such as <code>fd_os_is_valid_DiameterIdentity</code> (checks if a buffer complies to the definition), and <code>fd_os_validate_DiameterIdentity</code> (transforms a string into a valid !DiamId_t).
+</p>
+<h2 id="Lists">Lists</h2>
+<p>
+<em>Namespace:</em> fd_list_* ; <em>Source file(s):</em> [source:freeDiameter/libfdproto/lists.c]
+</p>
+<p>
+The <code>fd_list</code> structure is used extensively in the framework. It gives a unified way to handle <a class="ext-link" href="http://en.wikipedia.org/wiki/Doubly-linked_list#Circular_Doubly-linked_lists"><span class="icon">​</span>circular doubly-linked lists</a> in the code. You can find many examples of use throughout the code. 
+</p>
+<p>
+Although our implementation is not optimal in terms of memory occupation (the fd_list structure contains 4 pointers: next in list, previous in list, pointer to list root, and a last pointer that is available for use depending on where the list is used), it is quite simple to use and very flexible.
+</p>
+<p>
+Macros:
+</p>
+<ul><li>FD_LIST_INITIALIZER: To statically initialize an empty list.
+</li><li>FD_IS_LIST_EMPTY: returns 0 if the list is not empty, !0 otherwise.
+</li></ul><p>
+Main functions:
+</p>
+<ul><li>fd_list_insert_after: insert a new element in a list after given position.
+</li><li>fd_list_unlink: remove an element from a list.
+</li></ul><h3 id="Samplecode">Sample code</h3>
+<p>
+Typically, this structure will be included in a bigger structure that needs to be chained in list, like this:
+</p>
+<div class="wiki-code"><div class="code"><pre><span class="k">struct</span> my_data <span class="p">{</span>
+   <span class="p">...</span>
+   <span class="k">struct</span> fd_list chaining<span class="p">;</span>
+   <span class="p">...</span>
+<span class="p">};</span>
+</pre></div></div><p>
+Now, if you want to create a list of my_data elements, you declare an empty list first:
+</p>
+<div class="wiki-code"><div class="code"><pre><span class="k">struct</span> fd_list my_data_list <span class="o">=</span> FD_LIST_INITIALIZER<span class="p">(</span>my_data_list<span class="p">);</span>
+</pre></div></div><p>
+Add a new my_data in the list:
+</p>
+<div class="wiki-code"><div class="code"><pre><span class="k">struct</span> my_data <span class="o">*</span> n<span class="p">;</span>
+
+<span class="cm">/* Allocate the my_data element */</span>
+CHECK_MALLOC<span class="p">(</span> n <span class="o">=</span> malloc<span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> my_data<span class="p">))</span> <span class="p">);</span>
+memset<span class="p">(</span>n<span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> my_data<span class="p">));</span>
+
+<span class="cm">/* Initialize the chaining element */</span>
+fd_list_init<span class="p">(</span><span class="o">&amp;</span>n<span class="o">-&gt;</span>chaining<span class="p">,</span> n<span class="p">);</span>
+
+<span class="cm">/* Initialize other fields */</span>
+<span class="p">...</span>
+
+<span class="cm">/* Now, add the element 'n' at the end of the list */</span>
+fd_list_insert_before<span class="p">(</span><span class="o">&amp;</span>my_data_list<span class="p">,</span> <span class="o">&amp;</span>n<span class="o">-&gt;</span>chaining<span class="p">);</span>
+</pre></div></div><p>
+And here is how to iterate through the list:
+</p>
+<div class="wiki-code"><div class="code"><pre><span class="k">struct</span> fd_list <span class="o">*</span> li<span class="p">;</span> <span class="cm">/* list item */</span>
+
+<span class="k">for</span> <span class="p">(</span>li <span class="o">=</span> my_data_list<span class="p">.</span>next<span class="p">;</span> li <span class="o">!=</span> <span class="o">&amp;</span>my_data_list<span class="p">;</span> li <span class="o">=</span> li<span class="o">-&gt;</span>next<span class="p">)</span> <span class="p">{</span>
+   <span class="k">struct</span> my_data <span class="o">*</span> md <span class="o">=</span> li<span class="o">-&gt;</span>o<span class="p">;</span>
+   
+   <span class="cm">/* Do something with this my_data element */</span>
+
+<span class="p">}</span>
+</pre></div></div><h2 id="DiameterDictionarysupport">Diameter Dictionary support</h2>
+<p>
+<em>Namespace:</em> fd_dict_* ; <em>Source file(s):</em> [source:freeDiameter/libfdproto/dictionary.c]
+</p>
+<p>
+This module provides support for a dictionary of Diameter objects. Because the Diameter protocol does not include any "Type" information in the AVP headers, it is impossible to parse a message and interpret the attribute contents without a dictionary definition that maps each code &amp; vendor combination to a type.
+</p>
+<p>
+The freeDiameter dictionary contains much more information though: the <code>dict_object_type</code> enum shows all the types of objects that can be defined in the dictionary: vendors, applications, types, constants values, AVPs, commands, and rules. These types are explained bellow.
+</p>
+<p>
+A dictionary in freeDiameter is of type <code>struct dictionary *</code>. It is initialized with <code>fd_dict_init</code> and destroyed with <code>fd_dict_fini</code>. The <em>libfdproto</em> library does not depend on an instance of a dictionary. On the other hand, the <em>libfdcore</em> defines a global dictionary that can be used by extensions also. This instance is accessed with <code>fd_g_config-&gt;cnf_dict</code>.
+</p>
+<p>
+A dictionary contains a collection of <code>struct dict_object *</code> objects, which are vendors, applications, etc. The API to access these objects is independant of the type of the object. The main functions are:
+</p>
+<ul><li>fd_dict_new: create a new object and store in a dictionary.
+</li><li>fd_dict_search: Search for an object in a dictionary.
+</li></ul><p>
+The [source:freeDiameter/include/freeDiameter/libfdproto.h] file contains a lot of information and example on using these function for each type of objects. You may also find additional information in <a class="ext-link" href="http://lists.freediameter.net/pipermail/dev/2011-February/000055.html"><span class="icon">​</span>this archived mail</a>.
+</p>
+<dl class="wiki"><dt>vendor</dt><dd>
+This associates a name with a vendor code as defined by "SMI Network Management Private Enterprise Codes" (RFC3232). This allows for a nicer debug output, but also provides a hash table for the AVP definitions.
+</dd></dl>
+<dl class="wiki"><dt>application</dt><dd>
+This associates a Diameter application code (<a class="ext-link" href="http://www.iana.org/assignments/aaa-parameters/aaa-parameters.xml#aaa-parameters-45"><span class="icon">​</span>IANA assigned</a>) with its name. In addition, the application can be associated with a Vendor during its creation.
+</dd></dl>
+<dl class="wiki"><dt>type</dt><dd>
+This corresponds to the "Derived type" defined in RFC3588. An AVP can be either defined with a Base Type (OctetString, Unsigned32, ...) or a Derived Type. In terms of pure parsing, it does not change anything, but defining a Derived Type allows to:
+<ul><li>define functions to handle the data with a specific encoding for example (see <a class="ext-link" href="http://lists.freediameter.net/pipermail/dev/2011-February/000055.html"><span class="icon">​</span>this mail</a> for more details).
+</li><li>and/or define constants values for this type. This is a bit different from the Diameter RFC that defines all AVP with constant values as Enumerated type.
+</li></ul></dd></dl>
+<dl class="wiki"><dt>constants</dt><dd>
+This corresponds to the values of Enumerated AVPs defined by Diameter standard -- with the following differences:
+<ul><li>In our dictionary model, a constant is defined for a type specific to the AVP, whereas the RFC only uses "Enumerated" derived type for all AVPs. We use the convention name "Enumerated (<em>AVP-name</em>)" to distinguish the different Enumerated types. In addition, if the RFC does not specifically defines the AVP as enumerated, but we want to do it, we use "Enumerated* (<em>AVP-name</em>)" template name.
+</li><li>In our dictionary model, constants can be defined not only for Unsigned32 values (as specified in Diameter) but also for any other basic type (floats, integer64, ...)
+</li></ul></dd></dl>
+<dl class="wiki"><dt>AVP</dt><dd>
+This object associates AVP code and vendor to its name, flags, and basic type, which allows for parsing the Diameter message and interpreting the content of the AVP (for example, we can learn if an AVP containts OctetString data or if this is a Grouped AVP containing other AVPs in its data portion). Optionaly, the AVP can be associated with a Derived Type when it is created, which allows some additional features.
+</dd></dl>
+<dl class="wiki"><dt>command</dt><dd>
+This associates a command code to the command name and flags. Note that usually two dictionary objects must be created for each code: one for the "*-Request" (R flag set) and one for the "*-Answer" (R flag cleared).
+</dd></dl>
+<dl class="wiki"><dt>rules</dt><dd>
+This is a simple way to implement the ABNF rules from the RFC for commands and grouped AVPs, and have an automatic validation of the messages based on these rules.
+</dd></dl>
+<p>
+As a "good practice", it is better to keep dictionary definitions of standard objects (i.e. that are defined in an RFC for example) as separate extensions from the applications that will use these objects. The rationale is that Diameter definitions are meant to be reused across applications, so we avoid code duplication and allow for faster development by keeping the dictionary definitions separated. Such dictionary-only extensions are conventionally named <code>dict_*.fdx</code> (see <a class="wiki" href="../Extensions.html">Extensions</a> for the list of existing extensions).
+</p>
+<h2 id="Sessionssupport">Sessions support</h2>
+<p>
+<em>Namespace:</em> fd_sess_* ; <em>Source file(s):</em> [source:freeDiameter/libfdproto/sessions.c]
+</p>
+<h2 id="Messagesmanagement">Messages management</h2>
+<p>
+<em>Namespace:</em> fd_msg_* ; <em>Source file(s):</em> [source:freeDiameter/libfdproto/messages.c], [source:freeDiameter/libfdcore/messages.c]
+</p>
+<h2 id="libfdcoreInitializationandConfiguration">libfdcore Initialization and Configuration</h2>
+<p>
+<em>Namespace:</em> fd_g_*, fd_core_* ; <em>Source file(s):</em> [source:freeDiameter/libfdcore/core.c]
+</p>
+<h2 id="Queuesandevents">Queues and events</h2>
+<p>
+<em>Namespace:</em> fd_fifo_*, fd_event_* ; <em>Source file(s):</em> [source:freeDiameter/libfdproto/fifo.c], [source:freeDiameter/libfdcore/events.c]
+</p>
+<h2 id="Peers">Peers</h2>
+<p>
+'Namespace:<em> fd_peer_* ; </em>Source file(s):<em> [source:freeDiameter/libfdcore/peers.c], libfdcore/p_*.c
+</em></p>
+<h2 id="RoutingandDispatching">Routing and Dispatching</h2>
+<p>
+<em>Namespace:</em> fd_rt_*, fd_disp_* ; <em>Source file(s):</em> [source:freeDiameter/libfdproto/dispatch.c], [source:freeDiameter/libfdcore/routing_dispatch.c]
+</p>
+<h2 id="Extensionsinterface">Extensions interface</h2>
+<p>
+<em>Namespace:</em> fd_ext_* ; <em>Source file(s):</em> [source:freeDiameter/libfdcore/extensions.c]
+</p>
+<hr />
+</div>
+          
+          <div class="trac-modifiedby">
+            <span><a href="APIc5e7.html?action=diff&amp;version=5" title="Version 5 by Sebastien Decugis">Last modified</a> <span title="Oct 13, 2011, 5:25:53 AM">13 years ago</span></span>
+            <span class="trac-print">Last modified on Oct 13, 2011, 5:25:53 AM</span>
+          </div>
+        
+        
+      </div>
+      
+
+    </div>
+    <script type="text/javascript">
+        jQuery.loadStyleSheet("../../pygments/trac.css", "text/css");
+    </script>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="API56e6.html?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer" lang="en" xml:lang="en">
+        <div id="top" class="noprint"><p><span class="noscreen">Back on top</span> <a href="#header" title="Back on top ^">^<span></span></a></p></div>
+        <hr class="noscreen" />
+        <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+        <p class="left">
+          Powered by <a href="../../about.html"><strong>Trac 1.2.3.1</strong></a><br />
+          By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        </p>
+        <p id="createdby">
+          Original theme created<br />by <a href="http://www.nuvio.cz/">Nuvio | Webdesign</a> <!-- DON´T REMOVE, PLEASE! -->
+        </p>
+        <p class="right">For any question contact help@freediameter.net</p>
+      </div>
+    </div>
+    <div id="sitefooter">
+    </div>
+    <script type="text/javascript">
+     var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.freediameter.net/piwik/" : "http://www.freediameter.net/piwik/");
+     document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+     try {
+      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+      piwikTracker.trackPageView();
+      piwikTracker.enableLinkTracking();
+     } catch( err ) {}
+    </script><noscript><p><img src="../../../piwik/piwik0412.gif?idsite=1" style="border:0" alt="Project-Id-Version: Trac 0.12
+Report-Msgid-Bugs-To: trac-dev@googlegroups.com
+POT-Creation-Date: 2018-07-07 16:55+0000
+PO-Revision-Date: 2010-07-19 23:05+0200
+Last-Translator: Jeroen Ruigrok van der Werven &lt;asmodai@in-nomine.org&gt;
+Language: en_US
+Language-Team: en_US &lt;trac-dev@googlegroups.com&gt;
+Plural-Forms: nplurals=2; plural=(n != 1)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+Generated-By: Babel 2.6.0
+" /></p></noscript>
+    <div id="sitefooter">
+    </div>
+    <!-- Piwik -->
+    <script type="text/javascript">
+     var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.freediameter.net/piwik/" : "http://www.freediameter.net/piwik/");
+     document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+     try {
+      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+      piwikTracker.trackPageView();
+      piwikTracker.enableLinkTracking();
+     } catch( err ) {}
+    </script><noscript><p><img src="../../../piwik/piwik0412.gif?idsite=1" style="border:0" alt="Project-Id-Version: Trac 0.12
+Report-Msgid-Bugs-To: trac-dev@googlegroups.com
+POT-Creation-Date: 2018-07-07 16:55+0000
+PO-Revision-Date: 2010-07-19 23:05+0200
+Last-Translator: Jeroen Ruigrok van der Werven &lt;asmodai@in-nomine.org&gt;
+Language: en_US
+Language-Team: en_US &lt;trac-dev@googlegroups.com&gt;
+Plural-Forms: nplurals=2; plural=(n != 1)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+Generated-By: Babel 2.6.0
+" /></p></noscript>
+    <!-- End Piwik Tag -->
+  </body>
+
+<!-- Mirrored from www.freediameter.net/trac/wiki/Dev/API by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 09:15:19 GMT -->
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html data-lunet-theme-mode="dark" data-lunet-theme-storage-key="lunet-theme" data-lunet-css-prefix="lunet" lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="lunet 1.0.14.0">
+    <script>(function(){const root=document.documentElement;const key=root.getAttribute("data-lunet-theme-storage-key")||"lunet-theme";const fallback=root.getAttribute("data-lunet-theme-mode")||"system";let stored=null;try{stored=localStorage.getItem(key);}catch(_){stored=null;}const mode=(stored==="light"||stored==="dark"||stored==="system")?stored:fallback;const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const resolved=mode==="system"?(prefersDark?"dark":"light"):mode;root.setAttribute("data-lunet-theme-mode",mode);root.setAttribute("data-bs-theme",resolved);}());</script>
+    <link rel='icon' href='/favicon.ico' sizes='32x32'>
+    <title>Liquid support | Scriban</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/site.js" ></script>
+    <script src="/js/site-defer.js" defer></script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@your-handle">
+<meta name="twitter:title" content="Liquid support | Scriban">
+<meta name="twitter:description" content="Liquid support Scriban supports all the core liquid syntax types, operators, tags and filters. Known issues Supported types Supported operators Supported tagsVariable and properties accessors comment tag raw tag assign tag if tag unless tag case and when tags for tag tablerow tag capture tag Pipe calls Supported filters Converting liquid to scriban using liquid2scriban Known issues The liquid syntax has never been strictly formalized, and custom tags implementation can...">
+<meta name="twitter:image" content="https://scriban.github.io/img/scriban-social-banner.png">
+<meta name="twitter:image:alt" content="Liquid support | Scriban">
+<meta property="og:title" content="Liquid support | Scriban">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://scriban.github.io/">
+<meta property="og:description" content="Liquid support Scriban supports all the core liquid syntax types, operators, tags and filters. Known issues Supported types Supported operators Supported tagsVariable and properties accessors comment tag raw tag assign tag if tag unless tag case and when tags for tag tablerow tag capture tag Pipe calls Supported filters Converting liquid to scriban using liquid2scriban Known issues The liquid syntax has never been strictly formalized, and custom tags implementation can...">
+<meta property="og:image" content="https://scriban.github.io/img/scriban-social-banner.png">
+<meta property="og:image:alt" content="Liquid support | Scriban">
+  </head>
+  <body>
+
+    <div id="lunet" class="container">
+      <nav class="navbar navbar-expand-md sticky-top">
+        <a class="navbar-brand" href="/">
+          <img class="lunet-logo" src="/img/scriban.svg" alt="Scriban" width="96" height="96">
+          <span class="visually-hidden">Home</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-between">
+<ol id='nav-id-home-0' class='navbar-nav nav-level0 show '>
+  <li id='nav-item-home-1' class='nav-item '>
+    <span class='nav-item-row'><a href='/' class='nav-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a></span>  </li>
+  <li id='nav-item-home-2' class='nav-item  active'>
+    <span class='nav-item-row'><a href='/docs/' class='nav-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a></span>  </li>
+</ol>
+          <ol class="navbar-nav flex-grow-1" style="padding-right: 0.5rem;">
+            <li class="nav-item w-100">
+                <div class="lunet-search dropdown w-100">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input id="search-input" type="search" class="form-control" placeholder="Search... (Alt+s)" aria-label="Search" aria-controls="search-results" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-search-empty-message="Enter words to search..." data-search-no-results-message="No results found.">
+                    <ul id="search-results" class="dropdown-menu w-100 p-0" style="max-height: 50vh;" role="listbox" aria-labelledby="search-input"></ul>
+                  </div>
+                </div>
+            </li>
+          </ol>
+          <div class="d-flex align-items-center gap-2 flex-shrink-0 navbar-right">
+            <div class="dropdown">
+              <button
+                id="theme-mode-toggle"
+                class="btn btn-outline-secondary btn-sm lunet-theme-toggle dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Theme">
+                <i class="bi bi-circle-half" data-lunet-theme-toggle-icon aria-hidden="true"></i>
+                <span
+                  data-lunet-theme-toggle-label
+                  data-theme-system-label="System"
+                  data-theme-light-label="Light"
+                  data-theme-dark-label="Dark">Theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="theme-mode-toggle">
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="system"><i class="bi bi-circle-half me-2"></i>System</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="light"><i class="bi bi-sun-fill me-2"></i>Light</button></li>
+                <li><button class="dropdown-item" type="button" data-lunet-theme-choice="dark"><i class="bi bi-moon-stars-fill me-2"></i>Dark</button></li>
+              </ul>
+            </div>
+<ol id='nav-id-home2-0' class='navbar-nav nav-level0 show flex-shrink-0'>
+  <li id='nav-item-home2-1' class='nav-item '>
+    <span class='nav-item-row'><a href='https://github.com/sponsors/xoofx' class='nav-link  btn btn-outline-secondary'><i class="bi bi-heart" style="color: pink"></i> Sponsor</a></span>  </li>
+  <li id='nav-item-home2-2' class='nav-item '>
+    <span class='nav-item-row'><a href='https://github.com/scriban/scriban/' class='nav-link  btn btn-info'><i class="bi bi-github"></i> GitHub</a></span>  </li>
+</ol>
+          </div>
+        </div>
+      </nav>
+      <div class="lunet lunet-docs">
+        <section data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-timeout="1200" data-copy-tooltip="Copy to Clipboard." data-copy-tooltip-success="Copied!" data-copy-tooltip-error="Failed to copy!">
+
+<div class="container-xxl">
+  <div class="row">
+      <!-- Left sidebar - responsive offcanvas (offcanvas on mobile, visible sidebar on md+) -->
+      <nav id="docs-sidebar-menu" class="col-md-3 col-lg-3 col-xl-3 col-xxl-2 offcanvas-md offcanvas-start sticky-md-top menu-sidebar align-self-start order-1 order-md-0" tabindex="-1" aria-labelledby="docs-sidebar-menu-label" aria-expanded="true">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="docs-sidebar-menu-label">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class='lunet-menu-async' data-lunet-menu-partial='/partials/menus/menu-doc.b5f137edbba0bd940039f06814f2f002.html' data-lunet-menu-open='menu-id-doc-0' data-lunet-menu-active='menu-item-doc-26,menu-item-doc-0'><div class='menu-loading text-body-secondary small'>Loading menu…</div></div>
+        </div>
+      </nav>
+      <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
+      <aside id="docs-sidebar-toc" class="col-12 col-xxl-2 sticky-xxl-top menu-sidebar align-self-start order-0 order-xxl-2 collapse d-xxl-block" aria-expanded="true">
+        <h3 class="toc-title">On this page</h3>
+        <nav class="js-toc"></nav>
+      </aside>
+      <!-- Main content column -->
+      <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-8 order-2 order-md-1 js-toc-content">
+        <ol class='breadcrumb'>
+          <li class='breadcrumb-item '>
+            <a href='/' class='breadcrumb-link  '><i class='bi bi-house-door' aria-hidden='true'></i> Home</a>  </li>
+          <li class='breadcrumb-item '>
+            <a href='/docs/' class='breadcrumb-link  '><i class='bi bi-book' aria-hidden='true'></i> Docs</a>  </li>
+          <li class='breadcrumb-item  active'>
+            <i class='bi bi-water' aria-hidden='true'></i> Liquid support  </li>
+        </ol>
+
+        <p id="lunet-results"></p>
+        <!-- Toggle buttons visible only on small screens -->
+        <div class="d-md-none mb-3">
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#docs-sidebar-menu"
+            aria-controls="docs-sidebar-menu"
+            aria-label="Toggle docs menu">
+            Menu
+          </button>
+          <button
+            class="btn btn-outline-secondary btn-sm d-xxl-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#docs-sidebar-toc"
+            aria-controls="docs-sidebar-toc"
+            aria-expanded="false"
+            aria-label="Toggle Table Of Contents">
+            On this page
+          </button>
+        </div>
+<!-- lunet:summarize -->
+<h2 id="liquid-support">Liquid support</h2>
+<p>Scriban supports all the <a href="https://shopify.github.io/liquid/">core liquid syntax</a> types, operators, tags and filters.</p>
+<ul>
+<li><a href="#known-issues">Known issues</a></li>
+<li><a href="#supported-types">Supported types</a></li>
+<li><a href="#supported-operators">Supported operators</a></li>
+<li><a href="#supported-tags">Supported tags</a>
+<ul>
+<li><a href="#variable-and-properties-accessors">Variable and properties accessors</a></li>
+<li><a href="#comment-tag"><code>comment</code> tag</a></li>
+<li><a href="#raw-tag"><code>raw</code> tag</a></li>
+<li><a href="#assign-tag"><code>assign</code> tag</a></li>
+<li><a href="#if-tag"><code>if</code> tag</a></li>
+<li><a href="#unless-tag"><code>unless</code> tag</a></li>
+<li><a href="#case-and-when-tags"><code>case</code> and <code>when</code> tags</a></li>
+<li><a href="#for-tag"><code>for</code> tag</a></li>
+<li><a href="#tablerow-tag"><code>tablerow</code> tag</a></li>
+<li><a href="#capture-tag"><code>capture</code> tag</a></li>
+<li><a href="#pipe-calls">Pipe calls</a></li>
+</ul>
+</li>
+<li><a href="#supported-filters">Supported filters</a></li>
+<li><a href="#converting-liquid-to-scriban-using-liquid2scriban">Converting <code>liquid</code> to <code>scriban</code> using <code>liquid2scriban</code></a></li>
+</ul>
+<h2 id="known-issues">Known issues</h2>
+<div class="markdown-alert markdown-alert-warning alert alert-warning lunet-alert-warning" role="alert">
+<div class='lunet-alert-warning-heading'>
+<span class='lunet-alert-warning-icon'></span><span class='lunet-alert-warning-heading-text'></span>
+</div><div class='lunet-alert-warning-content'>
+<p>The liquid syntax has never been strictly formalized, and custom tags implementation can choose whatever syntax for their arguments.</p>
+<p>This is a known issue in liquid itself, for example:</p>
+<ul>
+<li><a href="https://github.com/Shopify/liquid/issues/507">issue 507: Custom tags: what’s the preferred method of providing arguments containing quotes</a></li>
+<li><a href="https://github.com/Shopify/liquid/issues/671">issue 671: Using liquid class libraries inside Liquid::Tag</a></li>
+<li><a href="https://github.com/Shopify/liquid/issues/560">issue 560: Unified syntax for tag arguments [RFC]</a></li>
+</ul>
+<p>For example in liquid, you usually pass arguments to tags and filters like this (supported by scriban):</p>
+<pre><code class="language-liquid">{{ &quot;this is a string&quot; | function &quot;arg1&quot; 15 16 }}
+</code></pre>
+<pre><code class="language-liquid">{% custom_tag &quot;arg1&quot; 15 16 %}
+</code></pre>
+<p>But some liquid tag/filter implementations may in fact choose to accept different ways of passing arguments:</p>
+<pre><code class="language-liquid">{% avatar user=author size=24 %}
+</code></pre>
+<p>There is in fact multiple versions of the liquid language, supporting different syntaxes for tags, which are completely arbitrary and not unified.</p>
+<p class="mb-0">As a consequence, <strong>the liquid parser implemented in Scriban cannot parse any custom liquid tags/filters that are using custom arguments parsing</strong>
+but only regular arguments (strings, numbers, variables, variable properties) separated by spaces.</p>
+</div></div>
+<h2 id="supported-types">Supported types</h2>
+<p>Liquid types are translated to the same types in scriban:</p>
+<ul>
+<li><a href="/docs/language#31-strings">string</a></li>
+<li><a href="/docs/language#32-numbers">number</a></li>
+<li><a href="/docs/language#33-boolean">boolean</a></li>
+</ul>
+<p>The <code>nil</code> value (which can't be expressed in liquid) is equivalent to the expression <a href="/docs/language#34-null"><code>null</code></a> in scriban.</p>
+<ul>
+<li><a href="/docs/language#6-arrays">array</a> are also supported, except that scriban allows to create arrays directly from the language unlike liquid</li>
+</ul>
+<p>In addition to this, scriban supports the creation of an <a href="/docs/language#5-objects"><code>object</code></a></p>
+<h2 id="supported-operators">Supported operators</h2>
+<p>Liquid supports only conditional expressions and they directly translate to <a href="/docs/language#85-conditional-expressions">conditionnal expressions</a> in scriban.</p>
+<p>In addition to this, scriban supports:</p>
+<ul>
+<li><a href="/docs/language#84-arithmetic-expressions">binary operators</a></li>
+<li><a href="/docs/language#86-unary-expressions">unary operators</a></li>
+<li><a href="/docs/language#87-range-expressions">range <code>1..x</code> expressions</a></li>
+<li><a href="/docs/language#88-the-null-coalescing-operator-">The null coalescing operator <code>??</code></a></li>
+</ul>
+<h2 id="supported-tags">Supported tags</h2>
+<p>In the following sections, you will find a list of the supported liquid tags and how scriban translates a liquid template into a scriban template.</p>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">All the following examples are using the feature <a href="/docs/runtime/ast#ast-to-text"><strong>Ast to text</strong></a> that
+allowed to translate liquid code into scriban code automatically</p>
+</div></div>
+<h3 id="variable-and-properties-accessors">Variable and properties accessors</h3>
+<table class="table">
+<thead>
+<tr>
+<th>Liquid</th>
+<th>Scriban</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{% assign variable = 1 %}</code></td>
+<td><code>{{ variable = 1 }}</code></td>
+</tr>
+<tr>
+<td><code>{{ variable }}</code></td>
+<td><code>{{ variable }}</code></td>
+</tr>
+<tr>
+<td><code>{{ my-handle }}</code></td>
+<td><code>{{ this[&quot;my-handle&quot; }}</code></td>
+</tr>
+<tr>
+<td><code>{{ page.title }}</code></td>
+<td><code>{{ page.title }}</code></td>
+</tr>
+<tr>
+<td><code>{% assign for = 5 %}</code></td>
+<td><code>{{ (for) = 5 }}</code> (for keyword needs parenthesis in scriban)</td>
+</tr>
+<tr>
+<td><code>{{ for }}</code></td>
+<td><code>{{ (for) }}</code></td>
+</tr>
+<tr>
+<td><code>{{ products[0].title }}</code></td>
+<td><code>{{ products[0].title }}</code></td>
+</tr>
+<tr>
+<td><code>{{ product.empty? }}</code></td>
+<td><code>{{ product.empty? }}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="comment-tag"><code>comment</code> tag</h3>
+<p>Liquid <code>comment</code>/<code>endcomment</code> tags translate to a code block <code>{{</code> ... <code>}}</code> embracing a <a href="/docs/language#2-comments">multiline comments <code>##</code></a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">This is plain {% comment %}This is comment {% with ## some tag %} and comment{% endcomment %}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">This is plain {{## This is comment {% with \#\# some tag %\} and comment ##}}
+</code></pre>
+<h3 id="raw-tag"><code>raw</code> tag</h3>
+<p>Liquid raw tag block translate to an <a href="/docs/language#13-escape-block">escape block</a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">This is plain {% raw %}This is raw {% with some tag %} and raw{% endraw %}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">This is plain This is raw {% with some tag %} and raw
+</code></pre>
+<h3 id="assign-tag"><code>assign</code> tag</h3>
+<p>Liquid <code>assign</code> tag translates to a simple <a href="/docs/language#82-assign-expression">assignment expression</a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">{% assign variable = 1 %}
+{{ variable }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">{{ variable = 1 }}
+{{ variable }}
+</code></pre>
+<h3 id="if-tag"><code>if</code> tag</h3>
+<p>Liquid <code>if &lt;expression&gt;</code>/<code>endif</code> tags translate to a <a href="/docs/language#92-if-expression-else-else-if-expression"><code>if &lt;expression&gt;</code>/<code>end</code></a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">{% assign variable = 1 %}
+{% if variable == 1 %}
+  This is a variable with 1
+{% endif %}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">{{ variable = 1 }}
+{{ if variable == 1 }}
+  This is a variable with 1
+{{ end }}
+</code></pre>
+<h3 id="unless-tag"><code>unless</code> tag</h3>
+<p>Liquid <code>unless &lt;expression&gt;</code>/<code>endunless</code> tags translate to a <a href="/docs/language#92-if-expression-else-else-if-expression"><code>if &lt;expression&gt;</code>/<code>end</code></a> with a reversed nested <code>!(expression)</code></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">{% assign variable = 1 %}
+{% unless variable == 1 %}
+  This is not a variable with 1
+{% endunless %}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">{{ variable = 1 }}
+{{ if!( variable == 1 )}}
+  This is not a variable with 1
+{{ end }}
+</code></pre>
+<h3 id="case-and-when-tags"><code>case</code> and <code>when</code> tags</h3>
+<p>Liquid <code>case &lt;variable&gt;</code>/<code>when &lt;expression&gt;</code>/<code>endcase</code> tags translate to a <a href="/docs/language#93-case-and-when"><code>case &lt;expression&gt;</code>/<code>when &lt;expression&gt;</code>/<code>end</code></a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">{%- assign variable = 5 -%}
+{%- case variable -%}
+    {%- when 6 -%}
+        Yo 6
+    {%- when 7 -%}
+        Yo 7
+    {%- when 5 -%}
+        Yo 5
+{% endcase -%}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">{{ variable = 5 -}}
+{{ case variable -}}
+    {{ when 6 -}}
+        Yo 6
+    {{- when 7 -}}
+        Yo 7
+    {{- when 5 -}}
+        Yo 5
+{{ end }}
+</code></pre>
+<h3 id="for-tag"><code>for</code> tag</h3>
+<p>Liquid <code>for &lt;variable&gt; in &lt;expression&gt;</code>/<code>endfor</code> tags translate to the same <a href="/docs/language#for-variable-in-expression--end"><code>for</code>/<code>end</code></a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">{%- for variable in (1..5) -%}
+    This is variable {{variable}}
+{% endfor -%}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">{{ for variable in (1..5) -}}
+    This is variable {{variable}}
+{{ end }}
+</code></pre>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">Scriban supports all tags arguments: <code>limit</code>, <code>offset</code>, <code>reversed</code></p>
+</div></div>
+<h3 id="tablerow-tag"><code>tablerow</code> tag</h3>
+<p>Liquid <code>tablerow &lt;variable&gt; in &lt;expression&gt;</code>/<code>endtablerow</code> tags translate to the same <a href="/docs/language#tablerow-variable-in-expression--end"><code>tablerow</code>/<code>end</code></a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">{%- tablerow variable in (1..5) -%}
+    This is variable {{variable}}
+{% endtablerow -%}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">{{ tablerow variable in (1..5) -}}
+    This is variable {{variable}}
+{{ end }}
+</code></pre>
+<div class="markdown-alert markdown-alert-note alert alert-primary lunet-alert-note" role="alert">
+<div class='lunet-alert-note-heading'>
+<span class='lunet-alert-note-icon'></span><span class='lunet-alert-note-heading-text'></span>
+</div><div class='lunet-alert-note-content'>
+<p class="mb-0">Scriban supports all tags arguments for <code>tablerow</code>: <code>cols</code>, <code>limit</code>, <code>offset</code>, <code>reversed</code></p>
+</div></div>
+<h3 id="capture-tag"><code>capture</code> tag</h3>
+<p>Liquid <code>capture &lt;variable&gt;</code>/<code>endcapture</code> tags translate to a <a href="/docs/language#94-capture-variable--end"><code>capture &lt;expression&gt;</code>/<code>end</code></a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">{%- capture variable -%}
+    This is a capture
+{%- endcapture -%}
+{{ variable }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">{{ capture variable -}}
+    This is a capture
+{{- end -}}
+{{ variable }}
+</code></pre>
+<h3 id="pipe-calls">Pipe calls</h3>
+<p>Liquid pipe call translates to the same <a href="/docs/language#89-function-call-expression"><code>pipe call</code></a></p>
+<blockquote class="blockquote">
+<p><strong>liquid</strong></p>
+</blockquote>
+<pre><code class="language-liquid">{% assign test = &quot;abcdef&quot; %}
+{{ test | truncate: 5 }}
+</code></pre>
+<blockquote class="blockquote">
+<p><strong>scriban</strong></p>
+</blockquote>
+<pre><code class="language-scriban">{{ test = &quot;abcdef&quot; }}
+{{ test |  string.truncate 5 }}
+</code></pre>
+<p>As you can notice, Scriban will translate a call to a liquid tag to the corresponding scriban tag. But scriban also provides supports for direct tags calls using the <code>LiquidTemplateContext</code>. See <a href="/docs/runtime/parsing#liquid-support">liquid support in runtime</a></p>
+<h2 id="supported-filters">Supported filters</h2>
+<p>By default, all liquid filters are translated to scriban <a href="/docs/builtins">builtin functions</a> (through objects like <code>string</code> or <code>array</code>)</p>
+<p>The translation is performed by the <a href="https://github.com/lunet-io/scriban/blob/4ecb68deab3065c3163d46e3b51956712ec75e49/src/Scriban/Functions/LiquidBuiltinsFunctions.cs#L30">TryLiquidToScriban</a> function at parsing time.</p>
+<p>This translation can be disabled by setting the <code>ParserOptions.LiquidFunctionsToScriban</code> to <code>false</code></p>
+<h2 id="converting-liquid-to-scriban-using-liquid2scriban">Converting <code>liquid</code> to <code>scriban</code> using <code>liquid2scriban</code></h2>
+<p>If you compile this repository, you will find a tool <code>liquid2scriban</code> that allows to convert a liquid script to scriban.</p>
+<p>The <code>liquid2scriban</code> has one option that allows to parse Jekyll liquid templates that are passing to the include directive raw strings without quotes (e.g <code>{% include /this/is/partial.html %}</code>)
+In that case, you can pass the option <code>--relaxed-include</code> to liquid2scriban, to allow the convertor to recognize this parameter as an implicit string instead.</p>
+
+      </div>
+  </div>
+</div>
+
+        </section>
+        <footer>
+          <hr>
+          <p>Copyright &copy; 2026, Alexandre Mutel aka <a href="https://xoofx.github.io">xoofx</a> - Content licensed under the Creative Commons <a href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a> | Site generated by <a href="https://github.com/lunet-io/lunet">lunet</a> hosted on <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>

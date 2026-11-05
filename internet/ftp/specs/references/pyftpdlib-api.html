@@ -1,0 +1,1139 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API reference &mdash; pyftpdlib  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAQs" href="faqs.html" />
+    <link rel="prev" title="Command line usage" href="cli.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyftpdlib" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/api.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyftpdlib
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules-and-classes-hierarchy">Modules and classes hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#users">Users</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer.add_user"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer.add_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer.add_anonymous"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer.add_anonymous()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer.override_perm"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer.override_perm()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer.validate_authentication"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer.validate_authentication()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer.impersonate_user"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer.impersonate_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer.terminate_impersonation"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer.terminate_impersonation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer.remove_user"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer.remove_user()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#control-connection">Control connection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.timeout"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.banner"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.banner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.max_login_attempts"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.max_login_attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.permit_foreign_addresses"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.permit_foreign_addresses</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.permit_privileged_ports"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.permit_privileged_ports</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.masquerade_address"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.masquerade_address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.masquerade_address_map"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.masquerade_address_map</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.passive_ports"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.passive_ports</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.use_gmt_times"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.use_gmt_times</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.tcp_no_delay"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.tcp_no_delay</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.use_sendfile"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.use_sendfile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.encoding"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.encoding</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.auth_failed_timeout"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.auth_failed_timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_connect"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_connect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_disconnect"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_disconnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_login"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_login()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_login_failed"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_login_failed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_logout"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_logout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_file_sent"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_file_sent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_file_received"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_file_received()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_incomplete_file_sent"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_incomplete_file_sent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.FTPHandler.on_incomplete_file_received"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler.on_incomplete_file_received()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-connection">Data connection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyftpdlib.handlers.DTPHandler"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.DTPHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.DTPHandler.timeout"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.DTPHandler.timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.DTPHandler.ac_in_buffer_size"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.DTPHandler.ac_in_buffer_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.DTPHandler.ac_out_buffer_size"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.DTPHandler.ac_out_buffer_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pyftpdlib.handlers.ThrottledDTPHandler"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.ThrottledDTPHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.ThrottledDTPHandler.read_limit"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.ThrottledDTPHandler.read_limit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.ThrottledDTPHandler.write_limit"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.ThrottledDTPHandler.write_limit</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#server-acceptor">Server (acceptor)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyftpdlib.servers.FTPServer"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.servers.FTPServer.max_cons"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer.max_cons</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.servers.FTPServer.max_cons_per_ip"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer.max_cons_per_ip</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.servers.FTPServer.serve_forever"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer.serve_forever()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.servers.FTPServer.close"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.servers.FTPServer.close_all"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer.close_all()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#filesystem">Filesystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyftpdlib.filesystems.FilesystemError"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.FilesystemError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.root"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.root</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.cwd"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.cwd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.ftpnorm"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.ftpnorm()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.ftp2fs"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.ftp2fs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.fs2ftp"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.fs2ftp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.validpath"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.validpath()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.open"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.open()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.mkdir"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.mkdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.chdir"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.chdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.rmdir"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.rmdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.remove"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.rename"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.rename()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.chmod"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.chmod()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.stat"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.stat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.lstat"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.lstat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.readlink"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.readlink()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.isfile"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.isfile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.islink"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.islink()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.isdir"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.isdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.getsize"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.getsize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.getmtime"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.getmtime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.realpath"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.realpath()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.lexists"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.lexists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.mkstemp"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.mkstemp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS.listdir"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS.listdir()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#extended-classes">Extended classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extended-handlers">Extended handlers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.handlers.TLS_FTPHandler"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.handlers.TLS_FTPHandler</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extended-authorizers">Extended authorizers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.UnixAuthorizer"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.UnixAuthorizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.authorizers.WindowsAuthorizer"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.WindowsAuthorizer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extended-filesystems">Extended filesystems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.filesystems.UnixFilesystem"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.UnixFilesystem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extended-servers">Extended servers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.servers.ThreadedFTPServer"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.servers.ThreadedFTPServer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyftpdlib.servers.MultiprocessFTPServer"><code class="docutils literal notranslate"><span class="pre">pyftpdlib.servers.MultiprocessFTPServer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rfc-compliance.html">RFC compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adoptions.html">Adoptions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyftpdlib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">API reference</a><a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#api-reference" id="id3">API reference</a></p>
+<ul>
+<li><p><a class="reference internal" href="#modules-and-classes-hierarchy" id="id4">Modules and classes hierarchy</a></p></li>
+<li><p><a class="reference internal" href="#users" id="id5">Users</a></p></li>
+<li><p><a class="reference internal" href="#control-connection" id="id6">Control connection</a></p></li>
+<li><p><a class="reference internal" href="#data-connection" id="id7">Data connection</a></p></li>
+<li><p><a class="reference internal" href="#server-acceptor" id="id8">Server (acceptor)</a></p></li>
+<li><p><a class="reference internal" href="#filesystem" id="id9">Filesystem</a></p></li>
+<li><p><a class="reference internal" href="#extended-classes" id="id10">Extended classes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#extended-handlers" id="id11">Extended handlers</a></p></li>
+<li><p><a class="reference internal" href="#extended-authorizers" id="id12">Extended authorizers</a></p></li>
+<li><p><a class="reference internal" href="#extended-filesystems" id="id13">Extended filesystems</a></p></li>
+<li><p><a class="reference internal" href="#extended-servers" id="id14">Extended servers</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>pyftpdlib implements the server side of the FTP protocol as defined in
+<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc959.html">RFC-959</a>. This document is intended to
+serve as a simple API reference of most important classes and functions.
+Also see the <a class="reference external" href="tutorial.html">tutorial</a> document.</p>
+<section id="modules-and-classes-hierarchy">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Modules and classes hierarchy</a><a class="headerlink" href="#modules-and-classes-hierarchy" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyftpdlib</span><span class="o">.</span><span class="n">authorizers</span><span class="o">.</span><span class="n">DummyAuthorizer</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">authorizers</span><span class="o">.</span><span class="n">UnixAuthorizer</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">authorizers</span><span class="o">.</span><span class="n">WindowsAuthorizer</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AuthenticationFailed</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AuthorizerError</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">FilesystemError</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">filesystems</span><span class="o">.</span><span class="n">AbstractedFS</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">filesystems</span><span class="o">.</span><span class="n">UnixFilesystem</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">DTPHandler</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">FTPHandler</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">ThrottledDTPHandler</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">TLS_DTPHandler</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">TLS_FTPHandler</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">Acceptor</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">AsyncChat</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">Connector</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">servers</span><span class="o">.</span><span class="n">FTPServer</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">servers</span><span class="o">.</span><span class="n">MultiprocessFTPServer</span>
+<span class="n">pyftpdlib</span><span class="o">.</span><span class="n">servers</span><span class="o">.</span><span class="n">ThreadedFTPServer</span>
+</pre></div>
+</div>
+</section>
+<section id="users">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Users</a><a class="headerlink" href="#users" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.DummyAuthorizer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.authorizers.</span></span><span class="sig-name descname"><span class="pre">DummyAuthorizer</span></span><a class="headerlink" href="#pyftpdlib.authorizers.DummyAuthorizer" title="Link to this definition"></a></dt>
+<dd><p>Basic “dummy” authorizer class which lets you create virtual users.
+It is also  suitable for subclassing to create your own custom authorizer.
+The “authorizer” is a class handling authentications and
+permissions of the FTP server. It is used by
+<a class="reference internal" href="#pyftpdlib.handlers.FTPHandler" title="pyftpdlib.handlers.FTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler</span></code></a> class for verifying user passwords,
+getting users home directory and checking user permissions when a filesystem
+event occurs. Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pyftpdlib.authorizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">DummyAuthorizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">authorizer</span> <span class="o">=</span> <span class="n">DummyAuthorizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">authorizer</span><span class="o">.</span><span class="n">add_user</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/user&#39;</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s1">&#39;elradfmwMT&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">authorizer</span><span class="o">.</span><span class="n">add_anonymous</span><span class="p">(</span><span class="s1">&#39;/home/nobody&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.DummyAuthorizer.add_user">
+<span class="sig-name descname"><span class="pre">add_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">homedir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_login</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Login</span> <span class="pre">successful.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_quit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Goodbye.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.DummyAuthorizer.add_user" title="Link to this definition"></a></dt>
+<dd><p>Add a user to the virtual users table. <code class="docutils literal notranslate"><span class="pre">AuthorizerError</span></code> exception is raised
+on error conditions such as insufficient permissions or duplicate usernames.
+The <em>perm</em> argument is a set of letters indicating the user’s
+permissions:</p>
+<p>Read permissions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code> = change directory (CWD, CDUP commands)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;l&quot;</span></code> = list files (LIST, NLST, STAT, MLSD, MLST, SIZE commands)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> = retrieve file from the server (RETR command)</p></li>
+</ul>
+<p>Write permissions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> = append data to an existing file (APPE command)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;d&quot;</span></code> = delete file or directory (DELE, RMD commands)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span></code> = rename file or directory (RNFR, RNTO commands)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;m&quot;</span></code> = create directory (MKD command)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> = store a file to the server (STOR, STOU commands)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;M&quot;</span></code> = change file mode / permission (SITE CHMOD command) <em>New in 0.7.0</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;T&quot;</span></code> = change file modification time (SITE MFMT command) <em>New in 1.5.3</em></p></li>
+</ul>
+<p><em>msg_login</em> and <em>msg_quit</em> arguments can be specified to provide
+customized response strings when the user logs in and quits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.DummyAuthorizer.add_anonymous">
+<span class="sig-name descname"><span class="pre">add_anonymous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homedir</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.DummyAuthorizer.add_anonymous" title="Link to this definition"></a></dt>
+<dd><p>Add an anonymous user to the virtual users table.
+The keyword arguments are the same expected by <a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer.add_user" title="pyftpdlib.authorizers.DummyAuthorizer.add_user"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_user()</span></code></a> method.
+The only difference is that if write permissions are passed as <em>perm</em>
+a <code class="docutils literal notranslate"><span class="pre">RuntimeWarning</span></code> will be raised.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.DummyAuthorizer.override_perm">
+<span class="sig-name descname"><span class="pre">override_perm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.DummyAuthorizer.override_perm" title="Link to this definition"></a></dt>
+<dd><p>Override user permissions for a specific directory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.DummyAuthorizer.validate_authentication">
+<span class="sig-name descname"><span class="pre">validate_authentication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.DummyAuthorizer.validate_authentication" title="Link to this definition"></a></dt>
+<dd><p>Raises <code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.exceptions.AuthenticationFailed</span></code> if the supplied
+username and password don’t match the stored credentials.</p>
+<p><em>Changed in 1.0.0: new handler parameter.</em></p>
+<p><em>Changed in 1.0.0: an exception is now raised for signaling a failed authenticaiton as opposed to returning a bool.</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.DummyAuthorizer.impersonate_user">
+<span class="sig-name descname"><span class="pre">impersonate_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.DummyAuthorizer.impersonate_user" title="Link to this definition"></a></dt>
+<dd><p>Impersonate another user (noop). It is always called before accessing the
+filesystem. By default it does nothing. The subclass overriding this method
+may provide a mechanism to change the current user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.DummyAuthorizer.terminate_impersonation">
+<span class="sig-name descname"><span class="pre">terminate_impersonation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.DummyAuthorizer.terminate_impersonation" title="Link to this definition"></a></dt>
+<dd><p>Terminate impersonation (noop). It is always called after having accessed
+the filesystem. By default it does nothing. The subclass overriding this
+method may provide a mechanism to switch back to the original user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.DummyAuthorizer.remove_user">
+<span class="sig-name descname"><span class="pre">remove_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.DummyAuthorizer.remove_user" title="Link to this definition"></a></dt>
+<dd><p>Remove a user from the virtual user table.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="control-connection">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Control connection</a><a class="headerlink" href="#control-connection" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.handlers.</span></span><span class="sig-name descname"><span class="pre">FTPHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler" title="Link to this definition"></a></dt>
+<dd><p>This class implements the “FTP server Protocol Interpreter” as defined in
+<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc959.html">RFC-959</a>, commonly known as
+the FTP “control connection”.
+It handles the commands received from the client.
+E.g. if command “MKD pathname” is received, <code class="docutils literal notranslate"><span class="pre">ftp_MKD()</span></code> method is called
+with <code class="docutils literal notranslate"><span class="pre">pathname</span></code> as the argument.
+<code class="docutils literal notranslate"><span class="pre">conn</span></code> argument is a socket object instance of the newly established connection.
+<code class="docutils literal notranslate"><span class="pre">server</span></code> is a reference to the <a class="reference internal" href="#pyftpdlib.servers.FTPServer" title="pyftpdlib.servers.FTPServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer</span></code></a> class
+instance.
+Basic usage requires creating an instance of this class and specify which
+authorizer it is going to use:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pyftpdlib.handlers</span><span class="w"> </span><span class="kn">import</span> <span class="n">FTPHandler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">handler</span> <span class="o">=</span> <span class="n">FTPHandler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">handler</span><span class="o">.</span><span class="n">authorizer</span> <span class="o">=</span> <span class="n">authorizer</span>
+</pre></div>
+</div>
+<p>Configurable class attributes:</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.timeout" title="Link to this definition"></a></dt>
+<dd><p>The timeout which is the maximum time a remote client may spend between FTP
+commands. If the timeout triggers, the remote client will be kicked off.
+Default: <code class="docutils literal notranslate"><span class="pre">300</span></code> seconds.</p>
+<p><em>New in version 0.5.0</em></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.banner">
+<span class="sig-name descname"><span class="pre">banner</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.banner" title="Link to this definition"></a></dt>
+<dd><p>The string sent when client connects. The default is
+<code class="docutils literal notranslate"><span class="pre">&quot;pyftpdlib</span> <span class="pre">%s</span> <span class="pre">ready.&quot;</span> <span class="pre">%__ver__</span></code>. If you want to make this dynamic you
+can define this as a <a class="reference external" href="https://docs.python.org/3/library/functions.html#property">property</a>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.max_login_attempts">
+<span class="sig-name descname"><span class="pre">max_login_attempts</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.max_login_attempts" title="Link to this definition"></a></dt>
+<dd><p>Maximum number of wrong authentications before disconnecting (default
+<code class="docutils literal notranslate"><span class="pre">3</span></code>).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.permit_foreign_addresses">
+<span class="sig-name descname"><span class="pre">permit_foreign_addresses</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.permit_foreign_addresses" title="Link to this definition"></a></dt>
+<dd><p>Also known as “FXP” or “site-to-site transfer feature”. If <code class="docutils literal notranslate"><span class="pre">True</span></code>
+it allows for transferring a file between two remote FTP servers,
+without the transfer going through the client’s host. This is not
+recommended for security reasons as described in RFC-2577.
+Having this attribute set to <code class="docutils literal notranslate"><span class="pre">False</span></code> means that all data
+connections from/to remote IP addresses which do not match the
+client’s IP address will be dropped. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.permit_privileged_ports">
+<span class="sig-name descname"><span class="pre">permit_privileged_ports</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.permit_privileged_ports" title="Link to this definition"></a></dt>
+<dd><p>Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if you want to permit active connections (PORT) over
+privileged ports. Not recommended for security reason. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.masquerade_address">
+<span class="sig-name descname"><span class="pre">masquerade_address</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.masquerade_address" title="Link to this definition"></a></dt>
+<dd><p>The “masqueraded” IP address to provide along PASV reply when pyftpdlib is
+running behind a NAT or other types of gateways. When configured pyftpdlib
+will hide its local address and instead use the public address of your NAT.
+Typically you want to use this when you’re behind a router. Default:
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.masquerade_address_map">
+<span class="sig-name descname"><span class="pre">masquerade_address_map</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.masquerade_address_map" title="Link to this definition"></a></dt>
+<dd><p>In case the server has multiple IP addresses which are all behind a NAT,
+you may wish to specify individual masquerade addresses for each of
+them. The map expects a dictionary containing private IP addresses as keys,
+and their corresponding public (masquerade) addresses as values.
+Default: <code class="docutils literal notranslate"><span class="pre">{}</span></code> (empty dict).</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.passive_ports">
+<span class="sig-name descname"><span class="pre">passive_ports</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.passive_ports" title="Link to this definition"></a></dt>
+<dd><p>What TCP ports the FTP server will use for passive (PASV) data transfers.
+The value expected is a list of integers (e.g. <code class="docutils literal notranslate"><span class="pre">list(range(60000,</span> <span class="pre">65535))</span></code>).
+When configured, pyftpdlib will no longer use kernel-assigned random TCP ports.
+Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.use_gmt_times">
+<span class="sig-name descname"><span class="pre">use_gmt_times</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.use_gmt_times" title="Link to this definition"></a></dt>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">True</span></code> causes the FTP server to report all times as GMT. This
+affects MDTM, MFMT, LIST, MLSD and MLST commands.
+If set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the times will be expressed in the server local time
+(not recommended). Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.tcp_no_delay">
+<span class="sig-name descname"><span class="pre">tcp_no_delay</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.tcp_no_delay" title="Link to this definition"></a></dt>
+<dd><p>Controls the use of the TCP_NODELAY socket option, which disables the Nagle
+algorithm. It usually result in significantly better performances.
+Default <code class="docutils literal notranslate"><span class="pre">True</span></code> on all platforms where it is supported (e.g. Linux).</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.use_sendfile">
+<span class="sig-name descname"><span class="pre">use_sendfile</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.use_sendfile" title="Link to this definition"></a></dt>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">True</span></code> uses the <code class="docutils literal notranslate"><span class="pre">sendfile(2)</span></code> system call when sending file,
+resulting in considerable faster uploads (from server to client).
+Works on Linux only, and only for clear-text (non FTPS) transfers.
+Default: <code class="docutils literal notranslate"><span class="pre">True</span></code> on Linux.</p>
+<p><em>New in version 0.7.0</em></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.encoding">
+<span class="sig-name descname"><span class="pre">encoding</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.encoding" title="Link to this definition"></a></dt>
+<dd><p>The encoding used for client / server communication. Defaults to
+<code class="docutils literal notranslate"><span class="pre">'utf-8'</span></code>.</p>
+<p><em>New in version 2.0.0</em></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.auth_failed_timeout">
+<span class="sig-name descname"><span class="pre">auth_failed_timeout</span></span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.auth_failed_timeout" title="Link to this definition"></a></dt>
+<dd><p>The amount of time the server waits before sending a response in case of
+failed authentication. This is useful to prevent password-guessing attacks.
+Default: <code class="docutils literal notranslate"><span class="pre">3</span></code> seconds.</p>
+<p><em>New in version 1.5.0</em></p>
+</dd></dl>
+
+<p>Follows a list of callback methods that can be overridden in a subclass. For
+blocking operations read the FAQ on how to run time consuming tasks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_connect">
+<span class="sig-name descname"><span class="pre">on_connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_connect" title="Link to this definition"></a></dt>
+<dd><p>Called when client connects.</p>
+<p><em>New in version 1.0.0</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_disconnect">
+<span class="sig-name descname"><span class="pre">on_disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_disconnect" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>Called when client connection is closed.</p>
+<blockquote>
+<div><p><em>New in version 1.0.0</em></p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_login">
+<span class="sig-name descname"><span class="pre">on_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_login" title="Link to this definition"></a></dt>
+<dd><p>Called on user login.</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_login_failed">
+<span class="sig-name descname"><span class="pre">on_login_failed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_login_failed" title="Link to this definition"></a></dt>
+<dd><p>Called on failed user login.</p>
+<p><em>New in version 0.7.0</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_logout">
+<span class="sig-name descname"><span class="pre">on_logout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_logout" title="Link to this definition"></a></dt>
+<dd><p>Called when user logs out due to QUIT or USER commands issued twice. This
+is not called if the client just disconnects without issuing QUIT first.</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_file_sent">
+<span class="sig-name descname"><span class="pre">on_file_sent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_file_sent" title="Link to this definition"></a></dt>
+<dd><p>Called when a file has been successfully sent. <code class="docutils literal notranslate"><span class="pre">file</span></code> is the absolute
+path of that file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_file_received">
+<span class="sig-name descname"><span class="pre">on_file_received</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_file_received" title="Link to this definition"></a></dt>
+<dd><p>Called when a file has been successfully received. <code class="docutils literal notranslate"><span class="pre">file</span></code> is the
+absolute path of that file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_incomplete_file_sent">
+<span class="sig-name descname"><span class="pre">on_incomplete_file_sent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_incomplete_file_sent" title="Link to this definition"></a></dt>
+<dd><p>Called when time a file has not been entirely sent (e.g. transfer aborted
+by client). <code class="docutils literal notranslate"><span class="pre">file</span></code> is the absolute path of that file.</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.FTPHandler.on_incomplete_file_received">
+<span class="sig-name descname"><span class="pre">on_incomplete_file_received</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.FTPHandler.on_incomplete_file_received" title="Link to this definition"></a></dt>
+<dd><p>Called when a file has not been entirely received (e.g. transfer
+aborted by client). <em>file</em> is the absolute path of that file.</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="data-connection">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Data connection</a><a class="headerlink" href="#data-connection" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.DTPHandler">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.handlers.</span></span><span class="sig-name descname"><span class="pre">DTPHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd_channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.DTPHandler" title="Link to this definition"></a></dt>
+<dd><p>This class handles the server-data-transfer-process (server-DTP) as defined
+in <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc959.html">RFC-959</a>, commonly known as
+“data connection”.
+It manages all the transfer operations like sending or receiving files and
+also transmitting the directory listing.
+<code class="docutils literal notranslate"><span class="pre">sock_obj</span></code> is the underlying socket object instance of the newly established
+connection, <code class="docutils literal notranslate"><span class="pre">cmd_channel</span></code> is the
+corresponding <a class="reference internal" href="#pyftpdlib.handlers.FTPHandler" title="pyftpdlib.handlers.FTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler</span></code></a> class instance.</p>
+<p><em>Changed in version 1.0.0: added ioloop argument.</em></p>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.DTPHandler.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><a class="headerlink" href="#pyftpdlib.handlers.DTPHandler.timeout" title="Link to this definition"></a></dt>
+<dd><p>The timeout which roughly is the maximum time we permit data transfers to
+stall for with no progress. If the timeout triggers, the remote client will
+be kicked off. Default: <code class="docutils literal notranslate"><span class="pre">300</span></code> seconds.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.DTPHandler.ac_in_buffer_size">
+<span class="sig-name descname"><span class="pre">ac_in_buffer_size</span></span><a class="headerlink" href="#pyftpdlib.handlers.DTPHandler.ac_in_buffer_size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.DTPHandler.ac_out_buffer_size">
+<span class="sig-name descname"><span class="pre">ac_out_buffer_size</span></span><a class="headerlink" href="#pyftpdlib.handlers.DTPHandler.ac_out_buffer_size" title="Link to this definition"></a></dt>
+<dd><p>The buffer sizes to use when receiving and sending data (both defaulting to
+<code class="docutils literal notranslate"><span class="pre">65536</span></code> bytes). For LANs you may want this to be fairly large. Depending
+on available memory and number of connected clients, setting them to a lower
+value can result in better performances.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.ThrottledDTPHandler">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.handlers.</span></span><span class="sig-name descname"><span class="pre">ThrottledDTPHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd_channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.ThrottledDTPHandler" title="Link to this definition"></a></dt>
+<dd><p>A <a class="reference internal" href="#pyftpdlib.handlers.DTPHandler" title="pyftpdlib.handlers.DTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.handlers.DTPHandler</span></code></a> subclass which wraps sending and
+receiving in a data counter, and temporarily “sleeps” the transmission of data
+so that you burst to no more than x Kb/sec average. Use it instead of
+<a class="reference internal" href="#pyftpdlib.handlers.DTPHandler" title="pyftpdlib.handlers.DTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.handlers.DTPHandler</span></code></a> to set transfer rates limits for both
+downloads and/or uploads (see the
+<a class="reference external" href="https://github.com/giampaolo/pyftpdlib/blob/master/demo/throttled_ftpd.py">demo script</a>
+showing the example usage).</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.ThrottledDTPHandler.read_limit">
+<span class="sig-name descname"><span class="pre">read_limit</span></span><a class="headerlink" href="#pyftpdlib.handlers.ThrottledDTPHandler.read_limit" title="Link to this definition"></a></dt>
+<dd><p>The maximum number of bytes to read (receive) in one second. Defaults to
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, meaning no limit.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.ThrottledDTPHandler.write_limit">
+<span class="sig-name descname"><span class="pre">write_limit</span></span><a class="headerlink" href="#pyftpdlib.handlers.ThrottledDTPHandler.write_limit" title="Link to this definition"></a></dt>
+<dd><p>The maximum number of bytes to write (send) in one second. Defaults to
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, meaning no limit.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="server-acceptor">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Server (acceptor)</a><a class="headerlink" href="#server-acceptor" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.servers.FTPServer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.servers.</span></span><span class="sig-name descname"><span class="pre">FTPServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address_or_socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ioloop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.servers.FTPServer" title="Link to this definition"></a></dt>
+<dd><p>Creates a socket listening on <code class="docutils literal notranslate"><span class="pre">address</span></code> (an <code class="docutils literal notranslate"><span class="pre">(host,</span> <span class="pre">port)</span></code> tuple) or a
+pre-existing socket object, dispatching the requests to <code class="docutils literal notranslate"><span class="pre">handler</span></code> (typically
+a <a class="reference internal" href="#pyftpdlib.handlers.FTPHandler" title="pyftpdlib.handlers.FTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler</span></code></a> class). Also, it starts the main asynchronous
+IO loop. <code class="docutils literal notranslate"><span class="pre">backlog</span></code> is the maximum number of queued connections passed to
+<a class="reference external" href="https://docs.python.org/library/socket.html#socket.socket.listen">socket.listen()</a>.</p>
+<p><em>Changed in version 1.0.0: added ioloop argument.</em></p>
+<p><em>Changed in version 1.2.0: address can also be a pre-existing socket object.</em></p>
+<p><em>Changed in version 1.2.0: Added backlog argument.</em></p>
+<p><em>Changed in version 1.5.4: Support for the context manager protocol was
+added. Exiting the context manager is equivalent to calling
+:meth:`close_all`.</em></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pyftpdlib.servers</span><span class="w"> </span><span class="kn">import</span> <span class="n">FTPServer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">server</span> <span class="o">=</span> <span class="n">FTPServer</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">handler</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">FTPServer</span></code> can also be used as a context manager. Exiting the context manager is
+equivalent to calling <a class="reference internal" href="#pyftpdlib.servers.FTPServer.close_all" title="pyftpdlib.servers.FTPServer.close_all"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close_all()</span></code></a>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">FTPServer</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">handler</span><span class="p">)</span> <span class="k">as</span> <span class="n">server</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.servers.FTPServer.max_cons">
+<span class="sig-name descname"><span class="pre">max_cons</span></span><a class="headerlink" href="#pyftpdlib.servers.FTPServer.max_cons" title="Link to this definition"></a></dt>
+<dd><p>The number of maximum simultaneous connections accepted by the server
+(both control and data connections). Default: <code class="docutils literal notranslate"><span class="pre">512</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.servers.FTPServer.max_cons_per_ip">
+<span class="sig-name descname"><span class="pre">max_cons_per_ip</span></span><a class="headerlink" href="#pyftpdlib.servers.FTPServer.max_cons_per_ip" title="Link to this definition"></a></dt>
+<dd><p>Then number of maximum connections accepted for the same IP address.
+Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>, meaning no limit.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.servers.FTPServer.serve_forever">
+<span class="sig-name descname"><span class="pre">serve_forever</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle_exit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.servers.FTPServer.serve_forever" title="Link to this definition"></a></dt>
+<dd><p>Starts the asynchronous IO loop.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code>: the timeout passed to the underlying IO
+loop expressed in seconds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blocking</span></code>: if <code class="docutils literal notranslate"><span class="pre">False</span></code> loop once and then return the
+timeout of the next scheduled call next to expire soonest
+(if any).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handle_exit</span></code>: when <code class="docutils literal notranslate"><span class="pre">True</span></code> catches <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> and
+<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code> exceptions (caused by SIGTERM / SIGINT signals) and
+gracefully exits after cleaning up resources.
+Also, logs server start and stop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">worker_processes</span></code>: pre-forks a certain number of child
+processes before starting. See: <a class="reference internal" href="tutorial.html#pre-fork-model"><span class="std std-ref">Pre fork model</span></a> for more info.
+Each child process will keep using a 1-thread, async
+concurrency model, handling multiple concurrent connections.
+If the number is <code class="docutils literal notranslate"><span class="pre">None</span></code> or &lt;= <code class="docutils literal notranslate"><span class="pre">0</span></code>, the number of usable CPUs
+available on this machine is detected and used.
+It is a good idea to use this option in case the server risks
+blocking for too long on a single function call, typically if the
+filesystem is slow or the are long DB query executed on user login.
+By splitting the work load over multiple processes the delay
+introduced by a blocking function call is amortized and divided
+by the number of the worker processes.</p></li>
+</ul>
+<p><em>Changed in version 1.0.0</em>: no longer a classmethod</p>
+<p><em>Changed in version 1.0.0</em>: <code class="docutils literal notranslate"><span class="pre">use_poll</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span></code> parameters were removed</p>
+<p><em>Changed in version 1.0.0</em>: <code class="docutils literal notranslate"><span class="pre">blocking</span></code> and <code class="docutils literal notranslate"><span class="pre">handle_exit</span></code> parameters were
+added</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.servers.FTPServer.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.servers.FTPServer.close" title="Link to this definition"></a></dt>
+<dd><p>Stop accepting connections without disconnecting the clients currently
+connected. <code class="xref py py-meth docutils literal notranslate"><span class="pre">server_forever()</span></code> loop will automatically stop when the last
+client disconnects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.servers.FTPServer.close_all">
+<span class="sig-name descname"><span class="pre">close_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.servers.FTPServer.close_all" title="Link to this definition"></a></dt>
+<dd><p>Disconnect all clients, tell <code class="xref py py-meth docutils literal notranslate"><span class="pre">server_forever()</span></code> loop to stop and wait
+until it does.</p>
+<p><em>Changed in version 1.0.0: ``map`` and ``ignore_all`` parameters were removed.</em></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="filesystem">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Filesystem</a><a class="headerlink" href="#filesystem" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.FilesystemError">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.filesystems.</span></span><span class="sig-name descname"><span class="pre">FilesystemError</span></span><a class="headerlink" href="#pyftpdlib.filesystems.FilesystemError" title="Link to this definition"></a></dt>
+<dd><p>Exception class which can be raised from within
+<a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS" title="pyftpdlib.filesystems.AbstractedFS"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS</span></code></a> in order to send a custom error
+messages to the client.</p>
+<p><em>New in version 1.0.0</em></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.filesystems.</span></span><span class="sig-name descname"><span class="pre">AbstractedFS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd_channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS" title="Link to this definition"></a></dt>
+<dd><p>A class used to interact with the filesystem, providing a cross-platform
+interface compatible with both Windows and UNIX paths. All paths use <code class="docutils literal notranslate"><span class="pre">&quot;/&quot;</span></code>
+as the separator, including on Windows. <code class="docutils literal notranslate"><span class="pre">AbstractedFS</span></code> distinguishes
+between “real” filesystem paths and “virtual” FTP paths, emulating a UNIX
+chroot jail where the user can not escape his/her home directory (example:
+real “/home/user” path will be seen as “/” by the client). It also provides
+wrappers around all <code class="docutils literal notranslate"><span class="pre">os.*</span></code> calls (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>, <code class="docutils literal notranslate"><span class="pre">rename</span></code>, etc) and <code class="docutils literal notranslate"><span class="pre">open</span></code>
+builtin. The contructor accepts two arguments which are passed by the
+<code class="docutils literal notranslate"><span class="pre">FTPHandler</span></code>: <code class="docutils literal notranslate"><span class="pre">root</span></code>, which is the user “real” home
+directory (e.g. ‘/home/user’) and <code class="docutils literal notranslate"><span class="pre">cmd_channel</span></code> which is a
+<a class="reference internal" href="#pyftpdlib.handlers.FTPHandler" title="pyftpdlib.handlers.FTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler</span></code></a> class instance.</p>
+<p><em>Changed in version 0.6.0: root and cmd_channel arguments were added.</em></p>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.root">
+<span class="sig-name descname"><span class="pre">root</span></span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.root" title="Link to this definition"></a></dt>
+<dd><p>User’s home directory (“real”).</p>
+<p><em>Changed in version 0.7.0: support setattr()</em></p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.cwd">
+<span class="sig-name descname"><span class="pre">cwd</span></span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.cwd" title="Link to this definition"></a></dt>
+<dd><p>User’s current working directory (“virtual”).</p>
+<p><em>Changed in version 0.7.0: support setattr()</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.ftpnorm">
+<span class="sig-name descname"><span class="pre">ftpnorm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ftppath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.ftpnorm" title="Link to this definition"></a></dt>
+<dd><p>Normalize a “virtual” FTP pathname depending on the current working
+directory. E.g. having <code class="docutils literal notranslate"><span class="pre">&quot;/foo&quot;</span></code> as current working directory, <code class="docutils literal notranslate"><span class="pre">&quot;bar&quot;</span></code>
+is translated to <code class="docutils literal notranslate"><span class="pre">&quot;/foo/bar&quot;</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.ftp2fs">
+<span class="sig-name descname"><span class="pre">ftp2fs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ftppath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.ftp2fs" title="Link to this definition"></a></dt>
+<dd><p>Translate a “virtual” FTP pathname into the equivalent absolute “real”
+filesystem pathname. E.g. having <code class="docutils literal notranslate"><span class="pre">&quot;/home/user&quot;</span></code> as the root directory,
+<code class="docutils literal notranslate"><span class="pre">&quot;foo&quot;</span></code> is translated to <code class="docutils literal notranslate"><span class="pre">&quot;/home/user/foo&quot;</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.fs2ftp">
+<span class="sig-name descname"><span class="pre">fs2ftp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fspath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.fs2ftp" title="Link to this definition"></a></dt>
+<dd><p>Translate a “real” filesystem pathname into equivalent absolute “virtual”
+FTP pathname depending on the user’s root directory. E.g. having
+<code class="docutils literal notranslate"><span class="pre">&quot;/home/user&quot;</span></code> as root directory, <code class="docutils literal notranslate"><span class="pre">&quot;/home/user/foo&quot;</span></code> is translated to
+<code class="docutils literal notranslate"><span class="pre">&quot;/foo&quot;</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.validpath">
+<span class="sig-name descname"><span class="pre">validpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.validpath" title="Link to this definition"></a></dt>
+<dd><p>Check whether the path belongs to the user’s home directory. Expected
+argument is a “real” filesystem path. If path is a symbolic link it is
+resolved to check its real destination. Resolved symlinks which escape the
+user’s root directory are considered not valid (return <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.open" title="Link to this definition"></a></dt>
+<dd><p>Wrapper around
+<a class="reference external" href="https://docs.python.org/library/functions.html#open">open()</a> builtin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.mkdir">
+<span class="sig-name descname"><span class="pre">mkdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.mkdir" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.chdir">
+<span class="sig-name descname"><span class="pre">chdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.chdir" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.rmdir">
+<span class="sig-name descname"><span class="pre">rmdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.rmdir" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.remove" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.rename">
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.rename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.chmod">
+<span class="sig-name descname"><span class="pre">chmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.chmod" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.stat">
+<span class="sig-name descname"><span class="pre">stat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.stat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.lstat">
+<span class="sig-name descname"><span class="pre">lstat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.lstat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.readlink">
+<span class="sig-name descname"><span class="pre">readlink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.readlink" title="Link to this definition"></a></dt>
+<dd><p>Wrappers around the corresponding
+<a class="reference external" href="https://docs.python.org/library/os.html">os</a> module functions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.isfile">
+<span class="sig-name descname"><span class="pre">isfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.isfile" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.islink">
+<span class="sig-name descname"><span class="pre">islink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.islink" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.isdir">
+<span class="sig-name descname"><span class="pre">isdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.isdir" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.getsize">
+<span class="sig-name descname"><span class="pre">getsize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.getsize" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.getmtime">
+<span class="sig-name descname"><span class="pre">getmtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.getmtime" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.realpath">
+<span class="sig-name descname"><span class="pre">realpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.realpath" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.lexists">
+<span class="sig-name descname"><span class="pre">lexists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.lexists" title="Link to this definition"></a></dt>
+<dd><p>Wrappers around the corresponding
+<a class="reference external" href="https://docs.python.org/library/os.path.html">os.path</a> module functions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.mkstemp">
+<span class="sig-name descname"><span class="pre">mkstemp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'wb'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.mkstemp" title="Link to this definition"></a></dt>
+<dd><p>Wrapper around
+<a class="reference external" href="https://docs.python.org/library/tempfile.html#tempfile.mkstemp">tempfile.mkstemp</a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.AbstractedFS.listdir">
+<span class="sig-name descname"><span class="pre">listdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.AbstractedFS.listdir" title="Link to this definition"></a></dt>
+<dd><p>Wrapper around
+<a class="reference external" href="https://docs.python.org/library/os.html#os.listdir">os.listdir</a>.
+It is expected to return a list of strings or a generator yielding strings.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 1.6.0: </span>can also return a generator.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="extended-classes">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Extended classes</a><a class="headerlink" href="#extended-classes" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Classes that require third-party modules to be installed separately, or a
+specific to a given operating system.</p>
+</div></blockquote>
+<section id="extended-handlers">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Extended handlers</a><a class="headerlink" href="#extended-handlers" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.TLS_FTPHandler">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.handlers.</span></span><span class="sig-name descname"><span class="pre">TLS_FTPHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.handlers.TLS_FTPHandler" title="Link to this definition"></a></dt>
+<dd><p>A <a class="reference internal" href="#pyftpdlib.handlers.FTPHandler" title="pyftpdlib.handlers.FTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.handlers.FTPHandler</span></code></a> subclass implementing FTPS (FTP over
+SSL/TLS) as described in <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc4217.html">RFC-4217</a>.
+Implements AUTH, PBSZ and PROT commands.
+<a class="reference external" href="https://pypi.org/project/pyOpenSSL">PyOpenSSL</a> module is required to be
+installed. See <a class="reference internal" href="tutorial.html#ftps-server"><span class="std std-ref">FTPS (FTP over TLS/SSL) server</span></a> tutorial.
+Configurable attributes:</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.TLS_FTPHandler.certfile">
+<span class="sig-name descname"><span class="pre">certfile</span></span><a class="headerlink" href="#pyftpdlib.handlers.TLS_FTPHandler.certfile" title="Link to this definition"></a></dt>
+<dd><p>The path to a file which contains a certificate to be used to identify the
+local side of the connection. This must always be specified, unless
+a :ref`:<cite>ssl_context</cite> is provided instead. See <a class="reference internal" href="tutorial.html#ftps-server"><span class="std std-ref">FTPS (FTP over TLS/SSL) server</span></a> on how to
+generate SSL certificates. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.TLS_FTPHandler.keyfile">
+<span class="sig-name descname"><span class="pre">keyfile</span></span><a class="headerlink" href="#pyftpdlib.handlers.TLS_FTPHandler.keyfile" title="Link to this definition"></a></dt>
+<dd><p>The path of the file containing the private RSA key. It can be omittetted
+if the :ref`:<cite>certfile</cite> already contains the private key.
+See <a class="reference internal" href="tutorial.html#ftps-server"><span class="std std-ref">FTPS (FTP over TLS/SSL) server</span></a> on how to generate SSL certificates.
+Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.TLS_FTPHandler.ssl_protocol">
+<span class="sig-name descname"><span class="pre">ssl_protocol</span></span><a class="headerlink" href="#pyftpdlib.handlers.TLS_FTPHandler.ssl_protocol" title="Link to this definition"></a></dt>
+<dd><p>The desired SSL protocol version to use. This defaults to
+<code class="docutils literal notranslate"><span class="pre">TLS_SERVER_METHOD</span></code>, which at the time of writing (year 2024) includes
+TLSv1, TLSv1.1, TLSv1.2 and TLSv1.3. The actual protocol version used will
+be negotiated to the highest version mutually supported by the client and
+the server when the client connects.</p>
+<blockquote>
+<div><div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.0.0: </span>set default to <code class="docutils literal notranslate"><span class="pre">TLS_SERVER_METHOD</span></code></p>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.TLS_FTPHandler.ssl_options">
+<span class="sig-name descname"><span class="pre">ssl_options</span></span><a class="headerlink" href="#pyftpdlib.handlers.TLS_FTPHandler.ssl_options" title="Link to this definition"></a></dt>
+<dd><p>Specific OpenSSL options. This defaults to: <code class="docutils literal notranslate"><span class="pre">OP_NO_SSLv2</span> <span class="pre">|</span> <span class="pre">OP_NO_SSLv3</span> <span class="pre">|</span>
+<span class="pre">OP_NO_COMPRESSION</span></code>, which are all considered unsecure settings. It can be
+set to <code class="docutils literal notranslate"><span class="pre">None</span></code> in order to improve compatibilty with older (insecure) FTP
+clients (not recommended).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.6.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.TLS_FTPHandler.ssl_context">
+<span class="sig-name descname"><span class="pre">ssl_context</span></span><a class="headerlink" href="#pyftpdlib.handlers.TLS_FTPHandler.ssl_context" title="Link to this definition"></a></dt>
+<dd><p>A <a class="reference external" href="https://www.pyopenssl.org/en/latest/api/ssl.html#context-objects">SSL.Context</a>
+instance which was previously configured.
+When specified, <a class="reference internal" href="#pyftpdlib.handlers.TLS_FTPHandler.ssl_protocol" title="pyftpdlib.handlers.TLS_FTPHandler.ssl_protocol"><code class="xref py py-data docutils literal notranslate"><span class="pre">ssl_protocol</span></code></a> and <a class="reference internal" href="#pyftpdlib.handlers.TLS_FTPHandler.ssl_options" title="pyftpdlib.handlers.TLS_FTPHandler.ssl_options"><code class="xref py py-data docutils literal notranslate"><span class="pre">ssl_options</span></code></a> parameters
+are ignored.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.TLS_FTPHandler.tls_control_required">
+<span class="sig-name descname"><span class="pre">tls_control_required</span></span><a class="headerlink" href="#pyftpdlib.handlers.TLS_FTPHandler.tls_control_required" title="Link to this definition"></a></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> it requires the client to secure the control connection with
+TLS before logging in. This means the client will have to issue the AUTH
+command before USER and PASS. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyftpdlib.handlers.TLS_FTPHandler.tls_data_required">
+<span class="sig-name descname"><span class="pre">tls_data_required</span></span><a class="headerlink" href="#pyftpdlib.handlers.TLS_FTPHandler.tls_data_required" title="Link to this definition"></a></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> it requires the client to secure the data connection with TLS
+before logging in. This means the clie will have to issue the PROT command
+before PASV or PORT. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="extended-authorizers">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Extended authorizers</a><a class="headerlink" href="#extended-authorizers" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.UnixAuthorizer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.authorizers.</span></span><span class="sig-name descname"><span class="pre">UnixAuthorizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_perm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&quot;elradfmwMT&quot;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed_users</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rejected_users</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_valid_shell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anonymous_user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_login</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&quot;Login</span> <span class="pre">successful.&quot;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_quit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&quot;Goodbye.&quot;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.UnixAuthorizer" title="Link to this definition"></a></dt>
+<dd><p>An authorizer which interacts with the UNIX password database. Users are no
+longer supposed to be explicitly added as when using the
+<a class="reference internal" href="#pyftpdlib.authorizers.DummyAuthorizer" title="pyftpdlib.authorizers.DummyAuthorizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.DummyAuthorizer</span></code></a>. All FTP users (and passwords)
+are the ones already defined on the UNIX system.
+The user home directory is automatically determined when user logins.
+Every time a filesystem
+operation occurs (e.g. a file is created or deleted) the ID of the process is
+temporarily changed to the effective user ID.
+In order to use this class super user privileges (root) are required.</p>
+<p><code class="docutils literal notranslate"><span class="pre">global_perm</span></code> is a series of letters indicating the users permissions. It
+defaults to <code class="docutils literal notranslate"><span class="pre">&quot;elradfmwMT&quot;</span></code> which means full read and write access are
+granted to everybody (except the anonymous user).</p>
+<p><code class="docutils literal notranslate"><span class="pre">allowed_users</span></code> and <code class="docutils literal notranslate"><span class="pre">rejected_users</span></code> are a list of users which are
+accepted or rejected for authenticating against the FTP server. Both
+parameters default to to <code class="docutils literal notranslate"><span class="pre">[]</span></code> (no restrictions).</p>
+<p><code class="docutils literal notranslate"><span class="pre">require_valid_shell</span></code> denies access for those users which do not have a
+valid shell binary listed in /etc/shells. If /etc/shells cannot be found this
+is a no-op. <code class="docutils literal notranslate"><span class="pre">anonymous_user</span></code> is not subject to this option, and is free to
+not have a valid shell defined. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>, meaning a valid shell
+is required for login).</p>
+<p><code class="docutils literal notranslate"><span class="pre">anonymous_user</span></code> can be specified if you intend to provide anonymous
+access. The value expected is a string representing the system user to use
+for managing anonymous sessions. It defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>, meaning anonymous
+access is disabled.</p>
+<p><em>New in version 0.6.0</em></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.UnixAuthorizer.override_user">
+<span class="sig-name descname"><span class="pre">override_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">homedir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anonymous_user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_login</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_quit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.UnixAuthorizer.override_user" title="Link to this definition"></a></dt>
+<dd><p>Overrides one or more options specified in the class constructor for a
+specific user. Example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pyftpdlib.authorizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnixAuthorizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">UnixAuthorizer</span><span class="p">(</span><span class="n">rejected_users</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">UnixAuthorizer</span><span class="p">(</span><span class="n">allowed_users</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;matt&quot;</span><span class="p">,</span> <span class="s2">&quot;jay&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">UnixAuthorizer</span><span class="p">(</span><span class="n">require_valid_shell</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span><span class="o">.</span><span class="n">override_user</span><span class="p">(</span><span class="s2">&quot;matt&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s2">&quot;elr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.authorizers.WindowsAuthorizer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.authorizers.</span></span><span class="sig-name descname"><span class="pre">WindowsAuthorizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_perm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elradfmwMT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed_users</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rejected_users</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anonymous_user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anonymous_password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_login</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Login</span> <span class="pre">successful.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_quit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Goodbye.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.authorizers.WindowsAuthorizer" title="Link to this definition"></a></dt>
+<dd><p>Same as <a class="reference internal" href="#pyftpdlib.authorizers.UnixAuthorizer" title="pyftpdlib.authorizers.UnixAuthorizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.UnixAuthorizer</span></code></a> except for
+<code class="docutils literal notranslate"><span class="pre">anonymous_password</span></code> argument which must be specified when defining the
+<code class="docutils literal notranslate"><span class="pre">anonymous_user</span></code>. Also, <code class="docutils literal notranslate"><span class="pre">requires_valid_shell</span></code> option is not available. In
+order to use this class <code class="docutils literal notranslate"><span class="pre">pywin32</span></code> extension must be installed.</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+</section>
+<section id="extended-filesystems">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Extended filesystems</a><a class="headerlink" href="#extended-filesystems" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.filesystems.UnixFilesystem">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.filesystems.</span></span><span class="sig-name descname"><span class="pre">UnixFilesystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd_channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.filesystems.UnixFilesystem" title="Link to this definition"></a></dt>
+<dd><p>Represents the real UNIX filesystem. Differently from
+<a class="reference internal" href="#pyftpdlib.filesystems.AbstractedFS" title="pyftpdlib.filesystems.AbstractedFS"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.filesystems.AbstractedFS</span></code></a> the client will login into
+/home/&lt;username&gt; and will be able to escape its home directory and navigate
+the real filesystem. Use it in conjunction with
+<a class="reference internal" href="#pyftpdlib.authorizers.UnixAuthorizer" title="pyftpdlib.authorizers.UnixAuthorizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.authorizers.UnixAuthorizer</span></code></a> to implement a “real” UNIX FTP
+server (see
+<a class="reference external" href="https://github.com/giampaolo/pyftpdlib/blob/master/demo/unix_ftpd.py">demo/unix_ftpd.py</a>).</p>
+<p><em>New in version 0.6.0</em></p>
+</dd></dl>
+
+</section>
+<section id="extended-servers">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Extended servers</a><a class="headerlink" href="#extended-servers" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.servers.ThreadedFTPServer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.servers.</span></span><span class="sig-name descname"><span class="pre">ThreadedFTPServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address_or_socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ioloop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.servers.ThreadedFTPServer" title="Link to this definition"></a></dt>
+<dd><p>A modified version of base <a class="reference internal" href="#pyftpdlib.servers.FTPServer" title="pyftpdlib.servers.FTPServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer</span></code></a> class which
+spawns a thread every time a new connection is established. Differently from
+the base FTPServer class, the handler will be free to block without hanging
+the whole IO loop. See <a class="reference internal" href="tutorial.html#changing-the-concurrency-model"><span class="std std-ref">Changing the concurrency model</span></a>.</p>
+<p><em>New in version 1.0.0</em></p>
+<p><em>Changed in 1.2.0: added ioloop parameter; address can also be a pre-existing
+*socket.</em></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyftpdlib.servers.MultiprocessFTPServer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyftpdlib.servers.</span></span><span class="sig-name descname"><span class="pre">MultiprocessFTPServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address_or_socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ioloop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyftpdlib.servers.MultiprocessFTPServer" title="Link to this definition"></a></dt>
+<dd><p>A modified version of base <a class="reference internal" href="#pyftpdlib.servers.FTPServer" title="pyftpdlib.servers.FTPServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyftpdlib.servers.FTPServer</span></code></a> class which
+spawns a process every time a new connection is established. Differently from
+base FTPServer class, the handler will be free to block without hanging the
+whole IO loop. See <a class="reference internal" href="tutorial.html#changing-the-concurrency-model"><span class="std std-ref">Changing the concurrency model</span></a>.</p>
+<p><em>New in version 1.0.0</em></p>
+<p><em>Changed in 1.2.0: added ioloop parameter; address can also be a pre-existing socket.</em></p>
+<p><em>Availability: POSIX</em></p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cli.html" class="btn btn-neutral float-left" title="Command line usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="faqs.html" class="btn btn-neutral float-right" title="FAQs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2007, Giampaolo Rodola.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

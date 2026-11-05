@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "invariant",
+  "fallbacks": [],
+  "reviewStatus": "standards-reviewed",
+  "provenance": [
+    {
+      "id": "project-authored-address",
+      "source": "Original project-authored invariant fictional address data",
+      "sourceVersion": "2026-08-14",
+      "license": "project-license",
+      "reviewer": "repository-data-review-2026-08-14"
+    }
+  ],
+  "fields": [
+    {
+      "name": "address.catalog",
+      "provenance": "project-authored-address",
+      "value": {
+        "components": {
+          "buildingNumberMasks": [
+            {"value": "###", "weight": 2},
+            {"value": "####", "weight": 1}
+          ],
+          "streetNames": [
+            {"value": "Example", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Sample", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Reference", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Demonstration", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Prototype", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Fixture", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Willow", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Cedar", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Harbor", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Meadow", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Summit", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Orchard", "weight": 1, "safetyMode": "syntheticPlausible"}
+          ],
+          "streetTypes": [
+            {"name": "Avenue", "abbreviation": "Ave.", "weight": 1},
+            {"name": "Street", "abbreviation": "St.", "weight": 1},
+            {"name": "Road", "abbreviation": "Rd.", "weight": 1},
+            {"name": "Boulevard", "abbreviation": "Blvd.", "weight": 1},
+            {"name": "Lane", "abbreviation": "Ln.", "weight": 1},
+            {"name": "Court", "abbreviation": "Ct.", "weight": 1}
+          ],
+          "unitTypes": [
+            {"name": "Apartment", "abbreviation": "Apt.", "weight": 1},
+            {"name": "Suite", "abbreviation": "Ste.", "weight": 1},
+            {"name": "Unit", "abbreviation": "Unit", "weight": 1}
+          ],
+          "unitMasks": [
+            {"value": "###", "weight": 2},
+            {"value": "??", "weight": 1}
+          ],
+          "poBoxMasks": [
+            {"value": "#####", "weight": 1}
+          ],
+          "poBoxLabel": "PO Box",
+          "districts": [
+            {"value": "Example District", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Sample Quarter", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Reference Ward", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Riverside", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Old Quarter", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "West End", "weight": 1, "safetyMode": "syntheticPlausible"}
+          ],
+          "cities": [
+            {"value": "Example City", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Sample City", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Demo City", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Alderbrook", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Bellhaven", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Calder Vale", "weight": 1, "safetyMode": "syntheticPlausible"}
+          ],
+          "counties": [
+            {"value": "Example County", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Sample County", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Reference County", "weight": 1, "safetyMode": "reserved"},
+            {"value": "Greenfield County", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Stonebridge County", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "Lakeshore County", "weight": 1, "safetyMode": "syntheticPlausible"}
+          ],
+          "subdivisions": [
+            {"name": "North Region", "abbreviation": "NR", "code": "XA-NR", "countryCode": "XA", "weight": 1, "safetyMode": "reserved"},
+            {"name": "Central Region", "abbreviation": "CR", "code": "XB-CR", "countryCode": "XB", "weight": 1, "safetyMode": "reserved"},
+            {"name": "South Region", "abbreviation": "SR", "code": "XC-SR", "countryCode": "XC", "weight": 1, "safetyMode": "reserved"},
+            {"name": "Alder State", "abbreviation": "AS", "code": "XD-AS", "countryCode": "XD", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"name": "Bell Province", "abbreviation": "BP", "code": "XE-BP", "countryCode": "XE", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"name": "Calder Territory", "abbreviation": "CT", "code": "XF-CT", "countryCode": "XF", "weight": 1, "safetyMode": "syntheticPlausible"}
+          ],
+          "postalMasks": [
+            {"value": "EX-####", "weight": 1, "safetyMode": "reserved"},
+            {"value": "SA-##??", "weight": 1, "safetyMode": "reserved"},
+            {"value": "DM-####", "weight": 1, "safetyMode": "reserved"},
+            {"value": "AL-####", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "BE-##??", "weight": 1, "safetyMode": "syntheticPlausible"},
+            {"value": "CA-####", "weight": 1, "safetyMode": "syntheticPlausible"}
+          ],
+          "countries": [
+            {
+              "name": "Exampleland",
+              "abbreviation": "Ex.",
+              "alpha2Code": "XA",
+              "alpha3Code": "XAA",
+              "numericCode": "900",
+              "language": "Example Language",
+              "languageCode": "qaa",
+              "currency": "Example Currency",
+              "currencyCode": "XCA",
+              "callingCode": "+990",
+              "timeZoneId": "America/Los_Angeles",
+              "postalMasks": [{"value": "EX-####", "weight": 1}],
+              "bounds": {
+                "southLatitude": 30,
+                "westLongitude": -125,
+                "northLatitude": 49,
+                "eastLongitude": -114
+              },
+              "weight": 1,
+              "safetyMode": "reserved"
+            },
+            {
+              "name": "Samplestan",
+              "abbreviation": "Sm.",
+              "alpha2Code": "XB",
+              "alpha3Code": "XBB",
+              "numericCode": "901",
+              "language": "Sample Language",
+              "languageCode": "qab",
+              "currency": "Sample Currency",
+              "currencyCode": "XCB",
+              "callingCode": "+991",
+              "timeZoneId": "America/New_York",
+              "postalMasks": [{"value": "SA-##??", "weight": 1}],
+              "bounds": {
+                "southLatitude": 24,
+                "westLongitude": -82,
+                "northLatitude": 49,
+                "eastLongitude": -66
+              },
+              "weight": 1,
+              "safetyMode": "reserved"
+            },
+            {
+              "name": "Demovia",
+              "abbreviation": "Dm.",
+              "alpha2Code": "XC",
+              "alpha3Code": "XCC",
+              "numericCode": "902",
+              "language": "Demo Language",
+              "languageCode": "qac",
+              "currency": "Demo Currency",
+              "currencyCode": "XCC",
+              "callingCode": "+999",
+              "timeZoneId": "Europe/London",
+              "postalMasks": [{"value": "DM-####", "weight": 1}],
+              "bounds": {
+                "southLatitude": 49,
+                "westLongitude": -8,
+                "northLatitude": 59,
+                "eastLongitude": 2
+              },
+              "weight": 1,
+              "safetyMode": "reserved"
+            },
+            {
+              "name": "Alderland",
+              "abbreviation": "Ald.",
+              "alpha2Code": "XD",
+              "alpha3Code": "XDD",
+              "numericCode": "903",
+              "language": "Alderian",
+              "languageCode": "qad",
+              "currency": "Alder Crown",
+              "currencyCode": "XCD",
+              "callingCode": "+992",
+              "timeZoneId": "America/Denver",
+              "postalMasks": [{"value": "AL-####", "weight": 1}],
+              "bounds": {
+                "southLatitude": 31,
+                "westLongitude": -114,
+                "northLatitude": 49,
+                "eastLongitude": -102
+              },
+              "weight": 1,
+              "safetyMode": "syntheticPlausible"
+            },
+            {
+              "name": "Bellweather",
+              "abbreviation": "Bel.",
+              "alpha2Code": "XE",
+              "alpha3Code": "XEE",
+              "numericCode": "904",
+              "language": "Bellish",
+              "languageCode": "qae",
+              "currency": "Bell Mark",
+              "currencyCode": "XCE",
+              "callingCode": "+993",
+              "timeZoneId": "Europe/Paris",
+              "postalMasks": [{"value": "BE-##??", "weight": 1}],
+              "bounds": {
+                "southLatitude": 42,
+                "westLongitude": -5,
+                "northLatitude": 51,
+                "eastLongitude": 9
+              },
+              "weight": 1,
+              "safetyMode": "syntheticPlausible"
+            },
+            {
+              "name": "Calderia",
+              "abbreviation": "Cal.",
+              "alpha2Code": "XF",
+              "alpha3Code": "XFF",
+              "numericCode": "905",
+              "language": "Calderan",
+              "languageCode": "qaf",
+              "currency": "Calder Florin",
+              "currencyCode": "XCF",
+              "callingCode": "+994",
+              "timeZoneId": "Australia/Sydney",
+              "postalMasks": [{"value": "CA-####", "weight": 1}],
+              "bounds": {
+                "southLatitude": -39,
+                "westLongitude": 140,
+                "northLatitude": -28,
+                "eastLongitude": 154
+              },
+              "weight": 1,
+              "safetyMode": "syntheticPlausible"
+            }
+          ]
+        },
+        "templates": [
+          {
+            "id": "street",
+            "weight": 3,
+            "lines": [
+              {"value": "{buildingNumber} {streetName} {streetType}", "optional": false},
+              {"value": "{unitType} {unit}", "optional": true},
+              {"value": "{district}", "optional": true},
+              {"value": "{city}, {subdivision} {postalCode}", "optional": false},
+              {"value": "{country}", "optional": false}
+            ],
+            "singleLineSeparator": ", ",
+            "singleLineParts": [
+              {"value": "{buildingNumber} {streetName} {streetType}", "optional": false},
+              {"value": "{unitType} {unit}", "optional": true},
+              {"value": "{district}", "optional": true},
+              {"value": "{city}, {subdivision} {postalCode}", "optional": false},
+              {"value": "{country}", "optional": false}
+            ]
+          },
+          {
+            "id": "post-office-box",
+            "weight": 1,
+            "lines": [
+              {"value": "PO Box {poBox}", "optional": false},
+              {"value": "{district}", "optional": true},
+              {"value": "{city}, {subdivision} {postalCode}", "optional": false},
+              {"value": "{country}", "optional": false}
+            ],
+            "singleLineSeparator": ", ",
+            "singleLineParts": [
+              {"value": "PO Box {poBox}", "optional": false},
+              {"value": "{district}", "optional": true},
+              {"value": "{city}, {subdivision} {postalCode}", "optional": false},
+              {"value": "{country}", "optional": false}
+            ]
+          }
+        ],
+        "formatStyles": [
+          {
+            "id": "full",
+            "streetType": "name",
+            "unitType": "name",
+            "subdivision": "name",
+            "country": "name",
+            "weight": 1
+          },
+          {
+            "id": "abbreviated",
+            "streetType": "abbreviation",
+            "unitType": "abbreviation",
+            "subdivision": "abbreviation",
+            "country": "abbreviation",
+            "weight": 1
+          }
+        ]
+      }
+    }
+  ]
+}

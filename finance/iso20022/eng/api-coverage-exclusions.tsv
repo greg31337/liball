@@ -1,0 +1,624 @@
+# Exact reviewed exclusions for runtime/platform paths that cannot be exercised deterministically.
+# path<TAB>first-line<TAB>last-line<TAB>kind<TAB>reason
+src/Api/Classes/CodeSetProvider.cs	257	258	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/CodeSetProvider.cs	320	321	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/FileArtifactStore.cs	89	89	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	110	112	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	118	121	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	181	185	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	194	199	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	205	210	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	215	218	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	257	259	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	345	347	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	408	409	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	482	483	line	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/MessageBuilder.cs	59	60	line	runtime: post-validation cancellation and writer invariant failures are not synchronously inducible
+src/Api/Classes/MessageBuilder.cs	70	74	line	runtime: post-validation cancellation and writer invariant failures are not synchronously inducible
+src/Api/Classes/MessageJsonConverter.cs	175	176	line	runtime: generated XML is valid before the defensive readback failure check
+src/Api/Classes/MessageProcessor.cs	65	67	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	220	221	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	236	237	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	246	253	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	257	258	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	271	272	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	288	289	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	298	301	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	303	305	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	323	325	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	327	329	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	337	338	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	369	370	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	376	378	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	397	398	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	419	420	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	423	424	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	435	437	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	449	450	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	453	455	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	460	462	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	479	481	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	489	492	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	496	509	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	511	513	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	520	522	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	527	529	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	544	545	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	548	549	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	567	570	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	573	576	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	594	597	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	619	622	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	781	782	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	801	803	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	49	50	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	72	73	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	78	79	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	122	124	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	136	138	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	156	158	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	186	188	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	191	193	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	197	199	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	206	208	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	232	234	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	237	240	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	242	245	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	247	254	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	256	263	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	265	267	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	273	275	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	279	281	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	301	302	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	316	319	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	331	333	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	337	339	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	349	351	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	358	360	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	416	418	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	471	471	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	539	539	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	749	751	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	763	764	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	768	770	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	783	785	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	793	794	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	798	800	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	904	905	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	938	940	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	969	970	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	995	997	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	1001	1002	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	1015	1022	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	1038	1038	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	115	117	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	177	183	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	185	185	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	188	192	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	210	212	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	237	240	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	246	247	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	253	256	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	273	275	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	286	290	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	298	301	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	324	328	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	331	335	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	338	343	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	351	352	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	384	385	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	400	402	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	433	434	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	476	477	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	495	496	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	504	505	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	516	517	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	538	539	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	615	618	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	623	626	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	670	671	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	692	695	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	726	727	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	850	850	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	904	905	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	936	938	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	954	955	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	98	101	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	114	117	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	122	125	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	132	135	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	206	210	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	215	217	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	256	259	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	306	308	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	324	325	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	333	335	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	355	366	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	368	375	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	377	378	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	390	394	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	409	412	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	415	420	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	437	438	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	480	481	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	503	504	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	533	534	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	555	556	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	571	572	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	576	579	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	617	618	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	631	631	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	208	213	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	218	223	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	378	383	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	390	395	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	402	407	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	448	460	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	470	479	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	506	515	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	559	560	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	581	588	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	601	606	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	688	701	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	736	741	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	745	750	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	758	763	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	767	772	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	775	780	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	842	847	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	850	855	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	862	867	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	871	873	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	875	880	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	916	942	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1016	1016	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1026	1031	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1036	1041	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1073	1074	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1082	1083	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1230	1235	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1249	1250	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1276	1281	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1305	1307	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1320	1322	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1324	1326	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1372	1374	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1446	1447	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1470	1475	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1477	1477	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1498	1499	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SchemaRegistry.cs	76	79	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	281	293	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	325	329	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	333	337	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	362	373	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	376	378	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	400	403	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	437	438	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	443	444	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	450	453	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	465	468	line	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SupplementaryDataValidator.cs	135	136	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	233	234	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	293	298	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	377	388	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	425	436	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	539	551	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	559	567	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	598	600	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	635	641	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	645	653	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	659	661	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	706	713	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	718	721	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	780	781	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	885	890	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	916	927	line	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/XmlMessageSigner.cs	113	117	line	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	131	135	line	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	258	260	line	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	274	276	line	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	279	281	line	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	510	512	line	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	641	655	line	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlSignatureValidator.cs	58	59	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	86	90	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	154	159	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	207	215	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	224	233	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	255	262	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	264	273	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	291	292	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	306	314	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	318	327	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	330	339	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	342	351	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	367	375	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	409	416	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	439	446	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	492	499	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	530	531	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	536	537	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	547	548	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	558	559	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	584	585	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	596	597	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	698	700	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	727	729	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	746	753	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	755	759	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	771	773	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	782	784	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	802	803	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	807	808	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	813	814	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	817	818	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	833	835	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	861	863	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	870	877	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	879	881	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	883	886	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	909	920	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1148	1149	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1239	1244	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1264	1271	line	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/CodeSetProvider.cs	249	249	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/CodeSetProvider.cs	312	312	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/CodeSetProvider.cs	407	407	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/CodeSetProvider.cs	428	428	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/CodeSetProvider.cs	646	646	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/CodeSetProvider.cs	651	651	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/CodeSetProvider.cs	659	659	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/FileArtifactStore.cs	73	73	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	109	109	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	117	117	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	180	180	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	193	193	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	204	204	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	214	214	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	256	256	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	344	344	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	407	407	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	431	431	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	468	468	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/FileArtifactStore.cs	481	481	branch	runtime: timing-dependent cancellation and filesystem failure paths cannot be induced portably
+src/Api/Classes/MessageBuilder.cs	58	58	branch	runtime: post-validation cancellation and writer invariant failures are not synchronously inducible
+src/Api/Classes/MessageBuilder.cs	69	69	branch	runtime: post-validation cancellation and writer invariant failures are not synchronously inducible
+src/Api/Classes/MessageBuilder.cs	98	98	branch	runtime: post-validation cancellation and writer invariant failures are not synchronously inducible
+src/Api/Classes/MessageBuilder.cs	107	107	branch	runtime: post-validation cancellation and writer invariant failures are not synchronously inducible
+src/Api/Classes/MessageBuilder.cs	282	282	branch	runtime: post-validation cancellation and writer invariant failures are not synchronously inducible
+src/Api/Classes/MessageBuilder.cs	303	303	branch	runtime: post-validation cancellation and writer invariant failures are not synchronously inducible
+src/Api/Classes/MessageChecksum.cs	27	27	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageChecksum.cs	195	195	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageChecksum.cs	200	200	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageChecksum.cs	463	463	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageChecksum.cs	678	678	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageJsonConverter.cs	103	103	branch	runtime: generated XML is valid before the defensive readback failure check
+src/Api/Classes/MessageJsonConverter.cs	108	108	branch	runtime: generated XML is valid before the defensive readback failure check
+src/Api/Classes/MessageJsonConverter.cs	110	110	branch	runtime: generated XML is valid before the defensive readback failure check
+src/Api/Classes/MessageJsonConverter.cs	174	174	branch	runtime: generated XML is valid before the defensive readback failure check
+src/Api/Classes/MessageJsonConverter.cs	490	490	branch	runtime: generated XML is valid before the defensive readback failure check
+src/Api/Classes/MessageJsonConverter.cs	502	502	branch	runtime: generated XML is valid before the defensive readback failure check
+src/Api/Classes/MessageJsonConverter.cs	565	565	branch	runtime: generated XML is valid before the defensive readback failure check
+src/Api/Classes/MessageProcessor.cs	60	60	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	219	219	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	235	235	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	245	245	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	256	256	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	270	270	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	286	286	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	294	294	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	317	317	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	322	322	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	326	326	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	336	336	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	368	368	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	375	375	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	396	396	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	418	418	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	422	422	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	434	434	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	448	448	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	452	452	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	459	459	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	478	478	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	488	488	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	495	495	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	519	519	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	526	526	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	542	542	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	547	547	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	566	566	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	572	572	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	593	593	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	618	618	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	662	662	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	663	663	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	683	683	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	780	780	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	786	786	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	790	790	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	799	799	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	876	876	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProcessor.cs	877	877	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	48	48	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	71	71	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	77	77	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	121	121	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	135	135	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	155	155	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	185	185	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	190	190	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	196	196	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	205	205	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	231	231	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	236	236	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	241	241	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	246	246	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	255	255	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	264	264	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	272	272	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	277	277	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	300	300	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	315	315	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	330	330	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	336	336	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	345	345	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	355	355	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	415	415	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	420	420	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	429	429	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	452	452	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	520	520	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	748	748	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	762	762	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	767	767	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	782	782	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	792	792	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	797	797	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	826	826	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	883	883	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	903	903	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	919	919	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	931	931	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	933	933	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	955	955	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	968	968	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	993	993	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	1000	1000	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	1014	1014	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageProjector.cs	1030	1030	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	114	114	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	176	176	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	187	187	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	209	209	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	236	236	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	245	245	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	252	252	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	267	267	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	285	285	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	297	297	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	318	318	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	350	350	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	383	383	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	395	395	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	432	432	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	475	475	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	494	494	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	502	502	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	515	515	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	523	523	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	537	537	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	549	549	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	555	555	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	614	614	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	622	622	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	643	643	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	669	669	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	691	691	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	725	725	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	863	863	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	879	879	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	895	895	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	903	903	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	935	935	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamReader.cs	953	953	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	97	97	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	111	111	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	121	121	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	130	130	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	205	205	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	214	214	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	255	255	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	305	305	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	323	323	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	332	332	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	348	348	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	354	354	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	389	389	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	398	398	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	414	414	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	436	436	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	443	443	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	479	479	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	502	502	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	532	532	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	554	554	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	570	570	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	575	575	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	604	604	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	615	615	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	626	626	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	636	636	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	645	645	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	677	677	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageStreamWriter.cs	744	744	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	206	206	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	216	216	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	373	373	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	377	377	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	389	389	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	401	401	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	469	469	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	505	505	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	553	553	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	558	558	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	573	573	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	600	600	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	685	685	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	735	735	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	744	744	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	757	757	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	766	766	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	774	774	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	841	841	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	849	849	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	861	861	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	870	870	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	874	874	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	909	909	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	911	911	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	955	955	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	991	991	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1012	1012	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1024	1024	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1033	1033	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1072	1072	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1081	1081	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1105	1105	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1111	1111	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1132	1132	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1146	1146	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1169	1169	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1229	1229	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1248	1248	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1275	1275	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1304	1304	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1308	1308	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1316	1316	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1319	1319	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1323	1323	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1328	1328	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1333	1333	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1338	1338	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1371	1371	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1438	1438	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1443	1443	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1462	1462	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1468	1468	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1484	1484	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MessageValidator.cs	1497	1497	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MetadataExtractor.cs	124	124	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MetadataExtractor.cs	164	164	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MetadataExtractor.cs	672	672	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/MetadataExtractor.cs	697	697	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SchemaRegistry.cs	75	75	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	120	120	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	121	121	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	163	163	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	188	188	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	189	189	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	217	217	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	218	218	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	266	266	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	278	278	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	324	324	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	332	332	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	361	361	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	399	399	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	436	436	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	442	442	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	447	447	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SchemaRegistry.cs	456	456	branch	runtime: schema engine diagnostics and closure failures depend on runtime resolver behavior
+src/Api/Classes/SupplementaryDataValidator.cs	134	134	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	225	225	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	292	292	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	305	305	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	376	376	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	424	424	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	538	538	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	558	558	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	597	597	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	633	633	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	643	643	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	658	658	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	701	701	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	716	716	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	779	779	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	883	883	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/SupplementaryDataValidator.cs	915	915	branch	runtime: defensive failure path is unreachable after validated public input establishes its invariant
+src/Api/Classes/XmlMessageSigner.cs	26	26	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	112	112	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	130	130	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	257	257	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	272	272	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	278	278	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	374	374	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	391	391	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	394	394	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	501	501	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	505	505	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	594	594	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	622	622	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlMessageSigner.cs	637	637	branch	platform: cryptographic provider failure branches vary by installed platform provider
+src/Api/Classes/XmlSignatureValidator.cs	27	27	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	52	52	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	57	57	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	79	79	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	81	81	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	93	93	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	145	145	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	153	153	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	169	169	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	206	206	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	222	222	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	240	240	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	253	253	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	278	278	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	290	290	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	305	305	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	317	317	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	329	329	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	341	341	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	366	366	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	402	402	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	408	408	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	424	424	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	438	438	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	455	455	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	491	491	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	502	502	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	529	529	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	535	535	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	546	546	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	551	551	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	563	563	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	582	582	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	595	595	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	600	600	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	670	670	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	676	676	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	691	691	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	694	694	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	718	718	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	725	725	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	737	737	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	741	741	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	770	770	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	779	779	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	801	801	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	806	806	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	812	812	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	816	816	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	831	831	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	844	844	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	860	860	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	866	866	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	901	901	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1028	1028	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1047	1047	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1096	1096	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1143	1143	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1194	1194	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XmlSignatureValidator.cs	1237	1237	branch	platform: certificate-chain and cryptographic provider failures vary by platform
+src/Api/Classes/XsdValidator.cs	262	262	branch	runtime: XML schema callbacks and compiler-generated short-circuit paths are runtime dependent

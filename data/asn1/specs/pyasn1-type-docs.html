@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Library documentation &#8212; ASN.1 types and codecs 0.5.0.dev1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="canonical" href="https://pyasn1.readthedocs.io/en/latest/pyasn1/contents.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ASN.1 type system" href="type/base/contents.html" />
+    <link rel="prev" title="ASN.1 library for Python" href="../contents.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+<!-- RTD Extra Head -->
+
+
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2022-07-13T21:28:01Z", "builder": "sphinx", "canonical_url": null, "commit": "3409ea1f", "docroot": "/docs/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "pyasn1/contents", "programming_language": "py", "project": "pyasn1", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "alabaster", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+
+
+<!-- end RTD <extrahead> -->
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyasn1" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/pyasn1/contents.html" /><meta name="readthedocs-http-status" content="200" /></head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../contents.html">
+    <img class="logo" src="../_static/logo.svg" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb"><p align=left><i><b>Brewing free software for the greater good</i></b></p></p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=etingof&repo=pyasn1&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Library documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asn-1-types">ASN.1 types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialisation-codecs">Serialisation codecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example-use-case.html">Example use case</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download &amp; Install</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../contents.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../contents.html" title="previous chapter">ASN.1 library for Python</a></li>
+      <li>Next: <a href="type/base/contents.html" title="next chapter">ASN.1 type system</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="library-documentation">
+<span id="pyasn1-library"></span><h1>Library documentation<a class="headerlink" href="#library-documentation" title="Permalink to this heading">¶</a></h1>
+<p>As of this moment, pyasn1 library implements all ASN.1 data
+types as Python objects in accordance with X.208 standard. Later,
+post-1995, revision (X.680) introduced some changes to the schema
+language which may not be fully supported by pyasn1. Aside from data
+types a collection of data transformation codecs comes with the
+pyasn1 package.</p>
+<p>As for ASN.1 schema language, pyasn1 package does
+not ship any compiler for it. However, there’s a tool called
+<a class="reference external" href="https://github.com/kimgr/asn1ate">asn1late</a> which is an ASN.1
+grammar parser paired to code generator capable of generating pyasn1
+code. So this is an alternative (or at least a good start) to manual
+implementation of pyasn1 classes from ASN.1 specification.</p>
+<p>Both <a class="reference external" href="https://github.com/pyasn1/pyasn1">pyasn1</a> and
+<a class="reference external" href="https://github.com/pyasn1/pyasn1-modules">pyasn1-modules</a> libraries
+can be used out-of-the-box with Python versions 2.7 and 3.4+.
+No external dependencies required.</p>
+<section id="asn-1-types">
+<span id="pyasn1-types"></span><h2>ASN.1 types<a class="headerlink" href="#asn-1-types" title="Permalink to this heading">¶</a></h2>
+<p>The ASN.1 data description
+<a class="reference external" href="https://www.itu.int/rec/dologin_pub.asp?lang=e&amp;id=T-REC-X.208-198811-W!!PDF-E&amp;type=items">language</a>
+defines a handful of built-in data types. ASN.1 types exhibit different
+semantics (e.g. number vs string) and can be distinguished from each other by
+<a class="reference internal" href="type/tag/contents.html#type-tag"><span class="std std-ref">tags</span></a>.</p>
+<p>Subtypes can be created on top of base ASN.1 types by adding/overriding the
+<a class="reference internal" href="type/tag/contents.html#type-tag"><span class="std std-ref">tags</span></a> and/or imposing additional
+<a class="reference internal" href="type/constraint/contents.html#type-constraint"><span class="std std-ref">constraints</span></a> on accepted values.</p>
+<p>ASN.1 types in pyasn1 are Python objects. One or more ASN.1 types
+comprise a <em>schema</em> describing data structures of unbounded complexity.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RSAPublicKey</span><span class="p">(</span><span class="n">Sequence</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ASN.1 specification:</span>
+
+<span class="sd">    RSAPublicKey ::= SEQUENCE {</span>
+<span class="sd">        modulus           INTEGER,  -- n</span>
+<span class="sd">        publicExponent    INTEGER   -- e</span>
+<span class="sd">    }</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">componentType</span> <span class="o">=</span> <span class="n">NamedTypes</span><span class="p">(</span>
+        <span class="n">NamedType</span><span class="p">(</span><span class="s1">&#39;modulus&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">()),</span>
+        <span class="n">NamedType</span><span class="p">(</span><span class="s1">&#39;publicExponent&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">())</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>ASN.1 schema can be “instantiated” by essentially putting some concrete value
+into the type container. Such instantiated schema object can still be
+used as a schema, but additionally it can play a role of a value in the
+context of any applicable operator (e.g. arithmetic etc.).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">RSAPublicKey</span><span class="p">()</span>
+
+<span class="c1"># ASN.1 SEQUENCE type quacks like Python dict</span>
+<span class="n">rsaPublicKey</span><span class="p">[</span><span class="s1">&#39;modulus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">280789907761334970323210643584308373</span>
+<span class="n">rsaPublicKey</span><span class="p">[</span><span class="s1">&#39;publicExponent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">65537</span>
+</pre></div>
+</div>
+<p>Main use of ASN.1 schemas is to guide data transformation. Instantiated
+ASN.1 schemas carry concrete data to/from data transformation services.</p>
+<p id="isvalue">To tell instantiated schema object from just a schema, the <em>.isValue</em>
+property can come in handy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">schema</span> <span class="o">=</span> <span class="n">RSAPublicKey</span><span class="p">()</span>
+
+<span class="c1"># non-instantiated schema</span>
+<span class="k">assert</span> <span class="n">schema</span><span class="o">.</span><span class="n">isValue</span> <span class="o">==</span> <span class="kc">False</span>
+
+<span class="n">rsaPublicKey</span><span class="p">[</span><span class="s1">&#39;modulus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">280789907761334970323210643584308373</span>
+
+<span class="c1"># partially instantiated schema</span>
+<span class="k">assert</span> <span class="n">schema</span><span class="p">[</span><span class="s1">&#39;modulus&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isValue</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">schema</span><span class="o">.</span><span class="n">isValue</span> <span class="o">==</span> <span class="kc">False</span>
+
+<span class="n">rsaPublicKey</span><span class="p">[</span><span class="s1">&#39;publicExponent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">65537</span>
+
+<span class="c1"># fully instantiated schema</span>
+<span class="k">assert</span> <span class="n">schema</span><span class="o">.</span><span class="n">isValue</span> <span class="o">==</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Copies of existing ASN.1 types can be created with <em>.clone()</em> method.
+All the existing properties of the prototype ASN.1 object get copied
+over the new type unless the replacements are given. Main use-case
+for <em>.clone()</em> is to instantiate a schema.</p>
+<div class="highlight-python notranslate" id="clone"><div class="highlight"><pre><span></span><span class="n">instantiated_schema_A</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># ASN.1 INTEGER type quacks like Python int</span>
+<span class="k">assert</span> <span class="n">instantiated_schema_A</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="n">instantiated_schema_B</span> <span class="o">=</span> <span class="n">instantiated_schema_A</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">instantiated_schema_B</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p id="subtype">New ASN.1 types can be created on top of existing ASN.1 types with
+the <em>subtype()</em> method. Desired properties of the new type get
+merged with the corresponding properties of the old type. Main use-case
+for <em>.subtype()</em> is to assemble new ASN.1 types by <a class="reference internal" href="type/tag/contents.html#type-tag"><span class="std std-ref">tagging</span></a>
+or applying additional <a class="reference internal" href="type/constraint/contents.html#type-constraint"><span class="std std-ref">constraints</span></a> to accepted
+type’s values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parent_type_schema</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+<span class="n">child_type_schema</span> <span class="o">=</span> <span class="n">parent_type_schema</span><span class="o">.</span><span class="n">subtype</span><span class="p">(</span>
+    <span class="n">explicitTag</span><span class="o">=</span><span class="n">Tag</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">tagClassApplication</span><span class="p">,</span> <span class="n">tag</span><span class="o">.</span><span class="n">tagFormatSimple</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># test ASN.1 type relationships</span>
+<span class="k">assert</span> <span class="n">child_type_schema</span><span class="o">.</span><span class="n">isSubtypeOf</span><span class="p">(</span><span class="n">parent_type_schema</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">child_type_schema</span><span class="o">.</span><span class="n">isSameTypeWith</span><span class="p">(</span><span class="n">parent_type_schema</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="type/base/contents.html">ASN.1 type system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/base/asn1type.html">Asn1Type type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/base/simpleasn1type.html">SimpleAsn1Type type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/base/constructedasn1type.html">ConstructedAsn1Type type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/base/novalue.html">NoValue sentinel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type/univ/contents.html">Universal types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/integer.html">Integer type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/boolean.html">Boolean type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/bitstring.html">BitString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/octetstring.html">OctetString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/null.html">Null type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/objectidentifier.html">ObjectIdentifier type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/real.html">Real type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/enumerated.html">Enumerated type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/any.html">Any type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/setof.html">SetOf type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/sequenceof.html">SequenceOf type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/set.html">Set type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/sequence.html">Sequence type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/univ/choice.html">Choice type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type/char/contents.html">Character types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/char/numericstring.html">NumericString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/printablestring.html">PrintableString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/teletexstring.html">TeletexString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/t61string.html">T61String type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/videotexstring.html">VideotexString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/ia5string.html">IA5String type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/graphicstring.html">GraphicString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/visiblestring.html">VisibleString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/iso646string.html">ISO646String type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/generalstring.html">GeneralString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/universalstring.html">UniversalString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/bmpstring.html">BMPString type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/char/utf8string.html">UTF8String type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type/useful/contents.html">Useful types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/useful/objectdescriptor.html">ObjectDescriptor type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/useful/generalizedtime.html">GeneralizedTime type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/useful/utctime.html">UTCTime type</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="asn-1-type-harness">
+<h3>ASN.1 type harness<a class="headerlink" href="#asn-1-type-harness" title="Permalink to this heading">¶</a></h3>
+<p>The identification and behaviour of ASN.1 types is determined by
+<a class="reference internal" href="type/tag/contents.html#type-tag"><span class="std std-ref">tags</span></a> and <a class="reference internal" href="type/constraint/contents.html#type-constraint"><span class="std std-ref">constraints</span></a>.
+The inner structure of <em>constructed</em> ASN.1 types is defined by
+its <a class="reference internal" href="type/namedtype/contents.html#type-namedtype"><span class="std std-ref">fields</span></a> specification.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="type/tag/contents.html">Tags</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/tag/tag.html">Solitary tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/tag/tagset.html">Tag set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/tag/tagmap.html">Tag-&gt;type map</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type/constraint/contents.html">Constraints</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/constraint/singlevalue.html">Single value constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/constraint/containedsubtype.html">Contained subtype constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/constraint/valuerange.html">Value range constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/constraint/valuesize.html">Value size constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/constraint/permittedalphabet.html">Permitted alphabet constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/constraint/withcomponents.html">WITH COMPONENTS constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/constraint/contents.html#logic-operations-on-constraints">Logic operations on constraints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type/namedtype/contents.html">Fields of constructed types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/namedtype/namedtype.html">NamedType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/namedtype/optionalnamedtype.html">OptionalNamedType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/namedtype/defaultednamedtype.html">DefaultedNamedType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type/namedtype/namedtypes.html">NamedTypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type/opentype/contents.html">Dynamic or open type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/opentype/opentype.html">OpenType</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="type/namedval/contents.html">Enumerating numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="type/namedval/namedval.html">NamedValues</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="serialisation-codecs">
+<span id="pyasn1-codecs"></span><h2>Serialisation codecs<a class="headerlink" href="#serialisation-codecs" title="Permalink to this heading">¶</a></h2>
+<p>Common use-case for pyasn1 is to instantiate ASN.1 schema with
+user-supplied values and pass instantiated schema to the encoder.
+The encoder will then turn the data structure into serialised form
+(stream of bytes) suitable for storing into a file or sending over
+the network.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">instantiated_schema</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="n">serialised</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">instantiated_schema</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, value and schema can be passed separately:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+<span class="n">serialised</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">asn1Spec</span><span class="o">=</span><span class="n">schema</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At the receiving end, a decoder would be invoked and given the
+serialised data as received from the network along with the ASN.1
+schema describing the layout of the data structures. The outcome
+would be an instance of ASN.1 schema filled with values as supplied
+by the sender.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">serialised</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x01\x01\x01</span><span class="s1">&#39;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">()</span>
+
+<span class="n">value</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">decode</span><span class="p">(</span><span class="n">serialised</span><span class="p">,</span> <span class="n">asn1Spec</span><span class="o">=</span><span class="n">schema</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Many distinct serialisation protocols exist for ASN.1, some are
+implemented in pyasn1.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="codec/ber/contents.html">Basic Encoding Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codec/cer/contents.html">Canonical Encoding Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codec/der/contents.html">Distinguished Encoding Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codec/native/contents.html">Native Python types</a></li>
+</ul>
+</div>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading">¶</a></h2>
+<p>Operations on PyASN1 schema and value objects might cause errors. These
+errors are manifested to the caller in form of Python exceptions.</p>
+<p>The exception hierarchy is as follows (ordered from least specific).</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="error/contents.html">PyAsn1Error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error/contents.html#valueconstrainterror">ValueConstraintError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error/contents.html#substrateunderrunerror">SubstrateUnderrunError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error/contents.html#pyasn1unicodeerror">PyAsn1UnicodeError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error/contents.html#pyasn1unicodedecodeerror">PyAsn1UnicodeDecodeError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error/contents.html#pyasn1unicodeencodeerror">PyAsn1UnicodeEncodeError</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2005-2020, Ilya Etingof <etingof@gmail.com>.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<svg width="232" height="232" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<path style="fill:#ffffff;fill-opacity:1;stroke:none" id="path0" d="M 24 24 L 208 24 L 208 208 L 24 208 z" />
+<path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path1" d="M 48 48 L 48 72 L 72 72 L 72 48 z M 80 40 L 80 80 L 40 80 L 40 40 z M 32 32 L 32 88 L 88 88 L 88 32 z" />
+<path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path2" d="M 160 48 L 160 72 L 184 72 L 184 48 z M 192 40 L 192 80 L 152 80 L 152 40 z M 144 32 L 144 88 L 200 88 L 200 32 z" />
+<path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path3" d="M 48 160 L 48 184 L 72 184 L 72 160 z M 80 152 L 80 192 L 40 192 L 40 152 z M 32 144 L 32 200 L 88 200 L 88 144 z" />
+<path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path4" d="M 192 192 L 192 200 L 200 200 L 200 192 z" />
+<path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path5" d="M 96 80 L 96 88 L 104 88 L 104 80 z M 112 80 L 112 88 L 120 88 L 120 80 z M 128 80 L 128 88 L 136 88 L 136 80 z" />
+<path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path6" d="M 80 96 L 80 104 L 88 104 L 88 96 z M 80 112 L 80 120 L 88 120 L 88 112 z M 80 128 L 80 136 L 88 136 L 88 128 z" />
+<path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path7" d="M 96 136 L 96 144 L 104 144 L 104 136 z" />
+<path style="fill:#f00f0f;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path8" d="M 96 144 L 96 200 L 104 200 L 104 144 z" />
+<path style="fill:#f00f0f;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path9" d="M 96 32 L 96 80 L 104 80 L 104 32 z M 32 96 L 32 104 L 80 104 L 80 96 z M 96 88 L 96 96 L 88 96 L 88 104 L 104 104 L 104 88 z" />
+<path style="fill:#f00f0f;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path10" d="M 136 96 L 136 104 L 200 104 L 200 96 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path11" d="M 184 168 L 184 184 L 200 184 L 200 168 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path12" d="M 184 136 L 184 168 L 200 168 L 200 136 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path13" d="M 184 104 L 184 136 L 200 136 L 200 104 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path14" d="M 168 168 L 168 200 L 184 200 L 184 168 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path15" d="M 168 136 L 168 168 L 184 168 L 184 136 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path16" d="M 168 104 L 168 136 L 184 136 L 184 104 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path17" d="M 136 184 L 136 200 L 168 200 L 168 184 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path18" d="M 136 168 L 136 184 L 168 184 L 168 168 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path19" d="M 136 152 L 136 168 L 168 168 L 168 152 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path20" d="M 136 136 L 136 152 L 168 152 L 168 136 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path21" d="M 136 120 L 136 136 L 168 136 L 168 120 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path22" d="M 136 104 L 136 120 L 168 120 L 168 104 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path23" d="M 104 184 L 104 200 L 136 200 L 136 184 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path24" d="M 104 168 L 104 184 L 136 184 L 136 168 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path25" d="M 104 152 L 104 168 L 136 168 L 136 152 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path26" d="M 104 136 L 104 152 L 136 152 L 136 136 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path27" d="M 104 120 L 104 136 L 136 136 L 136 120 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path28" d="M 104 104 L 104 120 L 136 120 L 136 104 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path29" d="M 104 88 L 104 104 L 136 104 L 136 88 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path30" d="M 104 64 L 104 80 L 136 80 L 136 64 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path31" d="M 104 48 L 104 64 L 136 64 L 136 48 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path32" d="M 104 32 L 104 48 L 136 48 L 136 32 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path33" d="M 88 104 L 88 136 L 104 136 L 104 104 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path34" d="M 64 104 L 64 136 L 80 136 L 80 104 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path35" d="M 48 104 L 48 136 L 64 136 L 64 104 z" />
+<path style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:1" id="path36" d="M 32 104 L 32 136 L 48 136 L 48 104 z" />
+</svg>

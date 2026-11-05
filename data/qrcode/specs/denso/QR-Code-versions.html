@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+
+<meta name="description" content="There are 40 versions of the QR Code. Details of these are explained here." />
+<meta name="keywords" content="QRcode,DENSO WAVE,SQRC,LogoQ" />
+
+<title>Information capacity and versions of QR Code | QRcode.com | DENSO WAVE</title>
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/vnd.microsoft.icon">
+
+<script src="/js/jquery-latest.js"></script>
+<script src="../js/fancybox/jquery.fancybox.js"></script>
+<script src="../js/jScrollPane/jquery.mousewheel.min.js"></script><!-- for jScrollPane -->
+<script src="../js/jScrollPane/jScrollPane.js"></script>
+<link rel="stylesheet" type="text/css" href="../js/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="../js/jScrollPane/jScrollPane.css">
+<script type="text/javascript">
+$(function(){
+	$("#header").load("../header.html");
+	$("#footer").load("../footer.html");
+	
+	$("#versionPage1_10").load("./versionPage/versionPage1_10.html");
+	$("#versionPage11_20").load("./versionPage/versionPage11_20.html");
+	$("#versionPage21_30").load("./versionPage/versionPage21_30.html");
+	$("#versionPage31_40").load("./versionPage/versionPage31_40.html");
+	
+	$("#versionPageMixed").load("./versionPage/versionPageMixed.html");
+	
+	// fancybox
+	$(".listCell a").fancybox({
+		
+	});
+	$("#mixedLinkButton a").fancybox({
+		
+	});
+	
+	// scroll Top
+	$("#toTop a").click(function(){
+		$('html,body').animate({ scrollTop: $($(this).attr("href")).offset().top }, 'slow','swing');
+		return false;
+	});
+	
+	// jScrollPane
+	$(".versionPageScrollContents").jScrollPane();
+});
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PWS5SV37');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+	<div id="header"></div>
+	<div id="container">
+		<link rel="stylesheet" type="text/css" href="../css/version.css">
+		<div id="containerContents">
+			<div class="h1BoxLong">
+				<div id="h1BlueLong" class="h1Color"></div>
+				<div id="versionH1Title"><h1>Information capacity and versions of the QR Code</h1></div>
+				<div class="h1SeniorSign">For advanced users</div>
+				<p id="backTop"><a href="./index.html">Back to top page<br />"What is a QR Code?"</a></p>
+			</div>
+			<div id="versionContents">
+				<img id="versionImg" src="../img/version/versionImage.png">
+				<p>
+The symbol versions of QR Code range from Version 1 to Version 40. Each version has a different module configuration or number of modules. (The module refers to the black and white dots that make up QR Code.)<br />
+"Module configuration" refers to the number of modules contained in a symbol, commencing with Version 1 (21 × 21 modules) up to Version 40 (177 × 177 modules). Each higher version number comprises 4 additional modules per side.					<br>
+					<img id="versionVarietyImg" src="../img/version/versionVarietyImage.png">
+					<br>
+					Each QR Code symbol version has the maximum data capacity according to the amount of data, character type and error correction level.　In other words, as the amount of data increases, more modules are required to comprise QR Code, resulting in larger QR Code symbols.
+				</p>
+			</div>
+			<div class="gotoTopButton" id="toTop">
+				<a href="#header"><img src="../img/cEtc/gotoTopButton.png"></a>
+			</div>
+			<div class="h2Box">
+				<div class="h2Blue"></div>
+				<div id="listH2Title"><h2>Version List</h2></div>
+			</div>
+			<div id="listMap">
+				<link rel="stylesheet" href="../css/cVersionPage.css" type="text/css" />
+				<div class="listCell" id="listCell1_10">
+					1-10
+					<a href="#versionPage1_10"></a>
+					<div style="display:none;">
+						<div id="versionPage1_10" class="versionPage"></div>
+					</div>
+				</div>
+				<div class="listCell">
+					11-20
+					<a href="#versionPage11_20" data-fancybox-group="versionGroup"></a>
+					<div style="display:none;">
+						<div id="versionPage11_20" class="versionPage"></div>
+					</div>
+				</div>
+				<div class="listCell">
+					21-30
+					<a href="#versionPage21_30" data-fancybox-group="versionGroup"></a>
+					<div style="display:none;">
+						<div id="versionPage21_30" class="versionPage"></div>
+					</div>
+				</div>
+				<div class="listCell">
+					31-40
+					<a href="#versionPage31_40" data-fancybox-group="versionGroup"></a>
+					<div style="display:none;">
+						<div id="versionPage31_40" class="versionPage"></div>
+					</div>
+				</div>
+			</div>
+			<div class="gotoTopButton" id="toTop">
+				<a href="#header"><img src="../img/cEtc/gotoTopButton.png"></a>
+			</div>
+			<div class="h2Box">
+				<div class="h2Blue"></div>
+				<div id="decisionH2Title"><h2>How to determine the version of QR Code to be used</h2></div>
+			</div>
+			<div id="decisionContents">
+				<p class="contentsText">Suppose the data to be input consists of 100-digit numerals. This can be achieved by following the steps described below:</p>
+				<div id="decisionMap">
+					<p>
+						1. Choose "numeral" as the type of input data.<br />
+						2. Choose a data correction level from the alternatives of L, M, Q and H. (M is assumed here.)<br />
+						3. Find a figure in the table, 100 or over and the closest to 100 that is at the intersection with a correction level M row. The number of the version row that contains this figure is the most appropriate version number. 
+
+					</p>
+					<div id="decisionCell"></div>
+				</div>
+				<p class="contentsText">In this example, Version 3 QR Code (29 x 29 modules) is the most appropriate version.　　Related page:<a href="./error_correction.html"> Error correction feature</a></p>
+				<div id="mixedLinkButton">
+					When different kind of character is mixed
+					<a href="#versionPageMixed" data-fancybox-group="versionGroup"></a>
+					<div style="display:none;">
+						<div id="versionPageMixed" class="versionPage"></div>
+					</div>
+				</div>
+			</div>
+			<div class="gotoTopButton" id="toTop">
+				<a href="#header"><img src="../img/cEtc/gotoTopButton.png"></a>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

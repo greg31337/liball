@@ -1,0 +1,2229 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Developing OpenType Fonts for Devanagari Script - Typography | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Developing OpenType Fonts for Devanagari Script" />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/typography/script-development/devanagari" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Developing OpenType Fonts for Devanagari Script - Typography" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/typography/script-development/devanagari" />
+			<meta property="og:description" content="Developing OpenType Fonts for Devanagari Script" />
+			<meta name="platform_id" content="586fa514-201b-b779-e591-ac464d3a8ffd" /> <meta name="scope" content="typography" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-MSTypography" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="ms.service" content="typography" />
+	
+		<meta name="breadcrumb_path" content="/typography/breadcrumbs/toc.json" />
+	
+		<meta name="feedback_system" content="OpenSource" />
+	
+		<meta name="author" content="alib-ms" />
+	
+		<meta name="ms.author" content="alib" />
+	
+		<meta name="ms.date" content="2022-06-24T00:00:00Z" />
+	
+		<meta name="feedback_product_url" content="https://support.microsoft.com/windows/send-feedback-to-microsoft-with-the-feedback-hub-app-f59187f8-8739-22d6-ba93-f66612949332" />
+	
+		<meta name="keywords" content="typography" />
+	
+		<meta name="ms.topic" content="article" />
+	
+		<meta name="source-file" content="http://www.microsoft.com/typography/OpenTypeDev/devanagari/intro.htm" />
+	
+		<meta name="document_id" content="7c1a0129-e23f-c785-89bc-25fb41b378c0" />
+	
+		<meta name="document_version_independent_id" content="b2a39f6a-94ed-b3ff-effb-17b2cc31b9e1" />
+	
+		<meta name="updated_at" content="2022-06-24T19:43:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/typography/blob/live/typographydocs/script-development/devanagari.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/typography/blob/753a19b230326d8be08526cd5c0a632bacbd0234/typographydocs/script-development/devanagari.md" />
+	
+		<meta name="git_commit_id" content="753a19b230326d8be08526cd5c0a632bacbd0234" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="Win.typography" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/Win.typography/{branchName}{pdfName}" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="8110" />
+	
+		<meta name="asset_id" content="script-development/devanagari" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="typographydocs/script-development/devanagari.md" />
+	
+		<meta name="previous_tlsh_hash" content="F24C5433740CF631BF829E1729CBBF10D8F0C589F4F456A4112A325293577EF21F36FCD3AB6EA3855379068300E6729FA2D4DF7950BA13776692649D800C37CA865A277AE4" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/typography/blob/live/typographydocs/script-development/devanagari.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/typography/script-development/devanagari?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/97159432-14a9-4307-a469-d2f2c75f0e33" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/50565c62-5f6b-4687-be38-323113c72c2e" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03512.8135-66b9c479/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": false,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "OpenSource",
+    "feedbackGitHubRepo": "",
+    "feedbackProductUrl": "https://support.microsoft.com/windows/send-feedback-to-microsoft-with-the-feedback-hub-app-f59187f8-8739-22d6-ba93-f66612949332",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": false,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true,
+    "contributors": [
+      {
+        "name": "alib-ms",
+        "url": "https://github.com/alib-ms"
+      },
+      {
+        "name": "PeterCon",
+        "url": "https://github.com/PeterCon"
+      },
+      {
+        "name": "PeterConstable",
+        "url": "https://github.com/PeterConstable"
+      },
+      {
+        "name": "jmart1428",
+        "url": "https://github.com/jmart1428"
+      },
+      {
+        "name": "mijacobs",
+        "url": "https://github.com/mijacobs"
+      },
+      {
+        "name": "WorkNihar",
+        "url": "https://github.com/WorkNihar"
+      },
+      {
+        "name": "v-nihar",
+        "url": "https://github.com/v-nihar"
+      }
+    ],
+    "openSourceFeedbackIssueUrl": "https://github.com/MicrosoftDocs/typography-issues/issues/new?template=shaping-docs-feedback.yml",
+    "openSourceFeedbackIssueTitle": ""
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03512.8135-66b9c479/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div>
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			hidden
+			href=""
+			data-original_content_git_url="https://github.com/MicrosoftDocs/typography/blob/live/typographydocs/script-development/devanagari.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/typographydocs/script-development/devanagari.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="developing-opentype-fonts-for-devanagari-script">Developing OpenType Fonts for Devanagari Script</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	
+					<div class="content"><p><a name="intro"></a></p>
+<p><strong>Please note</strong>: This document reflects the changes made in 2005 recommendations for Indic-script OpenType font and shaping-engine implementations. While Indic fonts made according to the earlier recommendations will still function properly in the new versions of Uniscribe, font developers may choose to update their fonts, particularly if they wish to avoid certain limitations of the earlier implementation.</p>
+<p><em>This document presents information that will help font developers create or support OpenType fonts for all Devanagari script languages covered by the Unicode Standard, including classical Sanskrit. Other languages written with the Devanagari script include Hindi, Kashmiri, Konkani, Marathi, Nepali, Sanskrit and Sindhi.</em></p>
+<h2 id="introduction">Introduction</h2>
+<p>This document targets developers implementing Indic shaping behavior compatible with Microsoft OpenType specification for Indic scripts. It contains information about terminology, font features and behavior of the Indic shaping engine in regards to the Devanagari script. While it does not contain instructions for creating Devanagari fonts, it will help font developers understand how the Indic shaping engine processes Indic text. In addition, registered features of the Devanagari script are defined and illustrated with examples.</p>
+<p>The new Indic shaping engine allows for variations in typographic conventions, giving a font developer control over shaping by the choice of designation of glyphs to certain OpenType features. For example, the location where the reph and pre-pended matra are re-ordered within a syllable cluster is affected by the presence of a half form. See illustrations below.</p>
+<p>In the example below (Ra + halant + Da+ halant + Ma + I-matra), Ra + halant will form the reph, but how the Da is classified will determine the position of the reph as well as the location of the pre-pended matra.</p>
+<p><img src="images/devanagari/intro.gif" alt="Illustration that shows how the order of the reph and pre pended matra within a syllable cluster is affected by the presence of a half form." data-linktype="relative-path"><br>
+Option 1: While the Da does not have a true half form in Devanagari, it can be listed in the ‘half’ feature lookup substituting the ‘halant form’ of Da. Thus, the shaping engine will treat it as a half form and the reph will be positioned on the first main consonant; and the I-matra will be positioned immediately in front of the “half-form” D(a).</p>
+<p>Option 2: By not listing Da in the ‘half’ feature lookup, the halant form will display and the shaping engine will treat it as the first main consonant on which to position the reph. And the I-matra will be positioned immediately in front of the base (or half-form) preceding it, which in this case is the Ma.</p>
+<p><a name="gloss"></a></p>
+<h2 id="glossary">Glossary</h2>
+<p>The following terms are useful for understanding the layout features and script rules discussed in this document.</p>
+<p><strong>Above-base form of consonants</strong> - A variant form of a consonant that appears above the base glyph. In Devanagari, only the consonant Ra has an above-base form, known as “reph”.</p>
+<p><strong>Akhand ligatures</strong> - Required consonant ligatures that may appear anywhere in the syllable and may or may not involve the base glyph. Akhand ligatures have the highest priority and are formed first; some languages include them in their alphabets. Akhand ligatures in Devanagari may be displayed in either half- or full-form.</p>
+<p><strong>Base glyph</strong> - The only consonant or consonant conjunct in the orthographic syllable that is written in its "full" (nominal) form. In Devanagari, the last consonant of the syllable (except for syllables ending with letter "Ra") usually forms the base glyph. In "degenerate" syllables that have no vowel (last letter of a word), the last consonant in halant form serves as the base consonant and is mapped as the base glyph. Layout operations are defined in terms of a base glyph, not a base character, since the base can often be a ligature.</p>
+<p><strong>Below-base form of consonants</strong> - A variant form of a consonant that appears below the base glyph. In Devanagari, only the consonant Ra has a below-base form. In the glyph sequence, the below-base form comes after the consonant(s) that form the base glyph. Below-base forms are represented by a non-spacing mark glyph.</p>
+<p><strong>Cluster</strong> - A group of characters that form an integral unit in Indic scripts, often times a syllable.</p>
+<p><strong>Consonant</strong> - Each represents a single consonant sound. Consonants may exist in different contextual forms and have an inherent vowel (usually, the short vowel "a"). For example, "Ka" and "Ta", rather than just "K" or "T."</p>
+<p><strong>Consonant conjuncts (aka 'conjuncts')</strong> - Ligatures of two or more consonants. Consonant conjuncts may have both full and half forms, or only full forms.</p>
+<p><strong>Devanagari syllable</strong> - Effective orthographic "unit" of Devanagari writing systems. Syllables are composed of consonant letters, independent vowels and dependant vowels. In a text sequence, these characters are stored in phonetic order (although they may not be represented in phonetic order when displayed). Once a syllable is shaped, it is indivisible. The cursor cannot be positioned within the syllable. Transformations discussed in this document do not cross syllable boundaries.</p>
+<p><strong>Halant (Virama)</strong> - The character used after a consonant to "strip" it of it’s inherent vowel. A halant follows all but the last consonant in every Devanagari syllable; a halant also follows the last consonant if the syllable has no vowel.</p>
+<p><strong>NOTE:</strong> A syllable containing halant characters may be shaped with no visible halant signs by using different consonant forms or conjuncts instead.</p>
+<p><strong>Halant form of consonants</strong> - The form produced by adding the halant (virama) to the nominal shape. The Halant form is used in syllables that have no vowel or as the half form when no distinct shape for the half form exists.</p>
+<p><strong>Half form of consonants (pre-base form)</strong> - A variant form of consonants which appear to the left of the base consonant, if they do not participate in a ligature. Consonants in their half form precede the ones forming the base glyph. Devanagari has distinctly shaped half forms for most consonants. If a consonant does not have a distinct shape for the half form and does not form any ligature, it will be displayed with an explicit <em>Virama</em> (same shape as the halant form).</p>
+<p><strong>Matra (Dependent Vowel)</strong> - Used to represent a vowel sound that is not inherent to the consonant. Dependent vowels are referred to as "matras" in Sanskrit. They are always depicted in combination with a single consonant, or with a consonant cluster. The greatest variation among different Indian scripts is found in the rules for attaching dependent vowels to base characters.</p>
+<p><strong>New Shaping Behavior</strong> - Shaping behavior defined in this version of the Indic OpenType Font Specification. Information in this document relates primarily to the new implementation model. Old behavior may be mentioned in comments about compatibility.</p>
+<p><strong>Nukta</strong> - A combining character that alters the way a preceding consonant (or matra) is pronounced.</p>
+<p><strong>Old Shaping Behavior</strong> - Shaping behavior defined in previous versions of the Indic OpenType Font Specification.</p>
+<p><strong>OpenType Layout engine</strong> - Library responsible for executing OpenType layout features in a font. In the Microsoft text formatting stack, it is named OTLS (OpenType layout services).</p>
+<p><strong>OpenType tag</strong> - 4-byte identifier for script, language system or feature in the font.</p>
+<p><strong>Post-base form of consonants</strong> - A variant form of a consonant that appears to the right of the base glyph. A consonant that takes a post-base form is preceded by the consonant(s) forming the base glyph plus a halant (virama). Post-base forms are usually spacing glyphs.</p>
+<p><strong>Pre-base form of consonants</strong> - A variant form of a consonant that appears to the left of the base glyph. Note that most pre-base consonant forms are logically as well as visually before the base consonant. Half forms are examples of this kind of pre-base form. In some scripts, though, a pre-base Ra may logically follow the base consonant (that is, it follows it phonetically and in the character sequence of the text), even though it is presented visually before the base. The shaping engine detects such cases dynamically using the 'pref' feature and re-orders the pre-base-form glyph as needed.</p>
+<p><strong>Rakaar</strong> - The below-base form of "Ra" in Devanagari, which forms a ligature with most preceding consonant(s). If the preceding consonant has a half form, then the consonant-rakaar combination, typically also has a half form.</p>
+<p><strong>Reph</strong> - The above-base form of the letter "Ra" that is used in Devanagari when "Ra" is the first consonant in the syllable and is not the base consonant.</p>
+<p><strong>Shaping Engine</strong> - Code responsible for shaping input, classified to a particular script.</p>
+<p><strong>Split Matra</strong> - A matra that is decomposed into pieces for rendering. Usually the different pieces appear in different positions relative to the base. For instance, part of the matra may be placed at the beginning of the cluster and another part at the end of the cluster.</p>
+<p><strong>Syllable</strong> - A single unit of Indic text processing. Shaping of Indic text is performed independently for each syllable. Process of identifying boundaries of each syllable is described below.</p>
+<p><strong>Vattu (Rakar)</strong> - A below-base form of a consonant. In Devanagari, "Ra" can take a vattu form within a cluster; this "Vattu-Ra" is also known as <em>Rakaar</em>.</p>
+<p><img src="images/devanagari/ind_terms.gif" alt="Illustration that identifies the components of a syllable cluster." data-linktype="relative-path"><br>
+1. Pre-base form<br>
+2. The base consonant<br>
+3. Above-base form <em>(reph)</em><br>
+4. Post-base (matra)<br>
+5. Below-base form <em>(vattu/rakaar)</em></p>
+<p><a name="shaping"></a></p>
+<h2 id="shaping-engine">Shaping Engine</h2>
+<div class="contents-wrapper">
+<ul>
+<li><a href="#analyze" data-linktype="self-bookmark">Analyze the text</a></li>
+<li><a href="#reor" data-linktype="self-bookmark">Reorder characters</a></li>
+<li><a href="#shape" data-linktype="self-bookmark">Shape glyph sequences (GSUB processing)</a></li>
+<li><a href="#pos" data-linktype="self-bookmark">Position glyph sequences (GPOS processing)</a></li>
+<li><a href="#base" data-linktype="self-bookmark">Base elements</a></li>
+<li><a href="#comb" data-linktype="self-bookmark">Invalid combining marks</a></li>
+<li><a href="#effect-of-zwj-zwnj-and-nbsp-on-consonant-shaping" data-linktype="self-bookmark">Use of ZWJ, ZWNJ and NBSP</a></li>
+</ul>
+<p>The Indic shaping engine processes Devanagri text in stages. The stages are:</p>
+<ol>
+<li>Analyze the text sequence; breaking it into syllable clusters</li>
+<li>Reorder the characters as necessary</li>
+<li>Apply OpenType GSUB font features to get the correct glyph shape</li>
+<li>Apply OpenType GPOS features to position glyphs or marks</li>
+</ol>
+<p>The descriptions which follow will help font developers understand the rationale for the Devanagri feature encoding model and help application developers better understand how layout clients can divide responsibilities with operating system functions.</p>
+<p><a name="analyze"></a></p>
+<h2 id="analyze-the-text">Analyze the text</h2>
+<h3 id="character-properties">Character properties</h3>
+<p>The shaping engine divides the text into syllable clusters and identifies character properties. Character properties are used in parsing syllables and identifying its parts, in determining proper character or glyph reordering and in OpenType feature application. Properties for each character are divided into two types: static properties and dynamic properties.</p>
+<p><em>Static properties</em> define basic characteristics that do not change from font to font: character type (consonant, matra, vedic sign, etc.) or type of matra reordering. They differ from script to script, but can’t be controlled by font developer.</p>
+<p><em>Dynamic properties</em> are font dependent and are retrieved by the shaping engine as the font is loaded. These properties affect shaping and reordering behavior.</p>
+<p>*Note: in old shaping-engine implementations, all consonant properties were static: consonants were assumed to have particular conjoining forms. In the new implementation model, consonant conjoining behavior is a dynamic property.</p>
+<h3 id="retrieving-dynamic-character-properties-from-indic-fonts">Retrieving dynamic character properties from Indic fonts</h3>
+<p>Fonts define dynamic properties for consonants through implementing standard features. Consonant types (and corresponding feature tags) that the shaping engine reads from the font are:</p>
+<ul>
+<li>Reph 'rphf'</li>
+<li>Half forms 'half'</li>
+<li>Pre-base-reordering forms of Ra/Rra 'pref'</li>
+<li>Below-base forms 'blwf'</li>
+<li>Post-base forms 'pstf'</li>
+</ul>
+<p>Each of the features above is applied together with 'locl' feature to input sequences consisting of two characters: for 'rphf' and 'half', features are applied to <em>Consonant</em> + <em>Halant</em> combinations; for 'pref', 'blwf' and 'pstf', features are applied to <em>Halant</em> + <em>Consonant</em> combinations. This is done for each consonant. If these two glyphs form a ligature, with no additional glyphs in context, this means the consonant has the corresponding form. For instance, if a substitution occurs when the 'half' and 'locl' features are applied to a sequence Da + Halant, then Da is classified as having a half form.</p>
+<p>Note that a font may be implemented to re-order a Ra to pre-base position only in certain syllables and display it as a below-base or post-base form otherwise. This means that the Pre-base-form classification is not mutually exclusive with either Below-base-form or Post-base-form classifications. However, all classifications are determined as described above using context-free substitutions.</p>
+<p>Font-dependent character classification only defines consonant types. Reordering positions, however, are fixed for each character class.</p>
+<p>*Note: for fonts that support the old implementation, all features are applied to <em>Consonant</em> + <em>Halant</em> sequences.</p>
+<h3 id="indic-input-processing">Indic input processing</h3>
+<p>The following steps should be repeated while there are characters left in the input sequence. All shaping operations are done on a syllable-by-syllable basis, independent from other characters.</p>
+<h4 id="find-next-syllable-in-the-input">Find next syllable in the input</h4>
+<p>Engine should find the character sequence matching one of the patterns below:</p>
+<div class="border-block">
+<p>Consonant syllable:</p>
+<p><em>{C+[N]+&lt;H+[&lt;ZWNJ|ZWJ&gt;]|&lt;ZWNJ|ZWJ&gt;+H&gt;} + C+[N]+[A] + [&lt; H+[&lt;ZWNJ|ZWJ&gt;] | {M}+[N]+[H]&gt;]+[SM]+[(VD)]</em></p>
+<p>Vowel-based syllable:</p>
+<p><em>[Ra+H]+V+[N]+[&lt;[&lt;ZWJ|ZWNJ&gt;]+H+C|ZWJ+C&gt;]+[{M}+[N]+[H]]+[SM]+[(VD)]</em></p>
+<p>Stand Alone cluster (at the start of the word only):</p>
+<p><em>[Ra+H]+NBSP+[N]+[&lt;[&lt;ZWJ|ZWNJ&gt;]+H+C&gt;]+[{M}+[N]+[H]]+[SM]+[(VD)]</em></p>
+<p><em>Where:</em></p>
+<table width="100%">
+<tbody>
+<tr>
+<td>{ }</td>
+<td>zero or more occurrences</td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>optional occurrence</td>
+</tr>
+<tr>
+<td>&lt;|&gt;</td>
+<td>“one of”</td>
+</tr>
+<tr>
+<td>( )</td>
+<td>one or two occurrences</td>
+</tr>
+<tr>
+<td>C</td>
+<td>consonant</td>
+</tr>
+<tr>
+<td>V</td>
+<td>independent vowel</td>
+</tr>
+<tr>
+<td>N</td>
+<td>nukta</td>
+</tr>
+<tr>
+<td>H</td>
+<td>halant/virama</td>
+</tr>
+<tr>
+<td>ZWNJ</td>
+<td>zero width non-joiner</td>
+</tr>
+<tr>
+<td>ZWJ</td>
+<td>zero width joiner</td>
+</tr>
+<tr>
+<td>M</td>
+<td>matra (up to one of each type: pre-, above-, below- or post- base)</td>
+</tr>
+<tr>
+<td>SM</td>
+<td>syllable modifier signs</td>
+</tr>
+<tr>
+<td>VD</td>
+<td>vedic</td>
+</tr>
+<tr>
+<td>A</td>
+<td>anudatta (U+0952)</td>
+</tr>
+<tr>
+<td>NBSP</td>
+<td>NO-BREAK SPACE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="identify-key-positions-inside-syllable">Identify key positions inside syllable</h4>
+<p>Syllable structure consists of the following parts:</p>
+<p>Reph + HalfConsonant(s) + MainConsonant(s) + BelowBaseConsonant(s) + PostBaseConsonant(s) + PreBaseReorderingRa + MatrasAndSigns</p>
+<p>The consonant parts include all associated halants and nuktas. (For example, an instance of BelowBaseConsonant consists of a sequence of Halant + Below-base-forming Consonant.) All parts are optional, except the main consonant.</p>
+<p>All parts are shown in the order they would occur within a syllable, with one qualification: depending on a font implementation, PreBaseReorderingRa may occur before all BelowBaseConsonants, after BelowBaseConsonants and before PostBaseConsonants, or after PostBaseConsonants. Also, a font may be implemented to re-order a Ra to pre-base position only in certain syllables and display it as a below-base or post-base form otherwise. Thus, final determination of whether an occurrence of Ra in a specific syllable can be treated as a pre-base reordering Ra can be made only after the 'pref' feature has been applied to that syllable.</p>
+<p>There could be several main consonants in the case where more than one consonant doesn’t have a half-, below-base, post-base or pre-base form. In a case of a cluster where the first consonant does not have a half form, the shaping engine will recognize it as the 1st ‘full form’ and go on to identify the 2nd full form consonant, if there is one. This information will then be used to determine the reordering behavior of the reph or any matras, vowel modifiers or stress marks.</p>
+<p>All other elements are classified by their position relative to the base: pre-base (half forms and reordering pre-base Ra forms), below-base, above-base and post-base.</p>
+<h4 id="indic-clusters-are-subject-to-the-following-constraints">Indic clusters are subject to the following constraints:</h4>
+<ul>
+<li>Only one reph is allowed per syllable.</li>
+<li>Only one pre-base reordering Ra is allowed per syllable.</li>
+<li>A nukta can be placed on a consonant, matra or independent vowel. It cannot be placed on a pre-composed nukta character.</li>
+<li>One matra from each positioning class is permitted (exception in the Kannada script). A composite matra is treated as belonging to all the classes from which its components belong.</li>
+<li>One syllable modifier sign is allowed per cluster.</li>
+<li>Vedic signs are combining marks (used for Sanskrit) that should be included in all Indic scripts.</li>
+<li>Danda and Double Danda are punctuation marks that should be included in all Indic scripts.</li>
+</ul>
+<p><a name="reor"></a></p>
+<h2 id="reorder-characters">Reorder characters</h2>
+<p>Once the Indic shaping engine has analyzed the cluster as described above, it creates and manages a buffer of appropriately reordered elements (glyphs) representing the cluster, according to several rules (described below).</p>
+<p>The OpenType lookups in an Indic font must be written to match glyph sequences after re-ordering has occurred. OpenType fonts should not have substitutions that attempt to perform the re-ordering. If a font developer attempted to encode such reordering information in an OpenType font, they would need to add a huge number of many-to-many glyph mappings to cover the general algorithms that a shaping engine will use.</p>
+<ol>
+<li><strong>Find base consonant:</strong> The shaping engine finds the base consonant of the syllable, using the following algorithm: starting from the end of the syllable, move backwards until a consonant is found that does not have a below-base or post-base form (post-base forms have to follow below-base forms), or that is not a pre-base reordering Ra, or arrive at the first consonant. The consonant stopped at will be the base.
+<ul>
+<li>If the syllable starts with Ra + Halant (in a script that has <em>Reph</em>) and has more than one consonant, Ra is excluded from candidates for base consonants.</li>
+</ul>
+</li>
+<li><strong>Decompose and reorder Matras:</strong> Each matra and any syllable modifier sign in the cluster are moved to the appropriate position relative to the consonant(s) in the cluster. The shaping engine decomposes two- or three-part <em>matras</em> into their constituent parts before any repositioning. Matra characters are classified by which consonant in a conjunct they have affinity for and are reordered to the following positions:
+<ul>
+<li>Before first half form in the syllable</li>
+<li>After subjoined consonants</li>
+<li>After post-form consonant</li>
+<li>After main consonant (for above marks)</li>
+</ul>
+</li>
+<li><strong><em>Reorder marks to canonical order:</em></strong> Adjacent nukta and halant or nukta and vedic sign are always repositioned if necessary, so that the nukta is first.</li>
+<li><strong><em>Final reordering:</em></strong> After the <em>localized forms</em> and <em>basic shaping forms</em> GSUB features have been applied (see below), the shaping engine performs some final glyph reordering before applying all the remaining font features to the entire cluster.
+<ul>
+<li><em>Reorder matras:</em> If a pre-base matra character had been reordered before applying basic features, the glyph can be moved closer to the main consonant based on whether half-forms had been formed. Actual position for the matra is defined as “after last standalone halant glyph, after initial matra position and before the main consonant”. If ZWJ or ZWNJ follow this halant, position is moved after it.</li>
+<li><em>Reorder reph:</em> Reph’s original position is always at the beginning of the syllable, (i.e. it is not reordered at the character reordering stage). However, it will be reordered according to the basic-forms shaping results. Possible positions for reph, depending on the script, are; after main, before post-base consonant forms, and after post-base consonant forms.
+<ol>
+<li>If reph should be positioned after post-base consonant forms, proceed to step 'e'.</li>
+<li>If the reph repositioning class is not after post-base: target position is after the first explicit halant glyph between the first post-reph consonant and last main consonant. If ZWJ or ZWNJ are following this halant, position is moved after it. If such position is found, this is the target position. Otherwise, proceed to the next step.<br>
+<em>Note: in old-implementation fonts, where classifications were fixed in shaping engine, there was no case where reph position will be found on this step.</em></li>
+<li>If reph should be repositioned after the main consonant: from the first consonant not ligated with main, or find the first consonant that is not a potential pre-base reordering Ra.</li>
+<li>If reph should be positioned before post-base consonant, find first post-base classified consonant not ligated with main. If no consonant is found, the target position should be before the first matra, syllable modifier sign or vedic sign.</li>
+<li>If no consonant is found in steps 'c' or 'd', move reph to a position immediately before the first post-base matra, syllable modifier sign or vedic sign that has a reordering class after the intended reph position. For example, if the reordering position for reph is post-main, it will skip above-base matras that also have a post-main position.</li>
+<li>Otherwise, reorder reph to the end of the syllable.</li>
+</ol>
+</li>
+<li><em>Reorder pre-base reordering consonants:</em> If a pre-base reordering consonant is found, reorder it according to the following rules:
+<ol>
+<li>Only reorder a glyph produced by substitution during application of the 'pref' feature. (Note that a font may shape a Ra consonant with the 'pref' feature generally but block it in certain contexts.)</li>
+<li>Try to find a target position the same way as for pre-base matra. If it is found, reorder pre-base consonant glyph.</li>
+<li>If position is not found, reorder immediately before main consonant.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="character-reordering-classes-for-devanagari">Character reordering Classes for Devanagari:</h4>
+<table width="400" class="features-table">
+<tbody>
+<tr>
+<th>_Characters_</th>
+<th>_Reorder Class_</th>
+</tr>
+<tr>
+<td>0930 (reph)</td>
+<td>BeforePostscript</td>
+</tr>
+<tr>
+<td>093F</td>
+<td>BeforeHalf</td>
+</tr>
+<tr>
+<td>0945-0948</td>
+<td>AfterSubscript</td>
+</tr>
+<tr>
+<td>0941-0944, 0962, 0963</td>
+<td>AfterSubscript</td>
+</tr>
+<tr>
+<td>093E, 0940, 0949-094C</td>
+<td>AfterSubscript</td>
+</tr>
+</tbody>
+</table>
+<p><a name="shape"></a></p>
+<h2 id="shape-glyph-sequences-gsub-processing">Shape glyph sequences (GSUB processing)</h2>
+<p>All characters from a string are first mapped to their nominal glyphs using the cmap lookup. The shaping engine then proceeds to shape (substitute) the glyphs using GSUB lookups.</p>
+<p>The features for <em>localized forms</em> and <em>basic shaping forms</em> are applied one at a time to the cluster or a relevant portion of the cluster.</p>
+<p>The results after <em>basic shaping forms</em> features have been applied impact the final syllable analysis in terms of final designation of Ra as a pre-base reordering form and final reordering positions for reph and matras. Next, the features for <em>presentation forms</em> are applied to the entire cluster simultaneously. Note: since the <em>presentation form</em> features are applied simultaneously over the entire cluster, several features are operationally equivalent to a single feature. Multiple features are provided as an aid for font developers to organize the lookups they implement.</p>
+<p>Note: final reordering occurs after features for <em>basic shaping forms</em> have been applied and before features for <em>presentation forms</em> are applied. Font developers must consider the effects of initial reordering (before any features are applied) and final reordering (after <em>basic shaping forms</em> features have applied) when they create GSUB feature and lookup tables.</p>
+<p>These predefined features are described and illustrated in the Features section and are applied in the order below.</p>
+<h4 id="shaping-features">Shaping features:</h4>
+<p><em>Localized forms</em></p>
+<ol>
+<li>Apply feature <em>'locl'</em> to select language-specific forms.</li>
+</ol>
+<p><em>Basic Shaping forms</em></p>
+<ol>
+<li>Apply feature <em>'nukt'</em> to substitute nukta forms of consonants.</li>
+<li>Apply feature <em>'akhn'</em> to substitute required akhand ligatures, or to substitute forms that take precedence over forms produced by features applied later.</li>
+<li>Apply feature <em>'rphf'</em> to substitute the reph glyph (above-base form of 'Ra').</li>
+<li>Apply feature <em>'rkrf'</em> to substitute any rakaar ligatures.</li>
+<li>Apply feature <em>'blwf’</em> to substitute below-base forms.</li>
+<li>Apply feature <em>'half'</em> to substitute half forms of pre-base consonants.</li>
+<li>Apply feature <em>'vatu'</em> to substitute ligature consonant-vattu or conjunct-vattu forms for sequences of a consonant or conjunct glyph (full or half form) followed by the below-base rakaar mark. (This feature is not needed if the rkrf feature is used, but is available for old-behavior implementations).</li>
+<li>Apply feature <em>'cjct'</em> to substitute conjunct forms. (This is needed particularly for ligature conjuct forms when the pre-base consonant does not have a half form).</li>
+</ol>
+<p><em>Presentation forms</em></p>
+<ol>
+<li>Apply feature <em>'pres'</em> to substitute pre-base consonant conjuncts and pre-base matra conjuncts. (ie. consonant and matra conjuncts to the left of the base glyph).</li>
+<li>Apply feature <em>'abvs'</em> to substitute above-base matra conjuncts, reph conjuncts, above-base vowel modifiers and above-base stress and tone marks.</li>
+<li>Apply feature <em>'blws'</em> to substitute below-base consonant conjuncts, below-base matra conjuncts, below-base vowel modifier forms and below-base stress and tone mark forms.</li>
+<li>Apply feature <em>'psts'</em> to substitute post-base consonant conjuncts, post-base matra conjuncts and post-base vowel modifiers.</li>
+<li>Apply feature <em>'haln'</em> to substitute the halant form of base (or conjunct base) glyph in syllables ending with a <em>halant</em>.</li>
+<li>Apply feature <em>'calt'</em> to substitute the contextual alternate of a consonant.</li>
+</ol>
+<p><a name="pos"></a></p>
+<h2 id="position-glyph-sequences-gpos-processing">Position glyph sequences (GPOS processing)</h2>
+<p>The shaping engine next processes the GPOS (glyph positioning) table, applying features concerned with positioning. All features are applied simultaneously to the entire cluster.</p>
+<p>The font developer must consider the effects of re-ordering when creating the GPOS feature and lookup tables (i.e., the glyphs will be in the order they were in after the GSUB presentation forms features were applied).</p>
+<h4 id="positioning-features">Positioning features:</h4>
+<p><em>Kerning</em></p>
+<ol>
+<li>Apply feature <em>'kern'</em> to adjust distances (e.g., to provide kerning between post- or pre-base elements and the base glyph).</li>
+<li>Apply feature <em>'dist'</em> to adjust distances. (NOTE – the feature ‘dist’ can be used in the same way as the ‘kern’ feature. The advantage of using the ‘dist’ feature is that it does not rely on the application to enable kerning. Therefore, if you want to make sure certain spacing adjustments will always be displayed, you should use the ‘dist’ feature).</li>
+</ol>
+<p><em>Above-base marks</em></p>
+<ol>
+<li>Apply feature <em>'abvm'</em> to position above-base marks (above-base consonant forms, matras, vowel modifiers or stress/tone marks) on base glyphs or post-base matra.</li>
+</ol>
+<p><em>Below-base marks</em></p>
+<ol>
+<li>Apply feature <em>'blwm'</em> to position below-base marks (below-base consonant forms, matras, vowel modifiers or stress/tone marks) on base glyphs or post-base matra.</li>
+</ol>
+<p><a name="base"></a></p>
+<h2 id="base-elements">Base elements</h2>
+<p>Commonly, a feature is required for dealing with the base glyph and one of the post-base, pre-base, above-base or below-base elements. Since it is not possible to reorder ALL of these elements next to the base glyph, we need to skip over the elements "in the middle" (reordering-wise).</p>
+<p>The solution is to assign different mark attachment classes to different elements of the syllable and positional forms, and in any given lookup work with one mark type only. For example, in above-base substitutions we need only consider above-base elements most of the time.</p>
+<p>Generally, it is good practice to label as "mark" any glyphs that are denoted as combining marks in the Unicode Standard as well as below-base/above-base forms of consonants. Then, different attachment classes should be assigned to different marks depending on their position with respect to the base.</p>
+<p>For example, after the shaping engine has re-ordered elements within the cluster, matras will always occur before syllable modifier sign such as the candrabindu. In an actual sequence, though, potentially some other mark glyph, such as nukta, may occur between the matra and the candrabindu. Thus, when processing the matra and candrabindu, you may need to allow for the possibility that some other mark glyph(s) may occur between them. Using lookup flags, you can specify that a lookup should process <strong>only</strong> a certain class of marks, such as ‘above-base marks’, and ignore all other marks. In that way, a match will occur whether or not a mark from another class is present. Otherwise, the lookup would fail to apply.</p>
+<p>Using Microsoft VOLT, you can assign glyphs to attachment classes.<br>
+In the example below this <em>‘abvm’</em> feature was set to process <strong>only TopMarks</strong>, therefore the presence of another mark class would be ignored. If <strong>Process ALL</strong> was used and another mark glyph followed the matra, this positioning lookup would fail to apply. This example comes from the Devanagari font <em>Mangal</em></p>
+<p><img src="images/devanagari/abvm.gif" alt="Screenshot of a Microsoft volt dialog for specifying positioning adjustments. Pair adjustment is selected as the lookup type. The Top Marks class is specified in the Process field." data-linktype="relative-path"></p>
+<p><a name="comb"></a></p>
+<h2 id="invalid-combining-marks">Invalid Combining Marks</h2>
+<p>Combining marks and signs that do not occur in conjunction with a valid base are considered <em>invalid</em>. Shaping engine implementations may adopt different strategies for how invalid marks are handled. For example, a shaping engine implementation might treat an invalid mark as a separate cluster and display the stand-alone mark positioned on some default base glyph, such as a dotted circle. (See <em>Fallback Rendering</em> in section 5.13 of the Unicode Standard 4.0.) Shaping engine implementations may vary somewhat with regard to what sequences are or are not considered valid. For instance, some implementations may impose a limit of at most one above-base vowel mark while others may not.</p>
+<p>To allow for shaping engine implementations that expect to position an invalid mark on a dotted circle, it is recommended that a Devanagari OT font contain a glyph for the dotted circle character, U+25CC. If this character is not supported in the font, such implementations will display invalid signs on the missing glyph shape (white box).</p>
+<p><img src="images/devanagari/zwj.gif" alt="Illustration that shows the dotted circle character, plus Unicode characters zero width non-joiner and zero width joiner with suggested glyphs." data-linktype="relative-path"></p>
+<p>In addition to the 'dotted circle' other Unicode code points that are recommended for inclusion in any Devanagari font are the ZWJ (zero width joiner; U+200D), the ZWNJ (zero width non-joiner; U+200C) and the ZWSP (zero width space; U+200B). For more information see the Suggested glyphs section of the OpenType Font Development document.</p>
+<p><a name="effect"></a></p>
+<h2 id="effect-of-zwj-zwnj-and-nbsp-on-consonant-shaping">Effect of ZWJ, ZWNJ and NBSP on Consonant Shaping</h2>
+<p>Unicode defines specific behaviors for ZWJ and ZWNJ in relation to Indic scripts. The Indic-specific behavior retains the general behavior that ZWJ requests connection between text elements while ZWNJ inhibits connection between text elements.</p>
+<ol>
+<li>The main intent of using ZWJ in this context is to <strong>prevent a ligature-conjunct from forming</strong> (and in Devanagari or Gujuarati, to request a half form, below-base form or post-base form instead). The Indic engine does not need to take any action to prevent ligature-conjuct formation: the presence of ZWJ will prevent GSUB substitution lookups from matching the input glyph sequence. If the first consonant does not have a half form, an overt-halant form should result, which would also happen with no particular action by the engine.</li>
+<li>A secondary intent of using ZWJ in this context is to <strong>prevent the display of reph</strong> in the case that the first consonant is RA. If a cluster begins with RA H (halant) ZWJ, the engine must ensure that the ‘rphf’ feature is not applied, and that re-ordering for reph does not take place. Note that use of either joiner in this context should prevent formation and re-ordering of reph when RA is the first consonant.</li>
+<li>A third use of ZWJ involves RA specifically in the case of Devanagari script: the sequence RA H ZWJ is used for the encoded representation for <strong>‘eyelash RA’</strong> used for the Marathi language. Apart from the requirement not to create and re-order reph, however, no additional actions in the engine are required.</li>
+<li>The main intent of using ZWNJ is to prevent conjunct ligature or half forms from forming, and to display an explicit halant form instead. The shaping engine must take specific actions to prevent half forms for a sequence of Consonant + Halant + ZWNJ.</li>
+</ol>
+<p>The following example illustrates some of these behaviors:<br>
+<img src="images/devanagari/zwj2.gif" alt="Illustration that shows how zero width joiner and zero width non joiner affect consonant conjunct shaping for various character sequences in Devanagari script." data-linktype="relative-path"></p>
+<p>Just as the ZWJ can be used to display a half form in isolation, it can also be used to display a mark, sub- or post-base form in isolation. Unlike the stand-alone half form, however, sequences to display them must begin with a no-break space (NBSP). This is because mark glyphs must combine with a base glyph: to appear in isolation, a NBSP must be provided as a base. For example, to get a shape of I-matra without the dotted circle one should type NBSP + I-matra.</p>
+<p>In the illustration below the I-matra is displayed without the dotted circle by using the NBSP. The combination of NBSP and ZWJ is used to display the below-base form of Ra (Rakaar) in isolation.<br>
+<img src="images/devanagari/nbsp.gif" alt="Illustration that shows how no break space and zero width joiner can be used to display dependent vowel marks or conjoined consonant glyphs without a dotted circle." data-linktype="relative-path"></p>
+<p><em>Last updated: May 22, 2008</em></p>
+<p><a name="features"></a></p>
+<h2 id="features">Features</h2>
+<p>The features listed below have been defined to create the basic forms for the languages that are supported on Devanagari systems. Regardless of the model an application chooses for supporting layout of complex scripts, the shaping engine requires a fixed order for executing features within a run of text to consistently obtain the proper basic form.</p>
+<p>The features of the <strong>basic shaping forms</strong> are applied one at a time to the cluster or portion of the cluster. The result impacts the analysis in terms of the conjoining behavior and final reordering. The features of the <strong>presentation</strong> forms are applied next, to the entire cluster simultaneously. Mandatory features must always be applied; the discretionary presentation-forms features listed should be applied by default, but can be suppressed by a client (normally at the discretion of the user).</p>
+<p>The order of the lookups within each feature is also <strong>very</strong> important. For more information on lookups and defining features in OpenType fonts, see the Encoding section of the OpenType Font Development document.</p>
+<p>OpenType features used for Devanagari scripts, applied in the following order:</p>
+<table width="460">
+<tbody>
+<tr>
+<th width="25%" valign="middle">Feature</th>
+<th width="60%" valign="middle">Feature function</th>
+<th width="15%" valign="middle">Layout operation</th>
+</tr>
+<tr>
+<td valign="top" colspan="3"><b>Localized forms:</b></td>
+</tr>
+<tr>
+<td valign="top">locl</td>
+<td valign="top">Localized form substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top" colspan="3"><b>Basic shaping forms:</b></td>
+</tr>
+<tr>
+<td valign="top">nukt</td>
+<td valign="top">Nukta form substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">akhn</td>
+<td valign="top">Akhand ligature substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">rphf</td>
+<td valign="top">Reph form substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">rkrf</td>
+<td valign="top">Rakaar form substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">blwf</td>
+<td valign="top">Below-base form substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">half</td>
+<td valign="top">Half-form substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">vatu</td>
+<td valign="top">Vattu variants</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">cjct</td>
+<td valign="top">Conjunct form substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top" colspan="3"><b>Mandatory presentation forms:</b></td>
+</tr>
+<tr>
+<td valign="top">pres</td>
+<td valign="top">Pre-base substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">abvs</td>
+<td valign="top">Above-base substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">blws</td>
+<td valign="top">Below-base substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">psts</td>
+<td valign="top">Post-base substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top">haln</td>
+<td valign="top">Halant form substitution</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top" colspan="3"><b>Discretionary presentation forms:</b></td>
+</tr>
+<tr>
+<td valign="top">calt</td>
+<td valign="top">Contextual alternates</td>
+<td valign="top">GSUB</td>
+</tr>
+<tr>
+<td valign="top" colspan="3"><b>Positioning features:</b></td>
+</tr>
+<tr>
+<td valign="top">kern</td>
+<td valign="top">Kerning</td>
+<td valign="top">GPOS</td>
+</tr>
+<tr>
+<td valign="top">dist</td>
+<td valign="top">Distances</td>
+<td valign="top">GPOS</td>
+</tr>
+<tr>
+<td valign="top">abvm</td>
+<td valign="top">Above-base mark positioning</td>
+<td valign="top">GPOS</td>
+</tr>
+<tr>
+<td valign="top">blwm</td>
+<td valign="top">Below-base mark positioning</td>
+<td valign="top">GPOS</td>
+</tr>
+<tr>
+<td valign="top" colspan="3">  
+[GSUB = glyph substitution, GPOS = glyph positioning]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="feature-examples">Feature examples</h2>
+<p>Many of the registered features described and illustrated in this document are based on the Microsoft OpenType font Mangal (Mangal.ttf). Mangal contains layout information and glyphs to support all of the required features for the Devanagari script and language systems supported. Instructions for obtaining the Mangal font are given in the Appendix of this document.</p>
+<p>The illustrations in the following examples show the result of that particular feature being applied. Features must be written to match glyph sequences after re-ordering has occurred. Note that the input context for a feature may be the result of a previous feature having already been applied.</p>
+<h3 id="localized-forms">Localized forms</h3>
+<p>Feature Tag: "locl"</p>
+<p>This feature is used in association with OpenType language system tags to trigger lookups that will select alternate glyphs needed for language-specific typographic conventions. The 'locl' should not be used in association with the default language system, but only used with other language system tags. See the Appendix of this document for language system tags associated with the Devanagari script.</p>
+<h3 id="basic-shaping-forms">Basic shaping forms</h3>
+<h4 id="nukta">Nukta</h4>
+<p>Feature Tag: "nukt"</p>
+<p>The <em>nukta</em> alters the way a preceding consonant or vowel is pronounced. The most common <em>nukta</em> forms have been defined as separate characters in Unicode with their own code points. All consonants, as well as <em>akhand</em> forms should have an associated <em>nukta</em> form.</p>
+<p>Note - Rather than using substitution, <em>nukta</em> forms can also be created by positioning the nukta as a below-base mark on the base glyph using the 'blwm' positioning feature</p>
+<p>The input context for the <em>nukt</em> feature always consists of the full form of the consonant. The half form of nukta consonants will be substituted using the <em>half</em> feature.</p>
+<p>Nukta feature applied substitutes Ka-nukta pre-composed glyph:<br>
+<img src="images/devanagari/nutka.gif" alt="Illustration that shows the sequence of ka and nukta glyphs being substituted by a combined ka nukta glyph using the nukta feature." data-linktype="relative-path"></p>
+<h4 id="akhand">Akhand</h4>
+<p>Feature Tag: "akhn"</p>
+<p>An akhand is a required consonant ligatures that may appear anywhere in the syllable, and may or may not involve the base glyph. Akhand ligatures have the highest priority and are formed first; some languages include them in their alphabets. There are 2 Akhand ligatures in Devanagari.</p>
+<p>The input context for the <em>akhand</em> feature always consists of the full form of the consonant. The half forms of Akhand ligatures will be called later in the <em>half</em> feature.</p>
+<p>Because the <em>akhand</em> feature is applied early in the sequence of features and is applied over the entire cluster, it can also be used to create certain forms that must take priority in particular contexts over forms that would be created during subsequent feature application.</p>
+<p>Using the 'akhn' feature, Ka + halant + Ssa is substituted with the KaSsa ligature:<br>
+<img src="images/devanagari/akhand1.gif" alt="Illustration that shows the sequence of Ka, halant, and Ssa glyphs being substituted by the KaSsa ligature using the akhand feature." data-linktype="relative-path"></p>
+<p>Ja + halant + Nya is substituted with the JaNya Ligature:<br>
+<img src="images/devanagari/akhand2.gif" alt="Illustration that shows the sequence of Ja, halant, and Ssa glyphs being substituted by the JaNya ligature using the akhand feature." data-linktype="relative-path"></p>
+<h4 id="reph">Reph</h4>
+<p>Feature Tag: "rphf"</p>
+<p>Applying this feature substitutes the <em>Reph</em> glyph. If the first consonant of the cluster consists of the full form of Ra + Halant, this feature substitutes the combining-mark form of <em>Reph</em>. In addition, the position of the <em>Reph</em> glyph is adjusted with the 'abvm' GPOS feature.</p>
+<p>The input context for the Reph feature always consists of the full form of <em>Ra</em> + <em>Halant.</em></p>
+<p>Reph feature substitutes the mark glyph form of Ra. After final reordering, positioning is adjusted in the 'abvm' GPOS feature:<br>
+<img src="images/devanagari/repf1.gif" alt="Illustration that shows the sequence of Ra plus halant glyphs being substituted by a reph glyph using the reph feature." data-linktype="relative-path"></p>
+<p>Reph feature applied with multiple consonants. Note: reph is re-ordered to position on the 1st main consonant:<br>
+<img src="images/devanagari/repf2.gif" alt="Illustration that shows the sequence of Ra plus halant glyphs being substituted by a reph glyph in a syllable cluster that has multiple consonants." data-linktype="relative-path"></p>
+<h4 id="rakaar">Rakaar</h4>
+<p>Feature Tag: "rkrf"</p>
+<p>Applying this feature substitutes a consonant-rakaar <em>(below-base Ra)</em> ligature or an akhand-rakaar ligature. For consonants that do not form a ligature with the rakaar, the 'rkrf' feature may also be used to substitute a pre-composed glyph for the consonant plus rakaar.</p>
+<p>Note: the rakaar forms feature is required specifically for those scripts in which a half-form of a consonant-rakaar ligature can occur. This includes Devanagari and Gujarati scripts. It is not used for the other Indic scripts.</p>
+<p>The input context for the <em>rakaar</em> feature always consists of the full form consonant + halant + Ra. The half forms of rakaar ligatures should be substituted using the <em>half</em> feature.</p>
+<p>The 'rkrf' feature applied to substitute the rakaar form of Ka:<br>
+<img src="images/devanagari/rakaar1.gif" alt="Illustration that shows the sequence of Ka, halant and Ra glyphs being substituted by a Ka rakaar ligature glyph using the R K R F feature." data-linktype="relative-path"></p>
+<p>Rakaar variants for 'nukta' glyphs as well as 'akhand' ligatures should also be created:</p>
+<p><img src="images/devanagari/rakaar2.gif" alt="Illustration that shows shows the sequence of a Ka nukta glyph, halant, plus Ra being substituted by a Ka-nukta rakaar ligature glyph using the R K R F feature." data-linktype="relative-path"></p>
+<p><img src="images/devanagari/rakaar3.gif" alt="Illustration that shows shows the sequence of a Ja Nya ligature glyph, halant, plus Ra being substituted by a Ja Nya rakaar ligature glyph using the R K R F feature." data-linktype="relative-path"></p>
+<p>For consonants that do not form a ligature with the rakaar (like the Cha) the 'rkrf' feature may also be used to substitute a pre-composed glyph for the consonant plus rakaar combination:<br>
+<img src="images/devanagari/rakaar4.gif" alt="Illustration that shows the sequence of Cha, halant and Ra glyphs being substituted by a combined Cha below base Ra glyph using the R K R F feature." data-linktype="relative-path"></p>
+<h4 id="below-base-form-of-consonant">Below-base form of consonant</h4>
+<p>Feature Tag: "blwf"</p>
+<p>This feature substitutes the below-base forms of Consonants like the Ra in Devanagari (aka <em>'rakaar'</em>) when the rakaar does not form a ligature with the preceding consonant. If the rakaar and preceding consonant do form a ligature, it should be substituted in the previous feature 'rkrf'.</p>
+<p>Halant plus Ra (preceded by a consonant which does not form a 'rkrf' ligature) substitutes the rakaar form:<br>
+<img src="images/devanagari/blwf.gif" alt="Illustration that shows the sequence of halant plus Ra glyphs being substituted by a below base Ra glyph using the B L W F feature." data-linktype="relative-path"></p>
+<h4 id="half-form-of-consonant">Half form of consonant</h4>
+<p>Feature Tag: "half"</p>
+<p>Applying this feature substitutes <em>half</em> forms - forms of consonants used in the pre-base position. Consonants that have a half form should be listed in the <em>'half'</em> feature. Devanagari has distinctly shaped half forms for most of the consonants as well as <em>nukta</em> and <em>Akhand</em> glyphs. If a consonant does not have a distinct shape for the half form and does not form any ligature, it will be displayed with an explicit Virama (same shape as the halant form).</p>
+<p>Note - the result of listing a consonant in the <em>half</em> feature (whether it has a true half form or not) will affect the re-ordering (and positioning) of the <em>reph</em> and pre-pended matras. See illustration in the Introduction section of this document.</p>
+<p>This feature is applied to all consonants preceding the 'main' consonant.</p>
+<p>Example 1 - Half feature substitutes half form of Ka:<br>
+<img src="images/devanagari/half1.gif" alt="Illustration that shows the sequence of Ka plus halant being substituted by a half form of Ka using the half feature." data-linktype="relative-path"></p>
+<p>Example 2 - Half feature applied to multiple consonants:<br>
+<img src="images/devanagari/half2.gif" alt="Illustration that shows the half feature applied to multiple consonant halant glyph pairs." data-linktype="relative-path"></p>
+<p>Example 3 - Half feature used to substitute half form of Ta-Nukta:<br>
+<img src="images/devanagari/half3.gif" alt="Illustration that shows the sequence of the Ta-nukta glyph plus halant being substituted by a half form of Ta-nukta using the half feature." data-linktype="relative-path"></p>
+<p>Example 4 - Half form of Akhand ligature (KaSsa):<br>
+<img src="images/devanagari/half4.gif" alt="Illustration that shows the sequence of the KaSsa conjunct ligature glyph plus halant being substituted by the half form of the Ka Ssa conjunct ligature." data-linktype="relative-path"></p>
+<p>Example 5 - Half feature applied to Da, produces 'halant' form of Da since it has no distinct half form shape: (remember listing the Da in the half feature will cause it to behave like a half form for purposes of re-ordering)<br>
+<img src="images/devanagari/half5.gif" alt="Illustration that shows the sequence of Da plus halant being substituted by a combined Da halant glyph using the half feature." data-linktype="relative-path"></p>
+<h4 id="vattu-variants">Vattu variants</h4>
+<p>Feature Tag: "vatu"</p>
+<p>The <em>'vatu'</em> feature can be used to substitute a ligature of a full (or half) form consonant plus a below-base vattu <em>(rakaar)</em> mark. This feature was needed in earlier implementations to combine rakaar with both full and half forms It is not useful, however, for newer implementations that distinguish consonants that do not have half forms from other consonants, for purposes of re-ordering the <em>reph</em> and pre-pended matras. In Devanagari, this feature is <strong>not required</strong> if the 'rkrf' feature is used, however it is still supported for backward compatibility with existing fonts.</p>
+<p>Example; the 'vatu' feature used in earlier implementations of the shaping engine to substitute a ligature of consonant (full or half form) plus vattu (rakaar), which now should be created using the 'rkrf' and 'half' features.<br>
+<img src="images/devanagari/vattu.gif" alt="Illustration that shows two examples of the vatu feature. The sequence of Ka plus below base Ra glyphs is substituted by a Ka Ra ligature glyph. The sequence of half Ka plus below base Ra glyphs is substituted by a half Ka Ra ligature glyph." data-linktype="relative-path"></p>
+<h4 id="conjunct-forms">Conjunct forms</h4>
+<p>Feature Tag: "cjct"</p>
+<p>Apply feature <em>'cjct'</em> to substitute conjunct forms where the first consonant in the consonant-cluster pair does not have a half form. This feature allows for control over re-ordering of <em>reph</em> and pre-pended matras in case of consonants that do not take half forms yet do form conjunct ligatures in combination with certain following consonants.</p>
+<p>The 'cjct' feature applied to substitute conjunct form of Da + Ga:<br>
+<img src="images/devanagari/conjunct1.gif" alt="Illustration that shows the sequence of Da, halant plus Ga glyphs being substituted by a Da Ga ligature glyph using the C J C T feature." data-linktype="relative-path"></p>
+<p>The 'cjct' feature applied to substitute conjunct form of Da + Ma:<br>
+<img src="images/devanagari/conjunct2.gif" alt="Illustration that shows the sequence of Da, halant plus Ma glyphs being substituted by a Da Ma ligature glyph using the C J C T feature." data-linktype="relative-path"></p>
+<h3 id="presentation-forms">Presentation forms</h3>
+<p>After the glyphs have been reordered, the presentation lookups are applied to provide the best typographic rendering of the text. The features of the presentation forms are applied to the entire cluster simultaneously, executing lookups within each feature in the order that they are specified in the font.</p>
+<p>The <em>pres, abvs, blws, psts</em> and <em>haln</em> features are all mandatory for software implementations: they are required for correct script behaviour and none should ever be treated as discretionary. Because of this and because they are all applied simultaneously over entire clusters, they are not functionally different: a set of lookups could be divided between these features or grouped together under one of them with no difference in effect. These multiple features are provided, however, as an aid to the font developer for organizing lookups based on the combinations of glyphs they apply to. There are no specific requirements on how each should be used; the examples provided below illustrate typical usage, however.</p>
+<h4 id="pre-base-substitutions">Pre-base substitutions</h4>
+<p>Feature Tag: "pres"</p>
+<p>This feature is used to substitute pre-base consonant conjuncts made with half forms, the type most common in Devanagari. The resulting conjunct can be in full or half form. See examples 1-4.</p>
+<p>This feature is also used to select typographically correct forms of the <em>I-Matra</em>. For example, a font can have several versions of the I-Matra to be used in context with different consonant bases or clusters. See example 5 + 6. In addition the 'pres' feature can contain pre-composed ligatures of the I-matra with certain bases.</p>
+<p>Example 1 - half Ka + full Ta is substituted by the full KaTa conjunct:<br>
+<img src="images/devanagari/pres1.gif" alt="Illustration that shows the sequence of half Ka plus full Ta glyphs being substituted by a conjunct Ka Ta ligature glyph using the P R E S feature." data-linktype="relative-path"></p>
+<p>Example 2 - half Sha + full Na is substituted by the full ShaNa conjunct:<br>
+<img src="images/devanagari/pres2.gif" alt="Illustration that shows the sequence of half Sha plus full Na glyphs being substituted by a conjunct Sha Na ligature glyph using the P R E S feature." data-linktype="relative-path"></p>
+<p>Example 3 - half Kha + half Na is substituted by the half KhaNa conjunct:<br>
+<img src="images/devanagari/pres3.gif" alt="Illustration that shows the sequence of half Kha plus half Na glyphs being substituted by a half conjunct Kha Na ligature glyph using the P R E S feature." data-linktype="relative-path"></p>
+<p>Example 4 - half Sha + half La is substituted by the half ShaLa conjunct:<br>
+<img src="images/devanagari/pres4.gif" alt="Illustration that shows the sequence of half Sha plus half La glyphs being substituted by a half conjunct Sha La ligature glyph using the P R E S feature." data-linktype="relative-path"></p>
+<p>Example 5 - The 'pres' feature is also used to substitute variations of the I-Matra based on context:<br>
+<img src="images/devanagari/pres5.gif" alt="Illustration that shows a wider variant of the I Matra glyph being substituted by a narrower variant when followed by the Ka glyph using the P R E S feature." data-linktype="relative-path"></p>
+<p>Example 6 - Using MS Volt, different shapes of the I-matra are selected based on the context. Note; in this example 'glyph groups' listing consonants with similar widths, have been used for substitution context.<br>
+<img src="images/devanagari/pres6.gif" alt="Screenshot of a Microsoft VOLT dialog for specifying single glyph substitutions. One variant of the I matra is substituted for another. A glyph group of consonant glyphs called I Width Four is specified as a following context." data-linktype="relative-path"></p>
+<h4 id="above-base-substitutions">Above-base substitutions</h4>
+<p>Feature Tag: "abvs"</p>
+<p>This feature is used for glyph substitutions involving above-base marks. Such substitutions might be used to select contextual forms of marks, to create mark-mark ligatures, or to create mark-base ligatures. Specific context-dependent forms or below-base consonants are handled by this lookup as well.</p>
+<p>Example 1- contextual 'abvs' substitution; used to select smaller candrabindu, when preceded by vowel short E.<br>
+<img src="images/devanagari/abvs1.gif" alt="Illustration that shows a larger variant of the candrabindu glyph being substituted by a smaller variant when followed by the vowel letter short E using the A B V S feature." data-linktype="relative-path"></p>
+<p>Example 2- mark to mark 'abvs' substitution; matre E + reph substituted with matraE reph ligature. Note- the positioning of the ligature matra is done in the 'abvm' feature:<br>
+<img src="images/devanagari/abvs2.gif" alt="Illustration that shows the sequence of matra E plus reph mark glyphs being substituted with a ligature matra E reph mark glyph using the A B V S feature." data-linktype="relative-path"></p>
+<p>Example 3- mark to base 'abvs' substitution; vowel Ii + candrabindu substituted with pre-composed ligature:<br>
+<img src="images/devanagari/abvs3.gif" alt="Illustration that shows the sequence of a vowel letter E base glyph plus candrabindu mark glyph being substituted with a combined vowel E candrabindu glyph using the A B V S feature." data-linktype="relative-path"></p>
+<h4 id="below-base-substitutions">Below-base substitutions</h4>
+<p>Feature Tag: "blws"</p>
+<p>This feature is used for glyph substitutions involving below-base marks or consonants. Such substitutions can be used to create conjuncts of base glyphs with below-base consonants, below mark ligatures or below mark-base ligatures. Specific context-dependent forms are handled by this lookup as well.</p>
+<p>Example 1- 'blws' substitution to create base + below base conjunct:<br>
+<img src="images/devanagari/blws1.gif" alt="Illustration that shows the sequence of a Ka base glyph plus vocalic L mark glyph being substituted by a combined Ka vocalic L ligature glyph using the B L W S feature." data-linktype="relative-path"></p>
+<p>Example 2- 'blws' substitution to create base + below mark conjunct:<br>
+<img src="images/devanagari/blws2.gif" alt="Illustration that shows the sequence of a Tta with below Ra base glyph plus a matra UU mark glyph being substituted by a combined TTa Ra UU ligature glyph using the B L W S feature." data-linktype="relative-path"></p>
+<p>Example 3- 'blws' substitution used to create below-mark to base conjunct:<br>
+<img src="images/devanagari/blws3.gif" alt="Illustration that shows the sequence of a Ra base glyph plus a matra U mark glyph being substituted by a Ra U ligature glyph using the B L W S feature." data-linktype="relative-path"></p>
+<h4 id="post-base-substitutions">Post-base substitutions</h4>
+<p>Feature Tag: "psts"</p>
+<p>This feature is used to substitute post-base consonants or matras. Such substitutions can be used to create conjuncts of base glyphs with post-base consonants or post-base matra ligatures. It can also be used to specify contextual alternates of post-base forms.</p>
+<p>Example 1- contextual 'psts' substitution; used to select alternate form of vowel Ii, when preceded by a Ka.<br>
+<img src="images/devanagari/psts1.gif" alt="Illustration that shows a narrow variant of the long I Matra glyph being substituted by a wider variant when preceded by the Ka glyph using the P S T S feature." data-linktype="relative-path"></p>
+<p>Example 2 - contextual 'psts' substitution; Using MS Volt, different shapes of the vowel Ii are substituted based on the context. Note; in this example 'glyph groups' with similar widths are used for the context:<br>
+<img src="images/devanagari/psts2.gif" alt="Screenshot of a dialog in Microsoft VOLT for specifying single glyph substitutions. The long I matra glyph is substituted by a wider variant. A glyph group of consonant glyphs called Long I Width Six is specified as a preceding context." data-linktype="relative-path"></p>
+<h4 id="halant-form-of-consonants">Halant form of consonants</h4>
+<p>Feature Tag: "haln"</p>
+<p>This feature is used to substitute a pre-composed <em>halant</em> form of a base (or conjunct base) glyph in syllables ending with a <em>halant</em>. (Rather than using substitution, <em>halant</em> forms can also be created by positioning the <em>halant</em> as a below-base mark on the base glyph using the 'blwm' positioning feature.)</p>
+<p>This feature is applied only on the base glyph if the syllable ends with a halant, or in the case of non-final consonants that do not take a half form and do not form a conjunct ligature with the following consonant.</p>
+<p>Example 1 - 'haln' feature used to substitute halant form of base glyph:<br>
+<img src="images/devanagari/haln.gif" alt="Illustration that shows the sequence of Ka plus halant glyphs being substituted by a combined Ka halant glyph using the H A L N feature." data-linktype="relative-path"></p>
+<p>Example 2 - 'haln' feature used to substitute halant form of conjunct base glyph:<br>
+<img src="images/devanagari/haln2.gif" alt="Illustration that shows the sequence of a conjunct Ssa Ttha glyph plus a halant glyph being substituted by a combined Ssa Ttha conjunct with halant glyph using the H A L N feature." data-linktype="relative-path"></p>
+<h4 id="contextual-alternates">Contextual Alternates</h4>
+<p>Feature Tag: "calt"</p>
+<p>Unlike the previous presentation lookups, the <em>'calt'</em> feature is optional and is used to substitute discretionary contextual alternates. It is important to note that an application may allow users to turn off this feature, therefore should not be used for any obligatory Devanagari typography.</p>
+<h3 id="positioning-features-1">Positioning features</h3>
+<h4 id="distance">Distance</h4>
+<p>Feature Tag: "dist"</p>
+<p>This feature covers positioning lookups that adjust distances between glyphs, such as kerning between pre- and post-base elements and the base glyph. Note; the feature 'dist' can be used in the same way as the 'kern' feature. The advantage of using the 'dist' feature is that it does not rely on the application to enable kerning.</p>
+<h4 id="above-base-marks">Above-base marks</h4>
+<p>Feature Tag: "abvm"</p>
+<p>This feature positions all above-base marks on the base glyph or the post-base <em>matra</em>. The best method for encoding this feature in an OpenType font is to use a chaining context positioning lookup that triggers mark-to-base and mark-to-mark attachments for above-base marks.</p>
+<p>The 'abvm' lookup in MS Volt using 'Anchor Attachment' for adjusting positions of above-marks over bases:<br>
+<img src="images/devanagari/abvm1.gif" alt="Screenshot of a dialog in Microsoft VOLT for specifying positioning adjustments. Anchor attachment is selected as the lookup type. A mark glyph is shown positioned above a base glyph using an anchor point." data-linktype="relative-path"></p>
+<p>The 'abvm' lookup in MS Volt using 'Pair Adjustment' for adjusting positions of above-marks with post-base vowel:<br>
+<img src="images/devanagari/abvm2.gif" alt="Screenshot of a dialog in Microsoft VOLT for specifying positioning adjustments. Pair adjustment is selected as the lookup type. A mark glyph is shown with its position being adjusted to the right above a base glyph." data-linktype="relative-path"></p>
+<h4 id="below-base-marks">Below-base marks</h4>
+<p>Feature Tag: "blwm"</p>
+<p>This feature positions all below-base marks on the base glyph. The best method for encoding this feature in an OpenType font is to use a chaining context positioning lookup that triggers mark-to-base and mark-to-mark attachments for below-base marks.</p>
+<p>The 'blwm' lookup in MS Volt using 'Anchor Attachment' for adjusting positions of below-marks with bases:<br>
+<img src="images/devanagari/blwm1.gif" alt="Screenshot of a dialog in Microsoft VOLT for specifying positioning adjustments. Anchor attachment is selected as the lookup type. A mark glyph is shown positioned below a base glyph using an anchor point." data-linktype="relative-path"></p>
+<p>The 'blwm' lookup in MS Volt using 'Anchor Attachment' can also be used for adjusting positions of below-marks with other below-marks.<br>
+<img src="images/devanagari/blwm2.gif" alt="Screenshot of a dialog in Microsoft VOLT for specifying positioning adjustments. Anchor attachment is selected as the lookup type. A mark glyph is shown positioned next to another mark glyph using an anchor point." data-linktype="relative-path"></p>
+<h4 id="examples-devanagari-syllables">Examples Devanagari syllables</h4>
+<p>Complex Devanagari syllable formation is possible using the wide range of features available in OpenType. The following examples show how the shaping engine applies the OpenType features, one at a time to the input string. These combinations do not necessarily represent actual syllables or words, but are meant to illustrate the various OpenType features in a Devanagari font.</p>
+<p>Example #1: Input text string and resulting display as OT features are applied.<br>
+<img src="images/devanagari/devanex.gif" alt="Illustration that shows an example of a sequence of glyph substitutions, re-ordering, and positioning adjustments that occur to shape a Devanagari word." data-linktype="relative-path"></p>
+<p>Example #2: Input text string and resulting display as OT features are applied.<br>
+<img src="images/devanagari/devanex2.gif" alt="Illustration that shows a second example of a sequence of glyph substitutions, re-ordering, and positioning adjustments that occur to shape a Devanagari word." data-linktype="relative-path"></p>
+<p>Example #3: Input text string and resulting display as OT features are applied.<br>
+<img src="images/devanagari/devanex3.gif" alt="Illustration that shows a third example of a sequence of glyph substitutions, re-ordering, and positioning adjustments that occur to shape a Devanagari word." data-linktype="relative-path"></p>
+<p>Example #4: Input text string and resulting display as OT features are applied.<br>
+<img src="images/devanagari/devanex4.gif" alt="Illustration that shows a fourth example of a sequence of glyph substitutions, re-ordering, and positioning adjustments that occur to shape a Devanagari word." data-linktype="relative-path"></p>
+<p>Example #5: Input text string and resulting display as OT features are applied.<br>
+<img src="images/devanagari/devanex5.gif" alt="Illustration that shows a fifth example of a sequence of glyph substitutions, re-ordering, and positioning adjustments that occur to shape a Devanagari word." data-linktype="relative-path"></p>
+<p><em>Last updated: May 22, 2008</em></p>
+<p><a name="appendix"></a></p>
+<h2 id="appendices">Appendices</h2>
+<div class="contents-wrapper">
+<ul>
+<li><a href="#tags" data-linktype="self-bookmark">Appendix A: Writing System Tags</a></li>
+<li><a href="#samp" data-linktype="self-bookmark">Appendix B: MANGAL.TTF (sample font)</a></li>
+</ul>
+<p><a name="tags"></a></p>
+<h2 id="appendix-a-writing-system-tags">Appendix A: Writing System Tags</h2>
+<p>Features are encoded according to both a designated script and language system. There are different language systems defined for the Hindi, Sanskrit, and Marathi languages, although they all use the Devanagari script.</p>
+<p>Currently most shaping engine implementations only support the "default" language system for each script. However, font developers may want to build language specific features which are supported in other applications and will be supported in future Microsoft OpenType implementations.</p>
+<p><strong>NOTE:</strong> It is strongly recommended to include the "dflt" language tag in all OpenType fonts because it defines the basic script handling for a font. The "dflt" language system is used as the default if no other language specific features are defined, or if the application does not support that particular language. If the "dflt" tag is not present for the script being used, the font may not work in some applications.</p>
+<p>The following table lists the registered tag names for script and language systems. Note for new Indic shaping implementation 'dev2' is used (old-behavior implementations used 'deva').</p>
+<table width="460">
+<tbody>
+<tr>
+<th valign="top" colspan="2">Registered tags for the Devanagari script</th>
+<th valign="top" colspan="2">Registered tags for Devanagari language systems</th>
+</tr>
+<tr>
+<td width="20%" class="dark" valign="top"><b>Script tag</b></td>
+<td width="30%" class="dark" valign="top"><b>Script</b></td>
+<td width="20%" class="dark" valign="top"><b>Language system tag</b></td>
+<td width="30%" class="dark" valign="top"><b>Language</b></td>
+</tr>
+<tr>
+<td valign="top">"dev2"</td>
+<td valign="top">Devanagari</td>
+<td valign="top">"dflt"</td>
+<td valign="top">*default script handling</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td valign="top">"HIN "</td>
+<td valign="top">Hindi</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td valign="top">"KSH "</td>
+<td valign="top">Kashmiri</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td valign="top">"KOK "</td>
+<td valign="top">Konkani</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td valign="top">"MAR "</td>
+<td valign="top">Marathi</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td valign="top">"NEP "</td>
+<td valign="top">Nepali</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td valign="top">"SAN "</td>
+<td valign="top">Sanskrit</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td valign="top">"SND "</td>
+<td valign="top">Sindhi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> both the script and language tags are case sensitive (script tags should be lowercase, language tags are all caps) and must contain four characters (ie. you must add a space to the three character language tags).</p>
+<p><a name="samp"></a></p>
+<h2 id="appendix-b-mangalttf-sample-font">Appendix B: MANGAL.TTF (sample font)</h2>
+<p>The MANGAL OpenType font is available to licensed users of VOLT, Microsoft's Visual OpenType Layout Tool. It is provided for illustration only, and may not be altered or redistributed.</p>
+<p>MANGAL supports the characters and features in the Unicode Standard, which is a superset of the ISCII-1988 standard. The same Unicode character code layout is followed for nine Indian scripts: Bengali, Devanagari, Gurumukhi (Punjabi), Gujarati, Kannada, Oriya, Malayalam, Tamil and Telugu.</p>
+<p>MANGAL is a Windows 2000 system font. MANGAL contains layout information and glyphs to support all of the required features for the scripts and languages supported.</p>
+<p>Many shaped glyph forms (such as ligatures) have no Unicode encoding. These glyphs have id's in the font, and applications can access these glyphs by "running" the layout features which depend on these glyphs. An application can also identify non-Unicode glyphs contained in the font by traversing the OpenType layout tables, or using the layout services for purely informational purposes.</p>
+<p>MANGAL contains three OpenType Layout tables: GSUB (glyph substitution), GPOS (glyph positioning), and GDEF (glyph definition, distinguishing base glyphs, ligatures, classes of mark glyphs, etc.).</p>
+<p>The font is available as part of the VOLT supplemental files. Once you install VOLT you need to run a separate installer to get the supplemental files. Both installers are part of the <a href="../tools/volt/" data-linktype="relative-path">VOLT download package</a>.</p>
+</div></div></div></div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+			
+		<!-- feedback section -->
+		<section
+			class="feedback-section position-relative margin-top-lg border border-radius padding-xxs display-none-print"
+			data-bi-name="open-source-feedback-section"
+			data-open-source-feedback-section
+			hidden
+		>
+			<div class="display-flex flex-direction-column flex-direction-row-tablet">
+				<div
+					class="width-450-tablet padding-inline-xs padding-inline-xs-tablet padding-top-xs padding-bottom-sm padding-top-xs-tablet background-color-body-medium"
+				>
+					<div class="display-flex flex-direction-column">
+						<div class="padding-bottom-xxs">
+							<span class="icon margin-right-xxs" aria-hidden="true">
+								<span class="docon docon-brand-github"></span>
+							</span>
+							<span class="font-weight-semibold">
+								Collaborate with us on GitHub
+							</span>
+						</div>
+						<span class="line-height-normal">
+							The source for this content can be found on GitHub, where you can also create and review issues and pull requests. For more information, see <a href="https://learn.microsoft.com/contribute/content/">our contributor guide</a>.
+						</span>
+					</div>
+				</div>
+				<div
+					class="display-flex gap-xs width-full-tablet flex-direction-column padding-xs justify-content-space-evenly"
+				>
+					<div class="media">
+						
+
+						<div class="media-content">
+							<p
+								class="font-size-xl font-weight-semibold margin-bottom-xxs"
+								data-open-source-product-title
+							>
+								Script development specifications
+							</p>
+							<div class="display-flex gap-xs flex-direction-column">
+								<p class="line-height-normal" data-open-source-product-description></p>
+								<div class="display-flex gap-xs flex-direction-column">
+									<a href="#" data-github-link>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-bug"></span>
+										</span>
+										<span>Open a documentation issue</span>
+									</a>
+									<a
+										href="https://support.microsoft.com/windows/send-feedback-to-microsoft-with-the-feedback-hub-app-f59187f8-8739-22d6-ba93-f66612949332"
+										class="display-block margin-top-auto font-size-md"
+										data-feedback-product-url
+									>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-feedback"></span>
+										</span>
+										<span>Provide product feedback</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+			
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+		
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2022-06-24T19:43:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2022-06-24
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+			
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

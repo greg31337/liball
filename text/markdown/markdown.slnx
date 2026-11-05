@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/markdown.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Contract/markdown.ConsumerContractTests.csproj" />
+    <Project Path="tests/markdown.Tests.csproj" />
+  </Folder>
+</Solution>

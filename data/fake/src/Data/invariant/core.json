@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "invariant",
+  "fallbacks": [],
+  "reviewStatus": "standards-reviewed",
+  "provenance": [
+    {
+      "id": "rfc-2606",
+      "source": "IETF RFC 2606 reserved DNS names",
+      "sourceVersion": "RFC 2606, June 1999",
+      "license": "IETF-Trust",
+      "reviewer": "repository-data-review-2026-08-14"
+    },
+    {
+      "id": "rfc-5737",
+      "source": "IETF RFC 5737 IPv4 documentation address blocks",
+      "sourceVersion": "RFC 5737, January 2010",
+      "license": "IETF-Trust",
+      "reviewer": "repository-data-review-2026-08-14"
+    },
+    {
+      "id": "rfc-3849",
+      "source": "IETF RFC 3849 IPv6 documentation prefix",
+      "sourceVersion": "RFC 3849, July 2004",
+      "license": "IETF-Trust",
+      "reviewer": "repository-data-review-2026-08-14"
+    },
+    {
+      "id": "nanpa-555",
+      "source": "NANPA 555 line-number reservation",
+      "sourceVersion": "NANPA page retrieved 2026-08-14",
+      "license": "factual-reservation",
+      "reviewer": "repository-data-review-2026-08-14"
+    }
+  ],
+  "fields": [
+    {
+      "name": "internet.domain.documentation",
+      "provenance": "rfc-2606",
+      "value": ["example.com", "example.net", "example.org"]
+    },
+    {
+      "name": "internet.ipv4.documentation-prefixes",
+      "provenance": "rfc-5737",
+      "value": ["192.0.2.0/24", "198.51.100.0/24", "203.0.113.0/24"]
+    },
+    {
+      "name": "internet.ipv6.documentation-prefix",
+      "provenance": "rfc-3849",
+      "value": "2001:db8::/32"
+    },
+    {
+      "name": "phone.nanpa.fictional-subscriber-range",
+      "provenance": "nanpa-555",
+      "value": {"exchange": "555", "first": "0100", "last": "0199"}
+    }
+  ]
+}

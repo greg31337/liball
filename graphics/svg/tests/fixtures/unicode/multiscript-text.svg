@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120">
+  <title>Unicode multiscript, normalization, bidi, and emoji fixture</title>
+  <text id="latin" x="8" y="24">Crème; decomposed: é; emoji: 🧭</text>
+  <text id="cjk" x="8" y="52" xml:lang="ja">日本語かなカナ</text>
+  <text id="arabic" x="312" y="80" direction="rtl" xml:lang="ar">العربية ١٢٣</text>
+  <text id="isolates" x="8" y="108">LTR &#x2067;مرحبا 42&#x2069; end</text>
+</svg>

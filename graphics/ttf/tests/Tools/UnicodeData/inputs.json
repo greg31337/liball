@@ -1,0 +1,216 @@
+{
+  "formatVersion": 1,
+  "unicodeVersion": [17, 0, 0],
+  "archive": {
+    "file": "specs/unicode/UCD_17.0.0.zip",
+    "url": "https://www.unicode.org/Public/zipped/17.0.0/UCD.zip",
+    "sha256": "2066d1909b2ea93916ce092da1c0ee4808ea3ef8407c94b4f14f5b7eb263d28e",
+    "retrieved": "2026-08-17",
+    "license": "https://www.unicode.org/license.txt"
+  },
+  "inputs": [
+    {
+      "path": "BidiBrackets.txt",
+      "role": "runtime",
+      "purpose": "paired-bracket values and bracket types",
+      "size": 8891,
+      "sha256": "dadbaf38a0d0246e5b805bf8725cb81b7c621f93d030595635f5ba2c2f179428"
+    },
+    {
+      "path": "BidiMirroring.txt",
+      "role": "runtime",
+      "purpose": "bidirectional mirror mappings",
+      "size": 26827,
+      "sha256": "a2f16fb873ab4fcdf3221cb1a8a85a134ddd6ed03603181823ff5206af3741ce"
+    },
+    {
+      "path": "CompositionExclusions.txt",
+      "role": "runtime",
+      "purpose": "canonical composition exclusions",
+      "size": 9007,
+      "sha256": "2f239196ef3b5b61db5cc476e9bd80f534d15aa1b74e1be1dea5d042a344c85f"
+    },
+    {
+      "path": "DerivedCoreProperties.txt",
+      "role": "runtime",
+      "purpose": "default-ignorable and normalization support properties",
+      "size": 1134783,
+      "sha256": "24c7fed1195c482faaefd5c1e7eb821c5ee1fb6de07ecdbaa64b56a99da22c08"
+    },
+    {
+      "path": "DerivedNormalizationProps.txt",
+      "role": "runtime",
+      "purpose": "normalization quick-check and composition properties",
+      "size": 1377582,
+      "sha256": "71fd6a206a2c0cdd41feb6b7f656aa31091db45e9cedc926985d718397f9e488"
+    },
+    {
+      "path": "EastAsianWidth.txt",
+      "role": "runtime",
+      "purpose": "East Asian width distinctions used by line breaking",
+      "size": 201595,
+      "sha256": "ea7ce50f3444a050333448dffef1cadd9325af55cbb764b4a2280faf52170a33"
+    },
+    {
+      "path": "HangulSyllableType.txt",
+      "role": "runtime",
+      "purpose": "Hangul shaping and normalization categories",
+      "size": 51360,
+      "sha256": "5a57450afde0d082bc5026f7458649eac3b615490cc7e3d916b0367f1593c0e3"
+    },
+    {
+      "path": "IndicPositionalCategory.txt",
+      "role": "runtime",
+      "purpose": "Indic positional categories",
+      "size": 52257,
+      "sha256": "68cedc29a7e57f984d90fe2c7712f2e6d0c717e253db219607daea8997d6c480"
+    },
+    {
+      "path": "IndicSyllabicCategory.txt",
+      "role": "runtime",
+      "purpose": "Indic syllabic categories",
+      "size": 86695,
+      "sha256": "3fc122f4cf58b0c19268d5f810263b04ab4e1e67743386ec0e0ada9c76aec5be"
+    },
+    {
+      "path": "LineBreak.txt",
+      "role": "runtime",
+      "purpose": "line-break properties",
+      "size": 263180,
+      "sha256": "e6a18fa91f8f6a6f8e534b1d3f128c21ada45bfe152eb6b1bcc5e15fd8ac92e6"
+    },
+    {
+      "path": "PropList.txt",
+      "role": "runtime",
+      "purpose": "binary properties used by shaping and layout",
+      "size": 145465,
+      "sha256": "130dcddcaadaf071008bdfce1e7743e04fdfbc910886f017d9f9ac931d8c64dd"
+    },
+    {
+      "path": "PropertyAliases.txt",
+      "role": "runtime",
+      "purpose": "stable property identifiers for generation",
+      "size": 9619,
+      "sha256": "4441f573caf952ffece1d7c892e7715bd7136dfc26f96eb6f268bf1e474715fb"
+    },
+    {
+      "path": "PropertyValueAliases.txt",
+      "role": "runtime",
+      "purpose": "stable property-value identifiers for generation",
+      "size": 81858,
+      "sha256": "64e9a5f76f7a1e8b5a47d6a1f9a26522a251208f5276bdfa1559dac7cf2e827a"
+    },
+    {
+      "path": "ScriptExtensions.txt",
+      "role": "runtime",
+      "purpose": "Script_Extensions values",
+      "size": 20707,
+      "sha256": "ec2107e58825a1586acee8e0911ce18260394ac8b87e535ca325f1ccbeb06bc6"
+    },
+    {
+      "path": "Scripts.txt",
+      "role": "runtime",
+      "purpose": "Script values",
+      "size": 192460,
+      "sha256": "9f5e50d3abaee7d6ce09480f325c706f485ae3240912527e651954d2d6b035bf"
+    },
+    {
+      "path": "UnicodeData.txt",
+      "role": "runtime",
+      "purpose": "combining classes and canonical decomposition mappings",
+      "size": 2198209,
+      "sha256": "2e1efc1dcb59c575eedf5ccae60f95229f706ee6d031835247d843c11d96470c"
+    },
+    {
+      "path": "VerticalOrientation.txt",
+      "role": "runtime",
+      "purpose": "vertical-orientation properties",
+      "size": 189196,
+      "sha256": "dcef09c3fb24d356b042569c328ec341efc5b53447700d799f2fb4834c3cd3cd"
+    },
+    {
+      "path": "auxiliary/GraphemeBreakProperty.txt",
+      "role": "runtime",
+      "purpose": "grapheme-cluster break properties",
+      "size": 99377,
+      "sha256": "d6b51d1d2ae5c33b451b7ed994b48f1f4dc62b2272a5831e7fd418514a6bae89"
+    },
+    {
+      "path": "emoji/emoji-data.txt",
+      "role": "runtime",
+      "purpose": "emoji binary properties",
+      "size": 107324,
+      "sha256": "2cb2bb9455cda83e8481541ecf5b6dfda66a3bb89efa3fa7c5297eccf607b72b"
+    },
+    {
+      "path": "emoji/emoji-variation-sequences.txt",
+      "role": "runtime",
+      "purpose": "standardized emoji and text presentation sequences",
+      "size": 38315,
+      "sha256": "bb3d09ef03f206012c7532dd52dc0a21c9efddba0135ea4cf0d9201b8b9bba7e"
+    },
+    {
+      "path": "extracted/DerivedBidiClass.txt",
+      "role": "runtime",
+      "purpose": "resolved bidirectional classes",
+      "size": 173433,
+      "sha256": "4867b4b7f0731ed1bfcd34cc6251211ff1542541fce0734b6fbda139ee80b3a4"
+    },
+    {
+      "path": "extracted/DerivedGeneralCategory.txt",
+      "role": "runtime",
+      "purpose": "general categories used by line-break class resolution",
+      "size": 277514,
+      "sha256": "d62e5bab70ca74f099343f71224fa051cb1fdd61a1ab45c0488c44cfc0b6102e"
+    },
+    {
+      "path": "extracted/DerivedJoiningGroup.txt",
+      "role": "runtime",
+      "purpose": "resolved joining-group values",
+      "size": 25323,
+      "sha256": "bb67e0c00b88acfa5be633967b66b23326844a86e49c6fde7b57960d3af66cae"
+    },
+    {
+      "path": "extracted/DerivedJoiningType.txt",
+      "role": "runtime",
+      "purpose": "resolved joining-type values",
+      "size": 40635,
+      "sha256": "f39ebe974825d6736aee15582250307aa532b2cfab3caf3f86bd23fddc9c5c4d"
+    },
+    {
+      "path": "auxiliary/GraphemeBreakTest.txt",
+      "role": "conformance",
+      "purpose": "official extended grapheme-cluster test vectors",
+      "size": 126570,
+      "sha256": "e2d134d2c52919bace503ebb6a551c1855fe1a1faec18478c78fff254a1793ec"
+    },
+    {
+      "path": "auxiliary/LineBreakTest.txt",
+      "role": "conformance",
+      "purpose": "official line-break test vectors",
+      "size": 3166819,
+      "sha256": "e69884e0dde6a8724873f885d68c52dc14518abf9ae4ca9e2283b8773db3b752"
+    },
+    {
+      "path": "BidiTest.txt",
+      "role": "conformance",
+      "purpose": "official bidi property-sequence test vectors",
+      "size": 7959988,
+      "sha256": "888bdfc8090652272d1f859cdb00ae659e2dc6c26740be61ef1d03998a687620"
+    },
+    {
+      "path": "BidiCharacterTest.txt",
+      "role": "conformance",
+      "purpose": "official bidi character test vectors",
+      "size": 6880771,
+      "sha256": "a3e6e905ab5afbe318a96df5401d0372a04cd73ef139ab5e3cf0ae241c255488"
+    },
+    {
+      "path": "NormalizationTest.txt",
+      "role": "conformance",
+      "purpose": "official normalization test vectors",
+      "size": 2827429,
+      "sha256": "5019ffd530751a741900c849c0e010332f142a3612234639bd200b82138a87db"
+    }
+  ]
+}

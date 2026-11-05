@@ -1,0 +1,41 @@
+{
+  "count": 1,
+  "patentFileWrapperDataBag": [
+    {
+      "applicationNumberText": "14/104,993",
+      "applicationMetaData": {
+        "patentNumber": 9362380,
+        "earliestPublicationNumber": "US 2014-0167116 A1",
+        "inventionTitle": "Heterojunction bipolar transistor",
+        "applicationTypeCode": "UTL",
+        "applicationTypeLabelName": "Utility",
+        "applicationStatusDescriptionText": "Patented Case",
+        "firstApplicantName": "Example Semiconductor S.A.",
+        "firstInventorName": "Pascal Chevalier",
+        "groupArtUnitNumber": 2814,
+        "filingDate": "2012-12-19",
+        "earliestPublicationDate": "2014-06-19",
+        "grantDate": "2016-06-07",
+        "applicationStatusCode": "150",
+        "futureMetadata": {
+          "nested": true
+        }
+      },
+      "futureRecord": [
+        1,
+        2
+      ]
+    }
+  ],
+  "facets": [
+    {
+      "applicationMetaData.applicationStatusCode": [
+        {
+          "value": 150,
+          "count": "44673"
+        }
+      ]
+    }
+  ],
+  "requestIdentifier": "body-request"
+}

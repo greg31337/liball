@@ -1,0 +1,4357 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="57x57" href="../highcharts/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../highcharts/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../highcharts/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../highcharts/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../highcharts/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../highcharts/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../highcharts/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../highcharts/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../highcharts/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="../highcharts/favicon-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="../highcharts/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="../highcharts/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="../highcharts/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="../highcharts/favicon-32x32.png" sizes="32x32">
+	<title>Highcharts Class: Exporting</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.highsoft.css">
+
+
+        <script
+        id="Cookiebot"
+        src="https://consent.cookiebot.com/uc.js"
+        data-cbid="8be0770c-8b7f-4e2d-aeb5-2cfded81e177"
+        data-blockingmode="auto"
+        type="text/javascript"
+        ></script>
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5WLVCCK');</script>
+        <!-- End Google Tag Manager -->
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="https://www.highcharts.com">
+			<img class="branding-logo" src="../highcharts/highcharts.svg"
+			alt="Highcharts Home Page"/></a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Options<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="../highcharts/">Highcharts</a>
+					<li>
+					<li>
+						<a href="../highstock/">Highcharts Stock</a>
+					</li>
+					<li>
+						<a href="../highmaps/">Highcharts Maps</a>
+					</li>
+					<li>
+						<a href="../gantt/">Highcharts Gantt</a>
+					</li>
+					<li>
+						<a href="../dashboards/">Highcharts Dashboards</a>
+					</li>
+				</ul>
+			</li>
+
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Highcharts">Highcharts</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Highcharts.AST">Highcharts.AST</a></li><li><a href="Highcharts.AccessibilityComponent">Highcharts.AccessibilityComponent</a></li><li><a href="Highcharts.Annotation">Highcharts.Annotation</a></li><li><a href="Highcharts.AnnotationControlPoint">Highcharts.AnnotationControlPoint</a></li><li><a href="Highcharts.Axis">Highcharts.Axis</a></li><li><a href="Highcharts.Chart">Highcharts.Chart</a></li><li><a href="Highcharts.Color">Highcharts.Color</a></li><li><a href="Highcharts.ColorAxis">Highcharts.ColorAxis</a></li><li><a href="Highcharts.Data">Highcharts.Data</a></li><li><a href="Highcharts.DataTable">Highcharts.DataTable</a></li><li><a href="Highcharts.EqualEarth">Highcharts.EqualEarth</a></li><li><a href="Highcharts.Exporting">Highcharts.Exporting</a></li><li><a href="Highcharts.Fullscreen">Highcharts.Fullscreen</a></li><li><a href="Highcharts.GanttChart">Highcharts.GanttChart</a></li><li><a href="Highcharts.HttpUtilities">Highcharts.HttpUtilities</a></li><li><a href="Highcharts.KeyboardNavigationHandler">Highcharts.KeyboardNavigationHandler</a></li><li><a href="Highcharts.LambertConformalConic">Highcharts.LambertConformalConic</a></li><li><a href="Highcharts.Legend">Highcharts.Legend</a></li><li><a href="Highcharts.Loader">Highcharts.Loader</a></li><li><a href="Highcharts.MapChart">Highcharts.MapChart</a></li><li><a href="Highcharts.MapView">Highcharts.MapView</a></li><li><a href="Highcharts.Miller">Highcharts.Miller</a></li><li><a href="Highcharts.Orthographic">Highcharts.Orthographic</a></li><li><a href="Highcharts.Palette">Highcharts.Palette</a></li><li><a href="Highcharts.Point">Highcharts.Point</a></li><li><a href="Highcharts.Pointer">Highcharts.Pointer</a></li><li><a href="Highcharts.SVGElement">Highcharts.SVGElement</a></li><li><a href="Highcharts.SVGRenderer">Highcharts.SVGRenderer</a></li><li><a href="Highcharts.Series">Highcharts.Series</a></li><li><a href="Highcharts.Sonification">Highcharts.Sonification</a></li><li><a href="Highcharts.SonificationInstrument">Highcharts.SonificationInstrument</a></li><li><a href="Highcharts.SonificationSpeaker">Highcharts.SonificationSpeaker</a></li><li><a href="Highcharts.StockChart">Highcharts.StockChart</a></li><li><a href="Highcharts.SynthPatch">Highcharts.SynthPatch</a></li><li><a href="Highcharts.Tick">Highcharts.Tick</a></li><li><a href="Highcharts.Tooltip">Highcharts.Tooltip</a></li><li><a href="Highcharts.WebMercator">Highcharts.WebMercator</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Highcharts.ASTNode">Highcharts.ASTNode</a></li><li><a href="Highcharts.AjaxSettingsObject">Highcharts.AjaxSettingsObject</a></li><li><a href="Highcharts.AlignObject">Highcharts.AlignObject</a></li><li><a href="Highcharts.AnimationOptionsObject">Highcharts.AnimationOptionsObject</a></li><li><a href="Highcharts.AnnotationControllable">Highcharts.AnnotationControllable</a></li><li><a href="Highcharts.AxisLabelsFormatterContextObject">Highcharts.AxisLabelsFormatterContextObject</a></li><li><a href="Highcharts.AxisPlotLinePathOptionsObject">Highcharts.AxisPlotLinePathOptionsObject</a></li><li><a href="Highcharts.AxisPointBreakEventObject">Highcharts.AxisPointBreakEventObject</a></li><li><a href="Highcharts.AxisSetExtremesEventObject">Highcharts.AxisSetExtremesEventObject</a></li><li><a href="Highcharts.AxisTickPositionsArray">Highcharts.AxisTickPositionsArray</a></li><li><a href="Highcharts.BBoxObject">Highcharts.BBoxObject</a></li><li><a href="Highcharts.BorderRadiusOptionsObject">Highcharts.BorderRadiusOptionsObject</a></li><li><a href="Highcharts.BreadcrumbOptions">Highcharts.BreadcrumbOptions</a></li><li><a href="Highcharts.BreadcrumbsAlignOptions">Highcharts.BreadcrumbsAlignOptions</a></li><li><a href="Highcharts.CSSObject">Highcharts.CSSObject</a></li><li><a href="Highcharts.CaptionObject">Highcharts.CaptionObject</a></li><li><a href="Highcharts.ChartAddSeriesEventObject">Highcharts.ChartAddSeriesEventObject</a></li><li><a href="Highcharts.ChartClickEventAxisObject">Highcharts.ChartClickEventAxisObject</a></li><li><a href="Highcharts.ChartClickEventObject">Highcharts.ChartClickEventObject</a></li><li><a href="Highcharts.ChartIsInsideOptionsObject">Highcharts.ChartIsInsideOptionsObject</a></li><li><a href="Highcharts.ChartPositionObject">Highcharts.ChartPositionObject</a></li><li>Highcharts.Class.&lt;T></li><li><a href="Highcharts.DataDateFormatObject">Highcharts.DataDateFormatObject</a></li><li><a href="Highcharts.DataGroupingInfoObject">Highcharts.DataGroupingInfoObject</a></li><li><a href="Highcharts.DataGroupingResultObject">Highcharts.DataGroupingResultObject</a></li><li><a href="Highcharts.DataMappingOptionsObject">Highcharts.DataMappingOptionsObject</a></li><li><a href="Highcharts.DataTableOptionsObject">Highcharts.DataTableOptionsObject</a></li><li>Highcharts.Dictionary.&lt;T></li><li><a href="Highcharts.DragDropPositionObject">Highcharts.DragDropPositionObject</a></li><li><a href="Highcharts.DrilldownEventObject">Highcharts.DrilldownEventObject</a></li><li><a href="Highcharts.DrillupAllEventObject">Highcharts.DrillupAllEventObject</a></li><li><a href="Highcharts.DrillupEventObject">Highcharts.DrillupEventObject</a></li><li><a href="Highcharts.EventOptionsObject">Highcharts.EventOptionsObject</a></li><li><a href="Highcharts.ExportDataEventObject">Highcharts.ExportDataEventObject</a></li><li><a href="Highcharts.ExportingMenuObject">Highcharts.ExportingMenuObject</a></li><li><a href="Highcharts.ExtremesObject">Highcharts.ExtremesObject</a></li><li><a href="Highcharts.FontMetricsObject">Highcharts.FontMetricsObject</a></li><li><a href="Highcharts.GeoJSON">Highcharts.GeoJSON</a></li><li><a href="Highcharts.GeoJSONFeature">Highcharts.GeoJSONFeature</a></li><li><a href="Highcharts.GeoJSONTranslation">Highcharts.GeoJSONTranslation</a></li><li><a href="Highcharts.GradientColorObject">Highcharts.GradientColorObject</a></li><li><a href="Highcharts.GradientColorStopObject">Highcharts.GradientColorStopObject</a></li><li><a href="Highcharts.InterpolationOptionsObject">Highcharts.InterpolationOptionsObject</a></li><li><a href="Highcharts.KeyboardNavigationHandlerOptionsObject">Highcharts.KeyboardNavigationHandlerOptionsObject</a></li><li><a href="Highcharts.LabelIntersectBoxObject">Highcharts.LabelIntersectBoxObject</a></li><li><a href="Highcharts.LegendItemClickEventObject">Highcharts.LegendItemClickEventObject</a></li><li><a href="Highcharts.LegendItemObject">Highcharts.LegendItemObject</a></li><li><a href="Highcharts.LinearGradientColorObject">Highcharts.LinearGradientColorObject</a></li><li><a href="Highcharts.MapBounds">Highcharts.MapBounds</a></li><li><a href="Highcharts.MapLonLatObject">Highcharts.MapLonLatObject</a></li><li><a href="Highcharts.NavigationBindingsOptionsObject">Highcharts.NavigationBindingsOptionsObject</a></li><li><a href="Highcharts.OffsetObject">Highcharts.OffsetObject</a></li><li><a href="Highcharts.PatternObject">Highcharts.PatternObject</a></li><li><a href="Highcharts.PatternOptionsObject">Highcharts.PatternOptionsObject</a></li><li><a href="Highcharts.PointClickEventObject">Highcharts.PointClickEventObject</a></li><li><a href="Highcharts.PointDragDropObject">Highcharts.PointDragDropObject</a></li><li><a href="Highcharts.PointDragEventObject">Highcharts.PointDragEventObject</a></li><li><a href="Highcharts.PointDragStartEventObject">Highcharts.PointDragStartEventObject</a></li><li><a href="Highcharts.PointDropEventObject">Highcharts.PointDropEventObject</a></li><li><a href="Highcharts.PointEventsOptionsObject">Highcharts.PointEventsOptionsObject</a></li><li><a href="Highcharts.PointInteractionEventObject">Highcharts.PointInteractionEventObject</a></li><li><a href="Highcharts.PointLegendItemClickEventObject">Highcharts.PointLegendItemClickEventObject</a></li><li><a href="Highcharts.PointOptionsObject">Highcharts.PointOptionsObject</a></li><li><a href="Highcharts.PointUpdateEventObject">Highcharts.PointUpdateEventObject</a></li><li><a href="Highcharts.PointerAxisCoordinateObject">Highcharts.PointerAxisCoordinateObject</a></li><li><a href="Highcharts.PointerAxisCoordinatesObject">Highcharts.PointerAxisCoordinatesObject</a></li><li><a href="Highcharts.PointerCoordinatesObject">Highcharts.PointerCoordinatesObject</a></li><li><a href="Highcharts.PointerEventObject">Highcharts.PointerEventObject</a></li><li><a href="Highcharts.PositionObject">Highcharts.PositionObject</a></li><li><a href="Highcharts.ProjectedXY">Highcharts.ProjectedXY</a></li><li><a href="Highcharts.RGBA">Highcharts.RGBA</a></li><li><a href="Highcharts.RadialGradientColorObject">Highcharts.RadialGradientColorObject</a></li><li><a href="Highcharts.RangeObject">Highcharts.RangeObject</a></li><li><a href="Highcharts.RectangleObject">Highcharts.RectangleObject</a></li><li><a href="Highcharts.SVGAttributes">Highcharts.SVGAttributes</a></li><li><a href="Highcharts.SankeyNodeObject">Highcharts.SankeyNodeObject</a></li><li><a href="Highcharts.SelectDataObject">Highcharts.SelectDataObject</a></li><li><a href="Highcharts.SelectEventObject">Highcharts.SelectEventObject</a></li><li><a href="Highcharts.SeriesAfterAnimateEventObject">Highcharts.SeriesAfterAnimateEventObject</a></li><li><a href="Highcharts.SeriesCheckboxClickEventObject">Highcharts.SeriesCheckboxClickEventObject</a></li><li><a href="Highcharts.SeriesClickEventObject">Highcharts.SeriesClickEventObject</a></li><li><a href="Highcharts.SeriesLegendItemClickEventObject">Highcharts.SeriesLegendItemClickEventObject</a></li><li><a href="Highcharts.SeriesPlotBoxObject">Highcharts.SeriesPlotBoxObject</a></li><li><a href="Highcharts.ShadowOptionsObject">Highcharts.ShadowOptionsObject</a></li><li><a href="Highcharts.SizeObject">Highcharts.SizeObject</a></li><li><a href="Highcharts.SonificationChartEventCallbackContext">Highcharts.SonificationChartEventCallbackContext</a></li><li><a href="Highcharts.SonificationGlobalObject">Highcharts.SonificationGlobalObject</a></li><li><a href="Highcharts.SonificationInstrumentCapabilitiesOptionsObject">Highcharts.SonificationInstrumentCapabilitiesOptionsObject</a></li><li><a href="Highcharts.SonificationInstrumentOptionsObject">Highcharts.SonificationInstrumentOptionsObject</a></li><li><a href="Highcharts.SonificationInstrumentScheduledEventOptionsObject">Highcharts.SonificationInstrumentScheduledEventOptionsObject</a></li><li><a href="Highcharts.SonificationScalePresetsObject">Highcharts.SonificationScalePresetsObject</a></li><li><a href="Highcharts.SonificationSeriesEventCallbackContext">Highcharts.SonificationSeriesEventCallbackContext</a></li><li><a href="Highcharts.SonificationSpeakerOptionsObject">Highcharts.SonificationSpeakerOptionsObject</a></li><li><a href="Highcharts.SonificationTimelineEvent">Highcharts.SonificationTimelineEvent</a></li><li><a href="Highcharts.StandaloneNavigatorOptions">Highcharts.StandaloneNavigatorOptions</a></li><li><a href="Highcharts.SubtitleObject">Highcharts.SubtitleObject</a></li><li><a href="Highcharts.SymbolDictionary">Highcharts.SymbolDictionary</a></li><li><a href="Highcharts.SymbolOptionsObject">Highcharts.SymbolOptionsObject</a></li><li><a href="Highcharts.SynthPatchEQFilter">Highcharts.SynthPatchEQFilter</a></li><li><a href="Highcharts.SynthPatchOptionsObject">Highcharts.SynthPatchOptionsObject</a></li><li><a href="Highcharts.SynthPatchOscillatorOptionsObject">Highcharts.SynthPatchOscillatorOptionsObject</a></li><li><a href="Highcharts.SynthPatchPassFilter">Highcharts.SynthPatchPassFilter</a></li><li><a href="Highcharts.TimeTicksInfoObject">Highcharts.TimeTicksInfoObject</a></li><li><a href="Highcharts.TitleObject">Highcharts.TitleObject</a></li><li><a href="Highcharts.TooltipPositionerPointObject">Highcharts.TooltipPositionerPointObject</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="externals.list.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="external-JQuery">JQuery</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+		
+			<div class="navbar-form navbar-right" id="search">
+				<div class="input-group">
+					<input type="text" autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control search" dir="auto" placeholder="Search class reference">
+					<div class="input-group-btn">
+						<button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+					</div>
+				</div>
+			</div>
+		
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+		<div class="col-md-4">
+			<div id="toc" class="col-md-4 hidden-xs hidden-sm"></div>
+		</div>
+	
+
+
+	
+	<div class="col-md-8 main-column">
+	
+		<div id="main">
+			
+				<div id="search-text-results"></div>
+			
+			
+
+	<h1 class="page-title">Class: Exporting</h1>
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="Highcharts.html">Highcharts</a>.</span>
+        
+        Exporting
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="Exporting"><span class="type-signature"></span>new Exporting()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="downloadCSV"><span class="type-signature"></span>downloadCSV()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Generates a data URL of CSV for local download in the browser. This is
+the default action for a click on the 'Download CSV' button.</p>
+<p>See <a href="Highcharts.Exporting.html#getCSV">Highcharts.Exporting#getCSV</a> to get the CSV data itself.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="downloadSVG"><span class="type-signature">&lt;async> </span>downloadSVG(svg, exportingOptions)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get data URL to an image of an SVG and call download on its options
+object:</p>
+<ul>
+<li><strong>filename:</strong> Name of resulting downloaded file without extension.
+Default is based on the chart title.</li>
+<li><strong>type:</strong> File type of resulting download. Default is <code>image/png</code>.</li>
+<li><strong>scale:</strong> Scaling factor of downloaded image compared to source.
+Default is <code>2</code>.</li>
+<li><strong>libURL:</strong> URL pointing to location of dependency scripts to download
+on demand.</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>svg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The generated SVG.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>exportingOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Highcharts.ExportingOptions</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The exporting options.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="downloadXLS"><span class="type-signature"></span>downloadXLS()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Generates a data URL of an XLS document for local download in the
+browser. This is the default action for a click on the 'Download XLS'
+button.</p>
+<p>See <a href="Highcharts.Exporting.html#getTable">Highcharts.Exporting#getTable</a> to get the table data itself.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="exportChart"><span class="type-signature">&lt;async> </span>exportChart( [exportingOptions] [, chartOptions])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Submit an SVG version of the chart along with some parameters for local
+conversion (PNG, JPEG, and SVG) or conversion on a server (PDF).</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>exportingOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Highcharts.ExportingOptions</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Exporting options in addition to those defined in
+<a href="https://api.highcharts.com/highcharts/exporting">exporting</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>chartOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Highcharts.Options</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Additional chart options for the exported chart. For example a different
+background color can be added here, or <code>dataLabels</code> for export only.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Try it</h5>
+        <ul class="samples">
+        
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-exportchart/
+Export">
+    with no options.</a>
+    </li>
+
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-exportchart-filename/
+PDF">
+    type and custom filename.</a>
+    </li>
+
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/exporting/menuitemdefinitions-webp/
+Export">
+    to WebP.</a>
+    </li>
+
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-exportchart-custom-background/
+Different">
+    chart background in export.</a>
+    </li>
+
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/stock/members/chart-exportchart/
+Export">
+    with Highcharts Stock.</a>
+    </li>
+
+
+        </ul>
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getCSV"><span class="type-signature"></span>getCSV( [useLocalDecimalPoint])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Returns the current chart data as a CSV string.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>useLocalDecimalPoint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Whether to use the local decimal point as detected from the browser. This
+makes it easier to export data to Excel in the same locale as the user
+is.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+
+
+.
+	
+    <p>CSV representation of the data.</p>
+</div>
+
+
+        
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getChartHTML"><span class="type-signature"></span>getChartHTML( [applyStyleSheets])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Return the unfiltered innerHTML of the chart container. Used as hook for
+plugins. In styled mode, it also takes care of inlining CSS style rules.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>applyStyleSheets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>whether or not to apply the style sheets.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See also:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li>Highcharts.Chart#getSVG</li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+
+
+.
+	
+    <p>The unfiltered SVG of the chart.</p>
+</div>
+
+
+        
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getDataRows"><span class="type-signature"></span>getDataRows( [multiLevelHeaders])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Returns a two-dimensional array containing the current chart data.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>multiLevelHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Use multilevel headers for the rows by default. Adds an extra row with
+top level headers. If a custom columnHeaderFormatter is defined, this can
+override the behavior.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:exportData</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">Array.&lt;Array.&lt;(number|string)>></span>
+
+
+.
+	
+    <p>The current chart data</p>
+</div>
+
+
+        
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getFilename"><span class="type-signature"></span>getFilename()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get the default file name used for exported charts. By default it creates
+a file name based on the chart title.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+
+
+.
+	
+    <p>A file name without extension.</p>
+</div>
+
+
+        
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getSVG"><span class="type-signature"></span>getSVG( [chartOptions] [, async])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Return an SVG representation of the chart.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>chartOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Highcharts.Options</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional chart options for the generated SVG representation. For
+collections like <code>xAxis</code>, <code>yAxis</code> or <code>series</code>, the additional options is
+either merged in to the original item of the same <code>id</code>, or to the first
+item if a common id is not found.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>async</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Whether to get the SVG synchronously or asynchronously. The async mode
+should be used when additional resources like WebGPU canvas needs to be
+inlined before getting the SVG. In async mode, <code>getSVG</code> returns a
+Promise.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:getSVG</li>
+    
+        <li>Highcharts.Chart#event:afterGetSVG</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Promise.&lt;string></span>
+
+
+.
+	
+    <p>The SVG representation of the rendered chart.</p>
+</div>
+
+
+        
+
+    
+
+    
+        <h5>Try it</h5>
+        <ul class="samples">
+        
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-getsvg/
+View">
+    the SVG from a button.</a>
+    </li>
+
+
+        </ul>
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getTable"><span class="type-signature"></span>getTable( [useLocalDecimalPoint])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Build a HTML table with the chart's current data.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>useLocalDecimalPoint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Whether to use the local decimal point as detected from the browser. This
+makes it easier to export data to Excel in the same locale as the user
+is.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:afterGetTable</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+
+
+.
+	
+    <p>HTML representation of the data.</p>
+</div>
+
+
+        
+
+    
+
+    
+        <h5>Try it</h5>
+        <ul class="samples">
+        
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/export-data/viewdata/
+View">
+    the data from the export menu.</a>
+    </li>
+
+
+        </ul>
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="hideData"><span class="type-signature"></span>hideData()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Hide the data table when visible.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="print"><span class="type-signature"></span>print()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Clears away other elements in the page and prints the chart as it is
+displayed. By default, when the exporting module is enabled, a context
+button with a drop down menu in the upper right corner accesses this
+function.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:beforePrint</li>
+    
+        <li>Highcharts.Chart#event:afterPrint</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Try it</h5>
+        <ul class="samples">
+        
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-print/
+Print">
+    from a HTML button.</a>
+    </li>
+
+
+        </ul>
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="viewData"><span class="type-signature"></span>viewData()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>View the data in a table below the chart.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:afterViewData</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+	<h1 class="page-title">Class: Exporting</h1>
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="Highcharts.html">Highcharts</a>.</span>
+        
+        Exporting
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="Exporting"><span class="type-signature"></span>new Exporting(chart)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The Exporting class provides methods for exporting charts to images. If the
+exporting module is loaded, this class is instantiated on the chart and
+available through the <code>chart.exporting</code> property. Read more about the
+<a href="https://www.highcharts.com/docs/export-module-overview">exporting module</a>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>chart</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Highcharts.Chart">Highcharts.Chart</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The chart instance.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="downloadCSV"><span class="type-signature"></span>downloadCSV()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Generates a data URL of CSV for local download in the browser. This is
+the default action for a click on the 'Download CSV' button.</p>
+<p>See <a href="Highcharts.Exporting.html#getCSV">Highcharts.Exporting#getCSV</a> to get the CSV data itself.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="downloadSVG"><span class="type-signature">&lt;async> </span>downloadSVG(svg, exportingOptions)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get data URL to an image of an SVG and call download on its options
+object:</p>
+<ul>
+<li><strong>filename:</strong> Name of resulting downloaded file without extension.
+Default is based on the chart title.</li>
+<li><strong>type:</strong> File type of resulting download. Default is <code>image/png</code>.</li>
+<li><strong>scale:</strong> Scaling factor of downloaded image compared to source.
+Default is <code>2</code>.</li>
+<li><strong>libURL:</strong> URL pointing to location of dependency scripts to download
+on demand.</li>
+</ul>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>svg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The generated SVG.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>exportingOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Highcharts.ExportingOptions</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The exporting options.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="downloadXLS"><span class="type-signature"></span>downloadXLS()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Generates a data URL of an XLS document for local download in the
+browser. This is the default action for a click on the 'Download XLS'
+button.</p>
+<p>See <a href="Highcharts.Exporting.html#getTable">Highcharts.Exporting#getTable</a> to get the table data itself.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="exportChart"><span class="type-signature">&lt;async> </span>exportChart( [exportingOptions] [, chartOptions])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Submit an SVG version of the chart along with some parameters for local
+conversion (PNG, JPEG, and SVG) or conversion on a server (PDF).</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>exportingOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Highcharts.ExportingOptions</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Exporting options in addition to those defined in
+<a href="https://api.highcharts.com/highcharts/exporting">exporting</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>chartOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Highcharts.Options</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Additional chart options for the exported chart. For example a different
+background color can be added here, or <code>dataLabels</code> for export only.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Try it</h5>
+        <ul class="samples">
+        
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-exportchart/
+Export">
+    with no options.</a>
+    </li>
+
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-exportchart-filename/
+PDF">
+    type and custom filename.</a>
+    </li>
+
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/exporting/menuitemdefinitions-webp/
+Export">
+    to WebP.</a>
+    </li>
+
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-exportchart-custom-background/
+Different">
+    chart background in export.</a>
+    </li>
+
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/stock/members/chart-exportchart/
+Export">
+    with Highcharts Stock.</a>
+    </li>
+
+
+        </ul>
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getCSV"><span class="type-signature"></span>getCSV( [useLocalDecimalPoint])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Returns the current chart data as a CSV string.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>useLocalDecimalPoint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Whether to use the local decimal point as detected from the browser. This
+makes it easier to export data to Excel in the same locale as the user
+is.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+
+
+.
+	
+    <p>CSV representation of the data.</p>
+</div>
+
+
+        
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getChartHTML"><span class="type-signature"></span>getChartHTML( [applyStyleSheets])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Return the unfiltered innerHTML of the chart container. Used as hook for
+plugins. In styled mode, it also takes care of inlining CSS style rules.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>applyStyleSheets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>whether or not to apply the style sheets.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See also:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li>Highcharts.Chart#getSVG</li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+
+
+.
+	
+    <p>The unfiltered SVG of the chart.</p>
+</div>
+
+
+        
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getDataRows"><span class="type-signature"></span>getDataRows( [multiLevelHeaders])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Returns a two-dimensional array containing the current chart data.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>multiLevelHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Use multilevel headers for the rows by default. Adds an extra row with
+top level headers. If a custom columnHeaderFormatter is defined, this can
+override the behavior.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:exportData</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">Array.&lt;Array.&lt;(number|string)>></span>
+
+
+.
+	
+    <p>The current chart data</p>
+</div>
+
+
+        
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getFilename"><span class="type-signature"></span>getFilename()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get the default file name used for exported charts. By default it creates
+a file name based on the chart title.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+
+
+.
+	
+    <p>A file name without extension.</p>
+</div>
+
+
+        
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getSVG"><span class="type-signature"></span>getSVG( [chartOptions] [, async])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Return an SVG representation of the chart.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>chartOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Highcharts.Options</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Additional chart options for the generated SVG representation. For
+collections like <code>xAxis</code>, <code>yAxis</code> or <code>series</code>, the additional options is
+either merged in to the original item of the same <code>id</code>, or to the first
+item if a common id is not found.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>async</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Whether to get the SVG synchronously or asynchronously. The async mode
+should be used when additional resources like WebGPU canvas needs to be
+inlined before getting the SVG. In async mode, <code>getSVG</code> returns a
+Promise.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:getSVG</li>
+    
+        <li>Highcharts.Chart#event:afterGetSVG</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Promise.&lt;string></span>
+
+
+.
+	
+    <p>The SVG representation of the rendered chart.</p>
+</div>
+
+
+        
+
+    
+
+    
+        <h5>Try it</h5>
+        <ul class="samples">
+        
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-getsvg/
+View">
+    the SVG from a button.</a>
+    </li>
+
+
+        </ul>
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="getTable"><span class="type-signature"></span>getTable( [useLocalDecimalPoint])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Build a HTML table with the chart's current data.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>useLocalDecimalPoint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Whether to use the local decimal point as detected from the browser. This
+makes it easier to export data to Excel in the same locale as the user
+is.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:afterGetTable</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc method-returns">
+
+	
+	        
+<span class="param-type">string</span>
+
+
+.
+	
+    <p>HTML representation of the data.</p>
+</div>
+
+
+        
+
+    
+
+    
+        <h5>Try it</h5>
+        <ul class="samples">
+        
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/export-data/viewdata/
+View">
+    the data from the export menu.</a>
+    </li>
+
+
+        </ul>
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="hideData"><span class="type-signature"></span>hideData()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Hide the data table when visible.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="print"><span class="type-signature"></span>print()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Clears away other elements in the page and prints the chart as it is
+displayed. By default, when the exporting module is enabled, a context
+button with a drop down menu in the upper right corner accesses this
+function.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:beforePrint</li>
+    
+        <li>Highcharts.Chart#event:afterPrint</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Try it</h5>
+        <ul class="samples">
+        
+    <li><a href="https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/members/chart-print/
+Print">
+    from a HTML button.</a>
+    </li>
+
+
+        </ul>
+    
+</dd>
+</div>
+
+        
+            
+<div class="hc-member">
+<dt>
+    <h4 class="name" id="viewData"><span class="type-signature"></span>viewData()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>View the data in a table below the chart.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+    <h5>Requires:</h5>
+    <ul>
+        <li>module:modules/exporting</li>
+    
+        <li>module:modules/export-data</li>
+    </ul>
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>Highcharts.Chart#event:afterViewData</li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+</div>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+</div>
+</div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a>
+	
+		on 2026-08-17T16:04:41+02:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+	<script type="text/javascript" src="api.js"></script>
+	<script type="text/javascript" src="/websearch/highsoft-websearch.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+		navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+	$( "table" ).each( function () {
+	  var $this = $( this );
+	  $this.addClass('table');
+	} );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+	<script type="text/javascript">
+		hapi.initializeSearchBar('.search', '#search button', null, '#search-text-results', null, 2, 20);
+	</script>
+
+
+</body>
+</html>

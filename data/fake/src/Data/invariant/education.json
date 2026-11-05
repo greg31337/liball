@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "invariant",
+  "fallbacks": [],
+  "reviewStatus": "standards-reviewed",
+  "provenance": [
+    {
+      "id": "project-authored-education",
+      "source": "Original project-authored invariant fictional education data",
+      "sourceVersion": "2026-08-14",
+      "license": "project-license",
+      "reviewer": "repository-data-review-2026-08-14"
+    }
+  ],
+  "fields": [
+    {
+      "name": "education.catalog",
+      "provenance": "project-authored-education",
+      "value": {
+      "institutions": [
+        { "value": "Northbridge Institute", "weight": 1 },
+        { "value": "Cedar Valley College", "weight": 1 },
+        { "value": "Harborview Polytechnic", "weight": 1 },
+        { "value": "Meridian Arts Academy", "weight": 1 },
+        { "value": "Silver Oak University", "weight": 1 },
+        { "value": "Summit Technical College", "weight": 1 }
+      ],
+      "subjects": [
+        {
+          "id": "computer-science",
+          "value": "computer science",
+          "weight": 1,
+          "courses": [
+            { "value": "Introduction to Algorithms", "weight": 1 },
+            { "value": "Data Structures", "weight": 1 },
+            { "value": "Software Design", "weight": 1 }
+          ],
+          "degrees": [
+            { "value": "Bachelor of Science", "weight": 1 },
+            { "value": "Master of Science", "weight": 1 }
+          ]
+        },
+        {
+          "id": "visual-arts",
+          "value": "visual arts",
+          "weight": 1,
+          "courses": [
+            { "value": "Drawing Foundations", "weight": 1 },
+            { "value": "Color and Composition", "weight": 1 },
+            { "value": "Digital Illustration", "weight": 1 }
+          ],
+          "degrees": [
+            { "value": "Bachelor of Fine Arts", "weight": 1 },
+            { "value": "Master of Fine Arts", "weight": 1 }
+          ]
+        },
+        {
+          "id": "business",
+          "value": "business",
+          "weight": 1,
+          "courses": [
+            { "value": "Organizational Principles", "weight": 1 },
+            { "value": "Project Planning", "weight": 1 },
+            { "value": "Business Analytics", "weight": 1 }
+          ],
+          "degrees": [
+            { "value": "Bachelor of Business Administration", "weight": 1 },
+            { "value": "Master of Business Administration", "weight": 1 }
+          ]
+        },
+        {
+          "id": "environmental-studies",
+          "value": "environmental studies",
+          "weight": 1,
+          "courses": [
+            { "value": "Ecology Fundamentals", "weight": 1 },
+            { "value": "Climate Systems", "weight": 1 },
+            { "value": "Conservation Practice", "weight": 1 }
+          ],
+          "degrees": [
+            { "value": "Bachelor of Environmental Science", "weight": 1 },
+            { "value": "Master of Environmental Studies", "weight": 1 }
+          ]
+        },
+        {
+          "id": "literature",
+          "value": "literature",
+          "weight": 1,
+          "courses": [
+            { "value": "World Literature", "weight": 1 },
+            { "value": "Narrative Studies", "weight": 1 },
+            { "value": "Modern Poetry", "weight": 1 }
+          ],
+          "degrees": [
+            { "value": "Bachelor of Arts", "weight": 1 },
+            { "value": "Master of Arts", "weight": 1 }
+          ]
+        },
+        {
+          "id": "engineering",
+          "value": "engineering",
+          "weight": 1,
+          "courses": [
+            { "value": "Engineering Design", "weight": 1 },
+            { "value": "Applied Mechanics", "weight": 1 },
+            { "value": "Systems Modeling", "weight": 1 }
+          ],
+          "degrees": [
+            { "value": "Bachelor of Engineering", "weight": 1 },
+            { "value": "Master of Engineering", "weight": 1 }
+          ]
+        }
+      ],
+      "terms": [
+        { "value": "Fall", "weight": 1 },
+        { "value": "Winter", "weight": 1 },
+        { "value": "Spring", "weight": 1 },
+        { "value": "Summer", "weight": 1 }
+      ],
+      "grades": [
+        { "value": "A", "weight": 1 },
+        { "value": "A-", "weight": 1 },
+        { "value": "B+", "weight": 1 },
+        { "value": "B", "weight": 1 },
+        { "value": "B-", "weight": 1 },
+        { "value": "C+", "weight": 1 },
+        { "value": "C", "weight": 1 },
+        { "value": "Pass", "weight": 1 },
+        { "value": "Incomplete", "weight": 1 }
+      ],
+      "studentIdMasks": [
+        { "value": "STU-########", "weight": 1 },
+        { "value": "EDU-####-????", "weight": 1 },
+        { "value": "S#########", "weight": 1 }
+      ]
+      }
+    }
+  ]
+}

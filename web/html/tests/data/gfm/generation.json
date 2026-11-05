@@ -1,0 +1,37 @@
+[
+  {
+    "example": 198,
+    "section": "Tables (extension)",
+    "html": "<table>\n<thead>\n<tr>\n<th>foo</th>\n<th>bar</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>baz</td>\n<td>bim</td>\n</tr>\n</tbody>\n</table>\n",
+    "upstream_markdown": "| foo | bar |\n| --- | --- |\n| baz | bim |\n",
+    "expected_markdown": "| foo | bar |\n| --- | --- |\n| baz | bim |"
+  },
+  {
+    "example": 199,
+    "section": "Tables (extension)",
+    "html": "<table>\n<thead>\n<tr>\n<th align=\"center\">abc</th>\n<th align=\"right\">defghi</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td align=\"center\">bar</td>\n<td align=\"right\">baz</td>\n</tr>\n</tbody>\n</table>\n",
+    "upstream_markdown": "| abc | defghi |\n| :-: | -----: |\n| bar | baz |\n",
+    "expected_markdown": "| abc   | defghi |\n| :---: | -----: |\n| bar   | baz    |"
+  },
+  {
+    "example": 280,
+    "section": "Task list items (extension)",
+    "html": "<ul>\n<li><input checked=\"\" disabled=\"\" type=\"checkbox\"> foo\n<ul>\n<li><input disabled=\"\" type=\"checkbox\"> bar</li>\n<li><input checked=\"\" disabled=\"\" type=\"checkbox\"> baz</li>\n</ul>\n</li>\n<li><input disabled=\"\" type=\"checkbox\"> bim</li>\n</ul>\n",
+    "upstream_markdown": "- [x] foo\n  - [ ] bar\n  - [x] baz\n- [ ] bim\n",
+    "expected_markdown": "- [x] foo\n  - [ ] bar\n  - [x] baz\n- [ ] bim"
+  },
+  {
+    "example": 491,
+    "section": "Strikethrough (extension)",
+    "html": "<p><del>Hi</del> Hello, world!</p>\n",
+    "upstream_markdown": "~~Hi~~ Hello, world!\n",
+    "expected_markdown": "~~Hi~~ Hello, world!"
+  },
+  {
+    "example": 621,
+    "section": "Autolinks (extension)",
+    "html": "<p><a href=\"http://www.commonmark.org\">www.commonmark.org</a></p>\n",
+    "upstream_markdown": "www.commonmark.org\n",
+    "expected_markdown": "www.commonmark.org"
+  }
+]

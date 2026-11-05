@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+      <meta name="description"
+            content="The purpose of the ICC is to promote the use and adoption of open, vendor-neutral, cross-platform color management systems. The ICC encourages vendors to support the ICC profile format and the workflows required to use ICC profiles." />
+    
+    <title>Goals for profile assessment — International Color Consortium</title>
+    
+      <script>
+  // Color-mode controller. Runs synchronously in <head> so data-bs-theme is set
+  // before first paint (no flash of the wrong theme). Preference is stored in
+  // localStorage under "icc-theme": "light" | "dark" | absent (= follow OS).
+  (function() {
+    var KEY = "icc-theme";
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function resolve(pref) {
+      return pref === "light" || pref === "dark" ? pref : mq.matches ? "dark" : "light";
+    }
+
+    function apply(pref) {
+      document.documentElement.setAttribute("data-bs-theme", resolve(pref));
+    }
+
+    apply(localStorage.getItem(KEY));
+
+    // While following the OS (no stored choice), track system changes live.
+    mq.addEventListener("change", function() {
+      if (!localStorage.getItem(KEY)) apply(null);
+    });
+
+    window.iccTheme = {
+      get: function() {
+        return localStorage.getItem(KEY) || "auto";
+      },
+      set: function(pref) {
+        if (pref === "auto") {
+          localStorage.removeItem(KEY);
+        } else {
+          localStorage.setItem(KEY, pref);
+        }
+        apply(localStorage.getItem(KEY));
+        document.dispatchEvent(new CustomEvent("icc-theme-changed", {
+          detail: {
+            pref: this.get()
+          }
+        }));
+      },
+    };
+  })();
+</script>
+
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+            integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+            integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://static.color.org/css/project.ad87c7a8e8ab.css" />
+    
+    <link rel="icon" href="https://static.color.org/img/favicon.e539a2bf3ff3.ico" sizes="any" />
+    <link rel="icon" href="https://static.color.org/img/favicon.684328eb1f2d.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    
+    
+    
+      <div class="container-fluid">
+        <div class="row mt-4 align-items-center">
+          <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+            
+
+<a href="/" aria-label="International Color Consortium home">
+  <img src="https://static.color.org/img/icc-logo.f367b829dca5.svg"
+       class="icc-logo-light"
+       width="200"
+       height="113"
+       alt="INTERNATIONAL COLOR CONSORTIUM (ICC)" />
+  <img src="https://static.color.org/img/icc-logo-dark.5936f6150adf.svg"
+       class="icc-logo-dark"
+       width="200"
+       height="113"
+       alt="INTERNATIONAL COLOR CONSORTIUM (ICC)" />
+</a>
+
+          </div>
+          <div class="col-12 col-lg-5 text-center text-lg-start">
+            <h2 class="fs-4 mb-0 ms-2">International Color Consortium</h2>
+            <p class="mt-0 ms-2"><em>Making color seamless between devices and documents</em></p>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="d-flex align-items-center gap-3 justify-content-center justify-content-lg-end me-lg-4 mt-2 mt-lg-0">
+              
+              
+                <a class="text-primary text-decoration-none text-body-emphasis"
+                   href="/accounts/login/">
+                  <i class="bi bi-person-circle" aria-hidden="true"></i> Member Login
+                </a>
+              
+              <div class="dropdown">
+  <button class="btn btn-link link-body-emphasis text-decoration-none dropdown-toggle p-0"
+          id="icc-theme-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          aria-label="Toggle color theme">
+    <i class="bi bi-circle-half" aria-hidden="true"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end"
+      aria-labelledby="icc-theme-toggle">
+    <li>
+      <button type="button"
+              class="dropdown-item d-flex align-items-center gap-2"
+              data-icc-theme-value="light">
+        <i class="bi bi-sun-fill" aria-hidden="true"></i> Light
+        <i class="bi bi-check2 ms-auto d-none"
+           data-icc-theme-check
+           aria-hidden="true"></i>
+      </button>
+    </li>
+    <li>
+      <button type="button"
+              class="dropdown-item d-flex align-items-center gap-2"
+              data-icc-theme-value="dark">
+        <i class="bi bi-moon-stars-fill" aria-hidden="true"></i> Dark
+        <i class="bi bi-check2 ms-auto d-none"
+           data-icc-theme-check
+           aria-hidden="true"></i>
+      </button>
+    </li>
+    <li>
+      <button type="button"
+              class="dropdown-item d-flex align-items-center gap-2"
+              data-icc-theme-value="auto">
+        <i class="bi bi-circle-half" aria-hidden="true"></i> Auto
+        <i class="bi bi-check2 ms-auto d-none"
+           data-icc-theme-check
+           aria-hidden="true"></i>
+      </button>
+    </li>
+  </ul>
+</div>
+<script>
+  // Wires the toggle to window.iccTheme (defined in _theme.html) and keeps the
+  // active item / button icon in sync with the current preference.
+  (function() {
+    var ICONS = {
+      light: "bi-sun-fill",
+      dark: "bi-moon-stars-fill",
+      auto: "bi-circle-half"
+    };
+
+    function sync() {
+      var pref = (window.iccTheme && window.iccTheme.get()) || "auto";
+      document.querySelectorAll("[data-icc-theme-value]").forEach(function(item) {
+        var active = item.getAttribute("data-icc-theme-value") === pref;
+        item.classList.toggle("active", active);
+        var check = item.querySelector("[data-icc-theme-check]");
+        if (check) check.classList.toggle("d-none", !active);
+      });
+      var icon = document.querySelector("#icc-theme-toggle i");
+      if (icon) icon.className = "bi " + ICONS[pref];
+    }
+
+    document.querySelectorAll("[data-icc-theme-value]").forEach(function(item) {
+      item.addEventListener("click", function() {
+        window.iccTheme.set(item.getAttribute("data-icc-theme-value"));
+      });
+    });
+
+    document.addEventListener("icc-theme-changed", sync);
+    sync();
+  })();
+</script>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+      <nav class="navbar navbar-expand-lg border-bottom border-top mt-3"
+     aria-label="Primary navigation">
+  <div class="container-fluid">
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarPrimary"
+            aria-controls="navbarPrimary"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarPrimary">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fs-5 text-uppercase fw-bold">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">About the ICC</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/abouticc/">About the ICC</a></li>
+            <li><a class="dropdown-item" href="/join/">Join the ICC</a></li>
+            <li><a class="dropdown-item" href="/participate/">Participate</a></li>
+            <li><a class="dropdown-item" href="/iccmembers/">Member List</a></li>
+            <li><a class="dropdown-item" href="/groups/">Working Groups</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">Profile Specifications</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/v4spec/">ICC Profile Specification</a></li>
+            <li><a class="dropdown-item" href="/iccmax/"><span class="text-transform-none">iccMAX</span> Profile Specification</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/profileview/">Profile Viewing &amp; Testing</a></li>
+            <li><a class="dropdown-item"
+   href="https://registry.color.org/profile-library/">Profiles</a></li>
+            <li><a class="dropdown-item" href="/profilingtools/">Profile Tools</a></li>
+            <li><a class="dropdown-item"
+   href="https://registry.color.org/cmyk-registry/">Characterization Data Registry</a></li>
+            <li><a class="dropdown-item" href="https://registry.color.org/rgb-registry/">3-Component Encoding Registry</a></li>
+            <li><a class="dropdown-item"
+   href="https://registry.color.org/tag-signatures/">Tag Signatures Registry</a></li>
+            <li><a class="dropdown-item"
+   href="https://registry.color.org/type-signatures/">Type Signatures Registry</a></li>
+            <li><a class="dropdown-item"
+   href="https://registry.color.org/iccmax-signatures/"><span class="text-transform-none">iccMAX</span> Signatures Registry</a></li>
+            <li><a class="dropdown-item"
+   href="https://registry.color.org/profile-registry/">Profile Registry</a></li>
+            <li><a class="dropdown-item"
+   href="https://registry.color.org/dicttype-metadata/">Metadata Registry</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">Technical Content</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/technotes/">Technical Notes</a></li>
+            <li><a class="dropdown-item" href="/whitepapers/">White Papers</a></li>
+            <li><a class="dropdown-item" href="/info_profiles/">Information on Profiles</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events/">Events</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    
+    
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-lg-9 pe-5 page-content">
+        
+        <h1>Goals for profile assessment</h1>
+        
+          <p class="lead">ICC recommends the following checklist for creating or assessing ICC v4 profiles. These goals are intended to avoid security risks, ensure conformance with the ICC specification, and enable a common framework for reporting profile quality.</p>
+        
+        
+        <hr class="my-4" />
+        <div class="page-content"><p>
+    The Profile Assessment Working Group has developed a tool for assessing ICC profiles.
+    It evaluates profiles in terms of their conformance with the ICC specification, their
+    security against vulnerabilities, and some aspects of the quality of the transform
+    provided in the profile. It can be found at
+    <a href="https://github.com/InternationalColorConsortium/iccDEV/tree/master/Tools/CmdLine/IccPawgReport" rel="noopener noreferrer">iccPawgreport</a>.
+</p>
+<p>
+    On this page we summarise the assessment criteria that ICC has developed and that are
+    used in the assessment tools. We recommend that all profile builders validate profiles
+    against these criteria. The ICC tools are free to use, and will provide a comprehensive
+    report on the validation and any issues found.
+</p>
+<p>
+    These criteria apply to all profile versions unless stated. ICC specification section
+    numbers relate to ISO 15076-1:2025 (based on ICC.1:2022).
+</p>
+<h2>
+    Security
+</h2>
+<div class="accordion my-3" id="securityAccordion">
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading1">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse1" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse1" rel="noopener noreferrer">
+            Channel counts in tags match data colour space
+            </a>
+        </h3>
+        <div id="securityCollapse1" class="accordion-collapse collapse" aria-labelledby="securityHeading1" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    Permitted data colour spaces and associated channels can be found in
+                    section 7, table 20 of the ICC specification.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading2">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse2" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse2" rel="noopener noreferrer">
+            Header is 128 bytes and correctly encoded
+            </a>
+        </h3>
+        <div id="securityCollapse2" class="accordion-collapse collapse" aria-labelledby="securityHeading2" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    The profile header is defined in section 7.2 of the ICC specification.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading3">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse3" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse3" rel="noopener noreferrer">
+            Platform, Creator, Manufacturer and CMM fields correspond to registered signatures or are zero
+            </a>
+        </h3>
+        <div id="securityCollapse3" class="accordion-collapse collapse" aria-labelledby="securityHeading3" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    Signatures for these elements can be found in the ICC signature registry.
+                    Zero is hex zero (00h).
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading4">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse4" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse4" rel="noopener noreferrer">
+            Illuminant corresponds to D50 (if profile is ICC v4)
+            </a>
+        </h3>
+        <div id="securityCollapse4" class="accordion-collapse collapse" aria-labelledby="securityHeading4" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    See
+                    <a href="https://www.color.org/whyd50.xalter" rel="noopener noreferrer">https://www.color.org/whyd50.xalter</a>
+                    for an explanation.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading5">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse5" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse5" rel="noopener noreferrer">
+            PCS is Lab or XYZ
+            </a>
+        </h3>
+        <div id="securityCollapse5" class="accordion-collapse collapse" aria-labelledby="securityHeading5" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    See section 8.6 in the ICC specification for details of DeviceLink class profiles.
+                </p>
+                <p>
+                    <strong>Note:</strong> The PCS of a DeviceLink profile should match the data colour
+                    space of the last profile in the profile sequence used to build the profile.
+                    In an iccMAX profile other connection spaces are possible, including spectral
+                    or multiplex.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading6">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse6" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse6" rel="noopener noreferrer">
+            Tags correctly aligned - offset and length correspond to tag table, no overlapping tags or gaps between tags - and correctly encoded
+            </a>
+        </h3>
+        <div id="securityCollapse6" class="accordion-collapse collapse" aria-labelledby="securityHeading6" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    See section 7.3 of the ICC specification for details of tag table construction.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading7">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse7" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse7" rel="noopener noreferrer">
+            Tag table correctly encoded
+            </a>
+        </h3>
+        <div id="securityCollapse7" class="accordion-collapse collapse" aria-labelledby="securityHeading7" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    See section 7.3 of the ICC specification for details of tag table construction.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading8">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse8" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse8" rel="noopener noreferrer">
+            No known malware signatures present
+            </a>
+        </h3>
+        <div id="securityCollapse8" class="accordion-collapse collapse" aria-labelledby="securityHeading8" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    If the profile is constructed as described in this section there is no room
+                    for malware. Profiles can be checked against a current database of malware signatures.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading9">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse9" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse9" rel="noopener noreferrer">
+            EOF follows last tag (including four-byte boundary)
+            </a>
+        </h3>
+        <div id="securityCollapse9" class="accordion-collapse collapse" aria-labelledby="securityHeading9" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    If the EOF is correctly placed, with no additional bytes before or after,
+                    malware cannot be inserted at the end of the profile.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading10">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse10" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse10" rel="noopener noreferrer">
+            Excessive calculator elements not present
+            </a>
+        </h3>
+        <div id="securityCollapse10" class="accordion-collapse collapse" aria-labelledby="securityHeading10" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    iccMAX profiles have unrestricted processing elements, and care should be
+                    taken to avoid these requiring excessive memory or processing operations.
+                    ICC recommends that an estimate of computation cost is provided, in terms
+                    of bytes per pixel and floating point operations per pixel.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading11">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse11" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse11" rel="noopener noreferrer">
+            Private tags not present
+            </a>
+        </h3>
+        <div id="securityCollapse11" class="accordion-collapse collapse" aria-labelledby="securityHeading11" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    ICC recommends that private tags are not used in a profile, although it is
+                    recognised that some vendors prefer to insert such tags. Where present,
+                    tags should ideally not include processing elements, to ensure consistency
+                    across CMMs. Profile creators should consider use of the dictType metadata
+                    tag in place of a private tag.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading12">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse12" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse12" rel="noopener noreferrer">
+            Where present, private tags should preferably be documented
+            </a>
+        </h3>
+        <div id="securityCollapse12" class="accordion-collapse collapse" aria-labelledby="securityHeading12" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    Profile creators may register documentation for private tags with ICC.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading13">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse13" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse13" rel="noopener noreferrer">
+            Private tags do not contain malware
+            </a>
+        </h3>
+        <div id="securityCollapse13" class="accordion-collapse collapse" aria-labelledby="securityHeading13" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    Creators of private tags should take steps to ensure that no vulnerabilities
+                    or potential exploits are afforded by a private tag.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="securityHeading14">
+            <a class="accordion-button collapsed text-decoration-none" href="#securityCollapse14" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="securityCollapse14" rel="noopener noreferrer">
+            Private tags do not contain exploitable non-operation (NOP) instructions
+            </a>
+        </h3>
+        <div id="securityCollapse14" class="accordion-collapse collapse" aria-labelledby="securityHeading14" data-bs-parent="#securityAccordion">
+            <div class="accordion-body">
+                <p>
+                    Creators of private tags should take steps to ensure that no vulnerabilities
+                    or potential exploits are afforded by a private tag.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>
+    Conformance
+</h2>
+<div class="accordion my-3" id="conformanceAccordion">
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading1">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse1" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse1" rel="noopener noreferrer">
+            Tags are correctly encoded according to the tag type
+            </a>
+        </h3>
+        <div id="conformanceCollapse1" class="accordion-collapse collapse" aria-labelledby="conformanceHeading1" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    See section 10 of the specification for tag type encodings.
+                </p>
+                <p>
+                    <strong>Note:</strong> This includes signature, structure, data types,
+                    ranges and encoded values.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading2">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse2" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse2" rel="noopener noreferrer">
+            cprt and desc tags encoded as Unicode or text according to specification version
+            </a>
+        </h3>
+        <div id="conformanceCollapse2" class="accordion-collapse collapse" aria-labelledby="conformanceHeading2" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    ICC v2 profile versions define these as ASCII text; in ICC v4 and iccMAX
+                    they are Unicode.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading3">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse3" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse3" rel="noopener noreferrer">
+            Tags only use tag types allowed for the tag
+            </a>
+        </h3>
+        <div id="conformanceCollapse3" class="accordion-collapse collapse" aria-labelledby="conformanceHeading3" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    Permitted tag types are identified in section 9 of the ICC specification.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading4">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse4" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse4" rel="noopener noreferrer">
+            All required tags for profile class are present
+            </a>
+        </h3>
+        <div id="conformanceCollapse4" class="accordion-collapse collapse" aria-labelledby="conformanceHeading4" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    See section 8 of the ICC specification for a listing of tags required for
+                    each profile class.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading5">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse5" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse5" rel="noopener noreferrer">
+            Additional tags not required for profile class (other than allowed optional tags) are not present; or are flagged as private tags
+            </a>
+        </h3>
+        <div id="conformanceCollapse5" class="accordion-collapse collapse" aria-labelledby="conformanceHeading5" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    Non-required tags create uncertainty on the processing outcome, since most
+                    CMMs will not process them.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading6">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse6" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse6" rel="noopener noreferrer">
+            Private tags have a registered signature
+            </a>
+        </h3>
+        <div id="conformanceCollapse6" class="accordion-collapse collapse" aria-labelledby="conformanceHeading6" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    All private tags must be registered with the ICC. Registered tag signatures
+                    can be seen in the private tag registry.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading7">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse7" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse7" rel="noopener noreferrer">
+            Private tag documentation is available through the tag registry
+            </a>
+        </h3>
+        <div id="conformanceCollapse7" class="accordion-collapse collapse" aria-labelledby="conformanceHeading7" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    ICC recommends that profile builders provide documentation on the structure
+                    and encoding of any private tags.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading8">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse8" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse8" rel="noopener noreferrer">
+            Undocumented private tags are identified
+            </a>
+        </h3>
+        <div id="conformanceCollapse8" class="accordion-collapse collapse" aria-labelledby="conformanceHeading8" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    When assessing an ICC profile, any private tags without documentation
+                    should be identified.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading9">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse9" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse9" rel="noopener noreferrer">
+            Profile class is consistent with data colourspace
+            </a>
+        </h3>
+        <div id="conformanceCollapse9" class="accordion-collapse collapse" aria-labelledby="conformanceHeading9" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    The ICC specification associates different profile classes with permitted
+                    data colourspaces. See section 7.2.6 and section 8.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading10">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse10" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse10" rel="noopener noreferrer">
+            Header content conforms with specification
+            </a>
+        </h3>
+        <div id="conformanceCollapse10" class="accordion-collapse collapse" aria-labelledby="conformanceHeading10" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    See section 7.2 in the ICC specification for header encoding requirements.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading11">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse11" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse11" rel="noopener noreferrer">
+            Tags present correspond to profile version
+            </a>
+        </h3>
+        <div id="conformanceCollapse11" class="accordion-collapse collapse" aria-labelledby="conformanceHeading11" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    Different versions of the specification define slightly different sets of
+                    tags and tag types. Care should be taken that the tags used in a profile
+                    match the profile version stated in the header.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading12">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse12" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse12" rel="noopener noreferrer">
+            Wtpt correctly encoded - D50 for v4 display; or valid value for other profile classes
+            </a>
+        </h3>
+        <div id="conformanceCollapse12" class="accordion-collapse collapse" aria-labelledby="conformanceHeading12" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    In all ICC profiles, the XYZ value of the media white is chromatically
+                    adapted to D50, and normalised so that Y=1 for a perfect reflecting diffuser
+                    (for reflective media) or the display white (for emissive media). In iccMAX
+                    profiles, the media white is also chromatically adapted to the PCS adopted
+                    white colorimetry, but this may be different from D50.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading13">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse13" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse13" rel="noopener noreferrer">
+            Reserved bytes are zero
+            </a>
+        </h3>
+        <div id="conformanceCollapse13" class="accordion-collapse collapse" aria-labelledby="conformanceHeading13" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    The header and many tag types define reserved bytes. These should always
+                    be set to (hex) zero.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="conformanceHeading14">
+            <a class="accordion-button collapsed text-decoration-none" href="#conformanceCollapse14" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="conformanceCollapse14" rel="noopener noreferrer">
+            Tags start and end on four-byte boundaries
+            </a>
+        </h3>
+        <div id="conformanceCollapse14" class="accordion-collapse collapse" aria-labelledby="conformanceHeading14" data-bs-parent="#conformanceAccordion">
+            <div class="accordion-body">
+                <p>
+                    ICC specifications require all tags to be a multiple of four bytes.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>
+    Quality
+</h2>
+<p>
+    While it is not possible to assess all aspects of transform quality, the recommended
+    tests below give some indication of the colorimetric accuracy and invertibility of
+    the profile.
+</p>
+<p>
+    Recommended error statistics are average, maximum and 95th percentile in DE2000.
+</p>
+<div class="accordion my-3" id="qualityAccordion">
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="qualityHeading1">
+            <a class="accordion-button collapsed text-decoration-none" href="#qualityCollapse1" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="qualityCollapse1" rel="noopener noreferrer">
+            First and second round trip
+            </a>
+        </h3>
+        <div id="qualityCollapse1" class="accordion-collapse collapse" aria-labelledby="qualityHeading1" data-bs-parent="#qualityAccordion">
+            <div class="accordion-body">
+                <p>
+                    A round trip is performed when the profile is used to convert data from
+                    the PCS to the data colour space and back. First round trip errors are
+                    usually larger as they include differences between the PCS and media gamuts.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="qualityHeading2">
+            <a class="accordion-button collapsed text-decoration-none" href="#qualityCollapse2" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="qualityCollapse2" rel="noopener noreferrer">
+            Curve round trip differences
+            </a>
+        </h3>
+        <div id="qualityCollapse2" class="accordion-collapse collapse" aria-labelledby="qualityHeading2" data-bs-parent="#qualityAccordion">
+            <div class="accordion-body">
+                <p>
+                    If the round trip error is small the curve can be inverted. Note that curves
+                    in AToBx tags may not necessarily be the inverse of corresponding curves in
+                    BToAx tags.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="qualityHeading3">
+            <a class="accordion-button collapsed text-decoration-none" href="#qualityCollapse3" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="qualityCollapse3" rel="noopener noreferrer">
+            Smoothness metric values of overall transform
+            </a>
+        </h3>
+        <div id="qualityCollapse3" class="accordion-collapse collapse" aria-labelledby="qualityHeading3" data-bs-parent="#qualityAccordion">
+            <div class="accordion-body">
+                <p>
+                    Discontinuities in a transform can lead to contouring ('banding') in a
+                    reproduction. The smoothness metric quantifies the lack of smoothness in
+                    the encoded transform.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="qualityHeading4">
+            <a class="accordion-button collapsed text-decoration-none" href="#qualityCollapse4" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="qualityCollapse4" rel="noopener noreferrer">
+            If characterization data is present, round trip differences of profile output
+            </a>
+        </h3>
+        <div id="qualityCollapse4" class="accordion-collapse collapse" aria-labelledby="qualityHeading4" data-bs-parent="#qualityAccordion">
+            <div class="accordion-body">
+                <p>
+                    These round trip errors indicate the accuracy of the relative colorimetric
+                    rendering intent with respect to the characterization data from which it
+                    was generated.
+                </p>
+                <p>
+                    Characterization data CIELAB → data encoding → CIELAB.
+                </p>
+                <p>
+                    <strong>Note:</strong> Media-relative colorimetric data should be converted
+                    to values relative to a perfect diffuser.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    This list is a guide only and is not comprehensive. There is no guarantee that a profile
+    that meets the requirements listed will be suitable for a given application. iccMAX
+    profiles may have different conformance requirements.
+</p>
+<p>
+    Compare ICC profiles and characterization data sets at
+    <a href="https://chardata.colourbill.com/" rel="noopener noreferrer">https://chardata.colourbill.com/</a>.
+</p></div>
+      </div>
+      <div class="col-lg-3">
+        <!-- Live Topics -->
+        <div class="mt-5 border-bottom">
+          <h3><i class="bi bi-info-square text-icc-blue me-1"></i> LIVE TOPICS</h3>
+          <div class="live-topics"><ul class="list-unstyled links-icc-blue">
+    <li class="mt-3"><a href="https://www.color.org/v4spec/#cicp" rel="noopener noreferrer">Amendment to CICP tag for HDR</a></li>
+    <li class="mt-3"><a href="https://www.color.org/documents/Material_Adjustment_Transforms.pdf" rel="noopener noreferrer">New document on material adjustment transforms</a></li>
+    <li class="mt-3"><a href="/whitepapers/#:~:text=WP58" rel="noopener noreferrer">Minimizing the size of output profiles</a></li>
+    <li class="mt-3"><a href="/profilesecurity/" rel="noopener noreferrer">Profile Security Resources</a></li>
+    <li class="mt-3"><a href="/whitepapers/#weightingfunctions" rel="noopener noreferrer">White paper on weighting functions</a></li>
+    <li class="mt-3"><a href="https://archive.color.org/files/technotes/ICC_TN-06-2025_Recommendations_on_calculation_of_tristimulus_values.pdf" rel="noopener noreferrer">ICC tech note on tristimulus calculation</a></li>
+    <li class="mt-3"><a href="/v4spec/#gaincurve" rel="noopener noreferrer">ICC Amendment: Adaptive Gain Curve</a></li>
+</ul></div>
+        </div>
+        <!-- / Live Topics -->
+        <!-- / Upcomoing Events -->
+        <div class="mt-5 border-bottom">
+          <h3><i class="bi bi-calendar3 text-icc-blue me-1"></i> UPCOMING EVENTS</h3>
+          <div class="events-meetings"><ul class="list-unstyled links-icc-blue">
+  <li class="mt-3"><a href="/events/gjovik2026/">ICC HDR and Spectral Imaging Experts' Day</a></li>
+  <li class="mt-3"><a href="/schedule/">ICC Meetings Schedule</a></li>
+</ul></div>
+        </div>
+        <!-- / Upcoming Events -->
+        <!-- Developer Tools -->
+        <div class="mt-5 border-bottom">
+          <h3><i class="bi bi-tools text-icc-blue me-1"></i> Developer Tools</h3>
+          <div class="dev-tools"><p class="links-icc-blue">
+The iccDEV project provides an open source set of libraries and tools that allow for the interaction, manipulation, and application of ICC based color management profiles based on the <a href="https://www.color.org/icc_specs2.xalter" rel="nofollow">ICC profile specification</a> and <a href="https://www.color.org/iccmax.xalter" rel="nofollow">iccMAX profile specification</a>.
+</p>
+<p class="text-center fs-4 links-icc-blue"><a href="https://github.com/InternationalColorConsortium/iccDEV" target="_blank"><i class="bi bi-github"></i> iccDEV is available on GitHub</a></p></div>
+        </div>
+        <!-- / Developer Tools -->
+      </div>
+    </div>
+  </div>
+
+    
+    
+    
+      <footer class="mt-0">
+        <div class="container-fluid">
+          <div class="row mt-5 border bg-body-tertiary">
+            <div class="col-lg-4 my-5 px-5">
+              <h4>About the ICC</h4>
+              <ul class="list-unstyled">
+                <li><a class="dropdown-item" href="/abouticc/">About the ICC</a></li>
+                <li><a class="dropdown-item" href="/join_icc2/">Join the ICC</a></li>
+                <li><a class="dropdown-item" href="/participate/">Participate</a></li>
+                <li><a class="dropdown-item" href="/iccmembers/">Member List</a></li>
+                <li><a class="dropdown-item" href="/groups1/">Working Groups</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 my-5 px-5">
+              <h4>ICC Specifications</h4>
+              <ul class="list-unstyled">
+                <li><a class="dropdown-item" href="/iccprofile/">Profile Format Introduction</a></li>
+                <li><a class="dropdown-item" href="/icc_specs2/">ICC Specifications</a></li>
+                <li><a class="dropdown-item" href="/technotes/">Technical Notes</a></li>
+                <li><a class="dropdown-item" href="/whitepapers/">White Papers</a></li>
+                <li><a class="dropdown-item" href="/faqs/">Frequently Asked Questions</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 my-5 px-5">
+              <h4>Developer Tools</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="dropdown-item"
+                     href="https://github.com/InternationalColorConsortium/iccDEV"><i class="bi bi-github"></i> iccDEV</a>
+                </li>
+                <li class="mt-3 pt-3 border-top">
+                  <a href="https://github.com/internationalColorConsortium/website-issues"><i class="bi bi-bug"></i> Report a Website Issue</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 my-4 text-center">
+              <p class="mb-0">
+                Copyright © <script>
+   document.write(new Date().getFullYear())
+ </script>
+                INTERNATIONAL COLOR CONSORTIUM
+              </p>
+              <p class="mt-1">
+                <a href="/privacy-notice/" class="text-secondary me-2">Privacy</a>
+                <a href="/terms-of-service/" class="text-secondary me-2">Terms of Service</a>
+                <a href="/ip-policy/" class="text-secondary">IP Policy</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"
+              integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer"></script>
+      <script defer src="https://static.color.org/js/site.9241faeef42e.js"></script>
+    
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a320a3f22e69ed00',t:'MTc4Nzg5MjA1Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,130 @@
+---
+_metadata:
+  doc: implementers/cycle.md
+  hint: |
+    See docs/implementers/cycle.md for complete cycle grouping rules.
+    Key insight: Named cycles share by evaluated name. Unnamed cycles with
+    literals share by identical parameter string. Unnamed cycles with
+    variables get INDEPENDENT counters per tag instance.
+specs:
+- name: cycle_counter_persists_across_loops
+  template: "{% for i in (1..2) %}{% cycle 'a', 'b' %}{% endfor %}{% for i in (1..2)
+    %}{% cycle 'a', 'b' %}{% endfor %}"
+  expected: abab
+  complexity: 100
+  hint: |
+    Cycle counters persist in registers["cycle"] across the entire render.
+    Store counter state as: registers["cycle"][group_key] = current_index.
+    Both loops use identical literal cycles, so they share one counter.
+    Loop 1: a(0->1), b(1->0). Loop 2: a(0->1), b(1->0).
+- name: cycle_counter_persists_outside_loop
+  template: "{% cycle 'a', 'b' %}{% cycle 'a', 'b' %}{% cycle 'a', 'b' %}"
+  expected: aba
+  complexity: 100
+  hint: |
+    Cycle works anywhere, not just inside loops. Three identical literal
+    cycles share one counter: a(0->1), b(1->0), a(0->1).
+- name: cycle_named_with_variable
+  template: "{% assign name = 'mygroup' %}{% cycle name: 'a', 'b' %}{% cycle name:
+    'a', 'b' %}"
+  expected: ab
+  complexity: 100
+  hint: |
+    Named cycle syntax: {% cycle group_expr: val1, val2 %}
+    The group key is the EVALUATED expression, not the literal text.
+    Both cycles evaluate 'name' to "mygroup", so they share a counter.
+    a(0->1), b(1->0).
+- name: cycle_named_different_variable_values
+  template: "{% assign g1 = 'colors' %}{% assign g2 = 'sizes' %}{% cycle g1: 'r',
+    'b' %}{% cycle g2: 'r', 'b' %}{% cycle g1: 'r', 'b' %}"
+  expected: rrb
+  complexity: 100
+  hint: |
+    Different evaluated group names = different counters.
+    g1 evaluates to "colors", g2 evaluates to "sizes".
+    Cycle 1 (colors): r(0->1). Cycle 2 (sizes): r(0->1). Cycle 3 (colors): b(1->0).
+- name: cycle_unnamed_literals_share_counter
+  template: "{% cycle 'a', 'b' %}{% cycle 'a', 'b' %}{% cycle 'a', 'b' %}"
+  expected: aba
+  complexity: 200
+  hint: |
+    GROUPING RULE: Unnamed cycles with ALL LITERAL values share a counter.
+    The group key is derived from the stringified parameters (e.g., "'a''b'").
+    Since all three tags have identical literal parameters, they share.
+    a(0->1), b(1->0), a(0->1).
+- name: cycle_unnamed_variables_independent_counters
+  template: "{% assign x = 'a' %}{% cycle x, 'b' %}{% cycle x, 'b' %}"
+  expected: aa
+  complexity: 200
+  hint: |
+    CRITICAL QUIRK: Unnamed cycles with variables get INDEPENDENT counters!
+    When any value is a variable lookup, each tag instance gets its own
+    unique group key (not shared). Both tags start at index 0, both output 'a'.
+    This is the #1 thing implementers get wrong about cycle.
+    See docs/implementers/cycle.md "Why Unnamed Cycles with Variables Get
+    Independent Counters" for the full explanation.
+- name: cycle_unnamed_variable_in_loop
+  template: "{% assign x = '1' %}{% for i in (1..3) %}{% cycle x, '2' %}{% cycle x,
+    '2' %}{% endfor %}"
+  expected: '112211'
+  complexity: 200
+  hint: |
+    Two cycle tags with variables = two INDEPENDENT counters.
+    Tag A cycles: 1, 2, 1 (over 3 iterations)
+    Tag B cycles: 1, 2, 1 (over 3 iterations)
+    Interleaved output: 1-1, 1-2, 2-2, 2-1, 1-1, 1-2 = "112211"
+
+    Compare to literals (which WOULD share): {% cycle '1', '2' %} x2
+    would output "121212" because both tags share one counter.
+- name: cycle_unnamed_same_literal_different_locations
+  template: "{% for i in (1..2) %}{% cycle '1', '2' %}{% endfor %}-{% for i in (1..2)
+    %}{% cycle '1', '2' %}{% endfor %}"
+  expected: 12-12
+  complexity: 200
+  hint: |
+    Literal cycles share counter GLOBALLY, even across different loops.
+    First loop: 1(0->1), 2(1->0). Second loop: 1(0->1), 2(1->0).
+    The counter wrapped back to 0 after hitting 2, so second loop restarts.
+- name: cycle_isolated_in_render
+  template: "{% cycle 'a', 'b' %}{% render 'snippet' %}{% cycle 'a', 'b' %}"
+  filesystem:
+    snippet: "{% cycle 'a', 'b' %}"
+  expected: aab
+  complexity: 210
+  hint: |
+    {% render %} creates ISOLATED registers - fresh cycle counters.
+    Outer: a(0->1). Snippet (isolated): a(0->1). Outer continues: b(1->0).
+    The snippet's 'a' doesn't affect the outer counter because render
+    gets its own registers["cycle"] hash.
+- name: cycle_shared_in_include
+  template: "{% cycle 'a', 'b' %}{% include 'snippet' %}{% cycle 'a', 'b' %}"
+  filesystem:
+    snippet: "{% cycle 'a', 'b' %}"
+  expected: aba
+  complexity: 210
+  hint: |
+    {% include %} SHARES registers with parent - same cycle counters.
+    All three cycles (outer, snippet, outer) share one counter:
+    a(0->1), b(1->0), a(0->1).
+    This is different from render which isolates.
+- name: cycle_named_isolated_in_render
+  template: "{% cycle 'grp': 'x', 'y' %}{% render 'snippet' %}{% cycle 'grp': 'x',
+    'y' %}"
+  filesystem:
+    snippet: "{% cycle 'grp': 'x', 'y' %}"
+  expected: xxy
+  complexity: 210
+  hint: |
+    Named cycles follow the same isolation rules as unnamed.
+    Outer 'grp': x(0->1). Snippet 'grp' (isolated): x(0->1). Outer 'grp': y(1->0).
+    Even though both use the name "grp", render isolates them.
+- name: cycle_named_shared_in_include
+  template: "{% cycle 'grp': 'x', 'y' %}{% include 'snippet' %}{% cycle 'grp': 'x',
+    'y' %}"
+  filesystem:
+    snippet: "{% cycle 'grp': 'x', 'y' %}"
+  expected: xyx
+  complexity: 210
+  hint: |
+    Named cycles share counter via include (same registers).
+    x(0->1), y(1->0), x(0->1). All three share the "grp" counter.

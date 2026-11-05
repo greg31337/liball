@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+
+<meta name="description" content="Details of the standardization of the QR Code, its history, outline specifications, etc., are provided here." />
+<meta name="keywords" content="QRcode,DENSO WAVE,SQRC,LogoQ" />
+
+<title>QR Code Standardization | QRcode.com | DENSO WAVE</title>
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/vnd.microsoft.icon">
+
+<script src="/js/jquery-latest.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#header").load("../header.html");
+	$("#footer").load("../footer.html");
+	
+	// scroll Top
+	$("#toTop a").click(function(){
+		$('html,body').animate({ scrollTop: $($(this).attr("href")).offset().top }, 'slow','swing');
+		return false;
+	});
+});
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PWS5SV37');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+	<div id="header"></div>
+	<div id="container">
+		<link rel="stylesheet" type="text/css" href="../css/standards.css">
+		<div id="containerContents">
+			<div class="h1Box">
+				<div id="h1Blue" class="h1Color"></div>
+				<div id="standardsH1Title"><h1>QR Code Standardization</h1></div>
+				<div class="h1SeniorSign">For advanced users</div>
+				<div id="backTop"><a href="./index.html">Back to top page <br />"What is a QR Code?"</a></div>
+			</div>
+			<div id="standardContents">
+				<img src="../img/standards/normalizeImage.png">
+				<p>
+					We at DENSO WAVE wish QR Code to be used by as many people as possible. This is the reason why we made its specifications publicly available. At present, QR Coe is standardized based on respective national standards or international standards. Therefore, anyone can obtain its specifications without worrying about their applicability.
+					<br><br>
+					* DENSO WAVE has waived the rights to a patent in its possession (Patent No. 2938338) for standardized QR Codes only.
+				</p>
+			</div>
+			<div class="h2Box">
+				<div class="h2Blue"></div>
+				<div id="historyH2Title"><h2>History of QR Code Standardization</h2></div>
+			</div>
+			<div id="historyContentsLeft">
+				<p>
+					QR Code is standardized as shown in the table. It was approved as an international standard in June 2000. This shows that QR Code has been accepted internationally, ensuring its widespread acceptance not only in Japan, but also internationally .
+				</p>
+			</div>
+			<div id="historyContentsRightTop">
+				<p>QR Code Standardization</p>
+			</div>
+			<div id="historyContentsRightLeft">
+				<p>
+					October, 1997 <br><br> March, 1998 <br><br> January, 1999 <br> June, 2000 <br> November, 2004 <br><br /> December 2011
+				</p>
+			</div>
+			<div id="historyContentsRightRight">
+				<p>
+					Approved as AIM International (Automatic Identification Manufacturers International) standard (ISS - QR Code)<br>
+					Approved as JEIDA (Japanese Electronic Industry Development Association) standard (JEIDA-55)<br>
+					Approved as JIS (Japanese Industrial Standards) standard (JIS X 0510)<br>
+					Approved as ISO international standard (ISO/IEC18004)<br>
+					Micro QR Code is Approved as JIS (Japanese Industrial Standards) standard (JIS X 0510) <br>
+					 Approved by GS1, an international standardization organization, as a standard for mobile phones
+				</p>
+			</div>
+			<div class="gotoTopButton" id="toTop">
+				<a href="#header"><img src="../img/cEtc/gotoTopButton.png"></a>
+			</div>
+			<div class="h2Box">
+				<div class="h2Blue"></div>
+				<div id="outlineH2Title"><h2>QR Code Outline Specification</h2></div>
+				<p style="padding:5px 0 0 0;">It is a outline of the QR Code specification.</p>
+			</div>
+			<div id="outlineContents">
+				<div class="outlineContentsLeft"><p>Symbol size</p></div>
+				<div class="outlineContentsMiddleRight"><p>21 x 21 - 177 x 177 modules (size grows by 4 modules/side)</p></div>
+				<div class="outlineContentsLeft" style="height:130px;">
+					<p>Type &amp; Amount of Data (Mixed use is possible.)<br><a href="./version.html"><font class="smallText">Information capacity and versions of the QR Code</font></a></p></div>
+				<div class="outlineContentsMiddle" style="height:130px;"><p>Numeric<br>Alphanumeric<br>8-bit bytes (binary)<br>Kanji</p></div>
+				<div class="outlineContentsRight" style="height:130px;"><p> Max. 7,089 characters<br>Max. 4,296 characters<br>Max. 2,953 characters<br>Max. 1,817 characters</p></div>
+				<div class="outlineContentsLeft" style="height:110px;"><p>Error correction (data restoration)<br><a href="./error_correction.html"><font class="smallText">Error correction feature</font></a><br><br></p></div>
+				<div class="outlineContentsMiddle" style="height:110px;"><p>Level L<br>Level M<br>Level Q<br>Level H</p></div>
+				<div class="outlineContentsRight" style="height:110px;"><p>Approx. 7% of codewords can be restored.<br>Approx. 15% of codewords can be restored.<br>Approx. 25% of codewords can be restored.<br>Approx. 30% of codewords can be restored.</p></div>
+				<div class="outlineContentsLeft" style="height:65px;"><p>Structured appending</p></div>
+				<div class="outlineContentsMiddleRight" style="height:65px;"><p>Max. 16 symbols (printing in a narrow area etc.)</p></div>
+			</div>
+			<div class="gotoTopButton" id="toTop">
+				<a href="#header"><img src="../img/cEtc/gotoTopButton.png"></a>
+			</div>
+			<div class="h2Box">
+				<div class="h2Blue"></div>
+				<div id="availabilityH2Title"><h2>Obtaining QR Code Specification</h2></div>
+			</div>
+			<div id="availabilityContents">
+				<p class="contentsText">QR Code is established as an ISO (ISO/IEC18004) standard. QR Code specification can, therefore, be purchased from this organization.</p>
+				<div>
+					<p>
+						Purchasing ISO Standards<br>
+						Please search by inputting ISO No.18004 or X0510 to Search window. <a href="https://www.iso.org/home.html" target="_blank">https://www.iso.org/home.html</a>
+					</p>
+				</div>
+			</div>
+			<div class="gotoTopButton" id="toTop">
+				<a href="#header"><img src="../img/cEtc/gotoTopButton.png"></a>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

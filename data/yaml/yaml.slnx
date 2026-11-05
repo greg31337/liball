@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/yaml.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/yaml.Tests.csproj" />
+  </Folder>
+</Solution>

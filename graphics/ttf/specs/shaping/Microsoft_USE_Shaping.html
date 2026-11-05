@@ -1,0 +1,2726 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Creating and supporting OpenType fonts for the Universal Shaping Engine - Typography | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="This document presents information that will help font developers in creating OpenType fonts for complex scripts included in the Unicode Standard 16.0, but not otherwise supported by a dedicated shaping engine." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/typography/script-development/use" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Creating and supporting OpenType fonts for the Universal Shaping Engine - Typography" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/typography/script-development/use" />
+			<meta property="og:description" content="This document presents information that will help font developers in creating OpenType fonts for complex scripts included in the Unicode Standard 16.0, but not otherwise supported by a dedicated shaping engine." />
+			<meta name="platform_id" content="0128cd9e-0015-eca3-55bf-9a3c33b3ec8a" /> <meta name="scope" content="typography" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="MSDocsHeader-MSTypography" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="ms.service" content="typography" />
+	
+		<meta name="breadcrumb_path" content="/typography/breadcrumbs/toc.json" />
+	
+		<meta name="feedback_system" content="OpenSource" />
+	
+		<meta name="author" content="Anglass" />
+	
+		<meta name="ms.author" content="anglass" />
+	
+		<meta name="ms.date" content="2024-09-15T00:00:00Z" />
+	
+		<meta name="feedback_product_url" content="https://support.microsoft.com/windows/send-feedback-to-microsoft-with-the-feedback-hub-app-f59187f8-8739-22d6-ba93-f66612949332" />
+	
+		<meta name="keywords" content="typography USE" />
+	
+		<meta name="ms.topic" content="article" />
+	
+		<meta name="source-file" content="https://www.microsoft.com/typography/OpenTypeDev/USE/intro.htm" />
+	
+		<meta name="document_id" content="194a6d3c-4137-46e9-3a4b-44b990200986" />
+	
+		<meta name="document_version_independent_id" content="a0c8e788-5228-aa28-670e-3ba1ac3faecd" />
+	
+		<meta name="updated_at" content="2024-10-02T20:39:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/typography/blob/live/typographydocs/script-development/use.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/typography/blob/1bf4c5ad883c07759612b218b3e5c9c05e6851a2/typographydocs/script-development/use.md" />
+	
+		<meta name="git_commit_id" content="1bf4c5ad883c07759612b218b3e5c9c05e6851a2" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="Win.typography" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/Win.typography/{branchName}{pdfName}" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="4778" />
+	
+		<meta name="asset_id" content="script-development/use" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="typographydocs/script-development/use.md" />
+	
+		<meta name="previous_tlsh_hash" content="C76D06D2C92DEE20FF82DF0B11A7B740B4F0D0A4B4F469D811253553A34A2EA30D76D8DBE63A62CA133B0B9351E1370AA6E6DBB994FE273756E5146D408C31CB8611B7BDD9" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/typography/blob/live/typographydocs/script-development/use.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/typography/script-development/use?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/97159432-14a9-4307-a469-d2f2c75f0e33" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/50565c62-5f6b-4687-be38-323113c72c2e" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03512.8135-66b9c479/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "",
+    "context": {},
+    "standardFeedback": false,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "OpenSource",
+    "feedbackGitHubRepo": "",
+    "feedbackProductUrl": "https://support.microsoft.com/windows/send-feedback-to-microsoft-with-the-feedback-hub-app-f59187f8-8739-22d6-ba93-f66612949332",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": false,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true,
+    "contributors": [
+      {
+        "name": "Anglass",
+        "url": "https://github.com/Anglass"
+      },
+      {
+        "name": "jmart1428",
+        "url": "https://github.com/jmart1428"
+      },
+      {
+        "name": "TimShererWithAquent",
+        "url": "https://github.com/TimShererWithAquent"
+      },
+      {
+        "name": "PeterCon",
+        "url": "https://github.com/PeterCon"
+      },
+      {
+        "name": "xadxura",
+        "url": "https://github.com/xadxura"
+      },
+      {
+        "name": "v-nihar",
+        "url": "https://github.com/v-nihar"
+      },
+      {
+        "name": "mijacobs",
+        "url": "https://github.com/mijacobs"
+      }
+    ],
+    "openSourceFeedbackIssueUrl": "https://github.com/MicrosoftDocs/typography-issues/issues/new?template=shaping-docs-feedback.yml",
+    "openSourceFeedbackIssueTitle": ""
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03512.8135-66b9c479/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div>
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			hidden
+			href=""
+			data-original_content_git_url="https://github.com/MicrosoftDocs/typography/blob/live/typographydocs/script-development/use.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/typographydocs/script-development/use.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="creating-and-supporting-opentype-fonts-for-the-universal-shaping-engine">Creating and supporting OpenType fonts for the Universal Shaping Engine</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	
+					<div class="content"><p>Microsoft Typography<br>
+Last updated: September 2024</p>
+<p><em>This document presents information that will help font developers in creating OpenType fonts for complex scripts included in the Unicode Standard 16.0, but not otherwise supported by a dedicated shaping engine.</em></p>
+<p><a id="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>This document targets developers implementing shaping behavior compatible with the Microsoft OpenType specification for complex scripts not supported by a dedicated shaping engine. It contains information about terminology, font features and behavior of the Universal Shaping Engine (USE). While it does not contain instructions for creating fonts, it will help font developers understand how the Universal shaping engine processes complex script text.</p>
+<p><a id="processoverview"></a></p>
+<h2 id="how-the-universal-shaping-engine-works">How the Universal Shaping Engine works</h2>
+<p>The Universal Shaping Engine processes text in stages. The stages are:</p>
+<ol>
+<li><a href="#characterclassification" data-linktype="self-bookmark">Character classification</a>
+<ol>
+<li><a href="#overrides" data-linktype="self-bookmark">Overrides to Unicode categories</a></li>
+</ol>
+</li>
+<li><a href="#splitvowelhandling" data-linktype="self-bookmark">Split vowel handling</a></li>
+<li><a href="#clustervalidation" data-linktype="self-bookmark">Cluster validation</a></li>
+<li><a href="#featureapplicationi" data-linktype="self-bookmark">OpenType feature application I</a>
+<ol>
+<li><a href="#basicclusterformation" data-linktype="self-bookmark">Basic cluster formation, GSUB</a></li>
+</ol>
+</li>
+<li><a href="#reordering" data-linktype="self-bookmark">Glyph reordering</a></li>
+<li><a href="#featureapplicationii" data-linktype="self-bookmark">OpenType feature application II</a>
+<ol>
+<li><a href="#topographicalfeatures" data-linktype="self-bookmark">Topographical features, GSUB</a></li>
+<li><a href="#typographicfeatures" data-linktype="self-bookmark">Standard typographical features, GSUB</a></li>
+<li><a href="#customfeatures" data-linktype="self-bookmark">Custom substitution features requested by the application, GSUB</a></li>
+<li><a href="#positionalfeatures" data-linktype="self-bookmark">Positional features, GPOS</a></li>
+</ol>
+</li>
+</ol>
+<p><a name="characterclassification"></a></p>
+<h2 id="character-classification">Character classification</h2>
+<p>The run of text that the shaping engine receives for the purpose of shaping is a sequence of Unicode characters. Itemization preprocessing ensures that the runs of text being shaped contain characters belonging to a single script but may include SCRIPT_COMMON characters. The shaping engine divides the text into syllable clusters and identifies character properties. Character properties are used in parsing syllables and identifying their parts as well as determining whether any special behavior or contextual reordering is required. The Universal Shaping Engine (USE) generates character properties from Unicode data. There is a mapping between Unicode’s categories and the classes used internally by USE. This section defines how USE’s classes and subclasses are derived from Unicode data.</p>
+<p>Unicode categories:</p>
+<p>AJT = Unicode, <a href="http://www.unicode.org/reports/tr44/tr44-14.html#Joining_Type" data-linktype="external">Arabic Joining Type</a></p>
+<p>UISC = Unicode, <a href="http://www.unicode.org/reports/tr44/tr44-14.html#Indic_Syllabic_Category" data-linktype="external">Indic Syllabic Category</a></p>
+<p>UGC = Unicode, <a href="http://www.unicode.org/reports/tr44/tr44-14.html#General_Category" data-linktype="external">General Category</a></p>
+<p>UIPC = Unicode, Indic Positional Category, prior to Unicode 8.0 this property was known as <a href="http://www.unicode.org/reports/tr44/tr44-14.html#Indic_Matra_Category" data-linktype="external">Indic Matra Category</a>.</p>
+<p><strong>Note:</strong> Non-Indic complex scripts are not included in Unicode's UISC and UIPC data. Where necessary for USE's processing, data for such scripts has been provided in supplementary data files included in <a href="https://github.com/microsoft/font-tools/tree/master/USE" data-linktype="external">USE's GitHub archive</a>. Hieroglyphic scripts require syllabic categories not defined in UISC. The use of these hieroglyphic categories is documented in this specification and the values are defined in the  <a href="https://github.com/microsoft/font-tools/blob/master/USE/IndicSyllabicCategory-Additional.txt" data-linktype="external">ISC-Additional data file</a>.</p>
+<p>Extended categories:</p>
+<p>ESC = USE, <a href="https://github.com/microsoft/font-tools/blob/master/USE/IndicSyllabicCategory-Additional.txt" data-linktype="external">Extended Syllabic Category</a></p>
+<table>
+<thead>
+<tr>
+<th width="15%" valign="top">Sigla</th>
+<th width="30%" valign="top">USE class</th>
+<th width="55%" valign="top">Derivation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top">B</td>
+<td valign="top">BASE</td>
+<td valign="top">
+<p>AJT = C, D, L, or R;</p>
+<p>UISC = Number;</p>
+<p>UISC = Avagraha &amp; UGC = Lo;</p>
+<p>UISC = Bindu &amp; UGC = Lo;</p>
+<p>UISC = Consonant;</p>
+<p>UISC = Consonant_Final &amp; UGC = Lo;</p>
+<p>UISC = Consonant_Head_Letter;</p>
+<p>UISC = Consonant_Medial &amp; UGC = Lo;</p>
+<p>UISC = Consonant_Subjoined &amp; UGC = Lo;</p>
+<p>UISC = Tone_Letter;</p>
+<p>UISC = Vowel &amp; UGC = Lo;</p>
+<p>UISC = Vowel_Independent;</p>
+<p>UISC = Vowel_Dependent &amp; UGC = Lo</p>
+</td>
+</tr>
+<tr>
+<td valign="top">CGJ</td>
+<td valign="top">CGJ</td>
+<td valign="top">
+<p>U+034F</p>
+</td>
+</tr>
+<tr>
+<td valign="top">CM</td>
+<td valign="top">CONS_MOD</td>
+<td valign="top">
+<p>UISC = Nukta;</p>
+<p>UISC = Gemination_Mark;</p>
+<p>UISC = Consonant_Killer;</p>
+<p>UISC = Symbol_Modifier</p>
+</td>
+</tr>
+<tr>
+<td valign="top">CS</td>
+<td valign="top">CONS_WITH_STACKER</td>
+<td valign="top">
+<p>UISC = Consonant_With_Stacker</p>
+</td>
+</tr>
+<tr>
+<td valign="top">F</td>
+<td valign="top">CONS_FINAL</td>
+<td valign="top">
+<p>UISC = Consonant_Final &amp; UGC != Lo;</p>
+<p>UISC = Consonant_Succeeding_Repha</p>
+</td>
+</tr>
+<tr>
+<td valign="top">FM</td>
+<td valign="top">CONS_FINAL_MOD</td>
+<td valign="top">
+<p>UISC = Syllable_Modifier</p>
+</td>
+</tr>
+<tr>
+<td valign="top">G</td>
+<td valign="top">HIEROGLYPH</td>
+<td valign="top">
+<p>ESC = Hieroglyph</p>
+</td>
+</tr>
+<tr>
+<td valign="top">GB</td>
+<td valign="top">BASE_OTHER</td>
+<td valign="top">
+<p>UISC = Consonant_Placeholder;</p>
+<p>U+2015, U+2022, U+25FB–25FE</p>
+</td>
+</tr>
+<tr>
+<td valign="top">H</td>
+<td valign="top">HALANT</td>
+<td valign="top">
+<p>UISC = Virama;</p>
+<p>UISC = Invisible_Stacker</p>
+</td>
+</tr>
+<tr>
+<td valign="top">HM</td>
+<td valign="top">HIEROGLYPH_MOD</td>
+<td valign="top">
+<p>ESC = Hieroglyph_Modifier</p>
+</td>
+</tr>
+<tr>
+<td valign="top">HN</td>
+<td valign="top">HALANT_NUM</td>
+<td valign="top">
+<p>UISC = Number_Joiner</p>
+</td>
+</tr>
+<tr>
+<td valign="top">HR</td>
+<td valign="top">HIEROGLYPH_MIRROR</td>
+<td valign="top">
+<p>ESC = Hieroglyph_Mirror</p>
+</td>
+</tr>
+<tr>
+<td valign="top">IND</td>
+<td valign="top">BASE_IND</td>
+<td valign="top">
+<p>UISC = Consonant_Dead;</p>
+<p>UISC = Modifying_Letter;</p>
+<p>UISC = Other;</p>
+<p>UGC = Po (Punctuation signs), except U+104E, U+2022</p>
+</td>
+</tr>
+<tr>
+<td valign="top">J</td>
+<td valign="top">HIEROGLYPH_JOINER</td>
+<td valign="top">
+<p>ESC = Hieroglyph_Joiner</p>
+</td>
+</tr>
+<tr>
+<td valign="top">M</td>
+<td valign="top">CONS_MED</td>
+<td valign="top">
+<p>UISC = Consonant_Medial &amp; UGC != Lo</p>
+</td>
+</tr>
+<tr>
+<td valign="top">N</td>
+<td valign="top">BASE_NUM</td>
+<td valign="top">
+<p>UISC = Brahmi_Joining_Number</p>
+</td>
+</tr>
+<tr>
+<td valign="top">O</td>
+<td valign="top">OTHER</td>
+<td valign="top">
+<p>Any other SCRIPT_COMMON characters;</p>
+<p>White space characters, UGC=Zs</p>
+</td>
+</tr>
+<tr>
+<td valign="top">R</td>
+<td valign="top">REPHA</td>
+<td valign="top">
+<p>UISC = Consonant_Preceding_Repha;</p>
+<p>UISC = Consonant_Prefixed</p>
+</td>
+</tr>
+<tr>
+<td valign="top">RK</td>
+<td valign="top">Reordering Killer</td>
+<td valign="top">
+<p>UISC = Reordering_Killer</p>
+</td>
+</tr>
+<tr>
+<td valign="top">Rsv</td>
+<td valign="top">Reserved characters</td>
+<td valign="top">
+<p>Any character not currently assigned or otherwise reserved in Unicode</p>
+</td>
+</tr>
+<tr>
+<td valign="top">S</td>
+<td valign="top">SYM</td>
+<td valign="top">
+<p>UGC = So except U+25CC;</p>
+<p>UGC = Sc</p>
+</td>
+</tr>
+<tr>
+<td valign="top">SB</td>
+<td valign="top">HIEROGLYPH_SEGMENT_BEGIN</td>
+<td valign="top">
+<p>ESC = Hieroglyph_Mark_Begin;</p>
+<p>ESC = Hieroglyph_Segment_Begin</p>
+</td>
+</tr>
+<tr>
+<td valign="top">SE</td>
+<td valign="top">HIEROGLYPH_SEGMENT_END</td>
+<td valign="top">
+<p>ESC = Hieroglyph_Mark_End;</p>
+<p>ESC = Hieroglyph_Segment_End</p>
+</td>
+</tr>
+<tr>
+<td valign="top">SUB</td>
+<td valign="top">CONS_SUB</td>
+<td valign="top">
+<p>UISC = Consonant_Subjoined &amp; UGC != Lo</p>
+</td>
+</tr>
+<tr>
+<td valign="top">V</td>
+<td valign="top">VOWEL</td>
+<td valign="top">
+<p>UISC = Vowel &amp; UGC != Lo;</p>
+<p>UISC = Vowel_Dependent &amp; UGC != Lo;</p>
+<p>UISC = Pure_Killer</p>
+</td>
+</tr>
+<tr>
+<td valign="top">VM</td>
+<td valign="top">VOWEL_MOD</td>
+<td valign="top">
+<p>UISC = Bindu &amp; UGC != Lo;</p>
+<p>UISC = Tone_Mark;</p>
+<p>UISC = Cantillation_Mark;</p>
+<p>UISC = Register_Shifter;</p>
+<p>UISC = Visarga</p>
+</td>
+</tr>
+<tr>
+<td valign="top">VS</td>
+<td valign="top">VARIATION_SELECTOR</td>
+<td valign="top">
+<p>U+FE00‒FE0F</p>
+</td>
+</tr>
+<tr>
+<td valign="top">WJ</td>
+<td valign="top">Word joiner</td>
+<td valign="top">
+<p>U+2060</p>
+</td>
+</tr>
+<tr>
+<td valign="top">ZWJ</td>
+<td valign="top">Zero width joiner</td>
+<td valign="top">
+<p>UISC = Joiner</p>
+</td>
+</tr>
+<tr>
+<td valign="top">ZWNJ</td>
+<td valign="top">Zero width non-joiner</td>
+<td valign="top">
+<p>UISC = Non_Joiner</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Classes that can vary by position are defined in Unicode’s Indic_Positional_Category (UIPC), additional subclasses are defined:</p>
+<table>
+<thead>
+<tr>
+<th valign="top">Sigla</th>
+<th valign="top">USE subclass</th>
+<th valign="top">Derivation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><b>CMAbv</b></td>
+<td valign="top">CONS_MOD_ABOVE</td>
+<td valign="top">UIPC = Top</td>
+</tr>
+<tr>
+<td valign="top"><b>CMBlw</b></td>
+<td valign="top">CONS_MOD_BELOW</td>
+<td valign="top">UIPC = Bottom</td>
+</tr>
+<tr>
+<td valign="top"><b>FAbv</b></td>
+<td valign="top">CONS_FINAL_ABOVE</td>
+<td valign="top">UIPC = Top</td>
+</tr>
+<tr>
+<td valign="top"><b>FBlw</b></td>
+<td valign="top">CONS_FINAL_BELOW</td>
+<td valign="top">UIPC = Bottom</td>
+</tr>
+<tr>
+<td valign="top"><b>FPst</b></td>
+<td valign="top">CONS_FINAL_POST</td>
+<td valign="top">UIPC = Right</td>
+</tr>
+<tr>
+<td valign="top"><b>MAbv</b></td>
+<td valign="top">CONS_MED_ABOVE</td>
+<td valign="top">UIPC = Top</td>
+</tr>
+<tr>
+<td valign="top"><b>MBlw</b></td>
+<td valign="top">CONS_MED_BELOW</td>
+<td valign="top">UIPC = Bottom</td>
+</tr>
+<tr>
+<td valign="top"><b>MPre</b></td>
+<td valign="top">CONS_MED_PRE</td>
+<td valign="top">UIPC = Left</td>
+</tr>
+<tr>
+<td valign="top"><b>MPst</b></td>
+<td valign="top">CONS_MED_POST</td>
+<td valign="top">UIPC = Right</td>
+</tr>
+<tr>
+<td valign="top"><b>VAbv</b></td>
+<td valign="top">VOWEL_ABOVE</td>
+<td valign="top">UIPC = Top</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top">VOWEL_ABOVE_BELOW</td>
+<td valign="top">UIPC = Top_And_Bottom</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top">VOWEL_ABOVE_BELOW_POST</td>
+<td valign="top">UIPC = Top_And_Bottom_And_Right</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top">VOWEL_ABOVE_POST</td>
+<td valign="top">UIPC = Top_And_Right</td>
+</tr>
+<tr>
+<td valign="top"><b>VBlw</b></td>
+<td valign="top">VOWEL_BELOW</td>
+<td valign="top">
+<p>UIPC = Bottom;</p>
+<p>UIPC = Overstruck</p>
+</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top">VOWEL_BELOW_POST</td>
+<td valign="top">UIPC = Bottom_And_Right</td>
+</tr>
+<tr>
+<td valign="top"><b>VPre</b></td>
+<td valign="top">VOWEL_PRE</td>
+<td valign="top">UIPC = Left</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top">VOWEL_PRE_ABOVE</td>
+<td valign="top">UIPC = Top_And_Left</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top">VOWEL_PRE_ABOVE_POST</td>
+<td valign="top">UIPC = Top_And_Left_And_Right</td>
+</tr>
+<tr>
+<td valign="top"> </td>
+<td valign="top">VOWEL_PRE_POST</td>
+<td valign="top">UIPC = Left_And_Right</td>
+</tr>
+<tr>
+<td valign="top"><b>VPst</b></td>
+<td valign="top">VOWEL_POST</td>
+<td valign="top">UIPC = Right</td>
+</tr>
+<tr>
+<td valign="top"><b>VMAbv</b></td>
+<td valign="top">VOWEL_MOD_ABOVE</td>
+<td valign="top">UIPC = Top</td>
+</tr>
+<tr>
+<td valign="top"><b>VMBlw</b></td>
+<td valign="top">VOWEL_MOD_BELOW</td>
+<td valign="top">
+<p>UIPC = Bottom;</p>
+<p>UIPC = Overstruck</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><b>VMPre</b></td>
+<td valign="top">VOWEL_MOD_PRE</td>
+<td valign="top">UIPC = Left</td>
+</tr>
+<tr>
+<td valign="top"><b>VMPst</b></td>
+<td valign="top">VOWEL_MOD_POST</td>
+<td valign="top">UIPC = Right</td>
+</tr>
+</tbody>
+</table>
+<p><a id="unicodeoverrides" name="overrides"></a></p>
+<h4 id="overrides-to-unicode-categories">Overrides to Unicode categories</h4>
+<p>USE makes use of overrides to Unicode categories to achieve the desired shaping behavior when the Unicode value is not well aligned with shaping requirements or when no Unicode value is provided. These overides are available in two data files:</p>
+<ul>
+<li><a href="https://github.com/microsoft/font-tools/blob/master/USE/IndicSyllabicCategory-Additional.txt" data-linktype="external">IndicSyllabicCategory-Additional.txt</a></li>
+<li><a href="https://github.com/microsoft/font-tools/blob/master/USE/IndicPositionalCategory-Additional.txt" data-linktype="external">IndicPositionalCategory-Additional.txt</a></li>
+</ul>
+<p><a name="splitvowelhandling"></a></p>
+<h2 id="split-vowel-handling">Split vowel handling</h2>
+<p>USE decomposes split vowel characters belonging to UISC = Vowel_Dependent according to <a href="http://www.unicode.org/reports/tr44/tr44-14.html#Character_Decomposition_Mappings" data-linktype="external">character decomposition mappings</a> defined in UnicodeData.txt:</p>
+<pre><code>  0DCF;SINHALA VOWEL SIGN AELA-PILLA;Mc;0;L;;;;;N;;;;;
+  0DD9;SINHALA VOWEL SIGN KOMBUVA;Mc;0;L;;;;;N;;;;;
+  0DDC;SINHALA VOWEL SIGN KOMBUVA HAA AELA-PILLA;Mc;0;L;0DD9 0DCF;;;;N;;;;;
+</code></pre>
+<p>When a decomposition is not defined in UnicodeData.txt, it is up to the font developer to handle any required decomposition during GSUB processing.</p>
+<p>Cluster validation, is done based on the decomposed state of a split vowel. Therefore, the validation schemas only take into account the cardinal positions (Pre, Above, Below, Post) since the full decompositions occupy one position only. Therefore cluster validation depends on the sequence of decompositions which may be more restrictive than with ordinary vowels.</p>
+<ol>
+<li>Split vowel decomposition needs to be applied recursively so that split vowels get fully decomposed before shaping is applied</li>
+<li>Note, if a character belonging to a split vowel class that includes Pre, does not have a canonical decomposition, it is up to the font developer to specify a decomposition. The logical first glyph in that decomposition will be considered to be the VPre. Any subsequent glyphs from that decomposition will not reorder. There are no characters of this category in the currently supported scripts</li>
+</ol>
+<p><strong>Note:</strong> Font developers must include glyphs for all required decompositions.</p>
+<p><a name="clustervalidation"></a></p>
+<h2 id="cluster-validation">Cluster validation</h2>
+<p>Cluster validation allows sequences of characters to be arranged into groups called “clusters” based on their classification (both class and subclass). In Abugida writing systems, a cluster is an orthographic unit of text that combines multiple phonetic and orthographic elements. It is desirable to control the sequence of characters forming a cluster so that a single visual cluster does not have multiple different encoding sequences as that would create problems for data interchange in terms of stability and security.</p>
+<p>USE employs a generalized and permissive cluster structure in order to be flexible enough to accommodate a wide range of script needs. The goal of the clustering logic is to enable what is graphically consistent with a given script’s rules, rather than enforcing particular orthographic or linguistic rules. Such considerations should be applied at another layer, such as a spelling checker.</p>
+<p>The maximal cluster scheme used by USE may be visualized as follows:</p>
+<p><img src="images/use/use-form.png" alt="Illustration that shows all the components that can make up a syllable cluster. For each different component, a block depicts its visual placement relative to other components within a cluster. The block for each component also indicates the corresponding character sequence patterns." data-linktype="relative-path"><br>
+Visualized form of standard cluster in the Universal Shaping Engine</p>
+<p>Schemas and rules for cluster analysis and syllable analysis use the following additional symbols:</p>
+<table width="460">
+<tbody>
+<tr>
+<td>X*</td>
+<td>sequence of zero or more occurrences of X</td>
+</tr>
+<tr>
+<td>X+</td>
+<td>sequence of one or more occurrences of X</td>
+</tr>
+<tr>
+<td>&lt;X | Y&gt;</td>
+<td>disjunction of elements: X or Y</td>
+</tr>
+<tr>
+<td>[X]</td>
+<td>optional (zero or one) occurrence of X</td>
+</tr>
+<tr>
+<td>#</td>
+<td>occurrence of a boundary</td>
+</tr>
+<tr>
+<td>×</td>
+<td>no boundary allowed at indicated position</td>
+</tr>
+<tr>
+<td>÷</td>
+<td>boundary allowed at indicated position</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Except</td>
+</tr>
+</tbody>
+</table>
+<p>Well-formed character clusters can have combinations of groups as defined below. There are four options:</p>
+<ol>
+<li><p>Independent cluster</p>
+<pre><code>&lt; IND | O | Rsv | WJ &gt; [VS]
+</code></pre>
+<p>The independent cluster normally consists of a single member. The only other character class it can combine with is VARIATION_SELECTOR. The BASE_IND, OTHER, Reserved Characters and the word joiner (WJ) can only have a single code point per cluster. When a VARIATION_SELECTOR occurs in any context other than immediately following one of the valid bases (IND, O, Rsv, WJ, B, GB, N, S), it forms an independent cluster.</p>
+</li>
+<li><p>Standard cluster</p>
+<pre><code>[&lt; R | CS &gt;] &lt; B | GB &gt; [VS] (CMAbv)* (CMBlw)* (&lt; H B [VS] | SUB &gt; (CMAbv)* (CMBlw)*)*
+    [MPre] [MAbv] [MBlw] [MPst]
+    (VPre)* (VAbv)* (VBlw)* (VPst)*
+    (VMPre)* (VMAbv)* (VMBlw)* (VMPst)*
+    (FAbv)* (FBlw)* (FPst)* [FM]
+</code></pre>
+<p>The only required component of a standard cluster is a BASE or BASE_OTHER. A cluster may optionally begin with a REPH or CONS_WITH_STACKER. A BASE or BASE_OTHER may be followed immediately by a VARIATION_SELECTOR and/or multiple CONS_MOD characters in the order CONS_MOD_ABOVE CONS_MOD_BELOW. Multiple sequences of a HALANT BASE with optional VARIATION_SELECTOR or optional CONS_MOD can occur. The sequence can continue with zero or one CONS_MED for each cardinal position (Pre, Above, Below, Post); zero to many VOWEL characters in each cardinal position; zero to many VOWEL_MODs in each cardinal position; zero to many CONS_FINALs in each of Above, Below, and Post; and lastly, an optional FINAL_MOD.</p>
+</li>
+<li><p>Virama terminated cluster</p>
+<pre><code>[&lt; R | CS &gt;] &lt; B | GB &gt; [VS] (CMAbv)* (CMBlw)* (&lt; H B [VS] | SUB &gt; (CMAbv)* (CMBlw)*)* &lt; H | RK &gt;
+</code></pre>
+<p>This is similar to the Standard cluster but terminates in a final HALANT or RK. When a HALANT or RK follows a BASE or BASE_OTHER it will form a cluster. When any character other than a Base follows the Virama or RK there will be a cluster break between the Virama and the following character. Multiple sequences of a HALANT BASE with optional VARIATION_SELECTOR or optional CONS_MOD can occur. A CONS_SUB is equivalent to the sequence HALANT BASE.</p>
+</li>
+<li><p>Number-joiner terminated cluster</p>
+<pre><code>N [VS] (HN N [VS])* HN
+</code></pre>
+<p>When HALANT_NUM follows a BASE_NUM it will form a cluster. When any character other than BASE_NUM follows the HALANT_NUM there will be a cluster break between the HALANT_NUM and the following character. A BASE_NUM may be followed immediately by a VARIATION_SELECTOR. Multiple sequences of a HALANT_NUM BASE_NUM with optional VARIATION_SELECTOR can occur.</p>
+</li>
+<li><p>Numeral cluster</p>
+<pre><code>N [VS] (HN N [VS])*
+</code></pre>
+<p>A BASE_NUM may form a cluster with another BASE_NUM when joined using a HALANT_NUM. The join may be repeated. Any BASE_NUM may be followed by a VARIATION_SELECTOR.</p>
+</li>
+<li><p>Symbol cluster</p>
+<pre><code>&lt; S | GB &gt; [VS] (CMAbv)* (CMBlw)*
+</code></pre>
+<p>A SYM character may be followed by an optional VARIATION_SELECTOR and zero to many CONS_MOD_ABOVE, then zero to many CONS_MOD_BELOW.</p>
+</li>
+<li><p>Hieroglyph cluster</p>
+<pre><code>SB* G [VS] [HR] [HM] SE* ( J SB* G [VS] [HR] [HM] SE* )*
+</code></pre>
+<p>The basic unit of a Hieroglyph cluster is a HIEROGLYPH character. Each HIEROGLYPH character may be modified by zero or one of each of the following in this order:</p>
+<ul>
+<li>VARIATION_SELECTOR — used to select a specific graphic variant of the base HIEROGLYPH</li>
+<li>HIEROGLYPH_MIRROR — used to select a horizontally mirrored alternate of the base</li>
+<li>HIEROGLYPH_MODIFIER — used to specify graphic variation of the base</li>
+</ul>
+<p>The base HIEROGLYPH may be preceded by zero or more HIEROGLYPH_SEGMENT_BEGIN characters and and may be followed by zero or more HIEROGLYPH_SEGMENT_END characters. This basic unit may be extended by joining additional instances of this unit using a HIEROGLYPH_JOINER.</p>
+<p>Hieroglyph clusters may be nested. Hieroglyph clusters are attested with three levels of nested segments. Therefore, at least two HIEROGLYPH_SEGMENT_BEGIN and at least two HIEROGLYPH_SEGMENT_END characters can occur in sequence. So, at minimum SB* and SE* should be SB{0,2} and SE{0,2}, respectively, in the above model.</p>
+<p>To support input of Hieroglyph clusters character-by-character, implementations should support a Hieroglyph cluster terminated by a joiner so the cluster is valid prior to input of a following HIEROGLYPH character.</p>
+<p><strong>Note:</strong> Superfluous use of nested segments may prevent text matching in collation scenarios. However, this cluster model does not check for or enforce the minimal use of nested segments. Marking superfluous use of nested segments is left to a higher-level protocol such as orthographic checking.</p>
+</li>
+</ol>
+<p><a id="ivdvconstraints"></a></p>
+<h5 id="independent-vowel-iv-plus-dependent-vowel-constraints-dv">Independent Vowel (IV) plus Dependent Vowel constraints (DV)</h5>
+<p>The core-specification of the Unicode standard prohibits forming certain IV forms from other bases plus a DV (e.g., <a href="https://www.unicode.org/versions/Unicode13.0.0/ch12.pdf" data-linktype="external">TUS Table 13-0</a>). Since these combinations apply to particular pairs and not globally across classes, USE maintains a list of prohibited sequences where they would not be prohibited by the cluster model. The list of prohibited sequences is available as a data file: <a href="https://github.com/microsoft/font-tools/blob/master/USE/IndicShapingInvalidCluster.txt" data-linktype="external">IndicShapingInvalidCluster.txt</a>.</p>
+<p><a id="cgj"></a></p>
+<h5 id="combining-grapheme-joiner-cgj">Combining Grapheme Joiner (CGJ)</h5>
+<p>CGJ has been omitted from the above schema in order to avoid unnecessary complexity. It may occur anywhere in a cluster with no effect. The purpose of CGJ is to block normalization processing which could change the order of marks in a sequence. CGJ handling will need to be updated if USE is modified to support normalization.</p>
+<p><a id="zwnj"></a></p>
+<h5 id="zero-width-non-joiner-zwnj">Zero-width non-joiner (ZWNJ)</h5>
+<p>The zero-width non-joiner is used to prevent a fusion of two characters. It continues a preceding cluster but causes a cluster break after itself when the following character is not a mark character (gc=Mn or gc=Mc). ZWNJ does not reset the cluster model.</p>
+<p><a id="zwj"></a></p>
+<h5 id="zero-width-joiner-zwj">Zero-width joiner (ZWJ)</h5>
+<p>The zero-width joiner is used to fuse two characters. It continues a preceding cluster and joins it to a following character unless the following character is another ZWJ. In which case there will be a cluster break between the two ZWJs. ZWJ does not reset the cluster model.</p>
+<p><a id="standalonecharacters"></a></p>
+<h5 id="standalone-characters">Standalone characters</h5>
+<p>Characters of the class BASE_IND occur as standalone characters and do not form clusters with following characters. When a character belong to class VS or WJ occurs outside of a cluster, i.e., at the start of a run, or following one of these standalone characters, they should also be treated as standalone characters.</p>
+<p><a id="defectiveclusters"></a></p>
+<h5 id="defective-clusters">Defective clusters</h5>
+<p>When a cluster starts with any character that has UGC=Mc or UGC=Mn, USE inserts a dotted circle glyph (U+25CC) to indicate a broken cluster. Defective clusters do not form extended clusters themselves. A sequence of marks without a valid base forms separate clusters for each mark. Note that an explicit character U+25CC is a valid generic base (GB, BASE_OTHER) and so can form extended clusters.</p>
+<p><a id="maxclusterlength"></a></p>
+<h5 id="cluster-length">Cluster length</h5>
+<p>A practical maximum cluster length is 31 characters. After this limit is reached, a cluster break may be forced and a new cluster is started. During GSUB processing a cluster may expand considerably beyond 31 glyphs.</p>
+<p><a name="featureapplicationi"></a></p>
+<h2 id="opentype-feature-application-i">OpenType feature application I</h2>
+<p><a name="basicclusterformation"></a></p>
+<h4 id="basic-cluster-formation-gsub">Basic cluster formation GSUB</h4>
+<p><a id="defaultglyphpreprocessing"></a></p>
+<h5 id="default-glyph-pre-processing-group">Default glyph pre-processing group</h5>
+<p>These features are applied together, one cluster at a time. Lookups associated with any of these features will be triggered in the lookup-order specified by the font developer. It is possible to interleave lookups for different features. The order of features given here is recommended.</p>
+<ul>
+<li>locl — Localized forms<br>
+This provides a starting point to shape any language-specific forms. USE leverages any language system tags provided by the edit control to trigger language-specific substitutions.</li>
+<li>ccmp — Glyph composition/decomposition</li>
+<li>nukt ― Nukta forms<br>
+This feature is intended to enable substitutions with a combining nukta. In general terms, a nukta is a consonant modifier that may be used to indicate an alternate phoneme, often used to indicate foreign sounds to the native language of the writing system.</li>
+<li>akhn ― Akhands<br>
+Used to form traditional ligatures from sequences</li>
+</ul>
+<p><a id="reordergroup"></a></p>
+<h5 id="reordering-group">Reordering group</h5>
+<p>These features are applied individually in this order, rphf, pref. The output of each of these features is reordered as specified in the next section.</p>
+<ul>
+<li>rphf ― Reph form<br>
+This feature is traditionally applied to invoke a combining form of a preconsonantal r, which reorders after the following base. This feature may be used generically to identify any component which has the reordering properties of a reph. Feature application is scoped to the first three glyphs in a cluster.</li>
+<li>pref — Pre-base forms<br>
+This feature may be used generically to identify a post-base component that has the reordering properties of a pre-base medial consonant. The feature is applied to the entire cluster.</li>
+</ul>
+<p>Note that reordering is not done until after all of the basic features have been applied.</p>
+<p><a id="orthoshapinggroup"></a></p>
+<h5 id="orthographic-unit-shaping-group">Orthographic unit shaping group</h5>
+<p>Like the <a href="#defaultglyphpreprocessing" data-linktype="self-bookmark">Default glyph pre-processing group</a>, these features are applied together, one cluster at a time. It is, therefore, up to the font developer to specify the order of lookups for these features in the font’s OTL. The order given here is recommended but not required.</p>
+<ul>
+<li>rkrf — Rakar forms</li>
+<li>abvf — Above-base forms<br>
+This feature should be used to trigger substitutions relating to above-base components.</li>
+<li>blwf — Below-base forms<br>
+This feature should be used to trigger substitutions relating to below-base components.</li>
+<li>half ― Half forms<br>
+This feature is used to invoke half forms for scripts that use them.</li>
+<li>pstf — Post-base forms<br>
+This feature should be used to trigger substitutions relating to post-base components.</li>
+<li>vatu ― Vattu variants<br>
+This feature is used to trigger ligatures with a below-base form.</li>
+<li>cjct ― Conjunct forms<br>
+This feature is used to complete basic conjunct forms not already covered by other features.</li>
+</ul>
+<p><a name="reordering"></a></p>
+<h2 id="glyph-reordering">Glyph reordering</h2>
+<p>All reordering and anchoring of marks is done in relation to the base consonant. USE does reordering in a single late phase. This is because all reordering is dependent on the formation of the base which may be modified during basic cluster formation. USE does not do checks or look-ahead in a font’s feature tables. Therefore feature lookups for the basic features must be designed for the logical glyph order before any reordering has been applied. There are two categories of glyphs that reorder: feature based and property based. Actual glyph reordering is done between basic cluster formation (OpenType feature application I) and Topographical substitutions (first part of OpenType feature application II). Reordering is applied in logical order: rphf, pref, VPre, VMPre:</p>
+<table class="table-images">
+<tbody>
+<tr>
+<td>Before reordering</td>
+<td><img src="images/use/basic-cluster-before.png" alt="Illustration that shows the order R P H F 1, Base, Pref 2, V Pre 3, and V M Pre 4." data-linktype="relative-path"></td>
+</tr>
+<tr>
+<td>After reordering</td>
+<td><img src="images/use/basic-cluster-after.png" alt="Illustration that shows the order V M Pre 4, V Pre 3, Pref 2, Base, and R P H F 1." data-linktype="relative-path"></td>
+</tr>
+</tbody>
+</table>
+<p>When the base cluster is broken by an explicit virama that has not been replaced during basic cluster formation the reordering is impacted since reordering components do not reorder past an explicit virama:</p>
+<table class="table-images">
+<tbody>
+<tr>
+<td>Before reordering</td>
+<td><img src="images/use/virama-cluster-before.png" alt="Illustration that shows the order R P H F 1, Base A, Halant, Base B, Pref 2, V Pre 3, and V M Pre 4." data-linktype="relative-path"></td>
+</tr>
+<tr>
+<td>After reordering</td>
+<td><img src="images/use/virama-cluster-after.png" alt="Illustration that shows the order Base A, R P H F 1, Halant, V M Pre 4, V Pre 3, Pref 2, and Base B." data-linktype="relative-path"></td>
+</tr>
+</tbody>
+</table>
+<p>If a font developer wants the reordering behavior to not be blocked by an explicit virama, they can substitute the virama for an alternate glyph during basic cluster formation so that USE treats the cluster as a continuous cluster without explicit virama.</p>
+<p><a id="featurebasedreordering"></a></p>
+<h5 id="feature-based-reordering">Feature-based reordering</h5>
+<table>
+<thead>
+<tr>
+<th width="15%" valign="top">Sigla</th>
+<th width="30%" valign="top">Name</th>
+<th width="55%" valign="top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><b>rphf</b></td>
+<td valign="top">Reph form</td>
+<td valign="top">Many abugida scripts render a preconsonantal r as a sign above the consonant it precedes. This sign is called reph. For the purposes of OT layout, reph is normally rendered with a mark glyph, and as such, must follow the base to which it applies. Contexts which produce the reph glyph must use the 'rphf' feature. The output of this feature reorders after the following full base. Reph does not reorder past an explicit Virama. Lookups under the rphf feature should output no more than one glyph per cluster.</td>
+</tr>
+<tr>
+<td valign="top"><b>pref</b></td>
+<td valign="top">Pre-base form</td>
+<td valign="top">Scripts (e.g., Javanese) may reorder a medial consonant to the beginning of a cluster based on context. The contextual logic is encoded in the font’s OT logic. Cases which require reordering should use the 'pref' feature to identify the glyph or glyphs that is or are to be reordered. One or more glyphs may be substituted for a single feature glyph that is to be reordered before the first spacing glyph in the cluster or the first spacing glyph after an explicit virama if present. Only one such glyph is reordered per cluster.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Note that prebase medial consonants (CONS_MED_PRE) do not get reordered automatically by USE. Rather, the font designer is expected to use the 'pref' feature to signal when a glyph belonging to this class should be reordered through the application of the pref feature. Only one glyph per cluster can be reordered using 'pref'.</li>
+</ul>
+<p><a id="propertybasedreordering"></a></p>
+<h5 id="property-based-reordering">Property-based reordering</h5>
+<table>
+<thead>
+<tr>
+<th width="15%" valign="top">Sigla</th>
+<th width="30%" valign="top">Name</th>
+<th width="55%" valign="top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><b>R</b></td>
+<td valign="top">REPHA</td>
+<td valign="top">Pre-base REPHA is reordered by USE after a following full base as if the 'rphf' feature has been applied. Font developers do not need to use the 'rphf' feature explicitly.</td>
+</tr>
+<tr>
+<td valign="top"><b>VPre</b></td>
+<td valign="top">VOWEL_PRE</td>
+<td valign="top">Pre-base vowels and pre-base vowel components from split vowels are reordered before the base glyph and, if present, before a pre-base glyph reordered via the 'pref' feature.</td>
+</tr>
+<tr>
+<td valign="top"><b>VMPre</b></td>
+<td valign="top">VOWEL_MOD_PRE</td>
+<td valign="top">Pre-base vowel modifiers are reordered before the base glyph and, if present, before a pre-base vowel and/or before a pre-base glyph reordered via the 'pref' feature.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Note that the category REPHA is not currently supported by USE.</li>
+<li>Note that the split vowels, VOWEL_PRE_ABOVE, VOWEL_PRE_ABOVE_POST, and VOWEL_PRE_POST have multiple positions that include a pre-base element. Since split vowel decomposition is done before reordering, only one glyph will have the VOWEL_PRE class, and so only this vowel class needs special handling at this stage.</li>
+</ul>
+<p><a name="featureapplicationii"></a></p>
+<h2 id="opentype-feature-application-ii">OpenType feature application II</h2>
+<p><a name="topographicalfeatures"></a></p>
+<h4 id="topographical-features-gsub">Topographical features, GSUB</h4>
+<p>USE applies positional features required for scripts like Arabic which have alternate glyph shapes depending on the position of a glyph within a word.</p>
+<ul>
+<li>isol ― Isolated forms</li>
+<li>init ― Initial forms</li>
+<li>medi ― Medial forms</li>
+<li>fina ― Final forms</li>
+</ul>
+<p>USE applies these as required features on a per cluster basis in order to invoke a particular form based on non-joining or white space boundaries. Non-joining boundaries occur between glyphs belonging to a joining script when one or both characters have a non-joining property that applies to the side of the connection on which a join would occur. The control characters ZWJ and ZWNJ may be used to artificially invoke or prevent a join. Joining properties are defined by the Unicode property Joining Type in ArabicShaping.txt.</p>
+<p><strong>Note:</strong>Support for topographical features for non-joining scripts is not currently implemented in USE. Additional specification is required.</p>
+<p><a id="typographicfeatures"></a></p>
+<h4 id="standard-typographic-presentation-gsub">Standard typographic presentation, GSUB</h4>
+<p>The remaining required features are applied all together to the entire run. It is up to the font developer to specify the order of lookups for this set of features:</p>
+<ul>
+<li>abvs — Above-base substitutions</li>
+<li>blws — Below-base substitutions</li>
+<li>calt — Contextual alternates</li>
+<li>clig — Contextual ligature</li>
+<li>haln ― Virama forms</li>
+<li>liga — Standard ligatures [horizontal text only]</li>
+<li>pres — Pre-base substitutions</li>
+<li>psts — Post-base substitutions</li>
+<li>rclt ― Required contextual forms</li>
+<li>rlig — Required ligatures [horizontal text only]</li>
+<li>vert — Vertical writing [implemented by edit control]</li>
+<li>vrt2 — Vertical alternates and rotation [implemented by edit control]<br>
+The vertical layout features are applied when text layout is vertical and triggered by the edit control as a custom feature. Only one feature vert or vrt2 should be applied, not both.</li>
+</ul>
+<p><a name="customfeatures"></a></p>
+<h4 id="custom-substitution-features-requested-by-the-application-gsub">Custom substitution features requested by the application, GSUB</h4>
+<p><a name="positionalfeatures"></a></p>
+<h4 id="positional-feature-application-gpos">Positional feature application, GPOS</h4>
+<p>During GPOS processing, these required features are applied simultaneously to the entire run. The order specified here is recommended, but it is up to font developers to define the order of GPOS lookups for this set of features in OTL.</p>
+<ul>
+<li>curs — Cursive positioning<br>
+This feature should be used to position bases in relation to other bases.</li>
+<li>dist — distances<br>
+This feature should be used to make required width adjustments.</li>
+<li>kern — Kerning<br>
+This feature should be used to provide optimal letter spacing. This feature can be disabled by edit controls.</li>
+<li>mark — Mark positioning<br>
+This feature should be used to position marks in relation to a base sign.</li>
+<li>abvm — Above-base mark positioning<br>
+This feature is functionally equivalent to the mark feature. It may be used as an organizing mechanism to separate above mark processing from below mark processing.</li>
+<li>blwm — Below-base mark positioning<br>
+This feature is functionally equivalent to the mark feature. It may be used as an organizing mechanism to separate below mark processing from above mark processing.</li>
+<li>mkmk — Mark to Mark Positioning<br>
+This feature should be used to position marks in relation to preceding marks.</li>
+</ul>
+<p>An important OT technique for excluding certain base glyphs from contextual lookups is to classify the base glyph as a mark in the font's GDEF table, since marks can be selectively included or omitted from OT processing. However, whenever this technique is used, the width of the base glyph must be added back using the 'dist' feature. <strong>This is necessary because OT processing cancels the width associated with a mark.</strong> It is necessary to cancel the width of a non-spacing mark because it is not clear where to apply the width of a non-spacing mark during OpenType processing.</p>
+<p>A typical use case of this is Javanese which has prebase vowels. Since the prebase vowels do not reorder until after basic cluster formation, they are present in their logical position. This may interrupt other contextual substitutions. If the vowels are treated as marks, they can be excluded from OT context, and thus reduce the number of contextual rules required for processing. Consequently the expected width of the prebase vowels may be restored with the dist feature, for example (in VOLT OT Language):</p>
+<pre><code>  DEF_LOOKUP "j.dist_preVowel" PROCESS_BASE PROCESS_MARKS ALL DIRECTION LTR
+    AS_POSITION
+        ADJUST_SINGLE
+            GLYPH "jSignE"  BY POS ADV 1433 END_POS
+            GLYPH "jSignAi" BY POS ADV 1433 END_POS
+        END_ADJUST
+    END_POSITION
+  END
+</code></pre>
+<p><a name="otherencodingissues"></a></p>
+<h2 id="other-encoding-issues">Other encoding issues</h2>
+<p><a name="invalidmarks"></a></p>
+<h2 id="handling-invalid-combining-marks">Handling invalid combining marks</h2>
+<p>Combining marks and signs that do not occur in conjunction with a valid base are considered invalid. USE treats an invalid mark as a separate cluster and displays the stand-alone mark positioned on a dotted circle (U+25CC). If multiple marks are required to position on a dotted circle, the dotted circle can be explicitly inserted into the text stream followed by any marks in accordance with the standard clustering rules.</p>
+<p>To allow for shaping engine implementations that expect to position an invalid mark on a dotted circle, it is recommended that font using USE contain glyphs for the dotted circle character, U+25CC. If this character is not supported in the font, such implementations will display invalid signs on the missing glyph shape (white box).</p>
+<p><a name="recommendedglyphs"></a></p>
+<h2 id="recommended-glyphs">Recommended Glyphs</h2>
+<p>Unicode code points that are recommended for inclusion in any font using USE are:</p>
+<table>
+<thead>
+<tr>
+<th valign="top">Code point</th>
+<th valign="top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top">U+200B</td>
+<td valign="top">Zero Width Space</td>
+</tr>
+<tr>
+<td valign="top">U+200C</td>
+<td valign="top">Zero Width Non-Joiner</td>
+</tr>
+<tr>
+<td valign="top">U+200D</td>
+<td valign="top">Zero Width Joiner</td>
+</tr>
+<tr>
+<td valign="top">U+25CC</td>
+<td valign="top">Dotted Circle</td>
+</tr>
+<tr>
+<td valign="top">U+00A0</td>
+<td valign="top">No-break space</td>
+</tr>
+<tr>
+<td valign="top">U+00D7</td>
+<td valign="top">Multiplication sign</td>
+</tr>
+<tr>
+<td valign="top">U+2012</td>
+<td valign="top">Figure dash</td>
+</tr>
+<tr>
+<td valign="top">U+2013</td>
+<td valign="top">En dash</td>
+</tr>
+<tr>
+<td valign="top">U+2014</td>
+<td valign="top">Em dash</td>
+</tr>
+<tr>
+<td valign="top">U+2015</td>
+<td valign="top">Horizontal bar</td>
+</tr>
+<tr>
+<td valign="top">U+2022</td>
+<td valign="top">Bullet</td>
+</tr>
+<tr>
+<td valign="top">U+25FB</td>
+<td valign="top">White medium square</td>
+</tr>
+<tr>
+<td valign="top">U+25FC</td>
+<td valign="top">Black medium square</td>
+</tr>
+<tr>
+<td valign="top">U+25FD</td>
+<td valign="top">White medium small square</td>
+</tr>
+<tr>
+<td valign="top">U+25FE</td>
+<td valign="top">Black medium small square</td>
+</tr>
+</tbody>
+</table>
+<p><a name="appendices"></a></p>
+<h2 id="appendix">Appendix</h2>
+<p><a name="langsystags"></a></p>
+<h2 id="writing-system-and-language-tags">Writing system and language tags</h2>
+<p>OpenType features are enabled in a font according to both a designated script and language system. The language system tag specifies a typographic convention associated with a language or linguistic subgroup. Not all software applications support specific language tags for use when rendering text runs.</p>
+<p><strong>Note:</strong> It is strongly recommended to include the “dflt” language tag in all OpenType fonts because it defines the basic script handling for a font. The “dflt” language system is used as the default if no other language specific features are defined or if the application does not support that particular language. If the “dflt” tag is not present for the script being used, the font may not work in some applications.</p>
+<p>The following tables list the registered tag names for scripts currently supported by USE. This list will grow as new complex scripts are enabled by Unicode and USE is updated. Language system tags are not listed here and should be determined by font developers as appropriate for the script concerned.</p>
+<table>
+<thead>
+<tr>
+<th valign="top" colspan="2">Registered tags for the Universal Shaping Engine</th>
+</tr>
+<tr>
+<th class="dark" valign="top">Script</th>
+<th class="dark" valign="top">Script tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top">ADLaM</td>
+<td>adlm</td>
+</tr>
+<tr>
+<td valign="top">Ahom</td>
+<td>ahom</td>
+</tr>
+<tr>
+<td valign="top">Bhaiksuki</td>
+<td>bhks</td>
+</tr>
+<tr><td valign="top">Balinese</td>
+<td>bali</td>
+</tr>
+<tr>
+<td valign="top">Batak</td>
+<td>batk</td>
+</tr>
+<tr>
+<td valign="top">Brahmi</td>
+<td>brah</td>
+</tr>
+<tr>
+<td valign="top">Buginese</td>
+<td>bugi</td>
+</tr>
+<tr>
+<td valign="top">Buhid</td>
+<td>buhd</td>
+</tr>
+<tr>
+<td valign="top">Chakma</td>
+<td>cakm</td>
+</tr>
+<tr>
+<td valign="top">Cham</td>
+<td>cham</td>
+</tr>
+<tr>
+<td valign="top">Chorasmian</td>
+<td>chrs</td>
+</tr>
+<tr>
+<td valign="top">Cypro Minoan</td>
+<td>cpmn</td>
+</tr>
+<tr>
+<td valign="top">Dives Akuru</td>
+<td>diak</td>
+</tr>
+<tr>
+<td valign="top">Dogra</td>
+<td>dogr</td>
+</tr>
+<tr>
+<td valign="top">Duployan</td>
+<td>dupl</td>
+</tr>
+<tr>
+<td valign="top">Egyptian Hieroglyphs</td>
+<td>egyp</td>
+</tr>
+<tr>
+<td valign="top">Elymaic</td>
+<td>elym</td>
+</tr>
+<tr>
+<td valign="top">Garay</td>
+<td>gara</td>
+</tr>
+<tr>
+<td valign="top">Grantha</td>
+<td>gran</td>
+</tr>
+<tr>
+<td valign="top">Gunjala Gondi</td>
+<td>gong</td>
+</tr>
+<tr>
+<td valign="top">Gurung Khema</td>
+<td>gukh</td>
+</tr>
+<tr>
+<td valign="top">Hanifi Rohingya</td>
+<td>rohg</td>
+</tr>
+<tr>
+<td valign="top">Hanunoo</td>
+<td>hano</td>
+</tr>
+<tr>
+<td valign="top">Javanese</td>
+<td>java</td>
+</tr>
+<tr>
+<td valign="top">Kaithi</td>
+<td>kthi</td>
+</tr>
+<tr>
+<td valign="top">Kawi</td>
+<td>kawi</td>
+</tr>
+<tr>
+<td valign="top">Kayah Li</td>
+<td>kali</td>
+</tr>
+<tr>
+<td valign="top">Kharoshthi</td>
+<td>khar</td>
+</tr>
+<tr>
+<td valign="top">Khitan Small Script</td>
+<td>kits</td>
+</tr>
+<tr>
+<td valign="top">Khojki</td>
+<td>khoj</td>
+</tr>
+<tr>
+<td valign="top">Khudawadi</td>
+<td>sind</td>
+</tr>
+<tr>
+<td valign="top">Kirat Rai</td>
+<td>krai</td>
+</tr>
+<tr>
+<td valign="top">Lepcha</td>
+<td>lepc</td>
+</tr>
+<tr>
+<td valign="top">Limbu</td>
+<td>limb</td>
+</tr>
+<tr>
+<td valign="top">Mahajani</td>
+<td>mahj</td>
+</tr>
+<tr>
+<td valign="top">Makasar</td>
+<td>maka</td>
+</tr>
+<tr>
+<td valign="top">Mandaic</td>
+<td>mand</td>
+</tr>
+<tr>
+<td valign="top">Manichaean</td>
+<td>mani</td>
+</tr>
+<tr>
+<td valign="top">Marchen</td>
+<td>marc</td>
+</tr>
+<tr>
+<td valign="top">Masaram Gondi</td>
+<td>gonm</td>
+</tr>
+<tr>
+<td valign="top">Medefaidrin</td>
+<td>medf</td>
+</tr>
+<tr>
+<td valign="top">Meitei Mayek</td>
+<td>mtei</td>
+</tr>
+<tr>
+<td valign="top">Miao</td>
+<td>plrd</td>
+</tr>
+<tr>
+<td valign="top">Modi</td>
+<td>modi</td>
+</tr>
+<tr>
+<td valign="top">Mongolian</td>
+<td>mong</td>
+</tr>
+<tr>
+<td valign="top">Multani</td>
+<td>mult</td>
+</tr>
+<tr>
+<td valign="top">Nag Mundari</td>
+<td>nagm</td>
+</tr>
+<tr>
+<td valign="top">Nandinagari</td>
+<td>nand</td>
+</tr>
+<tr>
+<td valign="top">Newa</td>
+<td>newa</td>
+</tr>
+<tr>
+<td valign="top">N’Ko</td>
+<td>nko </td>
+</tr>
+<tr>
+<td valign="top">Nyiakeng Puachue Hmong</td>
+<td>hmnp</td>
+</tr>
+<tr>
+<td valign="top">Old Sogdian</td>
+<td>sogo</td>
+</tr>
+<tr>
+<td valign="top">Old Uyghur</td>
+<td>ougr</td>
+</tr>
+<tr>
+<td valign="top">Ol Onal</td>
+<td>onao</td>
+</tr>
+<tr>
+<td valign="top">Pahawh Hmong</td>
+<td>hmng</td>
+</tr>
+<tr>
+<td valign="top">Phags-pa</td>
+<td>phag</td>
+</tr>
+<tr>
+<td valign="top">Psalter Pahlavi</td>
+<td>phlp</td>
+</tr>
+<tr>
+<td valign="top">Rejang</td>
+<td>rjng</td>
+</tr>
+<tr>
+<td valign="top">Saurashtra</td>
+<td>saur</td>
+</tr>
+<tr>
+<td valign="top">Sharada</td>
+<td>shrd</td>
+</tr>
+<tr>
+<td valign="top">Siddham</td>
+<td>sidd</td>
+</tr>
+<tr>
+<td valign="top">Sinhala</td>
+<td>sinh</td>
+</tr>
+<tr>
+<td valign="top">Sogdian</td>
+<td>sogd</td>
+</tr>
+<tr>
+<td valign="top">Soyombo</td>
+<td>soyo</td>
+</tr>
+<tr>
+<td valign="top">Sunuwar</td>
+<td>sunu</td>
+</tr>
+<tr>
+<td valign="top">Sundanese</td>
+<td>sund</td>
+</tr>
+<tr>
+<td valign="top">Syloti Nagri</td>
+<td>sylo</td>
+</tr>
+<tr>
+<td valign="top">Tagalog</td>
+<td>tglg</td>
+</tr>
+<tr>
+<td valign="top">Tagbanwa</td>
+<td>tagb</td>
+</tr>
+<tr>
+<td valign="top">Tai Le</td>
+<td>tale</td>
+</tr>
+<tr>
+<td valign="top">*Tai Tham</td>
+<td>lana</td>
+</tr>
+<tr>
+<td valign="top">Tai Viet</td>
+<td>tavt</td>
+</tr>
+<tr>
+<td valign="top">Takri</td>
+<td>takr</td>
+</tr>
+<tr>
+<td valign="top">Tangsa</td>
+<td>tnsa</td>
+</tr>
+<tr>
+<td valign="top">Tibetan</td>
+<td>tibt</td>
+</tr>
+<tr>
+<td valign="top">Tifinagh</td>
+<td>tfng</td>
+</tr>
+<tr>
+<td valign="top">Tirhuta</td>
+<td>tirh</td>
+</tr>
+<tr>
+<td valign="top">Todhri</td>
+<td>todr</td>
+</tr>
+<tr>
+<td valign="top">Toto</td>
+<td>toto</td>
+</tr>
+<tr>
+<td valign="top">Tulu Tigalari</td>
+<td>tutg</td>
+</tr>
+<tr>
+<td valign="top">Vithkuqi</td>
+<td>vith</td>
+</tr>
+<tr>
+<td valign="top">Wancho</td>
+<td>wcho</td>
+</tr>
+<tr>
+<td valign="top">Yezidi</td>
+<td>yezi</td>
+</tr>
+<tr>
+<td valign="top">Zanabazar Square</td>
+<td>zanb</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> script tags are case sensitive (script tags should be lowercase) and must contain four characters.</p>
+<p><strong>Note:</strong> Tai Tham support is currently limited. Additional encoding work is required for full text representation to be possible.</p>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+			
+		<!-- feedback section -->
+		<section
+			class="feedback-section position-relative margin-top-lg border border-radius padding-xxs display-none-print"
+			data-bi-name="open-source-feedback-section"
+			data-open-source-feedback-section
+			hidden
+		>
+			<div class="display-flex flex-direction-column flex-direction-row-tablet">
+				<div
+					class="width-450-tablet padding-inline-xs padding-inline-xs-tablet padding-top-xs padding-bottom-sm padding-top-xs-tablet background-color-body-medium"
+				>
+					<div class="display-flex flex-direction-column">
+						<div class="padding-bottom-xxs">
+							<span class="icon margin-right-xxs" aria-hidden="true">
+								<span class="docon docon-brand-github"></span>
+							</span>
+							<span class="font-weight-semibold">
+								Collaborate with us on GitHub
+							</span>
+						</div>
+						<span class="line-height-normal">
+							The source for this content can be found on GitHub, where you can also create and review issues and pull requests. For more information, see <a href="https://learn.microsoft.com/contribute/content/">our contributor guide</a>.
+						</span>
+					</div>
+				</div>
+				<div
+					class="display-flex gap-xs width-full-tablet flex-direction-column padding-xs justify-content-space-evenly"
+				>
+					<div class="media">
+						
+
+						<div class="media-content">
+							<p
+								class="font-size-xl font-weight-semibold margin-bottom-xxs"
+								data-open-source-product-title
+							>
+								Script development specifications
+							</p>
+							<div class="display-flex gap-xs flex-direction-column">
+								<p class="line-height-normal" data-open-source-product-description></p>
+								<div class="display-flex gap-xs flex-direction-column">
+									<a href="#" data-github-link>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-bug"></span>
+										</span>
+										<span>Open a documentation issue</span>
+									</a>
+									<a
+										href="https://support.microsoft.com/windows/send-feedback-to-microsoft-with-the-feedback-hub-app-f59187f8-8739-22d6-ba93-f66612949332"
+										class="display-block margin-top-auto font-size-md"
+										data-feedback-product-url
+									>
+										<span class="icon margin-right-xxs" aria-hidden="true">
+											<span class="docon docon-feedback"></span>
+										</span>
+										<span>Provide product feedback</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+			
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+		
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2024-09-15T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2024-09-15
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+			
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../internet/tftp/src/tftp.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+From: Example Sender <sender@example.com>
+To: Example Reader <reader@example.net>
+Date: Tue, 14 Nov 2023 22:13:20 +0000
+Message-ID: <canonical-5322@example.com>
+Subject: Synthetic canonical Internet message
+
+This original message exercises the canonical RFC 5322 shape.

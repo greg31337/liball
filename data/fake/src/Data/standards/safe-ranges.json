@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "sources": [
+    {
+      "id": "rfc-2606",
+      "name": "IETF RFC 2606 reserved DNS names",
+      "url": "https://www.rfc-editor.org/rfc/rfc2606",
+      "version": "RFC 2606, June 1999",
+      "retrievedOn": "2026-08-14",
+      "license": "IETF-Trust",
+      "snapshot": "specs/rfc2606-reserved-dns-names.txt",
+      "snapshotSha256": "b6869c8984701701bc2e6973b6ffc750d497f845cc1a65a106e9301590a13ab0"
+    },
+    {
+      "id": "rfc-5737",
+      "name": "IETF RFC 5737 IPv4 documentation address blocks",
+      "url": "https://www.rfc-editor.org/rfc/rfc5737",
+      "version": "RFC 5737, January 2010",
+      "retrievedOn": "2026-08-14",
+      "license": "IETF-Trust",
+      "snapshot": "specs/rfc5737-ipv4-documentation-ranges.txt",
+      "snapshotSha256": "9d16217614a74a9b064eff900e5cd07a525793cf8227dca1267100e880f0c410"
+    },
+    {
+      "id": "rfc-3849",
+      "name": "IETF RFC 3849 IPv6 documentation prefix",
+      "url": "https://www.rfc-editor.org/rfc/rfc3849",
+      "version": "RFC 3849, July 2004",
+      "retrievedOn": "2026-08-14",
+      "license": "IETF-Trust",
+      "snapshot": "specs/rfc3849-ipv6-documentation-prefix.txt",
+      "snapshotSha256": "b0741fc609be565b356c62d2f9b9ef30469f3fe7bde386c2690e173751bb1941"
+    },
+    {
+      "id": "nanpa-555",
+      "name": "NANPA 555 line-number reservation",
+      "url": "https://www.nanpa.com/numbering/555-line-numbers",
+      "version": "page retrieved 2026-08-14",
+      "retrievedOn": "2026-08-14",
+      "license": "factual-reservation",
+      "snapshot": "specs/nanpa-555-reserved-numbers.html",
+      "snapshotSha256": "48ba8c32f7bb88ff0018846ea127f7a97ef1e00fb7a9df02fae14281e0e61f84"
+    }
+  ],
+  "dnsDocumentationDomains": ["example.com", "example.net", "example.org"],
+  "ipv4DocumentationPrefixes": ["192.0.2.0/24", "198.51.100.0/24", "203.0.113.0/24"],
+  "ipv6DocumentationPrefixes": ["2001:db8::/32"],
+  "nanpaFictionalSubscriberRanges": [
+    {"exchange": "555", "first": "0100", "last": "0199"}
+  ]
+}

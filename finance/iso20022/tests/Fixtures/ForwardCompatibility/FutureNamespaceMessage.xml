@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document
+    xmlns="urn:iso:std:iso:20022:tech:xsd:futr.001.001.01"
+    xmlns:future="urn:example:iso20022:future:message">
+  <FutureMessage>
+    <MessageId>FUTURE-NAMESPACE-1</MessageId>
+    <future:NextGenerationData future:mode="preserve">
+      <future:Value>unknown namespace content</future:Value>
+    </future:NextGenerationData>
+  </FutureMessage>
+</Document>

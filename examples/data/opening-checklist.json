@@ -1,0 +1,9 @@
+{
+  "owner": "Ada",
+  "project": "Riverside cafe opening checklist",
+  "tasks": [
+    { "title": "Check the cold room", "done": true },
+    { "title": "Print today's menu", "done": true },
+    { "title": "Brief the morning team", "done": false }
+  ]
+}

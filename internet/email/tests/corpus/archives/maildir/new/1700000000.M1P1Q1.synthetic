@@ -1,0 +1,7 @@
+From: New Maildir Sender <new@example.com>
+To: Maildir Reader <reader@example.net>
+Date: Tue, 14 Nov 2023 22:13:20 +0000
+Message-ID: <maildir-new@example.com>
+Subject: New Maildir message
+
+Synthetic new-message body.

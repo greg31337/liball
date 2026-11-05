@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../data/barcode/src/barcode.csproj" />
+  </ItemGroup>
+</Project>

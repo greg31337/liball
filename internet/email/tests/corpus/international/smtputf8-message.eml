@@ -1,0 +1,11 @@
+From: "山田 太郎" <太郎@例え.example>
+To: "Zoë Reader" <zoë@example.net>
+Date: Tue, 14 Nov 2023 22:15:20 +0000
+Message-ID: <国際化-20231114@例え.example>
+MIME-Version: 1.0
+Subject: Καλημέρα — こんにちは — مرحبًا
+Content-Language: ja, el, ar
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Unicode body: café, Ελληνικά, 日本語, العربية, 😀.

@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "1",
+  "locale": "cs-CZ",
+  "fallbacks": [
+    "cs",
+    "invariant"
+  ],
+  "reviewStatus": "native-authoritative-reviewed",
+  "provenance": [
+    {
+      "id": "locale-registries",
+      "source": "Unicode CLDR 47 locale metadata, ITU-T E.164 assigned country codes, ISO 3166-1 territory codes, ISO 4217 currency codes, and IANA Time Zone Database",
+      "sourceVersion": "CLDR 47; registries reviewed 2026-08-15",
+      "license": "Unicode-3.0 and factual-registry-data",
+      "reviewer": "repository-authoritative-review-2026-08-15"
+    },
+    {
+      "id": "unicode-cldr-47",
+      "source": "Unicode CLDR 47 Gregorian calendar locale data",
+      "sourceVersion": "CLDR 47, 2025-03-13",
+      "license": "Unicode-3.0",
+      "reviewer": "repository-authoritative-review-2026-08-15"
+    },
+    {
+      "id": "locale-fallback-audit",
+      "source": "Repository audit of native locale scope, invariant fallbacks, and sensitive terminology",
+      "sourceVersion": "2026-08-15",
+      "license": "project-license",
+      "reviewer": "repository-authoritative-review-2026-08-15"
+    }
+  ],
+  "fields": [
+    {
+      "name": "locale.profile",
+      "provenance": "locale-registries",
+      "value": {
+        "englishName": "Czech (Czechia)",
+        "nativeName": "čeština (Česko)",
+        "language": "cs",
+        "script": "Latn",
+        "direction": "ltr",
+        "territory": "CZ",
+        "currency": "CZK",
+        "callingCode": "+420",
+        "timeZones": [
+          "Europe/Prague"
+        ],
+        "dateOrder": "dmy",
+        "decimalSeparator": ",",
+        "nativeProviders": [
+          "date",
+          "locale"
+        ],
+        "fallbackProviders": [
+          "address",
+          "education",
+          "internet",
+          "person",
+          "phone",
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "locale.review",
+      "provenance": "locale-fallback-audit",
+      "value": {
+        "status": "authoritative-reviewed",
+        "reviewedOn": "2026-08-15",
+        "categories": {
+          "nameOrder": {
+            "status": "fallback-only",
+            "source": "Unicode CLDR 47 person-name rules reviewed; no native person-name field is shipped"
+          },
+          "addressFormat": {
+            "status": "fallback-only",
+            "source": "No native address catalog or postal-format claim is shipped"
+          },
+          "phoneMasks": {
+            "status": "fallback-only",
+            "source": "ITU-T E.164 calling code reviewed; no native national phone mask is shipped"
+          },
+          "dates": {
+            "status": "native-reviewed",
+            "source": "Unicode CLDR 47 Gregorian stand-alone month and weekday names and short-date order"
+          },
+          "identifiers": {
+            "status": "fallback-only",
+            "source": "ISO territory and currency metadata reviewed; no native personal identifier format is shipped"
+          },
+          "sensitiveTerminology": {
+            "status": "reviewed-no-native-terms",
+            "source": "No native sensitive demographic, medical, legal, or identity terminology is shipped"
+          }
+        },
+        "fallbackProviders": [
+          "address",
+          "education",
+          "internet",
+          "person",
+          "phone",
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "date.month.wide",
+      "provenance": "unicode-cldr-47",
+      "value": [
+        "leden",
+        "únor",
+        "březen",
+        "duben",
+        "květen",
+        "červen",
+        "červenec",
+        "srpen",
+        "září",
+        "říjen",
+        "listopad",
+        "prosinec"
+      ]
+    },
+    {
+      "name": "date.month.abbreviated",
+      "provenance": "unicode-cldr-47",
+      "value": [
+        "led",
+        "úno",
+        "bře",
+        "dub",
+        "kvě",
+        "čvn",
+        "čvc",
+        "srp",
+        "zář",
+        "říj",
+        "lis",
+        "pro"
+      ]
+    },
+    {
+      "name": "date.weekday.wide",
+      "provenance": "unicode-cldr-47",
+      "value": [
+        "neděle",
+        "pondělí",
+        "úterý",
+        "středa",
+        "čtvrtek",
+        "pátek",
+        "sobota"
+      ]
+    },
+    {
+      "name": "date.weekday.abbreviated",
+      "provenance": "unicode-cldr-47",
+      "value": [
+        "ne",
+        "po",
+        "út",
+        "st",
+        "čt",
+        "pá",
+        "so"
+      ]
+    },
+    {
+      "name": "date.order",
+      "provenance": "unicode-cldr-47",
+      "value": "dmy"
+    }
+  ]
+}

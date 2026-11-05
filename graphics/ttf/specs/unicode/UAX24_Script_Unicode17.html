@@ -1,0 +1,1428 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+       "http://www.w3.org/TR/html4/loose.dtd"> 
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<title>UAX #24: Unicode Script Property</title>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://www.unicode.org/reports/reports-v2.css">
+
+
+</head>
+<body>
+
+  <table class="header">
+    <tr>
+          <td class="icon" style="width:38px; height:35px">
+          <a href="https://www.unicode.org/">
+          <img border="0" src="https://www.unicode.org/webscripts/logo60s2.gif" align="middle" 
+          alt="[Unicode]" width="34" height="33"></a>
+          </td>
+
+          <td class="icon" style="vertical-align:middle">
+          <a class="bar"> </a>
+          <a class="bar" href="https://www.unicode.org/reports/"><font size="3">Technical Reports</font></a>
+          </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="gray">&nbsp;</td>
+    </tr>
+  </table>
+
+<div class="body">
+
+	<h2 class="uaxtitle">Unicode® Standard Annex #24</h2>
+  <h1>Unicode Script Property</h1>
+  
+  <table class="simple" width="90%">
+    <tr>
+      <td width="20%">Version</td>
+      <td>Unicode 17.0.0</td>
+    </tr>
+    <tr>
+      <td>Editors</td>
+      <td>Ken Whistler</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>2025-07-31</td>
+    </tr>
+    <tr>
+      <td>This Version</td>
+      <td>
+	  <a href="https://www.unicode.org/reports/tr24/tr24-39.html">https://www.unicode.org/reports/tr24/tr24-39.html</a></td>
+    </tr>
+    <tr>
+      <td>Previous&nbsp;Version</td>
+      <td>
+	  <a href="https://www.unicode.org/reports/tr24/tr24-38.html">https://www.unicode.org/reports/tr24/tr24-38.html</a></td>
+    </tr>
+    <tr>
+      <td>Latest Version</td>
+      <td><a href="https://www.unicode.org/reports/tr24/">https://www.unicode.org/reports/tr24/tr24</a></td>
+    </tr>
+    <tr>
+      <td valign="top">Latest Proposed Update</td>
+      <td valign="top"><a href="https://www.unicode.org/reports/tr24/proposed.html">https://www.unicode.org/reports/tr24/proposed.html</a></td>
+    </tr>
+    <tr>
+      <td>Revision</td>
+      <td><a href="#Modifications">39</a>
+      </td>
+    </tr>
+  </table>
+  
+  <h4 class="summary">Summary</h4>
+  <p><i>This annex describes two related Unicode code point properties.
+        Both properties share the use of Script property values. The Script property itself assigns single
+        script values to all Unicode code points, identifying a primary script association, where possible.
+        The Script_Extensions property assigns sets of Script property values, providing more detail
+        for cases where characters are commonly used with multiple scripts.
+        This information is useful in mechanisms such as regular expressions 
+	and other text processing tasks, as
+        explained in implementation notes for these properties.</i></p>
+  
+  <h4 class="status">Status</h4>
+	  <!-- NOT YET APPROVED 
+	  <p class="changed"><i>This is a<b><font color="#ff3333"> draft </font></b>document which 
+      may be updated, replaced, or superseded by other documents at any time. 
+      Publication does not imply endorsement by the Unicode Consortium. This is 
+      not a stable document; it is inappropriate to cite this document as other 
+      than a work in progress.</i></p>
+        END NOT YET APPROVED -->
+	  <!-- APPROVED --> 
+    <p><i>This document has been reviewed by Unicode members and other interested 
+	parties, and has been approved for publication by the Unicode Consortium. 
+	This is a stable document and may be used as reference material or cited as 
+	a normative reference by other specifications.</i></p>
+   <!-- END APPROVED -->
+  <blockquote>
+    <p><i><b>A Unicode Standard Annex (UAX)</b> forms an integral part of the 
+	Unicode Standard, but is published online as a separate document. The 
+	Unicode Standard may require conformance to normative content in a Unicode 
+	Standard Annex, if so specified in the Conformance chapter of that version 
+	of the Unicode Standard. The version number of a UAX document corresponds to 
+	the version of the Unicode Standard of which it forms a part.</i></p>
+  </blockquote>
+  <p><i>Please submit corrigenda and other comments with the online reporting 
+  form [<a href="https://www.unicode.org/reporting.html">Feedback</a>]. 
+  Related information that is useful in understanding this annex is found in Unicode Standard Annex #41, 
+  “<a href="https://www.unicode.org/reports/tr41/tr41-36.html">Common References for Unicode Standard Annexes</a>.” 
+  For the latest version of the Unicode Standard, see [<a href="https://www.unicode.org/versions/latest/">Unicode</a>]. 
+  For a list of current Unicode Technical Reports, see [<a href="https://www.unicode.org/reports/">Reports</a>]. 
+  For more information about versions of the Unicode Standard, see [<a href="https://www.unicode.org/versions/">Versions</a>]. 
+  For any errata which may apply to this annex, see [<a href="https://www.unicode.org/errata/">Errata</a>].</i></p>
+	
+  <h4 class="contents">Contents</h4>
+  <ul class="toc">
+    <li>1 <a href="#Introduction">Introduction</a>
+    <ul class="toc">
+      <li>1.1 <a href="#Classification">Examples of Script Classification</a></li>
+      <li>1.2 <a href="#Script_Identity">Script Identity and Unicode</a></li>
+      <li>1.3 <a href="#Scripts_and_Blocks">Scripts and Blocks</a></li>
+      <li>1.4 <a href="#Script_Class_Proc">Script Classification in Text Processing</a></li>
+      <li>1.5 <a href="#Classification_by_Script">Classification of Text by Script Property</a></li>
+      <li>1.6 <a href="#Out_of_Scope">Usage Not Reflected in the Script Property</a></li>
+    </ul></li>
+    <li>2 <a href="#Script">The Script Property</a>
+    <ul class="toc">
+		  <li>2.1 <a href="#Special_Explicit">Script Property Values</a></li>
+      <li>2.2 <a href="#Relation_To_ISO15924">Relation to ISO 15924 Codes</a></li>
+      <li>2.3 <a href="#Assignment_Script_Values">Assignment of Script Property Values</a></li>
+      <li>2.4 <a href="#Script_Designators">Script Designators in Character and Block Names</a></li>
+      <li>2.5 <a href="#Script_Value_Aliases">Script Property Value Aliases</a></li>
+      <li>2.6 <a href="#Script_Names">Script Names</a></li>
+      <li>2.7 <a href="#Script_Anomalies">Script Anomalies</a></li>
+    </ul></li>
+    <li>3 <a href="#Script_Extensions">The Script_Extensions Property</a>
+    <ul class="toc">
+      <li>3.1 <a href="#Script_Extensions_Def">Script_Extensions Property Values</a></li>
+		  <li>3.3 <a href="#Assignment_ScriptX_Values">Assignment of Script_Extensions Property Values</a></li>
+    </ul></li>
+    <li>4 <a href="#Data_File">Data Files</a>
+    <ul class="toc">
+      <li>4.1 <a href="#Data_File_SC">Scripts.txt</a></li>
+      <li>4.2 <a href="#Data_File_SCX">ScriptsExtensions.txt</a></li>
+      <li>4.3 <a href="#Data_File_PVA">PropertyValueAliases.txt</a></li>
+    </ul></li>
+    <li>5 <a href="#Usage_Model">Implementation Notes</a>
+    <ul class="toc">
+      <li>5.1 <a href="#Common">Handling Characters with the Common Script Property</a></li>
+      <li>5.2 <a href="#Nonspacing_Marks">Handling Combining Marks</a></li>
+      <li>5.3 <a href="#Multiple_Script_Values">Multiple Script Values</a></li>
+      <li>5.4 <a href="#Script_Names_in_RegEx">Using Script Property Values in Regular Expressions</a></li>
+      <li>5.5 <a href="#Script_Names_in_Rendering">Use of the Script Property in Rendering Systems</a></li>
+      <li>5.6 <a href="#Limitations">Limitations</a></li>
+      <li>5.7 <a href="#Spoofing">Spoofing</a></li>
+    </ul></li>
+  </ul>
+  <ul class="toc">
+    <li><a href="#Acknowledgements">Acknowledgements</a></li>
+    <li><a href="#References">References</a></li>
+    <li><a href="#Modifications">Modifications</a></li>
+  </ul>
+  <hr>
+  
+  <h2>1 <a name="Introduction" href="#Introduction">Introduction</a></h2>
+
+  <p>The concept of <i>script</i> is a key organizational principle for
+    the Unicode Standard [<a href="../tr41/tr41-36.html#Unicode">Unicode</a>]. This annex
+    introduces the general concept of script and the specific ways in which the concept
+    is used in the standard. Two character properties, Script and Script_Extensions, are
+    then specified in detail.</p>
+  <p>A <i>script</i> is a collection of letters and other written signs that generally has the following attributes:</p>
+  <ul>
+    <li>The written elements share a common graphological style and history.</li>
+    <li>The collection is used (in full, or as a subset) to represent textual information in a writing system for one or more languages.</li>
+  </ul>
+  <p>For example, the Russian language is written with a distinctive set of letters, as well as other marks or symbols that together form a subset of the <em>Cyrillic</em> script. Other languages using the Cyrillic script, such as Ukrainian or Serbian, employ a different subset of those letters.</p>
+  <p>Normally, the letter shapes of one script are unrelated to those of another script. So, for example, the letter
+    shapes of the Cyrillic script share nothing in common with the letter shapes of the Hebrew script.
+    However, writing systems may be historically related to each other, in which case there are often
+    systematic <i>similarities</i> in letter shapes and occasional identical shapes. So because the
+    Cyrillic script is historically related to the Greek script, those two scripts share a significant
+    number of letter forms.</p>
+  <p>A script may also explicitly borrow letters from another script. For example, 
+  some writing systems that use the Cyrillic script have borrowed letter forms from the Latin script.
+  Furthermore, letter forms may show accidental similarity in shapes: a simple line or circle used
+  as a letter, for example, could have been independently created many times in the history of the
+  development of writing systems.</p>
+  <p>The writing system for a language occasionally employs more than one script.
+    The best known example is the Japanese language, whose writing system uses four scripts: the Han ideographs (<i>kanji</i>), as well as the Hiragana and Katakana syllabaries, but also a subset of the Latin letters.</p>
+  <p>Some languages may have competing writing systems that use different scripts,
+    or change scripts from one historical period to another. For example, the Turkish language was historically written in the Arabic script but is now written using the Latin script. For many other languages there are similar cases, where an historical writing system used one script, while a modern writing system for the same language may use a different script.</p>
+  <p>Some scripts, such as the Latin script or the Arabic script, have an historically
+  developed cosmopolitan status, and are used for the representation of the
+  writing systems of hundreds or even thousands of different languages.
+  The <i>script</i> in such cases consists of the complete set of letters and
+  other signs needed to represent <i>all</i> of the writing systems covered,
+  which may include historical as well as modern text forms, rather than simply
+  being a single alphabet or other set of graphic symbols needed for writing a single language.</p>
+
+  <h3>1.1 <a name="Classification" href="#Classification">Examples of Script Classification</a></h3>
+  <p>Independent of its use by the Unicode Standard, there are distinct needs for classification by script. For example, writing systems can be classified by the script or scripts they use. In cases of continuous historical derivation of scripts from predecessor scripts, an existing graphological classification may consider a writing system to be using a variant of an ancestor script, whereas the Unicode Standard may give each historic stage its own script identity for the purposes of character encoding.</p>
+  <p>In another example, bibliographers need to catalog documents by the 
+	primary script in which they are written. In so doing, bibliographers often ignore small inclusions of other scripts in 
+	the form of 
+	quoted material, for the purpose of catalog identification. Conversely, significant 
+	differences in writing style for the same script may be reflected in the 
+	bibliographical classification—for example, Fraktur or Gaelic styles for the Latin script.
+  Such stylistic distinctions are ignored in the Unicode Standard, which treats them as presentation styles of the Latin script.</p>
+<p>Bibliographers also assign a single classification code for Japanese or Korean documents, even though the respective writing systems use a mix of scripts. Such single codes have also proven useful as a shorthand notation for describing the repertoires of characters needed when supporting identifiers, as for the Internationalized Domain Names (IDN).</p>
+
+<h3>1.2 <a name="Script_Identity" href="#Script_Identity">Script Identity and Unicode</a></h3>
+<p>The Unicode Standard fundamentally considers characters as elements of scripts in making encoding decisions. For example, when a letter is borrowed from one script into another, it often is encoded again as a distinct element of the borrowing script. This occurs most often in the case for letters. For punctuation and other similar marks, the decision may instead be made to explicitly designate a character for common use with all scripts, or to document its use with a defined subset of all scripts.</p>
+<p>In addition to letters, the Unicode Standard includes
+    many graphic symbols which fall outside the scope of particular writing
+    systems and are not associated with particular scripts. For example, there are commonly used punctuation marks
+    such as commas and quotation marks that are widely shared across scripts. The same consideration applies to the European digits "1", "2", "3", .... The Unicode Standard also contains many combining
+    marks intended to be used in multiple writing systems, as well as symbols
+    for notational systems like mathematics that have their own rules and
+  identity independent of writing systems for particular languages.</p>
+
+<h3>1.3 <a name="Scripts_and_Blocks" href="#Scripts_and_Blocks">Scripts and Blocks</a></h3>
+<p>Unicode characters are  divided into non-overlapping ranges called 
+  blocks 
+  [<a href="../tr41/tr41-36.html#Blocks">Blocks</a>]. Many of these blocks have a name derived from
+  a script name, because 
+  characters of that script are primarily encoded in that block. 
+  However, blocks and scripts differ in the following 
+  ways:</p>
+<ul>
+  <li>Blocks are simply ranges, and often contain code points that are unassigned.</li>
+  <li>Characters from the same script may be encoded in several different blocks.</li>
+  <li>Characters from different scripts may be encoded in the same block.</li>
+</ul>
+<p>As a result,  using the  block names as simplistic substitute for script identity generally leads to poor results.
+  For example, see <i>Annex A, Character Blocks</i>, in 
+  Unicode Technical Standard #18, "Unicode Regular Expressions" [<a href="../tr41/tr41-36.html#UTS18">UTS18</a>].</p>
+
+<h3>1.4 <a name="Script_Class_Proc" href="#Script_Class_Proc">Script Classification in Text Processing</a></h3>
+<p>In text processing the classification of text by script is by necessity more fine-grained than when cataloging documents. The classification by script is essential for a 
+  variety of tasks that need to analyze a piece of text and determine what 
+  parts of it are in which script. Examples include regular expressions or 
+  assigning different fonts to parts of a plain text stream based on the prevailing script. For all of these tasks, the challenge is to break a text into script runs, or stretches of text that are all treated as belonging to the same script.</p>
+<p>Script information is also taken into consideration 
+  in collation, so that strings  are grouped by script when sorted. To that end, the Default Unicode Collation Element Table (DUCET) 
+  assigns letters of different scripts different ranges of primary sort weights. However, numbers, symbols, and punctuation are not 
+  grouped with the letters. For the purposes of ordering, therefore, explicit script identity is 
+  most significant for the letters. For more information, see Unicode 
+  Technical Standard #10, “Unicode Collation Algorithm”
+  [<a href="../tr41/tr41-36.html#UTS10">UTS10</a>].</p>
+<p>These examples demonstrate that 
+  the use of <i>script</i> (and to a certain extent, its exact specification) depends on the intended purposes 
+  of the classification. <i><a href="#Classification_Table">Table 1</a></i> summarizes 
+  some of the purposes for which text elements can be classified by 
+  script.</p>
+<p class="caption">Table 1. <a name="Classification_Table" href="#Classification_Table"> Classification of Text by Script</a></p>
+<div align="center">
+  <table class="subtle">
+    <tr>
+      <th>Granularity</th>
+      <th>Classification</th>
+      <th>Purpose</th>
+      <th>Special Values</th>
+    </tr>
+    <tr>
+      <td>Document</td>
+      <td>Bibliographical</td>
+      <td>Record in which script a text is printed or published; 
+        subdivides some scripts—for example, Latin into normal, Fraktur, and Gaelic 
+        styles </td>
+      <td><b>Unknown</b></td>
+    </tr>
+    <tr>
+      <td rowspan="3">Character</td>
+      <td>Graphological/ typographical </td>
+      <td>Describe to which script a character belongs based on its origin</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Orthographical </td>
+      <td>Describe with which script (or scripts) a character is used</td>
+      <td><b>Common</b>, <b>Inherited</b></td>
+    </tr>
+    <tr>
+      <td>For collation</td>
+      <td>Group letters by script in collation element table</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Run</td>
+      <td>For font binding or search</td>
+      <td>Determine extent of run of like script in (potentially) mixed-script text</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<p></p>
+
+<h3>1.5 <a name="Classification_by_Script" href="#Classification_by_Script">Classification of Text by Script Property</a></h3>
+<p>The exact way in which one uses script information about text depends
+    on the kind of processing that is involved. In addition to being normally less-fine-grained, bibliographical, graphological, or historical 
+	classifications of scripts need different distinctions than common text processing-related tasks. To assist in the development of interoperable implementations for text
+  processing that depends on script classification, the Unicode Standard defines
+  two character properties, Script and Script_Extensions.</p>
+<p>The Script property assigns a single value to each character, either explicitly associating it with a particular script, or assigning one of several special values. The Script property is discussed in detail in Section 2, <i><a href="#Script">The Script Property</a></i>. The Script_Extensions property builds on this model, by better documenting cases where characters are neither used solely with members of a single script nor shared universally. The Script_Extensions property is unusual in that each of its values is a set of Script values. The Script_Extensions property is discussed in detail in 
+  Section 3, <i><a href="#Script_Extensions">The Script_Extensions Property</a></i>.</p>
+<p>The special property values required to support text-processing needs are different from those needed in other classifications. For example, when 
+  bibliographers are unable to determine the script of a document, they may 
+  classify it using a special value for <b>Unknown</b>. In text processing, 
+  the identities of all characters are normally known, but some characters may 
+  be 
+  shared across scripts or attached to any character, thus requiring 
+  special values for <b>Common</b> and <b>Inherited</b>.</p>
+<p>Despite these differences in focus, the vast majority of 
+	Unicode Script property values correspond more or less directly to the script identifiers used by bibliographers 
+  and others.</p>
+<p>This annex
+  documents the definition and use of those properties and describes the
+  data files in the Unicode Character Database [<a href="../tr41/tr41-36.html#UCD">UCD</a>]
+  that specify exact values of those properties for all Unicode characters.</p>
+
+<h3>1.6 <a name="Out_of_Scope" href="#Out_of_Scope">Usage Not Reflected in the Script Property</a></h3>
+<p>Many characters are regularly used out of their normal contexts
+        for specialized purposes&#x2014;for example, for pedagogical use or as part of
+        mathematical, scientific, or scholarly notations. Such uses are not reflected in
+        the assignment of values for either the Script or Script_Extensions properties,
+        because those properties aim rather to reflect ordinary and common usage of
+        characters with a script (or set of scripts). Implementers are cautioned
+        that such "out-of-context" usage of characters does exist and needs to be
+        supported where required, regardless of the Script and Script_Extensions
+        property values for a given character.</p>
+	
+<h2>2 <a name="Script" href="#Script">The Script Property</a></h2>
+	
+  <h3>2.1 <a name="Special_Explicit"></a><a name="Script_Values" href="#Script_Values">Script Property Values</a></h3>
+
+  <p>The Script property is an enumerated property of type <i>catalog</i>. Its
+    values form a full partition of the codespace: every Unicode code point 
+	is assigned a single Script property value. This value is
+  either the explicit value for a specific script, such 
+  as <b>Cyrillic,</b> or is one of the following three special values:</p>
+	<ul>
+		<li><b>Inherited</b>—for 
+		characters that may be used with multiple scripts, and that inherit their 
+		script from a preceding base character. These include nonspacing combining marks 
+		and enclosing combining marks, as well as U+200C ZERO WIDTH NON-JOINER and U+200D
+    ZERO WIDTH JOINER.</li> 
+		<li><b>Common</b>—for other characters that may be used with multiple scripts.</li>
+		<li><b>Unknown</b>—for unassigned, private-use, 
+		noncharacter, and surrogate code points.</li>
+	</ul>
+  <p>Collectively, these three special values are called <i>implicit</i> values,
+    in contrast to all other Script property values, which each refer to one specific
+    script and which are called <i>explicit</i> values.</p>
+
+  <p>As new scripts are 
+	added to the standard, explicit Script property values will be added to the enumeration. 
+  Implementations are advised to allow for this growth in enumerated values. See 
+	also Section 2.3, 
+  <i><a href="#Assignment_Script_Values">Initial Assignment of Script Property Values</a></i>.</p>
+	
+  <p>The implicit values <b>Common</b> or <b>Inherited</b> do not 
+  indicate <em>which</em> scripts a character is used with&#x2014;only that the character is 
+  used with more than one script. For example, U+30FC ( ー ) KATAKANA-HIRAGANA PROLONGED 
+  SOUND MARK is shared between Hiragana and Katakana and is not typically used with 
+  other scripts, such as Latin or Greek. For many applications such a coarse classification may be
+	insufficient; they require further detailed information. For example, a character picker
+	application which organizes characters into visual buckets by script may need to
+	show a <b>Common</b> script character in two or more buckets, depending on which
+	particular scripts use that character. For data on which scripts a character
+  is commonly used with, 
+  see Section 3, <i><a href="#Script_Extensions">The Script_Extensions Property</a></i>.</p>
+
+  <p>A value of <b>Inherited</b> means that the character is treated as if 
+    it had the Script property value of a preceding base character. 
+    (See Section 5.2, <i><a href="#Nonspacing_Marks">Handling Combining Marks</a></i>.) 
+    Where the character is not part of a combining sequence, as is the case for 
+    U+200C ZERO WIDTH NON-JOINER and U+200D ZERO WIDTH JOINER, 
+    there are special script inheritance rules for use in text run processing.</p>
+	
+  <p>The Script property values assigned for all characters are specified
+   in the file Scripts.txt [<a href="../tr41/tr41-36.html#Data24">Data24</a>] in the Unicode Character 
+  Database [<a href="../tr41/tr41-36.html#UCD">UCD</a>].
+  A complete enumeration of Script property values 
+	and their short names is provided in [<a href="../tr41/tr41-36.html#PropValue">PropValue</a>].
+  For further discussion, see Section 4, <i><a href="#Data_File">Data Files</a></i>.</p>
+  
+  <h3>2.2 <a name="Relation_To_ISO15924" href="#Relation_To_ISO15924">Relation to ISO 15924 Codes</a></h3>
+	
+	<p>ISO 
+  15924: <i>Code for the Representation of Names of Scripts</i> 
+  [<a href="../tr41/tr41-36.html#ISO15924">ISO15924</a>] provides an enumeration of 
+    four-letter script codes. In  
+    [<a href="../tr41/tr41-36.html#PropValue">PropValue</a>], where feasible, the 
+  short name for the Unicode Script property value matches the corresponding ISO 15924 code,
+  as exemplified in <i><a href="#Script_Values_Table">Table 3</a></i>.</p>
+
+    <p class="caption">Table 3. <a name="Script_Values_Table" href="#Script_Values_Table">
+  Unicode Script Property Values and ISO 15924 Codes</a></p>
+    <div align="center">
+  <table class="subtle">
+      <tr>
+        <th colspan="2">Script Property</th>
+        <th rowspan="2">ISO 15924</th>
+      </tr>
+      <tr>
+        <th>Long</th>
+        <th>Short</th>
+      </tr>
+      <tr>
+        <td><code>Common</code></td>
+        <td><code>Zyyy</code></td>
+        <td><code>Zyyy</code></td>
+      </tr>
+      <tr>
+        <td><code>Inherited</code></td>
+        <td><code>Zinh, Qaai</code></td>
+        <td><code>Zinh</code></td>
+      </tr>
+      <tr>
+        <td><code>Unknown</code></td>
+        <td><code>Zzzz</code></td>
+        <td><code>Zzzz</code></td>
+      </tr>
+      <tr>
+        <td><code>Latin</code></td>
+        <td><code>Latn</code></td>
+        <td><code>Latn (Latf, Latg)</code></td>
+      </tr>
+      <tr>
+        <td><code>Cyrillic</code></td>
+        <td><code>Cyrl</code></td>
+        <td><code>Cyrl (Cyrs)</code></td>
+      </tr>
+      <tr>
+        <td><code>Coptic</code></td>
+        <td><code>Copt, Qaac</code></td>
+        <td><code>Copt</code></td>
+      </tr>
+      <tr>
+        <td><code>Armenian</code></td>
+        <td><code>Armn</code></td>
+        <td><code>Armn</code></td>
+      </tr>
+      <tr>
+        <td><code>Georgian</code></td>
+        <td><code>Geor</code></td>
+        <td><code>Geor (Geok)</code></td>
+      </tr>
+      <tr>
+        <td><code>Hebrew</code></td>
+        <td><code>Hebr</code></td>
+        <td><code>Hebr</code></td>
+      </tr>
+      <tr>
+        <td><code>Arabic</code></td>
+        <td><code>Arab</code></td>
+        <td><code>Arab (Aran)</code></td>
+      </tr>
+      <tr>
+        <td><code>Syriac</code></td>
+        <td><code>Syrc</code></td>
+        <td><code>Syrc (Syrj, Syrn, Syre)</code></td>
+      </tr>
+      <tr>
+        <td><code>Braille</code></td>
+        <td><code>Brai</code></td>
+        <td><code>Brai</code></td>
+      </tr>
+      <tr>
+        <td><code>Han</code></td>
+        <td><code>Hani</code></td>
+        <td><code>Hani (Hans, Hant)</code></td>
+      </tr>
+      <tr>
+        <td><code>...</code></td>
+        <td><code>...</code></td>
+        <td><code>...</code></td>
+      </tr>
+  </table>
+  </div>
+  
+	<p>In some cases the match between the Script property values 
+    and the ISO 15924 codes is not precise, because the goals are somewhat 
+    different. ISO 15924 is aimed primarily at the bibliographic identification 
+    of scripts; consequently, it occasionally identifies varieties of scripts 
+    that may be useful for book cataloging, but that are not considered 
+    distinct scripts in the Unicode Standard. For example, ISO 15924 has 
+    separate script codes for the Fraktur and Gaelic varieties of the Latin 
+    script. Such codes for script varieties are shown in parentheses
+    in <i><a href="#Script_Values_Table">Table 3</a></i>.</p>
+	<p>Where there are no corresponding ISO 15924 codes,  
+    private-use codes starting with the letter Q are used. Such 
+    values are likely to change in the future. In such a case, the Q-names will 
+    be retained as aliases in the file [<a href="../tr41/tr41-36.html#PropValue">PropValue</a>] 
+    for backward compatibility. For example, the older Script property value Qaai was retained 
+    as an alias for <b>Inherited</b>, when the newly defined script code Zinh was added to ISO 15924
+    and then used as the preferred short name for <b>Inherited</b> starting in Unicode 5.2.</p>
+    
+	<h3>2.3 <a name="Values"></a><a name="Assignment_Script_Values" href="#Assignment_Script_Values">Initial Assignment of Script Property Values</a></h3>
+	
+	<p>New characters and scripts are continually added to the 
+	Unicode Standard. The following 
+	principle determines the assignment of Script property values 
+	for existing
+	characters and for characters that are newly added to the Unicode Standard:</p>
+	<ol type="A">
+		<li>
+		If a character is only regularly used in one script, 
+		it takes the Script property value for that script</li>
+	<li>Otherwise, if the predominant use of the character is in one script,
+      but it is also used in others, then it takes the Script property value associated
+      with that predominant use</li>
+  <li>Otherwise, nonspacing marks (Mn, Me) and zero width joiner/non-joiner are
+  <b>Inherited</b></li>
+  <li>Otherwise, use <b>Common</b></li>
+	</ol>
+  <p>An example of criterion "B" would be the occasional use of an Arabic
+    character in a related minor-use or historic script. In such a case, the predominant
+    use would still be for Arabic, and the Script property value is determined to be <b>Arabic</b>,
+    rather than <b>Common</b>. The determination of predominant use in such cases is
+    based in part on an estimation of likely frequency of use.
+    This choice is designed to maximize the usefulness of the Script property value
+    for determination of script runs in text, for regular expressions, and so on, without having to branch to
+    more elaborate processing to determine how to handle <b>Common</b> property values by
+    examining the Script_Extensions value set in these edge cases. The choice of
+    an explicit Script property value, instead of <b>Common</b> or <b>Inherited</b>, in these edges cases is
+    done when, in the judgement of the Unicode Technical Committee, that explicit
+    Script property value is a reasonable default. However, 
+  some characters that are definitely members of a given script, 
+  based on their forms and history, nevertheless are assigned one of the implicit Script values
+  instead.</p>
+
+  <p>Although Braille is not a script in the same sense as 
+  Latin or Greek, it is given an explicit Script property value. 
+  This is useful for various applications for which these Script property values are 
+  intended, such as matching spans of similar characters in regular expressions.</p>
+
+	<p>Script values are not immutable. As more data on the usage of individual characters 
+  is collected, the Script property value assigned to a character may change. 
+  Rarely would a character change from one specific script
+  to another. However, if it 
+  becomes established that a character is regularly used with more than one 
+  script, it will be assigned the <b>Common</b> 
+  or <b>Inherited</b> Script property value. Similarly, if it becomes
+  established that a character is regularly used with only a single, specific script,
+  it will be assigned an explicit Script property value. The occasional use of character from one script
+  in the context of another script, as for instance the citation of a Greek letter
+  used as a mathematical constant in the midst of Latin text, or the use of a Latin
+  letter in the midst of Han text, is not considered sufficient evidence of
+  "regular use" requiring a designation of <b>Common</b> Script property value.
+  It is also possible for a character, once given a <b>Common</b> or <b>Inherited</b>
+  Script property value, upon further research, to be changed to a specific script,
+  instead.</p>
+	
+	<h3>2.4 <a name="Script_Designators" href="#Script_Designators">Script 
+	Designators in Character and Block Names</a></h3>
+	
+	<p>Many character names contain a script designator
+	as their first element(s). For example:</p>
+	
+	<ul>
+	<li><b>LATIN</b> SMALL LETTER S</li>
+	<li><b>KATAKANA</b> LETTER SA</li>
+	<li><b>NEW TAI LUE</b> LETTER LOW SA</li>
+	<li><b>PHAGS-PA</b> LETTER SA</li>
+	</ul>
+	
+	<p>Character names are guaranteed to be unique even when ignoring case
+	differences and the presence of SPACE 
+	or HYPHEN-MINUS. Underscores are not
+	used in character names. In practice, this means that
+	script designators are also unique, and, because
+	they are a part of character names, they are limited to 
+	the same characters used in character names:</p>
+	<ul>
+	<li>Latin letters A–Z</li>
+		<li>Digits 0–9</li>
+		<li>SPACE and medial HYPHEN-MINUS</li>
+  </ul>
+        
+        <p>Digits do not actually occur in script designators used
+        in character names.</p>
+        
+	<p>Many block names, for example, "Latin-1 Supplement", also
+	contain script designators. These script designators are closely (but not precisely)
+	aligned with the script designators used for character names in the corresponding
+	blocks. Similar restrictions apply to script designators as part of 
+	block names, except that there is no restriction on
+	the case of letters.</p>
+	
+	<h3>2.5 <a name="Script_Value_Aliases" href="#Script_Value_Aliases">Script Property Value Aliases</a></h3>
+	
+	<p>In addition to short names derived from ISO 15924 script codes,
+	as discussed in <i>Section 2.2, <a href="#Relation_To_ISO15924">Relation to ISO 15924 Codes</a></i>, each Script property value is also given a long name as a Script
+	property value alias. These long names are also listed in 
+	[<a href="../tr41/tr41-36.html#PropValue">PropValue</a>].
+	They are constructed to be appropriate for use as identifiers. The long or short
+	property value aliases are the identifiers that should
+	be used in regular expressions and similar usages.</p>
+
+	<p>Except for the implicit Script property values
+	<b>Common</b> and <b>Inherited</b>, the long name aliases usually correspond to the
+	script designators, with the replacement of SPACE 
+	or HYPHEN-MINUS by underscores, and titlecasing
+	each subpart of the resulting identifier, for consistency with the conventions used
+	for aliases for other Unicode character properties. For example:</p>
+	
+	<ul>
+	<li><b>Latin</b></li>
+	<li><b>Katakana</b></li>
+	<li><b>New_Tai_Lue</b></li>
+	<li><b>Phags_Pa</b></li>
+	</ul>
+
+        <p>As for all property aliases, Script property value aliases
+        are guaranteed to be unique within their respective namespace. 
+        See the Character Encoding Stability Policies [<a href="../tr41/tr41-36.html#Stability">Stability</a>]
+        for details. When comparing Script property value aliases, loose matching criteria
+        which ignore case differences and the presence of spaces, hyphens, and underscores,
+        should be used. See <i>Section 5.9, Matching Rules</i>, in [<a href="../tr41/tr41-36.html#UAX44">UAX44</a>]
+        for explanation of loose matching criteria.</p>
+        
+	<h3>2.6 <a name="Script_Names" href="#Script_Names">Script Names</a></h3>
+	
+	<p>The term <i>script name</i> is no longer used as part of
+	the formal specification of the Unicode Script property because it tends to
+	be used informally in several ambiguous senses:</p>
+	
+	<ol>
+	<li>To designate the orthographic name of a script in the Unicode Standard.
+            For example: <b>chirilică</b>, <b>Кириллица</b>, or <b>キリル文字</b> for <b>Cyrillic</b> (Cyrl).
+	    Even in English, such names may occasionally include characters not allowed in script
+	    designators or Script property values. For example: <b>Hanun&oacute;o</b> 
+	    or <b>N'Ko</b></li>
+	<li>To designate any variety of writing, some of which may have ISO 15924
+	    script variety codes, such as the <b>Gaelic</b> script, and some of which
+	    may not, such as the <b>Hebrew Cursive</b> script.</li>
+	<li>As a synonym of the term <i>script designator</i> as it appears in
+	    character or block names. For example: <b>HANUNOO</b>
+	    or <b>NKO</b></li>
+	<li>As a synonym of the long name alternate of <i>Script property value aliases</i>. 
+	    For example: <b>Hanunoo</b> (as opposed to the script code <b>Hano</b>) or <b>Nko</b>
+	    (as opposed to the script code <b>Nkoo</b>)</li>
+	</ol>
+	
+	<p>Because of these ambiguities, in Unicode contexts where precision
+	of denotation is required, use of the terms <i>Script property value</i> or
+	<i>script designator</i>, whichever may be appropriate, is preferred.</p>
+        
+	<h3>2.7 <a name="Script_Anomalies" href="#Script_Anomalies">Script Anomalies</a></h3>
+        
+    <p>There are a number of compatibility symbols derived from East Asian character sets
+      which have the Script property value <b>Common</b> but whose compatibility decompositions
+      contain characters with other Script property values. In particular, the parenthesized ideographs,
+      circled ideographs, Japanese era name symbols, and Chinese telegraph symbols
+      in the 3200..33FF range contain Han ideographs, and the squared Latin abbreviation
+      symbols in the same range contain Latin (and occasional Greek) letters. Examples
+      of such characters are listed in <i><a href="#Common_EastAsian_Table">Table 4</a></i>. 
+      Some of these characters have different scripts in their compatibility 
+      decompositions. This means that script extents calculated on the basis of the script property
+      value of the symbols themselves will differ from script extents calculated on
+      NFKD normalized text, in which these characters decompose into sequences including
+      the Han and/or Latin characters.</p>
+      
+    <p class="caption">Table 4. <a name="Common_EastAsian_Table" href="#Common_EastAsian_Table">
+	Examples of East Asian Symbols with Script = Common</a></p>
+    <div align="center">
+  <table class="simple">
+     <tr>
+     <td>U+249C ( ⒜ ) PARENTHESIZED LATIN SMALL LETTER A</td>
+     </tr>
+     <tr>
+     <td>U+24B6	( Ⓐ )  CIRCLED LATIN CAPITAL LETTER A</td>
+     </tr>
+     <tr>
+     <td>U+1F130 ( 🄰 ) SQUARED LATIN CAPITAL LETTER A</td>
+     </tr>
+     <tr>
+     <td>U+3382 ( ㎂ ) SQUARE MU A</td>
+     </tr>
+     <tr>
+     <td>U+1F12A ( 🄪 ) TORTOISE SHELL BRACKETED LATIN CAPITAL LETTER S</td>
+     </tr>
+     <tr>
+     <td>U+3192 ( ㆒ ) IDEOGRAPHIC ANNOTATION ONE MARK</td>
+     </tr>
+     <tr>
+     <td>U+3220 ( ㈠ ) PARENTHESIZED IDEOGRAPH ONE</td>
+     </tr>
+     <tr>
+     <td>U+3244 ( ㉄ ) CIRCLED IDEOGRAPH QUESTION</td>
+     </tr>
+     <tr>
+     <td>U+3280 ( ㊀ ) CIRCLED IDEOGRAPH ONE</td>
+     </tr>
+     <tr>
+     <td>U+32C0 ( ㋀ ) IDEOGRAPHIC TELEGRAPH SYMBOL FOR JANUARY</td>
+     </tr>
+     <tr>
+     <td>U+3358 ( ㍘ ) IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR ZERO</td>
+     </tr>
+     <tr>
+     <td>U+337B ( ㍻ ) SQUARE ERA NAME HEISEI</td>
+     </tr>
+     <tr>
+     <td>U+33E0 ( ㏠ ) IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY ONE</td>
+     </tr>
+  </table>
+  </div>
+
+    <p>The UTC has determined that because these symbols may be used with multiple
+      scripts in Chinese, Japanese, and/or Korean contexts, their Script property value should
+      simply be left as <b>Common</b>. There are other, more reliable clues about
+      the behavior of these compatibility symbols, such as their association with
+      East Asian character sets, which can be used by rendering systems to assure
+      their appropriate display and appropriate font choice. This determination is
+      somewhat different from that for the more script-specific parenthesized and
+      circled Hangul and Katakana symbols in the same range, which <i>are</i> given
+      specific Script property values. Examples of such
+      characters are shown in <i><a href="#Common_KanaHangul_Table">Table 5</a></i>.</p>
+       
+    <p class="caption">Table 5. <a name="Common_KanaHangul_Table" href="#Common_KanaHangul_Table">
+	Examples of East Asian Symbols with Katakana or Hangul Script Values</a></p>
+    <div align="center">
+  <table class="simple">
+     <tr>
+     <td>U+32D0 ( ㋐ ) CIRCLED KATAKANA A</td>
+     </tr>
+     <tr>
+     <td>U+3260 ( ㉠ ) CIRCLED HANGUL KIYEOK</td>
+     </tr>
+     <tr>
+     <td>U+3200 ( ㈀ ) PARENTHESIZED HANGUL KIYEOK</td>
+     </tr>
+     <tr>
+     <td>U+3300 ( ㌀ ) SQUARE APAATO</td>
+     </tr>
+  </table>
+  </div>
+  
+      <p>There are other symbols not constrained to primary use in East Asian contexts,
+      which have the <b>Common</b> script, but where some users would expect to have a specific
+      script. Examples are shown in <i><a href="#Common_Other_Table">Table 6</a></i>. Symbols in such cases are assigned to the <b>Common</b> script
+      because they may be used with a wide variety of scripts, and are not
+      necessarily limited to the script values of their compatibility decompositions.</p>
+
+    <p class="caption">Table 6. <a name="Common_Other_Table" href="#Common_Other_Table">
+	Examples of Other Symbols with Script = Common</a></p>
+    <div align="center">
+  <table class="simple">
+     <tr>
+     <td>U+2122	( ™ ) TRADE MARK SIGN</td>
+     </tr>
+     <tr>
+     <td>U+2120	( ℠ ) SERVICE MARK</td>
+     </tr>
+     <tr>
+     <td>U+00A9 ( © ) COPYRIGHT SIGN</td>
+     </tr>
+     <tr>
+     <td>U+210F ( ℏ ) PLANCK CONSTANT OVER TWO PI</td>
+     </tr>
+     <tr>
+     <td>U+2109 ( ℉ ) DEGREE FAHRENHEIT</td>
+     </tr>
+     <tr>
+     <td>U+214D ( ⅍ ) AKTIESELSKAB</td>
+     </tr>
+  </table>
+  </div>
+  
+      <p>At this point keeping the Script property value stable for
+      these compatibility symbols is more useful for implementers than attempting
+      to reconcile these distinctions in treatment by modifying values for them. 
+      Implementations that wish to have Script property values that are preserved over
+      compatibility equivalence would tailor the Script property values for these
+      characters.</p>
+
+  <h2>3 <a name="ScriptX"></a><a name="Script_Extensions" href="#Script_Extensions">The Script_Extensions Property</a></h2>
+          
+        <p>Where a character is commonly used in the context of
+        several scripts, it is often desirable to know more precisely
+        in which script context such characters can be expected to
+        occur. The implicit Script property values <b>Common</b> and
+        <b>Inherited</b> were originally designed simply to indicate
+        that a character, such as a punctuation mark, occurs widely
+        in conjunction with many scripts, rather than being associated
+        with use for just one script. However, many of the characters that are 
+        assigned a value of <b>Common</b> or
+        <b>Inherited</b> are not commonly used with
+        <i>all</i> scripts, but rather only with a limited set of scripts.
+        In cases where the list of such scripts can be explicitly
+        enumerated, it can help various processing to have the list
+        specified. Such lists of use by a character across several scripts
+        are documented with
+        the Script_Extensions (scx) property.</p> 
+
+  <p>The Script_Extensions property is implemented as sets of Script
+    property values, known as <i>scx sets</i> ("Es Cee Ex sets"). <i><a href="#Scx_Example_Table">Table 7</a></i>
+        gives examples of scx sets for various Unicode code points, along with
+        their Script and General_Category property values. Note that for
+        completeness, default values for scx sets are given for all Unicode code
+        points, including reserved code points and noncharacters. The details of
+        assignment of scx set values are discussed further below.</p> 
+
+    <p class="caption">Table 7. <a name="Scx_Example_Table" href="#Scx_Example_Table">
+  Script_Extensions Examples</a></p>
+    <div align="center">
+  <table class="subtle">
+      <tr>
+        <th>Code</th>
+        <th>Scx Set</th>
+        <th>Script</th>
+        <th>Gc</th>
+        <th>Character Name</th>
+      </tr>
+      <tr>
+        <td class="lightgray" colspan="5"><i>Scx set contains one implicit Script value</i></td>
+      </tr>
+      <tr>
+        <td>0020</td>
+        <td>{Common}</td>
+        <td>Common</td>
+        <td>Zs</td>
+        <td>SPACE</td>
+      </tr>
+      <tr>
+        <td>0301</td>
+        <td>{Inherited}</td>
+        <td>Inherited</td>
+        <td>Mn</td>
+        <td>COMBINING ACUTE ACCENT</td>
+      </tr>
+      <tr>
+        <td>243F</td>
+        <td>{Unknown}</td>
+        <td>Unknown</td>
+        <td>Cn</td>
+        <td>&lt;reserved-243F&gt;</td>
+      </tr>
+      <tr>
+        <td>FFFF</td>
+        <td>{Unknown}</td>
+        <td>Unknown</td>
+        <td>Cn</td>
+        <td>&lt;noncharacter-FFFF&gt;</td>
+      </tr>
+      <tr>
+        <td class="lightgray" colspan="5"><i>Scx set contains one explicit Script value</i></td>
+      </tr>
+      <tr>
+        <td>0061</td>
+        <td>{Latn}</td>
+        <td>Latin</td>
+        <td>Ll</td>
+        <td>LATIN SMALL LETTER A</td>
+      </tr>
+      <tr>
+        <td>0363</td>
+        <td>{Latn}</td>
+        <td>Inherited</td>
+        <td>Mn</td>
+        <td>COMBINING LATIN SMALL LETTER A</td>
+      </tr>
+      <tr>
+        <td>1CD1</td>
+        <td>{Deva}</td>
+        <td>Inherited</td>
+        <td>Mn</td>
+        <td>VEDIC TONE SHARA</td>
+      </tr>
+      <tr>
+        <td class="lightgray" colspan="5"><i>Scx set contains multiple explicit Script values; Script(cp) is implicit</i></td>
+      </tr>
+      <tr>
+        <td>30FC</td>
+        <td>{Hira Kana}</td>
+        <td>Common</td>
+        <td>Lm</td>
+        <td>KATAKANA-HIRAGANA PROLONGED SOUND MARK</td>
+      </tr>
+      <tr>
+        <td>3099</td>
+        <td>{Hira Kana}</td>
+        <td>Inherited</td>
+        <td>Mn</td>
+        <td>COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK</td>
+      </tr>
+      <tr>
+        <td>1CD0</td>
+        <td>{Beng Deva Gran Knda}</td>
+        <td>Inherited</td>
+        <td>Mn</td>
+        <td>VEDIC TONE KARSHANA</td>
+      </tr>
+      <tr>
+        <td>1802</td>
+        <td>{Mong Phag}</td>
+        <td>Common</td>
+        <td>Po</td>
+        <td>MONGOLIAN COMMA</td>
+      </tr>
+      <tr>
+        <td>060C</td>
+        <td>{Arab Gara Nkoo Rohg Syrc Thaa Yezi}</td>
+        <td>Common</td>
+        <td>Po</td>
+        <td>ARABIC COMMA</td>
+      </tr>
+      <tr>
+        <td>0640</td>
+        <td>{Adlm Arab Mand Mani Ougr Phlp Rohg Sogd Syrc}</td>
+        <td>Common</td>
+        <td>Lm</td>
+        <td>ARABIC TATWEEL</td>
+      </tr>
+      <tr>
+        <td class="lightgray" colspan="5"><i>Scx set contains multiple explicit Script values; Script(cp) is explicit</i></td>
+      </tr>
+      <tr>
+        <td>096F</td>
+        <td>{<b>Deva</b> Dogr Kthi Mahj}</td>
+        <td>Devanagari</td>
+        <td>Nd</td>
+        <td>DEVANAGARI DIGIT NINE</td>
+      </tr>
+      <tr>
+        <td>09EF</td>
+        <td>{<b>Beng</b> Cakm Sylo}</td>
+        <td>Bengali</td>
+        <td>Nd</td>
+        <td>BENGALI DIGIT NINE</td>
+      </tr>
+      <tr>
+        <td>1049</td>
+        <td>{Cakm <b>Mymr</b> Tale}</td>
+        <td>Myanmar</td>
+        <td>Nd</td>
+        <td>MYANMAR DIGIT NINE</td>
+      </tr>
+  </table>
+  </div>
+  
+        <p>For example, U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK is shared across the Hiragana and
+        Katakana scripts, but is not used in other scripts, so
+        it is assigned an scx set value of {Hira Kana}. U+0640 ARABIC TATWEEL is used
+        in Adlam, Mandaic, Manichaean, Old Uyghur, Psalter Pahlavi, Hanifi Rohingya, Sogdian, 
+        and Syriac, as well as the Arabic script,
+        but is not used with non-cursive scripts or with scripts unrelated to that
+        family of writing systems, so it is assigned an
+        scx set value of {Adlm Arab Mand Mani Ougr Phlp Rohg Sogd Syrc}.</p>
+
+  <p>The Script_Extensions property is primarily 
+  targeted at customary modern use of characters, and does not encompass technical usage such 
+  as phonetic transcriptional systems or mathematics.</p>
+   
+  <h3>3.1 <a name="Script_Extensions_Def" href="#Script_Extensions_Def">Script_Extensions Property Values</a></h3>
+
+<p>This section describes formal construction and constraints on the Script_Extensions (scx)
+property values.</p>
+
+<p>A. Each code point is associated with exactly one non-empty set
+  of values of the sc property. This set is known as the code point's <i>scx set</i>.</p>
+
+<p>Unlike most other character properties, all values of the scx property
+  constitute sets of values.
+The empty set is not allowed; the scx value for unassigned, private use, and non-character code
+points is the set { <b>Unknown</b> }.</p>
+
+<p>B. The elements of the scx set consist of an unordered list of unique values
+  of the Script (sc) property values.</p>
+
+<p>The scx values { <b>Latn Grek</b> } and { <b>Grek Latn</b> } are identical; for ease of
+  comparison, the values in the sets may be sorted and listed in alphabetical
+  order.</p>
+
+<p>C. An scx set either contains a single implicit sc value or one or more
+explicit sc values.</p>
+
+<p>The vast
+  majority of characters in the standard are used with only a single script. For those characters,
+  the Script_Extensions property value is a set containing as its single member the
+  Script property value for that character.</p>
+
+<p>D. If the sc property value of a code point is explicit, then that
+  value must be an element of the scx set for that code point as well.</p>
+
+<p>Even though there is no formal constraint on the number
+  of explicit values that may occur in an scx set, it is unlikely that any scx value would individually
+  list even a majority of existing scripts. The implicit sc value <b>Common</b> is
+  intended instead for use in those cases where a character is in very widespread use across
+  many scripts.</p>
+
+<p>There are no formal rules specifying when a particular sc value must
+  be added to the scx set for a particular assigned character. Whether to document
+  that a character is used with multiple scripts via the Script_Extensions property
+  remains a judgment call, and is always based on the best information available
+  to the Unicode Technical Committee.</p>
+
+  
+  <p>Occasionally, even characters that have a Script property value of <b>Common</b> or
+  <b>Inherited</b> might have a Script_Extensions property value containing only a
+  single script. This does not mean that those characters are
+  used solely with a single script&#x2014;rather, such characters are known or strongly suspected of being
+  used with multiple scripts. However, reliable information is lacking regarding
+  which other scripts belong in this set. Examples illustrating this can be seen
+  in <i><a href="#Scx_Example_Table">Table 7</a></i>, where the Samavedic tone mark U+1CD0 VEDIC TONE KARSHANA is attested
+  at least for Devanagari, Bengali, Kannada, and Grantha, but where U+1CD1 VEDIC TONE SHARA is
+  only known (for now) to occur in Devanagari Samavedic texts. The Script_Extensions property
+  for such characters will be updated in future versions of the standard, if 
+  better information becomes available.</p>
+   
+  <p>Conversely, characters for which the Script_Extensions property
+  value contains multiple Script property values typically have a Script property value of
+  either <b>Common</b> or <b>Inherited</b>.
+  However, in some cases, a character belonging to a particular script may
+  be borrowed for use with one or more other scripts. While the Script property value
+  for such a borrowed character would be the same as the script it is primarily used with, the Script_Extensions
+  property value at times will also include additional scripts. Examples
+  can be seen in <i><a href="#Scx_Example_Table">Table 7</a></i> for shared sets of digits. It
+  is common for one Indic script to use digits from another script; Devanagari digits are
+  known, for example, to also be used in Dogra, Kaithi and Mahajani. As a result 
+  of this kind of borrowing across scripts, there is no guarantee that it will always
+  be true that:</p>
+  <blockquote>
+  <pre>
+Script_Extensions(c) &#x2260; {Script(c)} &#x2192; (Script(c) = <b>Common</b>) &#x2228; (Script(c) = <b>Inherited</b>)</pre>
+  </blockquote>
+
+  <p><i><a href="#Scx_Bad_Example_Table">Table 8</a></i> provides examples of scx sets 
+    that are not allowed,
+    according to the well-formedness rules for scx sets.</p>
+
+    <p class="caption">Table 8. <a name="Scx_Bad_Example_Table" href="#Scx_Bad_Example_Table">
+      Examples of Disallowed (Ill-formed) Scx Sets</a></p>
+    <div align="center">
+    <table class="subtle">
+      <tr>
+        <th>Scx Set</th>
+        <th>Script</th>
+        <th>Problem Description</th>
+      </tr>
+      <tr>
+        <td>{Latn}</td>
+        <td>Unknown</td>
+        <td>Set contains an explicit value for Script(cp)=Unknown</td>
+      </tr>
+      <tr>
+        <td>{Common}</td>
+        <td>Inherited</td>
+        <td>Set contains an implicit value that does not match Script(cp)</td>
+      </tr>
+      <tr>
+        <td>{Latn Latn}</td>
+        <td>Latn</td>
+        <td>Same value occurs more than once in the set</td>
+      </tr>
+      <tr>
+        <td>{Inherited Common}</td>
+        <td>Inherited</td>
+        <td>More than one implicit value occurs in the set</td>
+      </tr>
+      <tr>
+        <td>{Latn Common}</td>
+        <td>Latn</td>
+        <td>Explicit and implicit values both occur in the set</td>
+      </tr>
+      <tr>
+        <td>{Latn Grek}</td>
+        <td>Hani</td>
+        <td>Script(cp) does not occur in the list of explicit values</td>
+      </tr>
+    </table>
+    </div>
+
+  <p>The complete list of Script_Extensions scx set values are specified in the 
+    file ScriptExtensions.txt in the Unicode Character 
+  Database [<a href="../tr41/tr41-36.html#UCD">UCD</a>].</p>
+
+  <h3>3.2 <a name="Assignment_ScriptX_Values" href="#Assignment_ScriptX_Values">Initial Assignment of 
+    Script_Extensions Property Values</a></h3>
+  
+  <p>The following 
+  principles determine the assignment of Script_Extensions property values 
+  for existing
+  characters and for characters that are newly added to the Unicode Standard:</p>
+  <ol type="A">
+        <li>If a character has the Script property value of <b>Common</b>
+        or <b>Inherited</b>, and in principle might occur with almost any script,
+        its Script_Extensions value is {<b>Common</b>} or {<b>Inherited</b>}, respectively.</li>
+  <li>If a character is regularly or occasionally used in more than one script,
+                but such usage is limited to a small, enumerable list, then 
+    the character takes the Script_Extensions property value consisting of the set of
+                Script property values for each of those scripts.</li>
+  <li>Otherwise, the Script_Extensions property value defaults to a set containing
+        a single value, the Script property value for that code point.</li>
+  </ol>
+        
+        <p>Examples of characters that have the Script property value of <b>Common</b>
+        or <b>Inherited</b>, but in principle might occur with almost any script, would
+        include many symbol characters. They simply get a Script_Extensions
+        default value of {<b>Common</b>} or {<b>Inherited</b>}. Only when the common usage
+        consists of a relatively small and well-determined list of scripts is it useful to
+        enumerate that set explicitly for a Script_Extensions property value. In many
+        cases such sets may involve shared typographical traditions between neighboring or
+        related scripts. Note that assignment of an enumerated
+        set of more than one Script property values to the Script_Extensions property value for a
+        character can occur both in cases where that character has the Script property
+        value <b>Common</b> or <b>Inherited</b> and in cases where it has an explicit Script property value
+        such as <b>Arabic</b>.</p>
+  <p>Script_Extensions property values are not immutable. As more data on the usage of 
+  individual characters is collected, Script_Extensions property values may be adjusted.
+        This may occur either as a result of the Script property value for the character
+        being changed, or as a result of a determination that a given character is used
+        with more (or fewer) scripts than earlier determined. The values can be expected 
+        to change more frequently than many other Unicode 
+  character properties, as more information is gleaned about the usage of given characters. 
+  Thus, implementers should be prepared for enhancements and corrections to 
+  the values whenever they upgrade to a new version of the property.</p>
+  
+<h2>4 <a name="Data_File" href="#Data_File">Data Files</a></h2>
+	
+  <p>The data files associated with the Unicode Script property are available 
+    in the Unicode Character Database. See [<a href="../tr41/tr41-36.html#Data24">Data24</a>].</p>
+
+  <h3>4.1 <a name="Data_File_SC" href="#Data_File_SC">Scripts.txt</a></h3>
+
+  <p>The format of this file is similar to that of Blocks.txt 
+    [<a href="../tr41/tr41-36.html#Blocks">Blocks</a>]. The fields are separated by semicolons. The 
+    first field contains either a single code point or the first and last code 
+    points in a range separated by “..”. The second field provides the script property
+    value for that range. The comment (after a #) indicates the General_Category and the character name. For each range, it gives the character count in square 
+    brackets and uses the names for the first and last characters in the range. 
+    For example:</p>
+
+  <blockquote>
+    <pre>0B01;       Oriya # Mn       ORIYA SIGN CANDRABINDU
+0B02..0B03; Oriya # Mc   [2] ORIYA SIGN ANUSVARA..ORIYA SIGN VISARGA</pre>
+  </blockquote>
+
+  <p>The default value for the Script property is <b>Unknown</b>, given to all code points that are 
+  not explicitly mentioned in the data file.</p>
+
+  <h3>4.2 <a name="Data_File_SCX" href="#Data_File_SCX">ScriptExtensions.txt</a></h3>
+
+  <p>The format of this data file is similar to Scripts.txt, except 
+  that the second field contains a space-delimited list of short Script property values.
+  That list defines the set of Script property values which constitute the
+  Script_Extension property value for that code point. 
+  For example:</p>
+
+  <blockquote>
+    <pre>
+0640          ; Adlm Arab Mand Mani Ougr Phlp Rohg Sogd Syrc # Lm       ARABIC TATWEEL
+064B..0655    ; Arab Syrc # Mn  [11] ARABIC FATHATAN..ARABIC HAMZA BELOW</pre>
+  </blockquote>
+  
+  <p>The default value for the Script_Extensions property for a code point not
+  explicitly listed in ScriptExtensions.txt is an scx set containing one value: the Script property value
+  of that code point.</p>
+
+  <p>Prior to Version 16.0, the entries in ScriptExtensions.txt were ordered
+  by the number of elements in each set of Script property values, and alphabetically by the Script property
+  values in those sets. Starting with Version 16.0, the entries are simply listed in code
+  point order, regardless of the contents of the set of Script property values associated
+with the code points.</p>
+
+  <h3>4.3 <a name="Data_File_PVA" href="#Data_File_PVA">PropertyValueAliases.txt</a></h3>
+
+  <p>This file provides the complete enumerated list of all Script property values: both long 
+  and short names. As for all property value aliases, 
+  the Script property values listed in the PropertyValueAliases.txt are not case sensitive, 
+  and the presence of hyphen or 
+  underscore is optional. The aliases are listed alphabetically, but that order is only
+  a convenience for reference and is not otherwise significant. 
+  See [<a href="../tr41/tr41-36.html#PropValue">PropValue</a>].</p>
+  
+  <h2>5 <a name="Usage_Model"></a><a name="Implementation" href="#Implementation">Implementation Notes</a></h2>
+
+  <p>This section discusses various topics related to the implementation of the Script
+    property and the Script_Extensions property.</p>
+
+  <h3>5.1 <a name="Common" href="#Common">Handling Characters with the Common Script Property</a></h3>
+  
+  <p>In determining the boundaries of a run of text in a 
+  given script, programs must
+  resolve any of the special Script property values, such 
+  as <b>Common,</b> based on the context of the surrounding characters. 
+  A simple heuristic uses the script of the preceding character, which 
+  works well in many cases. However, this may not always produce optimal 
+  results. For example, in the text “... gamma (γ) is ...”, this 
+  heuristic would cause matching parentheses to be in different scripts. </p>
+  
+  <p>Generally, paired punctuation, such as brackets or quotation marks, belongs 
+  to the enclosing or outer level of the text and should therefore match the 
+  script of the enclosing text. In addition, opening and closing elements of a 
+  pair resolve to the same Script property values, where possible. The use of quotation 
+  marks is language dependent; therefore it is not possible to tell from the 
+  character code alone whether a particular quotation mark is used as an 
+  opening or closing punctuation. For more information, see <i>Section 6.2, 
+  General Punctuation</i>, of [<a href="../tr41/tr41-36.html#Unicode">Unicode</a>].</p>
+  <p>Some characters that are normally 
+  used as paired punctuation may also be used singly. An example is U+2019
+  RIGHT SINGLE QUOTATION MARK, which is also used as
+  <i>apostrophe,</i> in which case it no longer acts as an enclosing 
+  punctuation. An example from physics would be &lt;ψ| 
+  or |ψ&gt;, where the enclosing 
+  punctuation characters may not form consistent pairs.</p>
+  
+  <h3>5.2 <a name="Nonspacing_Marks" href="#Nonspacing_Marks">Handling Combining Marks</a></h3>
+  
+  <p>Implementations that determine the boundaries between 
+  characters of given scripts should never break between a combining mark (a character with General_Category value of Mc, Mn or Me) and its base 
+  character. Thus, for boundary determinations and similar sorts of processing, 
+  a combining mark—whatever its Script property value—should inherit the script 
+  property value of its base character. Spacing combining marks are typically only used 
+  with one script and have the corresponding Script property value.</p>
+  <p>The nonspacing marks normally have the  
+  <b>Inherited</b> Script property value to 
+      reflect the fact that their Script property value depends on the base character. 
+      However, in cases where the best interpretation of a 
+      nonspacing mark <i>in isolation</i> would be a specific script, its 
+      Script property value may be different from <b>Inherited</b>. 
+  For example, the Hebrew marks and 
+  accents are used only with Hebrew characters and are therefore assigned the
+  <b>Hebrew</b> Script property value.</p>
+
+        <p>The recommended implementation strategy is to treat all the characters of
+        a combining character sequence, including spacing combining marks, as
+        having the Script property value of the first character in the sequence. This
+        strategy can also be applied to implementations that use extended grapheme
+        clusters; the differences between combining character
+        sequences and extended
+        grapheme clusters are not material for script resolution. For
+        example, rendering generally works
+        best if an entire combining character sequence can be treated as a segment
+        having a single script, using one set of orthographic rules, and ideally
+        using a single font for display. Because
+        of this recommended strategy, even if a combining mark is really only used
+        with a single script, it makes little difference in practice whether the
+        mark has that particular Script property value or <b>Inherited</b>.</p>
+        
+        <p>In cases where the first (base) character itself 
+        has the <b>Common</b> Script property value, and it is followed by one or more combining
+        marks with a specific Script property value, such as the Hebrew marks, it may
+        be even better for processing to let the base acquire the Script property value from the
+        first mark. This would be the case, for example, if using a graphic symbol as
+        a base to illustrate the placement of nonspacing marks in a particular script.
+        This approach can be generalized by treating all the characters of a combining character
+        sequence (or extended grapheme cluster)
+        as having the Script property value of the first non-<b>Inherited</b>,
+        non-<b>Common</b> character in the sequence if
+        there is one, and otherwise treating all the characters as having the
+        <b>Common</b> Script property value. See <i>Section 5.3, 
+  <a href="#Multiple_Script_Values">Multiple Script Values</a></i>.</p>
+        
+        <p>Note that exceptional fallback for rendering may
+        be required for defective combining character sequences or in some cases where
+        a base character and a combining mark have different specific Script property values.
+        For example, there may simply be no felicitous way to display a Devanagari
+        combining vowel on a Mongolian consonant base.</p>
+        
+  <h3>5.3 <a name="Multiple_Script_Values" href="#Multiple_Script_Values">Multiple Script Values</a></h3>
+  
+  <p>More precise information about the use of a character with multiple 
+  scripts is important for a number of different kinds of processing. The following examples 
+  illustrate such cases:</p>
+<p><strong>Example 1.</strong> Mixed script detection for spoofing.</p>
+<blockquote>
+  <p>Using the Script property alone, for example, will not detect that the
+     U+30FC ( ー ) KATAKANA-HIRAGANA PROLONGED SOUND MARK (Script=<b>Common</b>) should not be mixed with Latin. See [<a href="../tr41/tr41-36.html#UTS39">UTS39</a>] and [<a href="../tr41/tr41-36.html#UTS46">UTS46</a>].</p>
+</blockquote>
+<p><strong>Example 2.</strong> Determination of script runs for text layout.</p>
+<blockquote>
+  <p>U+30FC ( ー ) KATAKANA-HIRAGANA PROLONGED SOUND MARK should not continue a Latin script run, but  instead should only continue runs of certain scripts.</p>
+</blockquote>
+<p><strong>Example 3.</strong> Regex property testing.</p>
+<blockquote>
+  <p>For many common tasks, the regex expression [:script=Arab:] is too narrow, 
+  because it does not include U+060C ARABIC COMMA, but the 
+  expression [[:script=Arab:][:script=Common:]] is far too broad, because it also includes 
+  thousands of symbols, plus the U+30FC ( ー ) KATAKANA-HIRAGANA PROLONGED SOUND MARK. 
+  A regex engine can instead specify a regular expression like [:scx=Arab:], which matches 
+  based on the Script_Extensions property value, and which would include 
+  <i>appropriate</i> Script=<b>Common</b> characters 
+  such as U+060C ARABIC COMMA. For
+  more information, see Unicode Technical Standard #18, 
+  "Unicode Regular Expressions" [<a href="../tr41/tr41-36.html#UTS18">UTS18</a>].</p>
+</blockquote>
+
+  <h3>5.4 <a name="Script_Names_in_RegEx" href="#Script_Names_in_RegEx">Using Script 
+  Property Values in Regular Expressions</a></h3>
+  
+  <p>The script property is useful in regular expression syntax for easy 
+  specification of spans of text that consist of a single script or mixture 
+  of scripts. In general, regular expressions should use specific Script property values 
+  only in conjunction 
+  with both <b>Common</b> and <b>Inherited</b>. For example, to distinguish a 
+  sequence of characters appropriate for Greek text, one might use</p>
+  <p align="center"><code>((Greek | Common) 
+    (Inherited | Me | Mn)*)*</code></p>
+  <p>The preceding expression matches all characters that 
+  have a Script property value of <b>Greek</b> or <b>Common</b> 
+  and which are 
+  optionally followed by characters  
+  with a Script property value of <b>Inherited</b>. For completeness, the 
+  regular expression also allows any nonspacing or enclosing mark. </p>
+  <p>Some languages commonly use 
+  multiple scripts, so, for example, to distinguish
+  a sequence of characters appropriate for Japanese text one might use:</p>
+  <p align="center"><code>((Hiragana | Katakana | Han | Latin | Common) 
+    (Inherited | Me | Mn)*)*</code></p>
+  <p>Note that while it is necessary to include <b>Latin</b> 
+  in the preceding expression to ensure that it can cover the typical script use 
+  found in many Japanese texts, doing so would make it difficult 
+  to isolate a run of Japanese inside an English document, for example. For more information, see Unicode Technical Standard 
+  #18, “Unicode Regular Expressions” [<a href="../tr41/tr41-36.html#UTS18">UTS18</a>].</p>
+        
+    <p>The assignment of a Script property value, and in particular of
+    a Script_Extensions property value, is not guaranteed to be stable. The most
+    recently published values always represent the best information available at
+    the time of publication. It is important not to use the Script or Script_Extensions
+    properties in regular expressions if the goal is to match a reproducible, fixed
+    set of characters across versions of the Unicode Standard.</p>
+
+  <h3>5.5 <a name="Script_Names_in_Rendering" href="#Script_Names_in_Rendering">Use of the Script Property 
+    in Rendering Systems</a></h3>
+  
+    <p>In rendering systems, it is generally necessary to respect a certain set 
+    of orthographic and typographic rules, which vary across the world. For 
+    example, the placement of some diacritics which are nominally rendered above 
+    their base may be adjusted to be slightly on the side, as is normally 
+    the case for Greek. Another example of variation in rendering is the treatment of spaces in 
+    justification. In the absence of an explicit specification of those 
+    rules, the Script property value of the characters involved provides a good first
+    approximation. Typically, a rendering system will partition a text 
+    string into segments of homogeneous script (after resolution of the <b>Common</b> 
+    and <b>Inherited</b> occurrences along the lines described in the previous 
+    sections), and then apply the rules appropriate to the script of each 
+    segment.</p>
+
+  <h3>5.6 <a name="Limitations" href="#Limitations">Limitations</a></h3>
+  
+  <p>The script property 
+  values form a full partition of the Unicode codespace, but that partition 
+  does not exhaust the possibilities for useful and relevant script-like subsets 
+  of Unicode characters.</p>
+  <p>For example, a user might wish to define a regular expression to span 
+  typical mathematical expressions, but the subset of Unicode characters used in 
+  mathematics does not correspond to any particular script. Instead, it requires 
+  use of the <b>Math</b> property, other character properties, and particular 
+  subsets of Latin, Greek, and Cyrillic letters. For information on other 
+  character properties, see [<a href="../tr41/tr41-36.html#UCD">UCD</a>].</p>
+  <p>In texts of an academic, 
+  scientific, or engineering nature, 
+  Greek characters are frequently used in isolation—for example,  Ω for ohm; α, β, and γ for types of 
+  radioactive decays or in names of chemical compounds; π for 3.1415..., and 
+  so on. 
+  It is generally undesirable to treat such usage the same as ordinary text in the Greek script. 
+  Some commonly used 
+  characters, such as µ, already exist twice in the Unicode Standard, but with 
+  different Script property values.</p>
+  
+  <h3>5.7 <a name="Spoofing" href="#Spoofing">Spoofing</a></h3>
+  
+  <p>The Script property values may also be useful in 
+  providing users feedback to signal possible spoofing, where 
+  visually similar characters (<i>confusable characters</i>) are substituted in 
+  an attempt to mislead a user. For example, a domain name such as <code>macchiato.com</code> 
+  could be spoofed with <code>macchiatο.com</code> (using U+03BF GREEK SMALL 
+  LETTER OMICRON for the first “o”) 
+  or <code>maссhiato.com</code> (using U+0441 CYRILLIC SMALL LETTER ES for the first 
+  two “c”s). The user can 
+  be alerted to odd cases by displaying mixed scripts with different colors, 
+  highlighting, or boundary marks: <code>macchiat<span class="lightyellow">ο</span>.com</code> 
+  or <code>ma<span class="lightyellow">сс</span>hiato.com</code>, for example.</p>
+  <p>Possible spoofing is not limited to mixtures of 
+  scripts. Even in ASCII, there are confusable characters such as 0 and O, or 1 
+  and l. For a more complete approach, the use of Script property values needs to be augmented with other 
+  information such as General_Category values and lists of 
+  individual characters that are not distinguished by other Unicode properties. 
+  For additional information, see Unicode Technical Report #36, “Unicode Security 
+  Considerations” [<a href="../tr41/tr41-36.html#UTR36">UTR36</a>].</p>
+  
+  <h2><a name="Acknowledgements" href="#Acknowledgements">Acknowledgements</a></h2>
+			<p>Mark Davis authored the initial versions.
+			Ken Whistler has added 
+			to and maintains the text of this annex.</p>
+	<p>Thanks to Julie Allen for comments on this annex, 
+	including earlier versions. Asmus Freytag added significant sections
+	to the text for Revisions 7, 9, 19, and 26 and assisted
+	in the rewrite of Section 3 for Revision 13. Eric Muller added Section 2.4 (now 2.5)
+	for Revision 11 and suggested modifications for Section 2.3.</p>
+	<h2><a name="References" href="#References">References</a> </h2>
+	<p>For references for this annex, see Unicode Standard Annex #41, “<a href="../tr41/tr41-36.html">Common 
+	References for Unicode Standard Annexes</a>.”</p>
+   <h2><a name="Modifications" href="#Modifications">Modifications</a></h2>
+  
+  <p>The following summarizes modifications from the previous revision of this 
+	annex.</p>
+
+      <h3>Revision 39 [KW]</h3>
+      <ul>
+        <li><b>Reissued</b> for Unicode 17.0.0.</li>
+        <li>Added Gara to list of Script_Extensions values for U+060C.</li>
+      </ul>
+
+  <p>Modifications for previous versions are listed in those respective versions.</p>
+
+  <hr width="50%">
+  <p class="copyright">© 2001–2025 Unicode, Inc. This publication is protected by copyright, and permission must be obtained from Unicode, Inc. prior to any reproduction, modification, or other use not permitted by the <a href="https://www.unicode.org/copyright.html">Terms of Use</a>. Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution, provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original. You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.</p>
+
+  <p class="copyright">Use of all Unicode Products, including this publication, is governed by the Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a>. The authors, contributors, and publishers have taken care in the preparation of this publication, but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom. This publication is provided “AS-IS” without charge as a convenience to users.</p>
+
+  <p class="copyright">Unicode and the Unicode Logo are registered trademarks of Unicode, Inc., in the United States and other countries.</p>
+
+</div> <!-- body -->
+</body>
+
+</html>

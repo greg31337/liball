@@ -1,0 +1,4 @@
+# name	XML payload
+mismatched-element	<root><child></root>
+undefined-prefix	<root><bad:item/></root>
+prohibited-dtd	<!DOCTYPE root [<!ENTITY value 'expanded'>]><root>&value;</root>

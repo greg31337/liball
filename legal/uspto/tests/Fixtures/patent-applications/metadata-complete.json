@@ -1,0 +1,143 @@
+{
+  "count": 1,
+  "patentFileWrapperDataBag": [
+    {
+      "applicationNumberText": "14/412,875",
+      "applicationMetaData": {
+        "nationalStageIndicator": "Y",
+        "entityStatusData": {
+          "businessEntityStatusCategory": "Small",
+          "smallEntityStatusIndicator": false,
+          "microEntityStatusIndicator": "Y"
+        },
+        "publicationNumberBag": ["US 2024/0012345 A1", "US 2024/0012345 A9"],
+        "publicationDateBag": ["2024-01-04", "2024-02-05"],
+        "publicationSequenceNumberBag": [1, "2"],
+        "publicationCategoryBag": ["PG-Pub", "Correction"],
+        "docketNumber": "ACME-42",
+        "firstInventorToFileIndicator": "N",
+        "firstApplicantName": "Ada Lovelace",
+        "firstInventorName": "Ada Lovelace",
+        "applicationConfirmationNumber": 99,
+        "applicationStatusDate": "2025-03-06",
+        "applicationStatusDescriptionText": "Patented Case",
+        "filingDate": "2023-01-02",
+        "effectiveFilingDate": "2022-12-20",
+        "grantDate": "2025-03-05",
+        "groupArtUnitNumber": 2814,
+        "technologyCenter": "2800",
+        "applicationTypeCode": "UTL",
+        "applicationTypeLabelName": "Utility",
+        "applicationTypeCategory": "Regular",
+        "inventionTitle": "Example invention",
+        "patentNumber": 12156579,
+        "applicationStatusCode": "150",
+        "earliestPublicationNumber": "US 2024/0012345 A1",
+        "earliestPublicationDate": "2024-01-04",
+        "pctApplicationNumber": "PCT/US2025/058371",
+        "pctPublicationNumber": "WO2026123456",
+        "pctPublicationDate": "2026-06-11",
+        "internationalRegistrationPublicationDate": "2024-07-12",
+        "internationalRegistrationNumber": "DM/123456",
+        "examinerNameText": "Grace Hopper",
+        "class": 257,
+        "subclass": 197,
+        "uspcSymbolText": "257/197",
+        "customerNumber": 76543,
+        "cpcClassificationBag": [
+          "H01L29/66325",
+          {
+            "cpcClassificationSymbolText": "G06F 8/00",
+            "section": "G",
+            "class": "G06",
+            "subclass": "G06F",
+            "mainGroup": "8",
+            "subgroup": "00",
+            "version": "2025.01",
+            "sequenceNumber": "3",
+            "inventiveIndicator": "Y",
+            "primaryIndicator": false
+          }
+        ],
+        "applicantBag": [
+          {
+            "applicantNameText": "Ada Lovelace",
+            "namePrefix": "Countess",
+            "firstName": "Ada",
+            "middleName": "Byron",
+            "lastName": "Lovelace",
+            "preferredName": "Ada",
+            "nameSuffix": "FRA",
+            "countryCode": "GB",
+            "applicantCategory": "Applicant",
+            "applicantAuthorityCategory": "All countries",
+            "applicantSequenceNumber": "2",
+            "inventorIndicator": "Y",
+            "correspondenceAddressBag": [
+              {
+                "nameLineOneText": "Ada Lovelace",
+                "nameLineTwoText": "Analytical Engine Project",
+                "addressLineOneText": "1 Analytical Engine Way",
+                "addressLineTwoText": "Suite 2",
+                "addressLineThreeText": "Westminster",
+                "addressLineFourText": "Greater London",
+                "cityName": "London",
+                "geographicRegionName": "England",
+                "geographicRegionCode": "ENG",
+                "postalCode": "SW1A 1AA",
+                "countryCode": "GB",
+                "countryName": "United Kingdom",
+                "postalAddressCategory": "Correspondence",
+                "emailAddress": "ada@example.test"
+              }
+            ]
+          },
+          {
+            "applicantNameText": "Analytical Engines Ltd.",
+            "organizationName": "Analytical Engines Ltd."
+          }
+        ],
+        "inventorBag": [
+          {
+            "inventorNameText": "Ada Lovelace",
+            "namePrefix": "Countess",
+            "firstName": "Ada",
+            "middleName": "Byron",
+            "lastName": "Lovelace",
+            "preferredName": "Ada",
+            "nameSuffix": "FRA",
+            "countryCode": "GB",
+            "inventorSequenceNumber": 1,
+            "deceasedIndicator": false,
+            "correspondenceAddressBag": [
+              {"cityName": "London", "countryCode": "GB"}
+            ]
+          }
+        ],
+        "futureMetadata": { "enabled": true }
+      },
+      "pgpubDocumentMetaData": {
+        "productIdentifier": "APPXML",
+        "zipFileName": "application.zip",
+        "xmlFileName": "application.xml",
+        "fileLocationURI": "https://data.uspto.gov/application.zip",
+        "fileMediaType": "application/zip",
+        "fileCreateDateTime": "2024-01-04:09:15:00Z",
+        "fileSize": "4294967296",
+        "futureFileField": { "revision": 3 }
+      },
+      "grantDocumentMetaData": [
+        {
+          "productIdentifier": "GRANTXML",
+          "xmlFileName": "grant.xml",
+          "fileLocationURI": "https://data.uspto.gov/grant.xml",
+          "fileMediaType": "application/xml",
+          "fileCreateDateTime": "2025-03-05"
+        }
+      ],
+      "lastIngestionDateTime": "2025-04-01T12:30:00Z",
+      "futureSection": { "revision": 2 }
+    }
+  ],
+  "requestIdentifier": "metadata-request"
+}

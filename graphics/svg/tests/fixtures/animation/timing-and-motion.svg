@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 120 60">
+  <title>Declarative timing, interpolation, and motion fixture</title>
+  <path id="track" d="M10 45 C35 5 85 5 110 45" fill="none" stroke="#ccc"/>
+  <rect id="pulse" x="5" y="5" width="20" height="12" fill="red">
+    <animate attributeName="x" values="5;95;5" keyTimes="0;0.5;1" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="fill" from="red" to="blue" dur="2s" begin="500ms" fill="freeze"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 15 11" to="360 15 11" dur="3s" additive="sum"/>
+  </rect>
+  <circle id="traveler" r="4" fill="green">
+    <animateMotion dur="2s" rotate="auto" repeatCount="2">
+      <mpath xlink:href="#track"/>
+    </animateMotion>
+  </circle>
+</svg>

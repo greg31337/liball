@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iso:Repository
+    xmlns:iso="urn:iso:std:iso:20022:2013:ecore"
+    xmlns:future="urn:example:iso20022:future:repository"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmi:id="_repository"
+    future:repositoryMode="next-generation">
+  <dataDictionary xmi:id="_dictionary">
+    <topLevelDictionaryEntry
+        xsi:type="iso:Text"
+        xmi:id="_knownText"
+        name="KnownText"
+        minLength="1"
+        future:newFacet="future-value">
+      <future:extension
+          xsi:type="future:DataTypeExtension"
+          xmi:id="_futureExtension"
+          future:mode="preserve">Prefix<future:detail future:level="2">Payload</future:detail>Suffix</future:extension>
+    </topLevelDictionaryEntry>
+  </dataDictionary>
+  <businessProcessCatalogue xmi:id="_catalogue"/>
+</iso:Repository>

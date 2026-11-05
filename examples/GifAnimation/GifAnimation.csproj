@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../graphics/gif/src/gif.csproj" />
+  </ItemGroup>
+</Project>

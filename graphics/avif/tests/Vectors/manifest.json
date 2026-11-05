@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "name": "AOMediaCodec/av1-avif testFiles/Link-U",
+    "repository": "https://github.com/AOMediaCodec/av1-avif",
+    "commit": "bf4c18d1f3971069b75e87d6ee469790589f4f09",
+    "retrieved": "2026-08-18",
+    "license": "CC-BY-SA-4.0",
+    "licenseFile": "licenses/CC-BY-SA-4.0.txt",
+    "creator": "Kaede Fujisaki (@ledyba)",
+    "publisher": "Link-U"
+  },
+  "vectors": [
+    {
+      "path": "AOMedia-Link-U/fox.profile0.8bpc.yuv420.monochrome.avif",
+      "kind": "AVIF",
+      "upstreamPath": "testFiles/Link-U/fox.profile0.8bpc.yuv420.monochrome.avif",
+      "size": 55660,
+      "sha256": "f13aa066c84980708bf560a19768982c4e02a2f6c3f602f5dbf5193aab80fd4c",
+      "expected": {
+        "width": 1204,
+        "height": 800,
+        "profile": 0,
+        "bitDepth": 8,
+        "chroma": "monochrome"
+      }
+    },
+    {
+      "path": "AOMedia-Link-U/fox.profile0.8bpc.yuv420.odd-width.odd-height.avif",
+      "kind": "AVIF",
+      "upstreamPath": "testFiles/Link-U/fox.profile0.8bpc.yuv420.odd-width.odd-height.avif",
+      "size": 62283,
+      "sha256": "707a6a17554f0d3c89af3b39df00bfacc2b38dde2e9b2ac4900c886e50f0cfc6",
+      "expected": {
+        "width": 1203,
+        "height": 799,
+        "profile": 0,
+        "bitDepth": 8,
+        "chroma": "YUV420"
+      }
+    },
+    {
+      "path": "AOMedia-Link-U/fox.profile0.8bpc.yuv420.monochrome.obu",
+      "kind": "AV1-low-overhead-OBU",
+      "derivedFrom": "AOMedia-Link-U/fox.profile0.8bpc.yuv420.monochrome.avif",
+      "derivation": "Byte-exact primary av01 item payload extraction; no re-encoding",
+      "size": 55329,
+      "sha256": "2f9c57c38826e7eaf2ac3dd25193010418cb0af37943b326bad41d9a3cd1ffc4",
+      "expected": {
+        "obuCount": 2,
+        "obuTypes": [1, 6]
+      }
+    }
+  ]
+}

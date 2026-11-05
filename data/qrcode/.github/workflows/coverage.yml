@@ -1,0 +1,23 @@
+name: Coverage
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  public-api-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+      - run: ./scripts/test-coverage.sh
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: coverage
+          path: artifacts/coverage/
+          if-no-files-found: error

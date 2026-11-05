@@ -1,0 +1,2290 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>ICC Tag Signatures</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="/static/css/site.css">
+        <link href="https://cdn.datatables.net/v/bs5/dt-2.3.7/datatables.min.css" rel="stylesheet" integrity="sha384-MnxpJFHU9dTMYXshJqBDA0d93sG4KKAFEEzynAaDqcPP7BYh11O5HxbJ6iLDWOXS" crossorigin="anonymous">
+        
+    </head>
+    <body>
+        
+        <div class="container mb-4">
+            <div class="row py-3 border-bottom">
+                <div class="col-3 col-lg-2 mx-auto mx-lg-0">
+                    <img src="/static/img/icc-logo.svg" alt="INTERNATIONAL COLOR CONSORTIUM (ICC)">
+                </div>
+                <div class="col-12 text-end order-first col-lg-2 order-lg-4">
+                    <a href="https://www.color.org/">
+                        ICC Main Site
+                    </a>
+                </div>
+                <div class="col-12 col-lg-5 text-center text-lg-start order-lg-2">
+                    <h2 class="fs-4 mb-0 ms-2">International Color Consortium</h2>
+                    <p class="mt-0 ms-2"><em>Making color seamless between devices and documents</em></p>
+                </div>
+                <div class="col-lg-3 d-none d-lg-block order-lg-3">
+                    <span class="fs-4">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+
+        
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <nav aria-label="breadcrumb" class="border rounded bg-light d-flex align-items-center px-3 py-2 mb-4">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="/">Registry Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">ICC Tag Signatures</li>
+        </ol>
+      </nav>
+
+      <h2 class="mb-3">ICC Tag Signatures</h2>
+      <p>The ICC Profile Format Specification details many basic data types that are found in an ICC profile. One of these data types is a signature -- a 32-bit value used as an identification code. There are many types of signatures specified in the ICC profile format specification. Some of these are required to be registered by the ICC, others are optional. However, by registering them it ensures there is no conflict caused by different vendors using the same signature. Vendors who use signatures that have not been registered run the risk that their profiles may be misinterpreted.</p>
+      <p>Profile creators and/or device manufacturers choose the values they wish to register, and their associated meanings, for the signatures registered. Through this system they can see if any desired signatures are still available for registration. If so, they can then request that the ICC assign that signature to their company.</p>
+      <div class="table-responsive">
+          <table class="table table-striped table-bordered table-sm align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Vendor</th>
+                <th>Hex value</th>
+                <th>To hex</th>
+                <th>ASCII</th>
+                <th>To ASCII</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>00000000</td>
+                <td>0000005a</td>
+                <td></td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>the imaging factory</td>
+                <td>33324254</td>
+                <td></td>
+                <td>&#39;32BT&#39;</td>
+                <td></td>
+                <td>2004-10-14</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>41324230</td>
+                <td></td>
+                <td>&#39;A2B0&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>41324231</td>
+                <td></td>
+                <td>&#39;A2B1&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>41324232</td>
+                <td></td>
+                <td>&#39;A2B2&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>41413030</td>
+                <td>41413939</td>
+                <td>&#39;AA00&#39;</td>
+                <td>&#39;AA99&#39;</td>
+                <td>2001-04-05</td>
+              </tr>
+            
+              <tr>
+                <td>AGFA</td>
+                <td>41475054   </td>
+                <td></td>
+                <td>&#39;AGPT&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Amiable Technologies Inc.</td>
+                <td>414d3030</td>
+                <td>414d3939</td>
+                <td>&#39;AM00&#39;</td>
+                <td>&#39;AM99&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Adobe Systems, Inc.</td>
+                <td>41533030      </td>
+                <td></td>
+                <td>&#39;AS00&#39;</td>
+                <td>&#39;AS99&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>42324130</td>
+                <td></td>
+                <td>&#39;B2A0&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>42324131</td>
+                <td></td>
+                <td>&#39;B2A1&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>42324132</td>
+                <td></td>
+                <td>&#39;B2A2&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>42324430</td>
+                <td></td>
+                <td>&#39;B2D0&#39;</td>
+                <td></td>
+                <td>2006-11-02</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>42324431</td>
+                <td></td>
+                <td>&#39;B2D1&#39;</td>
+                <td></td>
+                <td>2006-11-02</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>42324432</td>
+                <td></td>
+                <td>&#39;B2D2&#39;</td>
+                <td></td>
+                <td>2006-11-02</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>42324433</td>
+                <td></td>
+                <td>&#39;B2D3&#39;</td>
+                <td></td>
+                <td>2006-11-02</td>
+              </tr>
+            
+              <tr>
+                <td>BARCO </td>
+                <td>42445320</td>
+                <td></td>
+                <td>&#39;BDS &#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>BARCO</td>
+                <td>424b414c</td>
+                <td></td>
+                <td>&#39;BKAL&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>BARCO</td>
+                <td>42503250</td>
+                <td></td>
+                <td>&#39;BP2P&#39;</td>
+                <td></td>
+                <td>2014-10-12</td>
+              </tr>
+            
+              <tr>
+                <td>GretagMacbeth</td>
+                <td>43494544</td>
+                <td></td>
+                <td>&#39;CIED&#39;</td>
+                <td></td>
+                <td>2002-10-11</td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>43505061</td>
+                <td>4350507a</td>
+                <td>&#39;CPPa&#39;</td>
+                <td>&#39;CPPz&#39;</td>
+                <td>2019-10-10</td>
+              </tr>
+            
+              <tr>
+                <td>X-Rite</td>
+                <td>43784620</td>
+                <td></td>
+                <td>&#39;CxF &#39;</td>
+                <td></td>
+                <td>2013-10-04</td>
+              </tr>
+            
+              <tr>
+                <td>Datacolor</td>
+                <td>44433030</td>
+                <td>44433939</td>
+                <td>&#39;DC00&#39;</td>
+                <td>&#39;DC99&#39;</td>
+                <td>2011-03-09</td>
+              </tr>
+            
+              <tr>
+                <td>Dry Creek Photo</td>
+                <td>44435064</td>
+                <td></td>
+                <td>&#39;DCPd&#39;</td>
+                <td></td>
+                <td>2008-04-22</td>
+              </tr>
+            
+              <tr>
+                <td>Dry Creek Photo</td>
+                <td>44435069</td>
+                <td></td>
+                <td>&#39;DCPi&#39;</td>
+                <td></td>
+                <td>2018-01-09</td>
+              </tr>
+            
+              <tr>
+                <td>Dry Creek Photo</td>
+                <td>44435068</td>
+                <td></td>
+                <td>&#39;DCPh&#39;</td>
+                <td></td>
+                <td>2011-07-23</td>
+              </tr>
+            
+              <tr>
+                <td>Monaco Systems Inc.</td>
+                <td>44455644</td>
+                <td></td>
+                <td>&#39;DEVD&#39;</td>
+                <td></td>
+                <td>2003-09-17</td>
+              </tr>
+            
+              <tr>
+                <td>Monaco Systems Inc.</td>
+                <td>44455653</td>
+                <td></td>
+                <td>&#39;DEVS&#39;</td>
+                <td></td>
+                <td>2003-09-17</td>
+              </tr>
+            
+              <tr>
+                <td>Dupont</td>
+                <td>44555000</td>
+                <td>445550ff</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>44324230</td>
+                <td></td>
+                <td>&#39;D2B0&#39;</td>
+                <td></td>
+                <td>2006-11-02</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>44324231</td>
+                <td></td>
+                <td>&#39;D2B1&#39;</td>
+                <td></td>
+                <td>2006-11-02</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>44324232</td>
+                <td></td>
+                <td>&#39;D2B2&#39;</td>
+                <td></td>
+                <td>2006-11-02</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>44324233</td>
+                <td></td>
+                <td>&#39;D2B3&#39;</td>
+                <td></td>
+                <td>2006-11-02</td>
+              </tr>
+            
+              <tr>
+                <td>GretagMacbeth</td>
+                <td>44657644</td>
+                <td></td>
+                <td>&#39;DevD&#39;</td>
+                <td></td>
+                <td>2002-10-11</td>
+              </tr>
+            
+              <tr>
+                <td>Esko Graphics</td>
+                <td>45474244</td>
+                <td></td>
+                <td>&#39;EGBD&#39;</td>
+                <td></td>
+                <td>2003-09-01</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON </td>
+                <td>45503030</td>
+                <td>45503039</td>
+                <td>&#39;EP00&#39;</td>
+                <td>&#39;EP09&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Color Solutions Software</td>
+                <td>45554C41</td>
+                <td></td>
+                <td>&#39;EULA&#39;</td>
+                <td></td>
+                <td>2007-01-10</td>
+              </tr>
+            
+              <tr>
+                <td>FFEI Limited</td>
+                <td>46454930</td>
+                <td>46454939</td>
+                <td>&#39;FEI0&#39;</td>
+                <td>&#39;FEI9&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>FFEI Limited</td>
+                <td>46454941</td>
+                <td>4645495a</td>
+                <td>&#39;FEIA&#39;</td>
+                <td>&#39;FEIZ&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>FFEI Limited</td>
+                <td>46454961</td>
+                <td>4645497a</td>
+                <td>&#39;FEIa&#39;</td>
+                <td>&#39;FEIz&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Fujifilm Corporation</td>
+                <td>46462020</td>
+                <td></td>
+                <td>&#39;FF  &#39;</td>
+                <td></td>
+                <td>2002-06-30</td>
+              </tr>
+            
+              <tr>
+                <td>FUJIFILM Business Innovation Corp.</td>
+                <td>46583030</td>
+                <td>46583939</td>
+                <td>&#39;FX00&#39;</td>
+                <td>&#39;FX99&#39;</td>
+                <td>2008-01-17</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>48443030</td>
+                <td>48443939</td>
+                <td>&#39;HD00&#39;</td>
+                <td>&#39;HD99&#39;</td>
+                <td>2003-02-01</td>
+              </tr>
+            
+              <tr>
+                <td>Hewlett Packard</td>
+                <td>48503030</td>
+                <td>48503939</td>
+                <td>&#39;HP00&#39;</td>
+                <td>&#39;HP99&#39;</td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>49434335</td>
+                <td></td>
+                <td>&#39;ICC5&#39;</td>
+                <td></td>
+                <td>2018-04-30</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>4b303030</td>
+                <td>4b303939</td>
+                <td>&#39;K000&#39;</td>
+                <td>&#39;K099&#39;</td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>4b313030</td>
+                <td>4b313939</td>
+                <td>&#39;K100&#39;</td>
+                <td>&#39;K199&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>4b434658</td>
+                <td></td>
+                <td>&#39;KCFX&#39;</td>
+                <td></td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>4b434758</td>
+                <td></td>
+                <td>&#39;KCGX&#39;</td>
+                <td></td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>4b435258</td>
+                <td></td>
+                <td>&#39;KCRX&#39;</td>
+                <td></td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>4b435358</td>
+                <td></td>
+                <td>&#39;KCSX&#39;</td>
+                <td></td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>4b6c7670</td>
+                <td></td>
+                <td>&#39;Klvp&#39;</td>
+                <td></td>
+                <td>2001-04-15</td>
+              </tr>
+            
+              <tr>
+                <td>Studion Soft Industries, Ltd. </td>
+                <td>4b6d6f64</td>
+                <td></td>
+                <td>&#39;Kmod&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Left Dakota</td>
+                <td>4c445354</td>
+                <td></td>
+                <td>&#39;LDST&#39;</td>
+                <td></td>
+                <td>2002-07-01</td>
+              </tr>
+            
+              <tr>
+                <td>Left Dakota</td>
+                <td>4c4e4350</td>
+                <td></td>
+                <td>&#39;LNCP&#39;</td>
+                <td></td>
+                <td>2004-05-10</td>
+              </tr>
+            
+              <tr>
+                <td>Left Dakota</td>
+                <td>4c534554</td>
+                <td></td>
+                <td>&#39;LSET&#39;</td>
+                <td></td>
+                <td>2002-07-01</td>
+              </tr>
+            
+              <tr>
+                <td>Left Dakota</td>
+                <td>4c535243</td>
+                <td></td>
+                <td>&#39;LSRC&#39;</td>
+                <td></td>
+                <td>2002-07-01</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>4c555449</td>
+                <td></td>
+                <td>&#39;LUTI&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>Color Solutions Software</td>
+                <td>4d4f4754</td>
+                <td></td>
+                <td>&#39;MOGT&#39;</td>
+                <td></td>
+                <td>2005-12-06</td>
+              </tr>
+            
+              <tr>
+                <td>Color Solutions Software</td>
+                <td>4d4f5354</td>
+                <td></td>
+                <td>&#39;MOST&#39;</td>
+                <td></td>
+                <td>2005-12-06</td>
+              </tr>
+            
+              <tr>
+                <td>Microsoft</td>
+                <td>4d533030</td>
+                <td>4d533939</td>
+                <td>&#39;MS00&#39;</td>
+                <td>&#39;MS99&#39;</td>
+                <td>2005-06-14</td>
+              </tr>
+            
+              <tr>
+                <td>Oce Technologies B.V.</td>
+                <td>4F434561</td>
+                <td>4F43457A</td>
+                <td>&#39;OCEa&#39;</td>
+                <td>&#39;OCEz&#39;</td>
+                <td>2015-09-17</td>
+              </tr>
+            
+              <tr>
+                <td>Onyx Graphics Corp.</td>
+                <td>4f4e5830</td>
+                <td>4f4e5839</td>
+                <td>&#39;ONX0&#39;</td>
+                <td>&#39;ONX0&#39;</td>
+                <td>2002-08-29</td>
+              </tr>
+            
+              <tr>
+                <td>Onyx Graphics Corp.</td>
+                <td>4f4e5841</td>
+                <td>4f4e585a</td>
+                <td>&#39;ONXA&#39;</td>
+                <td>&#39;ONXZ&#39;</td>
+                <td>2002-08-29</td>
+              </tr>
+            
+              <tr>
+                <td>Onyx Graphics Corp.</td>
+                <td>4f4e5861</td>
+                <td>4f4e587a</td>
+                <td>&#39;ONXa&#39;</td>
+                <td>&#39;ONXz&#39;</td>
+                <td>2002-08-29</td>
+              </tr>
+            
+              <tr>
+                <td>Phase One A/S</td>
+                <td>50314D58</td>
+                <td></td>
+                <td>&#39;P1MX&#39;</td>
+                <td></td>
+                <td>2004-04-05</td>
+              </tr>
+            
+              <tr>
+                <td>Phase One A/S</td>
+                <td>50315054</td>
+                <td></td>
+                <td>&#39;P1PT&#39;</td>
+                <td></td>
+                <td>2002-07-01</td>
+              </tr>
+            
+              <tr>
+                <td>basICColor</td>
+                <td>50445354</td>
+                <td></td>
+                <td>&#39;PDST&#39;</td>
+                <td></td>
+                <td>2009-04-22</td>
+              </tr>
+            
+              <tr>
+                <td>basICColor</td>
+                <td>50535243</td>
+                <td></td>
+                <td>&#39;PSRC&#39;</td>
+                <td></td>
+                <td>2009-04-22</td>
+              </tr>
+            
+              <tr>
+                <td>Polaroid </td>
+                <td>504f4c31</td>
+                <td>504f4c39</td>
+                <td>&#39;POL1&#39;</td>
+                <td>&#39;POL9&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Polaroid</td>
+                <td>504f4c41</td>
+                <td>504f4c5a</td>
+                <td>&#39;POLA&#39;</td>
+                <td>&#39;POLZ&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>PathQA Ltd</td>
+                <td>50514130</td>
+                <td>50514139</td>
+                <td>&#39;PQA0&#39;</td>
+                <td>&#39;PQA9&#39;</td>
+                <td>2024-07-24</td>
+              </tr>
+            
+              <tr>
+                <td>PathQA Ltd</td>
+                <td>50514141</td>
+                <td>5051415a</td>
+                <td>&#39;PQAA&#39;</td>
+                <td>&#39;PQAZ&#39;</td>
+                <td>2024-07-24</td>
+              </tr>
+            
+              <tr>
+                <td>PathQA Ltd</td>
+                <td>50514161</td>
+                <td>5051417a</td>
+                <td>&#39;PQAa&#39;</td>
+                <td>&#39;PQAz&#39;</td>
+                <td>2024-07-24</td>
+              </tr>
+            
+              <tr>
+                <td>GretagMacbeth</td>
+                <td>506d7472</td>
+                <td></td>
+                <td>&#39;Pmtr&#39;</td>
+                <td></td>
+                <td>2002-10-11</td>
+              </tr>
+            
+              <tr>
+                <td>Studion Soft Industries, Ltd. </td>
+                <td>53414d64</td>
+                <td></td>
+                <td>&#39;SAMd&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Studion Soft Industries, Ltd. </td>
+                <td>53414d69</td>
+                <td></td>
+                <td>&#39;SAMi&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Studion Soft Industries, Ltd. </td>
+                <td>53414d6f</td>
+                <td></td>
+                <td>&#39;SAMo&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>CreoScitex</td>
+                <td>53433031</td>
+                <td>53433939</td>
+                <td>&#39;SC01&#39;</td>
+                <td>&#39;SC99&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>CreoScitex</td>
+                <td>53434954</td>
+                <td></td>
+                <td>&#39;SCIT&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Sharp Labs</td>
+                <td>53483030</td>
+                <td>53483939</td>
+                <td>&#39;SH00&#39;</td>
+                <td>&#39;SH99&#39;</td>
+                <td>2005-03-16</td>
+              </tr>
+            
+              <tr>
+                <td>Dainippon Screen</td>
+                <td>53503030</td>
+                <td>53593939</td>
+                <td>&#39;SP00&#39;</td>
+                <td>&#39;SP99&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Datacolor</td>
+                <td>54435074</td>
+                <td></td>
+                <td>&#39;TCPt&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>the imaging factory</td>
+                <td>54463030</td>
+                <td>54463939</td>
+                <td>&#39;TF00&#39;</td>
+                <td>&#39;TF99&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Tektronix </td>
+                <td>544b0000</td>
+                <td>544b00ff</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Tektronix </td>
+                <td>546b0000</td>
+                <td>546b00ff</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Ware To Go</td>
+                <td>57544720</td>
+                <td></td>
+                <td>&#39;WTG &#39;</td>
+                <td></td>
+                <td>2009-11-03</td>
+              </tr>
+            
+              <tr>
+                <td>Ware To Go</td>
+                <td>57544730</td>
+                <td>57544739</td>
+                <td>&#39;WTG0&#39;</td>
+                <td>&#39;WTG9&#39;</td>
+                <td>2009-11-03</td>
+              </tr>
+            
+              <tr>
+                <td>Ware To Go</td>
+                <td>57544741</td>
+                <td>5754475A</td>
+                <td>&#39;WTGA&#39;</td>
+                <td>&#39;WTGZ&#39;</td>
+                <td>2009-11-03</td>
+              </tr>
+            
+              <tr>
+                <td>Ware To Go</td>
+                <td>57544761</td>
+                <td>5754477A</td>
+                <td>&#39;WTGa&#39;</td>
+                <td>&#39;WTGz&#39;</td>
+                <td>2009-11-03</td>
+              </tr>
+            
+              <tr>
+                <td>Zoran Corporation</td>
+                <td>5a433030</td>
+                <td>5a433939</td>
+                <td>&#39;ZC00&#39;</td>
+                <td>&#39;ZC99&#39;</td>
+                <td>2008-2-23</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>61617267</td>
+                <td></td>
+                <td>&#39;aarg&#39;</td>
+                <td></td>
+                <td>2008-08-28</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>61616767</td>
+                <td></td>
+                <td>&#39;aagg&#39;</td>
+                <td></td>
+                <td>2008-08-28</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>61616267</td>
+                <td></td>
+                <td>&#39;aabg&#39;</td>
+                <td></td>
+                <td>2008-08-28</td>
+              </tr>
+            
+              <tr>
+                <td>Graham Gill</td>
+                <td>61727473</td>
+                <td></td>
+                <td>&#39;arts&#39;</td>
+                <td></td>
+                <td>2014-09-17</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>61646874</td>
+                <td></td>
+                <td>&#39;adht&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>62545243</td>
+                <td></td>
+                <td>&#39;bTRC&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>6258595a</td>
+                <td></td>
+                <td>&#39;bXYZ&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>626C6765</td>
+                <td></td>
+                <td>&#39;blge&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>62666420</td>
+                <td></td>
+                <td>&#39;bfd &#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>626b7074</td>
+                <td></td>
+                <td>&#39;bkpt&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>63616c74</td>
+                <td></td>
+                <td>&#39;calt&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>YxyMaster GMBH</td>
+                <td>63627238</td>
+                <td></td>
+                <td>&#39;cbr8&#39;</td>
+                <td></td>
+                <td>2002-09-03</td>
+              </tr>
+            
+              <tr>
+                <td>Creo</td>
+                <td>63637064</td>
+                <td></td>
+                <td>&#39;ccpd&#39;</td>
+                <td></td>
+                <td>2003-02-05</td>
+              </tr>
+            
+              <tr>
+                <td>Creo</td>
+                <td>63637073</td>
+                <td></td>
+                <td>&#39;ccps&#39;</td>
+                <td></td>
+                <td>2003-02-05</td>
+              </tr>
+            
+              <tr>
+                <td>Creo</td>
+                <td>63637078</td>
+                <td></td>
+                <td>&#39;ccpx&#39;</td>
+                <td></td>
+                <td>2003-02-05</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>63686164</td>
+                <td></td>
+                <td>&#39;chad&#39;</td>
+                <td></td>
+                <td>2000-11-10</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>6368726d</td>
+                <td></td>
+                <td>&#39;chrm&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>63696973</td>
+                <td></td>
+                <td>&#39;ciis&#39;</td>
+                <td></td>
+                <td>2007-04-11</td>
+              </tr>
+            
+              <tr>
+                <td>Calibrite LLC</td>
+                <td>636C6272</td>
+                <td></td>
+                <td>&#39;clbr&#39;</td>
+                <td></td>
+                <td>2024-05-20</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>636C6F74</td>
+                <td></td>
+                <td>&#39;clot&#39;</td>
+                <td></td>
+                <td>2004-08-13</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>636c7264</td>
+                <td></td>
+                <td>&#39;clrd&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>636c726f</td>
+                <td></td>
+                <td>&#39;clro&#39;</td>
+                <td></td>
+                <td>2000-11-10</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>636c7274</td>
+                <td></td>
+                <td>&#39;clrt&#39;</td>
+                <td></td>
+                <td>2000-11-10</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>63707274</td>
+                <td></td>
+                <td>&#39;cprt&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>63726469</td>
+                <td></td>
+                <td>&#39;crdi&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>63757374</td>
+                <td></td>
+                <td>&#39;cust&#39;</td>
+                <td></td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>63766420</td>
+                <td></td>
+                <td>&#39;cvd &#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>64657363</td>
+                <td></td>
+                <td>&#39;desc&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>64657673</td>
+                <td></td>
+                <td>&#39;devs&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>64696d64</td>
+                <td></td>
+                <td>&#39;dimd&#39;</td>
+                <td></td>
+                <td>2001-04-16</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>646d6464</td>
+                <td></td>
+                <td>&#39;dmdd&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>646d6e64</td>
+                <td></td>
+                <td>&#39;dmnd&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Entrust</td>
+                <td>646f7467</td>
+                <td></td>
+                <td>&#39;dotg&#39;</td>
+                <td></td>
+                <td>2026-30-01</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>6472766e</td>
+                <td></td>
+                <td>&#39;drvn&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>6473636d</td>
+                <td></td>
+                <td>&#39;dscm&#39;</td>
+                <td></td>
+                <td>2004-05-28</td>
+              </tr>
+            
+              <tr>
+                <td>Dupont</td>
+                <td>64757000</td>
+                <td>647570ff</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>65626270</td>
+                <td></td>
+                <td>&#39;ebbp&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Electronics for Imaging</td>
+                <td>65666961</td>
+                <td>6566697a</td>
+                <td>&#39;efia&#39;</td>
+                <td>&#39;efiz&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>656d6573</td>
+                <td></td>
+                <td>&#39;emes&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>656d756c</td>
+                <td></td>
+                <td>&#39;emul&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>6670726e</td>
+                <td></td>
+                <td>&#39;fprn&#39;</td>
+                <td></td>
+                <td>2001-04-16</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>667a6474</td>
+                <td></td>
+                <td>&#39;fzdt&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>67545243</td>
+                <td></td>
+                <td>&#39;gTRC&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>6758595a</td>
+                <td></td>
+                <td>&#39;gXYZ&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>67616d74</td>
+                <td></td>
+                <td>&#39;gamt&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>GretagMacbeth</td>
+                <td>676d7073</td>
+                <td></td>
+                <td>&#39;gmps&#39;</td>
+                <td></td>
+                <td>2003-08-29</td>
+              </tr>
+            
+              <tr>
+                <td>X-Rite</td>
+                <td>67626430</td>
+                <td></td>
+                <td>&#39;gbd0&#39;</td>
+                <td></td>
+                <td>2013-10-04</td>
+              </tr>
+            
+              <tr>
+                <td>X-Rite</td>
+                <td>67626431</td>
+                <td></td>
+                <td>&#39;gbd1&#39;</td>
+                <td></td>
+                <td>2013-10-04</td>
+              </tr>
+            
+              <tr>
+                <td>X-Rite</td>
+                <td>67626432</td>
+                <td></td>
+                <td>&#39;gbd2&#39;</td>
+                <td></td>
+                <td>2013-10-04</td>
+              </tr>
+            
+              <tr>
+                <td>X-Rite</td>
+                <td>67626433</td>
+                <td></td>
+                <td>&#39;gbd3&#39;</td>
+                <td></td>
+                <td>2013-10-04</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>68616c64</td>
+                <td></td>
+                <td>&#39;hald&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>68616c66</td>
+                <td></td>
+                <td>&#39;half&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>Kothari Infotech Private Limited</td>
+                <td>6863746c</td>
+                <td></td>
+                <td>&#39;hctl&#39;</td>
+                <td></td>
+                <td>2015-08-08</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>68643030</td>
+                <td>68643939</td>
+                <td>&#39;hd00&#39;</td>
+                <td>&#39;hd99&#39;</td>
+                <td>2003-02-01</td>
+              </tr>
+            
+              <tr>
+                <td>Konica Minolta</td>
+                <td>69545243</td>
+                <td></td>
+                <td>&#39;iTRC&#39;</td>
+                <td></td>
+                <td>2003-11-25</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>69636864</td>
+                <td></td>
+                <td>&#39;ichd&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>69636865</td>
+                <td></td>
+                <td>&#39;iche&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>69637370</td>
+                <td></td>
+                <td>&#39;icsp&#39;</td>
+                <td></td>
+                <td>2001-04-16</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>696c6c64</td>
+                <td></td>
+                <td>&#39;illd&#39;</td>
+                <td></td>
+                <td>2001-04-16</td>
+              </tr>
+            
+              <tr>
+                <td>IMATION</td>
+                <td>696d6e30</td>
+                <td>696d6e39</td>
+                <td>&#39;imn0&#39;</td>
+                <td>&#39;imn9&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>IMATION</td>
+                <td>696d6e41</td>
+                <td>696d6e5a</td>
+                <td>&#39;imnA&#39;</td>
+                <td>&#39;imnZ&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>IMATION</td>
+                <td>696d6e61</td>
+                <td>696d6e7a</td>
+                <td>&#39;imna&#39;</td>
+                <td>&#39;imnz&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>696e6b73</td>
+                <td></td>
+                <td>&#39;inks&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>69736d70</td>
+                <td></td>
+                <td>&#39;ismp&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>6b545243</td>
+                <td></td>
+                <td>&#39;kTRC&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Konica Minolta</td>
+                <td>6b633031</td>
+                <td>6b633130</td>
+                <td>&#39;kc01&#39;</td>
+                <td>&#39;kc10&#39;</td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Konica Minolta</td>
+                <td>6b6d3031</td>
+                <td>6b6d3130</td>
+                <td>&#39;km01&#39;</td>
+                <td>&#39;km10&#39;</td>
+                <td>2001-11-25</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>6c696173</td>
+                <td></td>
+                <td>&#39;lias&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>6c746167</td>
+                <td></td>
+                <td>&#39;ltag&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>6c756d69</td>
+                <td></td>
+                <td>&#39;lumi&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>6c766d64</td>
+                <td></td>
+                <td>&#39;lvmd&#39;</td>
+                <td></td>
+                <td>2001-04-16</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>6d646561</td>
+                <td></td>
+                <td>&#39;mdea&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>6d656173</td>
+                <td></td>
+                <td>&#39;meas&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>6d65636e</td>
+                <td></td>
+                <td>&#39;mecn&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>6d656464</td>
+                <td></td>
+                <td>&#39;medd&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>6d656474</td>
+                <td></td>
+                <td>&#39;medt&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>6d656f70</td>
+                <td></td>
+                <td>&#39;meop&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>6d6d6f64</td>
+                <td></td>
+                <td>&#39;mmod&#39;</td>
+                <td></td>
+                <td>2004-05-28</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>6e616d65</td>
+                <td></td>
+                <td>&#39;name&#39;</td>
+                <td></td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>6e636c32</td>
+                <td></td>
+                <td>&#39;ncl2&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>6e636f6c</td>
+                <td></td>
+                <td>&#39;ncol&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>6e637069</td>
+                <td></td>
+                <td>&#39;ncpi&#39;</td>
+                <td></td>
+                <td>2004-05-28</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>6e64696e</td>
+                <td></td>
+                <td>&#39;ndin&#39;</td>
+                <td></td>
+                <td>2004-05-28</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>6e746167</td>
+                <td></td>
+                <td>&#39;ntag&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>FFEI Limited</td>
+                <td>6f707266</td>
+                <td></td>
+                <td>&#39;oprf&#39;</td>
+                <td></td>
+                <td>2001-06-22</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>70613262</td>
+                <td></td>
+                <td>&#39;pa2b&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>70623261</td>
+                <td></td>
+                <td>&#39;pb2a&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>70646972</td>
+                <td></td>
+                <td>&#39;pdir&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>706c6179</td>
+                <td></td>
+                <td>&#39;play&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>Polkadots Software Inc.</td>
+                <td>706b6430</td>
+                <td>706b6439</td>
+                <td>&#39;pkd0&#39;</td>
+                <td>&#39;pkd9&#39;</td>
+                <td>2018-03-02</td>
+              </tr>
+            
+              <tr>
+                <td>Polkadots Software Inc.</td>
+                <td>706b6461</td>
+                <td>706b647a</td>
+                <td>&#39;pkda&#39;</td>
+                <td>&#39;pkdz&#39;</td>
+                <td>2018-03-02</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>706c6d64</td>
+                <td></td>
+                <td>&#39;plmd&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>706c6d74</td>
+                <td></td>
+                <td>&#39;plmt&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70726530</td>
+                <td></td>
+                <td>&#39;pre0&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70726531</td>
+                <td></td>
+                <td>&#39;pre1&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70726532</td>
+                <td></td>
+                <td>&#39;pre2&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>70727364</td>
+                <td></td>
+                <td>&#39;prsd&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>70727374</td>
+                <td></td>
+                <td>&#39;prst&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70733269</td>
+                <td></td>
+                <td>&#39;ps2i&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70733273</td>
+                <td></td>
+                <td>&#39;ps2s&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70736430</td>
+                <td></td>
+                <td>&#39;psd0&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70736431</td>
+                <td></td>
+                <td>&#39;psd1&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70736432</td>
+                <td></td>
+                <td>&#39;psd2&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70736433</td>
+                <td></td>
+                <td>&#39;psd3&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70736571</td>
+                <td></td>
+                <td>&#39;pseq&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>70736964</td>
+                <td></td>
+                <td>&#39;psid&#39;</td>
+                <td></td>
+                <td>2007-04-11</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>7073766d</td>
+                <td></td>
+                <td>&#39;psvm&#39;</td>
+                <td></td>
+                <td>1995-03-03</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>72545243</td>
+                <td></td>
+                <td>&#39;rTRC&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>7258595a</td>
+                <td></td>
+                <td>&#39;rXYZ&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>7265736f</td>
+                <td></td>
+                <td>&#39;reso&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>72657370</td>
+                <td></td>
+                <td>&#39;resp&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>72696730</td>
+                <td></td>
+                <td>&#39;rig0&#39;</td>
+                <td></td>
+                <td>2005-02-22</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>72696732</td>
+                <td></td>
+                <td>&#39;rig2&#39;</td>
+                <td></td>
+                <td>2005-02-22</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>73637264</td>
+                <td></td>
+                <td>&#39;scrd&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>7363726e</td>
+                <td></td>
+                <td>&#39;scrn&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>73663634</td>
+                <td></td>
+                <td>&#39;sf64&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>73693038</td>
+                <td></td>
+                <td>&#39;si08&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>73693136</td>
+                <td></td>
+                <td>&#39;si16&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>Sun Microsystems</td>
+                <td>73693332</td>
+                <td></td>
+                <td>&#39;si32&#39;</td>
+                <td></td>
+                <td>1995-05-01</td>
+              </tr>
+            
+              <tr>
+                <td>SEIKO EPSON</td>
+                <td>73747970</td>
+                <td></td>
+                <td>&#39;styp&#39;</td>
+                <td></td>
+                <td>2024-12-23</td>
+              </tr>
+            
+              <tr>
+                <td>Tektronix </td>
+                <td>744b0000</td>
+                <td>744b00ff</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Heidelberger Druckmaschinen AG</td>
+                <td>74616374</td>
+                <td></td>
+                <td>&#39;tact&#39;</td>
+                <td></td>
+                <td>2004-01-16</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>74617267</td>
+                <td></td>
+                <td>&#39;targ&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>74656368</td>
+                <td></td>
+                <td>&#39;tech&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Tektronix </td>
+                <td>746b0000</td>
+                <td>746b00ff</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Typemaker Ltd.</td>
+                <td>746d6b72</td>
+                <td></td>
+                <td>&#39;tmkr&#39;</td>
+                <td></td>
+                <td>2002-09-13</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>746e616d</td>
+                <td></td>
+                <td>&#39;tnam&#39;</td>
+                <td></td>
+                <td>2001-04-16</td>
+              </tr>
+            
+              <tr>
+                <td>Kodak</td>
+                <td>74707274</td>
+                <td></td>
+                <td>&#39;tprt&#39;</td>
+                <td></td>
+                <td>2001-04-16</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>74726320</td>
+                <td></td>
+                <td>&#39;trc &#39;</td>
+                <td></td>
+                <td>1994-09-09</td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>75634730</td>
+                <td>75634733</td>
+                <td>&#39;ucG0&#39;</td>
+                <td>&#39;ucG3&#39;</td>
+                <td>2007-04-08</td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>75636d44</td>
+                <td></td>
+                <td>&#39;ucmD&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>75636d46</td>
+                <td></td>
+                <td>&#39;ucmF&#39;</td>
+                <td></td>
+                <td>2007-04-08</td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>75636d49</td>
+                <td></td>
+                <td>&#39;ucmI&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>75636d4d</td>
+                <td></td>
+                <td>&#39;ucmM&#39;</td>
+                <td></td>
+                <td>2007-04-08</td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>75636d50</td>
+                <td></td>
+                <td>&#39;ucmP&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>75636d54</td>
+                <td></td>
+                <td>&#39;ucmT&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Canon</td>
+                <td>75636d56</td>
+                <td></td>
+                <td>&#39;ucmV&#39;</td>
+                <td></td>
+                <td>2007-04-08</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>76636774</td>
+                <td></td>
+                <td>&#39;vcgt&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>76696577</td>
+                <td></td>
+                <td>&#39;view&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>76707461</td>
+                <td></td>
+                <td>&#39;vpta&#39;</td>
+                <td></td>
+                <td>1994-12-12</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>76707462</td>
+                <td></td>
+                <td>&#39;vptb&#39;</td>
+                <td></td>
+                <td>1994-12-12</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>76707467</td>
+                <td></td>
+                <td>&#39;vptg&#39;</td>
+                <td></td>
+                <td>1994-12-12</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>76707470</td>
+                <td></td>
+                <td>&#39;vptp&#39;</td>
+                <td></td>
+                <td>1994-12-12</td>
+              </tr>
+            
+              <tr>
+                <td>Apple Computer</td>
+                <td>76707477</td>
+                <td></td>
+                <td>&#39;vptw&#39;</td>
+                <td></td>
+                <td>1994-12-12</td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>76756564</td>
+                <td></td>
+                <td>&#39;vued&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <td>ICC</td>
+                <td>77747074</td>
+                <td></td>
+                <td>&#39;wtpt&#39;</td>
+                <td></td>
+                <td></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <p class="text-end"><a href="/tag-signatures/tag-signatures.csv" class="btn btn-sm btn-outline-secondary"><i class="bi bi-file-earmark-arrow-down"></i> Download CSV</a></p>
+    </div>
+  </div>
+</div>
+
+
+        
+        <div class="container">
+            <div class="row mt-5 border bg-light-subtle">
+                <div class="col-lg-4 my-5 px-5">
+                    <h4>About the ICC</h4>
+                    <ul class="list-unstyled">
+                        <li><a class="dropdown-item" href="https://www.color.org/abouticc/">About the ICC</a></li>
+                        <li><a class="dropdown-item" href="https://www.color.org/join_icc2/">Join the ICC</a></li>
+                        <li><a class="dropdown-item" href="https://www.color.org/participate/">Participate</a></li>
+                        <li><a class="dropdown-item" href="https://www.color.org/iccmembers/">Member List</a></li>
+                        <li><a class="dropdown-item" href="https://www.color.org/groups1/">Working Groups</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 my-5 px-5">
+                    <h4>ICC Specifications</h4>
+                    <ul class="list-unstyled">
+                        <li><a class="dropdown-item" href="https://www.color.org/iccprofile/">Profile Format Introduction</a></li>
+                        <li><a class="dropdown-item" href="https://www.color.org/icc_specs2/">ICC Specifications</a></li>
+                        <li><a class="dropdown-item" href="https://www.color.org/technotes/">Technical Notes</a></li>
+                        <li><a class="dropdown-item" href="https://www.color.org/whitepapers/">White Papers</a></li>
+                        <li><a class="dropdown-item" href="https://www.color.org/faqs/">Frequently Asked Questions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 my-5 px-5">
+                    <h4>Developer Tools</h4>
+                    <ul class="list-unstyled">
+                        <li><a class="dropdown-item" href="https://github.com/InternationalColorConsortium/iccDEV"><i class="bi bi-github"></i> iccDEV</a></li>
+                        <li class="mt-3 pt-3  border-top"><a href="https://github.com/internationalColorConsortium/website-issues"><i class="bi bi-bug"></i> Report a Website Issue</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row mt-2">
+                <div class="col-lg-12 my-5 text-center">
+                    <p> Copyright &copy; <script>document.write(new Date().getFullYear())</script> INTERNATIONAL COLOR CONSORTIUM</p>
+                </div>
+            </div>
+        </div>
+        
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <script src="https://cdn.datatables.net/v/bs5/dt-2.3.7/datatables.min.js" integrity="sha384-7rAjATpiK3MtvKnoDf5WQz4O8W+3kpl4Jm82apgJgNkeUmZ59yjJT6LqlJpYqhVK" crossorigin="anonymous"></script>
+
+     
+<script>
+  let table = new DataTable('.table', {
+      "paging": false,
+      "info": false,
+      "language": {
+          "search": "Search ICC Tag Signatures:"
+      }
+  });
+</script>
+
+        <script>
+            const fileIconMap = {
+                'pdf': 'bi bi-file-earmark-pdf',
+                'doc': 'bi bi-file-earmark-word',
+                'docx': 'bi bi-file-earmark-word',
+                'icc': 'icon-file-icc',
+                'icm': 'icon-file-icc'
+            };
+
+            document.querySelectorAll('a[href]').forEach(link => {
+                const url = link.getAttribute('href');
+                const extMatch = url.match(/\.([a-z0-9]+)$/i);
+                if (!extMatch) return;
+
+                const ext = extMatch[1].toLowerCase();
+                const iconClass = fileIconMap[ext];
+
+                if (iconClass) {
+                const icon = document.createElement('i');
+                icon.className = iconClass;
+                icon.style.marginLeft = '6px';
+                link.appendChild(icon);
+                }
+            });
+        </script>
+    <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "779fd711032d4720ba180883028d3f59"}'></script><!-- Cloudflare Pages Analytics --><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a320a3ef0eaddef7',t:'MTc4Nzg5MjA1Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

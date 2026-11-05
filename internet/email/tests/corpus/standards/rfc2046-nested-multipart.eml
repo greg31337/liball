@@ -1,0 +1,29 @@
+From: Multipart Author <author@example.com>
+To: Multipart Reader <reader@example.net>
+Date: Tue, 14 Nov 2023 22:14:20 +0000
+Message-ID: <nested-2046@example.com>
+MIME-Version: 1.0
+Subject: Synthetic nested MIME message
+Content-Type: multipart/mixed; boundary="outer-example-boundary"
+
+Outer preamble.
+--outer-example-boundary
+Content-Type: multipart/alternative; boundary="inner-example-boundary"
+
+--inner-example-boundary
+Content-Type: text/plain; charset=us-ascii
+
+Plain alternative.
+--inner-example-boundary
+Content-Type: text/html; charset=us-ascii
+
+<p>HTML alternative.</p>
+--inner-example-boundary--
+--outer-example-boundary
+Content-Type: application/octet-stream; name="example.bin"
+Content-Disposition: attachment; filename="example.bin"
+Content-Transfer-Encoding: base64
+
+AAECAwQF
+--outer-example-boundary--
+Outer epilogue.

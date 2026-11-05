@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+
+<meta name="description" content="Even if a QR Code is partly smeared or damaged, it has the capacity to correct itself and restore the original data." />
+<meta name="keywords" content="QRcode,DENSO WAVE,SQRC,LogoQ" />
+
+<title>Error correction feature | QRcode.com | DENSO WAVE</title>
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/vnd.microsoft.icon">
+
+<script src="/js/jquery-latest.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#header").load("../header.html");
+	$("#footer").load("../footer.html");
+	
+	// scroll Top
+	$("#toTop a").click(function(){
+		$('html,body').animate({ scrollTop: $($(this).attr("href")).offset().top }, 'slow','swing');
+		return false;
+	});
+});
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PWS5SV37');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+	<div id="header"></div>
+	<div id="container">
+		<link rel="stylesheet" type="text/css" href="../css/errorCorrection.css">
+		<div id="containerContents">
+			<div class="h1Box">
+				<div id="h1Blue" class="h1Color"></div>
+				<div id="errorCorrectionH1Title"><h1>Error Correction Feature</h1></div>
+				<div class="h1SeniorSign">For advanced users</div>
+				<p id="backTop"><a href="./index.html">Back to top page<br />"What is a QR Code?"</a></p>
+			</div>
+			<div id="errorCorrectionContents">
+				<p id="errorCorrectionContentsLeft">
+					QR Code has error correction capability to restore data if the code is dirty or damaged. Four error correction levels are available for users to choose according to the operating environment. Raising this level improves error correction capability but also increases the amount of data QR Code size.
+					<br>
+					To select error correction level, various factors such as the operating environment and QR Code size need to be considered.
+Level Q or H may be selected for factory environment where QR Code get dirty, whereas Level L may be selected for clean environment with the large amount of data. Typically, Level M (15%) is most frequently selected.
+				</p>
+				<div id="errorCorrectionContentsRight">
+					<img src="../img/errorCorrection/errorCorrectionTable.png">
+					<p class="smallText" style="margin-top:10px;">
+						*Data restoration rate for total codewords (codeword is a unit that constructs the data area. One codeword of QR Code is equal to 8 bits.)
+					</p>
+				</div>
+			</div>
+			<div class="h2Box">
+				<div class="h2Blue"></div>
+				<div id="mechanismH2Title"><h2>Error Correction Feature</h2></div>
+			</div>
+			<div id="mechanismContents">
+				<p>
+					The QR Code error correction feature is implemented by adding a Reed-Solomon Code*to the original data.<br>
+					The error correction capability depends on the amount of data to be corrected. For example, if there are 100 codewords of QR Code to be encoded,50 of which need to be corrected, 100 codewords of Reed-Solomon Code are required, as Reed-Solomon Code requires twice the amount of codewords to be corrected.
+					In this case, the total codewords are 200, 50 of which can be corrected. Thus, the error correction rate for the total codewords is 25%. This corresponds to QR Code error correction Level Q.
+				</p>
+				<p>
+					In the example above, the error correction rate for QR Code codewords can be considered as 50%. However, it is not always the case that codewords of not Reed-Solomon Code but only QR Code are susceptible to dirt and damage.QR Code therefore represents its error correction rate as a ratio of the total codewords.
+				</p>
+				<p class="smallText">
+					*Reed-Solomon Code is a mathematical error correction method used for music CDs etc. The technology was originally developed as a measure against communication noise for artificial satellites and planetary probes. It is capable of making a correction at the byte level, and is suitable for concentrated burst errors.
+				</p>
+			</div>
+			<div class="gotoTopButton" id="toTop">
+				<a href="#header"><img src="../img/cEtc/gotoTopButton.png"></a>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

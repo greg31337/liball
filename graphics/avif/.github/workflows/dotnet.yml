@@ -1,0 +1,56 @@
+name: .NET 10
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_NOLOGO: true
+
+jobs:
+  build-and-test:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux x64
+            runner: ubuntu-24.04
+          - name: Linux Arm64
+            runner: ubuntu-24.04-arm
+          - name: Windows x64
+            runner: windows-2025
+          - name: Windows Arm64
+            runner: windows-11-arm
+          - name: macOS x64
+            runner: macos-15-intel
+          - name: macOS Arm64
+            runner: macos-15
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Show SDK and runtime details
+        run: dotnet --info
+
+      - name: Restore
+        run: dotnet restore avif.slnx
+
+      - name: Build
+        run: dotnet build avif.slnx --configuration Release --no-restore --warnaserror -p:ContinuousIntegrationBuild=true
+
+      - name: Test
+        run: dotnet test avif.slnx --configuration Release --no-build --no-restore --logger "console;verbosity=normal"

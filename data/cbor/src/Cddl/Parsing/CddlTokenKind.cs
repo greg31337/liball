@@ -1,0 +1,38 @@
+namespace cbor;
+
+internal enum CddlTokenKind
+{
+    None = 0,
+    Invalid = 1,
+    EndOfFile = 2,
+    Identifier = 3,
+    Number = 4,
+    TextString = 5,
+    ByteString = 6,
+    Equal = 7,
+    TypeExtensionAssign = 8,
+    GroupExtensionAssign = 9,
+    Slash = 10,
+    GroupChoice = 11,
+    RangeInclusive = 12,
+    RangeExclusive = 13,
+    Dot = 14,
+    LeftParenthesis = 15,
+    RightParenthesis = 16,
+    LeftBrace = 17,
+    RightBrace = 18,
+    LeftBracket = 19,
+    RightBracket = 20,
+    LessThan = 21,
+    GreaterThan = 22,
+    Comma = 23,
+    Colon = 24,
+    Arrow = 25,
+    Cut = 26,
+    Optional = 27,
+    Asterisk = 28,
+    Plus = 29,
+    Unwrap = 30,
+    GroupEnumeration = 31,
+    Hash = 32
+}

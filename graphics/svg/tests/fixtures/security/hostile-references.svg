@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg [
+  <!ENTITY external SYSTEM "https://fixtures.invalid/external-entity.txt">
+]>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" onload="alert('must-not-run')">
+  <title>Untrusted-input policy fixture</title>
+  <script>throw new Error('must-not-run')</script>
+  <image href="https://fixtures.invalid/pixel.png" xlink:href="file:///fixtures/secret.png" width="16" height="16"/>
+  <g id="cycle"><use href="#cycle"/></g>
+  <use href="#missing"/>
+  <a href="javascript:alert('must-not-run')"><rect width="8" height="8"/></a>
+  <text x="1" y="30">&external;</text>
+</svg>

@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../chemistry/molecule/src/molecule.csproj" />
+  </ItemGroup>
+</Project>

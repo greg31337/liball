@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:BizMsgEnvlp
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:env="urn:iso:std:iso:20022:tech:xsd:nvlp.001.001.02"
+    xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:nvlp.001.001.02 nvlp.001.001.02.xsd">
+  <env:Hdr>
+    <hdr:AppHdr
+        xmlns:hdr="urn:iso:std:iso:20022:tech:xsd:head.001.001.02"
+        xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:head.001.001.02 head.001.001.02_swift.cbprplus.02.xsd">
+      <hdr:Fr>...</hdr:Fr>
+      <hdr:To>...</hdr:To>
+      <hdr:BizMsgIdr>1234567890</hdr:BizMsgIdr>
+      <hdr:MsgDefIdr>pacs.008.001.08</hdr:MsgDefIdr>
+      <hdr:BizSvc>swift.cbprplus.02</hdr:BizSvc>
+      <hdr:CreDt>2024-12-05T12:00:00+02:00</hdr:CreDt>
+    </hdr:AppHdr>
+  </env:Hdr>
+  <env:Doc>
+    <doc:Document
+        xmlns:doc="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08"
+        xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08 pacs.008.001.08_swift.cbprplus.02.xsd">
+      <doc:FIToFICstmrCdtTrf> ... </doc:FIToFICstmrCdtTrf>
+    </doc:Document>
+  </env:Doc>
+  <env:Ref>
+    <env:Tp>Reference</env:Tp>
+    <env:Data>
+      <ref:Reference
+          xmlns:ref="urn:refdata:xsd:BMEv1_Format"
+          xsi:schemaLocation="urn:refdata:xsd:BMEv1_Format BMEv1_Format.xsd">
+        <ref:Name>Backward Compatibility implementing v1 structure</ref:Name>
+        <ref:Issuer>
+          <ref:Name>IssuerName</ref:Name>
+          <ref:PostalAddress>
+            <ref:TownName>La Hulpe</ref:TownName>
+            <ref:Country>BE</ref:Country>
+          </ref:PostalAddress>
+        </ref:Issuer>
+        <ref:Value>
+          <ref:UUID>3606b3e6-d267-4c5c-a1c0-0f68c7f1bb45</ref:UUID>
+        </ref:Value>
+      </ref:Reference>
+    </env:Data>
+  </env:Ref>
+</env:BizMsgEnvlp>

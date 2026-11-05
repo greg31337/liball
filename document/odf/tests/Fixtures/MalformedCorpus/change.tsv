@@ -1,0 +1,4 @@
+# name	tracked-change boundary XML
+missing-end	<text:p><text:change-start text:change-id="broken"/>payload</text:p>
+duplicate-start	<text:p><text:change-start text:change-id="broken"/><text:change-start text:change-id="broken"/>payload<text:change-end text:change-id="broken"/></text:p>
+reversed-range	<text:p><text:change-end text:change-id="broken"/>payload<text:change-start text:change-id="broken"/></text:p>

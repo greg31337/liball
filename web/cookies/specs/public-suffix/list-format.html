@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>View the Public Suffix List</title>
+<link rel="stylesheet" href="/styles.css">
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div id="page">
+
+    <header>
+        <h1 class="site-title">
+            <a href="/" title="Return to the Public Suffix List homepage">Public Suffix List</a>
+        </h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/learn/">Learn More</a>
+            </li>
+            <li>
+                <a href="/list/">The List</a>
+            </li>
+            <li>
+                <a href="/submit/">Submit Amendments</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>
+            View the Public Suffix List
+        </h2>
+        <p>
+            The list is kept in source code control on <a href="https://github.com/publicsuffix/list">GitHub</a>. You can read more information on the format the list uses below. <strong>Please note that the list is encoded using UTF-8.</strong>
+        </p>
+        <p>The copy on publicsuffix.org, linked below, is updated daily from GitHub. If you wish to make your app download an updated list periodically,
+        <strong>please use this URL and have your app download the list no more than once per day</strong>.
+        (The list usually changes a few times per week; more frequent downloading is pointless and
+        hammers our servers.)</p>
+        
+        <div class="button">
+            <a href="public_suffix_list.dat">See the list</a>
+        </div>
+        <p>
+            To be kept informed of changes to the list, you can subscribe to an <a href="https://github.com/publicsuffix/list/commits/main.atom">Atom change feed</a> in your favourite feed reader.
+        </p>
+        <h2 id="list-format">
+            List format
+        </h2>
+        <p>
+            A public suffix is a set of DNS names or wildcards concatenated with dots. It represents the part of a domain name which is <strong>not</strong> under the control of the individual registrant.
+        </p>
+        <h3 id="specification">
+            Specification
+        </h3>
+        <ul>
+            <li>
+                Please see the <a href="https://github.com/publicsuffix/list/wiki/">Public Suffix List Wiki</a> at the following link for information on the formatting and specifications: <a href="https://github.com/publicsuffix/list/wiki/Format#format">Format</a>.
+            </li>
+        </ul>
+        <p>This information was moved by <a href="https://github.com/dnsguru">Jothan Frakes</a> on February 8, 2022 to the GitHub Public Suffix List for simplification of management.</p>
+    </section>
+
+</div>
+
+<footer>
+    <div>
+        <p>
+            Copyright &#169; 2007&#8211;22 <a href="https://www.mozilla.org/">Mozilla Foundation</a>.
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

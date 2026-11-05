@@ -1,0 +1,21 @@
+From: OpenPGP Fixture <openpgp@example.com>
+To: Security Reader <reader@example.net>
+Date: Tue, 14 Nov 2023 22:20:20 +0000
+Message-ID: <openpgp-corpus@example.com>
+MIME-Version: 1.0
+Subject: Synthetic PGP/MIME encrypted structure
+Content-Type: multipart/encrypted; protocol="application/pgp-encrypted"; boundary=pgp-corpus
+
+--pgp-corpus
+Content-Type: application/pgp-encrypted
+
+Version: 1
+--pgp-corpus
+Content-Type: application/octet-stream
+
+-----BEGIN PGP MESSAGE-----
+
+yyFiAAAAAABTeW50aGV0aWMgT3BlblBHUCBjb3JwdXMuDQo=
+=kZnE
+-----END PGP MESSAGE-----
+--pgp-corpus--

@@ -1,0 +1,11 @@
+service: cafe-inventory
+replicas: 2
+enabled: true
+regions:
+  - eu-west
+  - us-east
+health:
+  path: /health
+  intervalSeconds: 30
+logging:
+  level: information

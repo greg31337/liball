@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+  
+
+
+  
+
+
+  
+<!-- Mirrored from www.freediameter.net/trac/wiki/Features by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 07:45:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+       <title>
+      Features – freeDiameter
+    </title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="search" href="../search.html" /><link rel="help" href="TracGuide.html" /><link rel="alternate" href="Features56e6.html?format=txt" type="text/x-trac-wiki" title="Plain Text" /><link rel="start" href="../wiki.html" /><link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../chrome/theme/crystalx.css" type="text/css" /><link rel="stylesheet" href="../chrome/site/theme.css" type="text/css" /><link rel="icon" href="../../favicon" /><style id="trac-noscript" type="text/css">.trac-noscript { display: none !important }</style><link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search freeDiameter" /><script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script><script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script><script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script><script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script><script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script><script type="text/javascript">
+      jQuery("#trac-noscript").remove();
+      jQuery(document).ready(function($) {
+        $(".trac-autofocus").focus();
+        $(".trac-target-new").attr("target", "_blank");
+        if ($.ui) { /* is jquery-ui added? */
+          $(".trac-datepicker:not([readonly])").prop("autocomplete", "off").datepicker();
+          $(".trac-datetimepicker:not([readonly])").prop("autocomplete", "off").datetimepicker();
+          $("#main").addClass("trac-nodatetimehint");
+        }
+        $(".trac-disable").disableSubmit(".trac-disable-determinant");
+        setTimeout(function() { $(".trac-scroll").scrollToTop() }, 1);
+        $(".trac-disable-on-submit").disableOnSubmit();
+      });
+    </script><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script><meta name="description" content="freeDiameter, the reference Diameter open-source implementation." /><meta name="keywords" content="Diameter implementation C rfc3588 rfc3588bis rfc4005 rfc4072 rfc4740 framework open-source" />
+       <meta name="description" content="freeDiameter, the reference Diameter open-source implementation." />
+       <meta name="keywords" content="Diameter implementation C rfc3588 rfc3588bis rfc4005 rfc4072 rfc4740 framework open-source" />
+     </head>
+  <body>
+    <div id="siteheader">
+    </div>
+    <div id="siteheader">
+    </div>
+    <div id="center-content" class="box">
+      <div id="header">
+          <div id="logo">
+            <a href="#"><img src="../chrome/site/freeDiameter_header.png" alt="The source for the freeDiameter implementation" /></a>
+          </div>
+          <hr class="noscreen" />
+          <div class="noscreen noprint">
+              <p><em>Quick links: <a href="#main">content</a>, <a href="#mainnav">navigation</a>, <a href="#theme-search">search</a>.</em></p>
+              <hr />
+          </div>
+          <div id="theme-search" class="noprint">
+              <form action="http://www.freediameter.net/trac/search" method="get">
+                  <fieldset><legend>Search</legend>
+                      <label><span class="noscreen">Find:</span>
+                      <span id="search-input-out"><input type="text" name="q" id="search-input" size="30" /></span></label>
+                      <input type="hidden" name="wiki" value="on" />
+                      <input type="hidden" name="changeset" value="on" />
+                      <input type="hidden" name="ticket" value="on" />
+                      <input type="image" src="../chrome/theme/img/search_submit.gif" id="search-submit" value="OK" />
+                  </fieldset>
+              </form>
+          </div>
+      </div>
+       <div id="theme-mainnav" class="noprint">
+              <h3 class="noscreen">Navigation</h3>
+              <ul class="box">
+                  <li class="first">
+                        <a href="../blog.html">News<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li class="active">
+                        <a href="../wiki.html">Documentation<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li>
+                        <a class="ext-link" href="../../book.html"><span class="icon">​</span>Book<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li>
+                        <a class="ext-link" href="https://github.com/freeDiameter/freeDiameter"><span class="icon">​</span>github<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li><li class="last">
+                        <a href="../search.html">Search<span class="tab-l"></span><span class="tab-r"></span></a>
+                  </li>
+              </ul>
+          <hr class="noscreen" />
+       </div>
+       <!-- Page (2 columns) -->
+       <div id="page" class="box">
+         <div id="page-in" class="box">
+           <div id="strip" class="box noprint">
+             <div id="ctxtnav" class="nav">
+                 <ul>
+                   <li class="first "><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li class="last"><a href="Featuresd9df.html?action=history">History</a></li>
+                 </ul>
+             </div>
+            <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../about.html">About Trac</a></li><li><a href="http://www.freediameter.net/trac/login">Login</a></li><li class="last"><a href="../prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+          </div>
+          <div id="main">
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h2 id="Features">Features</h2>
+<p>
+The freeDiameter framework supports the following features:
+</p>
+<ul><li>Full support for the <strong>Diameter Base Protocol</strong> defined in RFC3588 and <a class="ext-link" href="http://tools.ietf.org/html/draft-ietf-dime-rfc3588bis"><span class="icon">​</span>rfc3588bis</a>, including:
+<ul><li>Native IP/IPv6 and TCP/SCTP support.
+</li><li>TLS support (mixed port or separate ports), even for SCTP (in RFC3436 flavour, DTLS is not supported yet, see <a class="new ticket" href="../ticket/19.html" title="#19: task: Use DTLS instead of TLS over SCTP (new)">19</a>)
+</li><li>Diameter failover and failback mechanisms
+</li><li>Diameter routing loops detection and avoidance
+</li><li>Base Accounting support is provided by the <a class="wiki" href="app_acct.html">app_acct.fdx</a> extension.
+</li><li>Messages relaying is natively supported.
+</li><li>Diameter Redirects are supported through <a class="missing wiki">rt_redirect.fdx?</a> and <a class="missing wiki">app_redirect.fdx?</a> extensions.
+</li></ul></li><li><strong>Diameter EAP server</strong> (RFC4072) support is provided by <a class="wiki" href="app_diameap.html">app_diameap.fdx</a>.
+</li><li><strong>Diameter SIP</strong> (RFC4740) support comes with <a class="wiki" href="app_sip-2.html">app_sip.fdx</a>.
+</li><li><strong>RADIUS/Diameter translation</strong> of NASREQ (RFC4005), EAP (RFC4072), and SIP (RFC4740) messages is provided by <a class="wiki" href="app_radgw.html">app_radgw.fdx</a>.
+</li></ul><p>
+Many additional exciting extensions are in preparation right now...
+</p>
+<hr />
+</div>
+          
+          <div class="trac-modifiedby">
+            <span><a href="Featuresfae3.html?action=diff&amp;version=7" title="Version 7 by Administrator">Last modified</a> <span title="Mar 3, 2011, 1:25:18 PM">13 years ago</span></span>
+            <span class="trac-print">Last modified on Mar 3, 2011, 1:25:18 PM</span>
+          </div>
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="Features56e6.html?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer" lang="en" xml:lang="en">
+        <div id="top" class="noprint"><p><span class="noscreen">Back on top</span> <a href="#header" title="Back on top ^">^<span></span></a></p></div>
+        <hr class="noscreen" />
+        <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+        <p class="left">
+          Powered by <a href="../about.html"><strong>Trac 1.2.3.1</strong></a><br />
+          By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        </p>
+        <p id="createdby">
+          Original theme created<br />by <a href="http://www.nuvio.cz/">Nuvio | Webdesign</a> <!-- DON´T REMOVE, PLEASE! -->
+        </p>
+        <p class="right">For any question contact help@freediameter.net</p>
+      </div>
+    </div>
+    <div id="sitefooter">
+    </div>
+    <script type="text/javascript">
+     var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.freediameter.net/piwik/" : "http://www.freediameter.net/piwik/");
+     document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+     try {
+      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+      piwikTracker.trackPageView();
+      piwikTracker.enableLinkTracking();
+     } catch( err ) {}
+    </script><noscript><p><img src="../../piwik/piwik0412.gif?idsite=1" style="border:0" alt="Project-Id-Version: Trac 0.12
+Report-Msgid-Bugs-To: trac-dev@googlegroups.com
+POT-Creation-Date: 2018-07-07 16:55+0000
+PO-Revision-Date: 2010-07-19 23:05+0200
+Last-Translator: Jeroen Ruigrok van der Werven &lt;asmodai@in-nomine.org&gt;
+Language: en_US
+Language-Team: en_US &lt;trac-dev@googlegroups.com&gt;
+Plural-Forms: nplurals=2; plural=(n != 1)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+Generated-By: Babel 2.6.0
+" /></p></noscript>
+    <div id="sitefooter">
+    </div>
+    <!-- Piwik -->
+    <script type="text/javascript">
+     var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.freediameter.net/piwik/" : "http://www.freediameter.net/piwik/");
+     document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+     try {
+      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+      piwikTracker.trackPageView();
+      piwikTracker.enableLinkTracking();
+     } catch( err ) {}
+    </script><noscript><p><img src="../../piwik/piwik0412.gif?idsite=1" style="border:0" alt="Project-Id-Version: Trac 0.12
+Report-Msgid-Bugs-To: trac-dev@googlegroups.com
+POT-Creation-Date: 2018-07-07 16:55+0000
+PO-Revision-Date: 2010-07-19 23:05+0200
+Last-Translator: Jeroen Ruigrok van der Werven &lt;asmodai@in-nomine.org&gt;
+Language: en_US
+Language-Team: en_US &lt;trac-dev@googlegroups.com&gt;
+Plural-Forms: nplurals=2; plural=(n != 1)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+Generated-By: Babel 2.6.0
+" /></p></noscript>
+    <!-- End Piwik Tag -->
+  </body>
+
+<!-- Mirrored from www.freediameter.net/trac/wiki/Features by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 07:45:45 GMT -->
+</html>

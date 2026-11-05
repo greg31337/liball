@@ -1,0 +1,901 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+<META NAME="GENERATOR" CONTENT="Java2HTML Version 1.5">
+<TITLE>ij.io.TiffDecoder (Java2HTML)</TITLE>
+</HEAD>
+<BODY><TABLE id="Header" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td colspan="2" width="33%">&nbsp;</td>
+<td align="center" colspan="2" width="33%">
+<font size="4">TiffDecoder.java</font>
+</td>
+<td align="right" colspan="2" width="33%">&nbsp;</td>
+</tr>
+</TABLE>
+<pre ID="Classes">
+<A NAME="1"></A><FONT ID="Package">package</FONT> ij.io;
+<A NAME="2"></A><FONT ID="Import">import</FONT> <A HREF="../../ij/util/Tools.java.html">ij.util.Tools</A>;
+<A NAME="3"></A><FONT ID="Import">import</FONT> <A HREF="../../ij/IJ.java.html">ij.IJ</A>;
+<A NAME="4"></A><FONT ID="Import">import</FONT> java.io.*;
+<A NAME="5"></A><FONT ID="Import">import</FONT> java.util.*;
+<A NAME="6"></A><FONT ID="Import">import</FONT> java.net.*;
+<A NAME="7"></A>
+<A NAME="8"></A><FONT ID="FormalComment">/**
+<A NAME="9"></A>Decodes single and multi-image TIFF files. The LZW decompression
+<A NAME="10"></A>code was contributed by Curtis Rueden.
+<A NAME="11"></A>*/</FONT>
+<A NAME="12"></A><FONT ID="Public">public</FONT> <FONT ID="Class">class</FONT> TiffDecoder {
+<A NAME="13"></A>
+<A NAME="14"></A>    <FONT ID="SingleLineComment">// tags
+<A NAME="15"></A></FONT>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> NEW_SUBFILE_TYPE = <FONT ID="IntegerLiteral">254</FONT>;
+<A NAME="16"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> IMAGE_WIDTH = <FONT ID="IntegerLiteral">256</FONT>;
+<A NAME="17"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> IMAGE_LENGTH = <FONT ID="IntegerLiteral">257</FONT>;
+<A NAME="18"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> BITS_PER_SAMPLE = <FONT ID="IntegerLiteral">258</FONT>;
+<A NAME="19"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> COMPRESSION = <FONT ID="IntegerLiteral">259</FONT>;
+<A NAME="20"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> PHOTO_INTERP = <FONT ID="IntegerLiteral">262</FONT>;
+<A NAME="21"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> IMAGE_DESCRIPTION = <FONT ID="IntegerLiteral">270</FONT>;
+<A NAME="22"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> STRIP_OFFSETS = <FONT ID="IntegerLiteral">273</FONT>;
+<A NAME="23"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> ORIENTATION = <FONT ID="IntegerLiteral">274</FONT>;
+<A NAME="24"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> SAMPLES_PER_PIXEL = <FONT ID="IntegerLiteral">277</FONT>;
+<A NAME="25"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> ROWS_PER_STRIP = <FONT ID="IntegerLiteral">278</FONT>;
+<A NAME="26"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> STRIP_BYTE_COUNT = <FONT ID="IntegerLiteral">279</FONT>;
+<A NAME="27"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> X_RESOLUTION = <FONT ID="IntegerLiteral">282</FONT>;
+<A NAME="28"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> Y_RESOLUTION = <FONT ID="IntegerLiteral">283</FONT>;
+<A NAME="29"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> PLANAR_CONFIGURATION = <FONT ID="IntegerLiteral">284</FONT>;
+<A NAME="30"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> RESOLUTION_UNIT = <FONT ID="IntegerLiteral">296</FONT>;
+<A NAME="31"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> SOFTWARE = <FONT ID="IntegerLiteral">305</FONT>;
+<A NAME="32"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> DATE_TIME = <FONT ID="IntegerLiteral">306</FONT>;
+<A NAME="33"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> ARTIST = <FONT ID="IntegerLiteral">315</FONT>;
+<A NAME="34"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> HOST_COMPUTER = <FONT ID="IntegerLiteral">316</FONT>;
+<A NAME="35"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> PREDICTOR = <FONT ID="IntegerLiteral">317</FONT>;
+<A NAME="36"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> COLOR_MAP = <FONT ID="IntegerLiteral">320</FONT>;
+<A NAME="37"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> TILE_WIDTH = <FONT ID="IntegerLiteral">322</FONT>;
+<A NAME="38"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> SAMPLE_FORMAT = <FONT ID="IntegerLiteral">339</FONT>;
+<A NAME="39"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> JPEG_TABLES = <FONT ID="IntegerLiteral">347</FONT>;
+<A NAME="40"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> METAMORPH1 = <FONT ID="IntegerLiteral">33628</FONT>;
+<A NAME="41"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> METAMORPH2 = <FONT ID="IntegerLiteral">33629</FONT>;
+<A NAME="42"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> IPLAB = <FONT ID="IntegerLiteral">34122</FONT>;
+<A NAME="43"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> NIH_IMAGE_HDR = <FONT ID="IntegerLiteral">43314</FONT>;
+<A NAME="44"></A>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> META_DATA_BYTE_COUNTS = <FONT ID="IntegerLiteral">50838</FONT>; <FONT ID="SingleLineComment">// private tag registered with Adobe
+<A NAME="45"></A></FONT>    <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> META_DATA = <FONT ID="IntegerLiteral">50839</FONT>; <FONT ID="SingleLineComment">// private tag registered with Adobe
+<A NAME="46"></A></FONT>    
+<A NAME="47"></A>    <FONT ID="SingleLineComment">//constants
+<A NAME="48"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> UNSIGNED = <FONT ID="IntegerLiteral">1</FONT>;
+<A NAME="49"></A>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> SIGNED = <FONT ID="IntegerLiteral">2</FONT>;
+<A NAME="50"></A>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> FLOATING_POINT = <FONT ID="IntegerLiteral">3</FONT>;
+<A NAME="51"></A>
+<A NAME="52"></A>    <FONT ID="SingleLineComment">//field types
+<A NAME="53"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> SHORT = <FONT ID="IntegerLiteral">3</FONT>;
+<A NAME="54"></A>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> LONG = <FONT ID="IntegerLiteral">4</FONT>;
+<A NAME="55"></A>
+<A NAME="56"></A>    <FONT ID="SingleLineComment">// metadata types
+<A NAME="57"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> MAGIC_NUMBER = <FONT ID="IntegerLiteral">0x494a494a</FONT>;  <FONT ID="SingleLineComment">// "IJIJ"
+<A NAME="58"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> INFO = <FONT ID="IntegerLiteral">0x696e666f</FONT>;  <FONT ID="SingleLineComment">// "info" (Info image property)
+<A NAME="59"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> LABELS = <FONT ID="IntegerLiteral">0x6c61626c</FONT>;  <FONT ID="SingleLineComment">// "labl" (slice labels)
+<A NAME="60"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> RANGES = <FONT ID="IntegerLiteral">0x72616e67</FONT>;  <FONT ID="SingleLineComment">// "rang" (display ranges)
+<A NAME="61"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> LUTS = <FONT ID="IntegerLiteral">0x6c757473</FONT>;    <FONT ID="SingleLineComment">// "luts" (channel LUTs)
+<A NAME="62"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> PLOT = <FONT ID="IntegerLiteral">0x706c6f74</FONT>;    <FONT ID="SingleLineComment">// "plot" (serialized plot)
+<A NAME="63"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> ROI = <FONT ID="IntegerLiteral">0x726f6920</FONT>;     <FONT ID="SingleLineComment">// "roi " (ROI)
+<A NAME="64"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> OVERLAY = <FONT ID="IntegerLiteral">0x6f766572</FONT>; <FONT ID="SingleLineComment">// "over" (overlay)
+<A NAME="65"></A></FONT>    <FONT ID="Static">static</FONT> <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> PROPERTIES = <FONT ID="IntegerLiteral">0x70726f70</FONT>; <FONT ID="SingleLineComment">// "prop" (properties)
+<A NAME="66"></A></FONT>    
+<A NAME="67"></A>    <FONT ID="Private">private</FONT> String directory;
+<A NAME="68"></A>    <FONT ID="Private">private</FONT> String name;
+<A NAME="69"></A>    <FONT ID="Private">private</FONT> String url;
+<A NAME="70"></A>    <FONT ID="Protected">protected</FONT> <A HREF="../../ij/io/RandomAccessStream.java.html">RandomAccessStream</A> in;
+<A NAME="71"></A>    <FONT ID="Protected">protected</FONT> <FONT ID="Boolean">boolean</FONT> debugMode;
+<A NAME="72"></A>    <FONT ID="Private">private</FONT> <FONT ID="Boolean">boolean</FONT> littleEndian;
+<A NAME="73"></A>    <FONT ID="Private">private</FONT> String dInfo;
+<A NAME="74"></A>    <FONT ID="Private">private</FONT> <FONT ID="Int">int</FONT> ifdCount;
+<A NAME="75"></A>    <FONT ID="Private">private</FONT> <FONT ID="Int">int</FONT>[] metaDataCounts;
+<A NAME="76"></A>    <FONT ID="Private">private</FONT> String tiffMetadata;
+<A NAME="77"></A>    <FONT ID="Private">private</FONT> <FONT ID="Int">int</FONT> photoInterp;
+<A NAME="78"></A>        
+<A NAME="79"></A>    <FONT ID="Public">public</FONT> TiffDecoder(String directory, String name) {
+<A NAME="80"></A>        <FONT ID="If">if</FONT> (directory==<FONT ID="Null">null</FONT>)
+<A NAME="81"></A>            directory = <FONT ID="StringLiteral">""</FONT>;
+<A NAME="82"></A>        directory = IJ.addSeparator(directory);
+<A NAME="83"></A>        <FONT ID="This">this</FONT>.directory = directory;
+<A NAME="84"></A>        <FONT ID="This">this</FONT>.name = name;
+<A NAME="85"></A>    }
+<A NAME="86"></A>
+<A NAME="87"></A>    <FONT ID="Public">public</FONT> TiffDecoder(InputStream in, String name) {
+<A NAME="88"></A>        directory = <FONT ID="StringLiteral">""</FONT>;
+<A NAME="89"></A>        <FONT ID="This">this</FONT>.name = name;
+<A NAME="90"></A>        url = <FONT ID="StringLiteral">""</FONT>;
+<A NAME="91"></A>        <FONT ID="This">this</FONT>.in = <FONT ID="New">new</FONT> <A HREF="../../ij/io/RandomAccessStream.java.html">RandomAccessStream</A>(in);
+<A NAME="92"></A>    }
+<A NAME="93"></A>
+<A NAME="94"></A>    <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> getInt() <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="95"></A>        <FONT ID="Int">int</FONT> b1 = in.read();
+<A NAME="96"></A>        <FONT ID="Int">int</FONT> b2 = in.read();
+<A NAME="97"></A>        <FONT ID="Int">int</FONT> b3 = in.read();
+<A NAME="98"></A>        <FONT ID="Int">int</FONT> b4 = in.read();
+<A NAME="99"></A>        <FONT ID="If">if</FONT> (littleEndian)
+<A NAME="100"></A>            <FONT ID="Return">return</FONT> ((b4 &lt;&lt; <FONT ID="IntegerLiteral">24</FONT>) + (b3 &lt;&lt; <FONT ID="IntegerLiteral">16</FONT>) + (b2 &lt;&lt; <FONT ID="IntegerLiteral">8</FONT>) + (b1 &lt;&lt; <FONT ID="IntegerLiteral">0</FONT>));
+<A NAME="101"></A>        <FONT ID="Else">else</FONT>
+<A NAME="102"></A>            <FONT ID="Return">return</FONT> ((b1 &lt;&lt; <FONT ID="IntegerLiteral">24</FONT>) + (b2 &lt;&lt; <FONT ID="IntegerLiteral">16</FONT>) + (b3 &lt;&lt; <FONT ID="IntegerLiteral">8</FONT>) + b4);
+<A NAME="103"></A>    }
+<A NAME="104"></A>    
+<A NAME="105"></A>    <FONT ID="Final">final</FONT> <FONT ID="Long">long</FONT> getUnsignedInt() <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="106"></A>        <FONT ID="Return">return</FONT> (<FONT ID="Long">long</FONT>)getInt()&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>;
+<A NAME="107"></A>    }
+<A NAME="108"></A>
+<A NAME="109"></A>    <FONT ID="Final">final</FONT> <FONT ID="Int">int</FONT> getShort() <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="110"></A>        <FONT ID="Int">int</FONT> b1 = in.read();
+<A NAME="111"></A>        <FONT ID="Int">int</FONT> b2 = in.read();
+<A NAME="112"></A>        <FONT ID="If">if</FONT> (littleEndian)
+<A NAME="113"></A>            <FONT ID="Return">return</FONT> ((b2&lt;&lt;<FONT ID="IntegerLiteral">8</FONT>) + b1);
+<A NAME="114"></A>        <FONT ID="Else">else</FONT>
+<A NAME="115"></A>            <FONT ID="Return">return</FONT> ((b1&lt;&lt;<FONT ID="IntegerLiteral">8</FONT>) + b2);
+<A NAME="116"></A>    }
+<A NAME="117"></A>
+<A NAME="118"></A>    <FONT ID="Final">final</FONT> <FONT ID="Long">long</FONT> readLong() <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="119"></A>        <FONT ID="If">if</FONT> (littleEndian)
+<A NAME="120"></A>            <FONT ID="Return">return</FONT> ((<FONT ID="Long">long</FONT>)getInt()&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>) + ((<FONT ID="Long">long</FONT>)getInt()&lt;&lt;<FONT ID="IntegerLiteral">32</FONT>);
+<A NAME="121"></A>        <FONT ID="Else">else</FONT>
+<A NAME="122"></A>            <FONT ID="Return">return</FONT> ((<FONT ID="Long">long</FONT>)getInt()&lt;&lt;<FONT ID="IntegerLiteral">32</FONT>) + ((<FONT ID="Long">long</FONT>)getInt()&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>);
+<A NAME="123"></A>            <FONT ID="SingleLineComment">//return in.read()+(in.read()&lt;&lt;8)+(in.read()&lt;&lt;16)+(in.read()&lt;&lt;24)+(in.read()&lt;&lt;32)+(in.read()&lt;&lt;40)+(in.read()&lt;&lt;48)+(in.read()&lt;&lt;56);
+<A NAME="124"></A></FONT>    }
+<A NAME="125"></A>
+<A NAME="126"></A>    <FONT ID="Final">final</FONT> <FONT ID="Double">double</FONT> readDouble() <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="127"></A>        <FONT ID="Return">return</FONT> Double.longBitsToDouble(readLong());
+<A NAME="128"></A>    }
+<A NAME="129"></A>
+<A NAME="130"></A>    <FONT ID="Long">long</FONT> OpenImageFileHeader() <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="131"></A>    <FONT ID="SingleLineComment">// Open 8-byte Image File Header at start of file.
+<A NAME="132"></A></FONT>    <FONT ID="SingleLineComment">// Returns the offset in bytes to the first IFD or -1
+<A NAME="133"></A></FONT>    <FONT ID="SingleLineComment">// if this is not a valid tiff file.
+<A NAME="134"></A></FONT>        <FONT ID="Int">int</FONT> byteOrder = in.readShort();
+<A NAME="135"></A>        <FONT ID="If">if</FONT> (byteOrder==<FONT ID="IntegerLiteral">0x4949</FONT>) <FONT ID="SingleLineComment">// "II"
+<A NAME="136"></A></FONT>            littleEndian = <FONT ID="True">true</FONT>;
+<A NAME="137"></A>        <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (byteOrder==<FONT ID="IntegerLiteral">0x4d4d</FONT>) <FONT ID="SingleLineComment">// "MM"
+<A NAME="138"></A></FONT>            littleEndian = <FONT ID="False">false</FONT>;
+<A NAME="139"></A>        <FONT ID="Else">else</FONT> {
+<A NAME="140"></A>            in.close();
+<A NAME="141"></A>            <FONT ID="Return">return</FONT> -<FONT ID="IntegerLiteral">1</FONT>;
+<A NAME="142"></A>        }
+<A NAME="143"></A>        <FONT ID="Int">int</FONT> magicNumber = getShort(); <FONT ID="SingleLineComment">// 42
+<A NAME="144"></A></FONT>        <FONT ID="Long">long</FONT> offset = ((<FONT ID="Long">long</FONT>)getInt())&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>;
+<A NAME="145"></A>        <FONT ID="Return">return</FONT> offset;
+<A NAME="146"></A>    }
+<A NAME="147"></A>        
+<A NAME="148"></A>    <FONT ID="Int">int</FONT> getValue(<FONT ID="Int">int</FONT> fieldType, <FONT ID="Int">int</FONT> count) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="149"></A>        <FONT ID="Int">int</FONT> value = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="150"></A>        <FONT ID="Int">int</FONT> unused;
+<A NAME="151"></A>        <FONT ID="If">if</FONT> (fieldType==SHORT &amp;&amp; count==<FONT ID="IntegerLiteral">1</FONT>) {
+<A NAME="152"></A>            value = getShort();
+<A NAME="153"></A>            unused = getShort();
+<A NAME="154"></A>        } <FONT ID="Else">else</FONT>
+<A NAME="155"></A>            value = getInt();
+<A NAME="156"></A>        <FONT ID="Return">return</FONT> value;
+<A NAME="157"></A>    }   
+<A NAME="158"></A>    
+<A NAME="159"></A>    <FONT ID="Void">void</FONT> getColorMap(<FONT ID="Long">long</FONT> offset, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="160"></A>        <FONT ID="Byte">byte</FONT>[] colorTable16 = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[<FONT ID="IntegerLiteral">768</FONT>*<FONT ID="IntegerLiteral">2</FONT>];
+<A NAME="161"></A>        <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="162"></A>        in.seek(offset);
+<A NAME="163"></A>        in.readFully(colorTable16);
+<A NAME="164"></A>        in.seek(saveLoc);
+<A NAME="165"></A>        fi.lutSize = <FONT ID="IntegerLiteral">256</FONT>;
+<A NAME="166"></A>        fi.reds = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[<FONT ID="IntegerLiteral">256</FONT>];
+<A NAME="167"></A>        fi.greens = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[<FONT ID="IntegerLiteral">256</FONT>];
+<A NAME="168"></A>        fi.blues = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[<FONT ID="IntegerLiteral">256</FONT>];
+<A NAME="169"></A>        <FONT ID="Int">int</FONT> j = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="170"></A>        <FONT ID="If">if</FONT> (littleEndian) j++;
+<A NAME="171"></A>        <FONT ID="Int">int</FONT> sum = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="172"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=<FONT ID="IntegerLiteral">0</FONT>; i&lt;<FONT ID="IntegerLiteral">256</FONT>; i++) {
+<A NAME="173"></A>            fi.reds[i] = colorTable16[j];
+<A NAME="174"></A>            sum += fi.reds[i];
+<A NAME="175"></A>            fi.greens[i] = colorTable16[<FONT ID="IntegerLiteral">512</FONT>+j];
+<A NAME="176"></A>            sum += fi.greens[i];
+<A NAME="177"></A>            fi.blues[i] = colorTable16[<FONT ID="IntegerLiteral">1024</FONT>+j];
+<A NAME="178"></A>            sum += fi.blues[i];
+<A NAME="179"></A>            j += <FONT ID="IntegerLiteral">2</FONT>;
+<A NAME="180"></A>        }
+<A NAME="181"></A>        <FONT ID="If">if</FONT> (sum!=<FONT ID="IntegerLiteral">0</FONT> &amp;&amp; fi.fileType==FileInfo.GRAY8)
+<A NAME="182"></A>            fi.fileType = FileInfo.COLOR8;
+<A NAME="183"></A>    }
+<A NAME="184"></A>    
+<A NAME="185"></A>    <FONT ID="Byte">byte</FONT>[] getString(<FONT ID="Int">int</FONT> count, <FONT ID="Long">long</FONT> offset) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="186"></A>        count--; <FONT ID="SingleLineComment">// skip null byte at end of string
+<A NAME="187"></A></FONT>        <FONT ID="If">if</FONT> (count&lt;=<FONT ID="IntegerLiteral">3</FONT>)
+<A NAME="188"></A>            <FONT ID="Return">return</FONT> <FONT ID="Null">null</FONT>;
+<A NAME="189"></A>        <FONT ID="Byte">byte</FONT>[] bytes = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[count];
+<A NAME="190"></A>        <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="191"></A>        in.seek(offset);
+<A NAME="192"></A>        in.readFully(bytes);
+<A NAME="193"></A>        in.seek(saveLoc);
+<A NAME="194"></A>        <FONT ID="Return">return</FONT> bytes;
+<A NAME="195"></A>    }
+<A NAME="196"></A>
+<A NAME="197"></A>    <FONT ID="FormalComment">/** Save the image description in the specified FileInfo. ImageJ
+<A NAME="198"></A>        saves spatial and density calibration data in this string. For
+<A NAME="199"></A>        stacks, it also saves the number of images to avoid having to
+<A NAME="200"></A>        decode an IFD for each image. */</FONT>
+<A NAME="201"></A>    <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> saveImageDescription(<FONT ID="Byte">byte</FONT>[] description, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) {
+<A NAME="202"></A>        String id = <FONT ID="New">new</FONT> String(description);
+<A NAME="203"></A>        <FONT ID="Boolean">boolean</FONT> createdByImageJ = id.startsWith(<FONT ID="StringLiteral">"ImageJ"</FONT>);
+<A NAME="204"></A>        <FONT ID="If">if</FONT> (!createdByImageJ)
+<A NAME="205"></A>            saveMetadata(getName(IMAGE_DESCRIPTION), id);
+<A NAME="206"></A>        <FONT ID="If">if</FONT> (id.length()&lt;<FONT ID="IntegerLiteral">7</FONT>) <FONT ID="Return">return</FONT>;
+<A NAME="207"></A>        fi.description = id;
+<A NAME="208"></A>        <FONT ID="Int">int</FONT> index1 = id.indexOf(<FONT ID="StringLiteral">"images="</FONT>);
+<A NAME="209"></A>        <FONT ID="If">if</FONT> (index1&gt;<FONT ID="IntegerLiteral">0</FONT> &amp;&amp; createdByImageJ &amp;&amp; id.charAt(<FONT ID="IntegerLiteral">7</FONT>)!=<FONT ID="CharacerLiteral">'\n'</FONT>) {
+<A NAME="210"></A>            <FONT ID="Int">int</FONT> index2 = id.indexOf(<FONT ID="StringLiteral">"\n"</FONT>, index1);
+<A NAME="211"></A>            <FONT ID="If">if</FONT> (index2&gt;<FONT ID="IntegerLiteral">0</FONT>) {
+<A NAME="212"></A>                String images = id.substring(index1+<FONT ID="IntegerLiteral">7</FONT>,index2);
+<A NAME="213"></A>                <FONT ID="Int">int</FONT> n = (<FONT ID="Int">int</FONT>)Tools.parseDouble(images, <FONT ID="FloatPointLiteral">0.0</FONT>);
+<A NAME="214"></A>                <FONT ID="If">if</FONT> (n&gt;<FONT ID="IntegerLiteral">1</FONT> &amp;&amp; fi.compression==FileInfo.COMPRESSION_NONE)
+<A NAME="215"></A>                    fi.nImages = n;
+<A NAME="216"></A>            }
+<A NAME="217"></A>        }
+<A NAME="218"></A>    }
+<A NAME="219"></A>
+<A NAME="220"></A>    <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> saveMetadata(String name, String data) {
+<A NAME="221"></A>        <FONT ID="If">if</FONT> (data==<FONT ID="Null">null</FONT>) <FONT ID="Return">return</FONT>;
+<A NAME="222"></A>        String str = name+<FONT ID="StringLiteral">": "</FONT>+data+<FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="223"></A>        <FONT ID="If">if</FONT> (tiffMetadata==<FONT ID="Null">null</FONT>)
+<A NAME="224"></A>            tiffMetadata = str;
+<A NAME="225"></A>        <FONT ID="Else">else</FONT>
+<A NAME="226"></A>            tiffMetadata += str;
+<A NAME="227"></A>    }
+<A NAME="228"></A>
+<A NAME="229"></A>    <FONT ID="Void">void</FONT> decodeNIHImageHeader(<FONT ID="Int">int</FONT> offset, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="230"></A>        <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="231"></A>        
+<A NAME="232"></A>        in.seek(offset+<FONT ID="IntegerLiteral">12</FONT>);
+<A NAME="233"></A>        <FONT ID="Int">int</FONT> version = in.readShort();
+<A NAME="234"></A>        
+<A NAME="235"></A>        in.seek(offset+<FONT ID="IntegerLiteral">160</FONT>);
+<A NAME="236"></A>        <FONT ID="Double">double</FONT> scale = in.readDouble();
+<A NAME="237"></A>        <FONT ID="If">if</FONT> (version&gt;<FONT ID="IntegerLiteral">106</FONT> &amp;&amp; scale!=<FONT ID="FloatPointLiteral">0.0</FONT>) {
+<A NAME="238"></A>            fi.pixelWidth = <FONT ID="FloatPointLiteral">1.0</FONT>/scale;
+<A NAME="239"></A>            fi.pixelHeight = fi.pixelWidth;
+<A NAME="240"></A>        } 
+<A NAME="241"></A>
+<A NAME="242"></A>        <FONT ID="SingleLineComment">// spatial calibration
+<A NAME="243"></A></FONT>        in.seek(offset+<FONT ID="IntegerLiteral">172</FONT>);
+<A NAME="244"></A>        <FONT ID="Int">int</FONT> units = in.readShort();
+<A NAME="245"></A>        <FONT ID="If">if</FONT> (version&lt;=<FONT ID="IntegerLiteral">153</FONT>) units += <FONT ID="IntegerLiteral">5</FONT>;
+<A NAME="246"></A>        <FONT ID="Switch">switch</FONT> (units) {
+<A NAME="247"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">5</FONT>: fi.unit = <FONT ID="StringLiteral">"nanometer"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="248"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">6</FONT>: fi.unit = <FONT ID="StringLiteral">"micrometer"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="249"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">7</FONT>: fi.unit = <FONT ID="StringLiteral">"mm"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="250"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">8</FONT>: fi.unit = <FONT ID="StringLiteral">"cm"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="251"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">9</FONT>: fi.unit = <FONT ID="StringLiteral">"meter"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="252"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">10</FONT>: fi.unit = <FONT ID="StringLiteral">"km"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="253"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">11</FONT>: fi.unit = <FONT ID="StringLiteral">"inch"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="254"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">12</FONT>: fi.unit = <FONT ID="StringLiteral">"ft"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="255"></A>            <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">13</FONT>: fi.unit = <FONT ID="StringLiteral">"mi"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="256"></A>        }
+<A NAME="257"></A>
+<A NAME="258"></A>        <FONT ID="SingleLineComment">// density calibration
+<A NAME="259"></A></FONT>        in.seek(offset+<FONT ID="IntegerLiteral">182</FONT>);
+<A NAME="260"></A>        <FONT ID="Int">int</FONT> fitType = in.read();
+<A NAME="261"></A>        <FONT ID="Int">int</FONT> unused = in.read();
+<A NAME="262"></A>        <FONT ID="Int">int</FONT> nCoefficients = in.readShort();
+<A NAME="263"></A>        <FONT ID="If">if</FONT> (fitType==<FONT ID="IntegerLiteral">11</FONT>) {
+<A NAME="264"></A>            fi.calibrationFunction = <FONT ID="IntegerLiteral">21</FONT>; <FONT ID="SingleLineComment">//Calibration.UNCALIBRATED_OD
+<A NAME="265"></A></FONT>            fi.valueUnit = <FONT ID="StringLiteral">"U. OD"</FONT>;
+<A NAME="266"></A>        } <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (fitType&gt;=<FONT ID="IntegerLiteral">0</FONT> &amp;&amp; fitType&lt;=<FONT ID="IntegerLiteral">8</FONT> &amp;&amp; nCoefficients&gt;=<FONT ID="IntegerLiteral">1</FONT> &amp;&amp; nCoefficients&lt;=<FONT ID="IntegerLiteral">5</FONT>) {
+<A NAME="267"></A>            <FONT ID="Switch">switch</FONT> (fitType) {
+<A NAME="268"></A>                <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">0</FONT>: fi.calibrationFunction = <FONT ID="IntegerLiteral">0</FONT>; <FONT ID="Break">break</FONT>; <FONT ID="SingleLineComment">//Calibration.STRAIGHT_LINE
+<A NAME="269"></A></FONT>                <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">1</FONT>: fi.calibrationFunction = <FONT ID="IntegerLiteral">1</FONT>; <FONT ID="Break">break</FONT>; <FONT ID="SingleLineComment">//Calibration.POLY2
+<A NAME="270"></A></FONT>                <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">2</FONT>: fi.calibrationFunction = <FONT ID="IntegerLiteral">2</FONT>; <FONT ID="Break">break</FONT>; <FONT ID="SingleLineComment">//Calibration.POLY3
+<A NAME="271"></A></FONT>                <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">3</FONT>: fi.calibrationFunction = <FONT ID="IntegerLiteral">3</FONT>; <FONT ID="Break">break</FONT>; <FONT ID="SingleLineComment">//Calibration.POLY4
+<A NAME="272"></A></FONT>                <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">5</FONT>: fi.calibrationFunction = <FONT ID="IntegerLiteral">4</FONT>; <FONT ID="Break">break</FONT>; <FONT ID="SingleLineComment">//Calibration.EXPONENTIAL
+<A NAME="273"></A></FONT>                <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">6</FONT>: fi.calibrationFunction = <FONT ID="IntegerLiteral">5</FONT>; <FONT ID="Break">break</FONT>; <FONT ID="SingleLineComment">//Calibration.POWER
+<A NAME="274"></A></FONT>                <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">7</FONT>: fi.calibrationFunction = <FONT ID="IntegerLiteral">6</FONT>; <FONT ID="Break">break</FONT>; <FONT ID="SingleLineComment">//Calibration.LOG
+<A NAME="275"></A></FONT>                <FONT ID="Case">case</FONT> <FONT ID="IntegerLiteral">8</FONT>: fi.calibrationFunction = <FONT ID="IntegerLiteral">10</FONT>; <FONT ID="Break">break</FONT>; <FONT ID="SingleLineComment">//Calibration.RODBARD2 (NIH Image)
+<A NAME="276"></A></FONT>            }
+<A NAME="277"></A>            fi.coefficients = <FONT ID="New">new</FONT> <FONT ID="Double">double</FONT>[nCoefficients];
+<A NAME="278"></A>            <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=<FONT ID="IntegerLiteral">0</FONT>; i&lt;nCoefficients; i++) {
+<A NAME="279"></A>                fi.coefficients[i] = in.readDouble();
+<A NAME="280"></A>            }
+<A NAME="281"></A>            in.seek(offset+<FONT ID="IntegerLiteral">234</FONT>);
+<A NAME="282"></A>            <FONT ID="Int">int</FONT> size = in.read();
+<A NAME="283"></A>            StringBuffer sb = <FONT ID="New">new</FONT> StringBuffer();
+<A NAME="284"></A>            <FONT ID="If">if</FONT> (size&gt;=<FONT ID="IntegerLiteral">1</FONT> &amp;&amp; size&lt;=<FONT ID="IntegerLiteral">16</FONT>) {
+<A NAME="285"></A>                <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=<FONT ID="IntegerLiteral">0</FONT>; i&lt;size; i++)
+<A NAME="286"></A>                    sb.append((<FONT ID="Char">char</FONT>)(in.read()));
+<A NAME="287"></A>                fi.valueUnit = <FONT ID="New">new</FONT> String(sb);
+<A NAME="288"></A>            } <FONT ID="Else">else</FONT>
+<A NAME="289"></A>                fi.valueUnit = <FONT ID="StringLiteral">" "</FONT>;
+<A NAME="290"></A>        }
+<A NAME="291"></A>            
+<A NAME="292"></A>        in.seek(offset+<FONT ID="IntegerLiteral">260</FONT>);
+<A NAME="293"></A>        <FONT ID="Int">int</FONT> nImages = in.readShort();
+<A NAME="294"></A>        <FONT ID="If">if</FONT> (nImages&gt;=<FONT ID="IntegerLiteral">2</FONT> &amp;&amp; (fi.fileType==FileInfo.GRAY8||fi.fileType==FileInfo.COLOR8)) {
+<A NAME="295"></A>            fi.nImages = nImages;
+<A NAME="296"></A>            fi.pixelDepth = in.readFloat(); <FONT ID="SingleLineComment">//SliceSpacing
+<A NAME="297"></A></FONT>            <FONT ID="Int">int</FONT> skip = in.readShort();      <FONT ID="SingleLineComment">//CurrentSlice
+<A NAME="298"></A></FONT>            fi.frameInterval = in.readFloat();
+<A NAME="299"></A>        }
+<A NAME="300"></A>            
+<A NAME="301"></A>        in.seek(offset+<FONT ID="IntegerLiteral">272</FONT>);
+<A NAME="302"></A>        <FONT ID="Float">float</FONT> aspectRatio = in.readFloat();
+<A NAME="303"></A>        <FONT ID="If">if</FONT> (version&gt;<FONT ID="IntegerLiteral">140</FONT> &amp;&amp; aspectRatio!=<FONT ID="FloatPointLiteral">0.0</FONT>)
+<A NAME="304"></A>            fi.pixelHeight = fi.pixelWidth/aspectRatio;
+<A NAME="305"></A>        
+<A NAME="306"></A>        in.seek(saveLoc);
+<A NAME="307"></A>    }
+<A NAME="308"></A>    
+<A NAME="309"></A>    <FONT ID="Void">void</FONT> dumpTag(<FONT ID="Int">int</FONT> tag, <FONT ID="Int">int</FONT> count, <FONT ID="Int">int</FONT> value, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) {
+<A NAME="310"></A>        <FONT ID="Long">long</FONT> lvalue = ((<FONT ID="Long">long</FONT>)value)&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>;
+<A NAME="311"></A>        String name = getName(tag);
+<A NAME="312"></A>        String cs = (count==<FONT ID="IntegerLiteral">1</FONT>)?<FONT ID="StringLiteral">""</FONT>:<FONT ID="StringLiteral">", count="</FONT> + count;
+<A NAME="313"></A>        dInfo += <FONT ID="StringLiteral">"    "</FONT> + tag + <FONT ID="StringLiteral">", \""</FONT> + name + <FONT ID="StringLiteral">"\", value="</FONT> + lvalue + cs + <FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="314"></A>        <FONT ID="SingleLineComment">//ij.IJ.log(tag + ", \"" + name + "\", value=" + value + cs + "\n");
+<A NAME="315"></A></FONT>    }
+<A NAME="316"></A>
+<A NAME="317"></A>    String getName(<FONT ID="Int">int</FONT> tag) {
+<A NAME="318"></A>        String name;
+<A NAME="319"></A>        <FONT ID="Switch">switch</FONT> (tag) {
+<A NAME="320"></A>            <FONT ID="Case">case</FONT> NEW_SUBFILE_TYPE: name=<FONT ID="StringLiteral">"NewSubfileType"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="321"></A>            <FONT ID="Case">case</FONT> IMAGE_WIDTH: name=<FONT ID="StringLiteral">"ImageWidth"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="322"></A>            <FONT ID="Case">case</FONT> IMAGE_LENGTH: name=<FONT ID="StringLiteral">"ImageLength"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="323"></A>            <FONT ID="Case">case</FONT> STRIP_OFFSETS: name=<FONT ID="StringLiteral">"StripOffsets"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="324"></A>            <FONT ID="Case">case</FONT> ORIENTATION: name=<FONT ID="StringLiteral">"Orientation"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="325"></A>            <FONT ID="Case">case</FONT> PHOTO_INTERP: name=<FONT ID="StringLiteral">"PhotoInterp"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="326"></A>            <FONT ID="Case">case</FONT> IMAGE_DESCRIPTION: name=<FONT ID="StringLiteral">"ImageDescription"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="327"></A>            <FONT ID="Case">case</FONT> BITS_PER_SAMPLE: name=<FONT ID="StringLiteral">"BitsPerSample"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="328"></A>            <FONT ID="Case">case</FONT> SAMPLES_PER_PIXEL: name=<FONT ID="StringLiteral">"SamplesPerPixel"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="329"></A>            <FONT ID="Case">case</FONT> ROWS_PER_STRIP: name=<FONT ID="StringLiteral">"RowsPerStrip"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="330"></A>            <FONT ID="Case">case</FONT> STRIP_BYTE_COUNT: name=<FONT ID="StringLiteral">"StripByteCount"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="331"></A>            <FONT ID="Case">case</FONT> X_RESOLUTION: name=<FONT ID="StringLiteral">"XResolution"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="332"></A>            <FONT ID="Case">case</FONT> Y_RESOLUTION: name=<FONT ID="StringLiteral">"YResolution"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="333"></A>            <FONT ID="Case">case</FONT> RESOLUTION_UNIT: name=<FONT ID="StringLiteral">"ResolutionUnit"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="334"></A>            <FONT ID="Case">case</FONT> SOFTWARE: name=<FONT ID="StringLiteral">"Software"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="335"></A>            <FONT ID="Case">case</FONT> DATE_TIME: name=<FONT ID="StringLiteral">"DateTime"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="336"></A>            <FONT ID="Case">case</FONT> ARTIST: name=<FONT ID="StringLiteral">"Artist"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="337"></A>            <FONT ID="Case">case</FONT> HOST_COMPUTER: name=<FONT ID="StringLiteral">"HostComputer"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="338"></A>            <FONT ID="Case">case</FONT> PLANAR_CONFIGURATION: name=<FONT ID="StringLiteral">"PlanarConfiguration"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="339"></A>            <FONT ID="Case">case</FONT> COMPRESSION: name=<FONT ID="StringLiteral">"Compression"</FONT>; <FONT ID="Break">break</FONT>; 
+<A NAME="340"></A>            <FONT ID="Case">case</FONT> PREDICTOR: name=<FONT ID="StringLiteral">"Predictor"</FONT>; <FONT ID="Break">break</FONT>; 
+<A NAME="341"></A>            <FONT ID="Case">case</FONT> COLOR_MAP: name=<FONT ID="StringLiteral">"ColorMap"</FONT>; <FONT ID="Break">break</FONT>; 
+<A NAME="342"></A>            <FONT ID="Case">case</FONT> SAMPLE_FORMAT: name=<FONT ID="StringLiteral">"SampleFormat"</FONT>; <FONT ID="Break">break</FONT>; 
+<A NAME="343"></A>            <FONT ID="Case">case</FONT> JPEG_TABLES: name=<FONT ID="StringLiteral">"JPEGTables"</FONT>; <FONT ID="Break">break</FONT>; 
+<A NAME="344"></A>            <FONT ID="Case">case</FONT> NIH_IMAGE_HDR: name=<FONT ID="StringLiteral">"NIHImageHeader"</FONT>; <FONT ID="Break">break</FONT>; 
+<A NAME="345"></A>            <FONT ID="Case">case</FONT> META_DATA_BYTE_COUNTS: name=<FONT ID="StringLiteral">"MetaDataByteCounts"</FONT>; <FONT ID="Break">break</FONT>; 
+<A NAME="346"></A>            <FONT ID="Case">case</FONT> META_DATA: name=<FONT ID="StringLiteral">"MetaData"</FONT>; <FONT ID="Break">break</FONT>; 
+<A NAME="347"></A>            <FONT ID="Default">default</FONT>: name=<FONT ID="StringLiteral">"???"</FONT>; <FONT ID="Break">break</FONT>;
+<A NAME="348"></A>        }
+<A NAME="349"></A>        <FONT ID="Return">return</FONT> name;
+<A NAME="350"></A>    }
+<A NAME="351"></A>
+<A NAME="352"></A>    <FONT ID="Double">double</FONT> getRational(<FONT ID="Long">long</FONT> loc) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="353"></A>        <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="354"></A>        in.seek(loc);
+<A NAME="355"></A>        <FONT ID="Double">double</FONT> numerator = getUnsignedInt();
+<A NAME="356"></A>        <FONT ID="Double">double</FONT> denominator = getUnsignedInt();
+<A NAME="357"></A>        in.seek(saveLoc);
+<A NAME="358"></A>        <FONT ID="If">if</FONT> (denominator!=<FONT ID="FloatPointLiteral">0.0</FONT>)
+<A NAME="359"></A>            <FONT ID="Return">return</FONT> numerator/denominator;
+<A NAME="360"></A>        <FONT ID="Else">else</FONT>
+<A NAME="361"></A>            <FONT ID="Return">return</FONT> <FONT ID="FloatPointLiteral">0.0</FONT>;
+<A NAME="362"></A>    }
+<A NAME="363"></A>    
+<A NAME="364"></A>    <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> OpenIFD() <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="365"></A>    <FONT ID="SingleLineComment">// Get Image File Directory data
+<A NAME="366"></A></FONT>        <FONT ID="Int">int</FONT> tag, fieldType, count, value;
+<A NAME="367"></A>        <FONT ID="Int">int</FONT> nEntries = getShort();
+<A NAME="368"></A>        <FONT ID="If">if</FONT> (nEntries&lt;<FONT ID="IntegerLiteral">1</FONT> || nEntries&gt;<FONT ID="IntegerLiteral">1000</FONT>)
+<A NAME="369"></A>            <FONT ID="Return">return</FONT> <FONT ID="Null">null</FONT>;
+<A NAME="370"></A>        ifdCount++;
+<A NAME="371"></A>        <FONT ID="If">if</FONT> ((ifdCount%<FONT ID="IntegerLiteral">50</FONT>)==<FONT ID="IntegerLiteral">0</FONT> &amp;&amp; ifdCount&gt;<FONT ID="IntegerLiteral">0</FONT>)
+<A NAME="372"></A>            ij.IJ.showStatus(<FONT ID="StringLiteral">"Opening IFDs: "</FONT>+ifdCount);
+<A NAME="373"></A>        <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi = <FONT ID="New">new</FONT> <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A>();
+<A NAME="374"></A>        fi.fileType = FileInfo.BITMAP;  <FONT ID="SingleLineComment">//BitsPerSample defaults to 1
+<A NAME="375"></A></FONT>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=<FONT ID="IntegerLiteral">0</FONT>; i&lt;nEntries; i++) {
+<A NAME="376"></A>            tag = getShort();
+<A NAME="377"></A>            fieldType = getShort();
+<A NAME="378"></A>            count = getInt();
+<A NAME="379"></A>            value = getValue(fieldType, count);
+<A NAME="380"></A>            <FONT ID="Long">long</FONT> lvalue = ((<FONT ID="Long">long</FONT>)value)&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>;
+<A NAME="381"></A>            <FONT ID="If">if</FONT> (debugMode &amp;&amp; ifdCount&lt;<FONT ID="IntegerLiteral">10</FONT>) dumpTag(tag, count, value, fi);
+<A NAME="382"></A>            <FONT ID="Switch">switch</FONT> (tag) {
+<A NAME="383"></A>                <FONT ID="Case">case</FONT> IMAGE_WIDTH: 
+<A NAME="384"></A>                    fi.width = value;
+<A NAME="385"></A>                    fi.intelByteOrder = littleEndian;
+<A NAME="386"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="387"></A>                <FONT ID="Case">case</FONT> IMAGE_LENGTH: 
+<A NAME="388"></A>                    fi.height = value;
+<A NAME="389"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="390"></A>                <FONT ID="Case">case</FONT> STRIP_OFFSETS:
+<A NAME="391"></A>                    <FONT ID="If">if</FONT> (count==<FONT ID="IntegerLiteral">1</FONT>)
+<A NAME="392"></A>                        fi.stripOffsets = <FONT ID="New">new</FONT> <FONT ID="Int">int</FONT>[] {value};
+<A NAME="393"></A>                    <FONT ID="Else">else</FONT> {
+<A NAME="394"></A>                        <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="395"></A>                        in.seek(lvalue);
+<A NAME="396"></A>                        fi.stripOffsets = <FONT ID="New">new</FONT> <FONT ID="Int">int</FONT>[count];
+<A NAME="397"></A>                        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> c=<FONT ID="IntegerLiteral">0</FONT>; c&lt;count; c++)
+<A NAME="398"></A>                            fi.stripOffsets[c] = getInt();
+<A NAME="399"></A>                        in.seek(saveLoc);
+<A NAME="400"></A>                    }
+<A NAME="401"></A>                    fi.offset = count&gt;<FONT ID="IntegerLiteral">0</FONT>?fi.stripOffsets[<FONT ID="IntegerLiteral">0</FONT>]:value;
+<A NAME="402"></A>                    <FONT ID="If">if</FONT> (count&gt;<FONT ID="IntegerLiteral">1</FONT> &amp;&amp; (((<FONT ID="Long">long</FONT>)fi.stripOffsets[count-<FONT ID="IntegerLiteral">1</FONT>])&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>)&lt;(((<FONT ID="Long">long</FONT>)fi.stripOffsets[<FONT ID="IntegerLiteral">0</FONT>])&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>))
+<A NAME="403"></A>                        fi.offset = fi.stripOffsets[count-<FONT ID="IntegerLiteral">1</FONT>];
+<A NAME="404"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="405"></A>                <FONT ID="Case">case</FONT> STRIP_BYTE_COUNT:
+<A NAME="406"></A>                    <FONT ID="If">if</FONT> (count==<FONT ID="IntegerLiteral">1</FONT>)
+<A NAME="407"></A>                        fi.stripLengths = <FONT ID="New">new</FONT> <FONT ID="Int">int</FONT>[] {value};
+<A NAME="408"></A>                    <FONT ID="Else">else</FONT> {
+<A NAME="409"></A>                        <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="410"></A>                        in.seek(lvalue);
+<A NAME="411"></A>                        fi.stripLengths = <FONT ID="New">new</FONT> <FONT ID="Int">int</FONT>[count];
+<A NAME="412"></A>                        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> c=<FONT ID="IntegerLiteral">0</FONT>; c&lt;count; c++) {
+<A NAME="413"></A>                            <FONT ID="If">if</FONT> (fieldType==SHORT)
+<A NAME="414"></A>                                fi.stripLengths[c] = getShort();
+<A NAME="415"></A>                            <FONT ID="Else">else</FONT>
+<A NAME="416"></A>                                fi.stripLengths[c] = getInt();
+<A NAME="417"></A>                        }
+<A NAME="418"></A>                        in.seek(saveLoc);
+<A NAME="419"></A>                    }
+<A NAME="420"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="421"></A>                <FONT ID="Case">case</FONT> PHOTO_INTERP:
+<A NAME="422"></A>                    photoInterp = value;
+<A NAME="423"></A>                    fi.whiteIsZero = value==<FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="424"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="425"></A>                <FONT ID="Case">case</FONT> BITS_PER_SAMPLE:
+<A NAME="426"></A>                        <FONT ID="If">if</FONT> (count==<FONT ID="IntegerLiteral">1</FONT>) {
+<A NAME="427"></A>                            <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">8</FONT>)
+<A NAME="428"></A>                                fi.fileType = FileInfo.GRAY8;
+<A NAME="429"></A>                            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">16</FONT>)
+<A NAME="430"></A>                                fi.fileType = FileInfo.GRAY16_UNSIGNED;
+<A NAME="431"></A>                            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">32</FONT>)
+<A NAME="432"></A>                                fi.fileType = FileInfo.GRAY32_INT;
+<A NAME="433"></A>                            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">12</FONT>)
+<A NAME="434"></A>                                fi.fileType = FileInfo.GRAY12_UNSIGNED;
+<A NAME="435"></A>                            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">10</FONT>)
+<A NAME="436"></A>                                fi.fileType = FileInfo.GRAY10_UNSIGNED;
+<A NAME="437"></A>                            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">1</FONT>)
+<A NAME="438"></A>                                fi.fileType = FileInfo.BITMAP;
+<A NAME="439"></A>                            <FONT ID="Else">else</FONT>
+<A NAME="440"></A>                                error(<FONT ID="StringLiteral">"Unsupported BitsPerSample: "</FONT> + value);
+<A NAME="441"></A>                        } <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (count&gt;<FONT ID="IntegerLiteral">1</FONT>) {
+<A NAME="442"></A>                            <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="443"></A>                            in.seek(lvalue);
+<A NAME="444"></A>                            <FONT ID="Int">int</FONT> bitDepth = getShort();
+<A NAME="445"></A>                            <FONT ID="If">if</FONT> (bitDepth==<FONT ID="IntegerLiteral">8</FONT>)
+<A NAME="446"></A>                                fi.fileType = FileInfo.GRAY8;
+<A NAME="447"></A>                            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (bitDepth==<FONT ID="IntegerLiteral">16</FONT>)
+<A NAME="448"></A>                                fi.fileType = FileInfo.GRAY16_UNSIGNED;
+<A NAME="449"></A>                            <FONT ID="Else">else</FONT>
+<A NAME="450"></A>                                error(<FONT ID="StringLiteral">"ImageJ cannot open interleaved "</FONT>+bitDepth+<FONT ID="StringLiteral">"-bit images."</FONT>);
+<A NAME="451"></A>                            in.seek(saveLoc);
+<A NAME="452"></A>                        }
+<A NAME="453"></A>                        <FONT ID="Break">break</FONT>;
+<A NAME="454"></A>                <FONT ID="Case">case</FONT> SAMPLES_PER_PIXEL:
+<A NAME="455"></A>                    fi.samplesPerPixel = value;
+<A NAME="456"></A>                    <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">3</FONT> &amp;&amp; fi.fileType==FileInfo.GRAY8)
+<A NAME="457"></A>                        fi.fileType = FileInfo.RGB;
+<A NAME="458"></A>                    <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">3</FONT> &amp;&amp; fi.fileType==FileInfo.GRAY16_UNSIGNED)
+<A NAME="459"></A>                        fi.fileType = FileInfo.RGB48;
+<A NAME="460"></A>                    <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">4</FONT> &amp;&amp; fi.fileType==FileInfo.GRAY8)
+<A NAME="461"></A>                        fi.fileType = photoInterp==<FONT ID="IntegerLiteral">5</FONT>?FileInfo.CMYK:FileInfo.ARGB;
+<A NAME="462"></A>                    <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">4</FONT> &amp;&amp; fi.fileType==FileInfo.GRAY16_UNSIGNED) {
+<A NAME="463"></A>                        fi.fileType = FileInfo.RGB48;
+<A NAME="464"></A>                        <FONT ID="If">if</FONT> (photoInterp==<FONT ID="IntegerLiteral">5</FONT>)  <FONT ID="SingleLineComment">//assume cmyk
+<A NAME="465"></A></FONT>                            fi.whiteIsZero = <FONT ID="True">true</FONT>;
+<A NAME="466"></A>                    }
+<A NAME="467"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="468"></A>                <FONT ID="Case">case</FONT> ROWS_PER_STRIP:
+<A NAME="469"></A>                    fi.rowsPerStrip = value;
+<A NAME="470"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="471"></A>                <FONT ID="Case">case</FONT> X_RESOLUTION:
+<A NAME="472"></A>                    <FONT ID="Double">double</FONT> xScale = getRational(lvalue); 
+<A NAME="473"></A>                    <FONT ID="If">if</FONT> (xScale!=<FONT ID="FloatPointLiteral">0.0</FONT>) fi.pixelWidth = <FONT ID="FloatPointLiteral">1.0</FONT>/xScale; 
+<A NAME="474"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="475"></A>                <FONT ID="Case">case</FONT> Y_RESOLUTION:
+<A NAME="476"></A>                    <FONT ID="Double">double</FONT> yScale = getRational(lvalue); 
+<A NAME="477"></A>                    <FONT ID="If">if</FONT> (yScale!=<FONT ID="FloatPointLiteral">0.0</FONT>) fi.pixelHeight = <FONT ID="FloatPointLiteral">1.0</FONT>/yScale; 
+<A NAME="478"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="479"></A>                <FONT ID="Case">case</FONT> RESOLUTION_UNIT:
+<A NAME="480"></A>                    <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">1</FONT>&amp;&amp;fi.unit==<FONT ID="Null">null</FONT>)
+<A NAME="481"></A>                        fi.unit = <FONT ID="StringLiteral">" "</FONT>;
+<A NAME="482"></A>                    <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">2</FONT>) {
+<A NAME="483"></A>                        <FONT ID="If">if</FONT> (fi.pixelWidth==<FONT ID="FloatPointLiteral">1.0</FONT>/<FONT ID="FloatPointLiteral">72.0</FONT>) {
+<A NAME="484"></A>                            fi.pixelWidth = <FONT ID="FloatPointLiteral">1.0</FONT>;
+<A NAME="485"></A>                            fi.pixelHeight = <FONT ID="FloatPointLiteral">1.0</FONT>;
+<A NAME="486"></A>                        } <FONT ID="Else">else</FONT>
+<A NAME="487"></A>                            fi.unit = <FONT ID="StringLiteral">"inch"</FONT>;
+<A NAME="488"></A>                    } <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">3</FONT>)
+<A NAME="489"></A>                        fi.unit = <FONT ID="StringLiteral">"cm"</FONT>;
+<A NAME="490"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="491"></A>                <FONT ID="Case">case</FONT> PLANAR_CONFIGURATION:  <FONT ID="SingleLineComment">// 1=chunky, 2=planar
+<A NAME="492"></A></FONT>                    <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">2</FONT> &amp;&amp; fi.fileType==FileInfo.RGB48)
+<A NAME="493"></A>                             fi.fileType = FileInfo.RGB48_PLANAR;
+<A NAME="494"></A>                    <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">2</FONT> &amp;&amp; fi.fileType==FileInfo.RGB)
+<A NAME="495"></A>                        fi.fileType = FileInfo.RGB_PLANAR;
+<A NAME="496"></A>                    <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value!=<FONT ID="IntegerLiteral">2</FONT> &amp;&amp; !(fi.samplesPerPixel==<FONT ID="IntegerLiteral">1</FONT>||fi.samplesPerPixel==<FONT ID="IntegerLiteral">3</FONT>||fi.samplesPerPixel==<FONT ID="IntegerLiteral">4</FONT>)) {
+<A NAME="497"></A>                        String msg = <FONT ID="StringLiteral">"Unsupported SamplesPerPixel: "</FONT> + fi.samplesPerPixel;
+<A NAME="498"></A>                        error(msg);
+<A NAME="499"></A>                    }
+<A NAME="500"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="501"></A>                <FONT ID="Case">case</FONT> COMPRESSION:
+<A NAME="502"></A>                    <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">5</FONT>)  {<FONT ID="SingleLineComment">// LZW compression
+<A NAME="503"></A></FONT>                        fi.compression = FileInfo.LZW;
+<A NAME="504"></A>                        <FONT ID="If">if</FONT> (fi.fileType==FileInfo.GRAY12_UNSIGNED||fi.fileType==FileInfo.GRAY10_UNSIGNED)
+<A NAME="505"></A>                            error(<FONT ID="StringLiteral">"ImageJ cannot open 10-bit or 12-bit LZW-compressed TIFFs"</FONT>);
+<A NAME="506"></A>                    } <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">32773</FONT>)  <FONT ID="SingleLineComment">// PackBits compression
+<A NAME="507"></A></FONT>                        fi.compression = FileInfo.PACK_BITS;
+<A NAME="508"></A>                    <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">32946</FONT> || value==<FONT ID="IntegerLiteral">8</FONT>) <FONT ID="SingleLineComment">//8=Adobe deflate
+<A NAME="509"></A></FONT>                        fi.compression = FileInfo.ZIP;
+<A NAME="510"></A>                    <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value!=<FONT ID="IntegerLiteral">1</FONT> &amp;&amp; value!=<FONT ID="IntegerLiteral">0</FONT> &amp;&amp; !(value==<FONT ID="IntegerLiteral">7</FONT>&amp;&amp;fi.width&lt;<FONT ID="IntegerLiteral">500</FONT>)) {
+<A NAME="511"></A>                        <FONT ID="SingleLineComment">// don't abort with Spot camera compressed (7) thumbnails
+<A NAME="512"></A></FONT>                        <FONT ID="SingleLineComment">// otherwise, this is an unknown compression type
+<A NAME="513"></A></FONT>                        fi.compression = FileInfo.COMPRESSION_UNKNOWN;
+<A NAME="514"></A>                        error(<FONT ID="StringLiteral">"ImageJ cannot open TIFF files "</FONT> +
+<A NAME="515"></A>                            <FONT ID="StringLiteral">"compressed in this fashion ("</FONT>+value+<FONT ID="StringLiteral">")"</FONT>);
+<A NAME="516"></A>                    }
+<A NAME="517"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="518"></A>                <FONT ID="Case">case</FONT> SOFTWARE: <FONT ID="Case">case</FONT> DATE_TIME: <FONT ID="Case">case</FONT> HOST_COMPUTER: <FONT ID="Case">case</FONT> ARTIST:
+<A NAME="519"></A>                    <FONT ID="If">if</FONT> (ifdCount==<FONT ID="IntegerLiteral">1</FONT>) {
+<A NAME="520"></A>                        <FONT ID="Byte">byte</FONT>[] bytes = getString(count, lvalue);
+<A NAME="521"></A>                        String s = bytes!=<FONT ID="Null">null</FONT>?<FONT ID="New">new</FONT> String(bytes):<FONT ID="Null">null</FONT>;
+<A NAME="522"></A>                        saveMetadata(getName(tag), s);
+<A NAME="523"></A>                    }
+<A NAME="524"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="525"></A>                <FONT ID="Case">case</FONT> PREDICTOR:
+<A NAME="526"></A>                    <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">2</FONT>) {
+<A NAME="527"></A>                        <FONT ID="If">if</FONT> (fi.compression==FileInfo.LZW)
+<A NAME="528"></A>                            fi.compression = FileInfo.LZW_WITH_DIFFERENCING;
+<A NAME="529"></A>                        <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (fi.compression==FileInfo.ZIP)
+<A NAME="530"></A>                            fi.compression = FileInfo.ZIP_WITH_DIFFERENCING;
+<A NAME="531"></A>                    } <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (value==<FONT ID="IntegerLiteral">3</FONT>)
+<A NAME="532"></A>                        IJ.log(<FONT ID="StringLiteral">"TiffDecoder: unsupported predictor value of 3"</FONT>);
+<A NAME="533"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="534"></A>                <FONT ID="Case">case</FONT> COLOR_MAP: 
+<A NAME="535"></A>                    <FONT ID="If">if</FONT> (count==<FONT ID="IntegerLiteral">768</FONT>)
+<A NAME="536"></A>                        getColorMap(lvalue, fi);
+<A NAME="537"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="538"></A>                <FONT ID="Case">case</FONT> TILE_WIDTH:
+<A NAME="539"></A>                    error(<FONT ID="StringLiteral">"ImageJ cannot open tiled TIFFs.\nTry using the Bio-Formats plugin."</FONT>);
+<A NAME="540"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="541"></A>                <FONT ID="Case">case</FONT> SAMPLE_FORMAT:
+<A NAME="542"></A>                    <FONT ID="If">if</FONT> (fi.fileType==FileInfo.GRAY32_INT &amp;&amp; value==FLOATING_POINT)
+<A NAME="543"></A>                        fi.fileType = FileInfo.GRAY32_FLOAT;
+<A NAME="544"></A>                    <FONT ID="If">if</FONT> (fi.fileType==FileInfo.GRAY16_UNSIGNED) {
+<A NAME="545"></A>                        <FONT ID="If">if</FONT> (value==SIGNED)
+<A NAME="546"></A>                            fi.fileType = FileInfo.GRAY16_SIGNED;
+<A NAME="547"></A>                        <FONT ID="If">if</FONT> (value==FLOATING_POINT)
+<A NAME="548"></A>                            error(<FONT ID="StringLiteral">"ImageJ cannot open 16-bit float TIFFs"</FONT>);
+<A NAME="549"></A>                    }
+<A NAME="550"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="551"></A>                <FONT ID="Case">case</FONT> JPEG_TABLES:
+<A NAME="552"></A>                    <FONT ID="If">if</FONT> (fi.compression==FileInfo.JPEG)
+<A NAME="553"></A>                        error(<FONT ID="StringLiteral">"Cannot open JPEG-compressed TIFFs with separate tables"</FONT>);
+<A NAME="554"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="555"></A>                <FONT ID="Case">case</FONT> IMAGE_DESCRIPTION: 
+<A NAME="556"></A>                    <FONT ID="If">if</FONT> (ifdCount==<FONT ID="IntegerLiteral">1</FONT>) {
+<A NAME="557"></A>                        <FONT ID="Byte">byte</FONT>[] s = getString(count, lvalue);
+<A NAME="558"></A>                        <FONT ID="If">if</FONT> (s!=<FONT ID="Null">null</FONT>) saveImageDescription(s,fi);
+<A NAME="559"></A>                    }
+<A NAME="560"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="561"></A>                <FONT ID="Case">case</FONT> ORIENTATION:
+<A NAME="562"></A>                    fi.nImages = <FONT ID="IntegerLiteral">0</FONT>; <FONT ID="SingleLineComment">// file not created by ImageJ so look at all the IFDs
+<A NAME="563"></A></FONT>                    <FONT ID="Break">break</FONT>;
+<A NAME="564"></A>                <FONT ID="Case">case</FONT> METAMORPH1: <FONT ID="Case">case</FONT> METAMORPH2:
+<A NAME="565"></A>                    <FONT ID="If">if</FONT> ((name.indexOf(<FONT ID="StringLiteral">".STK"</FONT>)&gt;<FONT ID="IntegerLiteral">0</FONT>||name.indexOf(<FONT ID="StringLiteral">".stk"</FONT>)&gt;<FONT ID="IntegerLiteral">0</FONT>) &amp;&amp; fi.compression==FileInfo.COMPRESSION_NONE) {
+<A NAME="566"></A>                        <FONT ID="If">if</FONT> (tag==METAMORPH2)
+<A NAME="567"></A>                            fi.nImages=count;
+<A NAME="568"></A>                        <FONT ID="Else">else</FONT>
+<A NAME="569"></A>                            fi.nImages=<FONT ID="IntegerLiteral">9999</FONT>;
+<A NAME="570"></A>                    }
+<A NAME="571"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="572"></A>                <FONT ID="Case">case</FONT> IPLAB: 
+<A NAME="573"></A>                    fi.nImages=value;
+<A NAME="574"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="575"></A>                <FONT ID="Case">case</FONT> NIH_IMAGE_HDR: 
+<A NAME="576"></A>                    <FONT ID="If">if</FONT> (count==<FONT ID="IntegerLiteral">256</FONT>)
+<A NAME="577"></A>                        decodeNIHImageHeader(value, fi);
+<A NAME="578"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="579"></A>                <FONT ID="Case">case</FONT> META_DATA_BYTE_COUNTS: 
+<A NAME="580"></A>                    <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="581"></A>                    in.seek(lvalue);
+<A NAME="582"></A>                    metaDataCounts = <FONT ID="New">new</FONT> <FONT ID="Int">int</FONT>[count];
+<A NAME="583"></A>                    <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> c=<FONT ID="IntegerLiteral">0</FONT>; c&lt;count; c++)
+<A NAME="584"></A>                        metaDataCounts[c] = getInt();
+<A NAME="585"></A>                    in.seek(saveLoc);
+<A NAME="586"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="587"></A>                <FONT ID="Case">case</FONT> META_DATA: 
+<A NAME="588"></A>                    getMetaData(value, fi);
+<A NAME="589"></A>                    <FONT ID="Break">break</FONT>;
+<A NAME="590"></A>                <FONT ID="Default">default</FONT>:
+<A NAME="591"></A>                    <FONT ID="If">if</FONT> (tag&gt;<FONT ID="IntegerLiteral">10000</FONT> &amp;&amp; tag&lt;<FONT ID="IntegerLiteral">32768</FONT> &amp;&amp; ifdCount&gt;<FONT ID="IntegerLiteral">1</FONT>)
+<A NAME="592"></A>                        <FONT ID="Return">return</FONT> <FONT ID="Null">null</FONT>;
+<A NAME="593"></A>            }
+<A NAME="594"></A>        }
+<A NAME="595"></A>        fi.fileFormat = fi.TIFF;
+<A NAME="596"></A>        fi.fileName = name;
+<A NAME="597"></A>        fi.directory = directory;
+<A NAME="598"></A>        <FONT ID="If">if</FONT> (url!=<FONT ID="Null">null</FONT>)
+<A NAME="599"></A>            fi.url = url;
+<A NAME="600"></A>        <FONT ID="Return">return</FONT> fi;
+<A NAME="601"></A>    }
+<A NAME="602"></A>
+<A NAME="603"></A>    <FONT ID="Void">void</FONT> getMetaData(<FONT ID="Int">int</FONT> loc, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="604"></A>        <FONT ID="If">if</FONT> (metaDataCounts==<FONT ID="Null">null</FONT> || metaDataCounts.length==<FONT ID="IntegerLiteral">0</FONT>)
+<A NAME="605"></A>            <FONT ID="Return">return</FONT>;
+<A NAME="606"></A>        <FONT ID="Int">int</FONT> maxTypes = <FONT ID="IntegerLiteral">10</FONT>;
+<A NAME="607"></A>        <FONT ID="Long">long</FONT> saveLoc = in.getLongFilePointer();
+<A NAME="608"></A>        in.seek(loc);
+<A NAME="609"></A>        <FONT ID="Int">int</FONT> n = metaDataCounts.length;
+<A NAME="610"></A>        <FONT ID="Int">int</FONT> hdrSize = metaDataCounts[<FONT ID="IntegerLiteral">0</FONT>];
+<A NAME="611"></A>        <FONT ID="If">if</FONT> (hdrSize&lt;<FONT ID="IntegerLiteral">12</FONT> || hdrSize&gt;<FONT ID="IntegerLiteral">804</FONT>) {
+<A NAME="612"></A>            in.seek(saveLoc);
+<A NAME="613"></A>            <FONT ID="Return">return</FONT>;
+<A NAME="614"></A>        }
+<A NAME="615"></A>        <FONT ID="Int">int</FONT> magicNumber = getInt();
+<A NAME="616"></A>        <FONT ID="If">if</FONT> (magicNumber!=MAGIC_NUMBER)  { <FONT ID="SingleLineComment">// "IJIJ"
+<A NAME="617"></A></FONT>            in.seek(saveLoc);
+<A NAME="618"></A>            <FONT ID="Return">return</FONT>;
+<A NAME="619"></A>        }
+<A NAME="620"></A>        <FONT ID="Int">int</FONT> nTypes = (hdrSize-<FONT ID="IntegerLiteral">4</FONT>)/<FONT ID="IntegerLiteral">8</FONT>;
+<A NAME="621"></A>        <FONT ID="Int">int</FONT>[] types = <FONT ID="New">new</FONT> <FONT ID="Int">int</FONT>[nTypes];
+<A NAME="622"></A>        <FONT ID="Int">int</FONT>[] counts = <FONT ID="New">new</FONT> <FONT ID="Int">int</FONT>[nTypes];     
+<A NAME="623"></A>        <FONT ID="If">if</FONT> (debugMode) {
+<A NAME="624"></A>            dInfo += <FONT ID="StringLiteral">"Metadata:\n"</FONT>;
+<A NAME="625"></A>            dInfo += <FONT ID="StringLiteral">"   Entries: "</FONT>+(metaDataCounts.length-<FONT ID="IntegerLiteral">1</FONT>)+<FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="626"></A>            dInfo += <FONT ID="StringLiteral">"   Types: "</FONT>+nTypes+<FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="627"></A>        }
+<A NAME="628"></A>        <FONT ID="Int">int</FONT> extraMetaDataEntries = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="629"></A>        <FONT ID="Int">int</FONT> index = <FONT ID="IntegerLiteral">1</FONT>;
+<A NAME="630"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=<FONT ID="IntegerLiteral">0</FONT>; i&lt;nTypes; i++) {
+<A NAME="631"></A>            types[i] = getInt();
+<A NAME="632"></A>            counts[i] = getInt();
+<A NAME="633"></A>            <FONT ID="If">if</FONT> (types[i]&lt;<FONT ID="IntegerLiteral">0xffffff</FONT>)
+<A NAME="634"></A>                extraMetaDataEntries += counts[i];
+<A NAME="635"></A>            <FONT ID="If">if</FONT> (debugMode) {
+<A NAME="636"></A>                String id = <FONT ID="StringLiteral">"unknown"</FONT>;
+<A NAME="637"></A>                <FONT ID="If">if</FONT> (types[i]==INFO) id = <FONT ID="StringLiteral">"Info property"</FONT>;
+<A NAME="638"></A>                <FONT ID="If">if</FONT> (types[i]==LABELS) id = <FONT ID="StringLiteral">"slice labels"</FONT>;
+<A NAME="639"></A>                <FONT ID="If">if</FONT> (types[i]==RANGES) id = <FONT ID="StringLiteral">"display ranges"</FONT>;
+<A NAME="640"></A>                <FONT ID="If">if</FONT> (types[i]==LUTS) id = <FONT ID="StringLiteral">"luts"</FONT>;
+<A NAME="641"></A>                <FONT ID="If">if</FONT> (types[i]==PLOT) id = <FONT ID="StringLiteral">"plot"</FONT>;
+<A NAME="642"></A>                <FONT ID="If">if</FONT> (types[i]==ROI) id = <FONT ID="StringLiteral">"roi"</FONT>;
+<A NAME="643"></A>                <FONT ID="If">if</FONT> (types[i]==OVERLAY) id = <FONT ID="StringLiteral">"overlay"</FONT>;
+<A NAME="644"></A>                <FONT ID="If">if</FONT> (types[i]==PROPERTIES) id = <FONT ID="StringLiteral">"properties"</FONT>;
+<A NAME="645"></A>                <FONT ID="Int">int</FONT> len = metaDataCounts[index];
+<A NAME="646"></A>                <FONT ID="Int">int</FONT> count = counts[i];
+<A NAME="647"></A>                index += count;
+<A NAME="648"></A>                <FONT ID="If">if</FONT> (index&gt;=metaDataCounts.length) index=<FONT ID="IntegerLiteral">1</FONT>;
+<A NAME="649"></A>                String lenstr = count==<FONT ID="IntegerLiteral">1</FONT>?<FONT ID="StringLiteral">", length="</FONT>:<FONT ID="StringLiteral">", length[0]="</FONT>;
+<A NAME="650"></A>                dInfo += <FONT ID="StringLiteral">"   "</FONT>+i+<FONT ID="StringLiteral">", type="</FONT>+id+<FONT ID="StringLiteral">", count="</FONT>+count+lenstr+len+<FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="651"></A>            }
+<A NAME="652"></A>        }
+<A NAME="653"></A>        fi.metaDataTypes = <FONT ID="New">new</FONT> <FONT ID="Int">int</FONT>[extraMetaDataEntries];
+<A NAME="654"></A>        fi.metaData = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[extraMetaDataEntries][];
+<A NAME="655"></A>        <FONT ID="Int">int</FONT> start = <FONT ID="IntegerLiteral">1</FONT>;
+<A NAME="656"></A>        <FONT ID="Int">int</FONT> eMDindex = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="657"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=<FONT ID="IntegerLiteral">0</FONT>; i&lt;nTypes; i++) {
+<A NAME="658"></A>            <FONT ID="If">if</FONT> (types[i]==INFO)
+<A NAME="659"></A>                getInfoProperty(start, fi);
+<A NAME="660"></A>            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (types[i]==LABELS)
+<A NAME="661"></A>                getSliceLabels(start, start+counts[i]-<FONT ID="IntegerLiteral">1</FONT>, fi);
+<A NAME="662"></A>            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (types[i]==RANGES)
+<A NAME="663"></A>                getDisplayRanges(start, fi);
+<A NAME="664"></A>            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (types[i]==LUTS)
+<A NAME="665"></A>                getLuts(start, start+counts[i]-<FONT ID="IntegerLiteral">1</FONT>, fi);
+<A NAME="666"></A>            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (types[i]==PLOT)
+<A NAME="667"></A>                getPlot(start, fi);
+<A NAME="668"></A>            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (types[i]==ROI)
+<A NAME="669"></A>                getRoi(start, fi);
+<A NAME="670"></A>            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (types[i]==OVERLAY)
+<A NAME="671"></A>                getOverlay(start, start+counts[i]-<FONT ID="IntegerLiteral">1</FONT>, fi);
+<A NAME="672"></A>            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (types[i]==PROPERTIES)
+<A NAME="673"></A>                getProperties(start, start+counts[i]-<FONT ID="IntegerLiteral">1</FONT>, fi);
+<A NAME="674"></A>            <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT> (types[i]&lt;<FONT ID="IntegerLiteral">0xffffff</FONT>) {
+<A NAME="675"></A>                <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> j=start; j&lt;start+counts[i]; j++) { 
+<A NAME="676"></A>                    <FONT ID="Int">int</FONT> len = metaDataCounts[j]; 
+<A NAME="677"></A>                    fi.metaData[eMDindex] = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len]; 
+<A NAME="678"></A>                    in.readFully(fi.metaData[eMDindex], len); 
+<A NAME="679"></A>                    fi.metaDataTypes[eMDindex] = types[i]; 
+<A NAME="680"></A>                    eMDindex++; 
+<A NAME="681"></A>                } 
+<A NAME="682"></A>            } <FONT ID="Else">else</FONT>
+<A NAME="683"></A>                skipUnknownType(start, start+counts[i]-<FONT ID="IntegerLiteral">1</FONT>);
+<A NAME="684"></A>            start += counts[i];
+<A NAME="685"></A>        }
+<A NAME="686"></A>        in.seek(saveLoc);
+<A NAME="687"></A>    }
+<A NAME="688"></A>
+<A NAME="689"></A>    <FONT ID="Void">void</FONT> getInfoProperty(<FONT ID="Int">int</FONT> first, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="690"></A>        <FONT ID="Int">int</FONT> len = metaDataCounts[first];
+<A NAME="691"></A>        <FONT ID="Byte">byte</FONT>[] buffer = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len];
+<A NAME="692"></A>        in.readFully(buffer, len);
+<A NAME="693"></A>        len /= <FONT ID="IntegerLiteral">2</FONT>;
+<A NAME="694"></A>        <FONT ID="Char">char</FONT>[] chars = <FONT ID="New">new</FONT> <FONT ID="Char">char</FONT>[len];
+<A NAME="695"></A>        <FONT ID="If">if</FONT> (littleEndian) {
+<A NAME="696"></A>            <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> j=<FONT ID="IntegerLiteral">0</FONT>, k=<FONT ID="IntegerLiteral">0</FONT>; j&lt;len; j++)
+<A NAME="697"></A>                chars[j] = (<FONT ID="Char">char</FONT>)(buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT> + ((buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>)&lt;&lt;<FONT ID="IntegerLiteral">8</FONT>));
+<A NAME="698"></A>        } <FONT ID="Else">else</FONT> {
+<A NAME="699"></A>            <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> j=<FONT ID="IntegerLiteral">0</FONT>, k=<FONT ID="IntegerLiteral">0</FONT>; j&lt;len; j++)
+<A NAME="700"></A>                chars[j] = (<FONT ID="Char">char</FONT>)(((buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>)&lt;&lt;<FONT ID="IntegerLiteral">8</FONT>) + (buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>));
+<A NAME="701"></A>        }
+<A NAME="702"></A>        fi.info = <FONT ID="New">new</FONT> String(chars);
+<A NAME="703"></A>    }
+<A NAME="704"></A>
+<A NAME="705"></A>    <FONT ID="Void">void</FONT> getSliceLabels(<FONT ID="Int">int</FONT> first, <FONT ID="Int">int</FONT> last, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="706"></A>        fi.sliceLabels = <FONT ID="New">new</FONT> String[last-first+<FONT ID="IntegerLiteral">1</FONT>];
+<A NAME="707"></A>        <FONT ID="Int">int</FONT> index = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="708"></A>        <FONT ID="Byte">byte</FONT>[] buffer = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[metaDataCounts[first]];
+<A NAME="709"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=first; i&lt;=last; i++) {
+<A NAME="710"></A>            <FONT ID="Int">int</FONT> len = metaDataCounts[i];
+<A NAME="711"></A>            <FONT ID="If">if</FONT> (len&gt;<FONT ID="IntegerLiteral">0</FONT>) {
+<A NAME="712"></A>                <FONT ID="If">if</FONT> (len&gt;buffer.length)
+<A NAME="713"></A>                    buffer = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len];
+<A NAME="714"></A>                in.readFully(buffer, len);
+<A NAME="715"></A>                len /= <FONT ID="IntegerLiteral">2</FONT>;
+<A NAME="716"></A>                <FONT ID="Char">char</FONT>[] chars = <FONT ID="New">new</FONT> <FONT ID="Char">char</FONT>[len];
+<A NAME="717"></A>                <FONT ID="If">if</FONT> (littleEndian) {
+<A NAME="718"></A>                    <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> j=<FONT ID="IntegerLiteral">0</FONT>, k=<FONT ID="IntegerLiteral">0</FONT>; j&lt;len; j++)
+<A NAME="719"></A>                        chars[j] = (<FONT ID="Char">char</FONT>)(buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT> + ((buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>)&lt;&lt;<FONT ID="IntegerLiteral">8</FONT>));
+<A NAME="720"></A>                } <FONT ID="Else">else</FONT> {
+<A NAME="721"></A>                    <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> j=<FONT ID="IntegerLiteral">0</FONT>, k=<FONT ID="IntegerLiteral">0</FONT>; j&lt;len; j++)
+<A NAME="722"></A>                        chars[j] = (<FONT ID="Char">char</FONT>)(((buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>)&lt;&lt;<FONT ID="IntegerLiteral">8</FONT>) + (buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>));
+<A NAME="723"></A>                }
+<A NAME="724"></A>                fi.sliceLabels[index++] = <FONT ID="New">new</FONT> String(chars);
+<A NAME="725"></A>                <FONT ID="SingleLineComment">//ij.IJ.log(i+"  "+fi.sliceLabels[i-1]+"  "+len);
+<A NAME="726"></A></FONT>            } <FONT ID="Else">else</FONT>
+<A NAME="727"></A>                fi.sliceLabels[index++] = <FONT ID="Null">null</FONT>;
+<A NAME="728"></A>        }
+<A NAME="729"></A>    }
+<A NAME="730"></A>
+<A NAME="731"></A>    <FONT ID="Void">void</FONT> getDisplayRanges(<FONT ID="Int">int</FONT> first, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="732"></A>        <FONT ID="Int">int</FONT> n = metaDataCounts[first]/<FONT ID="IntegerLiteral">8</FONT>;
+<A NAME="733"></A>        fi.displayRanges = <FONT ID="New">new</FONT> <FONT ID="Double">double</FONT>[n];
+<A NAME="734"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=<FONT ID="IntegerLiteral">0</FONT>; i&lt;n; i++)
+<A NAME="735"></A>            fi.displayRanges[i] = readDouble();
+<A NAME="736"></A>    }
+<A NAME="737"></A>
+<A NAME="738"></A>    <FONT ID="Void">void</FONT> getLuts(<FONT ID="Int">int</FONT> first, <FONT ID="Int">int</FONT> last, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="739"></A>        fi.channelLuts = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[last-first+<FONT ID="IntegerLiteral">1</FONT>][];
+<A NAME="740"></A>        <FONT ID="Int">int</FONT> index = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="741"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=first; i&lt;=last; i++) {
+<A NAME="742"></A>            <FONT ID="Int">int</FONT> len = metaDataCounts[i];
+<A NAME="743"></A>            fi.channelLuts[index] = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len];
+<A NAME="744"></A>            in.readFully(fi.channelLuts[index], len);
+<A NAME="745"></A>            index++;
+<A NAME="746"></A>        }
+<A NAME="747"></A>    }
+<A NAME="748"></A>
+<A NAME="749"></A>    <FONT ID="Void">void</FONT> getRoi(<FONT ID="Int">int</FONT> first, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="750"></A>        <FONT ID="Int">int</FONT> len = metaDataCounts[first];
+<A NAME="751"></A>        fi.roi = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len]; 
+<A NAME="752"></A>        in.readFully(fi.roi, len); 
+<A NAME="753"></A>    }
+<A NAME="754"></A>
+<A NAME="755"></A>    <FONT ID="Void">void</FONT> getPlot(<FONT ID="Int">int</FONT> first, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="756"></A>        <FONT ID="Int">int</FONT> len = metaDataCounts[first];
+<A NAME="757"></A>        fi.plot = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len];
+<A NAME="758"></A>        in.readFully(fi.plot, len);
+<A NAME="759"></A>    }
+<A NAME="760"></A>
+<A NAME="761"></A>    <FONT ID="Void">void</FONT> getOverlay(<FONT ID="Int">int</FONT> first, <FONT ID="Int">int</FONT> last, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="762"></A>        fi.overlay = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[last-first+<FONT ID="IntegerLiteral">1</FONT>][];
+<A NAME="763"></A>        <FONT ID="Int">int</FONT> index = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="764"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=first; i&lt;=last; i++) {
+<A NAME="765"></A>            <FONT ID="Int">int</FONT> len = metaDataCounts[i];
+<A NAME="766"></A>            fi.overlay[index] = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len];
+<A NAME="767"></A>            in.readFully(fi.overlay[index], len);
+<A NAME="768"></A>            index++;
+<A NAME="769"></A>        }
+<A NAME="770"></A>    }
+<A NAME="771"></A>
+<A NAME="772"></A>    <FONT ID="Void">void</FONT> getProperties(<FONT ID="Int">int</FONT> first, <FONT ID="Int">int</FONT> last, <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="773"></A>        fi.properties = <FONT ID="New">new</FONT> String[last-first+<FONT ID="IntegerLiteral">1</FONT>];
+<A NAME="774"></A>        <FONT ID="Int">int</FONT> index = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="775"></A>        <FONT ID="Byte">byte</FONT>[] buffer = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[metaDataCounts[first]];
+<A NAME="776"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=first; i&lt;=last; i++) {
+<A NAME="777"></A>            <FONT ID="Int">int</FONT> len = metaDataCounts[i];
+<A NAME="778"></A>            <FONT ID="If">if</FONT> (len&gt;buffer.length)
+<A NAME="779"></A>                buffer = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len];
+<A NAME="780"></A>            in.readFully(buffer, len);
+<A NAME="781"></A>            len /= <FONT ID="IntegerLiteral">2</FONT>;
+<A NAME="782"></A>            <FONT ID="Char">char</FONT>[] chars = <FONT ID="New">new</FONT> <FONT ID="Char">char</FONT>[len];
+<A NAME="783"></A>            <FONT ID="If">if</FONT> (littleEndian) {
+<A NAME="784"></A>                <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> j=<FONT ID="IntegerLiteral">0</FONT>, k=<FONT ID="IntegerLiteral">0</FONT>; j&lt;len; j++)
+<A NAME="785"></A>                    chars[j] = (<FONT ID="Char">char</FONT>)(buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT> + ((buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>)&lt;&lt;<FONT ID="IntegerLiteral">8</FONT>));
+<A NAME="786"></A>            } <FONT ID="Else">else</FONT> {
+<A NAME="787"></A>                <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> j=<FONT ID="IntegerLiteral">0</FONT>, k=<FONT ID="IntegerLiteral">0</FONT>; j&lt;len; j++)
+<A NAME="788"></A>                    chars[j] = (<FONT ID="Char">char</FONT>)(((buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>)&lt;&lt;<FONT ID="IntegerLiteral">8</FONT>) + (buffer[k++]&amp;<FONT ID="IntegerLiteral">255</FONT>));
+<A NAME="789"></A>            }
+<A NAME="790"></A>            fi.properties[index++] = <FONT ID="New">new</FONT> String(chars);
+<A NAME="791"></A>        }
+<A NAME="792"></A>    }
+<A NAME="793"></A>
+<A NAME="794"></A>    <FONT ID="Void">void</FONT> error(String message) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="795"></A>        <FONT ID="If">if</FONT> (in!=<FONT ID="Null">null</FONT>) in.close();
+<A NAME="796"></A>        <FONT ID="Throw">throw</FONT> <FONT ID="New">new</FONT> IOException(message);
+<A NAME="797"></A>    }
+<A NAME="798"></A>    
+<A NAME="799"></A>    <FONT ID="Void">void</FONT> skipUnknownType(<FONT ID="Int">int</FONT> first, <FONT ID="Int">int</FONT> last) <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="800"></A>        <FONT ID="Byte">byte</FONT>[] buffer = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[metaDataCounts[first]];
+<A NAME="801"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=first; i&lt;=last; i++) {
+<A NAME="802"></A>            <FONT ID="Int">int</FONT> len = metaDataCounts[i];
+<A NAME="803"></A>            <FONT ID="If">if</FONT> (len&gt;buffer.length)
+<A NAME="804"></A>                buffer = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[len];
+<A NAME="805"></A>            in.readFully(buffer, len);
+<A NAME="806"></A>        }
+<A NAME="807"></A>    }
+<A NAME="808"></A>
+<A NAME="809"></A>    <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> enableDebugging() {
+<A NAME="810"></A>        debugMode = <FONT ID="True">true</FONT>;
+<A NAME="811"></A>    }
+<A NAME="812"></A>        
+<A NAME="813"></A>    <FONT ID="Public">public</FONT> <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A>[] getTiffInfo() <FONT ID="Throws">throws</FONT> IOException {
+<A NAME="814"></A>        <FONT ID="Long">long</FONT> ifdOffset;
+<A NAME="815"></A>        ArrayList list = <FONT ID="New">new</FONT> ArrayList();
+<A NAME="816"></A>        <FONT ID="If">if</FONT> (in==<FONT ID="Null">null</FONT>)
+<A NAME="817"></A>            in = <FONT ID="New">new</FONT> <A HREF="../../ij/io/RandomAccessStream.java.html">RandomAccessStream</A>(<FONT ID="New">new</FONT> RandomAccessFile(<FONT ID="New">new</FONT> File(directory+name), <FONT ID="StringLiteral">"r"</FONT>));
+<A NAME="818"></A>        ifdOffset = OpenImageFileHeader();
+<A NAME="819"></A>        <FONT ID="If">if</FONT> (ifdOffset&lt;<FONT ID="IntegerLiteral">0L</FONT>) {
+<A NAME="820"></A>            in.close();
+<A NAME="821"></A>            <FONT ID="Return">return</FONT> <FONT ID="Null">null</FONT>;
+<A NAME="822"></A>        }
+<A NAME="823"></A>        <FONT ID="If">if</FONT> (debugMode) dInfo = <FONT ID="StringLiteral">"\n  "</FONT> + name + <FONT ID="StringLiteral">": opening\n"</FONT>;
+<A NAME="824"></A>        <FONT ID="While">while</FONT> (ifdOffset&gt;<FONT ID="IntegerLiteral">0L</FONT>) {
+<A NAME="825"></A>            in.seek(ifdOffset);
+<A NAME="826"></A>            <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi = OpenIFD();
+<A NAME="827"></A>            <FONT ID="If">if</FONT> (fi!=<FONT ID="Null">null</FONT>) {
+<A NAME="828"></A>                list.add(fi);
+<A NAME="829"></A>                ifdOffset = ((<FONT ID="Long">long</FONT>)getInt())&amp;<FONT ID="IntegerLiteral">0xffffffffL</FONT>;
+<A NAME="830"></A>            } <FONT ID="Else">else</FONT>
+<A NAME="831"></A>                ifdOffset = <FONT ID="IntegerLiteral">0L</FONT>;
+<A NAME="832"></A>            <FONT ID="If">if</FONT> (debugMode &amp;&amp; ifdCount&lt;<FONT ID="IntegerLiteral">10</FONT>) dInfo += <FONT ID="StringLiteral">"nextIFD="</FONT> + ifdOffset + <FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="833"></A>            <FONT ID="If">if</FONT> (fi!=<FONT ID="Null">null</FONT> &amp;&amp; fi.nImages&gt;<FONT ID="IntegerLiteral">1</FONT>)
+<A NAME="834"></A>                ifdOffset = <FONT ID="IntegerLiteral">0L</FONT>;   <FONT ID="SingleLineComment">// ignore extra IFDs in ImageJ and NIH Image stacks
+<A NAME="835"></A></FONT>        }
+<A NAME="836"></A>        <FONT ID="If">if</FONT> (list.size()==<FONT ID="IntegerLiteral">0</FONT>) {
+<A NAME="837"></A>            in.close();
+<A NAME="838"></A>            <FONT ID="Return">return</FONT> <FONT ID="Null">null</FONT>;
+<A NAME="839"></A>        } <FONT ID="Else">else</FONT> {
+<A NAME="840"></A>            <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A>[] info = (<A HREF="../../ij/io/FileInfo.java.html">FileInfo</A>[])list.toArray(<FONT ID="New">new</FONT> <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A>[list.size()]);
+<A NAME="841"></A>            <FONT ID="If">if</FONT> (debugMode) info[<FONT ID="IntegerLiteral">0</FONT>].debugInfo = dInfo;
+<A NAME="842"></A>            <FONT ID="If">if</FONT> (url!=<FONT ID="Null">null</FONT>) {
+<A NAME="843"></A>                in.seek(<FONT ID="IntegerLiteral">0</FONT>);
+<A NAME="844"></A>                info[<FONT ID="IntegerLiteral">0</FONT>].inputStream = in;
+<A NAME="845"></A>            } <FONT ID="Else">else</FONT>
+<A NAME="846"></A>                in.close();
+<A NAME="847"></A>            <FONT ID="If">if</FONT> (info[<FONT ID="IntegerLiteral">0</FONT>].info==<FONT ID="Null">null</FONT>)
+<A NAME="848"></A>                info[<FONT ID="IntegerLiteral">0</FONT>].info = tiffMetadata;
+<A NAME="849"></A>            <A HREF="../../ij/io/FileInfo.java.html">FileInfo</A> fi = info[<FONT ID="IntegerLiteral">0</FONT>];
+<A NAME="850"></A>            <FONT ID="If">if</FONT> (fi.fileType==FileInfo.GRAY16_UNSIGNED &amp;&amp; fi.description==<FONT ID="Null">null</FONT>)
+<A NAME="851"></A>                fi.lutSize = <FONT ID="IntegerLiteral">0</FONT>; <FONT ID="SingleLineComment">// ignore troublesome non-ImageJ 16-bit LUTs
+<A NAME="852"></A></FONT>            <FONT ID="If">if</FONT> (debugMode) {
+<A NAME="853"></A>                <FONT ID="Int">int</FONT> n = info.length;
+<A NAME="854"></A>                fi.debugInfo += <FONT ID="StringLiteral">"number of IFDs: "</FONT>+ n + <FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="855"></A>                fi.debugInfo += <FONT ID="StringLiteral">"offset to first image: "</FONT>+fi.getOffset()+ <FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="856"></A>                fi.debugInfo += <FONT ID="StringLiteral">"gap between images: "</FONT>+getGapInfo(info) + <FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="857"></A>                fi.debugInfo += <FONT ID="StringLiteral">"little-endian byte order: "</FONT>+fi.intelByteOrder + <FONT ID="StringLiteral">"\n"</FONT>;
+<A NAME="858"></A>            }
+<A NAME="859"></A>            <FONT ID="Return">return</FONT> info;
+<A NAME="860"></A>        }
+<A NAME="861"></A>    }
+<A NAME="862"></A>    
+<A NAME="863"></A>    String getGapInfo(<A HREF="../../ij/io/FileInfo.java.html">FileInfo</A>[] fi) {
+<A NAME="864"></A>        <FONT ID="If">if</FONT> (fi.length&lt;<FONT ID="IntegerLiteral">2</FONT>) <FONT ID="Return">return</FONT> <FONT ID="StringLiteral">"0"</FONT>;
+<A NAME="865"></A>        <FONT ID="Long">long</FONT> minGap = Long.MAX_VALUE;
+<A NAME="866"></A>        <FONT ID="Long">long</FONT> maxGap = -Long.MAX_VALUE;
+<A NAME="867"></A>        <FONT ID="For">for</FONT> (<FONT ID="Int">int</FONT> i=<FONT ID="IntegerLiteral">1</FONT>; i&lt;fi.length; i++) {
+<A NAME="868"></A>            <FONT ID="Long">long</FONT> gap = fi[i].getOffset()-fi[i-<FONT ID="IntegerLiteral">1</FONT>].getOffset();
+<A NAME="869"></A>            <FONT ID="If">if</FONT> (gap&lt;minGap) minGap = gap;
+<A NAME="870"></A>            <FONT ID="If">if</FONT> (gap&gt;maxGap) maxGap = gap;
+<A NAME="871"></A>        }
+<A NAME="872"></A>        <FONT ID="Long">long</FONT> imageSize = fi[<FONT ID="IntegerLiteral">0</FONT>].width*fi[<FONT ID="IntegerLiteral">0</FONT>].height*fi[<FONT ID="IntegerLiteral">0</FONT>].getBytesPerPixel();
+<A NAME="873"></A>        minGap -= imageSize;
+<A NAME="874"></A>        maxGap -= imageSize;
+<A NAME="875"></A>        <FONT ID="If">if</FONT> (minGap==maxGap)
+<A NAME="876"></A>            <FONT ID="Return">return</FONT> <FONT ID="StringLiteral">""</FONT>+minGap;
+<A NAME="877"></A>        <FONT ID="Else">else</FONT> 
+<A NAME="878"></A>            <FONT ID="Return">return</FONT> <FONT ID="StringLiteral">"varies ("</FONT>+minGap+<FONT ID="StringLiteral">" to "</FONT>+maxGap+<FONT ID="StringLiteral">")"</FONT>;
+<A NAME="879"></A>    }
+<A NAME="880"></A>
+<A NAME="881"></A>}
+<A NAME="882"></A></pre>
+</BODY>
+</HTML>

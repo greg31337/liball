@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/tiff.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/tiff.Tests.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/TiffMetadataDump/TiffMetadataDump.csproj" />
+    <Project Path="samples/TiffTileExtract/TiffTileExtract.csproj" />
+    <Project Path="samples/TiffTranscode/TiffTranscode.csproj" />
+  </Folder>
+</Solution>
